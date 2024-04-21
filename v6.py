@@ -1,4 +1,5 @@
 
+!pip install langchain
 import streamlit as st
 from langchain.chains import ConversationalRetrievalChain, LLMChain
 from langchain_community.chat_models import ChatOpenAI
