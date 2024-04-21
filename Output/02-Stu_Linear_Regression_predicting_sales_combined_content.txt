@@ -1,0 +1,120 @@
+##--CODE--##
+# Import required libraries
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+## Load and Visualize the Sales Data
+
+##--CODE--##
+# Read the sales data
+file_path = "https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_1/datasets/sales.csv"
+df_sales = pd.read_csv(file_path)
+
+# Display sample data
+df_sales.head()
+
+##--CODE--##
+# Create a scatter plot with the sales information
+sales_plot = df_sales.plot.scatter(
+    x="ads",
+    y="sales",
+    title="Sales per Number of Ads"
+)
+sales_plot
+
+## Prepare the Data to Fit the Linear Regression Model
+
+##--CODE--##
+# Create the X set by using the `reshape` function to format the ads data as a single column array.
+
+
+# Display sample data
+
+
+##--CODE--##
+# Create an array for the dependent variable y with the sales data
+
+
+## Build the Linear Regression Model
+
+##--CODE--##
+# Create a model with scikit-learn
+
+
+##--CODE--##
+# Fit the data into the model
+
+
+##--CODE--##
+# Display the slope
+
+
+##--CODE--##
+# Display the y-intercept
+
+
+##--CODE--##
+# Display the model's best fit line formula
+
+
+## Plot the Best Fit Line for the Sales Prediction Model
+
+##--CODE--##
+# Make predictions using the X set
+
+
+##--CODE--##
+# Create a copy of the original data
+
+
+# Add a column with the predicted sales values
+
+
+# Display sample data
+
+
+##--CODE--##
+# Create a line plot of the predicted salary values
+
+
+##--CODE--##
+# Superpose the original data and the best fit line
+# Create a scatter plot with the sales information
+
+
+## Make Manual Predictions
+
+##--CODE--##
+# Display the formula to predict the sales with 100 ads
+
+
+# Predict the sales with 100 ads
+
+
+# Display the prediction
+
+
+## Make Predictions Using the `predict` Function
+
+##--CODE--##
+# Create an array to predict sales for 100, 150, 200, 250, and 300 ads
+
+
+# Format the array as a one-column array
+
+
+# Display sample data
+
+
+##--CODE--##
+# Predict sales for 100, 150, 200, 250, and 300 ads
+
+
+##--CODE--##
+# Create a DataFrame for the predicted sales
+
+
+# Display data
+
+

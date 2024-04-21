@@ -1,0 +1,131 @@
+# Website Phishing
+
+##--CODE--##
+# Import required dependencies
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC 
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+
+##--CODE--##
+# Import data
+file_path = "https://static.bc-edx.com/ai/ail-v-1-0/m13/lesson_3/datasets/phishing.csv"
+df = pd.read_csv(file_path)
+df.head()
+
+##--CODE--##
+# Check the value_counts of the target column
+df["Result"].value_counts()
+
+## Preprocess the data
+
+##--CODE--##
+# Check the data types
+df.dtypes
+
+##--CODE--##
+# Get the target variable (the "Result" column)
+y = df["Result"]
+y
+
+##--CODE--##
+# Get the features (everything except the "Result" column)
+X = df.copy()
+X = X.drop(columns="Result")
+X.head()
+
+##--CODE--##
+# Split data into training and testing
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+##--CODE--##
+# Remember that all of the columns in the DataFrame are objects
+# Use a OneHotEncoder to convert the training data to numerical values
+ohe = OneHotEncoder(handle_unknown='ignore', sparse_output=False, dtype='int')
+X_train_encoded = pd.DataFrame(data=ohe.fit_transform(X_train), columns=ohe.get_feature_names_out())
+X_train_encoded
+
+##--CODE--##
+# Encode the test data
+X_test_encoded = pd.DataFrame(data=ohe.transform(X_test), columns=ohe.get_feature_names_out())
+X_test_encoded
+
+## Model and Fit to a Logistic Regression Classifier
+
+##--CODE--##
+# Create the logistic regression classifier model with a random_state of 1
+lr_model = LogisticRegression(random_state=1)
+
+# Fit the model to the training data
+lr_model.fit(X_train_encoded, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print('Train Accuracy: %.3f' % lr_model.score(X_train_encoded, y_train))
+print('Test Accuracy: %.3f' % lr_model.score(X_test_encoded, y_test))
+
+## Model and Fit to a Support Vector Machine
+
+##--CODE--##
+# Create the support vector machine classifier model with a 'linear' kernel
+svm_model = SVC(kernel='linear')
+
+# Fit the model to the training data
+svm_model.fit(X_train_encoded, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print('Train Accuracy: %.3f' % svm_model.score(X_train_encoded, y_train))
+print('Test Accuracy: %.3f' % svm_model.score(X_test_encoded, y_test))
+
+## Model and Fit to a KNN Model
+
+##--CODE--##
+# Create the KNN model with 9 neighbors
+knn_model = KNeighborsClassifier(n_neighbors=9)
+
+# Fit the model to the training data
+knn_model.fit(X_train_encoded, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print('Train Accuracy: %.3f' % knn_model.score(X_train_encoded, y_train))
+print('Test Accuracy: %.3f' % knn_model.score(X_test_encoded, y_test))
+
+## Model and Fit to a Decision Tree Classifier
+
+##--CODE--##
+# Create the decision tree classifier model
+dt_model = DecisionTreeClassifier()
+
+# Fit the model to the training data
+dt_model.fit(X_train_encoded, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print('Train Accuracy: %.3f' % dt_model.score(X_train_encoded, y_train))
+print('Test Accuracy: %.3f' % dt_model.score(X_test_encoded, y_test))
+
+## Model and Fit to a Random Forest Classifier
+
+##--CODE--##
+# Create the random forest classifier model
+# with n_estimators=128 and random_state=1
+rf_model = RandomForestClassifier(n_estimators=128, random_state=1)
+
+# Fit the model to the training data
+rf_model.fit(X_train_encoded, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print('Train Accuracy: %.3f' % rf_model.score(X_train_encoded, y_train))
+print('Test Accuracy: %.3f' % rf_model.score(X_test_encoded, y_test))
+
+##--CODE--##
+
+

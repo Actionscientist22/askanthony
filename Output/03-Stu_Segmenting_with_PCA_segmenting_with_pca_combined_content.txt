@@ -1,0 +1,144 @@
+##--CODE--##
+# Import the modules
+import pandas as pd
+from sklearn.cluster import KMeans
+
+### Read in the CSV file and prepare the Pandas DataFrame
+
+##--CODE--##
+# Read the csv file into a pandas DataFrame
+customers_transformed_df = pd.read_csv("Resources/customers.csv")
+
+# Review the DataFrame
+customers_transformed_df.head()
+
+### Step 1: Use PCA to reduce the dimensionality of the transformed customers DataFrame to 2 principal components
+
+##--CODE--##
+# Import the PCA module
+from sklearn.decomposition import PCA
+
+##--CODE--##
+# Instantiate the PCA instance and declare the number of PCA variables
+
+
+##--CODE--##
+# Fit the PCA model on the transformed credit card DataFrame
+
+
+# Review the first 5 rows of the array of list data
+
+
+### Step 2: Using the `explained_variance_ratio_` function from PCA, calculate the percentage of the total variance that is captured by the two PCA variables.
+
+##--CODE--##
+# Calculate the PCA explained variance ratio
+
+
+**Question:** What is the explained variance ratio captured by the two PCA variables?
+    
+**Answer:** 
+
+### Step 3: Using the `customer_pca` data, create a Pandas DataFrame called customers_pca_df. The columns of the DataFrame should be called "PCA1" and "PCA2".
+
+##--CODE--##
+# Create the PCA DataFrame
+
+
+# Review the PCA DataFrame
+
+
+### Step 4: Using the `customers_pca_df` Dataframe, utilize the elbow method to determine the optimal value of k.
+
+##--CODE--##
+# Create a a list to store inertia values and the values of k
+
+
+# Create a for-loop where each value of k is evaluated using the K-means algorithm
+# Fit the model using the service_ratings DataFrame
+# Append the value of the computed inertia from the `inertia_` attribute of the KMeans model instance
+
+
+# Define a DataFrame to hold the values for k and the corresponding inertia
+
+# Create the DataFrame from the elbow data
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Plot the DataFrame
+
+
+### Step 5: Segment the `customers_pca_df`  DataFrame using the K-means algorithm.
+
+##--CODE--##
+# Define the model Kmeans model using the optimal value of k for the number of clusters.
+
+
+# Fit the model
+
+
+# Make predictions
+
+
+# Create a copy of the customers_pca_df DataFrame
+
+
+# Add a class column with the labels
+
+
+##--CODE--##
+# Plot the clusters
+
+
+### Step 6: Segment the `customers_transformed_df` DataFrame with all factors using the K-means algorithm
+
+##--CODE--##
+# Define the model Kmeans model using k=3 clusters
+
+# Fit the model
+
+
+# Make predictions
+
+
+# Create a copy of the customers_transformed_df DataFrame
+
+
+# Add a class column with the labels
+
+
+##--CODE--##
+# Plot the clusters using the first two feature columns
+
+
+### Step 7. Which features have the strongest influence on each component? And, plot the most influencial features for each component. 
+
+
+##--CODE--##
+# Determine which feature has the stronger influence on each principal component. 
+# Use the columns from the original DataFrame. 
+
+
+**Answer:** 
+
+
+### Step 8: Create a scatter plot of the most influential features for each component and customer segments.
+
+##--CODE--##
+# Plot the clusters using the most influencial features for each component. 
+
+
+##--CODE--##
+# Plot the clusters using the most influencial features for each component. 
+
+
+### Step 9: What is the difference between the segmentation results of the PCA DataFrame and most influential features for each component?
+
+**Answer:** 
+
+##--CODE--##
+
+

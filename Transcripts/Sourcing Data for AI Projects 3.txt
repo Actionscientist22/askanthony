@@ -1,0 +1,6042 @@
+WEBVTT
+
+1
+00:00:06.510 --> 00:00:11.750
+Anthony Taylor: Oops! Hi! Everybody! Welcome to class!
+
+2
+00:00:12.080 --> 00:00:17.610
+Anthony Taylor:  So when we left off last class, we were at the end
+
+3
+00:00:18.220 --> 00:00:19.520
+Anthony Taylor: of
+
+4
+00:00:20.180 --> 00:00:22.549
+Anthony Taylor:  the module.
+
+5
+00:00:22.880 --> 00:00:24.340
+Anthony Taylor: and
+
+6
+00:00:27.230 --> 00:00:28.740
+Anthony Taylor: we were at.
+
+7
+00:00:32.750 --> 00:00:33.590
+Anthony Taylor: Here we go.
+
+8
+00:00:36.030 --> 00:00:36.860
+Anthony Taylor: So
+
+9
+00:00:38.960 --> 00:00:43.999
+Anthony Taylor: probably the most important thing you will learn as a coder. There's 2 things
+
+10
+00:00:44.050 --> 00:00:49.320
+Anthony Taylor: that you need to learn as a Coder. I've shown you one brief. and that's debugging.
+
+11
+00:00:49.970 --> 00:00:54.299
+Anthony Taylor: Okay? And I try to show you different ways to debug like with the variables.
+
+12
+00:00:54.310 --> 00:01:08.659
+Anthony Taylor: you know. Write print statements. All of this kind of stuff, right? And you guys debug each other code more often think every time another student shares the screen and you look at it. And you're trying. And you help them. You basically debug some code.
+
+13
+00:01:09.410 --> 00:01:15.969
+Anthony Taylor: Okay, the second, most important thing you're going to learn is how to deal with exceptions.
+
+14
+00:01:16.060 --> 00:01:17.180
+Anthony Taylor: gracefully.
+
+15
+00:01:18.590 --> 00:01:19.680
+Anthony Taylor: Okay.
+
+16
+00:01:19.890 --> 00:01:28.340
+Anthony Taylor: So what would happen if an application tried to look up a key. So say, you're using Json. You've received some Json back.
+
+17
+00:01:29.420 --> 00:01:34.349
+Anthony Taylor: Okay? And you say, give me data bracket
+
+18
+00:01:34.410 --> 00:01:40.630
+Anthony Taylor: code or Id data bracket Id. But there is no id in the Json.
+
+19
+00:01:41.150 --> 00:01:46.190
+Anthony Taylor: because, remember, Json can include and uninclude anything if damn well pleases.
+
+20
+00:01:48.060 --> 00:01:58.630
+Anthony Taylor: it doesn't have to be the same structure. Part of why we use Json is, it's not fully structured. It's semi-structure.
+
+21
+00:01:59.640 --> 00:02:05.299
+Anthony Taylor: Okay, so what would happen? Well, I tell you what happened. If you haven't already seen it, your code would break.
+
+22
+00:02:05.760 --> 00:02:07.250
+Anthony Taylor: You would get a key error.
+
+23
+00:02:07.920 --> 00:02:18.370
+Anthony Taylor: So how do we avoid this, or what do we do to make sure our code doesn't break. So like, if you're looping through a whole bunch of returns, and one of them doesn't have an Id
+
+24
+00:02:19.170 --> 00:02:22.539
+Anthony Taylor: right? And it crashes your whole program to stop.
+
+25
+00:02:24.630 --> 00:02:33.910
+Anthony Taylor: So what do we want to do? Well, what we want to do is we want to put in a chat and say, Alright, try to find this beat.
+
+26
+00:02:35.030 --> 00:02:41.490
+Anthony Taylor: and if it fails, I want you to do this exception, or do what this except says to do
+
+27
+00:02:41.800 --> 00:02:43.129
+Anthony Taylor: and then move on.
+
+28
+00:02:43.400 --> 00:02:44.910
+Anthony Taylor: Don't crash
+
+29
+00:02:45.990 --> 00:02:50.520
+Anthony Taylor: unless you specifically tell it to crash. Okay.
+
+30
+00:02:50.950 --> 00:02:52.900
+Anthony Taylor: so
+
+31
+00:02:53.250 --> 00:03:00.730
+Anthony Taylor: as an example, we're going to do this one in in in a notebook in a second. Here we have a dictionary of students.
+
+32
+00:03:01.030 --> 00:03:02.720
+Anthony Taylor: James, Sarah, just.
+
+33
+00:03:02.830 --> 00:03:08.010
+Meredith McCanse (she/her): Anthony, are you sharing your oh, my gosh! I've been sharing this whole time.
+
+34
+00:03:08.970 --> 00:03:11.569
+Anthony Taylor: But let me show you what you missed.
+
+35
+00:03:12.160 --> 00:03:13.469
+Anthony Taylor: That's what you missed.
+
+36
+00:03:15.840 --> 00:03:19.749
+Anthony Taylor: Alright. Now with you. Okay, so we have a dictionary.
+
+37
+00:03:20.250 --> 00:03:22.500
+Anthony Taylor: and it has James Sarah Justin.
+
+38
+00:03:23.540 --> 00:03:26.149
+Anthony Taylor: And we say, print merit
+
+39
+00:03:28.150 --> 00:03:29.140
+Anthony Taylor: doesn't work.
+
+40
+00:03:30.300 --> 00:03:34.539
+Anthony Taylor: Okay? Because there is no key for Mary. So you get a key error.
+
+41
+00:03:35.290 --> 00:03:43.409
+Anthony Taylor: So what we're going to do, and I'm not even going to show you the next cell. We're going to go do this in in the code. But what you're going to do is we're going to create a try except
+
+42
+00:03:43.940 --> 00:03:47.039
+Anthony Taylor: so let me see which one we're on.
+
+43
+00:03:48.480 --> 00:03:51.920
+Anthony Taylor: Yep, that's today's here we go.
+
+44
+00:03:53.740 --> 00:03:55.630
+Anthony Taylor: How?
+
+45
+00:03:56.650 --> 00:04:00.419
+Anthony Taylor: So? Here it is. When we run this code.
+
+46
+00:04:07.410 --> 00:04:08.660
+Anthony Taylor: you get a key here.
+
+47
+00:04:09.010 --> 00:04:13.389
+Anthony Taylor: Okay, so what that means is because the code crashed
+
+48
+00:04:13.570 --> 00:04:14.719
+Anthony Taylor: right here.
+
+49
+00:04:16.500 --> 00:04:18.799
+Anthony Taylor: Alright, we can't.
+
+50
+00:04:19.110 --> 00:04:26.219
+Anthony Taylor: This next line will never run. So if we just come in here and add the tri-except.
+
+51
+00:04:29.790 --> 00:04:40.220
+Anthony Taylor: we can have the same code, and we can say, I want you to try this. So anything we want to try, we're going to end it and put it in here.
+
+52
+00:04:41.260 --> 00:04:48.559
+Anthony Taylor: If anything fails. Well, in this case this is an interesting case. So if it fails.
+
+53
+00:04:48.820 --> 00:04:56.620
+Anthony Taylor: then we're gonna print and continue on. So when we run this. you can see it says Oops, that he doesn't exist, which is the except.
+
+54
+00:04:57.180 --> 00:04:59.690
+Anthony Taylor: And then it finishes the program.
+
+55
+00:05:00.640 --> 00:05:01.520
+Anthony Taylor: Now.
+
+56
+00:05:04.130 --> 00:05:08.040
+Anthony Taylor: me, personally. And this is deaf. Yeah, like.
+
+57
+00:05:10.050 --> 00:05:14.290
+Clayton Graves: would you have to create one of those for each possible error.
+
+58
+00:05:14.400 --> 00:05:22.280
+Anthony Taylor: because this is defined as it's great that you ask that question. I love that question. I'm gonna answer right now, let me give Ryan. Yeah, Rodney.
+
+59
+00:05:22.940 --> 00:05:31.489
+Masarirambi, Rodney: you showing us this now? Not a couple of months. Yes, because today is the day you need to learn it well, technically, last class. But
+
+60
+00:05:31.510 --> 00:05:37.640
+Anthony Taylor: alright. So Clayton pointed out something brilliant. Okay, this specifically says.
+
+61
+00:05:37.740 --> 00:05:38.760
+Anthony Taylor: key error.
+
+62
+00:05:40.050 --> 00:05:43.489
+Anthony Taylor: Okay? So if I come in here and say,
+
+63
+00:05:43.810 --> 00:05:46.740
+Anthony Taylor: x equals one divided by 0.
+
+64
+00:05:48.080 --> 00:05:49.359
+Anthony Taylor: Is it gonna work?
+
+65
+00:05:51.680 --> 00:05:53.840
+Anthony Taylor: You can't divide things by 0
+
+66
+00:05:54.570 --> 00:06:03.360
+sonja baro: gonna error? Well, that's because this one still aired out. So let me, and it won't error, will it? Because it'll or you'll get a different error.
+
+67
+00:06:03.980 --> 00:06:09.200
+Anthony Taylor: Right? So because we got a different error. this exception never fired.
+
+68
+00:06:11.120 --> 00:06:14.159
+Anthony Taylor: Okay, so there's a cool way to fix this
+
+69
+00:06:14.360 --> 00:06:19.179
+Anthony Taylor: alright. It's and I always get these backwards. I think it's exception
+
+70
+00:06:19.360 --> 00:06:20.850
+Anthony Taylor: as E,
+
+71
+00:06:21.400 --> 00:06:25.150
+Anthony Taylor: and then you can say
+
+72
+00:06:35.730 --> 00:06:37.780
+Anthony Taylor: so. This is how I do everything.
+
+73
+00:06:38.330 --> 00:06:49.600
+Anthony Taylor: Okay, I'll do a try, and then I'll do an except and then I will output the error to a debug statement, either to a print to a log, whatever I need to do.
+
+74
+00:06:49.710 --> 00:06:51.620
+Anthony Taylor: Okay? So
+
+75
+00:06:51.810 --> 00:06:53.510
+Anthony Taylor: you can see here
+
+76
+00:06:54.350 --> 00:06:58.570
+Anthony Taylor: it gave me the type of error you got a division by 0 error.
+
+77
+00:06:59.210 --> 00:07:00.950
+Anthony Taylor: but it did not fail the program
+
+78
+00:07:02.100 --> 00:07:05.289
+Anthony Taylor: now. And let's turn this one back on
+
+79
+00:07:08.360 --> 00:07:12.069
+Anthony Taylor: oops. You got a marry error. which is kind of weird.
+
+80
+00:07:13.220 --> 00:07:14.860
+Anthony Taylor: but
+
+81
+00:07:15.920 --> 00:07:21.619
+Anthony Taylor: that's that's just the way it is. Okay. But this means, you know. Oh, I better go back and see what
+
+82
+00:07:21.970 --> 00:07:24.590
+Anthony Taylor: now, what you can do
+
+83
+00:07:25.090 --> 00:07:33.999
+Anthony Taylor: is create like a case statement in here. If you really want to handle specific errors, or you can do an except for every type of error.
+
+84
+00:07:34.510 --> 00:07:41.219
+Anthony Taylor: So there's your answer, Clayton. you could do this, which you'll catch every error period and output it.
+
+85
+00:07:41.620 --> 00:07:44.519
+Anthony Taylor: But let's say, that's not a good thing.
+
+86
+00:07:44.790 --> 00:07:46.820
+Anthony Taylor: Okay? Sometimes. That's not what you want.
+
+87
+00:07:47.130 --> 00:07:52.360
+Anthony Taylor: Sometimes, you know, you're going to get a key error, and you only want to capture the key error.
+
+88
+00:07:52.440 --> 00:07:56.450
+Anthony Taylor: But if you get a different error. you want it to crash.
+
+89
+00:07:58.020 --> 00:07:59.549
+Anthony Taylor: Okay, you wanted to die.
+
+90
+00:07:59.890 --> 00:08:01.770
+Anthony Taylor: So that would be
+
+91
+00:08:02.460 --> 00:08:07.040
+Anthony Taylor: like this scenario where we had key error here. Okay.
+
+92
+00:08:07.300 --> 00:08:11.480
+Anthony Taylor:  because then we would want it to crash if it ever even got there.
+
+93
+00:08:12.260 --> 00:08:18.520
+Anthony Taylor: But the problem is, the other thing was, is, you guys anybody noticed when we had this year? And this was here
+
+94
+00:08:23.300 --> 00:08:25.890
+Anthony Taylor: that was helpful, wasn't it?
+
+95
+00:08:26.590 --> 00:08:29.480
+Anthony Taylor: when it was like this? Look, it says here.
+
+96
+00:08:31.370 --> 00:08:32.640
+Anthony Taylor: but didn't crash.
+
+97
+00:08:34.289 --> 00:08:37.680
+Anthony Taylor: I have a divide by 0 in there. There's no question this should crash.
+
+98
+00:08:38.929 --> 00:08:40.250
+Anthony Taylor: Why didn't it crash
+
+99
+00:08:44.250 --> 00:08:47.360
+Masarirambi, Rodney: because the first one failed? Send it in doing any anything else.
+
+100
+00:08:47.930 --> 00:08:51.479
+Anthony Taylor: As soon as it got here it went and then dropped it here.
+
+101
+00:08:52.060 --> 00:08:55.850
+Anthony Taylor: It never got to this. So if we just move this line
+
+102
+00:08:57.120 --> 00:08:58.310
+Anthony Taylor: above this.
+
+103
+00:08:58.890 --> 00:09:01.749
+Anthony Taylor: then our cool try, catch will not work.
+
+104
+00:09:03.470 --> 00:09:06.160
+Anthony Taylor: Try, accept. Sorry. Try. Catch is a different program.
+
+105
+00:09:07.870 --> 00:09:08.860
+Anthony Taylor: Okay?
+
+106
+00:09:11.140 --> 00:09:13.959
+Anthony Taylor: Alright. Everybody. Kind of understand?
+
+107
+00:09:14.480 --> 00:09:21.859
+Anthony Taylor: Alright. So let's look at some examples. There's some fun stuff in  well, actually.
+
+108
+00:09:21.990 --> 00:09:22.980
+Anthony Taylor: well.
+
+109
+00:09:28.450 --> 00:09:35.160
+Anthony Taylor: let's do this one together. And then the next one I'm going to have you guys do on your okay?
+
+110
+00:09:35.270 --> 00:09:39.310
+Anthony Taylor: Cause, I don't think it's really that clear yet.
+
+111
+00:09:39.490 --> 00:09:43.670
+Anthony Taylor: So let's do this first one together. Okay.
+
+112
+00:09:45.510 --> 00:09:50.930
+Anthony Taylor: so all we have to do is we want to get this line to print.
+
+113
+00:09:52.550 --> 00:09:56.810
+Anthony Taylor: That's what we want to do. Okay, we want to run the cell
+
+114
+00:09:59.910 --> 00:10:02.410
+Anthony Taylor: and we want to get to hear.
+
+115
+00:10:04.300 --> 00:10:06.039
+Anthony Taylor: So first one failed.
+
+116
+00:10:06.830 --> 00:10:12.089
+Anthony Taylor: What could we do? So we're gonna we know, Aaron. I'll start you on this first, because we kind of already did this
+
+117
+00:10:12.470 --> 00:10:25.959
+Anthony Taylor: try? Okay? And depending on how you're doing the except if you want to do it. kind of the way they're they're they're kind of leading you to do it. You would grab this error message.
+
+118
+00:10:26.530 --> 00:10:35.640
+Anthony Taylor: Okay? And you would type 0 division error right? And then you would say. prints something. Whatever you want
+
+119
+00:10:35.870 --> 00:10:36.760
+Anthony Taylor: whoops.
+
+120
+00:10:38.750 --> 00:10:40.850
+Anthony Taylor: 0
+
+121
+00:10:42.340 --> 00:10:43.310
+Anthony Taylor: view 0.
+
+122
+00:10:43.630 --> 00:10:45.310
+Anthony Taylor: I don't know something simple.
+
+123
+00:10:45.340 --> 00:10:57.340
+Anthony Taylor: Okay. So now, when we run it. we got whoop 0, u, 0. So we got past this line. Now let's do this one. Now, here you go. We got a name error this time. Okay.
+
+124
+00:10:57.700 --> 00:11:00.290
+Anthony Taylor: what is it? First, what is this error? What's happened?
+
+125
+00:11:01.550 --> 00:11:02.759
+Anthony Taylor: Why did we get here?
+
+126
+00:11:05.800 --> 00:11:09.250
+Meredith McCanse (she/her): Cause we're using name like a variable. But we haven't defined what it is.
+
+127
+00:11:12.930 --> 00:11:17.910
+Anthony Taylor: So again, pry. okay. And
+
+128
+00:11:18.140 --> 00:11:21.709
+Anthony Taylor: except and again, we'll do it this way.
+
+129
+00:11:22.940 --> 00:11:26.189
+Anthony Taylor: Okay? And then we can say print.
+
+130
+00:11:28.060 --> 00:11:29.880
+Anthony Taylor: you know. Declare your variables.
+
+131
+00:11:32.830 --> 00:11:39.150
+Anthony Taylor: and we'll run that. And huh! Got past that one next.
+
+132
+00:11:39.370 --> 00:11:44.610
+Anthony Taylor: Your name is a nonsense number. Look it, Gabriel! Sorry, Gabe.
+
+133
+00:11:46.750 --> 00:11:49.130
+Anthony Taylor: we didn't do that on purpose. Where's Kate?
+
+134
+00:11:49.350 --> 00:11:50.600
+Anthony Taylor: Oh, there he is. Okay.
+
+135
+00:11:50.710 --> 00:11:52.940
+Anthony Taylor: Alright. So
+
+136
+00:11:55.280 --> 00:11:56.460
+Anthony Taylor: What's wrong with this
+
+137
+00:11:58.680 --> 00:12:02.769
+Clayton Graves: can't be an integer. It's it's a string
+
+138
+00:12:02.820 --> 00:12:06.640
+Anthony Taylor: exactly. You can't convert a string to an integer.
+
+139
+00:12:07.270 --> 00:12:10.919
+Anthony Taylor: Okay. so we got that. So print.
+
+140
+00:12:18.700 --> 00:12:19.510
+Anthony Taylor: Okay.
+
+141
+00:12:19.730 --> 00:12:22.220
+Anthony Taylor: and we made
+
+142
+00:12:25.010 --> 00:12:27.700
+Anthony Taylor: pretty easy. Okay.
+
+143
+00:12:28.800 --> 00:12:32.000
+Anthony Taylor: if you wanted to do it the way I said, Oh, no, go ahead. Sorry.
+
+144
+00:12:32.330 --> 00:12:43.600
+Meredith McCanse (she/her): I have a question. The so that these look like sort of specific codified errors, errors like 0 division, error and name, error and value error all pre populated when you started typing them.
+
+145
+00:12:43.670 --> 00:12:47.680
+Meredith McCanse (she/her):  all the way, when I did accept. And you saw them.
+
+146
+00:12:47.770 --> 00:12:57.080
+Anthony Taylor: Yeah, right? I do that. And I start typing. Yeah, yeah, that's just a visual studio code or Vs code helping us out
+
+147
+00:12:57.730 --> 00:13:03.389
+Meredith McCanse (she/her): is but I guess it sounds like these are sort of defined types of errors. Can this work with
+
+148
+00:13:03.440 --> 00:13:07.880
+Meredith McCanse (she/her): other? It have to fall into a category. Okay.
+
+149
+00:13:08.050 --> 00:13:20.500
+Meredith McCanse (she/her): so can you just name it? Anything you want, Mike, can you name it, Bob? Error, and it will work. Or do you have to name it? A specific? That's I guess that's my question. You have to do like what I was showing. So you would do. Exception.
+
+150
+00:13:20.620 --> 00:13:21.780
+Anthony Taylor: perception
+
+151
+00:13:22.370 --> 00:13:38.319
+Anthony Taylor: right? And then this will capture whatever it is, and put it into this E variable. So then you can print out the you can save E, you can log it. do whatever you want. So like this, you can see how it this see, this will all still run exactly the same.
+
+152
+00:13:38.390 --> 00:13:42.760
+Anthony Taylor: The difference is, I could come in here and say.
+
+153
+00:13:42.950 --> 00:13:45.970
+Anthony Taylor: you got e
+
+154
+00:13:46.860 --> 00:13:48.600
+Anthony Taylor: error. Okay?
+
+155
+00:13:48.910 --> 00:13:53.130
+Anthony Taylor: And then now you'll see you've got name. Name. It's not a defined error.
+
+156
+00:13:54.440 --> 00:13:56.990
+Anthony Taylor: So it actually returned the error message.
+
+157
+00:13:57.380 --> 00:14:06.549
+Anthony Taylor: So I really. unless you have some compelling reason to specifically and like I said, I gave you a scenario.
+
+158
+00:14:06.740 --> 00:14:08.540
+Anthony Taylor: Right? You're like.
+
+159
+00:14:08.660 --> 00:14:11.230
+Anthony Taylor: I want to stop it. If it's this kind of error.
+
+160
+00:14:11.760 --> 00:14:18.789
+Anthony Taylor: Alright, or I wanna sorry I want to accept it. If it's this kind of error, but any other error. I want to fail.
+
+161
+00:14:19.310 --> 00:14:20.310
+Anthony Taylor: Okay.
+
+162
+00:14:20.690 --> 00:14:29.309
+Anthony Taylor: then you need to actually specifically call out the error. But most of the time at least, my experience. You really just want to know if it failed on any error.
+
+163
+00:14:30.240 --> 00:14:35.180
+Anthony Taylor: and you want to either handle it or break. And you could do this and go
+
+164
+00:14:35.460 --> 00:14:37.709
+Anthony Taylor: great. And then it's just gonna stop
+
+165
+00:14:39.130 --> 00:14:41.070
+Anthony Taylor: alright.
+
+166
+00:14:41.460 --> 00:14:43.820
+Anthony Taylor: typically. And I see your hand on the website.
+
+167
+00:14:43.830 --> 00:14:49.749
+Anthony Taylor: typically where I use this a lot, and I'll give you some good examples. So I have Api calls. And I call
+
+168
+00:14:50.550 --> 00:14:52.470
+Anthony Taylor: 75 different tapes.
+
+169
+00:14:53.100 --> 00:14:55.100
+Anthony Taylor: Okay? And
+
+170
+00:14:56.100 --> 00:14:59.080
+sometimes those tables don't have any updates.
+
+171
+00:14:59.260 --> 00:15:12.130
+Anthony Taylor: They didn't get any new data since the last time I called them. Well, that means the return is going to be empty. or there's not going to be tea right. It's going to return and say, Hey. we got your request. There's nothing here.
+
+172
+00:15:12.350 --> 00:15:19.189
+Anthony Taylor: but when I go to start asking for the columns that are that I expect to be there. They're not gonna be right. So what do I do?
+
+173
+00:15:19.280 --> 00:15:21.780
+Anthony Taylor: I have a try and and accept.
+
+174
+00:15:22.090 --> 00:15:29.389
+Anthony Taylor: and I make. I output a note to the log, hey? This table was called successfully, but there was no data.
+
+175
+00:15:30.090 --> 00:15:34.809
+Anthony Taylor: so that now, when I go look at it, or whatever we can actually do it. Now.
+
+176
+00:15:36.130 --> 00:15:38.050
+Anthony Taylor: let's say it fails for a different reason.
+
+177
+00:15:39.140 --> 00:15:40.369
+Anthony Taylor: Something else happened.
+
+178
+00:15:41.070 --> 00:15:49.159
+Anthony Taylor: That exception is still going to be noted. But I have another process that's watching for an exception other than that.
+
+179
+00:15:49.980 --> 00:16:00.759
+Anthony Taylor: Right? Oh, okay, this, we gotta go fix or we gotta go check. Okay? So 2 options, we don't actually teach you this one here in a boot camp. I just
+
+180
+00:16:01.450 --> 00:16:03.210
+Anthony Taylor: all the rest of them. Are these.
+
+181
+00:16:04.360 --> 00:16:05.450
+Anthony Taylor: okay?
+
+182
+00:16:06.660 --> 00:16:07.530
+Anthony Taylor: Ron?
+
+183
+00:16:09.750 --> 00:16:10.869
+Masarirambi, Rodney: Yeah. So
+
+184
+00:16:12.690 --> 00:16:14.629
+Masarirambi, Rodney: you may have explained it. And
+
+185
+00:16:14.760 --> 00:16:18.580
+Masarirambi, Rodney: I still am saying, why cause like it? It it
+
+186
+00:16:18.760 --> 00:16:33.430
+Masarirambi, Rodney: from what it looks like to me, the except exception, as E makes more sense, because it makes it a little bit cleaner to see the error code. And like as you're working, or am I kind of thinking of this the wrong way? This is not like
+
+187
+00:16:33.490 --> 00:16:36.349
+Masarirambi, Rodney: testing to see when my errors are happening.
+
+188
+00:16:36.410 --> 00:16:42.119
+Anthony Taylor: I guess when am I using this? That that might be where I'm actually almost every time you do anything.
+
+189
+00:16:42.820 --> 00:16:56.149
+Anthony Taylor: Okay, attach that. You want to make sure your program keeps running. You want to one of my favorite lines, and this has nothing to do with this. But it's similar. It kind of makes sense. Right is about nulls and unknown.
+
+190
+00:16:56.530 --> 00:17:03.640
+Anthony Taylor: Right? So in data. we don't like mules in like data, analytics and data science. We don't like mules.
+
+191
+00:17:04.170 --> 00:17:09.869
+Anthony Taylor: Okay, because we would rather know what is unknown than not know what is unknown.
+
+192
+00:17:10.250 --> 00:17:18.349
+Anthony Taylor: and a null could be an actual null, or it could be a failed problem. a problem in your data.
+
+193
+00:17:18.540 --> 00:17:24.320
+Anthony Taylor: right? So we mark everything as as some kind of unknown or default value.
+
+194
+00:17:24.859 --> 00:17:31.050
+Anthony Taylor: That's kind of what this is. Right. This is saying, I want to know
+
+195
+00:17:31.930 --> 00:17:34.739
+Anthony Taylor: how to handle this specific error.
+
+196
+00:17:35.150 --> 00:17:38.379
+Anthony Taylor: This is saying, any error I get.
+
+197
+00:17:39.060 --> 00:17:40.699
+Anthony Taylor: I want to do something.
+
+198
+00:17:41.720 --> 00:17:45.210
+Anthony Taylor: Okay. Now, remember, you can do except
+
+199
+00:17:45.950 --> 00:17:47.190
+Anthony Taylor: except
+
+200
+00:17:47.260 --> 00:17:49.729
+Anthony Taylor: well, you can do accept and
+
+201
+00:17:50.250 --> 00:17:51.350
+value.
+
+202
+00:17:52.540 --> 00:17:53.820
+Anthony Taylor: Okay, you could do that.
+
+203
+00:17:55.080 --> 00:18:01.049
+Anthony Taylor: Right. You can have multiple ones there. But the odds of you having every single one is ridiculous.
+
+204
+00:18:01.810 --> 00:18:06.550
+Anthony Taylor: right? And you don't need every single. So this is just a really good
+
+205
+00:18:08.170 --> 00:18:21.489
+Anthony Taylor: in my experience. I use this most of the time, and if I do want to act on a specific error, I will put a condition in here says something like, if equals equals.
+
+206
+00:18:23.380 --> 00:18:24.529
+Anthony Taylor: T er.
+
+207
+00:18:25.260 --> 00:18:28.520
+Anthony Taylor: Okay, then do something specific.
+
+208
+00:18:29.820 --> 00:18:35.670
+Anthony Taylor: alright, cause you can put anything in your. You can have a function you can do logging. You can do anything in under
+
+209
+00:18:35.760 --> 00:18:37.680
+Anthony Taylor: these these things right here.
+
+210
+00:18:39.010 --> 00:18:42.590
+Anthony Taylor: Okay, anything literally. So
+
+211
+00:18:44.570 --> 00:18:48.080
+Anthony Taylor: I it's up to your use case if you need. If you
+
+212
+00:18:48.210 --> 00:18:56.779
+Anthony Taylor: only need to handle one, then this is fine. If you want to handle all of them, then this is fine, but keep in mind, your stuff could start breaking.
+
+213
+00:18:58.440 --> 00:19:00.100
+Anthony Taylor: and it's just gonna keep going
+
+214
+00:19:01.910 --> 00:19:05.759
+Anthony Taylor: alright. And because you didn't say, Stop.
+
+215
+00:19:06.110 --> 00:19:11.300
+Anthony Taylor: you're gonna have to go read all these errors and see what happens. Does that make sense?
+
+216
+00:19:12.130 --> 00:19:17.579
+Masarirambi, Rodney: Yeah, th-th, that that makes sense, I guess. I guess. My, I guess we're like.
+
+217
+00:19:17.620 --> 00:19:19.060
+Masarirambi, Rodney: we're kind of
+
+218
+00:19:20.030 --> 00:19:28.750
+Masarirambi, Rodney: like what they're trying to teach us. Just kind of seems like it's like, Oh, you need to know exactly what kind of errors that you must be expecting in this kind of thing. But yours kind of says.
+
+219
+00:19:29.320 --> 00:19:45.100
+Masarirambi, Rodney: whatever the error is, this is what I what I want to do with it kind of gives you more flexibility. So I'm like I come back. And I'm like, it's kind of again, like just like I said, I think your II love your question and your questions 100. And it just depends on use case.
+
+220
+00:19:45.250 --> 00:19:47.840
+Anthony Taylor: Right? You could do this
+
+221
+00:19:47.930 --> 00:19:52.620
+Anthony Taylor: with this. You could say, if 0 division error, what loops you are 0.
+
+222
+00:19:53.390 --> 00:19:55.400
+Anthony Taylor: Okay? But
+
+223
+00:19:56.430 --> 00:19:57.510
+Anthony Taylor: you don't have to.
+
+224
+00:19:57.560 --> 00:20:02.669
+Anthony Taylor: I mean, you can do this. And it does the same thing so hopefully. That helps. I mean
+
+225
+00:20:02.770 --> 00:20:04.629
+Anthony Taylor: a lot of this stuff is style.
+
+226
+00:20:04.960 --> 00:20:06.699
+Anthony Taylor: right? And pract.
+
+227
+00:20:07.490 --> 00:20:12.409
+Anthony Taylor: So in practice. I use it this way, 99% of the time.
+
+228
+00:20:13.410 --> 00:20:23.730
+Anthony Taylor: Okay, II probably done the actual main there twice in 20,000. Try access.
+
+229
+00:20:24.330 --> 00:20:25.890
+Anthony Taylor: Okay? But
+
+230
+00:20:26.710 --> 00:20:31.270
+Anthony Taylor: doesn't mean it's wrong. It's just a different way to do so, Sonia.
+
+231
+00:20:32.350 --> 00:20:43.529
+sonja baro: Yeah, my question might be somewhat similar. What I wanna just confirm. So except is basically the bypass of
+
+232
+00:20:43.790 --> 00:20:48.519
+sonja baro: of stopping the error or the error stopping your code
+
+233
+00:20:49.440 --> 00:20:53.819
+sonja baro: by telling you what what it is
+
+234
+00:20:54.200 --> 00:20:55.959
+sonja baro: right so like by handling it
+
+235
+00:20:56.360 --> 00:21:02.160
+sonja baro: by handling it. So your handling is by in this case telling us
+
+236
+00:21:02.220 --> 00:21:06.520
+sonja baro: what the error was, or printing something on and continuing
+
+237
+00:21:06.770 --> 00:21:12.389
+sonja baro: so except basically the bypass to say, don't error out.
+
+238
+00:21:12.910 --> 00:21:14.719
+Anthony Taylor: Well, that's what. So
+
+239
+00:21:14.940 --> 00:21:25.020
+Anthony Taylor: if we and and maybe this helps. Maybe it doesn't. But let me just write it this way. A tri-accept is, basically if I fail.
+
+240
+00:21:26.220 --> 00:21:30.520
+Anthony Taylor: then. okay. except
+
+241
+00:21:31.160 --> 00:21:31.930
+sonja baro: right?
+
+242
+00:21:32.160 --> 00:21:37.250
+Anthony Taylor: Got it. That's what try except really is trying to say, if I don't fail.
+
+243
+00:21:37.540 --> 00:21:38.470
+Anthony Taylor: keep going
+
+244
+00:21:38.720 --> 00:21:48.559
+sonja baro: unless you say break like you, you said you could. Well, yeah, you could put a break in here and and again, that is something that depending on like if like.
+
+245
+00:21:48.680 --> 00:21:54.160
+Anthony Taylor: if I like, when I do this, if I if an error comes up that I want to stop everything
+
+246
+00:21:54.230 --> 00:22:00.830
+Anthony Taylor: right like, say, all of a sudden the Api goes down right all of a sudden. I'm getting like like connection. Error.
+
+247
+00:22:00.890 --> 00:22:03.459
+Anthony Taylor: not just data, is missing, but
+
+248
+00:22:03.480 --> 00:22:09.190
+Anthony Taylor: like straight up 40, four's. Okay. I want to stop. I don't want to keep going
+
+249
+00:22:09.340 --> 00:22:13.769
+sonja baro: right? Cause a 404. That's the catastrophic error. That means the whole thing's broke.
+
+250
+00:22:14.010 --> 00:22:20.379
+Anthony Taylor: So I want to stop there. So I might say exception is E, and if it's key missing, I'm like, man. That's just David.
+
+251
+00:22:20.620 --> 00:22:23.069
+Anthony Taylor: right? Well, as long as you know, we're okay.
+
+252
+00:22:23.240 --> 00:22:26.840
+Anthony Taylor: But if it's a 404, I might be like, stop everything
+
+253
+00:22:27.250 --> 00:22:28.000
+Anthony Taylor: break.
+
+254
+00:22:28.540 --> 00:22:40.919
+sonja baro: So you actually went into the second part of my question, which is, are there best practices of when to stop versus accept? So like is it? Is it?
+
+255
+00:22:41.490 --> 00:22:42.970
+Anthony Taylor: Go ahead. Sorry.
+
+256
+00:22:43.340 --> 00:23:00.219
+sonja baro: Oh, I was gonna say, like, if in your code, if without that piece of information being correct, the rest of it breaks. Let it break, or you know II don't know. I'm just like wondering if there's any. No, those are good questions, and the the answer is.
+
+257
+00:23:01.060 --> 00:23:02.259
+Anthony Taylor: it depends.
+
+258
+00:23:02.420 --> 00:23:12.189
+Anthony Taylor: It depends on the require. Yeah. So the if the require. If you write your code like, I said, like from my situation. And all these tables that I'm both
+
+259
+00:23:12.240 --> 00:23:14.330
+Anthony Taylor: millions and millions of rows a day.
+
+260
+00:23:14.600 --> 00:23:20.910
+Anthony Taylor: and probably 75, 80 tables in one process. Okay? And they're all running.
+
+261
+00:23:20.990 --> 00:23:31.139
+Anthony Taylor: And something goes wrong with one. I'm okay. Depends on what it is. If it's just missing keys, then I assume that there was no data.
+
+262
+00:23:31.210 --> 00:23:35.930
+Anthony Taylor: But how do I know that? I know that? Because when I was testing.
+
+263
+00:23:36.510 --> 00:23:39.399
+Anthony Taylor: I realized I was getting key errors when there was no data.
+
+264
+00:23:40.750 --> 00:23:44.039
+Anthony Taylor: Okay? So from. So I'm like, Okay, well, that's not problem. Keep going.
+
+265
+00:23:44.390 --> 00:23:47.810
+Anthony Taylor: But if the Api's down
+
+266
+00:23:48.360 --> 00:23:53.939
+Anthony Taylor: right, I got a different error. And I knew that. Oh, okay, when that happens, I mean, stop
+
+267
+00:23:54.660 --> 00:24:01.079
+Anthony Taylor: and and either send out, you know, an alert to support or run it later.
+
+268
+00:24:01.330 --> 00:24:09.470
+Anthony Taylor: which which believe it or not, Apis, go down fairly, especially non, like really professional ones. They go down quite a bit
+
+269
+00:24:10.050 --> 00:24:15.250
+Anthony Taylor: right? And you just have to deal with you just have to handle it. Handle it, handle it.
+
+270
+00:24:16.970 --> 00:24:18.320
+Anthony Taylor: So yeah.
+
+271
+00:24:18.490 --> 00:24:24.620
+Anthony Taylor: so anyway, that was good talk. I like that. I like that. You guys got in to try, except but
+
+272
+00:24:25.050 --> 00:24:30.449
+Anthony Taylor: very important concept to at least understand at a minimum vist.
+
+273
+00:24:31.750 --> 00:24:36.269
+Anthony Taylor: Okay? But also understand, you can be more precise.
+
+274
+00:24:36.980 --> 00:24:40.770
+Anthony Taylor: This is kind of the shotgun. I'm going to catch every error possible
+
+275
+00:24:40.840 --> 00:24:42.060
+Anthony Taylor: and keep going.
+
+276
+00:24:43.380 --> 00:24:48.029
+Anthony Taylor: Okay, this is, I'm only gonna catch one. Anything else will cause me to break.
+
+277
+00:24:50.880 --> 00:24:58.860
+Anthony Taylor: and there are definitely situations for both. So now let's give you guys your own exercise to do
+
+278
+00:24:59.950 --> 00:25:05.670
+Anthony Taylor: so. no, this is good. This is the Star Wars work. I remember, I like this one. Actually.
+
+279
+00:25:05.810 --> 00:25:13.299
+Anthony Taylor: So basically, you're going to use that this, this, yeah. URL, okay, you're gonna make multiple calls.
+
+280
+00:25:15.020 --> 00:25:18.000
+Anthony Taylor: And it's it's fun.
+
+281
+00:25:18.660 --> 00:25:20.649
+Anthony Taylor: Okay, it's a fun one.
+
+282
+00:25:20.850 --> 00:25:22.170
+Anthony Taylor: It's a very fun one.
+
+283
+00:25:23.670 --> 00:25:27.029
+Anthony Taylor: See how much time I got for this!
+
+284
+00:25:29.030 --> 00:25:31.180
+Anthony Taylor: Why isn't I so far away?
+
+285
+00:25:33.030 --> 00:25:36.240
+Anthony Taylor: Sorry I was there. Whoosh!
+
+286
+00:25:37.330 --> 00:25:38.979
+Anthony Taylor: That's the sound. It makes
+
+287
+00:25:40.610 --> 00:25:43.839
+Anthony Taylor: no. Oh, there we go 15 min. Okay.
+
+288
+00:25:44.880 --> 00:25:46.489
+Anthony Taylor: resume. Aye.
+
+289
+00:25:46.610 --> 00:25:49.870
+Anthony Taylor: So how far did you get? Did anybody finish?
+
+290
+00:25:51.760 --> 00:25:54.619
+Anthony Taylor: Nobody finished? Oh, Matt says he did.
+
+291
+00:25:56.040 --> 00:25:57.870
+Anthony Taylor: Okay. Alright? Well, good.
+
+292
+00:25:57.980 --> 00:26:01.329
+Anthony Taylor: alright. So what do we do? Well, we've got this list.
+
+293
+00:26:01.480 --> 00:26:07.049
+Anthony Taylor: The idea was is to call the Star Wars Api, and pass in the names on this list.
+
+294
+00:26:07.130 --> 00:26:18.269
+Anthony Taylor: Now we've done this before. I don't know if we've done it with a loop, but we've done loops before, so this shouldn't be too bad. So basically, you're gonna create the query which is just the URL plus the characters name.
+
+295
+00:26:18.710 --> 00:26:25.010
+Anthony Taylor: You're going to execute it. Put it into Json format and then try
+
+296
+00:26:26.350 --> 00:26:28.150
+Anthony Taylor: to append the height.
+
+297
+00:26:28.250 --> 00:26:33.450
+Anthony Taylor: the mass, and the name to our lists.
+
+298
+00:26:33.520 --> 00:26:37.120
+Anthony Taylor: Now the name will always work. Why?
+
+299
+00:26:38.570 --> 00:26:39.990
+Anthony Taylor: Because we're pulling it from there.
+
+300
+00:26:40.810 --> 00:26:47.620
+Anthony Taylor: Okay, but these other keys will fail if this name is not in Star Wars. Yeah.
+
+301
+00:26:48.140 --> 00:26:51.709
+Anthony Taylor: So, and just looking at it, we can tell there's some
+
+302
+00:26:51.970 --> 00:26:53.590
+Anthony Taylor: that we're not in Star Wars.
+
+303
+00:26:55.160 --> 00:26:58.329
+Anthony Taylor: Godzilla never became a jedi.
+
+304
+00:26:59.480 --> 00:27:01.760
+Anthony Taylor: Okay. Frodo.
+
+305
+00:27:02.550 --> 00:27:07.480
+Anthony Taylor: I mean, I get it kind of looks like some of those like E-walks, but
+
+306
+00:27:08.150 --> 00:27:10.450
+Anthony Taylor: little less hair. Okay.
+
+307
+00:27:10.550 --> 00:27:12.780
+Anthony Taylor: Bova Feet was in Star Wars.
+
+308
+00:27:13.890 --> 00:27:15.950
+Anthony Taylor: John Snow.
+
+309
+00:27:17.360 --> 00:27:20.510
+Anthony Taylor: He was only in Star Wars when he was dead the first time.
+
+310
+00:27:21.550 --> 00:27:26.309
+Anthony Taylor: Cause he knows nothing. you know nothing, John Snow.
+
+311
+00:27:27.700 --> 00:27:35.200
+Anthony Taylor: Absolutely alright. So if you if they call like Godzilla.
+
+312
+00:27:35.440 --> 00:27:39.439
+Anthony Taylor: it's not going to return anything. And then this would have failed.
+
+313
+00:27:39.540 --> 00:27:44.019
+Anthony Taylor: And there you go. Actually, you know, this is an option we didn't show. You guys
+
+314
+00:27:44.510 --> 00:27:46.010
+Anthony Taylor: just accept.
+
+315
+00:27:49.020 --> 00:27:51.959
+Anthony Taylor: Alright. So, except with nothing
+
+316
+00:27:51.980 --> 00:27:57.160
+Anthony Taylor: will any error that happens, it'll just go. It's not gonna tell you what the error was.
+
+317
+00:27:57.260 --> 00:27:59.099
+Anthony Taylor: She's gonna just I'm done
+
+318
+00:28:00.610 --> 00:28:08.009
+Anthony Taylor: okay. And they didn't break. They passed. Which that means don't stop right here. Go back up to the top of the loop.
+
+319
+00:28:10.750 --> 00:28:13.950
+Anthony Taylor: Okay. then, you can see.
+
+320
+00:28:15.110 --> 00:28:19.650
+Anthony Taylor: See, I would have totally have passed the character in here to say, Godzilla. Not now.
+
+321
+00:28:20.470 --> 00:28:22.649
+Anthony Taylor: But I'm weird that way.
+
+322
+00:28:24.620 --> 00:28:31.899
+Anthony Taylor: Everybody comfortable with this more or less. I think we're gonna do a quick. Everyone do in a second that I'll have more of this. So
+
+323
+00:28:32.400 --> 00:28:37.499
+Anthony Taylor: but I really want to see going forward guys, even if it doesn't request it.
+
+324
+00:28:37.890 --> 00:28:42.729
+Anthony Taylor: I want to see? Try except because that's a big deal in the workforce.
+
+325
+00:28:43.350 --> 00:28:53.730
+Anthony Taylor: Right? You need to be able to handle errors whether you're creating an application writing an Api or doing data. Engineer, analyst signs.
+
+326
+00:28:54.520 --> 00:28:57.339
+Anthony Taylor: Okay? Want to know how to handle
+
+327
+00:28:58.090 --> 00:28:58.980
+Anthony Taylor: handle it?
+
+328
+00:29:02.250 --> 00:29:02.930
+Anthony Taylor: Alright.
+
+329
+00:29:06.940 --> 00:29:07.860
+Anthony Taylor: Any questions.
+
+330
+00:29:11.660 --> 00:29:14.750
+Anthony Taylor: Okay? Well, then, let's go to day 3.
+
+331
+00:29:18.400 --> 00:29:29.260
+sonja baro: Yes, I know I got you right in time. Okay, so we were referencing. I think it was example 7 or activity 7.
+
+332
+00:29:29.320 --> 00:29:46.530
+sonja baro: That's when we were working through this, and one of the things that I noticed is different is, and it might be well we were in a loop there. So you see, the response. Responses have just the 2 values coordinate, court coordinate and in latitude. Right?
+
+333
+00:29:46.860 --> 00:29:57.979
+Anthony Taylor: But the answer on our our new one has a variable of 0 is that gives the index that it's pulling from, or that's just because of the return.
+
+334
+00:29:58.010 --> 00:30:03.450
+Anthony Taylor: It was just returning, Json. So you didn't have an array in the Star Wars. One
+
+335
+00:30:03.730 --> 00:30:09.989
+Anthony Taylor: the return actually is an array. So you have to put the index of of that.
+
+336
+00:30:10.390 --> 00:30:19.100
+Anthony Taylor: And the way we knew that was by looking at the Json.
+
+337
+00:30:19.430 --> 00:30:21.030
+sonja baro: Excellent! Thank you.
+
+338
+00:30:21.350 --> 00:30:24.620
+Anthony Taylor: No. Excellent for you guys. Good question, ryme.
+
+339
+00:30:25.440 --> 00:30:30.280
+Masarirambi, Rodney: If we go back to the example 7 which we just looking at.
+
+340
+00:30:30.490 --> 00:30:43.000
+Masarirambi, Rodney: So you said that from now on you want us to see the try, except when we're doing it correct. Where would that be? Here? I mean, like couple of places here. You would not do it before the loop. I mean
+
+341
+00:30:43.900 --> 00:30:47.940
+Anthony Taylor: you can, but then everything in the loop will be killed. If anything fails.
+
+342
+00:30:49.150 --> 00:30:54.399
+Anthony Taylor: Alright. Does that make sense? So say you do up before. So let's say we did. Let's just give a quick example.
+
+343
+00:30:54.650 --> 00:30:56.929
+Anthony Taylor: All right. We did something like this.
+
+344
+00:30:58.510 --> 00:31:03.690
+Anthony Taylor: And and we did it like this. Okay? And then we had
+
+345
+00:31:03.910 --> 00:31:05.280
+Anthony Taylor: and accept here
+
+346
+00:31:06.420 --> 00:31:07.230
+Anthony Taylor: stuff.
+
+347
+00:31:07.540 --> 00:31:13.930
+Anthony Taylor: Okay, so this would run. And if anything fail, you would lose everything.
+
+348
+00:31:16.080 --> 00:31:18.219
+Anthony Taylor: Okay, that's not a good way to go.
+
+349
+00:31:18.390 --> 00:31:21.120
+Anthony Taylor: So typically, what you want
+
+350
+00:31:22.420 --> 00:31:24.920
+Anthony Taylor: is at like this level.
+
+351
+00:31:27.520 --> 00:31:35.249
+Anthony Taylor: Okay? Because now. what it's saying is, okay. If one call fails.
+
+352
+00:31:36.750 --> 00:31:38.589
+Anthony Taylor: then I'm just gonna continue.
+
+353
+00:31:40.290 --> 00:31:42.590
+Anthony Taylor: So you lose one row
+
+354
+00:31:42.840 --> 00:31:47.769
+Anthony Taylor: or one call. If you do it this way, the other way. If you do it up here you lose all
+
+355
+00:31:49.960 --> 00:31:53.569
+Anthony Taylor: alright. So the ideal way to do it is typically. And
+
+356
+00:31:54.200 --> 00:32:01.460
+Anthony Taylor: I mean, you could even handle this in 2 separate ones. right? Cause like, maybe this works. But this doesn't.
+
+357
+00:32:01.810 --> 00:32:08.830
+Anthony Taylor: which means you got the call. The call worked, but the keys weren't there. You could do that I don't know why, but you could.
+
+358
+00:32:11.220 --> 00:32:20.930
+Masarirambi, Rodney: So in. So if so, let's say, we're handing this in right? So you'd want one cell where we do the try except and then the second cell where we have our actual answer. Or
+
+359
+00:32:22.750 --> 00:32:25.330
+Anthony Taylor: maybe I mean, if that's what it's asking for. Yeah.
+
+360
+00:32:25.910 --> 00:32:30.729
+Anthony Taylor: yeah, I mean, and this your try, except you'd be anywhere where you're executing
+
+361
+00:32:30.850 --> 00:32:33.690
+Anthony Taylor: code. And you want to handle
+
+362
+00:32:34.600 --> 00:32:42.019
+Anthony Taylor: yeah, and no one should follow. I mean, obviously, in this particular module you have to use it. But going forward, I would like to see
+
+363
+00:32:42.790 --> 00:32:54.030
+Anthony Taylor: and and just try to make sure you're using it appropriate. But even if you're not, then hurt right? You just got to know that when it happens you need to watch for it to happen.
+
+364
+00:32:56.170 --> 00:32:57.250
+Anthony Taylor: Make sense.
+
+365
+00:32:59.480 --> 00:33:19.490
+Masarirambi, Rodney: Yeah, II guess I guess my question is that if if so, if so, if I was to hand in this homework, I would oh, so regardless of whether I. We do the tracks up and it works. And that's the code we just handed in like that. We don't have to. Today's module.
+
+366
+00:33:19.590 --> 00:33:27.350
+Anthony Taylor: They're giving you points on this. After this they may not even give you points. That's why I accept. I'll say good work, because that's the way you should do it.
+
+367
+00:33:28.550 --> 00:33:33.510
+Gebrekristos, Hafton: Okay, but you should try on the last homework.
+
+368
+00:33:36.270 --> 00:33:37.389
+Anthony Taylor: Sorry, Hatton.
+
+369
+00:33:42.140 --> 00:33:45.810
+Gebrekristos, Hafton: I was. Gonna say, I missed points on the
+
+370
+00:33:46.370 --> 00:33:48.410
+Gebrekristos, Hafton: I missed voice on the last hour.
+
+371
+00:33:48.680 --> 00:33:51.739
+Gebrekristos, Hafton: they told me, because of the air handling
+
+372
+00:33:52.430 --> 00:33:54.830
+sonja baro: which you haven't learned yet.
+
+373
+00:33:55.040 --> 00:34:08.620
+Anthony Taylor: Right? That's what I knew how to do it. But I didn't know it was, it was gonna be you should not be graded on on error before you learn it in. Class it and send it back again.
+
+374
+00:34:08.670 --> 00:34:14.199
+Anthony Taylor: You got well, beginning when I was talking about this afternoon.
+
+375
+00:34:14.290 --> 00:34:16.609
+Anthony Taylor: we know we have some issues with grading.
+
+376
+00:34:17.389 --> 00:34:21.819
+Anthony Taylor: I am in in discussions with management about it.
+
+377
+00:34:21.969 --> 00:34:28.339
+Anthony Taylor: But if you guys have any problems with your grades? Let us know Kevin and James will.
+
+378
+00:34:28.570 --> 00:34:31.570
+Anthony Taylor: We'll we'll go back and regrade if we have to.
+
+379
+00:34:31.760 --> 00:34:35.600
+Anthony Taylor: Okay until this gets next, we know there's a problem
+
+380
+00:34:35.800 --> 00:34:41.479
+Anthony Taylor: we do. And it's a new program. And they're trying something different with grading.
+
+381
+00:34:41.580 --> 00:34:43.070
+Anthony Taylor: And it's just not what.
+
+382
+00:34:43.580 --> 00:34:45.529
+Gebrekristos, Hafton: So they are talking about.
+
+383
+00:34:45.580 --> 00:34:54.100
+Gebrekristos, Hafton: I created a function that takes a, a, a data frame and a column name. So they tried it with it with the column that doesn't exist in in the data frame.
+
+384
+00:34:54.290 --> 00:34:55.970
+Gebrekristos, Hafton: So my function broke.
+
+385
+00:34:57.139 --> 00:35:00.699
+Gebrekristos, Hafton: Well, now, if it broke, they should take points of it. But
+
+386
+00:35:01.250 --> 00:35:15.449
+Anthony Taylor: I mean and they could say you could try to do error handling, even though that doesn't make a lot of sense. You haven't learned it yet. I mean that I would have been okay with. And since you fixed it sent it back. It's great. It's great. But
+
+387
+00:35:15.630 --> 00:35:25.540
+Anthony Taylor: yeah, I mean for codes breaking. Then you're gonna get points up, and then they can suggest something. But if they do, suggested we haven't learned it. They should be like, you could look up error.
+
+388
+00:35:25.690 --> 00:35:38.770
+Anthony Taylor: at least in. My.
+
+389
+00:35:39.170 --> 00:35:44.329
+Anthony Taylor: yeah, that's that's the new chat. Tpt feedback.
+
+390
+00:35:44.610 --> 00:35:46.460
+Anthony Taylor: Yeah, yeah. Just
+
+391
+00:35:46.960 --> 00:35:57.910
+sonja baro: like I said, let us know we are. I've got a good suggestion as well.
+
+392
+00:35:57.980 --> 00:36:02.070
+Anthony Taylor: you know. That's just the rules. They shouldn't be doing that so, and they know.
+
+393
+00:36:02.160 --> 00:36:04.739
+Anthony Taylor: And I'm pushing back as hard as I can. But
+
+394
+00:36:05.250 --> 00:36:08.769
+Anthony Taylor: they really like that. They actually like to do feedback.
+
+395
+00:36:08.840 --> 00:36:13.679
+Anthony Taylor: But they're they. They clearly missed out on a few things. They're not AI tool.
+
+396
+00:36:14.020 --> 00:36:19.210
+Anthony Taylor: So you know. But the graders aren't a I, anyway.
+
+397
+00:36:19.850 --> 00:36:24.110
+Anthony Taylor: we're gonna fix it. Let us know. We will take care of you until it gets fixed.
+
+398
+00:36:24.490 --> 00:36:28.430
+Anthony Taylor:  okay. Cindy, sorry.
+
+399
+00:36:28.600 --> 00:36:35.690
+Sihong Zhou: Yeah. Ca, can you show me the second? A notebook? Because II didn't see it? Mine kind of have some problem.
+
+400
+00:36:36.180 --> 00:36:39.269
+Anthony Taylor: You mean the the final one, this one.
+
+401
+00:36:39.350 --> 00:36:42.490
+Sihong Zhou: yeah. Second down a little bit down
+
+402
+00:36:43.000 --> 00:36:45.870
+Sihong Zhou: this. Yeah, this one, this part.
+
+403
+00:36:46.000 --> 00:36:46.890
+Sihong Zhou: Yeah.
+
+404
+00:36:48.370 --> 00:36:56.290
+Anthony Taylor: So this you you made lists right here. Sorry you made these 3 lists, and you're just throwing them into a data frame dictionary of list.
+
+405
+00:36:58.660 --> 00:37:02.839
+Sihong Zhou: Mine is kind of empty. Let me see.
+
+406
+00:37:05.430 --> 00:37:06.770
+Anthony Taylor: do you want to show us.
+
+407
+00:37:07.120 --> 00:37:08.030
+Sihong Zhou: Okay.
+
+408
+00:37:11.100 --> 00:37:12.560
+Sihong Zhou: so
+
+409
+00:37:17.280 --> 00:37:18.630
+Anthony Taylor: what is PF.
+
+410
+00:37:20.030 --> 00:37:22.500
+Sihong Zhou: Oh, pass space. Yeah. Gotcha.
+
+411
+00:37:23.620 --> 00:37:28.119
+Anthony Taylor: Sorry, can you say? Okay, yeah. But don't do, dated Dot. Yet.
+
+412
+00:37:28.370 --> 00:37:30.249
+Anthony Taylor: Just put the name of the list.
+
+413
+00:37:30.590 --> 00:37:35.230
+Sihong Zhou: It doesn't work. Well, then, you. The name is Rawa.
+
+414
+00:37:35.710 --> 00:37:37.230
+Anthony Taylor: It got height.
+
+415
+00:37:41.730 --> 00:37:44.190
+Anthony Taylor: Yeah. And then the other one's called mass. But
+
+416
+00:37:44.420 --> 00:37:47.490
+sonja baro: where's the characters, search characters
+
+417
+00:37:48.960 --> 00:37:54.029
+michael mcpherson: search character up there up at the top you'd in your upper list.
+
+418
+00:37:56.520 --> 00:38:04.640
+Anthony Taylor: Oh, she's missing a dictionary
+
+419
+00:38:05.710 --> 00:38:08.460
+sonja baro: so like right there
+
+420
+00:38:08.750 --> 00:38:10.589
+Sihong Zhou: here I equals
+
+421
+00:38:11.190 --> 00:38:18.179
+michael mcpherson: height equals bracket mass equals bracket blank. That should be Star Wars characters, equals bracket.
+
+422
+00:38:19.940 --> 00:38:21.740
+Sihong Zhou: Well.
+
+423
+00:38:22.650 --> 00:38:28.490
+Anthony Taylor: yeah. go back down. Let me look at what your error is again. Stop here.
+
+424
+00:38:29.760 --> 00:38:32.429
+Anthony Taylor: All arrays must be the same length. Go back up.
+
+425
+00:38:32.490 --> 00:38:40.630
+Dipinto, Matt: So search characters is still the full length array. Yeah, that's it. You need to do the. So yeah, they're absolutely right. Go back up.
+
+426
+00:38:41.010 --> 00:38:49.330
+Anthony Taylor: No, stop right here. Yeah. So right here you have. You need to make another list for the characters that were found.
+
+427
+00:38:51.000 --> 00:38:56.190
+Anthony Taylor: So just call it whatever whatever you want. Yeah.
+
+428
+00:38:56.970 --> 00:38:59.029
+Anthony Taylor: and then do, it equals empty.
+
+429
+00:39:00.490 --> 00:39:06.560
+Anthony Taylor: And then and oh, let me get my arrow. That's what's missing. And then where
+
+430
+00:39:06.770 --> 00:39:11.600
+Anthony Taylor: there you go. and then in here. Sorry in here.
+
+431
+00:39:11.660 --> 00:39:18.230
+Anthony Taylor: when you find one, you want to append it to that list and then use that in your data.
+
+432
+00:39:18.710 --> 00:39:19.760
+Sihong Zhou: Okay?
+
+433
+00:39:20.530 --> 00:39:21.400
+Anthony Taylor: Got it?
+
+434
+00:39:21.680 --> 00:39:24.540
+Sihong Zhou: Oh, yeah, I'll try it. So you are super close.
+
+435
+00:39:25.020 --> 00:39:32.580
+Anthony Taylor: So you found characters? No, no, just do dotted pen right here. dot a pen, and then type chart
+
+436
+00:39:32.620 --> 00:39:36.450
+Anthony Taylor: our in parentheses chart. There you go! Run that
+
+437
+00:39:38.310 --> 00:39:39.570
+Anthony Taylor: now, scroll down.
+
+438
+00:39:41.720 --> 00:39:45.260
+Anthony Taylor: and then right there put found Char, or whatever you call.
+
+439
+00:39:46.320 --> 00:39:48.969
+Anthony Taylor: There you go. Wait for it. Finish.
+
+440
+00:39:55.690 --> 00:39:57.550
+Hmm, hmm.
+
+441
+00:40:03.690 --> 00:40:05.780
+Anthony Taylor: Jon Snow was found. That's interesting.
+
+442
+00:40:06.740 --> 00:40:08.059
+Sihong Zhou: Snow found.
+
+443
+00:40:09.270 --> 00:40:12.110
+Sihong Zhou: You can try it. There you go. Okay, yeah, thank you.
+
+444
+00:40:12.190 --> 00:40:15.520
+Anthony Taylor: Awesome. Hi, gang
+
+445
+00:40:16.800 --> 00:40:20.210
+Anthony Taylor: day 3 of Api.
+
+446
+00:40:20.520 --> 00:40:21.709
+Anthony Taylor: Here we go.
+
+447
+00:40:22.850 --> 00:40:32.530
+Anthony Taylor:  we're gonna start with everyone. Do. So first make sure you have your NY. Key, Api key
+
+448
+00:40:32.880 --> 00:40:35.070
+Anthony Taylor: in the environment variables.
+
+449
+00:40:36.070 --> 00:40:44.250
+Anthony Taylor: So feel free to go to yesterday's activities, just copy them. We're only using nyt. And then we're gonna get a new one today if you didn't already.
+
+450
+00:40:45.440 --> 00:40:48.910
+Anthony Taylor: So make sure you put that in there
+
+451
+00:40:50.300 --> 00:40:51.720
+Anthony Taylor: and save it.
+
+452
+00:40:53.240 --> 00:40:54.370
+Anthony Taylor: Okay.
+
+453
+00:40:55.710 --> 00:40:58.019
+Anthony Taylor: let me get to day. Three's material.
+
+454
+00:41:05.470 --> 00:41:08.230
+Anthony Taylor: All righty, then.
+
+455
+00:41:09.940 --> 00:41:13.649
+Anthony Taylor: Oh, yeah. so is everybody with me.
+
+456
+00:41:15.400 --> 00:41:17.259
+Anthony Taylor: Everybody's here awesome.
+
+457
+00:41:17.380 --> 00:41:25.759
+Anthony Taylor: So here we have. Well, first, we need to load our environment file and our variable. So how do we do that?
+
+458
+00:41:26.200 --> 00:41:29.670
+Anthony Taylor: Somebody walking through it? What's the method we've been using
+
+459
+00:41:34.940 --> 00:41:38.000
+Mason, Natalie: import? Oh, never mind, you got that already.
+
+460
+00:41:38.560 --> 00:41:41.369
+Mckimmy, Brandon: DRTN E.
+
+461
+00:41:41.600 --> 00:41:44.050
+Anthony Taylor: There we go. load underscore.
+
+462
+00:41:45.460 --> 00:41:47.080
+Anthony Taylor: And is that enough? Right there!
+
+463
+00:41:47.950 --> 00:41:55.560
+Mason, Natalie: Don't answer all the questions that the others answer to?
+
+464
+00:41:58.630 --> 00:42:03.779
+Anthony Taylor: Alright unless nobody answers, if it's dead silence.
+
+465
+00:42:04.110 --> 00:42:07.439
+Anthony Taylor: Okay? And then once we have that, we're gonna do.
+
+466
+00:42:07.590 --> 00:42:14.550
+Anthony Taylor: So we're just going to say, yeah. equals and passing
+
+467
+00:42:16.230 --> 00:42:21.320
+Anthony Taylor: OS get E and V, and then the name of our key.
+
+468
+00:42:25.890 --> 00:42:28.280
+Anthony Taylor: I don't even know what I was typing.
+
+469
+00:42:28.860 --> 00:42:30.500
+Anthony Taylor: That's so weird. Why is it not?
+
+470
+00:42:32.360 --> 00:42:36.200
+Anthony Taylor: There we go. I don't know if I've ever noticed that before.
+
+471
+00:42:37.930 --> 00:42:43.199
+Anthony Taylor: I held down both shifts. So this gives us our Api key that we're we're getting
+
+472
+00:42:43.400 --> 00:42:54.880
+Anthony Taylor: so here we have our URL, we want to filter for movie reviews. Sections, name should be movies. type of material should be reviewed. Okay.
+
+473
+00:42:55.200 --> 00:42:58.610
+Anthony Taylor: so we're gonna filter on
+
+474
+00:42:59.170 --> 00:43:06.180
+Anthony Taylor: filter. Query, section, name, movies and type of material review they gave us that. That's nice of them.
+
+475
+00:43:06.710 --> 00:43:09.500
+Anthony Taylor: Okay, we're gonna sort by newest.
+
+476
+00:43:09.770 --> 00:43:11.770
+Anthony Taylor: Here's the fields we want.
+
+477
+00:43:13.000 --> 00:43:14.170
+Anthony Taylor: Okay.
+
+478
+00:43:15.190 --> 00:43:27.929
+Anthony Taylor: this should be helpful to you guys in your challenge, by the way. and then here's the date. So now we just need to build the URL, there's lots of ways we can do this, but we're going to do it
+
+479
+00:43:28.270 --> 00:43:31.850
+Anthony Taylor: in the best possible way with an F string.
+
+480
+00:43:32.840 --> 00:43:39.980
+Anthony Taylor: Alright. So what do we need to do? Well, first, we need the main URL, this one up here. Right? So let's put that in.
+
+481
+00:43:40.740 --> 00:43:51.789
+Anthony Taylor: Okay. After that it. It has the question mark. So let's put in our Api key. Know that goes in. So let's do. Api
+
+482
+00:43:51.980 --> 00:43:53.700
+Anthony Taylor: dash E
+
+483
+00:43:53.930 --> 00:43:55.080
+Anthony Taylor: equals
+
+484
+00:43:57.830 --> 00:43:59.689
+Anthony Taylor: what we call Api key right
+
+485
+00:44:01.660 --> 00:44:04.549
+Anthony Taylor: in brackets, not out brackets.
+
+486
+00:44:08.710 --> 00:44:11.660
+Anthony Taylor: Okay, so now we have our Api key.
+
+487
+00:44:11.730 --> 00:44:13.949
+Anthony Taylor: Now, I happen to recall.
+
+488
+00:44:15.270 --> 00:44:17.930
+Jennifer Dahlgren: Sorry Api underscore Key.
+
+489
+00:44:19.000 --> 00:44:22.689
+Anthony Taylor: Is it underscore? Here is it? Is it? Is it upper Case?
+
+490
+00:44:23.720 --> 00:44:28.520
+Anthony Taylor: It's underscore key. Good catch that would have gave us a bug for sure.
+
+491
+00:44:28.890 --> 00:44:30.729
+Anthony Taylor: I like proactive.
+
+492
+00:44:31.900 --> 00:44:33.640
+Anthony Taylor: Okay, so
+
+493
+00:44:33.710 --> 00:44:40.509
+Anthony Taylor: I know how to do the beginning, date, end, date, cause we did that the other day. So we'll do an Ampersand. We'll do begin date
+
+494
+00:44:41.680 --> 00:44:47.519
+Anthony Taylor: equals. And then there's our Curly's. And then whatever we put in for the beginning. So begin underscore date.
+
+495
+00:44:48.630 --> 00:44:54.340
+Anthony Taylor: Okay? And because we're still in the URL, we'll do another Ampersand end date.
+
+496
+00:44:54.970 --> 00:44:58.409
+Anthony Taylor: And we're gonna say, equals and underscore date
+
+497
+00:44:59.420 --> 00:45:01.420
+Anthony Taylor: another Ampersand.
+
+498
+00:45:02.740 --> 00:45:04.449
+Anthony Taylor: and we can do
+
+499
+00:45:04.840 --> 00:45:08.470
+Anthony Taylor:  FQ. Now.
+
+500
+00:45:09.540 --> 00:45:13.749
+Anthony Taylor: So how? So you already knew this already? Have we seen FQ. Already
+
+501
+00:45:14.360 --> 00:45:22.200
+Meredith McCanse (she/her): we did. It was in some of the exercises. Oh, good! It was in some of the exercises from last class, and it's in the challenge, too
+
+502
+00:45:22.810 --> 00:45:27.680
+Anthony Taylor: perfect. It is in the challenge. I know that. So this is just going to be the filter query.
+
+503
+00:45:27.960 --> 00:45:37.580
+Anthony Taylor: okay, so if you looked in the documentation, you would absolutely find this alright the only one and then sort you could type sort
+
+504
+00:45:37.750 --> 00:45:39.120
+Anthony Taylor: so 7
+
+505
+00:45:39.460 --> 00:45:44.200
+Anthony Taylor: sorry Ampersand sort equals how we want to sort.
+
+506
+00:45:45.870 --> 00:45:49.290
+Anthony Taylor: The only one I thought was mildly difficult to find
+
+507
+00:45:49.620 --> 00:45:53.760
+Anthony Taylor: was field List. Did anybody find it already?
+
+508
+00:45:54.810 --> 00:45:56.859
+Meredith McCanse (she/her): Yeah, it's FL.
+
+509
+00:45:57.280 --> 00:45:58.300
+Anthony Taylor: Fl.
+
+510
+00:45:58.740 --> 00:46:03.559
+Anthony Taylor: okay. Now you have to look pretty hard at the documentation to find it.
+
+511
+00:46:05.850 --> 00:46:15.130
+Meredith McCanse (she/her): Yeah, I don't. I didn't actually find it in the documentation. It was, I think it was given in the challenge cause I
+
+512
+00:46:15.210 --> 00:46:21.819
+Meredith McCanse (she/her): I found the documentation at the New York Times site super confusing. It's always I don't.
+
+513
+00:46:21.910 --> 00:46:28.020
+Anthony Taylor: Api documentation is notoriously
+
+514
+00:46:28.140 --> 00:46:30.610
+Anthony Taylor: difficult. Sometimes sometimes it's all right.
+
+515
+00:46:30.740 --> 00:46:34.760
+Anthony Taylor: Alright. So here's the whole URL Guy
+
+516
+00:46:35.520 --> 00:46:47.890
+Anthony Taylor: the challenge almost identical. Right, Meredith. Who else has asked us already in the challenge. Isn't this pretty doggone close to exactly the same thing.
+
+517
+00:46:48.080 --> 00:46:49.569
+Meredith McCanse (she/her): Yeah, okay.
+
+518
+00:46:50.140 --> 00:46:52.480
+Anthony Taylor: alright. So now we can get our response.
+
+519
+00:46:53.780 --> 00:46:56.300
+Anthony Taylor: So
+
+520
+00:46:56.880 --> 00:47:00.169
+Anthony Taylor: dot request. Oh, wait response equals.
+
+521
+00:47:00.690 --> 00:47:01.870
+Requests
+
+522
+00:47:02.600 --> 00:47:07.820
+Anthony Taylor: cat! And we'll pass in our query. Yeah, URL, that's it.
+
+523
+00:47:09.320 --> 00:47:13.019
+Anthony Taylor: And then we can say, Show us our response, and that'll give us that 200.
+
+524
+00:47:13.480 --> 00:47:15.920
+Anthony Taylor: Oh, it's not cause I haven't run anything yet.
+
+525
+00:47:16.310 --> 00:47:17.440
+Anthony Taylor: Give us a second.
+
+526
+00:47:18.910 --> 00:47:25.140
+Anthony Taylor: Let's go up here on this guy. Yes. Michael.
+
+527
+00:47:25.320 --> 00:47:28.180
+michael mcpherson: can't you put that Json. At the end of that.
+
+528
+00:47:28.230 --> 00:47:39.499
+Anthony Taylor: We certainly could. We certainly could, but they're gonna ask us to save it right here. So. But II would if it were me. But II was trying to give you guys exactly what they did.
+
+529
+00:47:39.800 --> 00:47:43.129
+Anthony Taylor: Alright. So here we're gonna say.
+
+530
+00:47:43.410 --> 00:47:44.700
+Anthony Taylor: reviews
+
+531
+00:47:44.720 --> 00:47:47.879
+Anthony Taylor: equals response dot just.
+
+532
+00:47:48.630 --> 00:47:54.349
+Anthony Taylor: And yes, you could put it up about once we have that we can do a Json dumps.
+
+533
+00:47:57.490 --> 00:48:00.210
+Anthony Taylor: It's lowercase, Anthony, and it's a period
+
+534
+00:48:00.350 --> 00:48:07.970
+Anthony Taylor: how many times you gonna mess that up. Json, dot dumps and pass in our reviews.
+
+535
+00:48:08.200 --> 00:48:12.240
+Anthony Taylor: and then we can say indent equals. Whatever we want we'll do for
+
+536
+00:48:12.330 --> 00:48:15.330
+Anthony Taylor: to be consistent. And this is what we get.
+
+537
+00:48:18.660 --> 00:48:19.520
+Anthony Taylor: Okay.
+
+538
+00:48:20.940 --> 00:48:21.950
+Anthony Taylor: pretty cool.
+
+539
+00:48:23.200 --> 00:48:35.189
+Anthony Taylor: Alright. Alright. Then it says, convert the list to Json, normalize pandas data frame. So this one we did towards the end of yesterday.
+
+540
+00:48:35.630 --> 00:48:40.989
+Anthony Taylor:  Don't get normalize mixed up with anything. It is
+
+541
+00:48:41.090 --> 00:48:49.319
+Anthony Taylor: awesome that Pandas provides this for us. So we're gonna say, reviews, we'll call this underscore. Df.
+
+542
+00:48:49.510 --> 00:48:51.990
+Anthony Taylor: will we do this? I don't remember.
+
+543
+00:48:52.200 --> 00:48:55.780
+Meredith McCanse (she/her): Are we doing this for the first time now?
+
+544
+00:48:56.890 --> 00:48:58.859
+Anthony Taylor: Okay, now, now, I'm not so sure.
+
+545
+00:48:59.520 --> 00:49:00.830
+Anthony Taylor: We just thought we did.
+
+546
+00:49:01.340 --> 00:49:03.050
+Anthony Taylor: Okay, good. Thank you, Matt.
+
+547
+00:49:04.160 --> 00:49:17.830
+Anthony Taylor: Stress me out. Really like, Oh, man. I think I put this so did any for those of you that read the extra notes I gave you guys on the challenge? I think I did cover. I click what activity this was.
+
+548
+00:49:18.600 --> 00:49:22.100
+Anthony Taylor: So I'm pretty sure I'm not going to swear by it
+
+549
+00:49:24.400 --> 00:49:25.459
+Anthony Taylor: until we go back
+
+550
+00:49:27.010 --> 00:49:35.250
+Anthony Taylor: alright. So now we have our data frame, all party and flattened out. okay. that's looking good.
+
+551
+00:49:37.610 --> 00:49:38.660
+Anthony Taylor: Okay?
+
+552
+00:49:38.870 --> 00:49:46.709
+Anthony Taylor: Then it says, get the unique writers by pilot. So what it's basically saying is is, hey? It's in.
+
+553
+00:49:46.940 --> 00:49:55.240
+Anthony Taylor: It's in pandas format. Now. So you can do all your Panda stuff this no longer pairs if it's an Api.
+
+554
+00:49:55.350 --> 00:49:59.779
+Anthony Taylor: So we want just the writers we can say writers equals.
+
+555
+00:49:59.820 --> 00:50:07.130
+Anthony Taylor: We can go to our data frame, pull that column in. and it's byline dot original.
+
+556
+00:50:08.670 --> 00:50:12.380
+Anthony Taylor:  and then.
+
+557
+00:50:13.640 --> 00:50:18.650
+Anthony Taylor: oh, drop all the duple. This is one way to do it. Okay?
+
+558
+00:50:19.870 --> 00:50:23.460
+Anthony Taylor: And this will return a series
+
+559
+00:50:24.570 --> 00:50:31.640
+Anthony Taylor: that we will have all of the individual writers alright. Now to convert this to a list.
+
+560
+00:50:33.690 --> 00:50:39.949
+Anthony Taylor: so not sure what we're doing with this yet. But we're gonna find out in a minute. I think we can do writers to list.
+
+561
+00:50:41.750 --> 00:50:44.270
+Anthony Taylor: And this will make it just an actual list.
+
+562
+00:50:50.120 --> 00:50:52.140
+Anthony Taylor: And you can tell by the cool little bracket
+
+563
+00:50:52.180 --> 00:50:55.290
+Anthony Taylor: no longer has the index as the bracket.
+
+564
+00:50:56.910 --> 00:50:59.380
+Anthony Taylor: Okay, so here's where it gets interesting.
+
+565
+00:51:00.840 --> 00:51:07.150
+Anthony Taylor: So we're gonna use this writer's list to find the most recent article written by the same right here.
+
+566
+00:51:08.370 --> 00:51:12.579
+Anthony Taylor: Okay, so we're gonna do a results list just to hold
+
+567
+00:51:13.840 --> 00:51:15.110
+Anthony Taylor: our stuff.
+
+568
+00:51:15.690 --> 00:51:25.310
+Anthony Taylor: and then we're gonna loop through our cool new list that we just made. So we'll say for writer in riders that I called it.
+
+569
+00:51:25.430 --> 00:51:33.200
+Anthony Taylor: Yep. okay. And now we need to create the yeah. URL. So again, this would require
+
+570
+00:51:33.330 --> 00:51:37.170
+Anthony Taylor: you have at least a fair.
+
+571
+00:51:38.630 --> 00:51:40.750
+Anthony Taylor: Oh, thank you very much.
+
+572
+00:51:42.870 --> 00:51:46.010
+Anthony Taylor: So query, URL equals F string.
+
+573
+00:51:46.790 --> 00:51:54.499
+Anthony Taylor: Yeah, URL. And then we're gonna do our Api key because we know we need that can't get anywhere without that.
+
+574
+00:51:58.240 --> 00:52:01.629
+Anthony Taylor: Okay, and what else do we need? So
+
+575
+00:52:02.880 --> 00:52:06.399
+Anthony Taylor: what we basically want is the byline
+
+576
+00:52:06.880 --> 00:52:09.769
+Anthony Taylor: filter. So we can do byline
+
+577
+00:52:10.770 --> 00:52:17.440
+Anthony Taylor: call in. And then we can pass in the writer's name. Okay? And that's it.
+
+578
+00:52:17.460 --> 00:52:24.030
+Anthony Taylor: Now, we just need to sort it because we said, when we say we want it. the newest.
+
+579
+00:52:24.420 --> 00:52:31.429
+Anthony Taylor: Okay? So we're gonna use the same sort that we used up above. So we don't have to actually write it. It's just there.
+
+580
+00:52:31.780 --> 00:52:35.519
+Anthony Taylor: and we're going to use the same field list that we used up above.
+
+581
+00:52:36.430 --> 00:52:41.549
+Anthony Taylor: You have to have an equal after the do. You have to have an equal after the word sort?
+
+582
+00:52:42.410 --> 00:52:44.790
+Anthony Taylor: I bet you we do good call.
+
+583
+00:52:45.340 --> 00:52:47.380
+Anthony Taylor: Let's let me put this in.
+
+584
+00:52:49.090 --> 00:52:51.819
+Anthony Taylor: I like it. When you guys catch my typos.
+
+585
+00:52:53.720 --> 00:52:56.160
+Anthony Taylor: Alright. Okay, so cool.
+
+586
+00:52:56.270 --> 00:52:59.070
+Anthony Taylor: So now we have this book for you. Well, now, we could actually
+
+587
+00:53:00.270 --> 00:53:04.090
+Anthony Taylor: just run this and print this out. Make sure it's working
+
+588
+00:53:04.530 --> 00:53:16.340
+Anthony Taylor: is the byline. How come the Byline has a colon, but everything else gets a equal sign. The way they do filtering is you pass it in as
+
+589
+00:53:17.850 --> 00:53:20.120
+Anthony Taylor: with a call like, see up here.
+
+590
+00:53:24.930 --> 00:53:25.720
+This one
+
+591
+00:53:26.030 --> 00:53:33.069
+Anthony Taylor: section names colon movies. And yeah, it's just how they did the Api.
+
+592
+00:53:33.530 --> 00:53:40.860
+Meredith McCanse (she/her): And how did you know the word, byline was what you did to pull in that writer is that in the original like is that just in the data that
+
+593
+00:53:41.320 --> 00:53:44.319
+Anthony Taylor: it it we would have to go to the NYTE
+
+594
+00:53:44.720 --> 00:53:55.110
+Anthony Taylor:  do they have it listed? Of course not.  let's
+
+595
+00:53:56.040 --> 00:53:59.560
+Anthony Taylor: to dev Portal
+
+596
+00:54:03.610 --> 00:54:07.820
+Anthony Taylor: so we could do. It's a couple of ways, I would say.
+
+597
+00:54:08.320 --> 00:54:11.889
+Anthony Taylor: Go and look for writer. That doesn't work
+
+598
+00:54:11.940 --> 00:54:17.520
+Anthony Taylor: it did say the byline that does work. Actually, it's also over here on the left.
+
+599
+00:54:17.960 --> 00:54:26.869
+Anthony Taylor: so we can come in here. We can see Byline that doesn't really help us a whole lot. So let's go back to article and look for Byline
+
+600
+00:54:32.470 --> 00:54:37.089
+Meredith McCanse (she/her): and on those little things where you click example, does it show an example somewhere?
+
+601
+00:54:37.780 --> 00:54:40.059
+Anthony Taylor: Yep, well, you would think it would.
+
+602
+00:54:41.570 --> 00:54:43.800
+Anthony Taylor: I'm looking at all my screen to see where it is.
+
+603
+00:54:44.530 --> 00:54:49.490
+Meredith McCanse (she/her): I couldn't get it to. We couldn't get it to show
+
+604
+00:54:49.560 --> 00:54:51.180
+sonja baro: when we were looking at this
+
+605
+00:54:52.590 --> 00:54:53.950
+sonja baro: interesting.
+
+606
+00:54:58.900 --> 00:55:02.379
+Anthony Taylor: Well, that's unfortunate. It's
+
+607
+00:55:02.770 --> 00:55:04.520
+Anthony Taylor: it's basically
+
+608
+00:55:04.600 --> 00:55:06.559
+Anthony Taylor: part of the filter.
+
+609
+00:55:08.000 --> 00:55:23.299
+Anthony Taylor:  so it's really just part of the filter stream.
+
+610
+00:55:24.170 --> 00:55:27.449
+Anthony Taylor:  so if you look in.
+
+611
+00:55:27.990 --> 00:55:30.270
+Anthony Taylor: not here in here.
+
+612
+00:55:31.430 --> 00:55:33.829
+Anthony Taylor: Okay? And you say.
+
+613
+00:55:34.530 --> 00:55:40.210
+Anthony Taylor: yeah. So you see, field name. And then you can pass in a list of values.
+
+614
+00:55:40.630 --> 00:55:43.450
+Anthony Taylor: Okay, this is the way they expect every filter.
+
+615
+00:55:45.560 --> 00:55:51.260
+Anthony Taylor: That's what they're explaining here. So we know we're looking for Byline know we have the right
+
+616
+00:55:51.710 --> 00:55:58.810
+Anthony Taylor:  I mean II don't know that that's I. I'm disappointed that you can't get to the
+
+617
+00:55:59.130 --> 00:56:00.349
+Anthony Taylor: the example.
+
+618
+00:56:01.800 --> 00:56:04.860
+Anthony Taylor: I could've swore I did when I was looking at this yesterday, but
+
+619
+00:56:05.460 --> 00:56:10.220
+Anthony Taylor: I am having trouble getting to it. Well, so just keep in mind that
+
+620
+00:56:11.670 --> 00:56:20.260
+Anthony Taylor: the way this works is you can do. You do fq the name of the area you want to search and the value you want to search.
+
+621
+00:56:21.190 --> 00:56:28.479
+Anthony Taylor: Okay? So I can say, Byline is what I want to search for. It's what we told they told me to do.
+
+622
+00:56:28.570 --> 00:56:30.100
+Anthony Taylor: and I have the right?
+
+623
+00:56:30.350 --> 00:56:32.399
+Anthony Taylor: So that's how we're gonna get that?
+
+624
+00:56:32.610 --> 00:56:33.470
+Anthony Taylor: Okay?
+
+625
+00:56:33.780 --> 00:56:37.170
+Anthony Taylor:  so moving on, you have results.
+
+626
+00:56:37.410 --> 00:56:39.139
+Anthony Taylor: Equals request.
+
+627
+00:56:41.000 --> 00:56:42.219
+Cats
+
+628
+00:56:42.340 --> 00:56:44.789
+Anthony Taylor: pass in our cool query, yeah, URL,
+
+629
+00:56:45.180 --> 00:56:49.349
+Anthony Taylor: and this time we'll convert it to Jason right away in honor
+
+630
+00:56:49.480 --> 00:56:54.890
+Anthony Taylor: of my okay, get rid of our debug state. Alright. So
+
+631
+00:56:55.050 --> 00:56:57.759
+Anthony Taylor: we're actually gonna put it to sleep.
+
+632
+00:56:58.860 --> 00:57:01.870
+Anthony Taylor: Okay, I don't think we've learned about sleep yet, have we?
+
+633
+00:57:02.660 --> 00:57:06.900
+Meredith McCanse (she/her): In the last class you did a 1 s arrival.
+
+634
+00:57:07.500 --> 00:57:13.830
+Anthony Taylor: So here. We're gonna put to sleep for 12 s. It's quite a bit okay.
+
+635
+00:57:14.000 --> 00:57:22.559
+Anthony Taylor:  but this will allow it at the time to keep us from breaking their query limits because we're gonna hit it fast.
+
+636
+00:57:23.050 --> 00:57:29.170
+Anthony Taylor: Alright. So now we're gonna do our try, except now, this is an interesting one. So they're gonna do try
+
+637
+00:57:30.680 --> 00:57:33.320
+Anthony Taylor: before their for loop, which is fine.
+
+638
+00:57:33.550 --> 00:57:38.830
+Anthony Taylor: because in this particular case, if there's nothing there, they don't need that, you know, we don't care.
+
+639
+00:57:39.160 --> 00:57:42.599
+Anthony Taylor: Okay, so we're gonna do 4.in
+
+640
+00:57:42.810 --> 00:57:44.170
+Anthony Taylor: results.
+
+641
+00:57:45.190 --> 00:57:48.950
+Anthony Taylor: And then we got to get to the doc. So let's respond.
+
+642
+00:57:54.570 --> 00:58:01.039
+Anthony Taylor: Aye, aye. my brackets are just all over the place and then we want docs.
+
+643
+00:58:02.400 --> 00:58:04.999
+Anthony Taylor: So we're going to say 4 dock indocts.
+
+644
+00:58:06.670 --> 00:58:09.950
+Anthony Taylor: And then we're gonna simply append
+
+645
+00:58:10.450 --> 00:58:13.380
+Anthony Taylor:  to our dictionary.
+
+646
+00:58:14.440 --> 00:58:16.829
+Anthony Taylor: Okay, is that what we did. Well done.
+
+647
+00:58:18.150 --> 00:58:32.020
+Anthony Taylor: Yeah, okay, we're gonna create a dictionary item from these and put it into our list. Okay, so we're gonna say, results
+
+648
+00:58:32.180 --> 00:58:38.820
+Anthony Taylor: that list. So this is the list. We created data pen. parentheses
+
+649
+00:58:39.010 --> 00:58:43.280
+Anthony Taylor: dictionary. And then we're gonna create 4 keys
+
+650
+00:58:43.470 --> 00:58:44.520
+Anthony Taylor: byline.
+
+651
+00:58:46.050 --> 00:58:54.040
+Anthony Taylor: And we're going to pass in Doc. that's this duck right here, and remember we're already at Ducks
+
+652
+00:58:54.790 --> 00:58:58.040
+Anthony Taylor: Clayton. You didn't tell me. Put that coal in there. I don't know what I'm doing.
+
+653
+00:58:58.610 --> 00:59:01.199
+Anthony Taylor: And then here we're gonna say, Byline
+
+654
+00:59:04.860 --> 00:59:06.660
+Anthony Taylor: and a rigid.
+
+655
+00:59:08.960 --> 00:59:10.630
+Anthony Taylor: original
+
+656
+00:59:11.690 --> 00:59:16.419
+Anthony Taylor: coverage. And now. okay, so there's our byline.
+
+657
+00:59:16.830 --> 00:59:19.719
+Anthony Taylor: Then we're gonna do headline
+
+658
+00:59:22.720 --> 00:59:26.199
+Anthony Taylor: and ask that one. So Doc.
+
+659
+00:59:27.320 --> 00:59:28.600
+Anthony Taylor: headline.
+
+660
+00:59:30.900 --> 00:59:36.630
+Anthony Taylor: And you know what I want you guys to. You know what? We should look at one of these. So let's
+
+661
+00:59:37.760 --> 00:59:41.160
+Anthony Taylor: go on. Okay, my mouse is going to the other screen.
+
+662
+00:59:45.130 --> 00:59:46.019
+Anthony Taylor: Come on.
+
+663
+00:59:47.300 --> 00:59:49.789
+Anthony Taylor: Alright. I don't know if that's gonna work. That's right.
+
+664
+00:59:52.170 --> 00:59:52.990
+Anthony Taylor: It worked
+
+665
+00:59:54.330 --> 01:00:03.589
+Anthony Taylor: alright. So response, Docs took us to here. Okay. So now, we're only working in this section here.
+
+666
+01:00:03.810 --> 01:00:08.809
+Anthony Taylor: So we wanted the byline. So let's do control left by line.
+
+667
+01:00:09.500 --> 01:00:13.610
+Anthony Taylor: And of course I spent by lie
+
+668
+01:00:14.420 --> 01:00:18.809
+Anthony Taylor: there. It is so byline original. This is the author that wrote it.
+
+669
+01:00:19.430 --> 01:00:21.680
+Anthony Taylor: Okay, so there's our first field.
+
+670
+01:00:21.750 --> 01:00:27.649
+Anthony Taylor: the next one. It said the headline. Well, that one's pretty easy. So we're gonna do headline main.
+
+671
+01:00:27.790 --> 01:00:29.010
+Anthony Taylor: most likely.
+
+672
+01:00:29.070 --> 01:00:31.489
+Anthony Taylor: Let's see if that's what they had us doing.
+
+673
+01:00:31.910 --> 01:00:34.699
+Anthony Taylor: Headline main. Yup.
+
+674
+01:00:35.700 --> 01:00:36.720
+Anthony Taylor: okay.
+
+675
+01:00:37.370 --> 01:00:42.110
+Anthony Taylor: And the next thing they want in this dictionary is Snippet.
+
+676
+01:00:43.470 --> 01:00:45.329
+Anthony Taylor: Don't get snippy with me.
+
+677
+01:00:49.490 --> 01:00:52.770
+Anthony Taylor: There we go. So again, we know we're gonna start at that.
+
+678
+01:00:53.400 --> 01:00:57.600
+Anthony Taylor: And now let's go look at our are stuck.
+
+679
+01:01:00.210 --> 01:01:02.520
+Anthony Taylor: and we're looking for the snippet.
+
+680
+01:01:02.840 --> 01:01:06.200
+Anthony Taylor: Aha! That one's right away. So that one's easy.
+
+681
+01:01:06.590 --> 01:01:10.109
+Anthony Taylor: Okay, it's like very first thing practically.
+
+682
+01:01:10.150 --> 01:01:16.800
+Anthony Taylor: So we're just gonna do docs snip it. And then the last thing we want the web. Yeah. URL, so Web
+
+683
+01:01:18.470 --> 01:01:19.640
+Anthony Taylor: URL
+
+684
+01:01:20.680 --> 01:01:27.550
+Anthony Taylor: Poland. And you guys, did anybody see where it was? It was like, right next to snippet. So I already know it's
+
+685
+01:01:28.910 --> 01:01:29.730
+Anthony Taylor: Doc.
+
+686
+01:01:35.950 --> 01:01:43.130
+Anthony Taylor: Was it underscored? Yeah. Underscore. Okay. so there you go alright. So now we have
+
+687
+01:01:43.320 --> 01:01:50.110
+Anthony Taylor: this entire dictionary object is going to get ended to our
+
+688
+01:01:51.170 --> 01:01:52.260
+our list.
+
+689
+01:01:52.510 --> 01:01:55.339
+Anthony Taylor: Okay? And then here we're just gonna say, found
+
+690
+01:01:56.850 --> 01:02:01.200
+Anthony Taylor: F found articles.
+
+691
+01:02:03.430 --> 01:02:04.979
+Anthony Taylor: and then we'll put writer.
+
+692
+01:02:06.340 --> 01:02:07.220
+Anthony Taylor: Okay?
+
+693
+01:02:08.100 --> 01:02:16.170
+Anthony Taylor: And and that's it. Okay. Now, we did a try. We have to set. That's one thing you have to do.
+
+694
+01:02:16.480 --> 01:02:21.389
+Anthony Taylor: Okay. If you do a try, you have to do an accept doesn't have to do anything.
+
+695
+01:02:21.590 --> 01:02:23.639
+Anthony Taylor: But you have to do. You have to do
+
+696
+01:02:24.080 --> 01:02:30.690
+Anthony Taylor: okay? And then what we'll say here is, no articles
+
+697
+01:02:31.830 --> 01:02:32.970
+Anthony Taylor: found.
+
+698
+01:02:33.250 --> 01:02:42.830
+Anthony Taylor: writer. And why am I just putting writer? Because the by lines, all state buy. Right? So this will say, Buy.
+
+699
+01:02:42.860 --> 01:02:51.430
+Anthony Taylor: whoever the writer was. Okay. So there's that.  yeah, let's run it. That should work
+
+700
+01:02:51.730 --> 01:02:53.039
+Anthony Taylor: might take a while.
+
+701
+01:03:03.190 --> 01:03:09.310
+Anthony Taylor: 12 s. There we go. Whoa! Something went wrong.
+
+702
+01:03:11.400 --> 01:03:12.710
+Mckimmy, Brandon: Indentation
+
+703
+01:03:13.850 --> 01:03:17.009
+Mckimmy, Brandon: of the first click has to be with matching with the full loop
+
+704
+01:03:19.450 --> 01:03:20.710
+Anthony Taylor: which one's that
+
+705
+01:03:22.090 --> 01:03:28.520
+Mckimmy, Brandon: up here, the one that says, No. It down there, it says, found articles. That point needs to be lined up with 4,
+
+706
+01:03:29.820 --> 01:03:30.670
+Anthony Taylor: this one.
+
+707
+01:03:30.860 --> 01:03:32.610
+Mckimmy, Brandon: and I'll be one above that. So
+
+708
+01:03:33.240 --> 01:03:34.280
+Anthony Taylor: you sure
+
+709
+01:03:37.700 --> 01:03:40.039
+Anthony Taylor: he's right good job, Brandon.
+
+710
+01:03:40.320 --> 01:03:49.740
+Anthony Taylor: but that's okay. It's still gonna work. It's just gonna print it like a gazillion times. Oh, or it's gonna fail expecting a value. Oh.
+
+711
+01:03:50.180 --> 01:03:52.220
+Anthony Taylor: so it didn't do the except
+
+712
+01:03:53.350 --> 01:03:54.770
+Anthony Taylor: a
+
+713
+01:03:56.010 --> 01:03:58.950
+Anthony Taylor: by 4. All right, let's try that again. Now that we fixed it.
+
+714
+01:04:01.750 --> 01:04:04.999
+Anthony Taylor: it's dumb that it does the sleep before it even starts.
+
+715
+01:04:16.270 --> 01:04:18.369
+Anthony Taylor: This is gonna take like,
+
+716
+01:04:22.540 --> 01:04:25.509
+Anthony Taylor: Take a long time. Oh, we got some articles.
+
+717
+01:04:25.930 --> 01:04:27.210
+Anthony Taylor: yay.
+
+718
+01:04:30.230 --> 01:04:34.239
+Anthony Taylor: so we know our except's working because this one had no articles
+
+719
+01:04:40.440 --> 01:04:42.830
+Anthony Taylor: I think we could shorten.
+
+720
+01:04:52.560 --> 01:04:55.959
+Clayton Graves: It's gonna take about 4 min to go through all 200.
+
+721
+01:04:57.020 --> 01:04:58.379
+Anthony Taylor: Oh, there's not 200.
+
+722
+01:05:00.430 --> 01:05:01.639
+Anthony Taylor: What did I do?
+
+723
+01:05:04.500 --> 01:05:08.610
+Anthony Taylor: No, there's there's only like 10. So it should take about 2 min.
+
+724
+01:05:08.910 --> 01:05:09.750
+Okay.
+
+725
+01:05:10.600 --> 01:05:14.229
+Anthony Taylor: 1, 2, 3, 4, 5, 6 at 3 min.
+
+726
+01:05:14.930 --> 01:05:17.180
+Anthony Taylor: because we had the first 12 s to.
+
+727
+01:05:20.710 --> 01:05:22.170
+Anthony Taylor: It's not horrible.
+
+728
+01:05:30.530 --> 01:05:33.770
+Anthony Taylor: Yeah, we don't need to have a student activity at all
+
+729
+01:05:35.360 --> 01:05:36.829
+Anthony Taylor: for today's class.
+
+730
+01:05:43.950 --> 01:05:45.159
+Raugewitz, Tania: What'd you just say
+
+731
+01:05:45.860 --> 01:05:48.720
+Anthony Taylor: there are no student activities for today's class.
+
+732
+01:05:51.720 --> 01:05:54.889
+Anthony Taylor: I know we did one already, but that was last the
+
+733
+01:05:55.180 --> 01:05:58.619
+Clayton Graves: that was so beautiful, saying again, I know right
+
+734
+01:05:59.880 --> 01:06:06.250
+Anthony Taylor: well, and so you guys could see my screen. So what they often have is, do
+
+735
+01:06:06.410 --> 01:06:12.300
+Anthony Taylor: is this this little Mini project, which is you're supposed to have like an hour and a half to do it.
+
+736
+01:06:12.440 --> 01:06:13.590
+Anthony Taylor: Well, that's not gonna happen.
+
+737
+01:06:13.840 --> 01:06:21.519
+Anthony Taylor: We're not gonna do that cause it's awful  what we're gonna do is we're gonna go over the challenge
+
+738
+01:06:21.820 --> 01:06:23.220
+Anthony Taylor: for this this week.
+
+739
+01:06:23.830 --> 01:06:34.909
+Anthony Taylor: Okay, some of you. It'll be like, Oh, well, that's boring. But the rest of you will be like cheers, and it'll be an amazing moment for me.
+
+740
+01:06:35.940 --> 01:06:42.120
+Clayton Graves: No, it won't be boring, because some of us who did get a certain amount a certain way through. Well
+
+741
+01:06:42.450 --> 01:06:44.620
+Clayton Graves: know if we were on the right track or not.
+
+742
+01:06:45.140 --> 01:06:46.400
+Anthony Taylor: Well, there you go.
+
+743
+01:06:46.810 --> 01:06:56.570
+Mason, Natalie: Natalie. What are you watching? That's not me.
+
+744
+01:06:56.770 --> 01:07:01.840
+Mason, Natalie: It's the emotional support button.
+
+745
+01:07:04.710 --> 01:07:08.100
+Anthony Taylor: I thought she was like watching a video or something forgot to do.
+
+746
+01:07:08.340 --> 01:07:11.020
+Mason, Natalie: I didn't know I was unmuted.
+
+747
+01:07:12.540 --> 01:07:18.780
+Mason, Natalie: Wait, you were just pushing that button for yourself. No, I was gonna get it to the badass part and then unmute it.
+
+748
+01:07:18.890 --> 01:07:26.860
+Anthony Taylor: Oh, okay. alright. So here's in the end, since we have all those lists we can actually go and see they're late is started
+
+749
+01:07:27.940 --> 01:07:29.069
+Anthony Taylor: pretty cool. Huh?
+
+750
+01:07:30.050 --> 01:07:32.560
+Anthony Taylor: Fun stuff! Any questions.
+
+751
+01:07:35.450 --> 01:07:38.719
+Anthony Taylor: Don't make me run this out again. 2 min, 5 s.
+
+752
+01:07:41.230 --> 01:07:43.600
+Anthony Taylor: brando! Don't do it
+
+753
+01:07:44.410 --> 01:07:49.710
+Mckimmy, Brandon: just out of curiosity. Don't run it. Why does some of us say no articles found? But mindset all.
+
+754
+01:07:52.010 --> 01:07:58.800
+Mckimmy, Brandon: Is it because you only ran 2, not 12 s? No, I did make it 12 s.
+
+755
+01:07:58.890 --> 01:08:05.949
+Anthony Taylor: I just changed it to 2 in case you made me read it again. I did spell article wrong, though, which is
+
+756
+01:08:05.960 --> 01:08:08.040
+Anthony Taylor: I know I did it in. That's Latin.
+
+757
+01:08:08.190 --> 01:08:10.480
+sonja baro: It sounds very impressive.
+
+758
+01:08:10.620 --> 01:08:24.549
+sonja baro: could it be? I mean, Brandon. Maybe you had a different query variable in there than he did. I mean, that would be the only reason to get a different result. Yeah, I mean, do you have an article saying you have an article for Amy Nicholas?
+
+759
+01:08:26.470 --> 01:08:29.949
+Mckimmy, Brandon: Yeah, I some for that person I have. Yeah.
+
+760
+01:08:32.359 --> 01:08:41.619
+Anthony Taylor: trying to think what that doesn't make any sense. But okay. alright, it must mean that somewhere you have something different than I.
+
+761
+01:08:43.040 --> 01:08:45.810
+Anthony Taylor: I mean, I would assume it's in this filter. But
+
+762
+01:08:47.950 --> 01:08:49.880
+Mckimmy, Brandon: that's just coming off the solved.
+
+763
+01:08:52.200 --> 01:08:53.730
+Anthony Taylor: How do you have this out?
+
+764
+01:08:54.540 --> 01:08:56.530
+Mckimmy, Brandon: It was already released last week.
+
+765
+01:08:56.649 --> 01:08:59.880
+sonja baro: Yeah, I gave you guys dialed.
+
+766
+01:09:00.130 --> 01:09:01.109
+sonja baro: yeah.
+
+767
+01:09:02.319 --> 01:09:10.329
+Anthony Taylor: it's okay. It's okay that you did that no harm, no foul.
+
+768
+01:09:10.990 --> 01:09:14.220
+Anthony Taylor: Oh, well, that just means when they ran it. She had stuff.
+
+769
+01:09:14.819 --> 01:09:19.090
+Anthony Taylor: If you read it. Thanks, Brandon, you'll be sure not to do it again.
+
+770
+01:09:19.550 --> 01:09:23.980
+Anthony Taylor: Yeah, I don't know what I was thinking. I must have been really feeling charitable.
+
+771
+01:09:24.330 --> 01:09:27.749
+Mckimmy, Brandon: That's okay. I like the challenge. So
+
+772
+01:09:28.180 --> 01:09:30.390
+Anthony Taylor: don't you? Don't, don't you even?
+
+773
+01:09:31.000 --> 01:09:40.239
+Meredith McCanse (she/her): And, Brandon, it makes you feel better mine. So just no articles for anybody. So I definitely did something wrong.
+
+774
+01:09:41.439 --> 01:09:44.300
+Anthony Taylor: Alright. So I just rebrand it if that helps.
+
+775
+01:09:44.850 --> 01:09:48.149
+Anthony Taylor: And I only did 2 s. Oh, yeah, okay, that's
+
+776
+01:09:49.420 --> 01:09:51.589
+Anthony Taylor: like, there's no way that finish that fast.
+
+777
+01:09:55.820 --> 01:09:58.659
+Anthony Taylor: Yeah, it died somewhere else, or it hasn't got here.
+
+778
+01:09:59.320 --> 01:10:00.870
+Anthony Taylor: I thought I told her to run up.
+
+779
+01:10:13.400 --> 01:10:15.910
+Anthony Taylor: Run all! What is wrong with you?
+
+780
+01:10:16.650 --> 01:10:19.729
+Anthony Taylor: That is so weird. What does it do? Oh, it crashed.
+
+781
+01:10:24.180 --> 01:10:27.649
+sonja baro: Yeah, most likely it's failing, because I'm calling it too much.
+
+782
+01:10:27.970 --> 01:10:30.259
+Anthony Taylor: So anyway, it is right
+
+783
+01:10:30.330 --> 01:10:34.449
+Anthony Taylor: that whenever they ran it it's possible that there were articles. And now there's not.
+
+784
+01:10:35.610 --> 01:10:38.970
+Anthony Taylor: So, it's entirely possible. Aye.
+
+785
+01:10:39.100 --> 01:10:44.009
+Anthony Taylor: so before we get into the next lesson, we do have one more
+
+786
+01:10:44.210 --> 01:10:46.230
+Anthony Taylor: really cool. Api.
+
+787
+01:10:46.550 --> 01:10:54.820
+Anthony Taylor: And the reason it's really cool is from a project's perspective.  the, it's it's amazing.
+
+788
+01:10:55.020 --> 01:10:57.949
+Anthony Taylor: Okay. so
+
+789
+01:10:59.350 --> 01:11:05.280
+Anthony Taylor: it's called census. Who has not gotten their senses key yet
+
+790
+01:11:07.670 --> 01:11:10.209
+Anthony Taylor: if you went to this site
+
+791
+01:11:11.320 --> 01:11:15.420
+Anthony Taylor: you would have it. Okay. So I'm gonna put this in slack
+
+792
+01:11:16.520 --> 01:11:28.619
+Anthony Taylor: while you're on break. Just fill it out because it does take a second sometimes to get the key. and you can only do it once, ever. Okay. Can't find my slack.
+
+793
+01:11:29.390 --> 01:11:31.259
+Anthony Taylor: but not even open slothers.
+
+794
+01:11:31.650 --> 01:11:36.590
+Anthony Taylor:  so yeah.
+
+795
+01:11:37.090 --> 01:11:37.890
+Anthony Taylor: okay.
+
+796
+01:11:40.680 --> 01:11:49.159
+Anthony Taylor: so be sure to keep file away the email that you get with your Api key because you can't get another one without the same email. and we'll not let you do it.
+
+797
+01:11:51.050 --> 01:11:51.870
+Anthony Taylor: Alright.
+
+798
+01:11:53.070 --> 01:11:55.779
+Anthony Taylor: Hi! While you're doing that, we'll take a break
+
+799
+01:11:55.910 --> 01:11:58.359
+Anthony Taylor: come back at 8 20,
+
+800
+01:12:01.600 --> 01:12:02.270
+Anthony Taylor: where?
+
+801
+01:12:02.910 --> 01:12:07.390
+Anthony Taylor: That was a fun thing. Sorry, Mike. It's been a rough one.
+
+802
+01:12:08.120 --> 01:12:12.590
+Anthony Taylor: Alright. So everybody got this done hopefully, you've already got your thing.
+
+803
+01:12:12.940 --> 01:12:15.840
+Anthony Taylor:  that's awesome.
+
+804
+01:12:16.780 --> 01:12:22.020
+Anthony Taylor: Okay. Somewhere in here I have the new slideshow. There it is. Okay. So
+
+805
+01:12:22.330 --> 01:12:26.950
+Anthony Taylor: we've talked about Apis. There is another thing you will hear about
+
+806
+01:12:27.880 --> 01:12:34.789
+Anthony Taylor: quite a bit. And it's called an SDK a software development kit.
+
+807
+01:12:35.050 --> 01:12:40.169
+Anthony Taylor: So what a software development kit is versus an Api, that's what we want to talk about.
+
+808
+01:12:40.230 --> 01:12:47.680
+Anthony Taylor: So a lot of companies, they offer software develop Kit. But what does that mean? Well, basically, it means instead of simply
+
+809
+01:12:48.410 --> 01:12:53.869
+Anthony Taylor: connecting to an Api directly. there is like another
+
+810
+01:12:55.320 --> 01:13:03.580
+Anthony Taylor: I for Openai, for instance, which is what we're going to do in class at some point right? You can connect to Openai with just requests.
+
+811
+01:13:04.230 --> 01:13:09.790
+Anthony Taylor: request, get and connect. But you can also pip, install Openai
+
+812
+01:13:10.040 --> 01:13:15.859
+Anthony Taylor: and just import it. And then you get all the functions and methods that Openai has made available to you.
+
+813
+01:13:16.640 --> 01:13:23.999
+Anthony Taylor:  and Ibm does. A lot of lot of larger applications will have SDK,
+
+814
+01:13:24.020 --> 01:13:27.429
+Anthony Taylor: all they really are is another way to access
+
+815
+01:13:27.510 --> 01:13:38.289
+Anthony Taylor: the the whatever the application offers and sometimes it looks like an Api, and sometimes it won't. Sometimes it'll just be a package. You install.
+
+816
+01:13:39.200 --> 01:13:43.090
+Anthony Taylor: Okay. we're gonna use one of these today
+
+817
+01:13:44.040 --> 01:13:46.530
+Anthony Taylor: for census information.
+
+818
+01:13:46.690 --> 01:13:48.540
+Anthony Taylor: So census
+
+819
+01:13:48.940 --> 01:13:51.919
+it has a method called get
+
+820
+01:13:52.610 --> 01:13:55.810
+Anthony Taylor: just like ours. Okay? However.
+
+821
+01:13:56.100 --> 01:13:58.810
+Anthony Taylor: it looks a whole lot different when you make the call
+
+822
+01:13:59.910 --> 01:14:11.790
+Anthony Taylor: than our normal Api cost. Okay? And I'm gonna warn you right now says this is complicated as heck. That's the bad news. Good news is.
+
+823
+01:14:11.940 --> 01:14:14.789
+Anthony Taylor: it is awesome for projects.
+
+824
+01:14:15.580 --> 01:14:24.869
+Anthony Taylor: So say you decide you want to do a project on the effects of drinking coffee during class like Derrick was okay, which is awesome.
+
+825
+01:14:24.900 --> 01:14:30.090
+Anthony Taylor: Drink coffee this time of night. Yep, all night. Not me. I go to sleep
+
+826
+01:14:30.280 --> 01:14:30.990
+Anthony Taylor: instant.
+
+827
+01:14:31.470 --> 01:14:37.910
+Anthony Taylor: But say, you wanna do it based on the employment rate in
+
+828
+01:14:37.990 --> 01:14:42.609
+Anthony Taylor: Bear County, Texas. By the way, Bear County, Texas is spelled BE
+
+829
+01:14:42.670 --> 01:14:43.770
+Anthony Taylor: XAR.
+
+830
+01:14:45.160 --> 01:14:46.260
+Anthony Taylor: Okay.
+
+831
+01:14:49.300 --> 01:14:54.749
+Anthony Taylor: so and if you call it Bexar. While you're here you will be arrested. It's no joke.
+
+832
+01:14:54.970 --> 01:14:57.629
+Anthony Taylor: Okay, anyway.
+
+833
+01:14:58.000 --> 01:15:08.470
+Anthony Taylor: So you can do that with the census you can bring up, like all of the census information that they capture on any county, every county, any State, every State
+
+834
+01:15:09.390 --> 01:15:12.440
+Anthony Taylor: in the United States. Now
+
+835
+01:15:12.740 --> 01:15:16.020
+much recently, I would like to say they have the new stuff. Now
+
+836
+01:15:16.230 --> 01:15:24.259
+Anthony Taylor: for a long time we were working on 2,000 and like 12. Okay, but I think you might be able to get 2,000 point 2. Now.
+
+837
+01:15:24.690 --> 01:15:25.420
+Anthony Taylor: maybe
+
+838
+01:15:26.320 --> 01:15:30.150
+Anthony Taylor: so it's actually, census is a fantastic
+
+839
+01:15:30.760 --> 01:15:31.880
+Anthony Taylor: project
+
+840
+01:15:32.070 --> 01:15:37.190
+Anthony Taylor: data source, not exclusively but fantastic for augmentation.
+
+841
+01:15:37.540 --> 01:15:45.410
+Anthony Taylor: You could use it exclusive. Alright! So let's go look at how senses work. First
+
+842
+01:15:46.970 --> 01:15:50.890
+Anthony Taylor: go ahead and set up your examples. Dot edv in the folder.
+
+843
+01:15:50.940 --> 01:15:54.130
+Anthony Taylor: Apparently I already gave you the South, so I don't even know why.
+
+844
+01:15:54.750 --> 01:16:05.050
+Anthony Taylor: So, as here's the Api key. Alright. So let's walk through this and enjoy ourselves. Take a walk down census slaying
+
+845
+01:16:05.750 --> 01:16:10.029
+Anthony Taylor:  So first thing we gotta do is we got a loader, Ethan?
+
+846
+01:16:15.820 --> 01:16:17.090
+Anthony Taylor: Yes, I
+
+847
+01:16:17.640 --> 01:16:24.750
+sonja baro: sorry to interrupt but when I interrupted me I was going when I yeah, when. And it was so good.
+
+848
+01:16:24.770 --> 01:16:34.280
+sonja baro: From census import census, for whatever reason, I'm getting an error like the squigglies underneath.
+
+849
+01:16:34.540 --> 01:16:46.090
+Anthony Taylor: Okay, thank you, anybody and you. And when you run this you will probably also get a just make a new cell type. Pip install senses.
+
+850
+01:16:46.250 --> 01:16:50.060
+Anthony Taylor: This is how you get the SDK for census.
+
+851
+01:16:50.200 --> 01:16:51.360
+sonja baro: Thank you.
+
+852
+01:16:54.820 --> 01:16:55.530
+Welcome.
+
+853
+01:16:57.700 --> 01:17:01.150
+Anthony Taylor: and once you install it, just leak that cell, you won't need it again.
+
+854
+01:17:04.040 --> 01:17:08.569
+Anthony Taylor: Okay, so once you've done that you should be able to run this without issue.
+
+855
+01:17:10.090 --> 01:17:14.160
+Anthony Taylor: And we're going to create an instance. So
+
+856
+01:17:14.670 --> 01:17:16.840
+Anthony Taylor: remember, when we talked about classes.
+
+857
+01:17:17.720 --> 01:17:22.949
+Anthony Taylor: right? And stuff like that. So one of the things that SDK does is it has a census
+
+858
+01:17:23.200 --> 01:17:23.990
+Anthony Taylor: class.
+
+859
+01:17:24.240 --> 01:17:31.080
+Anthony Taylor: And we're gonna create a census class by passing in the Api key. And the year of the census we want
+
+860
+01:17:31.260 --> 01:17:41.929
+Anthony Taylor: to run. Okay. So we run this and we and we got it. Now, we have the class. Okay, now, there's a whole bunch of code on this. If you want to go look at it.
+
+861
+01:17:42.200 --> 01:17:44.419
+Anthony Taylor: Here we'll go. Take a quick! Get this one.
+
+862
+01:17:47.010 --> 01:17:50.230
+Anthony Taylor: and if you come down here you can see usage.
+
+863
+01:17:50.650 --> 01:17:52.170
+Anthony Taylor: So like
+
+864
+01:17:54.100 --> 01:18:07.300
+Anthony Taylor: this looks really awful. Right. Get the name and the B 2, 5, 0 3, 4 underscore 0 1 0 E. 4 state dot format States. MD. Fits
+
+865
+01:18:09.510 --> 01:18:13.860
+Anthony Taylor: expect all of you to have this memorized by the end of
+
+866
+01:18:15.090 --> 01:18:19.279
+Anthony Taylor: okay? No. So how you do all of this. Okay.
+
+867
+01:18:19.300 --> 01:18:22.949
+Anthony Taylor: so you can. The probably the best thing is, go to the guide.
+
+868
+01:18:24.380 --> 01:18:29.039
+Anthony Taylor: and it will explain. A lot of stuff.
+
+869
+01:18:31.670 --> 01:18:33.120
+Let's look at like.
+
+870
+01:18:34.590 --> 01:18:41.079
+Anthony Taylor: well, okay, so this is explaining how the actual Api works itself. This isn't for the SDK,
+
+871
+01:18:41.630 --> 01:18:43.769
+Anthony Taylor: this is the SDK, this
+
+872
+01:18:44.000 --> 01:18:49.200
+Anthony Taylor: this one here, the census that you install looking for.
+
+873
+01:18:56.460 --> 01:19:00.800
+Anthony Taylor: So here's all the different things you can do. You could ask for.
+
+874
+01:19:02.090 --> 01:19:03.230
+Anthony Taylor: Okay?
+
+875
+01:19:05.220 --> 01:19:11.240
+Anthony Taylor: So if you do print states in the Phips. you would get
+
+876
+01:19:12.990 --> 01:19:14.829
+Anthony Taylor: one of these guys up here.
+
+877
+01:19:15.540 --> 01:19:21.709
+Anthony Taylor: So and we're doing, you can do this. You can try all these things. I'm trying to find you a list of abbreviations.
+
+878
+01:19:21.940 --> 01:19:23.880
+Anthony Taylor: There's a whole list of them.
+
+879
+01:19:24.950 --> 01:19:29.650
+Anthony Taylor: and they're not popping out at me right now.
+
+880
+01:19:34.300 --> 01:19:38.969
+Anthony Taylor: This is the actual census site. That's funny that that one doesn't work. But that's okay.
+
+881
+01:19:48.320 --> 01:19:50.370
+Anthony Taylor: What is up with these links?
+
+882
+01:19:52.900 --> 01:19:55.600
+Anthony Taylor: They work. So good. Okay.
+
+883
+01:19:58.250 --> 01:20:01.789
+Anthony Taylor: I will find you. Oh, there we see that it just took forever
+
+884
+01:20:04.120 --> 01:20:05.919
+Masarirambi, Rodney: you ice creamed into that.
+
+885
+01:20:07.270 --> 01:20:08.310
+Anthony Taylor: I'm sorry.
+
+886
+01:20:08.580 --> 01:20:10.929
+Masarirambi, Rodney: are you? I framed into that page.
+
+887
+01:20:10.970 --> 01:20:15.079
+Masarirambi, Rodney: cause that's what it does. They? They might have it. Yeah, I didn't. Yeah.
+
+888
+01:20:15.520 --> 01:20:16.370
+Anthony Taylor: Yeah.
+
+889
+01:20:16.820 --> 01:20:18.130
+Masarirambi, Rodney: Weird.
+
+890
+01:20:18.910 --> 01:20:20.779
+Anthony Taylor: yeah. It's a government.
+
+891
+01:20:22.070 --> 01:20:26.109
+Anthony Taylor: literally all the all the people that that that that be
+
+892
+01:20:26.190 --> 01:20:31.450
+Anthony Taylor: need a boot camp should be. Yeah, you know it didn't take one. They're working for a government.
+
+893
+01:20:32.330 --> 01:20:46.450
+sonja baro:  sorry, I must hear I'm laughing at your joke. It's true.
+
+894
+01:20:46.610 --> 01:20:51.870
+Mason, Natalie: I'm getting from census and can't import census, but I put installed it.
+
+895
+01:20:51.920 --> 01:21:03.209
+Anthony Taylor: I don't understand. Did you Pip? Install lower case senses lower case. It needs to be upper case
+
+896
+01:21:03.520 --> 01:21:04.980
+Anthony Taylor: reboot the kernel
+
+897
+01:21:05.650 --> 01:21:08.009
+Masarirambi, Rodney: low case. That's
+
+898
+01:21:08.370 --> 01:21:11.149
+Anthony Taylor: yeah. Everything needs to be lower case. You want to show us real quick.
+
+899
+01:21:11.720 --> 01:21:13.370
+Mason, Natalie: Sure.
+
+900
+01:21:15.750 --> 01:21:25.549
+Raugewitz, Tania: even when I type in Pip install. Since that's census, all of those are squiggly lined, and it says requirement already satisfied.
+
+901
+01:21:26.310 --> 01:21:37.269
+Anthony Taylor: Oh, then you're okay. You don't even need to do that. Oh, yeah, yours is fine, too. What's wrong? Run the cell.
+
+902
+01:21:37.860 --> 01:21:39.249
+Anthony Taylor: Natalie, run this out.
+
+903
+01:21:45.460 --> 01:21:48.790
+Anthony Taylor: So you have a where is? Go back up? What is that
+
+904
+01:21:50.280 --> 01:21:53.029
+Kanouff, Christine: I've got the same thing going on.
+
+905
+01:21:53.450 --> 01:21:59.120
+Anthony Taylor: Alright. We'll go ahead and restart your kernel, or well, first restart your colonel, and then we'll see.
+
+906
+01:22:03.010 --> 01:22:06.220
+Anthony Taylor: Okay. Try the the first, not the pip install the second.
+
+907
+01:22:11.790 --> 01:22:17.819
+Anthony Taylor: I'll be damn alright. Try closing Vs code. Let me open it. Why did you not have package resources.
+
+908
+01:22:19.140 --> 01:22:24.419
+Jennifer Dahlgren: That's weird, that one stop there.
+
+909
+01:22:24.490 --> 01:22:25.870
+Mason, Natalie: The
+
+910
+01:22:26.280 --> 01:22:30.300
+Anthony Taylor: is that the one that all of you guys are getting is package resources.
+
+911
+01:22:34.860 --> 01:22:39.960
+Anthony Taylor: Yeah, we can pip install it if we need to. It's just unusual that it's not there.
+
+912
+01:22:45.870 --> 01:22:50.400
+Anthony Taylor: Alright. And remember, you don't need to pip install again. Just run the first cell after Pip install
+
+913
+01:22:52.200 --> 01:22:53.340
+Anthony Taylor: right there.
+
+914
+01:22:56.100 --> 01:22:58.430
+Anthony Taylor: Wait for it. Don't move too far.
+
+915
+01:23:09.500 --> 01:23:11.600
+Jennifer Dahlgren: Did you update your example file?
+
+916
+01:23:13.560 --> 01:23:14.719
+Anthony Taylor: But this is
+
+917
+01:23:14.880 --> 01:23:15.740
+Mason, Natalie: Hello.
+
+918
+01:23:17.080 --> 01:23:18.690
+Anthony Taylor: Yeah, that's okay.
+
+919
+01:23:19.140 --> 01:23:30.770
+Anthony Taylor:  There's a space between the the quote in your your first part of your key.
+
+920
+01:23:31.230 --> 01:23:32.140
+Kanouff, Christine: Yeah.
+
+921
+01:23:32.330 --> 01:23:37.339
+Meredith McCanse (she/her): make sure you save it. Save the example. File before you try to run it again.
+
+922
+01:23:38.220 --> 01:23:39.420
+Mason, Natalie: I did.
+
+923
+01:23:39.580 --> 01:23:44.160
+Mason, Natalie:  But it's not the problem. Right now.
+
+924
+01:23:44.620 --> 01:23:47.730
+Kanouff, Christine: I'm getting the same same thing.
+
+925
+01:23:49.050 --> 01:23:59.170
+Anthony Taylor: package resources, and see what happens. Well, hold on it. It. The error is actually in the census.
+
+926
+01:23:59.760 --> 01:24:02.550
+Mason, Natalie: If you look at this line right here.
+
+927
+01:24:02.940 --> 01:24:05.180
+Mason, Natalie: unsupported year section
+
+928
+01:24:05.540 --> 01:24:13.109
+Anthony Taylor: right here. See, look, this is actually part of the census code that's failing.
+
+929
+01:24:13.570 --> 01:24:18.930
+Anthony Taylor: Go ahead and try. And other people are having the same error.
+
+930
+01:24:21.010 --> 01:24:22.420
+Meredith McCanse (she/her): Mine were that.
+
+931
+01:24:23.590 --> 01:24:26.180
+Kanouff, Christine: So you guys worked after you did the reboot thing
+
+932
+01:24:27.410 --> 01:24:28.990
+Anthony Taylor: or the restart thing.
+
+933
+01:24:29.130 --> 01:24:30.790
+sonja baro: and I'm all good, too.
+
+934
+01:24:32.440 --> 01:24:34.930
+Anthony Taylor: So is anybody else's networking
+
+935
+01:24:37.750 --> 01:24:40.470
+Sihong Zhou: mind not working in the same problem.
+
+936
+01:24:41.090 --> 01:24:44.299
+Anthony Taylor: Wait. And, Christine Brandon, yours isn't working also.
+
+937
+01:24:45.600 --> 01:24:50.710
+Mckimmy, Brandon: I read the email came from. It's saying, I have to wait 48 h.
+
+938
+01:24:51.420 --> 01:25:06.699
+Anthony Taylor: That's crazy. That's the census. When did everybody get there? When did everybody get the code cause? I got mine just like a couple of minutes ago, and that was fine. So I wonder whether it's like, no, no, this isn't this isn't that. This is no, they legitimately have something wrong.
+
+939
+01:25:06.720 --> 01:25:10.049
+Anthony Taylor: Go to a new cell at the top again.
+
+940
+01:25:10.180 --> 01:25:11.110
+Anthony Taylor: Natalie.
+
+941
+01:25:12.630 --> 01:25:13.820
+Mason, Natalie: Okay.
+
+942
+01:25:14.190 --> 01:25:20.389
+Anthony Taylor: yeah. And say no back to Pipinstock. We don't need a new one. Do Pip. Install
+
+943
+01:25:20.910 --> 01:25:23.520
+Anthony Taylor:  setup tools.
+
+944
+01:25:24.670 --> 01:25:26.120
+Mason, Natalie: any spaces?
+
+945
+01:25:27.300 --> 01:25:28.160
+No.
+
+946
+01:25:28.750 --> 01:25:30.260
+Anthony Taylor: and get rid of that first.
+
+947
+01:25:30.890 --> 01:25:31.850
+Mason, Natalie: Okay?
+
+948
+01:25:37.500 --> 01:25:38.720
+Anthony Taylor: Alright run that.
+
+949
+01:25:51.650 --> 01:25:54.300
+Anthony Taylor: Okay? So restart.
+
+950
+01:25:55.020 --> 01:26:01.530
+Dipinto, Matt: So it's using stuff. So try and do the dash on that. Yeah.
+
+951
+01:26:02.190 --> 01:26:07.309
+Anthony Taylor: well, let's see if this let's let's just see what happens. Hold on, and then we'll do that
+
+952
+01:26:08.310 --> 01:26:13.720
+Anthony Taylor: with what? Cindy.
+
+953
+01:26:15.550 --> 01:26:19.219
+Sihong Zhou: Okay? Oh, with setup tools. Well, that's amazing.
+
+954
+01:26:19.670 --> 01:26:22.730
+Kanouff, Christine: Signatures. Yeah. Mine, too.
+
+955
+01:26:22.950 --> 01:26:35.369
+Anthony Taylor: Alright. So there was something wrong with your setup tools. That's just weird, because looks like, clearly you have them doesn't use the cash version. But alright, you can delete this this cell. Now, guys, okay.
+
+956
+01:26:35.900 --> 01:26:48.550
+Anthony Taylor: And for the record, Matt was right. If you guys see it cash and it still wouldn't work, you absolutely would. What? To? force it. Okay. But
+
+957
+01:26:48.780 --> 01:26:51.430
+Anthony Taylor: so I wanted to give kudos to Matt, knowing that.
+
+958
+01:26:52.460 --> 01:26:53.510
+Dipinto, Matt: Thanks.
+
+959
+01:26:54.640 --> 01:26:55.450
+Anthony Taylor: Okay.
+
+960
+01:26:55.570 --> 01:27:02.950
+Anthony Taylor: alright. So we're past here. We're here. I'm gonna find where this is. I know it's in here some
+
+961
+01:27:03.160 --> 01:27:08.839
+Anthony Taylor: I always find it and give it to the students, because it's it might even be in the materials.
+
+962
+01:27:09.100 --> 01:27:13.380
+Anthony Taylor:  so each of these things. Now, the good news is
+
+963
+01:27:14.000 --> 01:27:18.020
+Anthony Taylor: for this exercise. You can see what they are.
+
+964
+01:27:20.050 --> 01:27:26.380
+Anthony Taylor: Okay. So B, 1, 9, 0, 1, 3 underscore 0 one E is population
+
+965
+01:27:27.860 --> 01:27:33.770
+Anthony Taylor: B, 0, 1 0 0 2 undersport 0 0 one E. This median age.
+
+966
+01:27:33.880 --> 01:27:40.159
+Anthony Taylor: If anybody in your house can hear me talking right now. They're like this, the hardest class ever
+
+967
+01:27:41.730 --> 01:27:42.860
+Anthony Taylor: it kind of is.
+
+968
+01:27:43.230 --> 01:27:48.420
+Anthony Taylor: this is just weird. And it's always. And this everyone is. But it's so freaky value.
+
+969
+01:27:48.750 --> 01:27:56.130
+Anthony Taylor: Okay? All right. So let's go through this real quick  to do it. We're gonna do it get.
+
+970
+01:27:56.160 --> 01:28:02.940
+Anthony Taylor: We're gonna give it the columns we want, and I'll find the documentation of columns so great. And then
+
+971
+01:28:03.200 --> 01:28:09.150
+Anthony Taylor: we're going to do a 4 so effectively. So think of what the census is. Before I explain this.
+
+972
+01:28:09.510 --> 01:28:11.579
+Anthony Taylor: everyone understands what census is
+
+973
+01:28:11.740 --> 01:28:15.550
+Anthony Taylor: someone, not one. Thousands of people.
+
+974
+01:28:16.120 --> 01:28:18.290
+Anthony Taylor: maybe hundreds of thousands, tens of thousands
+
+975
+01:28:18.690 --> 01:28:23.350
+Anthony Taylor: walked around and knocked on every door everywhere
+
+976
+01:28:24.380 --> 01:28:25.530
+Anthony Taylor: in the country
+
+977
+01:28:27.040 --> 01:28:31.299
+Anthony Taylor: and asked a bunch of questions. How many of you guys actually did Scott ask questions?
+
+978
+01:28:31.690 --> 01:28:32.710
+Anthony Taylor: Anybody?
+
+979
+01:28:34.200 --> 01:28:37.669
+Anthony Taylor: Okay? Alright, that's amazing. I've never been asked the question ever.
+
+980
+01:28:37.810 --> 01:28:39.710
+Mason, Natalie: I don't answer my doors.
+
+981
+01:28:40.990 --> 01:28:49.339
+Anthony Taylor: Sometimes it comes in the mail, I've responded. That's what I was about to ask. If they do it online these days.
+
+982
+01:28:51.080 --> 01:28:56.759
+sonja baro: So, Anthony, this is referencing Acs, not the
+
+983
+01:28:56.810 --> 01:28:59.899
+sonja baro: the 10 year census. It says.
+
+984
+01:29:00.550 --> 01:29:06.839
+sonja baro: so is that that's handled differently. Right? It has more questions.
+
+985
+01:29:07.460 --> 01:29:08.450
+Anthony Taylor: probably.
+
+986
+01:29:08.900 --> 01:29:15.500
+Anthony Taylor: Yeah. And there's probably I don't know if the census wrapper just only does this one, or maybe it does others, too. We can check.
+
+987
+01:29:15.840 --> 01:29:25.919
+sonja baro: We can look at that. One of your resources went into this detail. So I just wanted to make sure that there was a difference that this is calling. I didn't.
+
+988
+01:29:26.320 --> 01:29:30.459
+sonja baro: Yeah, there you go. No, I do.
+
+989
+01:29:31.100 --> 01:29:32.940
+Anthony Taylor: I learned something today.
+
+990
+01:29:33.260 --> 01:29:35.309
+Anthony Taylor: So back to this.
+
+991
+01:29:36.340 --> 01:29:40.270
+Anthony Taylor: however, we got the data. It's at a very individual brain.
+
+992
+01:29:41.410 --> 01:29:42.510
+Anthony Taylor: Okay.
+
+993
+01:29:42.560 --> 01:29:49.660
+Anthony Taylor: so it's at brain of each one of you. But if I wanted to aggregate and get the sum
+
+994
+01:29:49.800 --> 01:29:52.139
+Anthony Taylor: of all of your responses.
+
+995
+01:29:52.380 --> 01:29:58.650
+Anthony Taylor: or the average, or whatever I would say by class. Okay, well.
+
+996
+01:29:58.820 --> 01:30:02.020
+Anthony Taylor: what this 4 right here is
+
+997
+01:30:02.320 --> 01:30:05.770
+Anthony Taylor: is us telling it how we want it to aggregate.
+
+998
+01:30:07.870 --> 01:30:11.510
+Anthony Taylor: Got it. So we're saying, zip code.
+
+999
+01:30:12.040 --> 01:30:15.459
+Anthony Taylor: tabulation area. Actually, this one's a filter
+
+1000
+01:30:15.680 --> 01:30:19.050
+Anthony Taylor: zip code tabulation area. all of them.
+
+1001
+01:30:20.120 --> 01:30:25.009
+Anthony Taylor: Okay? So what it'll do is pull all the zip codes and aggregate at the Zip code label.
+
+1002
+01:30:27.330 --> 01:30:28.270
+Anthony Taylor: Okay.
+
+1003
+01:30:28.470 --> 01:30:34.830
+Anthony Taylor: make sense. So it'll be population by zip code, Median age by zip code, also income by zip code
+
+1004
+01:30:35.070 --> 01:30:42.630
+Anthony Taylor: per cap. It'll all be like like, I don't know what y'all zip code is mine. 7, 8, 2, 4, 5, so 7, 8, 2, 4, 5. I will have all of these measures
+
+1005
+01:30:42.890 --> 01:30:44.100
+Anthony Taylor: for that. Zipcar.
+
+1006
+01:30:45.670 --> 01:30:47.750
+Anthony Taylor: Okay, but it's going to do all of them.
+
+1007
+01:30:49.810 --> 01:31:05.710
+Anthony Taylor: because that's what that star is telling you could say, I only want zip codes in a certain range or something along those lines. Okay. then we're going to rename it. So we're just doing rename. And then we're going to take these crazy columns and give them friendly names.
+
+1008
+01:31:06.790 --> 01:31:07.800
+Anthony Taylor: Okay?
+
+1009
+01:31:08.180 --> 01:31:11.489
+Anthony Taylor: And then we're going to calculate poverty rates.
+
+1010
+01:31:12.820 --> 01:31:18.539
+Anthony Taylor: Alright. So 100 times poverty count and divided divided by population.
+
+1011
+01:31:19.840 --> 01:31:24.679
+Anthony Taylor: So this is all people living at, whatever the poverty scale is for this particular census.
+
+1012
+01:31:26.380 --> 01:31:27.440
+Anthony Taylor: Okay?
+
+1013
+01:31:28.290 --> 01:31:36.870
+Anthony Taylor:  And then here we have a list of dictionary items. Well, no, this is a list of lists. Oh, so there's gonna be columns that we want to call.
+
+1014
+01:31:37.170 --> 01:31:39.520
+Anthony Taylor: So then we're going to
+
+1015
+01:31:39.590 --> 01:31:44.289
+Anthony Taylor: get the number of rows and just print out what it looks like.
+
+1016
+01:31:44.330 --> 01:31:47.070
+Anthony Taylor: So I'm gonna clear all outputs. And I'm gonna run this
+
+1017
+01:31:53.090 --> 01:31:54.669
+Anthony Taylor: and say it was fast.
+
+1018
+01:31:55.200 --> 01:32:01.070
+Anthony Taylor: So here you see, for these zip codes, and there's a lot of them. There's 33,120 records.
+
+1019
+01:32:02.930 --> 01:32:08.250
+Anthony Taylor: You can see the population, the median A's household income per capita poverty, count poverty rate.
+
+1020
+01:32:10.160 --> 01:32:11.850
+Anthony Taylor: Do you see why this could be valuable?
+
+1021
+01:32:13.020 --> 01:32:17.809
+Anthony Taylor: And this is like we barely scratch and surface. Here, guys, there's a lot to this.
+
+1022
+01:32:18.370 --> 01:32:22.400
+Anthony Taylor: Okay. and then if we wanted to put it in the file, yeah, you did.
+
+1023
+01:32:24.280 --> 01:32:25.240
+Anthony Taylor: Okay.
+
+1024
+01:32:28.110 --> 01:32:29.180
+Anthony Taylor: Pretty fun.
+
+1025
+01:32:30.650 --> 01:32:34.289
+Anthony Taylor: I really want to find that list. I think I found
+
+1026
+01:32:35.230 --> 01:32:36.749
+Anthony Taylor: I knew it was in here somewhere.
+
+1027
+01:32:40.340 --> 01:32:51.650
+Anthony Taylor: So yeah, so it's not easy to read. But here it is. So if you come in here, these are all of the I'll slow down. Don't worry. This is all of the things you can pull.
+
+1028
+01:32:56.960 --> 01:32:57.930
+Anthony Taylor: It's quite a bit
+
+1029
+01:32:58.640 --> 01:33:03.280
+Anthony Taylor: okay. And inside of there the variable
+
+1030
+01:33:03.800 --> 01:33:06.380
+Anthony Taylor: is what you pull with that dot get
+
+1031
+01:33:08.440 --> 01:33:13.770
+Anthony Taylor: so you would pull this. and then you could rename it to this
+
+1032
+01:33:14.910 --> 01:33:16.070
+Anthony Taylor: understood.
+
+1033
+01:33:17.320 --> 01:33:19.170
+Anthony Taylor: And there is a lot here.
+
+1034
+01:33:19.840 --> 01:33:25.430
+Anthony Taylor: Some of it is not very useful, but you never know Median contract rent.
+
+1035
+01:33:27.130 --> 01:33:34.960
+Anthony Taylor: Median, gross friends, Median home value. employment, female health tech, not health.
+
+1036
+01:33:35.970 --> 01:33:37.240
+Anthony Taylor: Beth ledger
+
+1037
+01:33:37.560 --> 01:33:39.719
+Anthony Taylor: me and employ. Forget it.
+
+1038
+01:33:40.030 --> 01:33:45.690
+Anthony Taylor: Employment, mail, material moving occupation. Man. That that would be Mike.
+
+1039
+01:33:47.200 --> 01:33:49.350
+Anthony Taylor: Material moving. Yeah.
+
+1040
+01:33:51.880 --> 01:33:58.769
+michael mcpherson: no, no, III do. Specialized heavy machinery and and very large big things.
+
+1041
+01:33:59.340 --> 01:34:02.160
+Anthony Taylor: Well, here I could be employing
+
+1042
+01:34:02.230 --> 01:34:09.569
+Anthony Taylor: employment, mail education, training and library occupations and arts, design entertainment, sports, media occupations
+
+1043
+01:34:10.150 --> 01:34:13.120
+Anthony Taylor: and healthcare could be like 10 min.
+
+1044
+01:34:14.260 --> 01:34:16.959
+Anthony Taylor: That's fun. Okay? So anyway.
+
+1045
+01:34:17.170 --> 01:34:19.590
+Anthony Taylor: that's income is the big one.
+
+1046
+01:34:20.220 --> 01:34:21.580
+Anthony Taylor: Lot of people like that.
+
+1047
+01:34:23.870 --> 01:34:24.730
+Anthony Taylor: Okay.
+
+1048
+01:34:26.340 --> 01:34:32.220
+Anthony Taylor: pretty cool. awesome. So this link is in that notebook right there.
+
+1049
+01:34:34.000 --> 01:34:37.509
+Anthony Taylor: Don't lose that link while you're working the census. It's super helpful.
+
+1050
+01:34:38.390 --> 01:34:40.339
+Anthony Taylor: Okay, let's do the everyone. Do you?
+
+1051
+01:34:41.750 --> 01:34:51.539
+Anthony Taylor: So make sure you put your key in. You do not need to pip install ever again as long as unless you get a new computer like Mike did.
+
+1052
+01:34:53.930 --> 01:34:54.990
+Anthony Taylor: Okay?
+
+1053
+01:34:57.410 --> 01:34:58.380
+Alright.
+
+1054
+01:35:06.910 --> 01:35:16.050
+Anthony Taylor: it's the same field. Yeah. Okay. the field label information is also. oh, it's not there. Well, that's bogus.
+
+1055
+01:35:20.720 --> 01:35:24.449
+Anthony Taylor: That's kind of mean that they didn't put that there cause. It's like, Why would you put that there?
+
+1056
+01:35:26.920 --> 01:35:31.099
+Anthony Taylor: Hi! So let's load our file.
+
+1057
+01:35:35.210 --> 01:35:38.270
+Anthony Taylor: And we can run that film. And we're good to go.
+
+1058
+01:35:39.300 --> 01:35:42.209
+Anthony Taylor: Okay. So first, we're gonna build
+
+1059
+01:35:43.180 --> 01:35:48.830
+Anthony Taylor: the object, we're gonna initialize the class, we're gonna see equals census
+
+1060
+01:35:49.010 --> 01:35:52.440
+Anthony Taylor: parentheses. And we're going to do our Apis
+
+1061
+01:35:53.710 --> 01:36:00.759
+Anthony Taylor: and the year for this one. 2020, yeah, baby, what? Brando?
+
+1062
+01:36:01.360 --> 01:36:05.490
+Mckimmy, Brandon: There's no S on examples. P. And V, it's just example E, and V,
+
+1063
+01:36:06.060 --> 01:36:07.100
+you rock
+
+1064
+01:36:09.610 --> 01:36:12.350
+Anthony Taylor: that brought my error.
+
+1065
+01:36:12.920 --> 01:36:15.390
+Anthony Taylor: Okay. so
+
+1066
+01:36:16.340 --> 01:36:20.429
+Anthony Taylor:  I'm going to just paste this cell
+
+1067
+01:36:21.320 --> 01:36:26.569
+Anthony Taylor: into slack, because it's a lot of type.
+
+1068
+01:36:36.280 --> 01:36:38.830
+Anthony Taylor: And you know what. And while I'm here, I'm gonna paste
+
+1069
+01:36:39.360 --> 01:36:40.790
+Anthony Taylor: this in here, too.
+
+1070
+01:36:51.360 --> 01:36:55.099
+Clayton Graves: Okay, now, I'm able to retrieve data without a key.
+
+1071
+01:36:57.940 --> 01:36:59.260
+Anthony Taylor: Say what?
+
+1072
+01:37:00.570 --> 01:37:03.379
+Clayton Graves: I'm retrieving data without an Api key.
+
+1073
+01:37:04.590 --> 01:37:06.399
+Anthony Taylor: Well, anything is possible.
+
+1074
+01:37:09.210 --> 01:37:13.750
+Anthony Taylor:  You loaded it in the last one, I would guess.
+
+1075
+01:37:16.170 --> 01:37:20.590
+Anthony Taylor: and you haven't restarted your kernel since you loaded it. So it's still in memory.
+
+1076
+01:37:20.830 --> 01:37:31.129
+Anthony Taylor: Alright, let me restart my colonel. Well, why would you want to do that? Okay. So here we've got Pennsylvania, California, West Virginia, New New York, Utah, etc.,
+
+1077
+01:37:31.240 --> 01:37:36.059
+Anthony Taylor: household income, population, Median age.
+
+1078
+01:37:37.050 --> 01:37:46.740
+Anthony Taylor: employable people in the labor force. Median home value. And whatever that value is. date
+
+1079
+01:37:48.360 --> 01:37:49.390
+Anthony Taylor: pretty cool.
+
+1080
+01:37:51.060 --> 01:37:52.210
+Anthony Taylor: just like that.
+
+1081
+01:37:52.710 --> 01:37:53.470
+Just like.
+
+1082
+01:37:54.460 --> 01:37:56.170
+Anthony Taylor: okay, huh?
+
+1083
+01:37:56.330 --> 01:37:58.499
+Anthony Taylor: That's literally it. That's all we were going to do.
+
+1084
+01:37:58.760 --> 01:38:00.730
+Anthony Taylor: Oh, my God, I should've made a stip.
+
+1085
+01:38:01.440 --> 01:38:04.479
+Anthony Taylor: Okay, so but for the record.
+
+1086
+01:38:04.550 --> 01:38:07.700
+Anthony Taylor: did it tell us what? It didn't even tell us what it was.
+
+1087
+01:38:08.890 --> 01:38:19.450
+Anthony Taylor: Yeah. So we got population D and age, household income, employable people. They will force medium home value. We've created a data frame. We can save it as a Csv, so that we don't have to go back
+
+1088
+01:38:20.430 --> 01:38:25.109
+Anthony Taylor: and pull this every time. You don't want to do that. it's it's not gonna change.
+
+1089
+01:38:25.370 --> 01:38:30.680
+Anthony Taylor: So go ahead and pull what you need. Throw it into a Csv file. Use that in your projects.
+
+1090
+01:38:32.270 --> 01:38:37.290
+Anthony Taylor: Okay, there's a lot of data usually. Well, this one's 52 States. So.
+
+1091
+01:38:38.900 --> 01:38:39.630
+Anthony Taylor: but
+
+1092
+01:38:39.840 --> 01:38:43.760
+Anthony Taylor: when you go at like zip code level or county level, it gets to be quite a bit.
+
+1093
+01:38:44.960 --> 01:38:45.880
+Anthony Taylor: Okay.
+
+1094
+01:38:47.690 --> 01:38:55.530
+Anthony Taylor: So we'll we'll do it to Csv, but everyone should probably remember this sense is, why was it a Pd
+
+1095
+01:39:03.480 --> 01:39:04.380
+Anthony Taylor: her?
+
+1096
+01:39:18.510 --> 01:39:19.670
+Anthony Taylor: And that is that
+
+1097
+01:39:21.700 --> 01:39:33.990
+Anthony Taylor: how you guys feeling about senses? And right now it should be fairly intimidating because those names are crazy. But all you gotta do is look at that link message. Find what you're looking for. Get the crazy name.
+
+1098
+01:39:34.950 --> 01:39:36.470
+Anthony Taylor: Put it in here.
+
+1099
+01:39:37.010 --> 01:39:39.750
+Anthony Taylor: and that's it. Okay? I mean, that's pretty much it.
+
+1100
+01:39:40.370 --> 01:39:41.910
+If you want it.
+
+1101
+01:39:42.100 --> 01:39:44.799
+Anthony Taylor: II just remember you can do Zip
+
+1102
+01:39:44.860 --> 01:39:46.719
+Anthony Taylor: City County State.
+
+1103
+01:39:48.070 --> 01:39:52.150
+Anthony Taylor: There might even be other ones. But those are the main ones that you could put right here.
+
+1104
+01:39:53.650 --> 01:39:58.219
+Anthony Taylor: Okay, and it just aggregates by each one like, if we change this, to
+
+1105
+01:39:58.860 --> 01:40:01.290
+Anthony Taylor: think this will work, let's try again.
+
+1106
+01:40:03.380 --> 01:40:04.440
+Anthony Taylor: should work.
+
+1107
+01:40:07.100 --> 01:40:10.509
+Anthony Taylor: Yep. And so now you'll see everything is aggregated at a calculator.
+
+1108
+01:40:10.820 --> 01:40:12.330
+Anthony Taylor: We also got a lot more.
+
+1109
+01:40:14.440 --> 01:40:15.390
+Anthony Taylor: Okay.
+
+1110
+01:40:15.840 --> 01:40:19.959
+Anthony Taylor: And again, if you wanted to filter, you could actually put like
+
+1111
+01:40:24.150 --> 01:40:25.190
+No
+
+1112
+01:40:26.650 --> 01:40:34.239
+Anthony Taylor: Delvin into areas, I don't usually play it. So let's see how that works. Yeah, didn't like that thinking, this needs to be in close.
+
+1113
+01:40:37.020 --> 01:40:41.030
+Anthony Taylor: No? Well, we'll have to look up how to get specific.
+
+1114
+01:40:41.250 --> 01:40:42.480
+Anthony Taylor: What's
+
+1115
+01:40:45.040 --> 01:40:46.509
+Anthony Taylor: yeah, there's something
+
+1116
+01:40:52.320 --> 01:40:54.440
+Anthony Taylor: Pat really didn't like that.
+
+1117
+01:40:55.650 --> 01:40:57.559
+Anthony Taylor: anyway. Yes.
+
+1118
+01:40:58.800 --> 01:41:01.300
+Meredith McCanse (she/her): Anthony, in terms of.
+
+1119
+01:41:01.730 --> 01:41:18.750
+Meredith McCanse (she/her): So is this. So this is an SDK, or S Kd. Is the difference that we didn't ever have to create a query. You are well, it it made the call to the Api for you.
+
+1120
+01:41:18.870 --> 01:41:23.399
+Anthony Taylor: So the one, that one. Sec, that few seconds I went in that one.
+
+1121
+01:41:23.670 --> 01:41:32.560
+Anthony Taylor:  So this is the actual Api.
+
+1122
+01:41:34.210 --> 01:41:36.879
+Anthony Taylor: okay, so you came in here
+
+1123
+01:41:37.960 --> 01:41:38.940
+Anthony Taylor: and
+
+1124
+01:41:39.060 --> 01:41:40.190
+and
+
+1125
+01:41:40.990 --> 01:41:44.460
+Anthony Taylor: see, you can see there's different
+
+1126
+01:41:46.510 --> 01:41:50.289
+Anthony Taylor: ones in here. So there's 2,020.
+
+1127
+01:41:51.040 --> 01:42:00.370
+Anthony Taylor: Okay? So you could technically go and call directly from there we provide we we are we provide you with the census? SDK,
+
+1128
+01:42:00.500 --> 01:42:06.270
+Anthony Taylor: it's just another tool. You don't have to use it. but I would recommend it. It makes it a little easier
+
+1129
+01:42:07.260 --> 01:42:14.930
+Meredith McCanse (she/her): in the code. Which part is the SDK, is it? When we did see, when you do this census, this, this.
+
+1130
+01:42:15.100 --> 01:42:16.789
+Anthony Taylor: this is the SDK,
+
+1131
+01:42:18.950 --> 01:42:27.839
+Anthony Taylor: so all it's doing is basically encapsulating the calls to make it simpler, so that you can make a call by just doing that.
+
+1132
+01:42:29.680 --> 01:42:34.069
+Anthony Taylor: You don't have to do like the whole URL and Api key, and all that stuff
+
+1133
+01:42:34.990 --> 01:42:41.720
+Meredith McCanse (she/her): got it, and the part of top where it says, initializing the SDK,
+
+1134
+01:42:42.800 --> 01:42:48.149
+Anthony Taylor: so think of it like a class. Remember, when we did classes. and you're creating a class
+
+1135
+01:42:48.360 --> 01:43:02.110
+Anthony Taylor: from you're creating a census class. These are the things you're initializing it with. And it's being assigned to the C variable. So here you can use that C variable to call methods within that class.
+
+1136
+01:43:03.350 --> 01:43:04.310
+Meredith McCanse (she/her): Okay?
+
+1137
+01:43:04.710 --> 01:43:11.669
+Meredith McCanse (she/her): And the Acs 5 is basically the data source. Well, that's whatever that's part of their documentation.
+
+1138
+01:43:12.010 --> 01:43:15.590
+Anthony Taylor: So like, let's go look at this one
+
+1139
+01:43:17.690 --> 01:43:19.240
+Anthony Taylor: census.
+
+1140
+01:43:21.370 --> 01:43:24.630
+Anthony Taylor: Oh, look, there's actually another one called us.
+
+1141
+01:43:25.730 --> 01:43:39.759
+Anthony Taylor: That's pretty cool.  So here's the ones that they offer you. A CS. 5 a. CS. 3 a. CS. One. 5 dp. 3 dp. One dB, 5 sd.
+
+1142
+01:43:40.310 --> 01:43:43.239
+Anthony Taylor: Ss. As F. One for 2,010,
+
+1143
+01:43:45.360 --> 01:43:46.370
+Anthony Taylor: and
+
+1144
+01:43:47.540 --> 01:43:48.630
+Anthony Taylor: redistricting
+
+1145
+01:43:52.300 --> 01:43:53.220
+Anthony Taylor: cool.
+
+1146
+01:43:53.520 --> 01:43:54.970
+Meredith McCanse (she/her): Okay, thank you.
+
+1147
+01:43:55.530 --> 01:44:07.980
+Dipinto, Matt: So the reason you couldn't search the state or county, or anything is because they're numbered, not by name. that makes sense. So you can do a loke after do you like? Contains
+
+1148
+01:44:10.730 --> 01:44:15.510
+Anthony Taylor: in the key. It's in the census. SDK, where did you Google? That?
+
+1149
+01:44:15.600 --> 01:44:25.070
+Dipinto, Matt: No. So I was just looking at. And you had, like the default had states. And you know, California was state 0 6 or something. So I figured counties would be the same
+
+1150
+01:44:25.430 --> 01:44:29.579
+Dipinto, Matt: and then I did. I took the census
+
+1151
+01:44:30.930 --> 01:44:33.239
+Dipinto, Matt: data frame and used a log on it
+
+1152
+01:44:33.290 --> 01:44:39.350
+Dipinto, Matt: then. Yeah, anyway. So Orange County County 423.
+
+1153
+01:44:39.460 --> 01:44:44.520
+Anthony Taylor: Yeah, I mean, that's that's a cool way. I think that's clever that works absolutely.
+
+1154
+01:44:44.860 --> 01:44:52.790
+Anthony Taylor: I'm fairly certain that we can filter a different level. I don't. I think you might be right. Using orange might not be a good idea.
+
+1155
+01:44:52.950 --> 01:44:57.310
+Anthony Taylor: because there's orange counties in lots of states. But
+
+1156
+01:44:58.470 --> 01:45:06.050
+Anthony Taylor: yeah. if I really wanted to, what I would normally do is come in here and just. I would either fork this repository
+
+1157
+01:45:06.310 --> 01:45:08.179
+Anthony Taylor: right to go and
+
+1158
+01:45:09.400 --> 01:45:11.470
+Anthony Taylor: pull it out the way I want to. But
+
+1159
+01:45:12.330 --> 01:45:13.150
+yeah.
+
+1160
+01:45:13.330 --> 01:45:14.739
+Anthony Taylor: there's no reason to do that.
+
+1161
+01:45:16.380 --> 01:45:19.820
+Anthony Taylor: I wouldn't worry about it. You shouldn't be searching for a single county, anyway.
+
+1162
+01:45:21.260 --> 01:45:26.110
+Anthony Taylor: Okay. so cool. So that's census. That's really it.
+
+1163
+01:45:27.000 --> 01:45:32.010
+Anthony Taylor: It's good stuff. I don't know how much of that. Well, you know what this, when I say we were gonna do, for
+
+1164
+01:45:32.060 --> 01:45:34.160
+Anthony Taylor: since we got done early today.
+
+1165
+01:45:34.590 --> 01:45:36.920
+Anthony Taylor: we're gonna go look at the homework.
+
+1166
+01:45:38.200 --> 01:45:39.650
+Anthony Taylor: Yay.
+
+1167
+01:45:42.450 --> 01:45:45.410
+Anthony Taylor: I'm assuming no one is, has any objections to that?
+
+1168
+01:45:51.780 --> 01:45:54.740
+Anthony Taylor: Okay, so
+
+1169
+01:45:58.650 --> 01:46:01.150
+Anthony Taylor: normally, the way I do this.
+
+1170
+01:46:03.460 --> 01:46:05.309
+Anthony Taylor: I go in here
+
+1171
+01:46:06.970 --> 01:46:09.559
+Anthony Taylor: and I open your starter code.
+
+1172
+01:46:13.740 --> 01:46:21.080
+Anthony Taylor: and we take a look so mine should have like hopefully, it has my comments in it. Oh, no.
+
+1173
+01:46:22.740 --> 01:46:26.579
+sonja baro: You gave us a new file for this? Right?
+
+1174
+01:46:26.620 --> 01:46:30.629
+sonja baro: Yeah, I probably did.
+
+1175
+01:46:30.650 --> 01:46:32.460
+sonja baro: Anthony, yeah.
+
+1176
+01:46:33.550 --> 01:46:39.079
+Anthony Taylor: Oh, no, I did. You're there. Okay, okay, cool. Yeah. Yeah.
+
+1177
+01:46:39.150 --> 01:46:52.690
+Anthony Taylor: Okay. So they gave you all of the dependencies. You don't need to add any dependencies. Remember to do the dot E and E to your example. E and V. They're only asking you for these 2 keys here. So hopefully, that's all.
+
+1178
+01:46:53.600 --> 01:46:55.250
+Anthony Taylor: Okay. So
+
+1179
+01:46:57.410 --> 01:47:00.059
+Anthony Taylor: here's my thing with the challenges, guys.
+
+1180
+01:47:01.300 --> 01:47:11.099
+Anthony Taylor: you should be looking through this. And the first thing that goes through your head. If you don't know what to do. What activity did we do to do that?
+
+1181
+01:47:12.510 --> 01:47:14.970
+Anthony Taylor: Okay. And there's lots of ways to find it.
+
+1182
+01:47:15.670 --> 01:47:21.000
+Anthony Taylor: You could search in. Git web. You could search in your folder where you're storing your git web stuff.
+
+1183
+01:47:21.230 --> 01:47:23.280
+Anthony Taylor: Whatever you need to do.
+
+1184
+01:47:23.750 --> 01:47:35.589
+Anthony Taylor: Okay? So all I do is exactly that I literally go into the Github Repository and search for whatever it is they're asking me to do here.
+
+1185
+01:47:36.440 --> 01:47:43.590
+Anthony Taylor: and then I find which activity it was. Go look at it, that's all the information. Alright,
+
+1186
+01:47:44.790 --> 01:47:49.310
+Anthony Taylor: so yeah. So the next 2 cells are all covered
+
+1187
+01:47:49.340 --> 01:47:51.049
+Anthony Taylor: in day. 2. Activity. C,
+
+1188
+01:47:51.400 --> 01:47:53.579
+Anthony Taylor: so just for fun, let's go. Look!
+
+1189
+01:47:56.900 --> 01:47:59.550
+Anthony Taylor: I'm pushing the wrong butt. There we go.
+
+1190
+01:47:59.950 --> 01:48:02.150
+Anthony Taylor: so open folder.
+
+1191
+01:48:02.550 --> 01:48:06.239
+Anthony Taylor: go to for class
+
+1192
+01:48:08.890 --> 01:48:11.669
+Anthony Taylor: and day to.
+
+1193
+01:48:15.560 --> 01:48:24.210
+Anthony Taylor: I can just open this alright, and then we'll go to 6. Here's 6 retrieve article solution.
+
+1194
+01:48:26.170 --> 01:48:30.650
+Anthony Taylor: And now I can go through this and ensure
+
+1195
+01:48:31.350 --> 01:48:34.310
+Anthony Taylor: that what I'm trying to do
+
+1196
+01:48:37.340 --> 01:48:40.560
+Anthony Taylor: is what's happening here. Okay?
+
+1197
+01:48:40.910 --> 01:48:46.049
+Anthony Taylor: And sure enough, you know, we'll be able, in fact, actually, now that I say this.
+
+1198
+01:48:47.730 --> 01:48:51.460
+Anthony Taylor: I'm gonna change it. because this is even better.
+
+1199
+01:48:54.280 --> 01:48:57.070
+Anthony Taylor: The one we did today. I mean, this is
+
+1200
+01:48:58.210 --> 01:49:01.289
+Anthony Taylor: pretty much you could copy
+
+1201
+01:49:02.540 --> 01:49:07.870
+Anthony Taylor: what we did today. Put it right there. The cell is done.
+
+1202
+01:49:10.330 --> 01:49:11.250
+Anthony Taylor: Okay.
+
+1203
+01:49:12.080 --> 01:49:23.089
+Anthony Taylor:  And then this is the same thing that we did on that one day. But it's also what we did today. Okay, so you're gonna create a list. You're gonna loop through the articles
+
+1204
+01:49:23.170 --> 01:49:29.470
+Anthony Taylor: and you're going to put them in the list. And then you're going to use Json dumps to take a look at it
+
+1205
+01:49:29.840 --> 01:49:35.050
+Anthony Taylor: and then you're gonna and see it again. These are, these are all covered in different activities.
+
+1206
+01:49:35.380 --> 01:49:36.370
+Anthony Taylor: Okay.
+
+1207
+01:49:36.570 --> 01:49:38.230
+Anthony Taylor: but
+
+1208
+01:49:38.890 --> 01:49:45.259
+Anthony Taylor: again, I would actually say that today's activity was better than all of the ones I have listed here
+
+1209
+01:49:46.310 --> 01:49:52.100
+Anthony Taylor: the day 3 activity, one covers this entire first section of the challenge.
+
+1210
+01:49:54.380 --> 01:49:56.990
+Anthony Taylor: Now, note, I put a lot of notes on this.
+
+1211
+01:49:58.680 --> 01:50:03.470
+Anthony Taylor: This is pretty tough. The syntax is then pandas.
+
+1212
+01:50:05.020 --> 01:50:07.700
+Anthony Taylor: Day 2. Activity. 5.
+
+1213
+01:50:07.830 --> 01:50:09.580
+Anthony Taylor: Note what I said. There.
+
+1214
+01:50:11.870 --> 01:50:13.469
+Anthony Taylor: that's not this week.
+
+1215
+01:50:16.050 --> 01:50:19.990
+Anthony Taylor: Okay. Panda's day to activity 5.
+
+1216
+01:50:20.380 --> 01:50:23.880
+Anthony Taylor: Basically, you are going to make a lambda file. That will.
+
+1217
+01:50:24.460 --> 01:50:31.849
+Anthony Taylor: That's not right. But whatever that lambda formula, lambda function that will slice the headline, dot a string
+
+1218
+01:50:34.250 --> 01:50:36.970
+Anthony Taylor: by slice. I mean start point end point.
+
+1219
+01:50:37.810 --> 01:50:40.630
+Anthony Taylor: Okay, so let me try to explain that
+
+1220
+01:50:40.920 --> 01:50:41.850
+Anthony Taylor: in person.
+
+1221
+01:50:51.340 --> 01:50:57.850
+Anthony Taylor: So what they're asking you to do is find the title is between this character
+
+1222
+01:50:58.170 --> 01:51:04.539
+Anthony Taylor: and this character. Now for those of you that want an advanced challenge. Try to do this with Red Jacks.
+
+1223
+01:51:05.680 --> 01:51:09.370
+Anthony Taylor: Okay, that would be a pretty cool way to do this. How I would.
+
+1224
+01:51:10.000 --> 01:51:12.760
+Anthony Taylor: But it's not what they're gonna ask you
+
+1225
+01:51:12.790 --> 01:51:21.029
+Anthony Taylor: what they're going to ask. Yeah, what they want you to do is use lambda. and you will get the column value
+
+1226
+01:51:21.450 --> 01:51:22.930
+Anthony Taylor: headline, dot me
+
+1227
+01:51:23.070 --> 01:51:25.789
+Anthony Taylor: our main headline, Dot Main.
+
+1228
+01:51:26.220 --> 01:51:31.650
+Anthony Taylor: And you're gonna say. for the first. the start point.
+
+1229
+01:51:31.720 --> 01:51:34.120
+Anthony Taylor: you're gonna say, find
+
+1230
+01:51:35.290 --> 01:51:36.520
+Anthony Taylor: this value.
+
+1231
+01:51:40.810 --> 01:51:43.059
+Anthony Taylor: And then on the other side in
+
+1232
+01:51:44.910 --> 01:51:46.070
+Anthony Taylor: pinpoint.
+
+1233
+01:51:46.250 --> 01:51:52.190
+Anthony Taylor: You're gonna say, find this number. I give you the
+
+1234
+01:51:53.240 --> 01:51:57.330
+Anthony Taylor: index of where that value exists.
+
+1235
+01:51:58.400 --> 01:52:00.959
+Anthony Taylor: So let's say, this is the fifth character.
+
+1236
+01:52:02.880 --> 01:52:07.979
+Anthony Taylor: Okay. the fifth character. So it's going to give you a 5.
+
+1237
+01:52:09.530 --> 01:52:11.620
+Anthony Taylor: And this is the tenth character.
+
+1238
+01:52:12.270 --> 01:52:17.210
+Anthony Taylor: It's going to give you a 10. You're going to get everything in between those 2 characters.
+
+1239
+01:52:18.850 --> 01:52:22.099
+Anthony Taylor: Alright, this is not easy. Everyone figured it out already.
+
+1240
+01:52:23.380 --> 01:52:30.370
+Anthony Taylor: Okay. anybody besides, Brando play close hopefully. That helped explain it.
+
+1241
+01:52:30.720 --> 01:52:36.890
+Anthony Taylor: All right. It's not simple by any stretch. but you can figure it out great.
+
+1242
+01:52:37.230 --> 01:52:39.520
+sonja baro: They gave us a hint, though, I think
+
+1243
+01:52:40.850 --> 01:52:42.380
+Anthony Taylor: more than what I gave you.
+
+1244
+01:52:42.470 --> 01:52:45.550
+sonja baro: Yeah, they gave us the actual code to use
+
+1245
+01:52:48.790 --> 01:52:51.010
+Anthony Taylor: no way in the canvas.
+
+1246
+01:52:51.290 --> 01:52:58.379
+Mckimmy, Brandon: Yeah, they really just said, make columns here and do this and copy lambda function
+
+1247
+01:53:01.220 --> 01:53:02.860
+Anthony Taylor: making all this big to you
+
+1248
+01:53:02.980 --> 01:53:07.079
+Anthony Taylor: done pot one on the 6 and pot one.
+
+1249
+01:53:07.420 --> 01:53:11.399
+Anthony Taylor: I'm literally, I'm like, this is so bad. What are they gonna do.
+
+1250
+01:53:11.680 --> 01:53:17.790
+sonja baro: They're never gonna figure this out. What am I gonna do? I have to show them that? No.
+
+1251
+01:53:17.980 --> 01:53:21.860
+sonja baro: because normally they wouldn't have. So go down.
+
+1252
+01:53:23.220 --> 01:53:30.020
+Anthony Taylor: It's after 6 right there. Yup, that's it. Okay, so let's explain this code. So
+
+1253
+01:53:30.330 --> 01:53:33.579
+sonja baro: lambda. So you've you've you've got the headline Dot Main.
+
+1254
+01:53:33.780 --> 01:53:41.260
+Anthony Taylor: and you're passing it into this lambda function. So this is this. Fp will represent the value of headline dot a
+
+1255
+01:53:41.830 --> 01:53:45.989
+Anthony Taylor: okay? And then you're saying, Find this
+
+1256
+01:53:46.010 --> 01:53:49.340
+Anthony Taylor: this plus one. So this will give you
+
+1257
+01:53:49.460 --> 01:53:57.819
+Anthony Taylor: the first the start point. Okay, Colon, find this review. And that'll give you the input.
+
+1258
+01:53:58.800 --> 01:54:01.210
+Anthony Taylor: Okay, so yeah, that's the code.
+
+1259
+01:54:01.420 --> 01:54:08.140
+Anthony Taylor: Wow! That was hard. Got it? I'm just going to race all of that now.
+
+1260
+01:54:08.810 --> 01:54:10.989
+Anthony Taylor: Okay, so let's move on.
+
+1261
+01:54:11.250 --> 01:54:25.519
+Anthony Taylor:  So they give you all of this
+
+1262
+01:54:25.590 --> 01:54:28.730
+Anthony Taylor: and all you're doing here is using apply
+
+1263
+01:54:28.920 --> 01:54:32.990
+Anthony Taylor: to apply the provided function function they gave you.
+
+1264
+01:54:33.330 --> 01:54:34.770
+Anthony Taylor: Okay, this function
+
+1265
+01:54:35.020 --> 01:54:40.290
+Anthony Taylor: to the keywords column. And I believe that's also in the activity up above.
+
+1266
+01:54:42.300 --> 01:54:43.350
+Anthony Taylor: Okay.
+
+1267
+01:54:43.970 --> 01:54:52.180
+Anthony Taylor: this was pretty much a given. So this just says, create a list from the title column using to list.
+
+1268
+01:54:52.730 --> 01:54:55.670
+Anthony Taylor: Okay, we're going to use these later
+
+1269
+01:54:56.050 --> 01:55:00.650
+Anthony Taylor: in the query. alright. So
+
+1270
+01:55:01.780 --> 01:55:06.880
+Anthony Taylor: yeah, so just real quick. Again, this one line of code.
+
+1271
+01:55:09.390 --> 01:55:18.060
+Anthony Taylor: You're gonna take the keywords column and apply this function. That's all you're gonna do.
+
+1272
+01:55:18.880 --> 01:55:21.650
+Anthony Taylor: Okay, so dot apply.
+
+1273
+01:55:23.500 --> 01:55:24.560
+Anthony Taylor: write that down.
+
+1274
+01:55:25.450 --> 01:55:30.089
+Anthony Taylor: Okay, in this one. You're simply going to take that output.
+
+1275
+01:55:30.700 --> 01:55:39.589
+Anthony Taylor: Are you going to? Well, you're going to take. You need a list of titles. You're going to create a titles variable or something like that.
+
+1276
+01:55:39.900 --> 01:55:50.490
+Anthony Taylor: and get the titles column and convert it to a list. You do it exactly the way I just said it. You're not gonna have any problem. Okay?
+
+1277
+01:55:51.770 --> 01:55:57.040
+Anthony Taylor: Alright. So here's where, right away starts getting into try except where I stopped
+
+1278
+01:55:57.370 --> 01:56:05.070
+Anthony Taylor: doing updates or doing anything. Okay? So they gave you all of this. You're fine. So creating an empty list, you know how to do.
+
+1279
+01:56:05.170 --> 01:56:10.580
+Anthony Taylor:  Here, you're going to loop through this list.
+
+1280
+01:56:11.500 --> 01:56:12.580
+Anthony Taylor: Okay?
+
+1281
+01:56:13.960 --> 01:56:21.809
+Anthony Taylor: As you loop through it, you're going to run a query. passing the movie Id. which is the
+
+1282
+01:56:22.120 --> 01:56:33.640
+Anthony Taylor:  which comes from your request. So let's let's back up. So check and see if we need to sleep before making a request. That's kind of interesting.
+
+1283
+01:56:33.930 --> 01:56:39.450
+Anthony Taylor:  I don't understand why they're selling you to do that.
+
+1284
+01:56:42.100 --> 01:56:52.730
+Anthony Taylor: They want you to. They want you to pause every 50. You know what that must be in the instructions. the loop through titles. Who'd we lose
+
+1285
+01:56:53.960 --> 01:56:57.180
+Anthony Taylor: before we extract?
+
+1286
+01:56:58.840 --> 01:57:00.729
+Anthony Taylor: They don't. Actually there it is
+
+1287
+01:57:03.060 --> 01:57:08.450
+Anthony Taylor: the counter should do the following increment, yeah, you do need to do this. So you're gonna increment by one
+
+1288
+01:57:08.760 --> 01:57:14.430
+Anthony Taylor: and when it reaches 50, you're gonna sleep for 1 s and print a message.
+
+1289
+01:57:14.530 --> 01:57:16.580
+Anthony Taylor: Okay, so
+
+1290
+01:57:16.730 --> 01:57:19.480
+Anthony Taylor: basically, you're just going to do an if loop
+
+1291
+01:57:19.950 --> 01:57:28.509
+Anthony Taylor: and you're going to check and see if it's MoD of 50 not equal to 50 is what if you have 500 of
+
+1292
+01:57:29.440 --> 01:57:37.489
+Anthony Taylor: okay? So and then, if it is, you're going to sleep and say, Hey, I'm sleeping. Remember to add one to the counter for every loop.
+
+1293
+01:57:39.260 --> 01:57:47.820
+Anthony Taylor: Okay, here you're going to actually make the request to the movie database. All you're passing in is the name of the movie
+
+1294
+01:57:48.690 --> 01:57:50.200
+Anthony Taylor: and the Api key.
+
+1295
+01:57:52.680 --> 01:57:54.680
+Anthony Taylor: Alright. Now.
+
+1296
+01:57:57.880 --> 01:57:59.890
+Anthony Taylor: once you get the results.
+
+1297
+01:58:00.340 --> 01:58:03.000
+Anthony Taylor: you're going to do a trot right here.
+
+1298
+01:58:04.860 --> 01:58:07.960
+Anthony Taylor: Okay. in this try.
+
+1299
+01:58:07.990 --> 01:58:14.090
+Anthony Taylor: you're going to get the movie Id from the result of this get.
+
+1300
+01:58:16.740 --> 01:58:20.070
+Anthony Taylor: We've done this before. In fact, I think it's in one of our exercises.
+
+1301
+01:58:20.570 --> 01:58:25.070
+Anthony Taylor: Okay? In fact, you're also getting what I normally do in this case
+
+1302
+01:58:25.800 --> 01:58:34.399
+Anthony Taylor: is, I come in here. and in this case I'm looking for the Tmdp stuff.
+
+1303
+01:58:37.600 --> 01:58:42.810
+Anthony Taylor: Oh. which is not in this day, it must be day one.
+
+1304
+01:58:46.500 --> 01:58:48.779
+Anthony Taylor: Actually, the easier way to do this is just.
+
+1305
+01:58:51.070 --> 01:58:54.679
+Anthony Taylor: Oh, yeah, I can do that.
+
+1306
+01:58:57.990 --> 01:59:01.229
+Anthony Taylor: So we can go to day one.
+
+1307
+01:59:06.920 --> 01:59:12.909
+Anthony Taylor: That's weird. Why don't I have this solved in there? But here's titles, ratings.
+
+1308
+01:59:15.690 --> 01:59:17.949
+Anthony Taylor: That's funny. I don't have the solved in there.
+
+1309
+01:59:20.320 --> 01:59:28.099
+Anthony Taylor: So here you can see we're going through. We're iterating. We're doing all these different things. So we're finding something and then outputting it. I think this is a better.
+
+1310
+01:59:30.310 --> 01:59:42.450
+Anthony Taylor: But like I said, for some reason, I don't have this out. So you're gonna do name and rating create a data frame. You say, so normalized. Nope.
+
+1311
+01:59:52.100 --> 01:59:55.119
+Anthony Taylor: this is probably another example where
+
+1312
+01:59:56.300 --> 01:59:58.829
+Anthony Taylor: to today's was really the best one.
+
+1313
+01:59:59.970 --> 02:00:06.599
+Anthony Taylor: When you look at today's stuff in today's we looked up. We we queried the
+
+1314
+02:00:06.930 --> 02:00:11.099
+Anthony Taylor: we? Queried the Api. We got a value
+
+1315
+02:00:11.400 --> 02:00:13.449
+Anthony Taylor: in this case, the writers
+
+1316
+02:00:13.790 --> 02:00:17.720
+Anthony Taylor: right? And then we took that value and used it to query it again.
+
+1317
+02:00:18.010 --> 02:00:19.980
+Anthony Taylor: So when you look at
+
+1318
+02:00:20.050 --> 02:00:22.629
+Anthony Taylor: this, we're going to do a get
+
+1319
+02:00:22.970 --> 02:00:29.240
+Anthony Taylor: query for a specific movie here, we're going to retrieve the movie Id for that movie.
+
+1320
+02:00:29.820 --> 02:00:36.450
+Anthony Taylor: And then we're going to do another request to get the entire movie Id, which is just a new yeah. URL,
+
+1321
+02:00:37.100 --> 02:00:40.810
+Anthony Taylor: okay? And that's probably
+
+1322
+02:00:44.060 --> 02:00:48.109
+Anthony Taylor: yep. So it's this one. And you just have to pass in the movie Id.
+
+1323
+02:00:48.420 --> 02:00:50.250
+Anthony Taylor: and your Api key.
+
+1324
+02:00:51.680 --> 02:00:52.930
+Anthony Taylor: So this Europe.
+
+1325
+02:00:54.470 --> 02:01:07.549
+Anthony Taylor: So, Anthony, you're referencing today's activity. It was the append, right where we were looping through and getting it, and that was exactly exactly so that one we got the right. The byline
+
+1326
+02:01:07.570 --> 02:01:12.809
+Anthony Taylor: from the first call made a list, and then from that list we made a new call.
+
+1327
+02:01:13.390 --> 02:01:14.759
+sonja baro: Right? And that's perfect.
+
+1328
+02:01:15.180 --> 02:01:16.220
+Anthony Taylor: Okay.
+
+1329
+02:01:16.570 --> 02:01:21.430
+Anthony Taylor: alright. So once you've made this call to get the details.
+
+1330
+02:01:21.770 --> 02:01:32.859
+Anthony Taylor: It says. extract the genre names from the into a list called Genre. So you're going to go find genre in your response
+
+1331
+02:01:32.870 --> 02:01:35.380
+Anthony Taylor: and put it in a list. Append it to a list.
+
+1332
+02:01:35.610 --> 02:01:41.630
+Anthony Taylor: You're gonna do the same with spoken languages. You're gonna do the same with production countries.
+
+1333
+02:01:42.570 --> 02:01:46.380
+Anthony Taylor: Okay? So for each of these, you're going to start with an empty list.
+
+1334
+02:01:46.500 --> 02:01:51.710
+Anthony Taylor: you're gonna go see if it's there. If it's there, you're going to append it to that list.
+
+1335
+02:01:52.420 --> 02:01:56.390
+Anthony Taylor: Alright. Now, this is the horrible typing part.
+
+1336
+02:01:57.810 --> 02:02:00.339
+Anthony Taylor: It wants you to create a dictionary.
+
+1337
+02:02:00.870 --> 02:02:05.550
+Anthony Taylor: The dictionary will have a key that matches each of these values.
+
+1338
+02:02:07.870 --> 02:02:20.349
+Anthony Taylor: Okay. then, Colon. whatever you called your response from the second call. and then how to find. Now the good news is.
+
+1339
+02:02:21.810 --> 02:02:28.770
+Anthony Taylor: it's all at the top layer. So if you called your your second query call data.
+
+1340
+02:02:28.790 --> 02:02:31.109
+Anthony Taylor: it would be like data type
+
+1341
+02:02:32.850 --> 02:02:38.259
+Anthony Taylor: in brackets, data brackets, type data brackets, original type data brackets budget.
+
+1342
+02:02:39.510 --> 02:02:41.759
+Anthony Taylor: Remember some of these you already got
+
+1343
+02:02:42.880 --> 02:02:48.029
+Anthony Taylor: right. So you don't need to pull those again. You could just use the variable you use for these.
+
+1344
+02:02:49.550 --> 02:02:50.500
+Anthony Taylor: Okay.
+
+1345
+02:02:51.460 --> 02:02:59.800
+Anthony Taylor: when this is all done for each row you call, you're going to take that dictionary and put it into a list
+
+1346
+02:03:00.580 --> 02:03:09.100
+Anthony Taylor: just like we did today. In the first exercise. a list of dictionaries. The dictionary will contain all of these.
+
+1347
+02:03:10.790 --> 02:03:11.650
+Anthony Taylor: Okay.
+
+1348
+02:03:13.080 --> 02:03:14.010
+Anthony Taylor: alright
+
+1349
+02:03:17.920 --> 02:03:21.619
+Anthony Taylor: preview. The first 5 results with Json Dumps and then do a data fit.
+
+1350
+02:03:24.050 --> 02:03:26.770
+Anthony Taylor: That should be pretty easy again. Today's stuff.
+
+1351
+02:03:28.000 --> 02:03:37.769
+Anthony Taylor: Okay? And that's exactly how we did the writer. What this last section. just with a few more variables.
+
+1352
+02:03:38.560 --> 02:03:45.659
+Anthony Taylor: Okay. okay. let's continue. This is part 3. This is short
+
+1353
+02:03:45.780 --> 02:03:55.680
+Anthony Taylor: merge. New York Times. Views with T. And D data frames on the title column. Well, that makes perfect sense. right? And it's emerged.
+
+1354
+02:03:56.520 --> 02:04:01.560
+Anthony Taylor: It's not a con cat horizontally. It's merged.
+
+1355
+02:04:02.990 --> 02:04:04.109
+Anthony Taylor: Okay, Clayton.
+
+1356
+02:04:08.170 --> 02:04:12.570
+Anthony Taylor: It's just emerged. Don't make it harder than it needs to be.
+
+1357
+02:04:13.040 --> 02:04:21.120
+Anthony Taylor: Okay. these columns were saved as lists, but we want them to be strings, so be sure to deal with that.
+
+1358
+02:04:21.350 --> 02:04:31.020
+Anthony Taylor:  By that, by deal with that, I mean, you're going to get rid of these extra brackets. So they got brackets and quotes. Get rid of them.
+
+1359
+02:04:32.470 --> 02:04:37.279
+Anthony Taylor: Okay. Now note how they tell you to do it, they said, create a list
+
+1360
+02:04:37.530 --> 02:04:40.050
+Anthony Taylor: of the columns that need fixing.
+
+1361
+02:04:40.230 --> 02:04:44.040
+Anthony Taylor: So when you look at this merge data frame
+
+1362
+02:04:44.830 --> 02:04:49.329
+Anthony Taylor: you're going to find there are 3 columns, these 3
+
+1363
+02:04:50.210 --> 02:04:53.640
+Anthony Taylor: that have brackets and extra quotes.
+
+1364
+02:04:55.280 --> 02:05:01.680
+Anthony Taylor: So create a list with these 3 column names in it. Create a list with these characters in it.
+
+1365
+02:05:03.580 --> 02:05:05.740
+Anthony Taylor: Okay? Then.
+
+1366
+02:05:06.240 --> 02:05:09.100
+Anthony Taylor: Go through each column.
+
+1367
+02:05:09.950 --> 02:05:11.770
+Anthony Taylor: convert it to a string
+
+1368
+02:05:12.800 --> 02:05:15.259
+Anthony Taylor: and then replace
+
+1369
+02:05:16.080 --> 02:05:19.110
+Anthony Taylor: this list of characters. Okay.
+
+1370
+02:05:21.090 --> 02:05:24.930
+Anthony Taylor: got it? I don't know for sure.
+
+1371
+02:05:26.550 --> 02:05:28.069
+Anthony Taylor: Well, it kind of tells you.
+
+1372
+02:05:30.170 --> 02:05:32.979
+Anthony Taylor: Okay, they're actually having you loop through
+
+1373
+02:05:33.700 --> 02:05:38.469
+Anthony Taylor: the characters. So they're not having to do them one at a time. I'll tell you. What
+
+1374
+02:05:38.830 --> 02:05:45.290
+Anthony Taylor: do it that way, but for your own benefit, if you can figure out how to do it, using the entire list. That's
+
+1375
+02:05:47.220 --> 02:05:53.780
+Anthony Taylor: okay. But so you're gonna have a double for loop. you're gonna have a for loop going through the columns to fix.
+
+1376
+02:05:54.050 --> 02:05:55.590
+Anthony Taylor: and inside of it
+
+1377
+02:05:55.660 --> 02:06:00.090
+Anthony Taylor: for each column you're going to have a for loop that's going to clean up
+
+1378
+02:06:01.430 --> 02:06:06.880
+Anthony Taylor: these carriers. Does that make sense to everybody? Let's look at the code, see if
+
+1379
+02:06:08.770 --> 02:06:21.230
+Anthony Taylor: it's not what it gives you. Alright. So pass this pass this data frame. We did. So here, you're just going to do a merge. You're gonna get some weird column data.
+
+1380
+02:06:25.140 --> 02:06:27.629
+Anthony Taylor: See if they have the brackets? Yeah. So here's one.
+
+1381
+02:06:28.150 --> 02:06:29.140
+Anthony Taylor: Okay.
+
+1382
+02:06:29.800 --> 02:06:40.440
+Anthony Taylor: all right. And then here, create the list, create the list, loop through the first list to get the column, and then loop through the character list to figure out what needs to be removed.
+
+1383
+02:06:40.590 --> 02:06:42.710
+Anthony Taylor: and then just simply output the data set
+
+1384
+02:06:43.940 --> 02:06:44.960
+Anthony Taylor: alright.
+
+1385
+02:06:46.130 --> 02:06:48.810
+Anthony Taylor: Okay, now, what? Now? It's going back to byline again.
+
+1386
+02:06:50.270 --> 02:06:53.419
+Anthony Taylor: Drop the column by line, dot person.
+
+1387
+02:06:53.530 --> 02:06:55.120
+Anthony Taylor: That's just a pandas thing.
+
+1388
+02:06:55.660 --> 02:06:59.969
+Anthony Taylor:  dropped the duplicates and resetting in debt.
+
+1389
+02:07:01.230 --> 02:07:06.199
+Anthony Taylor: it practically tells you. In fact, if they would've just used the word drop
+
+1390
+02:07:06.540 --> 02:07:10.119
+Anthony Taylor: right there. they practically would have wrote the code for
+
+1391
+02:07:12.480 --> 02:07:13.830
+Anthony Taylor: everyone following.
+
+1392
+02:07:16.060 --> 02:07:18.329
+Anthony Taylor: Okay? And last, but not least.
+
+1393
+02:07:19.590 --> 02:07:20.730
+Anthony Taylor: export the data
+
+1394
+02:07:22.930 --> 02:07:26.250
+Anthony Taylor: to Csv, which we've done that a lot. So just to Csv.
+
+1395
+02:07:27.480 --> 02:07:33.549
+Anthony Taylor: Hi. this is your one free shot. You have any questions.
+
+1396
+02:07:35.870 --> 02:07:42.100
+Anthony Taylor: All 3 of us are here, both Tas and Anthony, ready to answer questions on your homework
+
+1397
+02:07:42.260 --> 02:07:44.609
+Anthony Taylor: on the recording notice.
+
+1398
+02:07:52.210 --> 02:07:57.230
+Anthony Taylor: Alright? Well, then, I think this one's gonna be an easy one for you guys. You guys are gonna fly through.
+
+1399
+02:07:58.230 --> 02:08:00.980
+Anthony Taylor: I know it's not easy.
+
+1400
+02:08:01.170 --> 02:08:14.550
+Anthony Taylor: It's not meant to be easy, guys. It is a boot camp. But I'm I'm hoping with everything we've done, especially today's activity. One. most of the hard stuff is gonna be taken care of for you.
+
+1401
+02:08:15.200 --> 02:08:17.679
+Anthony Taylor: Okay, just start pushing your way through
+
+1402
+02:08:18.850 --> 02:08:22.249
+Anthony Taylor: and work together. I love these study groups. I keep hearing about
+
+1403
+02:08:23.690 --> 02:08:26.609
+Anthony Taylor: okay. Good work, everybody.
+
+1404
+02:08:27.390 --> 02:08:30.220
+Anthony Taylor: any questions at all.
+
+1405
+02:08:31.000 --> 02:08:33.749
+Anthony Taylor: Everybody's trying to get out of here early on a Monday, I think.
+
+1406
+02:08:34.220 --> 02:08:35.790
+Meredith McCanse (she/her): Oh, that's a good question.
+
+1407
+02:08:36.180 --> 02:08:40.410
+Anthony Taylor: Okay, Meredith messed enough for all of you
+
+1408
+02:08:40.870 --> 02:08:46.130
+Meredith McCanse (she/her): up towards the beginning. And I think it's after it's maybe cell form.
+
+1409
+02:08:49.250 --> 02:08:50.760
+Meredith McCanse (she/her): And
+
+1410
+02:08:50.840 --> 02:08:58.890
+Meredith McCanse (she/her): yeah. And so this sort of example output that you can kind of see the preview of down there where it says like check checked page one.
+
+1411
+02:08:59.610 --> 02:09:06.099
+Meredith McCanse (she/her): I don't understand. Like, what page are they referring to like we're pulling
+
+1412
+02:09:06.270 --> 02:09:10.949
+Anthony Taylor: it's just whatever the loop says. But let me check and see for sure.
+
+1413
+02:09:11.400 --> 02:09:14.670
+Anthony Taylor:  So
+
+1414
+02:09:16.340 --> 02:09:18.960
+Dipinto, Matt: so when you clear those times. Yeah.
+
+1415
+02:09:19.110 --> 02:09:24.409
+Anthony Taylor: yeah. So see here how you're doing. 0 through 19. This is just a range
+
+1416
+02:09:24.470 --> 02:09:33.300
+Meredith McCanse (she/her): pages. That's 0
+
+1417
+02:09:33.530 --> 02:09:43.450
+Dipinto, Matt: returns the top 10 articles.
+
+1418
+02:09:43.540 --> 02:09:55.049
+Dipinto, Matt: So like page equals, 0 is kind of a hidden default, where you only get the top 10 results. And then when you put the page modifier. And so when you put in page one, it gives you the next 10, and so on.
+
+1419
+02:09:55.080 --> 02:10:00.840
+Dipinto, Matt: So you don't actually get a comprehensive list of results to your query. You only get the top 10 in a standard search.
+
+1420
+02:10:01.890 --> 02:10:10.020
+Meredith McCanse (she/her): I guess I'm just confused on why we're calling it a page because we're looking at articles.
+
+1421
+02:10:12.780 --> 02:10:15.420
+Anthony Taylor: because the Api
+
+1422
+02:10:15.760 --> 02:10:19.269
+Anthony Taylor: to get to tell it, I want the next page.
+
+1423
+02:10:20.280 --> 02:10:25.600
+Anthony Taylor: The argument is page equals, so
+
+1424
+02:10:25.620 --> 02:10:28.929
+Anthony Taylor: page equals 0 page equals one page equals 2.
+
+1425
+02:10:30.950 --> 02:10:36.260
+Anthony Taylor: See how that looks here. I check the first, 10, s, 10, third, 10,
+
+1426
+02:10:36.490 --> 02:10:37.920
+Anthony Taylor: the fourth dead, etc.
+
+1427
+02:10:38.010 --> 02:10:47.270
+Meredith McCanse (she/her): Got it. So this is something unique to the New York Times. It's not like a standard way that you get stuff. Oh, well, I mean, a lot of sites.
+
+1428
+02:10:47.490 --> 02:10:48.840
+Anthony Taylor: Do paging.
+
+1429
+02:10:49.200 --> 02:10:51.140
+Anthony Taylor: Okay. Lot of stuff.
+
+1430
+02:10:51.180 --> 02:10:57.600
+Anthony Taylor: New York Times. Because New York Times is like a freebie one. It's simple. It's not always so.
+
+1431
+02:10:58.880 --> 02:11:10.310
+Anthony Taylor: The ones that I do. You actually get when you like the one I'm working on right now. When you get a return. Okay? In the return, they give you a new Api
+
+1432
+02:11:11.870 --> 02:11:18.319
+Anthony Taylor: or token in this case and a indicator that, hey, there's more data.
+
+1433
+02:11:18.810 --> 02:11:24.590
+Anthony Taylor: So then you use the new token in your call to get the next group of date.
+
+1434
+02:11:24.960 --> 02:11:29.539
+Anthony Taylor: and then so on, and and that could go on hundreds of Api calls.
+
+1435
+02:11:29.880 --> 02:11:30.760
+Anthony Taylor: In fact.
+
+1436
+02:11:30.970 --> 02:11:36.070
+Anthony Taylor: one that I was pulling today and I had the most I could get was 200 rows at a time.
+
+1437
+02:11:36.160 --> 02:11:38.360
+Anthony Taylor: and there were 24,000 rows.
+
+1438
+02:11:39.980 --> 02:11:43.669
+Anthony Taylor: so I just had to check, and if there was a new token
+
+1439
+02:11:43.700 --> 02:11:49.319
+Anthony Taylor: we call everything store it. Keep doing that until I got all 24,000 groups.
+
+1440
+02:11:50.550 --> 02:11:55.469
+Anthony Taylor: But in y'all's case you're just dealing with a and that's why they said
+
+1441
+02:12:00.840 --> 02:12:02.140
+Anthony Taylor: any other questions.
+
+1442
+02:12:03.700 --> 02:12:05.799
+Anthony Taylor: I mean Matt's here. He can answer that.
+
+1443
+02:12:06.610 --> 02:12:08.090
+michael mcpherson: The what was that
+
+1444
+02:12:08.190 --> 02:12:14.249
+michael mcpherson: part? You said that you the way you would do it for the next part. Extract the title headline Main.
+
+1445
+02:12:14.570 --> 02:12:18.639
+michael mcpherson: You said, try to do it this way. They're not trying to get you to do it this way.
+
+1446
+02:12:19.130 --> 02:12:22.639
+Anthony Taylor: but that's how I would do it. Gosh, Buddy, I don't remember
+
+1447
+02:12:22.840 --> 02:12:26.719
+Anthony Taylor: do you remember what? What command that was him?
+
+1448
+02:12:26.870 --> 02:12:29.950
+sonja baro: Yeah, it was hard to extract the title headline
+
+1449
+02:12:30.180 --> 02:12:32.060
+sonja baro: for Luke Matt. Right there.
+
+1450
+02:12:32.580 --> 02:12:39.810
+Dipinto, Matt: Your expression versus their string service.
+
+1451
+02:12:40.030 --> 02:12:42.009
+sonja baro: Rhonda. Yeah. Regular expressions.
+
+1452
+02:12:42.880 --> 02:12:46.170
+Anthony Taylor: Okay, it might be harder, but it's
+
+1453
+02:12:46.460 --> 02:12:49.690
+Anthony Taylor: in my opinion it's clean. I don't know. You know what.
+
+1454
+02:12:52.570 --> 02:12:53.500
+Anthony Taylor: Well.
+
+1455
+02:12:54.090 --> 02:13:02.550
+Anthony Taylor: I would love for you guys learn registry expressions. But you know we we have a we have a class on registry expressions, sorry, regular expressions.
+
+1456
+02:13:02.560 --> 02:13:05.229
+Anthony Taylor: We have a class of regular expressions later.
+
+1457
+02:13:05.550 --> 02:13:09.730
+Anthony Taylor: where we will cover some of that. You know what don't beat your head against a wall on that.
+
+1458
+02:13:09.790 --> 02:13:12.160
+Anthony Taylor: The the way that they show you to do it is thought
+
+1459
+02:13:12.460 --> 02:13:17.150
+Anthony Taylor: it's fine for this this case. Regular expressions is a cooler way to. But
+
+1460
+02:13:17.330 --> 02:13:22.299
+Anthony Taylor: you don't need it, and it's you're gonna get it later, anyway. So just just hold on.
+
+1461
+02:13:25.420 --> 02:13:26.650
+Anthony Taylor: hold off on that.
+
+1462
+02:13:27.990 --> 02:13:29.240
+Anthony Taylor: Any other questions.
+
+1463
+02:13:33.830 --> 02:13:43.089
+Kanouff, Christine: I have a question, yeah, Christine, I'm Rick so when we're down under the access movie database, Api.
+
+1464
+02:13:43.560 --> 02:13:49.619
+Kanouff, Christine: and this kind of is along with that time the sleep thing.
+
+1465
+02:13:50.090 --> 02:13:53.320
+Kanouff, Christine: So when they say create a request
+
+1466
+02:13:54.620 --> 02:14:02.060
+Kanouff, Christine: counter, is that basically the same type of request counter that we're talking about up on top where it it
+
+1467
+02:14:02.650 --> 02:14:05.299
+Kanouff, Christine: like the page one, page 2.
+
+1468
+02:14:05.790 --> 02:14:15.030
+Anthony Taylor: Yes and no. You don't need to do arrange here. All you're gonna do is say for every title. So you're gonna have a calendar that starts at 0. Okay?
+
+1469
+02:14:15.180 --> 02:14:18.040
+Anthony Taylor: And then once you go into your loop.
+
+1470
+02:14:18.200 --> 02:14:20.600
+Anthony Taylor: you're gonna add one to it. Every loop.
+
+1471
+02:14:21.280 --> 02:14:28.209
+Anthony Taylor: Okay, so you'll do like request counter equals 0. And then here you'll do request counter plus equals, what?
+
+1472
+02:14:29.120 --> 02:14:30.100
+Anthony Taylor: And that's it.
+
+1473
+02:14:30.440 --> 02:14:36.240
+Anthony Taylor: Okay? And then here you're gonna check. And if it's MoD 50,
+
+1474
+02:14:36.420 --> 02:14:38.220
+Anthony Taylor: that's important guys.
+
+1475
+02:14:38.480 --> 02:14:45.239
+Anthony Taylor: because they will mark you off. If you just put equals 50. Okay, if it's MoD 50,
+
+1476
+02:14:45.540 --> 02:14:47.709
+Anthony Taylor: then you need to sleep for 1 s.
+
+1477
+02:14:49.340 --> 02:14:54.770
+Anthony Taylor: So everybody remember what MoD 50 is. or modu MoD 3.
+
+1478
+02:14:54.810 --> 02:15:05.860
+Anthony Taylor: Modulus tanya right down modulus. because if if you have used it. And it's how we found like numbers was like, maybe the first second week, maybe.
+
+1479
+02:15:05.990 --> 02:15:08.529
+Anthony Taylor: But yeah, it's okay. It just.
+
+1480
+02:15:09.050 --> 02:15:12.349
+Anthony Taylor: You haven't used it very often. So I don't expect you to remember.
+
+1481
+02:15:12.520 --> 02:15:16.760
+Anthony Taylor: But you guys can let that module. It's no big deal, python module.
+
+1482
+02:15:17.540 --> 02:15:18.440
+Anthony Taylor: but yeah.
+
+1483
+02:15:18.930 --> 02:15:22.079
+Anthony Taylor: everybody equals 50. So what you lose a point, but
+
+1484
+02:15:23.020 --> 02:15:24.229
+Anthony Taylor: equals equals feet
+
+1485
+02:15:26.570 --> 02:15:28.780
+Anthony Taylor: all right. Any other questions.
+
+1486
+02:15:32.110 --> 02:15:43.110
+Anthony Taylor: We don't get to do this very often, guys. But the main thing I want you guys to take away from this. Look at the instructions. look at, find the activities that match your instructions.
+
+1487
+02:15:43.490 --> 02:15:47.400
+Anthony Taylor: For the most part we rarely, if ever.
+
+1488
+02:15:47.540 --> 02:15:51.240
+Anthony Taylor: give you much beyond
+
+1489
+02:15:51.560 --> 02:15:56.009
+Anthony Taylor: what we've done in the activities. If it's anything, it's usually a simple Google
+
+1490
+02:15:56.920 --> 02:15:58.289
+Anthony Taylor: or a chat. TV.
+
+1491
+02:15:59.280 --> 02:16:06.770
+Raugewitz, Tania: What you're saying is those of us who do that like myself, and we still have a hard time figuring it out.
+
+1492
+02:16:07.160 --> 02:16:08.630
+Raugewitz, Tania: Oh.
+
+1493
+02:16:08.850 --> 02:16:14.889
+Anthony Taylor: II mean, that just means you gotta go through it again. You'll be fine. But
+
+1494
+02:16:15.870 --> 02:16:33.649
+Raugewitz, Tania: I think, working with the you know the groups that I have worked with. We do go look at the activities and and try and find those. And it's not like we're like, Oh, I'm reading this. I have no idea what I'm gonna do. What do I do now. I mean, we are actively looking at the homework assignments.
+
+1495
+02:16:34.590 --> 02:16:46.629
+Anthony Taylor: That's good. Well, that's good. You mean the activities or the homework assignments themselves. That's yeah. No, that's exactly what I want you guys to do. If you still get stuck.
+
+1496
+02:16:47.350 --> 02:16:49.510
+Anthony Taylor: I so I guess the way I would.
+
+1497
+02:16:50.820 --> 02:17:04.549
+Anthony Taylor: II would recommend there's so many way. But starting from the beginning activities, is your best story. Okay? Because it's usually very similar. Same people. Here you go. Same people that wrote the challenge
+
+1498
+02:17:04.680 --> 02:17:06.080
+Anthony Taylor: wrote the activities.
+
+1499
+02:17:07.209 --> 02:17:11.049
+Anthony Taylor: Okay, so there will often be very similar work.
+
+1500
+02:17:12.719 --> 02:17:13.540
+Anthony Taylor: Right?
+
+1501
+02:17:13.740 --> 02:17:21.069
+Raugewitz, Tania: You can also watch the video of where we went over those activities. See if that helps may or may not right. And then, after that.
+
+1502
+02:17:21.670 --> 02:17:28.900
+Anthony Taylor: resources chat, dpt Google. Tas. maybe not even in that order.
+
+1503
+02:17:29.209 --> 02:17:34.290
+Anthony Taylor: But the Tas have have not been booked the whole office hours in
+
+1504
+02:17:34.830 --> 02:17:36.370
+Anthony Taylor: since we started. I don't.
+
+1505
+02:17:36.879 --> 02:17:39.490
+Anthony Taylor: So there's always somebody available
+
+1506
+02:17:39.629 --> 02:17:43.320
+Anthony Taylor: which usually also means that you get more than 15 min.
+
+1507
+02:17:43.730 --> 02:17:49.269
+Anthony Taylor: But 15 min is the minimum. So if you just have a simple question, they can always answer 15.
+
+1508
+02:17:50.730 --> 02:17:51.580
+Anthony Taylor: Okay.
+
+1509
+02:17:53.049 --> 02:17:53.940
+Anthony Taylor: awesome.
+
+1510
+02:17:54.980 --> 02:18:04.699
+Anthony Taylor: Well, guys have a great Tuesday. We will be here for 30 more minutes. If you have more questions. Feel free. I gave you 3 extra minutes.
+

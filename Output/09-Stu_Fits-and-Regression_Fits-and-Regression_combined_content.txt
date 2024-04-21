@@ -1,0 +1,94 @@
+##--CODE--##
+# Dependencies
+from matplotlib import pyplot as plt
+from scipy import stats
+import numpy as np
+import pandas as pd
+
+##--CODE--##
+# Load vehicle data set into pandas
+vehicle_data = pd.read_csv("../Resources/singapore-motor-vehicle-population.csv")
+vehicle_data.head()
+
+##--CODE--##
+# Generate a scatter plot of year versus number of petrol-electric cars
+year=vehicle_data.loc[(vehicle_data["type"]=="Cars")&(vehicle_data['engine']=="Petrol-Electric"),"year"]
+petrol_electric_cars=vehicle_data.loc[(vehicle_data["type"]=="Cars")&(vehicle_data['engine']=="Petrol-Electric"),"number"]
+plt.scatter(year,petrol_electric_cars)
+plt.xticks(year, rotation=90)
+plt.xlabel('Years')
+plt.ylabel('Petrol Electric Cars')
+plt.show()
+
+##--CODE--##
+# Perform a linear regression on year versus petrol-electric cars
+(slope, intercept, rvalue, pvalue, stderr) = stats.linregress(year, petrol_electric_cars)
+
+##--CODE--##
+# Create equation of line to calculate predicted number of petrol-electric cars
+fit=slope*year+intercept
+fit
+
+##--CODE--##
+# Plot the linear model on top of scatter plot 
+# Generate a scatter plot of year versus number of petrol-electric cars
+year=vehicle_data.loc[(vehicle_data["type"]=="Cars")&(vehicle_data['engine']=="Petrol-Electric"),"year"]
+petrol_electric_cars=vehicle_data.loc[(vehicle_data["type"]=="Cars")&(vehicle_data['engine']=="Petrol-Electric"),"number"]
+plt.scatter(year,petrol_electric_cars)
+plt.plot(year,fit,"--")
+plt.xticks(year, rotation=90)
+plt.xlabel('Years')
+plt.ylabel('Petrol Electric Cars')
+plt.show()
+
+##--CODE--##
+# Repeat plotting scatter and linear model for year versus petrol cars
+# year=vehicle_data.loc[(vehicle_data["type"]=="Cars")&(vehicle_data['engine']=="Petrol-Electric"),"year"]
+petrol_cars=vehicle_data.loc[(vehicle_data["type"]=="Cars")&(vehicle_data['engine']=="Petrol"),"number"]
+(slope, intercept, rvalue, pvalue, stderr) = stats.linregress(year, petrol_cars)
+plt.scatter(year,petrol_cars)
+fit=slope*year+intercept
+plt.plot(year,fit,"--")
+plt.xticks(year, rotation=90)
+plt.xlabel('Years')
+plt.ylabel('Petrol Cars')
+plt.show()
+
+##--CODE--##
+# Repeat plotting scatter and linear model for year versus electric cars
+electric_cars=vehicle_data.loc[(vehicle_data["type"]=="Cars")&(vehicle_data['engine']=="Electric"),"number"]
+(slope, intercept, rvalue, pvalue, stderr) = stats.linregress(year, petrol_cars)
+plt.scatter(year,petrol_cars)
+fit=slope*year+intercept
+plt.plot(year,fit,"--")
+plt.xticks(year, rotation=90)
+plt.xlabel('Years')
+plt.ylabel('Electric Cars')
+plt.show()
+
+##--CODE--##
+# Generate a facet plot of all 3 figures
+fig, (ax1,ax2,ax3)=plt.subplots(3,sharex=True)
+
+ax1.plot(year,petrol_electric_cars,linewidth=1,marker="o")
+ax1.plot(year,fit,"b--",linewidth=1)
+ax1.set_ylabel("petrol-electric")
+
+ax2.plot(year,petrol_cars,linewidth=1,color="y")
+ax2.plot(year,fit,"y--",linewidth=1)
+ax2.set_ylabel("petrol")
+
+ax3.plot(year,electric_cars,linewidth=1,color="g")
+ax3.plot(year,fit,"g--",linewidth=1)
+ax3.set_ylabel("electric")
+ax3.set_xlabel("year")
+plt.show()
+
+##--CODE--##
+# Calculate the number of cars for 2024
+year=2024
+print(slope*year+intercept)
+
+##--CODE--##
+
+

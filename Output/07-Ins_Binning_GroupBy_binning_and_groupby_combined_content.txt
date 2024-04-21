@@ -1,0 +1,37 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Create a DataFrame from dictionary of lists. 
+class_data = {
+    'Class': ['Oct', 'Oct', 'Jan', 'Jan', 'Oct', 'Jan'], 
+    'Name': ["Cyndy", "Logan", "Laci", "Elmer", "Crystle", "Emmie"], 
+    'Test Score': [90, 59, 72, 88, 98, 60]}
+
+test_scores_df = pd.DataFrame(class_data)
+test_scores_df
+
+##--CODE--##
+# Create the bins in which Data will be held
+# Bins are 0, 59.9, 69.9, 79.9, 89.9, 100.   
+
+
+# Create the names for the five bins
+
+
+##--CODE--##
+# Slice the data and place it into bins
+
+
+##--CODE--##
+# Creating a group based off of the bins
+
+
+##--CODE--##
+# Sorting a groupby object.
+
+
+##--CODE--##
+
+

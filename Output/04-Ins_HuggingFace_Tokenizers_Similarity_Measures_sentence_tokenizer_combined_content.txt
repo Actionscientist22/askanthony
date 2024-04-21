@@ -1,0 +1,37 @@
+##--CODE--##
+# Uncomment the next line if you are using Google Colab
+# ! pip install sentence-transformers
+
+##--CODE--##
+# Import the SentenceTransformer class from the sentence_transformers library. 
+from sentence_transformers import SentenceTransformer
+# Use the all-MiniLM-L6-v2 model.
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+##--CODE--##
+# Define a sentence to be tokenized and pass the sentence into the tokenize() method
+sentence = "I am learning a lot about transformers."
+
+##--CODE--##
+# Tokenize the sentence with model. 
+
+
+##--CODE--##
+# Convert the tokens to IDs.
+
+
+##--CODE--##
+# Get the first 20 numerical embedding for the sentence.
+
+
+##--CODE--##
+# What is the lenght of the embeddings?
+
+
+##--CODE--##
+# The model can decode the ids and embeddings back to the original sentence.
+
+
+##--CODE--##
+
+

@@ -1,0 +1,54 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Create reference to CSV file
+csv_path = "../Resources/SFO_Airport_Utility_Consumption.csv"
+
+# Import the CSV into a pandas DataFrame
+consumption_df = pd.read_csv(csv_path)
+consumption_df
+
+##--CODE--##
+# Collect a list of all the unique values in "Utility"
+consumption_df["Utility"].unique()
+
+##--CODE--##
+# Create a new DataFrame that only includes electricity usage for tenant owned units.
+electricity_df = consumption_df.loc[(consumption_df["Utility"] == "Electricity") &
+                                    (consumption_df["Owner"] == "Tenant"), :]
+electricity_df.head()
+
+##--CODE--##
+# Sort the DataFrame by the values in the "Usage" column to find the months
+# with the highest usage
+electricity_df = electricity_df.sort_values(by="Usage", ascending=False)
+
+# Reset the index so that the index is now based on the sorting locations
+electricity_df = electricity_df.reset_index(drop=True)
+
+electricity_df.head()
+
+##--CODE--##
+# Save all of the information collected on the highest usage month
+highest_month = electricity_df.iloc[0, :]
+highest_month
+
+##--CODE--##
+# Show some basic summary statistics for the whole DataFrame
+electricity_df.describe()
+
+##--CODE--##
+# Find the average usage
+
+electricity_df['Usage'].mean()
+
+##--CODE--##
+# Find the total usage from all Augusts on record
+
+electricity_df.loc[electricity_df['Month'] == 'Aug', 'Usage'].sum()
+
+##--CODE--##
+
+

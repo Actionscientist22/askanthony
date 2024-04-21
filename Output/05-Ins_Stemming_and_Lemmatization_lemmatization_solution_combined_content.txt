@@ -1,0 +1,45 @@
+# Lemmatization
+
+##--CODE--##
+# Import WordNetLemmatizer class and word tokenizer
+from nltk.stem import WordNetLemmatizer 
+from nltk.tokenize import word_tokenize
+# Download "punkt" sentence tokenizer and "wordnet" that the lemmatizer uses.
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+
+##--CODE--##
+# Instantiate the lemmatizer
+lemmatizer = WordNetLemmatizer()
+
+##--CODE--##
+# Lemmatize the plural of a word
+print(lemmatizer.lemmatize('boxes'))
+print(lemmatizer.lemmatize('geese'))
+
+##--CODE--##
+# Lemmatize the past tense of a word
+print(lemmatizer.lemmatize('boxed'))
+# Lemmatize an adjective of a word
+print(lemmatizer.lemmatize('greater'))
+
+##--CODE--##
+# Lemmatize the past tense of a word and indicate the part of speech as a verb "v".
+print(lemmatizer.lemmatize('boxed',pos='v'))
+# Lemmatize an adjective of a word and indicate the part of speech as an "a".
+print(lemmatizer.lemmatize('greater', pos='a'))
+
+##--CODE--##
+# Lemmatize each word from a list of words
+sentence = "The foxes walked into the boxes."
+words = word_tokenize(sentence)
+
+##--CODE--##
+# Apply the lemmatizer to the list of words.
+result = [lemmatizer.lemmatize(word) for word in words]
+print(result)
+
+##--CODE--##
+
+

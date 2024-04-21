@@ -1,0 +1,89 @@
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+##--CODE--##
+# Read the CSV file into a pandas DataFrame
+# Set the index using the Ticker column
+df_stocks = pd.read_csv("Resources/stock_data.csv", index_col="Ticker")
+
+# Review the DataFrame
+df_stocks.head()
+
+##--CODE--##
+# Get the information on the data types
+df_stocks.info()
+
+## Preprocess and Scale the Data
+
+##--CODE--##
+# Use the StandardScaler module and fit_transform function to 
+# scale all columns with numerical values
+stock_data_scaled = StandardScaler().fit_transform(df_stocks[["MeanOpen", "MeanHigh",
+                                                              "MeanLow", "MeanClose",
+                                                              "MeanVolume", "MeanPercentReturn"]])
+
+# Display the first five rows of the scaled data
+stock_data_scaled[0:5]
+
+##--CODE--##
+# Create a DataFrame called with the scaled data
+# The column names should match those referenced in the StandardScaler step
+df_stocks_scaled = pd.DataFrame(
+    stock_data_scaled,
+    columns=["MeanOpen", "MeanHigh", "MeanLow", "MeanClose", "MeanVolume", "MeanPercentReturn"]
+)
+
+# Create a Ticker column in the df_stocks_scaled DataFrame
+# using the index of the original df_stocks DataFrame
+df_stocks_scaled["Ticker"] = df_stocks.index
+
+# Set the newly created Ticker column as index of the df_stocks_scaled DataFrame
+df_stocks_scaled = df_stocks_scaled.set_index("Ticker")
+
+# Review the DataFrame
+df_stocks_scaled.head()
+
+##--CODE--##
+# Encode the Sector column
+sector_encoded_df = pd.get_dummies(df_stocks["Sector"])
+
+# Review the DataFrame
+sector_encoded_df.head()
+
+##--CODE--##
+# Concatenate the Sector encoded data with the scaled data DataFrame
+df_stocks_scaled = pd.concat([df_stocks_scaled, sector_encoded_df], axis=1)
+
+# Display the concatenated DataFrame
+df_stocks_scaled.head()
+
+##--CODE--##
+# Initialize the K-Means model with n_clusters=3,  n_init='auto', and random_state=1
+model = KMeans(n_clusters=3, n_init='auto', random_state=1)
+
+# Fit the model for the df_stocks_scaled DataFrame
+model.fit(df_stocks_scaled)
+
+##--CODE--##
+# Predict the model segments (clusters)
+stock_clusters = model.predict(df_stocks_scaled)
+
+# View the stock segments
+print(stock_clusters)
+
+##--CODE--##
+# Create a copy of the concatenated DataFrame
+df_stocks_scaled_predictions = df_stocks_scaled.copy()
+
+# Create a new column in the copy of the concatenated DataFrame with the predicted clusters
+df_stocks_scaled_predictions["StockCluster"] = stock_clusters
+
+# Review the DataFrame
+df_stocks_scaled_predictions
+
+##--CODE--##
+
+

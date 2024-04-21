@@ -1,0 +1,74 @@
+##--CODE--##
+# Uncomment the following code if you are using Colab.
+# !pip install gradio
+
+##--CODE--##
+# Create a function that takes in a message. 
+def run(msg):
+    return f'Returning this message: {msg}'
+
+# Define an input for the message you want to send.
+message = input("What is the message you want to send? ")
+
+##--CODE--##
+# Call the function.
+new_message = run(message)
+print(new_message)
+
+### Modify the code so we can interact with the application.
+
+##--CODE--##
+# Import gradio 
+import gradio as gr
+
+##--CODE--##
+# Create a function that takes in a message. 
+def run(msg):
+    return f'Returning this message: {msg}'
+
+# Create an instance of the Gradio Interface application function with the following parameters. 
+app = gr.Interface(fn=run, inputs="text", outputs="text")
+
+# Launch the app
+app.launch()
+
+##--CODE--##
+# Create a function that takes in a message. 
+def run(msg):
+    return f'Returning this message: {msg}'
+
+# Create an instance of the Gradio Interface application function with the following parameters. 
+app = gr.Interface(fn=run, inputs="text", outputs="text")
+
+# Launch the app
+app.launch(share=True)
+
+##--CODE--##
+# Create a savings interest calculator function that takes 
+# the balance, apr, and number of days, and returns the interest for the number of days. 
+def calculate_interest(balance, apr, days):
+    """
+    Calculate the interest earned on a balance based on the annual percentage rate (APR) over a specified number of days.
+
+    Parameters:
+    - balance (float): The initial balance or principal amount.
+    - apr (float): The Annual Percentage Rate (APR) as a percentage.
+    - days (int): The number of days for which interest is calculated.
+
+    Returns:
+    float: The interest earned rounded to 2 decimal places.
+    """
+    apr_decimal = apr/100
+    interest_rate = apr_decimal * (days/365)
+    interest_earned = balance * interest_rate
+    return round(interest_earned,2)
+
+# Create an instance of the Gradio Interface application function with the following parameters. 
+app = gr.Interface(fn=calculate_interest, 
+                   inputs=["number","number", 'number'], outputs="number")
+# Launch the app
+app.launch()
+
+##--CODE--##
+
+

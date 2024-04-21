@@ -1,0 +1,95 @@
+##--CODE--##
+import pandas as pd
+
+# Prepare the Data
+
+##--CODE--##
+# Import the data
+startup_path = "https://static.bc-edx.com/ai/ail-v-1-0/m13/lesson_1/datasets/start-up-success.csv"
+df = pd.read_csv(startup_path)
+df.head()
+
+##--CODE--##
+# Plot the data on a scatter plot
+
+
+##--CODE--##
+# Preview the DataFrame
+
+
+##--CODE--##
+# Check the number of unhealthy vs. healthy firms ('Firm Category')
+# using value_counts
+
+
+# Split the data into training and testing sets
+
+##--CODE--##
+# Import Module
+from sklearn.model_selection import train_test_split
+
+# Split training and testing sets
+# Create the features DataFrame, X
+
+
+# Create the target DataFrame, y
+
+
+# Use train_test_split to separate the data
+
+
+##--CODE--##
+# Review the X_train DataFrame
+
+
+# Model and Fit the Data to a Logistic Regression
+
+##--CODE--##
+# Import `LogisticRegression` from sklearn
+from sklearn.linear_model import LogisticRegression
+
+
+##--CODE--##
+# Create a `LogisticRegression` function and assign it 
+# to a variable named `logistic_regression_model`.
+
+
+##--CODE--##
+# Fit the model
+
+
+##--CODE--##
+# Score the model
+
+
+# Predict the Testing Labels
+
+##--CODE--##
+# Generate predictions from the model we just fit
+
+
+# Convert those predictions (and actual values) to a DataFrame
+
+
+##--CODE--##
+# Apply the fitted model to the `test` dataset
+
+
+# Save both the test predictions and actual test values to a DataFrame
+
+
+##--CODE--##
+# Display the results DataFrame
+
+
+##--CODE--##
+# Import the accuracy_score function
+from sklearn.metrics import accuracy_score
+
+# Calculate the model's accuracy on the test dataset
+accuracy_score(y_test, testing_predictions)
+
+
+##--CODE--##
+
+

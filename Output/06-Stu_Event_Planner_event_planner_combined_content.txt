@@ -1,0 +1,67 @@
+##--CODE--##
+# Imports for loading environment variables.
+from dotenv import load_dotenv
+import os
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+##--CODE--##
+# Additional imports for entity-based memory.
+from langchain_openai import ChatOpenAI
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationEntityMemory
+from langchain.memory.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
+
+##--CODE--##
+# Initialize the model.
+
+
+##--CODE--##
+# Initialize an object for conversational memory.
+
+
+##--CODE--##
+# Create the chain for conversation, using a ConversationBufferMemory object.
+
+
+##--CODE--##
+# Prompt the user for their name.
+
+# Prompt the user for a description of their likes and dislikes.
+
+
+##--CODE--##
+# Create the query and run the chain with it.
+
+
+##--CODE--##
+# Prompt the user for the number of other people.
+
+
+##--CODE--##
+# Loop for each other person.
+
+    # Prompt the user for the attendee's name.
+    
+    # Prompt the user for the attendee's likes and dislikes.
+    
+
+    # Construct a query for this attendee and run the chain.
+    
+
+##--CODE--##
+# Define a final query as a string.
+
+
+##--CODE--##
+
+# Pass the query to the predict method which will make a prediction based on the query, and print the result.
+
+

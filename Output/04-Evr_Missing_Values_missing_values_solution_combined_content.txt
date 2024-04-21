@@ -1,0 +1,70 @@
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+##--CODE--##
+# Import the data
+import numpy as np
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m14/lesson_2/datasets/crowdfunding-missing-data.csv")
+df.head()
+
+##--CODE--##
+# Split into training and testing sets
+X = df.drop(columns = 'outcome')
+y = df['outcome'].values.reshape(-1, 1)
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=13)
+
+##--CODE--##
+# Find the percentage of rows missing values in each column
+X_train.isna().sum()/len(df)
+
+##--CODE--##
+# Describe the other columns in the rows with missing values
+X_train.loc[X_train['backers_count'].isna()].describe()
+
+##--CODE--##
+# Describe the whole dataset
+X_train.describe()
+
+##--CODE--##
+# Perform other exploratory analysis here
+# For this specific example, try making histograms
+# of days_active for the whole dataset and then
+# again only when backers_count is missing.
+
+X_train['days_active'].plot(kind='hist', alpha=0.2)
+X_train.loc[df['backers_count'].isna(), 'days_active'].plot(kind='hist')
+print(X_train.loc[df['backers_count'].isna(), 'days_active'].unique())
+
+##--CODE--##
+# Since backers_count seems to be missing in the first week
+# of a campaign, removing the data would be detrimental.
+# A good choice might be to fill the data using the backers
+# counts from campaigns in week 2.
+
+mean_of_week_2_backers_counts = X_train.loc[(X_train['days_active'] >= 6) & (X_train['days_active'] <= 13), 'backers_count'].mean()
+mean_of_week_2_backers_counts
+
+
+##--CODE--##
+# Create a function to fill missing values with half of the mean of week 2
+
+def X_preprocess(X_data):
+    X_data['backers_count'] = X_data['backers_count'].fillna(int(round(mean_of_week_2_backers_counts/2)))
+    return X_data
+
+##--CODE--##
+# Preprocess the training and testing data
+
+X_train_clean = X_preprocess(X_train)
+X_test_clean = X_preprocess(X_test)
+
+##--CODE--##
+# Check for missing values
+print(X_train_clean.isna().sum()/len(X_train_clean))
+print(X_test_clean.isna().sum()/len(X_test_clean))
+
+##--CODE--##
+
+

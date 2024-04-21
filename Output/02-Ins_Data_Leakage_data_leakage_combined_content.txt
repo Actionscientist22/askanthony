@@ -1,0 +1,40 @@
+##--CODE--##
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
+##--CODE--##
+# Import the data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m14/lesson_2/datasets/app-data-leakage.csv")
+df.head()
+
+##--CODE--##
+# Create an X and y variable
+X = df.drop(columns=['Result'])
+y = df['Result']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state = 13)
+
+##--CODE--##
+# Create a Logistic Regression Model
+
+# Fit (train) or model using the training data
+
+# Calculate the accuracy of the model with training data
+
+
+##--CODE--##
+# Calculate the accuracy of the model with testing data
+
+
+##--CODE--##
+# Check correlation of columns
+
+
+##--CODE--##
+# Plot app_number and Result in a scatter plot
+
+
+##--CODE--##
+
+

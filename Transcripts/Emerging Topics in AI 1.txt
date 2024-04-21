@@ -1,0 +1,6746 @@
+WEBVTT
+
+1
+00:00:15.560 --> 00:00:16.350
+Anthony Taylor: Air
+
+2
+00:00:16.900 --> 00:00:19.529
+Anthony Taylor: imports. Did everybody get to that?
+
+3
+00:00:21.230 --> 00:00:23.470
+Anthony Taylor: All of the canvas imports?
+
+4
+00:00:24.140 --> 00:00:28.749
+Anthony Taylor: You will be lost in the first few seconds of class. If you did not do them
+
+5
+00:00:30.500 --> 00:00:31.800
+Anthony Taylor: exaggerate a little.
+
+6
+00:00:34.370 --> 00:00:39.179
+Anthony Taylor: but you will have a bad time if they're not. So if you didn't do them
+
+7
+00:00:39.340 --> 00:00:41.799
+Anthony Taylor: while we're doing like the little intro here.
+
+8
+00:00:42.171 --> 00:00:45.939
+Anthony Taylor: You may want to jump into canvas and go do it. There's only like 4.
+
+9
+00:00:46.980 --> 00:00:50.410
+Anthony Taylor: Oh, and make sure you have an open AI key.
+
+10
+00:00:50.600 --> 00:00:52.279
+Clayton Graves: Where? Where? Where? Are these?
+
+11
+00:00:53.430 --> 00:00:56.079
+Anthony Taylor: In canvas under module. 22.
+
+12
+00:00:56.270 --> 00:00:57.689
+Clayton Graves: Module, 22.
+
+13
+00:00:58.290 --> 00:00:58.970
+Anthony Taylor: Yes, sir.
+
+14
+00:00:59.700 --> 00:01:04.789
+Anthony Taylor: you need to make sure you have your Openai key and make sure that you have credits.
+
+15
+00:01:05.450 --> 00:01:07.710
+Anthony Taylor: If you do not have credits. You will get
+
+16
+00:01:07.850 --> 00:01:10.269
+Anthony Taylor: a code 4, 29,
+
+17
+00:01:10.440 --> 00:01:13.350
+Anthony Taylor: which basically means you have no credits.
+
+18
+00:01:14.320 --> 00:01:18.009
+Anthony Taylor: Okay, it's not the end of the world. You only need to put a few bucks on it.
+
+19
+00:01:18.040 --> 00:01:19.360
+Anthony Taylor: We won't even
+
+20
+00:01:19.380 --> 00:01:20.990
+Anthony Taylor: probably use them, so.
+
+21
+00:01:21.180 --> 00:01:22.790
+Baro, Sonja: That should be a t-shirt.
+
+22
+00:01:23.150 --> 00:01:24.162
+michael mcpherson: I pop the
+
+23
+00:01:25.300 --> 00:01:26.090
+michael mcpherson: chat.
+
+24
+00:01:28.180 --> 00:01:30.690
+Anthony Taylor: What was that? My? Oh, okay, good thanks.
+
+25
+00:01:31.040 --> 00:01:31.870
+Anthony Taylor: alright.
+
+26
+00:01:32.800 --> 00:01:34.219
+Anthony Taylor: Let's get started.
+
+27
+00:01:37.590 --> 00:01:39.710
+Anthony Taylor: emerging topics
+
+28
+00:01:39.780 --> 00:01:42.630
+Anthony Taylor: in AI. Now
+
+29
+00:01:45.670 --> 00:01:48.200
+Anthony Taylor: these are honest to God.
+
+30
+00:01:49.230 --> 00:01:51.850
+Anthony Taylor: This is the best stuff yet.
+
+31
+00:01:52.380 --> 00:01:55.220
+Anthony Taylor: Better be. It's the last week of lecture.
+
+32
+00:01:55.960 --> 00:02:03.259
+Anthony Taylor: Okay. But this week you are going to learn all kinds of stuff about building out chat bots.
+
+33
+00:02:03.720 --> 00:02:05.849
+Anthony Taylor: That is all we're gonna talk about this week.
+
+34
+00:02:05.950 --> 00:02:09.220
+Anthony Taylor: Most of it is going to be using a tool called Lane chain.
+
+35
+00:02:09.240 --> 00:02:11.909
+Anthony Taylor: which has made chat bots
+
+36
+00:02:13.150 --> 00:02:15.239
+Anthony Taylor: so amazingly awesome.
+
+37
+00:02:16.035 --> 00:02:17.579
+Anthony Taylor: And open AI.
+
+38
+00:02:18.240 --> 00:02:19.210
+Anthony Taylor: Okay.
+
+39
+00:02:20.040 --> 00:02:25.500
+Anthony Taylor: don't worry. We're not gonna make that many calls to open AI. So unless you like, write some crazy loop or something.
+
+40
+00:02:25.530 --> 00:02:27.889
+Anthony Taylor: you probably won't even lose a buck.
+
+41
+00:02:28.240 --> 00:02:31.389
+Anthony Taylor: Alright, you have to do thousands of call tokens for that.
+
+42
+00:02:31.940 --> 00:02:37.839
+Anthony Taylor: Alright, so we'll get to that. So welcome to your last week lecture.
+
+43
+00:02:41.158 --> 00:02:44.220
+Anthony Taylor: What are we gonna do? Well, we're gonna use Lane, Jane.
+
+44
+00:02:44.350 --> 00:02:46.669
+Anthony Taylor: to build Gpt based
+
+45
+00:02:46.780 --> 00:02:48.630
+Anthony Taylor: applications
+
+46
+00:02:49.050 --> 00:02:50.270
+Anthony Taylor: that's exciting.
+
+47
+00:02:50.450 --> 00:02:55.889
+Anthony Taylor: We're going to integrate external data. Now, I'm gonna tell you guys what I told Kevin when he came in today.
+
+48
+00:02:55.950 --> 00:02:57.090
+Anthony Taylor: Hi.
+
+49
+00:02:57.480 --> 00:03:01.069
+Anthony Taylor: have been playing around with Lane chain since it first started.
+
+50
+00:03:01.410 --> 00:03:04.220
+Anthony Taylor: It probably took me a month
+
+51
+00:03:04.920 --> 00:03:08.809
+Anthony Taylor: of playing around with Lameche before I was able to ingest
+
+52
+00:03:08.930 --> 00:03:13.440
+Anthony Taylor: files and make use of them like what you just saw a few seconds ago.
+
+53
+00:03:13.650 --> 00:03:16.830
+Anthony Taylor: Okay, you're gonna learn that by break time
+
+54
+00:03:17.390 --> 00:03:18.360
+Anthony Taylor: today.
+
+55
+00:03:19.390 --> 00:03:21.580
+Anthony Taylor: Okay, that's fast
+
+56
+00:03:21.860 --> 00:03:22.810
+Anthony Taylor: what
+
+57
+00:03:23.220 --> 00:03:30.540
+Anthony Taylor: it's cool. We're also going to get into conversational memory. Something that little app I would show you did not have
+
+58
+00:03:30.650 --> 00:03:32.580
+Anthony Taylor: was conversational memory.
+
+59
+00:03:32.710 --> 00:03:36.000
+Anthony Taylor: Whatever? You asked the question, every question was a new question.
+
+60
+00:03:37.360 --> 00:03:41.419
+Anthony Taylor: So we want our chat bots to remember
+
+61
+00:03:41.510 --> 00:03:43.439
+Anthony Taylor: what we've been talking about.
+
+62
+00:03:43.520 --> 00:03:48.490
+Anthony Taylor: and that's important, you know, to make it feel like it's a conversation.
+
+63
+00:03:48.680 --> 00:03:50.829
+Anthony Taylor: But it's also important
+
+64
+00:03:52.260 --> 00:03:53.520
+Anthony Taylor: just to make it useful.
+
+65
+00:03:53.840 --> 00:03:56.470
+Anthony Taylor: Okay? So people don't have to like restate things.
+
+66
+00:03:57.770 --> 00:03:58.970
+Anthony Taylor: So here we go.
+
+67
+00:03:59.620 --> 00:04:05.489
+Anthony Taylor: So we remember from our transformer talk with Anthony and Julia.
+
+68
+00:04:07.280 --> 00:04:08.980
+Anthony Taylor: that we have
+
+69
+00:04:09.120 --> 00:04:10.130
+Anthony Taylor: a transfer.
+
+70
+00:04:10.610 --> 00:04:12.699
+Anthony Taylor: So encoder, decoder model.
+
+71
+00:04:13.010 --> 00:04:15.859
+Anthony Taylor: Okay? And this is basically
+
+72
+00:04:15.920 --> 00:04:17.529
+Anthony Taylor: what we're going to do
+
+73
+00:04:19.149 --> 00:04:21.189
+Anthony Taylor: in a Gpt. Now.
+
+74
+00:04:22.820 --> 00:04:28.040
+Anthony Taylor: we now no longer really need to know how it's doing it.
+
+75
+00:04:28.190 --> 00:04:32.040
+Anthony Taylor: We need to know what it can do. So the how
+
+76
+00:04:32.680 --> 00:04:34.850
+Anthony Taylor: it's kind of not as important anymore.
+
+77
+00:04:36.480 --> 00:04:39.539
+Anthony Taylor: Okay, we've learned all of that.
+
+78
+00:04:39.950 --> 00:04:46.120
+Anthony Taylor: It's kind of like. When you use chat tpt, you may say to yourself, Holy crap, how do I? How does it do that.
+
+79
+00:04:46.850 --> 00:04:49.889
+Anthony Taylor: But you don't really mean it. You just hear it.
+
+80
+00:04:50.190 --> 00:04:54.130
+Anthony Taylor: Okay. Well, now, we're going to use the Api.
+
+81
+00:04:54.410 --> 00:05:00.460
+Anthony Taylor: that Openai is providing us, and you could use pretty much any models Api
+
+82
+00:05:00.900 --> 00:05:02.340
+Anthony Taylor: with linking.
+
+83
+00:05:03.460 --> 00:05:08.209
+Anthony Taylor: Okay, well, we're gonna keep it simple. Use open ais because it's like the coolest.
+
+84
+00:05:14.040 --> 00:05:14.810
+Anthony Taylor: yeah.
+
+85
+00:05:15.050 --> 00:05:16.190
+Anthony Taylor: So
+
+86
+00:05:16.670 --> 00:05:17.720
+Anthony Taylor: let's continue
+
+87
+00:05:17.920 --> 00:05:20.079
+Anthony Taylor: so Lane chain itself.
+
+88
+00:05:23.060 --> 00:05:24.000
+Anthony Taylor: hold on!
+
+89
+00:05:25.600 --> 00:05:26.450
+Anthony Taylor: Hi.
+
+90
+00:05:30.110 --> 00:05:34.850
+Anthony Taylor: alright! Before we get to Lane chain. Let's just briefly discuss
+
+91
+00:05:35.140 --> 00:05:37.619
+Anthony Taylor: generative AI developments.
+
+92
+00:05:38.390 --> 00:05:46.959
+Anthony Taylor: Never mind. That explains it. I was like, this doesn't even make any sense. We don't talk about that until the third day, and I had the lesson plan for the third day.
+
+93
+00:05:47.260 --> 00:05:49.989
+Anthony Taylor: Okay, now we're back to the same.
+
+94
+00:05:52.180 --> 00:05:53.630
+Anthony Taylor: alright. So.
+
+95
+00:05:54.320 --> 00:05:55.320
+Anthony Taylor: Lanjing.
+
+96
+00:05:56.220 --> 00:06:00.750
+Anthony Taylor: it's just a framework, and it makes it easy to build Llm. Powered apps.
+
+97
+00:06:00.950 --> 00:06:08.699
+Anthony Taylor: It has a bunch of functions that greatly simplify creating chat bots. Now I want to tell you
+
+98
+00:06:08.720 --> 00:06:15.890
+Anthony Taylor: it's possible to do whenever what what Lane chain does without lane chain. But there's no dotgon reason to do it.
+
+99
+00:06:16.400 --> 00:06:19.499
+Anthony Taylor: It's kind of like kiros at doing.
+
+100
+00:06:20.030 --> 00:06:25.040
+Anthony Taylor: you know, tensorflow neural network. Yeah, you can do it without it. Why
+
+101
+00:06:26.000 --> 00:06:28.930
+Anthony Taylor: it works so much better with.
+
+102
+00:06:30.560 --> 00:06:35.149
+Anthony Taylor: So some of the functionality that we're going to get out of using link chain.
+
+103
+00:06:37.960 --> 00:06:39.319
+Anthony Taylor: well, let's see
+
+104
+00:06:41.920 --> 00:06:47.779
+Anthony Taylor: just a couple of quick notes. AI. We have today, like Chat Tpp is not science fiction.
+
+105
+00:06:47.830 --> 00:06:52.449
+Anthony Taylor: nor is it like the Science Fiction ais, that destroy the world.
+
+106
+00:06:52.930 --> 00:06:55.199
+Anthony Taylor: I'm supposed to tell you that, honest to God!
+
+107
+00:06:56.960 --> 00:06:58.659
+Anthony Taylor: It's not conscious.
+
+108
+00:07:00.670 --> 00:07:01.880
+Anthony Taylor: Don't get me, Mike.
+
+109
+00:07:03.070 --> 00:07:06.059
+Masarirambi, Rodney: This was what we're here for. I'm out. Sorry, bye.
+
+110
+00:07:06.060 --> 00:07:09.119
+Anthony Taylor: Yeah, Rodney. Rodney is only here to create.
+
+111
+00:07:09.220 --> 00:07:12.460
+Anthony Taylor: you know, a like a real living
+
+112
+00:07:12.710 --> 00:07:14.090
+Anthony Taylor: spider. Panther.
+
+113
+00:07:15.430 --> 00:07:17.160
+Anthony Taylor: AI. So there you go.
+
+114
+00:07:17.160 --> 00:07:17.950
+Masarirambi, Rodney: Else, isn't it?
+
+115
+00:07:18.140 --> 00:07:20.620
+Masarirambi, Rodney: What else is there this report.
+
+116
+00:07:20.620 --> 00:07:21.409
+michael mcpherson: With him.
+
+117
+00:07:22.570 --> 00:07:32.180
+Anthony Taylor: So the good news is, I mean the true artificial. You know all. What Alex Rink did is, you know, that is still pretty much elusive trying to Annie. All
+
+118
+00:07:32.390 --> 00:07:36.479
+Anthony Taylor: fool everybody into thinking it's a human, but it's pretty damn close.
+
+119
+00:07:37.625 --> 00:07:42.310
+Anthony Taylor: Stable diffusion, chat. Tpt. Those are 2 of the big ones.
+
+120
+00:07:42.480 --> 00:07:45.679
+Anthony Taylor: you know, you think. Oh, what about mid journey? Well.
+
+121
+00:07:45.740 --> 00:07:47.299
+Anthony Taylor: still built off of
+
+122
+00:07:47.340 --> 00:07:50.790
+Anthony Taylor: stable diffusions and all of this kind of stuff? Okay.
+
+123
+00:07:54.255 --> 00:07:54.640
+Anthony Taylor: good.
+
+124
+00:07:54.890 --> 00:08:02.910
+Anthony Taylor: So let's see, the current purpose interact users in a conversational way to sound like a human.
+
+125
+00:08:03.040 --> 00:08:07.029
+Anthony Taylor: It. The reason it could do this is it has trained on
+
+126
+00:08:07.160 --> 00:08:09.170
+Anthony Taylor: so much
+
+127
+00:08:09.400 --> 00:08:11.290
+Anthony Taylor: English text.
+
+128
+00:08:11.620 --> 00:08:19.690
+Anthony Taylor: It's doing a complete. It's a completion model. Basically. So when you ask it something, it's like, well, how would I complete that thought.
+
+129
+00:08:19.930 --> 00:08:21.910
+Anthony Taylor: whether it be a sentence
+
+130
+00:08:22.030 --> 00:08:24.080
+Anthony Taylor: phrase or a whole question.
+
+131
+00:08:24.740 --> 00:08:25.580
+Anthony Taylor: Right?
+
+132
+00:08:26.098 --> 00:08:31.670
+Anthony Taylor: And it's completing it with what it was trained with. It's not actually creating
+
+133
+00:08:32.740 --> 00:08:34.160
+Anthony Taylor: much of anything.
+
+134
+00:08:34.630 --> 00:08:41.959
+Anthony Taylor: Okay, now you might argue. Well, I've seen pictures that creates all the time. Picture behind Sony's head freaking. Amazing.
+
+135
+00:08:42.270 --> 00:08:47.120
+Anthony Taylor: right? Did it create it? Well, yes, and we will talk about our.
+
+136
+00:08:47.180 --> 00:08:55.509
+Anthony Taylor: The image generators create images. But in theory it's still something it's seen before. Not necessarily this picture.
+
+137
+00:08:55.710 --> 00:08:59.179
+Anthony Taylor: not even necessarily all of the elements of this picture
+
+138
+00:09:00.000 --> 00:09:05.660
+Anthony Taylor: right? But it has seen enough pictures that it knows what a brush looks like.
+
+139
+00:09:06.010 --> 00:09:09.609
+Anthony Taylor: and it knows how to make the powder colors, and it knows
+
+140
+00:09:09.640 --> 00:09:12.319
+Anthony Taylor: it just knows to do these things.
+
+141
+00:09:12.640 --> 00:09:13.550
+Anthony Taylor: and
+
+142
+00:09:13.790 --> 00:09:16.899
+Anthony Taylor: and it can create, if you will.
+
+143
+00:09:17.130 --> 00:09:18.850
+Anthony Taylor: a brush from a brush.
+
+144
+00:09:18.870 --> 00:09:22.640
+Anthony Taylor: If it had never seen a brush. That paintbrush would not be in that picture.
+
+145
+00:09:23.480 --> 00:09:26.930
+Anthony Taylor: so could it create a brush without knowing what a brush is? No.
+
+146
+00:09:27.300 --> 00:09:28.130
+Anthony Taylor: cannot
+
+147
+00:09:28.930 --> 00:09:35.379
+Anthony Taylor: prompts. So while we all know what prompts are, we've heard the term prompt engineering since probably day. One
+
+148
+00:09:35.690 --> 00:09:40.679
+Anthony Taylor: right? What Llms give are are at length, am I sharing again. Okay.
+
+149
+00:09:40.700 --> 00:09:46.010
+Anthony Taylor: what Lane chain gives us is the ability to create prompt templates.
+
+150
+00:09:46.570 --> 00:09:47.730
+Anthony Taylor: Okay?
+
+151
+00:09:47.950 --> 00:09:50.529
+Anthony Taylor: And Kevin, you look like an iphone.
+
+152
+00:09:52.650 --> 00:09:56.340
+Anthony Taylor: Anyway, they give us the ability to look like a prompt, template.
+
+153
+00:09:56.640 --> 00:10:02.660
+Anthony Taylor: sorry look like to make one. What does that mean? Well, that means that we can actually kind of
+
+154
+00:10:03.610 --> 00:10:06.789
+Anthony Taylor: form the prompt in the background
+
+155
+00:10:06.860 --> 00:10:10.700
+Anthony Taylor: and take variables out of the prompt that the user types in
+
+156
+00:10:11.480 --> 00:10:13.860
+Anthony Taylor: okay, or we can ask the user questions
+
+157
+00:10:14.560 --> 00:10:19.849
+Anthony Taylor: which you're going to see in some of the early examples today where we ask a question, hey?
+
+158
+00:10:19.860 --> 00:10:26.399
+Anthony Taylor: You know, what do you want to do with this? Or what do you want to do here? Oh, okay, that's what you want. Boom! Here's the Llm. Respond.
+
+159
+00:10:27.510 --> 00:10:34.219
+Anthony Taylor: So prop templates are really cool chains, which is where laying chain gets its name.
+
+160
+00:10:37.100 --> 00:10:37.870
+Anthony Taylor: it's
+
+161
+00:10:38.840 --> 00:10:41.210
+Anthony Taylor: we imagine.
+
+162
+00:10:42.110 --> 00:10:46.479
+Anthony Taylor: And and you're gonna see this today. But we're trying to explain it the best way I can.
+
+163
+00:10:48.820 --> 00:10:50.310
+Anthony Taylor: imagine.
+
+164
+00:10:51.640 --> 00:10:54.280
+Anthony Taylor: If I needed to use 2 llips
+
+165
+00:10:55.600 --> 00:10:57.500
+Anthony Taylor: in one call.
+
+166
+00:10:58.300 --> 00:10:59.320
+Anthony Taylor: Okay.
+
+167
+00:10:59.330 --> 00:11:01.580
+Anthony Taylor: I can now do that with a chain.
+
+168
+00:11:01.810 --> 00:11:09.400
+Anthony Taylor: And we are going to do this today in one of our examples. But, for instance, you're going to see that we have an Llm function that does math.
+
+169
+00:11:09.960 --> 00:11:12.730
+Anthony Taylor: And then we have an L one function that does chat.
+
+170
+00:11:13.610 --> 00:11:17.449
+Anthony Taylor: Could you see a benefit in combining those 2
+
+171
+00:11:17.490 --> 00:11:19.359
+Anthony Taylor: and getting a response?
+
+172
+00:11:19.540 --> 00:11:21.189
+Anthony Taylor: This is where chains come in.
+
+173
+00:11:21.880 --> 00:11:29.600
+Anthony Taylor: Okay, memory. Ll, M. Helps us handle memory. We talked about that just at the beginning of class. Memory is simply
+
+174
+00:11:30.370 --> 00:11:38.629
+Anthony Taylor: you asked me about this. Then you asked another question. I remember the last question. And I know the context of where we're going.
+
+175
+00:11:39.050 --> 00:11:41.189
+Anthony Taylor: It's how a conversation works.
+
+176
+00:11:41.360 --> 00:11:44.910
+Anthony Taylor: Imagine if every conversation you had, you had to start at the beginning.
+
+177
+00:11:45.910 --> 00:11:52.679
+Anthony Taylor: Okay. So programmatically, we're gonna not need the user won't need to do that
+
+178
+00:11:53.250 --> 00:11:54.579
+Anthony Taylor: start at the beginning.
+
+179
+00:11:55.440 --> 00:11:56.270
+Anthony Taylor: Okay.
+
+180
+00:11:56.947 --> 00:12:02.640
+Anthony Taylor: indices. So the indices is basically how we're going to load additional files
+
+181
+00:12:02.720 --> 00:12:04.650
+Anthony Taylor: or Api calls
+
+182
+00:12:04.910 --> 00:12:08.079
+Anthony Taylor: into our model in real time.
+
+183
+00:12:08.740 --> 00:12:12.960
+Anthony Taylor: Now, the one I was showing at the beginning of class that was storing it.
+
+184
+00:12:13.550 --> 00:12:15.350
+Anthony Taylor: It's actually in a database.
+
+185
+00:12:15.800 --> 00:12:17.520
+Anthony Taylor: Well, we're gonna do
+
+186
+00:12:17.620 --> 00:12:27.049
+Anthony Taylor: today is we're not going to store it. We're going to do it real time. All that means is is that every time you run the the little chat bot that you're going to create.
+
+187
+00:12:27.220 --> 00:12:29.090
+Anthony Taylor: it's gonna re
+
+188
+00:12:29.300 --> 00:12:30.680
+Anthony Taylor: embed that data.
+
+189
+00:12:31.250 --> 00:12:32.270
+Anthony Taylor: not ideal.
+
+190
+00:12:33.260 --> 00:12:34.600
+Anthony Taylor: but makes sense
+
+191
+00:12:34.640 --> 00:12:39.230
+Anthony Taylor: the last thing, and we're not going to do this today, for sure is agents.
+
+192
+00:12:41.560 --> 00:12:54.640
+Anthony Taylor: Agents are one of the most exciting things that Llm's brought combined with chains. You can make agents that can do a lot. They can even talk to each other.
+
+193
+00:12:54.800 --> 00:12:56.310
+Anthony Taylor: So you can have
+
+194
+00:12:56.460 --> 00:12:58.310
+Anthony Taylor: an agent that writes Code.
+
+195
+00:12:58.350 --> 00:13:03.060
+Anthony Taylor: and an agent that does Qa. And an agent that does product management.
+
+196
+00:13:04.330 --> 00:13:10.579
+Anthony Taylor: And you can have all 3 of these agents in one program. And you can say, write me code that does this.
+
+197
+00:13:11.030 --> 00:13:14.750
+Anthony Taylor: and the you can tell the agents talk to each other
+
+198
+00:13:16.420 --> 00:13:28.230
+Anthony Taylor: right and the the the development agent will write some code. The Qa. Agent will check. The code might make recommendations. The program manager will guarantee these guys are doing the same thing.
+
+199
+00:13:28.300 --> 00:13:32.210
+Anthony Taylor: are doing what they're supposed to do, or what have you? However, you tell it to work
+
+200
+00:13:32.320 --> 00:13:39.669
+Anthony Taylor: when it's all done, you can get the the, the results of all 3 of these models
+
+201
+00:13:39.740 --> 00:13:42.299
+Anthony Taylor: speaking to each other and working together.
+
+202
+00:13:43.780 --> 00:13:44.600
+Anthony Taylor: It's
+
+203
+00:13:44.770 --> 00:13:45.770
+Anthony Taylor: amazing.
+
+204
+00:13:46.930 --> 00:13:47.790
+Anthony Taylor: Okay.
+
+205
+00:13:47.960 --> 00:13:49.040
+Anthony Taylor: we do that
+
+206
+00:13:49.300 --> 00:13:50.050
+Anthony Taylor: tomorrow.
+
+207
+00:13:52.102 --> 00:14:01.399
+Anthony Taylor: Okay, so change their individual tools that can be used individually or combined. We don't have to have more than one loan, but with link chain we can.
+
+208
+00:14:01.460 --> 00:14:04.519
+Anthony Taylor: One chain contains contains a series of calls.
+
+209
+00:14:04.670 --> 00:14:13.170
+Anthony Taylor: You're going to see this in a few minutes. There are many different chains fit for different purposes already in the lane chain ecosystem, so
+
+210
+00:14:13.380 --> 00:14:16.919
+Anthony Taylor: we don't necessarily have to build them ourselves. They're already out there.
+
+211
+00:14:17.890 --> 00:14:19.010
+Anthony Taylor: Okay?
+
+212
+00:14:22.030 --> 00:14:28.200
+Anthony Taylor: change their individuals. One change. It's I don't know why the repeat map. Here's some examples of some that are already made. Ll, M. Math
+
+213
+00:14:28.810 --> 00:14:32.569
+Anthony Taylor: converts a question into math problem and then executes it.
+
+214
+00:14:33.460 --> 00:14:36.129
+Anthony Taylor: Hey? I don't know if you guys remember this
+
+215
+00:14:36.260 --> 00:14:39.380
+Anthony Taylor: in the beginning chat Tpt couldn't do. Basic math
+
+216
+00:14:41.240 --> 00:14:42.250
+Anthony Taylor: couldn't do. It
+
+217
+00:14:42.850 --> 00:14:44.384
+Anthony Taylor: was one of the big like.
+
+218
+00:14:44.870 --> 00:14:46.779
+Anthony Taylor: it's stupid. Can't do that
+
+219
+00:14:47.250 --> 00:14:52.180
+Anthony Taylor: right. It could write a program that could do math, but it couldn't do. Math itself.
+
+220
+00:14:53.798 --> 00:15:03.860
+Anthony Taylor: Llm summarization checker. So verify the accuracy. So look at what that says verify the accuracy of another
+
+221
+00:15:04.150 --> 00:15:06.529
+Anthony Taylor: Llm generated Summary.
+
+222
+00:15:08.240 --> 00:15:17.949
+Anthony Taylor: So this would definitely be used in a chain. Right? You have a summarization model. You put in some text, run your checker and it goes and looks to see if it looks okay.
+
+223
+00:15:19.280 --> 00:15:21.830
+Anthony Taylor: Okay. Constitutional chain.
+
+224
+00:15:24.030 --> 00:15:28.510
+Anthony Taylor: the main thing about the constitutional chain is that it allows you to keep control
+
+225
+00:15:28.850 --> 00:15:30.380
+Anthony Taylor: of the
+
+226
+00:15:30.902 --> 00:15:35.839
+Anthony Taylor: like the size. The number of tokens stuff like that. Okay? Cause you pay
+
+227
+00:15:35.960 --> 00:15:37.670
+Anthony Taylor: by the number of tokens.
+
+228
+00:15:38.980 --> 00:15:39.960
+Anthony Taylor: Aye.
+
+229
+00:15:40.160 --> 00:15:47.790
+Anthony Taylor: Api chain chain converts. User. Query to an Api request passes it into the Llm. For response.
+
+230
+00:15:48.020 --> 00:15:48.800
+Anthony Taylor: Head.
+
+231
+00:15:48.970 --> 00:15:52.479
+Anthony Taylor: don't I know we use an Api today? But don't think we use that.
+
+232
+00:15:53.180 --> 00:15:53.990
+Anthony Taylor: Aye.
+
+233
+00:15:56.000 --> 00:15:56.780
+Anthony Taylor: so
+
+234
+00:15:57.460 --> 00:15:59.460
+Anthony Taylor: any questions about all that stuff
+
+235
+00:16:03.680 --> 00:16:06.950
+Anthony Taylor: lot of information. I know you want to see it, though. Right?
+
+236
+00:16:08.570 --> 00:16:10.003
+Anthony Taylor: Let's go.
+
+237
+00:16:14.110 --> 00:16:14.960
+Anthony Taylor: Okay.
+
+238
+00:16:15.590 --> 00:16:19.619
+Anthony Taylor: So if you're gonna play along with me, you need to have all those things installed by now.
+
+239
+00:16:20.505 --> 00:16:23.350
+Anthony Taylor: And your and your open. A Api key
+
+240
+00:16:23.360 --> 00:16:25.660
+Anthony Taylor: could be in. In an environment.
+
+241
+00:16:26.110 --> 00:16:27.130
+Anthony Taylor: If you
+
+242
+00:16:28.270 --> 00:16:30.240
+Anthony Taylor: can't get it in there.
+
+243
+00:16:30.390 --> 00:16:34.699
+Anthony Taylor: or if you didn't get it into your environment, just paste it in right there.
+
+244
+00:16:34.980 --> 00:16:36.589
+Anthony Taylor: hey? Just don't share your screen.
+
+245
+00:16:36.900 --> 00:16:37.850
+Anthony Taylor: Alright.
+
+246
+00:16:38.300 --> 00:16:39.230
+Anthony Taylor: Okay.
+
+247
+00:16:39.550 --> 00:16:40.810
+Anthony Taylor: So here we go.
+
+248
+00:16:40.970 --> 00:16:47.390
+Anthony Taylor: So we're going to bring in Lane chain underscore Openai. Why? Because this is the lame chain
+
+249
+00:16:47.630 --> 00:16:48.930
+Anthony Taylor: specific
+
+250
+00:16:49.190 --> 00:16:52.279
+Anthony Taylor: functions that work with Openai.
+
+251
+00:16:52.330 --> 00:16:54.640
+Anthony Taylor: There is a lamechin llama.
+
+252
+00:16:56.170 --> 00:17:02.500
+Anthony Taylor: Okay, there is land change for a lot of models. If you go to the documentation, you can see all.
+
+253
+00:17:05.310 --> 00:17:06.209
+Anthony Taylor: Here we go.
+
+254
+00:17:06.890 --> 00:17:08.950
+Anthony Taylor: all of the stuff that
+
+255
+00:17:09.710 --> 00:17:11.069
+Anthony Taylor: link chain works with.
+
+256
+00:17:13.180 --> 00:17:14.869
+Anthony Taylor: So we're going to import those 6.
+
+257
+00:17:16.319 --> 00:17:19.229
+Anthony Taylor: And we're going to load our environment variables.
+
+258
+00:17:19.339 --> 00:17:27.130
+Anthony Taylor: And we're going to set opena model to 3.5 turbo. This is a very fast.
+
+259
+00:17:27.270 --> 00:17:29.810
+Anthony Taylor: This is not TPT. 4.
+
+260
+00:17:29.900 --> 00:17:34.110
+Anthony Taylor: This is the same model that they were running back in January.
+
+261
+00:17:34.820 --> 00:17:40.290
+Anthony Taylor: Okay, they honestly, up until recently, you couldn't even get Gpt 4
+
+262
+00:17:40.640 --> 00:17:41.900
+Anthony Taylor: in this method.
+
+263
+00:17:42.730 --> 00:17:45.270
+Anthony Taylor: Okay, now, I think you can now. But
+
+264
+00:17:46.490 --> 00:17:51.889
+Anthony Taylor: yeah. So we're gonna run. Gbt, 3.5 turbo, which is a very, very good model.
+
+265
+00:17:52.870 --> 00:17:58.980
+Anthony Taylor: Alright. So to get started, we have to initialize the model. So what do we need to do that? Well, we're going to run, chat open. AI,
+
+266
+00:17:59.430 --> 00:18:01.270
+Anthony Taylor: we're going to pass in the key.
+
+267
+00:18:01.360 --> 00:18:02.850
+Anthony Taylor: the model name
+
+268
+00:18:03.290 --> 00:18:05.630
+Anthony Taylor: and a temperature setting.
+
+269
+00:18:05.750 --> 00:18:06.920
+Anthony Taylor: Okay.
+
+270
+00:18:07.030 --> 00:18:08.020
+Anthony Taylor: so
+
+271
+00:18:09.470 --> 00:18:12.059
+Anthony Taylor: temperature setting. So let's talk about
+
+272
+00:18:12.180 --> 00:18:13.590
+Anthony Taylor: a temperature setting.
+
+273
+00:18:14.070 --> 00:18:16.670
+Anthony Taylor: Where did my temperature setting go?
+
+274
+00:18:18.330 --> 00:18:20.580
+Anthony Taylor: Well, okay, basically.
+
+275
+00:18:20.880 --> 00:18:26.109
+Anthony Taylor: the lower the number, the less creative. Our model is going to be
+
+276
+00:18:28.860 --> 00:18:30.100
+Anthony Taylor: what? Yeah?
+
+277
+00:18:30.240 --> 00:18:31.199
+Anthony Taylor: Think about it.
+
+278
+00:18:32.740 --> 00:18:37.730
+Anthony Taylor: Most of the time when we talk to our model, we want it to be created.
+
+279
+00:18:38.090 --> 00:18:42.539
+Anthony Taylor: We want it to give what's probably the right answer.
+
+280
+00:18:43.090 --> 00:18:44.240
+Anthony Taylor: Make sense.
+
+281
+00:18:44.570 --> 00:18:47.740
+Anthony Taylor: So if you gave it a temperature of 0,
+
+282
+00:18:49.110 --> 00:18:55.520
+Anthony Taylor: it's never going to give you the wrong answer. If it doesn't know, it's just not going to give you an answer.
+
+283
+00:18:57.080 --> 00:19:01.940
+Anthony Taylor: Okay, if you give it a 3. Okay, it's it's a little flexible.
+
+284
+00:19:02.070 --> 00:19:03.920
+Anthony Taylor: You give it like a 9.
+
+285
+00:19:04.410 --> 00:19:10.099
+Anthony Taylor: I mean you. You could ask it about flowers and get an answer about birds.
+
+286
+00:19:11.050 --> 00:19:12.120
+Anthony Taylor: In theory
+
+287
+00:19:13.210 --> 00:19:18.450
+Anthony Taylor: there's probably some relationship, but not necessarily a relationship that makes sense
+
+288
+00:19:18.670 --> 00:19:20.070
+Anthony Taylor: to your question.
+
+289
+00:19:20.350 --> 00:19:21.240
+Anthony Taylor: Okay.
+
+290
+00:19:22.060 --> 00:19:22.870
+Raugewitz, Tania: So
+
+291
+00:19:23.130 --> 00:19:26.840
+Raugewitz, Tania: so on a scale of 0 to 9 is 0 point 3
+
+292
+00:19:26.850 --> 00:19:28.040
+Raugewitz, Tania: is that basic.
+
+293
+00:19:28.040 --> 00:19:32.539
+Anthony Taylor: 0 0 to 0 point 3 0 point 0 to 0 point 9.
+
+294
+00:19:33.180 --> 00:19:34.169
+Raugewitz, Tania: Okay, point 9.
+
+295
+00:19:34.170 --> 00:19:36.449
+Anthony Taylor: I, I would, yeah, I would. Yeah.
+
+296
+00:19:36.700 --> 00:19:38.140
+Anthony Taylor: shortcutting it there.
+
+297
+00:19:38.640 --> 00:19:42.629
+Anthony Taylor: So yeah, so temperature, and we will use temperature 0 today.
+
+298
+00:19:42.930 --> 00:19:50.310
+Anthony Taylor: Okay, when do you think we might use temperature 0 today, based on the different Llms. I explained to you already.
+
+299
+00:19:56.120 --> 00:19:58.439
+Anthony Taylor: math, thank you.
+
+300
+00:19:58.850 --> 00:20:00.000
+Anthony Taylor: Get on.
+
+301
+00:20:02.140 --> 00:20:11.240
+Anthony Taylor: yeah. So another way to put this is, it's it indicates how much we want the responses to match the probabilities.
+
+302
+00:20:11.680 --> 00:20:12.750
+Anthony Taylor: K,
+
+303
+00:20:14.060 --> 00:20:16.219
+Anthony Taylor: and like, I said, the higher you get
+
+304
+00:20:16.900 --> 00:20:18.369
+Anthony Taylor: more out there stuff.
+
+305
+00:20:18.590 --> 00:20:23.599
+Anthony Taylor: Alright. So the next piece of this, this is gonna initialize our model.
+
+306
+00:20:24.090 --> 00:20:29.270
+Anthony Taylor: This one is the question we're going to pass in now, right now, we're not building a ui.
+
+307
+00:20:29.800 --> 00:20:34.030
+Anthony Taylor: right? So we're gonna pass the question in through our code.
+
+308
+00:20:35.776 --> 00:20:36.750
+Anthony Taylor: And then
+
+309
+00:20:36.840 --> 00:20:38.390
+Anthony Taylor: this is it, guys
+
+310
+00:20:38.800 --> 00:20:41.680
+Anthony Taylor: save result. Ll, m, this one
+
+311
+00:20:41.730 --> 00:20:43.230
+Anthony Taylor: dot invoke.
+
+312
+00:20:43.290 --> 00:20:46.669
+Anthony Taylor: pass in the question, and it gives you a result.
+
+313
+00:20:46.980 --> 00:20:48.450
+Anthony Taylor: And here's your answer.
+
+314
+00:20:49.110 --> 00:20:52.830
+Anthony Taylor: Now this will take a second. It's got to go. Get it, chicken, stir. Fry.
+
+315
+00:20:53.240 --> 00:20:54.250
+Anthony Taylor: Okay.
+
+316
+00:20:54.800 --> 00:20:56.240
+Anthony Taylor: so that's pretty cool.
+
+317
+00:20:56.670 --> 00:20:58.919
+Anthony Taylor: Did all of yours come back with the same answer.
+
+318
+00:20:58.920 --> 00:21:00.370
+Clayton Graves: Yeah, is that normal.
+
+319
+00:21:01.190 --> 00:21:03.569
+Anthony Taylor: So well, it depends. But run it again.
+
+320
+00:21:04.620 --> 00:21:07.280
+Anthony Taylor: Oh, I got same answer. Why did I get same answer?
+
+321
+00:21:08.030 --> 00:21:11.800
+Anthony Taylor: Make 2 dinners to make this week. One is zip chicken, the other I said
+
+322
+00:21:12.630 --> 00:21:13.460
+Anthony Taylor: so. I guess so.
+
+323
+00:21:13.460 --> 00:21:14.470
+Clayton Graves: Sure I got yup.
+
+324
+00:21:14.470 --> 00:21:15.480
+Anthony Taylor: Yeah, yeah.
+
+325
+00:21:15.480 --> 00:21:16.130
+Dipinto, Matt: I got them.
+
+326
+00:21:16.661 --> 00:21:24.369
+Anthony Taylor: But that's just because the model said, I mean, you could change things up. You could say today, you could change the question, and you would probably get something.
+
+327
+00:21:25.640 --> 00:21:27.069
+Anthony Taylor: Did somebody start to say something?
+
+328
+00:21:27.650 --> 00:21:28.150
+Anthony Taylor: Oh, yeah.
+
+329
+00:21:28.150 --> 00:21:33.120
+Dipinto, Matt: I got a similar recipe, but different. So I got a lemon dill sauce as opposed to a lemon or butter.
+
+330
+00:21:33.620 --> 00:21:36.320
+Dipinto, Matt: Some variants with the same input, yeah.
+
+331
+00:21:36.320 --> 00:21:40.399
+Anthony Taylor: Exactly. You know what we could do this. Let's change our temperature to like 7.
+
+332
+00:21:40.400 --> 00:21:41.060
+Clayton Graves: I love Bill.
+
+333
+00:21:41.060 --> 00:21:41.960
+Anthony Taylor: That does.
+
+334
+00:21:44.790 --> 00:21:47.580
+Anthony Taylor: I got grilled salmon with them in dill sauce that time.
+
+335
+00:21:47.930 --> 00:21:52.009
+Anthony Taylor: It's all because Matt said it. Now I'm going to be stuck with it forever.
+
+336
+00:21:52.890 --> 00:21:54.190
+Anthony Taylor: Alright. So, anyway.
+
+337
+00:21:54.190 --> 00:21:55.219
+Clayton Graves: But eat this.
+
+338
+00:21:56.290 --> 00:21:59.789
+Anthony Taylor: So. So you guys know, every time we run that we are using.
+
+339
+00:21:59.860 --> 00:22:01.739
+Anthony Taylor: however, many words. That is
+
+340
+00:22:02.340 --> 00:22:04.900
+Anthony Taylor: right. And however many words came back
+
+341
+00:22:05.210 --> 00:22:08.209
+Anthony Taylor: that many tokens. Now keep in mind. It's like.
+
+342
+00:22:08.490 --> 00:22:11.380
+Anthony Taylor: you know, a million tokens for a dollar, so
+
+343
+00:22:11.430 --> 00:22:13.309
+Anthony Taylor: don't get too hung up about it. But
+
+344
+00:22:13.560 --> 00:22:15.799
+Anthony Taylor: keep in mind that every time we run that
+
+345
+00:22:16.450 --> 00:22:19.689
+Anthony Taylor: it's theoretically costing you a few cents. Alright.
+
+346
+00:22:19.830 --> 00:22:25.820
+Anthony Taylor: So there we go. That's basically how you do it. That's it. We could stop right there. That's how you call
+
+347
+00:22:25.860 --> 00:22:27.720
+Anthony Taylor: chat cpt with an Llf.
+
+348
+00:22:29.230 --> 00:22:32.700
+Anthony Taylor: Or sorry with language. But gonna go a little further than that.
+
+349
+00:22:32.760 --> 00:22:34.489
+Anthony Taylor: Let's create a function.
+
+350
+00:22:34.630 --> 00:22:36.940
+Anthony Taylor: This function takes 2 variables
+
+351
+00:22:37.200 --> 00:22:38.530
+Anthony Taylor: to arguments.
+
+352
+00:22:38.570 --> 00:22:48.750
+Anthony Taylor: and in it we're going to initialize. We're going to keep it at O 3. We're going to create a query that takes the input to the function
+
+353
+00:22:49.170 --> 00:22:55.900
+Anthony Taylor: and writes the query out. And then it's just going to print the results of that query
+
+354
+00:22:56.590 --> 00:23:00.200
+Anthony Taylor: to get those 2 values we're going to do inputs.
+
+355
+00:23:00.310 --> 00:23:05.219
+Anthony Taylor: What's the main greet you would like for the first day's meal. And then we're just going to call our function
+
+356
+00:23:05.350 --> 00:23:09.470
+Anthony Taylor: pretty easy. I'm going to use brown beef
+
+357
+00:23:10.910 --> 00:23:12.020
+Anthony Taylor: and
+
+358
+00:23:12.700 --> 00:23:14.060
+Anthony Taylor: chicken
+
+359
+00:23:14.730 --> 00:23:15.840
+Anthony Taylor: livers.
+
+360
+00:23:19.330 --> 00:23:20.799
+Anthony Taylor: And let's see what comes up.
+
+361
+00:23:21.120 --> 00:23:23.540
+Anthony Taylor: Ground beef. Tacos, actually.
+
+362
+00:23:24.380 --> 00:23:25.230
+Anthony Taylor: day
+
+363
+00:23:25.440 --> 00:23:27.469
+Anthony Taylor: and chicken liver pate.
+
+364
+00:23:30.810 --> 00:23:31.810
+Anthony Taylor: Pretty fun.
+
+365
+00:23:32.480 --> 00:23:33.370
+Anthony Taylor: Okay?
+
+366
+00:23:33.600 --> 00:23:39.850
+Anthony Taylor: So you could probably look at this right now and say, Oh, my God, I could probably make radio function right now with this, couldn't
+
+367
+00:23:42.490 --> 00:23:45.789
+Anthony Taylor: I mean it would only do one thing. But you got a function.
+
+368
+00:23:45.880 --> 00:23:48.399
+Anthony Taylor: You could do a radio, 2 inputs
+
+369
+00:23:48.790 --> 00:23:52.620
+Anthony Taylor: right? Call this function with those 2 inputs. You're done.
+
+370
+00:23:54.320 --> 00:23:56.410
+Anthony Taylor: Okay, we're not going to do that today by the
+
+371
+00:23:57.447 --> 00:23:59.590
+Anthony Taylor: okay, so let's look at math.
+
+372
+00:24:00.060 --> 00:24:02.150
+Anthony Taylor: Here we have the math. But
+
+373
+00:24:02.540 --> 00:24:04.919
+Anthony Taylor: so in this one, we're going to
+
+374
+00:24:05.380 --> 00:24:08.269
+Anthony Taylor: again. We're just going to initialize the model.
+
+375
+00:24:08.420 --> 00:24:09.710
+Anthony Taylor: Now, notice.
+
+376
+00:24:10.150 --> 00:24:15.269
+Anthony Taylor: this is initializing. The same model is up above. But the temperature has now changed.
+
+377
+00:24:16.120 --> 00:24:17.340
+Anthony Taylor: Okay.
+
+378
+00:24:22.020 --> 00:24:30.139
+Anthony Taylor: I'm just making sure what's going on. Alright, yeah. So we're going to work with. We're now going to get into a chain. So to do that first.
+
+379
+00:24:30.190 --> 00:24:33.700
+Anthony Taylor: we're gonna create an instance of chat of
+
+380
+00:24:33.760 --> 00:24:35.289
+Anthony Taylor: of our Gpt. MoD.
+
+381
+00:24:35.490 --> 00:24:37.759
+Anthony Taylor: Then we're going to create our chain.
+
+382
+00:24:38.270 --> 00:24:40.380
+Anthony Taylor: It's going to be a math chain
+
+383
+00:24:40.890 --> 00:24:47.819
+Anthony Taylor: from Lln. We're going to use this. Ll. M. We're going to do a thing called verbose. You're going to see this a lot.
+
+384
+00:24:47.860 --> 00:24:56.089
+Anthony Taylor: If this provost bothered feel free to change it. The false. What happens is as we run it. You're going to kind of see what the models think
+
+385
+00:24:57.330 --> 00:25:01.479
+Anthony Taylor: how it's coming to its answer. Kind of interesting in some cases.
+
+386
+00:25:02.408 --> 00:25:05.899
+Anthony Taylor: Do note that for the chain itself.
+
+387
+00:25:06.578 --> 00:25:09.750
+Anthony Taylor: We need. It does expect this
+
+388
+00:25:09.780 --> 00:25:11.500
+Anthony Taylor: dictionary object
+
+389
+00:25:11.630 --> 00:25:12.440
+Anthony Taylor: with
+
+390
+00:25:12.770 --> 00:25:16.750
+Anthony Taylor: a question E, and then that question.
+
+391
+00:25:18.870 --> 00:25:19.870
+Anthony Taylor: okay.
+
+392
+00:25:20.640 --> 00:25:24.960
+Anthony Taylor: and it can be built same ways up above, you could just, you know, make this a variable.
+
+393
+00:25:25.320 --> 00:25:26.269
+Anthony Taylor: no big deal.
+
+394
+00:25:26.670 --> 00:25:31.130
+Anthony Taylor: But basically, this is a prompt template.
+
+395
+00:25:32.390 --> 00:25:38.400
+Anthony Taylor: Okay, even though it's the whole prompt. Right now, we're going to be able to treat this as a template as we go forward.
+
+396
+00:25:38.610 --> 00:25:45.640
+Anthony Taylor: So now that we're done, we're not going to implement the Llm. Like we did up here. We're going to implement the chain.
+
+397
+00:25:47.350 --> 00:25:51.750
+Anthony Taylor: and we're going to call this query, and then it's going to give us an answer.
+
+398
+00:25:51.880 --> 00:25:53.410
+Anthony Taylor: Notice. It's not
+
+399
+00:25:53.820 --> 00:25:59.959
+Anthony Taylor: content this time. It's actually going to be a dictionary object with an answer key.
+
+400
+00:26:00.450 --> 00:26:01.619
+Anthony Taylor: we run that.
+
+401
+00:26:02.020 --> 00:26:05.280
+Anthony Taylor: and it will say, What is the sum? Okay? So here's the question
+
+402
+00:26:06.120 --> 00:26:09.349
+Anthony Taylor: it. This is what it figured out how to calculate it.
+
+403
+00:26:09.520 --> 00:26:11.480
+Anthony Taylor: Okay? And
+
+404
+00:26:11.960 --> 00:26:14.529
+Anthony Taylor: ran that. And it gave us the answer.
+
+405
+00:26:16.940 --> 00:26:22.169
+Anthony Taylor: everybody follow in how to do that. That's kind of fun, right? So we basically gave it
+
+406
+00:26:22.250 --> 00:26:23.830
+Anthony Taylor: a question. Yammer.
+
+407
+00:26:28.230 --> 00:26:42.249
+Meredith McCanse (she/her): I have 2 quick questions. I think the on the second line of the code on this cell that starts with chain equals inside the parentheses where it says, Lm, equals. Lm, are you? Is that where you're calling the Lm. Above that you defined.
+
+408
+00:26:42.640 --> 00:26:43.280
+Anthony Taylor: Yeah, some.
+
+409
+00:26:43.490 --> 00:26:44.389
+Meredith McCanse (she/her): Okay. And then.
+
+410
+00:26:44.690 --> 00:26:47.839
+Anthony Taylor: We could have called this bob and made it ll, but.
+
+411
+00:26:48.040 --> 00:27:03.179
+Meredith McCanse (she/her): Got it? Okay? And then what's the benefit, or what's the difference in this cell of making this a chain versus what we already did, or is it that we're not much difference yet? But we're about to do something else that puts it together.
+
+412
+00:27:03.640 --> 00:27:11.149
+Anthony Taylor: It's mostly this. So the chain itself was created by with the Link Chain Library to
+
+413
+00:27:11.250 --> 00:27:15.100
+Anthony Taylor: understand that the question is coming in. We want to do math with it.
+
+414
+00:27:16.410 --> 00:27:20.630
+Meredith McCanse (she/her): Okay, cause we did chat above. And then it was math chain. Okay, sorry. Thank you.
+
+415
+00:27:20.630 --> 00:27:25.500
+Anthony Taylor: Right? Right? No, no, no, that's good. And and we are going to use. We're going to combine them in just a sec.
+
+416
+00:27:25.590 --> 00:27:28.849
+Anthony Taylor: But that that was what we were doing there. Yeah, son.
+
+417
+00:27:31.900 --> 00:27:39.219
+Baro, Sonja: The verbose equals true, that's displayed because it's showing us in green and yellow and finished.
+
+418
+00:27:39.290 --> 00:27:42.010
+Baro, Sonja: That's what yielded that right?
+
+419
+00:27:42.130 --> 00:27:45.309
+Baro, Sonja: So if it's false. We wouldn't see the background.
+
+420
+00:27:46.440 --> 00:27:47.509
+Baro, Sonja: In fact.
+
+421
+00:27:47.550 --> 00:27:49.299
+Baro, Sonja: it would just be either.
+
+422
+00:27:49.720 --> 00:27:50.570
+Baro, Sonja: Okay.
+
+423
+00:27:50.780 --> 00:27:55.799
+Anthony Taylor: Okay. Now, I will tell you it does get pretty cool as we do some of this stuff later
+
+424
+00:27:55.970 --> 00:27:58.339
+Anthony Taylor: to see how it's doing what it's doing.
+
+425
+00:27:59.210 --> 00:28:00.020
+Anthony Taylor: Okay.
+
+426
+00:28:00.810 --> 00:28:01.620
+Anthony Taylor: bye.
+
+427
+00:28:02.130 --> 00:28:08.560
+Anthony Taylor: So that was our first chain. It was really simple one. But the main thing you need to take away from this cell.
+
+428
+00:28:08.610 --> 00:28:15.220
+Anthony Taylor: Okay, is, we created an Llm connection. We initialized an Llm. And then we used it
+
+429
+00:28:15.860 --> 00:28:17.569
+Anthony Taylor: with a chain
+
+430
+00:28:17.770 --> 00:28:18.880
+Anthony Taylor: to
+
+431
+00:28:19.200 --> 00:28:21.319
+Anthony Taylor: respond to a query. That's it.
+
+432
+00:28:21.620 --> 00:28:24.120
+Anthony Taylor: It's almost like a pipeline. Okay?
+
+433
+00:28:24.490 --> 00:28:28.339
+Anthony Taylor: Alright. So now we're going to go one step further still.
+
+434
+00:28:28.660 --> 00:28:31.680
+Anthony Taylor: we have our chain. We have our math chain.
+
+435
+00:28:31.810 --> 00:28:34.499
+Anthony Taylor: We have a simple, sequential chain
+
+436
+00:28:34.530 --> 00:28:37.110
+Anthony Taylor: and a chat prompt template.
+
+437
+00:28:38.310 --> 00:28:43.090
+Anthony Taylor: So first, we're gonna get our, we're gonna we're gonna initialize 2 Llms.
+
+438
+00:28:43.230 --> 00:28:44.140
+Anthony Taylor: Now.
+
+439
+00:28:45.180 --> 00:28:51.439
+Anthony Taylor: do we have to initialize them separately? Not necessarily, but in this case one is math.
+
+440
+00:28:51.630 --> 00:28:53.150
+Anthony Taylor: and one is chat.
+
+441
+00:28:53.620 --> 00:28:58.030
+Anthony Taylor: right chat. We want to give a little bit higher temperature
+
+442
+00:28:58.060 --> 00:29:04.460
+Anthony Taylor: and math. We want a very rigid temperature. So we are gonna have to do 2 of them.
+
+443
+00:29:04.870 --> 00:29:07.610
+Anthony Taylor: one at 0 0 and one at 0 3
+
+444
+00:29:08.710 --> 00:29:09.520
+Anthony Taylor: ken.
+
+445
+00:29:10.901 --> 00:29:13.920
+Anthony Taylor: We're gonna create a chat prompt template.
+
+446
+00:29:14.030 --> 00:29:22.360
+Anthony Taylor: And because this we're going to get more into prop templates on tomorrow's class. Right now. It's just going to be query.
+
+447
+00:29:22.930 --> 00:29:24.239
+Anthony Taylor: That's the whole tip.
+
+448
+00:29:26.460 --> 00:29:32.459
+Anthony Taylor: Okay, we're gonna talk about how to make way more complex once tomorrow's not get too worked up on that.
+
+449
+00:29:33.084 --> 00:29:37.090
+Anthony Taylor: Now, we're gonna create a chain. So we got Llm chain.
+
+450
+00:29:37.270 --> 00:29:39.630
+Anthony Taylor: We're going to pass in Chat Llm.
+
+451
+00:29:40.070 --> 00:29:43.930
+Anthony Taylor: And for the prompt we're going to pass in our simple, prompt.
+
+452
+00:29:44.610 --> 00:29:49.670
+Anthony Taylor: okay, we're going to create our math chain. Llm. Math chain from Llm.
+
+453
+00:29:49.730 --> 00:29:52.410
+Anthony Taylor: We don't need to pass in prompt. We're good.
+
+454
+00:29:52.550 --> 00:29:55.709
+Anthony Taylor: So this these 2 2 separate chains.
+
+455
+00:29:56.700 --> 00:30:02.080
+Anthony Taylor: Now we're going to create a sequential chain that takes the 2 chains we just made.
+
+456
+00:30:02.380 --> 00:30:04.400
+Anthony Taylor: And that's it.
+
+457
+00:30:04.530 --> 00:30:05.599
+Anthony Taylor: It's the chain.
+
+458
+00:30:06.580 --> 00:30:11.009
+Anthony Taylor: Okay. Now, what would you do with this? Well for our query.
+
+459
+00:30:11.090 --> 00:30:13.950
+Anthony Taylor: Our chat requires input
+
+460
+00:30:14.290 --> 00:30:18.030
+Anthony Taylor: so we're going to say, Please write. And and this is an interesting one.
+
+461
+00:30:18.190 --> 00:30:22.130
+Anthony Taylor: This is hard. Have you ever tried to write your own word problems.
+
+462
+00:30:22.570 --> 00:30:24.840
+Anthony Taylor: Okay, it's not a simple task.
+
+463
+00:30:25.370 --> 00:30:29.940
+Anthony Taylor: Alright. Please write a simple math word problem, priority, multiplication.
+
+464
+00:30:30.270 --> 00:30:34.380
+Anthony Taylor: Now, can math do that by itself? The answer is, no
+
+465
+00:30:36.400 --> 00:30:39.129
+Anthony Taylor: right. What is the Llm. Math
+
+466
+00:30:39.910 --> 00:30:41.780
+Anthony Taylor: chat the best at
+
+467
+00:30:44.240 --> 00:30:45.610
+Anthony Taylor: what's it used for?
+
+468
+00:30:46.780 --> 00:30:47.360
+Meredith McCanse (she/her): And.
+
+469
+00:30:47.360 --> 00:30:48.890
+Anthony Taylor: Doing that? Can I? Yeah.
+
+470
+00:30:48.890 --> 00:30:49.500
+Baro, Sonja: Yeah.
+
+471
+00:30:49.500 --> 00:30:52.669
+Anthony Taylor: Yeah, it has. It's for calculation. But
+
+472
+00:30:52.920 --> 00:30:56.430
+Anthony Taylor: chat gpt by itself is not our well, the Chat
+
+473
+00:30:56.570 --> 00:30:59.619
+Anthony Taylor: Ll labs are not particularly good at math.
+
+474
+00:30:59.820 --> 00:31:01.920
+Anthony Taylor: But they're great at words.
+
+475
+00:31:02.610 --> 00:31:06.249
+Anthony Taylor: Okay, so here, we're basically saying, use words
+
+476
+00:31:06.360 --> 00:31:09.430
+Anthony Taylor: to give us a math problem. So we need both.
+
+477
+00:31:10.330 --> 00:31:21.389
+Anthony Taylor: And that's what's going to happen when we execute this, it's going to use both of these models. And let's see how it works, because we have verbose untrue. We can really watch
+
+478
+00:31:21.490 --> 00:31:22.640
+Anthony Taylor: what it's doing
+
+479
+00:31:23.460 --> 00:31:30.410
+Anthony Taylor: didn't really give us a whole lot. Sarah has 4 boxes cookie in each box contains 12 cookies. How many cookies does Sarah have
+
+480
+00:31:30.420 --> 00:31:31.500
+Anthony Taylor: in total.
+
+481
+00:31:32.710 --> 00:31:35.169
+Anthony Taylor: Okay, to get that answer
+
+482
+00:31:35.920 --> 00:31:38.130
+Anthony Taylor: we needed our math chain.
+
+483
+00:31:39.450 --> 00:31:42.260
+Anthony Taylor: Alright. Now, what's kind of interesting is.
+
+484
+00:31:42.890 --> 00:31:46.690
+Anthony Taylor: if you didn't have that verbose sign, I don't think you would see the question
+
+485
+00:31:52.170 --> 00:31:54.640
+Anthony Taylor: something that I would say we would need to fit.
+
+486
+00:31:56.560 --> 00:31:57.310
+Anthony Taylor: And
+
+487
+00:31:57.460 --> 00:31:58.750
+Anthony Taylor: I wonder. Hold on
+
+488
+00:31:58.890 --> 00:32:00.689
+Anthony Taylor: just kind of peek at something real quick.
+
+489
+00:32:11.670 --> 00:32:15.780
+Anthony Taylor: So it did give it to us for some reason.
+
+490
+00:32:21.580 --> 00:32:23.339
+Anthony Taylor: Doesn't make any sense, does it?
+
+491
+00:32:23.340 --> 00:32:25.550
+Baro, Sonja: Is the output defined with that.
+
+492
+00:32:25.550 --> 00:32:26.400
+Anthony Taylor: Oh.
+
+493
+00:32:27.560 --> 00:32:31.959
+Anthony Taylor: well, cause the the the results there. So if we just said print, result.
+
+494
+00:32:35.970 --> 00:32:37.620
+Anthony Taylor: See, we can see the question.
+
+495
+00:32:37.620 --> 00:32:38.260
+Baro, Sonja: Right.
+
+496
+00:32:38.970 --> 00:32:41.130
+Anthony Taylor: Oh, there it is, so output
+
+497
+00:32:41.310 --> 00:32:47.299
+Anthony Taylor: the answer. The the key to output is, answer 24. So we could say.
+
+498
+00:32:47.460 --> 00:32:49.279
+Anthony Taylor: You know France?
+
+499
+00:32:50.420 --> 00:32:51.335
+Anthony Taylor: F,
+
+500
+00:32:52.970 --> 00:32:59.199
+Anthony Taylor: the question is, and then in here do results.
+
+501
+00:33:00.720 --> 00:33:02.760
+Anthony Taylor: Log input.
+
+502
+00:33:06.140 --> 00:33:13.049
+Dipinto, Matt: So still doesn't show us the question that it developed for that answer. So we don't see the word.
+
+503
+00:33:13.050 --> 00:33:16.220
+Anthony Taylor: Oh, you're right, you're right, that's interesting.
+
+504
+00:33:17.020 --> 00:33:19.979
+Anthony Taylor: That's true. That's not the right we can.
+
+505
+00:33:22.290 --> 00:33:26.850
+Anthony Taylor: I'll have to figure, you know what I'll look into that. I'm actually curious how you would get the question
+
+506
+00:33:27.550 --> 00:33:28.680
+Anthony Taylor: I do now
+
+507
+00:33:28.700 --> 00:33:30.280
+Anthony Taylor: off the top of my head.
+
+508
+00:33:32.880 --> 00:33:34.230
+Anthony Taylor: That's pretty cool.
+
+509
+00:33:37.590 --> 00:33:43.130
+Anthony Taylor: because even the question it says, write a simple math book problem quirring. I wonder if.
+
+510
+00:33:43.130 --> 00:33:48.356
+Clayton Graves: It's a pain in the butt. But isn't it? Just setting verbose is true.
+
+511
+00:33:49.200 --> 00:33:55.750
+Anthony Taylor: Well, yeah, I mean, you could get it. But I want to. I want I mean, I would want to output the question
+
+512
+00:33:56.840 --> 00:33:59.119
+Anthony Taylor: right? And what it's done.
+
+513
+00:33:59.970 --> 00:34:02.690
+Anthony Taylor: is it? Generated the question
+
+514
+00:34:02.730 --> 00:34:03.990
+Anthony Taylor: with the chat.
+
+515
+00:34:04.360 --> 00:34:06.800
+Anthony Taylor: and then it solved it with the map.
+
+516
+00:34:07.110 --> 00:34:10.929
+Anthony Taylor: But it only gave us the solution, not the things I don't.
+
+517
+00:34:11.070 --> 00:34:13.030
+Anthony Taylor: I don't know. It's an interesting thing we can
+
+518
+00:34:13.489 --> 00:34:15.309
+Anthony Taylor: ponder upon that another.
+
+519
+00:34:15.719 --> 00:34:17.469
+Anthony Taylor: Let's continue
+
+520
+00:34:17.960 --> 00:34:20.060
+Anthony Taylor: alright. So we could
+
+521
+00:34:20.510 --> 00:34:25.369
+Anthony Taylor: do even more with this. Okay, we can do. Here's another chat
+
+522
+00:34:25.699 --> 00:34:30.329
+Anthony Taylor: this time we're going to do. We're going to do an Llm. And then our chat chain.
+
+523
+00:34:30.520 --> 00:34:31.989
+Anthony Taylor: Okay? Sorry.
+
+524
+00:34:32.527 --> 00:34:35.560
+Anthony Taylor: Good. We do memory, or we do more change.
+
+525
+00:34:35.909 --> 00:34:43.319
+Anthony Taylor: more change. Okay, so we have our chat scene. We're going to this time. We're going to use constitutional principle.
+
+526
+00:34:43.850 --> 00:34:45.060
+Anthony Taylor: And
+
+527
+00:34:45.380 --> 00:34:47.090
+Anthony Taylor: this should
+
+528
+00:34:48.920 --> 00:34:50.530
+Anthony Taylor: let us
+
+529
+00:34:50.969 --> 00:34:53.950
+Anthony Taylor: hold on. Actually, you know what? Let me check and see if they tell us why?
+
+530
+00:35:02.930 --> 00:35:03.890
+Anthony Taylor: Nope.
+
+531
+00:35:05.960 --> 00:35:12.460
+Anthony Taylor: alright! So sometimes, when we're doing this, we encounter problems with queries. They're just too complex. Or they have multiple steps.
+
+532
+00:35:14.230 --> 00:35:17.649
+Anthony Taylor: so you know that we have to wait half way to deal with that.
+
+533
+00:35:17.680 --> 00:35:19.629
+Anthony Taylor: Okay, we'd also like to guarantee
+
+534
+00:35:19.700 --> 00:35:21.230
+Anthony Taylor: our true
+
+535
+00:35:22.400 --> 00:35:27.419
+Anthony Taylor: for our final output, such as claims being supported by evidence or not
+
+536
+00:35:27.450 --> 00:35:30.280
+Anthony Taylor: recommending legal actions, things like that.
+
+537
+00:35:30.500 --> 00:35:34.169
+Anthony Taylor: So you know. And this there's also the problem of hallucinations.
+
+538
+00:35:36.490 --> 00:35:38.950
+Anthony Taylor: so for these reasons, it's sometimes good
+
+539
+00:35:39.050 --> 00:35:45.269
+Anthony Taylor: to get an initial response from one chain and then have another chain. Refine it
+
+540
+00:35:45.340 --> 00:35:51.110
+Anthony Taylor: with additional guidance. We can do this with the constitutional change.
+
+541
+00:35:53.210 --> 00:35:56.229
+Anthony Taylor: Okay, what does that mean? So here's an example.
+
+542
+00:35:56.560 --> 00:35:57.560
+Anthony Taylor: So
+
+543
+00:35:57.770 --> 00:36:00.309
+Anthony Taylor: we have a chain we're going to create. Well.
+
+544
+00:36:00.320 --> 00:36:01.860
+Anthony Taylor: we're going to create a principle
+
+545
+00:36:02.190 --> 00:36:12.930
+Anthony Taylor: with constitution's principle. The name of it is fear of dogs. The critique requests. The model should not include dog, but dogs. In stories it writes.
+
+546
+00:36:13.390 --> 00:36:17.320
+Anthony Taylor: the revision requests modify the story, be about
+
+547
+00:36:17.660 --> 00:36:19.410
+Anthony Taylor: something other than dogs
+
+548
+00:36:20.290 --> 00:36:21.140
+Anthony Taylor: can.
+
+549
+00:36:21.840 --> 00:36:23.979
+Anthony Taylor: When we create this chain.
+
+550
+00:36:24.040 --> 00:36:30.120
+Anthony Taylor: It's going to do the chat chain, and then the constitutional principle with the principle we made.
+
+551
+00:36:30.310 --> 00:36:32.940
+Anthony Taylor: and then Ll. M. And verposes true
+
+552
+00:36:33.430 --> 00:36:38.199
+Anthony Taylor: the queries that please give me the main event of the story about 3 household pets.
+
+553
+00:36:39.840 --> 00:36:42.939
+Anthony Taylor: Alright. So if we took this just
+
+554
+00:36:43.790 --> 00:36:44.939
+Anthony Taylor: for giggles
+
+555
+00:36:45.420 --> 00:36:47.679
+Anthony Taylor: up to our very first one.
+
+556
+00:36:52.360 --> 00:36:53.550
+Anthony Taylor: But remember.
+
+557
+00:36:54.840 --> 00:36:56.420
+Anthony Taylor: is just a chat.
+
+558
+00:36:57.370 --> 00:36:58.350
+Anthony Taylor: Okay.
+
+559
+00:37:05.190 --> 00:37:06.809
+Anthony Taylor: this might take a minute. There we go.
+
+560
+00:37:06.940 --> 00:37:10.009
+Anthony Taylor: A cat named Whisker is a dog named Max, a parrot named Paul.
+
+561
+00:37:10.390 --> 00:37:11.260
+Anthony Taylor: hey.
+
+562
+00:37:12.130 --> 00:37:15.290
+Anthony Taylor: pretty cool, all right. Now, let's go back to where we are.
+
+563
+00:37:16.690 --> 00:37:18.949
+Anthony Taylor: So what we're saying is is.
+
+564
+00:37:19.120 --> 00:37:21.870
+Anthony Taylor: we don't have. This is a
+
+565
+00:37:22.130 --> 00:37:25.370
+Anthony Taylor: anti dog website, Chappa.
+
+566
+00:37:25.690 --> 00:37:30.430
+Anthony Taylor: We don't ever want to see dogs in our outputs.
+
+567
+00:37:31.020 --> 00:37:41.939
+Anthony Taylor: Okay? So we can create a rule like this. And then when the chat runs, it will rerun. If there is a dog and story. My guess is
+
+568
+00:37:42.320 --> 00:37:44.890
+Anthony Taylor: we'll get a similar one to up top. Then.
+
+569
+00:37:45.770 --> 00:37:48.650
+Anthony Taylor: Okay, so let's run this and see what happens.
+
+570
+00:37:49.020 --> 00:37:51.020
+Anthony Taylor: it fails. What did I change?
+
+571
+00:37:57.400 --> 00:37:59.760
+Anthony Taylor: Principal constitutional principal?
+
+572
+00:38:00.060 --> 00:38:00.950
+Anthony Taylor: Oh.
+
+573
+00:38:01.100 --> 00:38:03.070
+Anthony Taylor: remember to run the imports first.
+
+574
+00:38:04.150 --> 00:38:05.410
+Anthony Taylor: Okay, here we go.
+
+575
+00:38:08.000 --> 00:38:11.259
+Anthony Taylor: So initial response, there it is a dog account and a bird live together.
+
+576
+00:38:12.120 --> 00:38:13.100
+Anthony Taylor: K.
+
+577
+00:38:13.220 --> 00:38:19.670
+Anthony Taylor: Plying fear of dogs critique. The model includes dogs story, despite the human's prompt for story about 3 household pets.
+
+578
+00:38:19.740 --> 00:38:22.349
+Anthony Taylor: Updated response cattle, rabbit and hamster.
+
+579
+00:38:24.490 --> 00:38:25.840
+Anthony Taylor: See how that works.
+
+580
+00:38:27.180 --> 00:38:31.900
+Anthony Taylor: You're starting to see now exactly how the agents might work. Right.
+
+581
+00:38:32.960 --> 00:38:34.109
+Anthony Taylor: Yes, son.
+
+582
+00:38:34.940 --> 00:38:38.360
+Baro, Sonja: So mine comes back with
+
+583
+00:38:38.770 --> 00:38:42.439
+Baro, Sonja: updated response. No revision needed.
+
+584
+00:38:42.980 --> 00:38:45.130
+Anthony Taylor: Well, did you have dogs in your first story?
+
+585
+00:38:45.130 --> 00:38:51.009
+Baro, Sonja: I do introduction the dog named Max, which is funny, cause I have one named Max
+
+586
+00:38:51.887 --> 00:38:59.689
+Baro, Sonja: and it gives the 5 like elements applying fear of dogs shows the critique
+
+587
+00:38:59.800 --> 00:39:05.830
+Baro, Sonja: model shouldn't include include dogs in the story. Updated response. No revisions needed.
+
+588
+00:39:06.610 --> 00:39:07.839
+Anthony Taylor: Does it say them?
+
+589
+00:39:08.300 --> 00:39:09.150
+Anthony Taylor: I got the same.
+
+590
+00:39:09.150 --> 00:39:09.760
+Clayton Graves: Been.
+
+591
+00:39:10.550 --> 00:39:15.019
+Anthony Taylor: Okay, does it say the model includes dogs in the story right here under critique.
+
+592
+00:39:17.650 --> 00:39:22.419
+Baro, Sonja: It says the model should not include dogs and stories. It's writ, it writes.
+
+593
+00:39:22.640 --> 00:39:25.440
+Baro, Sonja: this could be seen as exclusionary.
+
+594
+00:39:25.540 --> 00:39:29.120
+Baro, Sonja: The model should consider a more inclusive approach
+
+595
+00:39:30.011 --> 00:39:33.320
+Baro, Sonja: when creating story critique needed.
+
+596
+00:39:34.670 --> 00:39:37.060
+Anthony Taylor: You just ran the same code. I ran right.
+
+597
+00:39:37.440 --> 00:39:39.939
+Baro, Sonja: Yeah, I didn't change a single thing.
+
+598
+00:39:40.810 --> 00:39:41.490
+Clayton Graves: Same.
+
+599
+00:39:41.490 --> 00:39:42.110
+Anthony Taylor: Exit.
+
+600
+00:39:42.960 --> 00:39:47.320
+Anthony Taylor: That's crazy, if if you run it twice, then you do it again.
+
+601
+00:39:47.580 --> 00:39:48.769
+Baro, Sonja: Let me try it again.
+
+602
+00:39:49.340 --> 00:39:52.790
+Baro, Sonja: But so I was like, huh! I thought it wasn't supposed to include Max.
+
+603
+00:39:53.950 --> 00:39:54.620
+Baro, Sonja: Oh, wait.
+
+604
+00:39:54.879 --> 00:39:57.210
+Anthony Taylor: Can't include Max. It just can't include the dough.
+
+605
+00:39:57.210 --> 00:40:00.900
+Baro, Sonja: The dog. Well, Max, for me is my dog, so.
+
+606
+00:40:01.130 --> 00:40:01.849
+Anthony Taylor: Got you.
+
+607
+00:40:02.300 --> 00:40:07.509
+Baro, Sonja: Alright. We're okay. Entering new constitutional chain chain
+
+608
+00:40:11.310 --> 00:40:15.060
+Baro, Sonja: then. Now it did. It changed it to cat, rabbit, and Hamster.
+
+609
+00:40:15.550 --> 00:40:18.710
+Anthony Taylor: Alright. Well, good Clayton, did yours fix on the second run.
+
+610
+00:40:18.710 --> 00:40:22.769
+Clayton Graves: Mine acknowledges that it should have changed, but it still did not.
+
+611
+00:40:23.050 --> 00:40:25.080
+Clayton Graves: The model included dog is.
+
+612
+00:40:27.030 --> 00:40:30.893
+Anthony Taylor: How do you mute yourself in the middle of statement?
+
+613
+00:40:31.580 --> 00:40:32.100
+Anthony Taylor: You know.
+
+614
+00:40:32.100 --> 00:40:33.169
+Clayton Graves: Try that again.
+
+615
+00:40:33.770 --> 00:40:34.620
+Clayton Graves: Again. So.
+
+616
+00:40:34.620 --> 00:40:36.289
+Anthony Taylor: I'll say it included up.
+
+617
+00:40:36.290 --> 00:40:41.470
+Clayton Graves: It. It acknowledged that it should have removed the dog, but it still included the dog.
+
+618
+00:40:41.570 --> 00:40:54.839
+Clayton Graves: so model included a dogs. One of the main characters of story, despite the critique request, asked not to include dog dogs and story. It writes, the model should have adhered to this request and focused on other types of pets. Critique needed.
+
+619
+00:40:56.910 --> 00:40:59.860
+Anthony Taylor: okay. Alright, no, no, no, that's not wrong.
+
+620
+00:41:00.920 --> 00:41:05.899
+Anthony Taylor: Okay, that's not actually wrong. What? That's what that that's lame change
+
+621
+00:41:06.000 --> 00:41:12.440
+Anthony Taylor: telling you that while you gave it this request. When it asked the model to redo it.
+
+622
+00:41:12.640 --> 00:41:14.250
+Anthony Taylor: It it didn't do it
+
+623
+00:41:15.710 --> 00:41:26.290
+Anthony Taylor: right. It said it. It it like it asked it said, modify the story without dogs. When it rewrote the story it still had dogs. So the constitutional chain
+
+624
+00:41:26.710 --> 00:41:30.519
+Anthony Taylor: actually came back and said, Something's wrong. You need to get in and figure it out.
+
+625
+00:41:31.090 --> 00:41:36.660
+Anthony Taylor: Okay? And I mean, I don't know what could be wrong, because it's all an Api.
+
+626
+00:41:36.710 --> 00:41:38.989
+Anthony Taylor: So we just have to try it again.
+
+627
+00:41:38.990 --> 00:41:42.126
+Clayton Graves: I know if I have a phobia, I'm traumatized and.
+
+628
+00:41:42.440 --> 00:41:43.450
+Anthony Taylor: Screwed.
+
+629
+00:41:43.450 --> 00:41:44.400
+Clayton Graves: Whatever.
+
+630
+00:41:45.590 --> 00:41:46.310
+Clayton Graves: but.
+
+631
+00:41:46.310 --> 00:41:48.179
+Anthony Taylor: The interesting thing is is
+
+632
+00:41:49.530 --> 00:41:57.030
+Anthony Taylor: what you can do with something like this is, if you build out an application. What you would do is not show that store.
+
+633
+00:41:57.780 --> 00:42:02.279
+Anthony Taylor: you would say if it. If the constitutional chain came back with that answer.
+
+634
+00:42:02.310 --> 00:42:05.329
+Anthony Taylor: you would say, just just return.
+
+635
+00:42:05.550 --> 00:42:07.580
+Anthony Taylor: you know, don't return anything
+
+636
+00:42:07.870 --> 00:42:10.730
+Anthony Taylor: or return unable to to create or whatever.
+
+637
+00:42:11.080 --> 00:42:17.700
+Anthony Taylor: Okay, there is a catch. But that's the idea with constitutional principle is that you can build out these rules
+
+638
+00:42:17.750 --> 00:42:21.039
+Anthony Taylor: that it has to check to make sure it's not violated.
+
+639
+00:42:21.100 --> 00:42:22.500
+Anthony Taylor: And this is.
+
+640
+00:42:23.120 --> 00:42:26.219
+Anthony Taylor: I'm not gonna lie and tell you this is how they're censoring
+
+641
+00:42:26.380 --> 00:42:28.530
+Anthony Taylor: models, but it is a way
+
+642
+00:42:28.830 --> 00:42:30.539
+Anthony Taylor: to censor the output.
+
+643
+00:42:30.820 --> 00:42:33.550
+Clayton Graves: Third time's a charm. It it finally changed it third time.
+
+644
+00:42:33.550 --> 00:42:34.409
+Anthony Taylor: There you go.
+
+645
+00:42:36.150 --> 00:42:37.619
+Anthony Taylor: you know, so like.
+
+646
+00:42:37.780 --> 00:42:40.679
+Anthony Taylor: like, you know, asking it if I can make a ball.
+
+647
+00:42:40.890 --> 00:42:43.990
+Anthony Taylor: That's not that's actually stopped at the Api, though
+
+648
+00:42:44.940 --> 00:42:46.670
+Anthony Taylor: right? But
+
+649
+00:42:47.110 --> 00:42:48.720
+Anthony Taylor: if you wanted to tell it.
+
+650
+00:42:49.070 --> 00:42:52.199
+Anthony Taylor: you know, don't show the students how to write.
+
+651
+00:42:53.260 --> 00:42:56.060
+Anthony Taylor: you know. Use the Http. Requests.
+
+652
+00:42:57.680 --> 00:43:04.700
+Anthony Taylor: You could do that here, because we know the model will return that. But maybe we don't want to return it in our chat box.
+
+653
+00:43:05.250 --> 00:43:06.220
+Anthony Taylor: See my point.
+
+654
+00:43:07.800 --> 00:43:10.520
+Anthony Taylor: So that's the purpose of constitutional change.
+
+655
+00:43:10.720 --> 00:43:13.269
+Anthony Taylor: Okay? That's it.
+
+656
+00:43:13.780 --> 00:43:17.709
+Anthony Taylor: So you guys have an activity with that information.
+
+657
+00:43:20.250 --> 00:43:23.610
+Anthony Taylor: don't worry about this, Ian. I mean, hopefully, all your keys work.
+
+658
+00:43:23.950 --> 00:43:28.800
+Anthony Taylor: You're gonna use pretty much all of those things we just did.
+
+659
+00:43:30.280 --> 00:43:31.100
+Anthony Taylor: Yeah.
+
+660
+00:43:32.000 --> 00:43:33.890
+Anthony Taylor: yeah, I think you'll do fine.
+
+661
+00:43:39.200 --> 00:43:40.040
+Anthony Taylor: All right.
+
+662
+00:43:43.840 --> 00:43:46.450
+Anthony Taylor: so how'd you do everybody get through that? Okay.
+
+663
+00:43:47.200 --> 00:43:48.779
+Anthony Taylor: anybody have the issues.
+
+664
+00:43:48.780 --> 00:43:53.159
+Clayton Graves: I did get through it for what it's worth. I did get through it.
+
+665
+00:43:54.810 --> 00:44:06.810
+Meredith McCanse (she/her): We had trouble. We got it to give us recipes, but we told us we told it no cheese or cream, and it gave us a like chicken, Alfredo recipe, with like lots of heavy cream and cheese products.
+
+666
+00:44:06.810 --> 00:44:07.720
+Anthony Taylor: Lots of it.
+
+667
+00:44:08.400 --> 00:44:09.709
+Meredith McCanse (she/her): And then did not.
+
+668
+00:44:10.390 --> 00:44:13.179
+Anthony Taylor: Did you did that with your constitutional chain.
+
+669
+00:44:13.370 --> 00:44:20.280
+Meredith McCanse (she/her): Yeah, but there's actually no, I don't think the constitutional part worked, cause it didn't do that step to correct itself.
+
+670
+00:44:21.100 --> 00:44:21.920
+Anthony Taylor: Okay.
+
+671
+00:44:22.080 --> 00:44:24.739
+Meredith McCanse (she/her): So something went wrong there. But.
+
+672
+00:44:25.790 --> 00:44:26.710
+Anthony Taylor: Alright.
+
+673
+00:44:27.130 --> 00:44:29.850
+Anthony Taylor: Okay, well, let's go through this.
+
+674
+00:44:29.970 --> 00:44:33.540
+Anthony Taylor: And and if you if we want, we can see if you found it.
+
+675
+00:44:33.690 --> 00:44:36.770
+Anthony Taylor: So we're going to do our imports, load our keys
+
+676
+00:44:37.150 --> 00:44:41.899
+Anthony Taylor: alright, so our imports in this one we need chat open AI ll, and chain.
+
+677
+00:44:41.920 --> 00:44:45.690
+Anthony Taylor: constitutional chain, constitutional principle.
+
+678
+00:44:45.950 --> 00:44:48.079
+Anthony Taylor: and your chat, prompt, template.
+
+679
+00:44:49.296 --> 00:44:53.660
+Anthony Taylor: This one, we're gonna do 2 inputs for the meal.
+
+680
+00:44:53.780 --> 00:44:55.349
+Anthony Taylor: So I'm going to do
+
+681
+00:44:55.490 --> 00:44:56.920
+Anthony Taylor: beans
+
+682
+00:44:58.010 --> 00:44:59.880
+Anthony Taylor: and tripe.
+
+683
+00:45:01.930 --> 00:45:05.950
+Anthony Taylor: Okay? Cause you know, typical Texas food.
+
+684
+00:45:06.240 --> 00:45:11.004
+Anthony Taylor: Alright. Oh, please name your dietary type.
+
+685
+00:45:12.630 --> 00:45:13.650
+Anthony Taylor: Vegan.
+
+686
+00:45:18.530 --> 00:45:19.909
+Anthony Taylor: That's kind of funny, right?
+
+687
+00:45:20.650 --> 00:45:24.000
+Anthony Taylor: I told it to make give me a recipe, a Vegan recipe for trike.
+
+688
+00:45:24.380 --> 00:45:31.069
+Anthony Taylor: Alright. So we're gonna create our model. We're gonna create a chain using
+
+689
+00:45:31.220 --> 00:45:32.130
+Anthony Taylor: sorry.
+
+690
+00:45:33.000 --> 00:45:33.800
+Anthony Taylor: Now.
+
+691
+00:45:34.130 --> 00:45:35.639
+Anthony Taylor: using our model.
+
+692
+00:45:36.680 --> 00:45:44.650
+Anthony Taylor: And then for our constitutional principle, we'll call it dietary requirements. Our critique requests model should only offer recipes that fit
+
+693
+00:45:44.680 --> 00:45:48.549
+Anthony Taylor: a blank blank diet, modify the recipe to fit
+
+694
+00:45:48.750 --> 00:45:50.549
+Anthony Taylor: the requirement diet
+
+695
+00:45:51.700 --> 00:45:55.359
+Anthony Taylor: for our chain. I don't know why they have this in twice.
+
+696
+00:45:56.040 --> 00:45:59.080
+Anthony Taylor: Not that it actually hurts it, but doesn't help it.
+
+697
+00:45:59.120 --> 00:46:04.720
+Anthony Taylor: So our chain is going to run concerts chain from Lm. Gonna pass in, recipe
+
+698
+00:46:05.350 --> 00:46:06.700
+Anthony Taylor: our principal.
+
+699
+00:46:06.890 --> 00:46:10.890
+Anthony Taylor: and let's leave it verbose so we can see what it's doing.
+
+700
+00:46:11.220 --> 00:46:12.280
+Anthony Taylor: Boo.
+
+701
+00:46:12.600 --> 00:46:16.670
+Anthony Taylor: Last, but not least. Give me 2 dinners this week with these 2 recipes
+
+702
+00:46:17.720 --> 00:46:19.280
+Anthony Taylor: and run
+
+703
+00:46:26.640 --> 00:46:29.110
+Anthony Taylor: black beans and corn enchiladas.
+
+704
+00:46:31.700 --> 00:46:33.859
+Anthony Taylor: We're gonna have to go to a text editor when it's done.
+
+705
+00:46:35.240 --> 00:46:37.110
+Anthony Taylor: Okay, so we've got
+
+706
+00:46:37.630 --> 00:46:39.070
+Anthony Taylor: trank soup.
+
+707
+00:46:41.890 --> 00:46:50.779
+Anthony Taylor: and it's an applying dietary. Treat the model provided recipe for black bean, Cornichslada and tribe soup. Second, recipe does not fit eating diet
+
+708
+00:46:50.810 --> 00:46:55.899
+Anthony Taylor: as it contains stripe, which is a type meet the model should offer. Be good alternative.
+
+709
+00:46:56.950 --> 00:46:59.509
+Anthony Taylor: Update reason. Black beans
+
+710
+00:46:59.950 --> 00:47:01.860
+Anthony Taylor: and Vegan tranks.
+
+711
+00:47:05.210 --> 00:47:07.289
+Anthony Taylor: Vegan tribe substitute.
+
+712
+00:47:10.010 --> 00:47:11.040
+Anthony Taylor: Okay?
+
+713
+00:47:11.310 --> 00:47:13.080
+Anthony Taylor: Hey? It worked.
+
+714
+00:47:13.280 --> 00:47:16.850
+Anthony Taylor: Can't argue with that. Oh, wait! Did it come up with another issue?
+
+715
+00:47:17.160 --> 00:47:20.059
+Anthony Taylor: Finish chain. Okay, yeah. And then it gave the answer.
+
+716
+00:47:20.370 --> 00:47:21.429
+Anthony Taylor: So there we go
+
+717
+00:47:21.780 --> 00:47:24.860
+Anthony Taylor: alright. So yours did not do that, Meredith.
+
+718
+00:47:26.660 --> 00:47:30.939
+Meredith McCanse (she/her): You don't think so. I just tried it again with different parameters. So it did.
+
+719
+00:47:30.990 --> 00:47:34.939
+Meredith McCanse (she/her): but it did the thing that Sonya had, and that Clayton had where it said.
+
+720
+00:47:36.370 --> 00:47:37.560
+Meredith McCanse (she/her): thank you, critique. Maybe.
+
+721
+00:47:37.560 --> 00:47:38.570
+Anthony Taylor: Necessary.
+
+722
+00:47:38.570 --> 00:47:43.699
+Meredith McCanse (she/her): Yeah. Well, no. It gave things that broke the rules, and then said, no revisions needed.
+
+723
+00:47:45.770 --> 00:47:48.759
+Meredith McCanse (she/her): But it at least did show that it, the critique part
+
+724
+00:47:49.520 --> 00:47:53.240
+Meredith McCanse (she/her): of the respond of the output which I didn't see before.
+
+725
+00:47:54.200 --> 00:47:55.000
+Anthony Taylor: That's cool.
+
+726
+00:47:55.240 --> 00:48:02.280
+Anthony Taylor: I like it, I mean, I don't like that. Give you what you wanted. But like I said what we would have to do for that is is catch that
+
+727
+00:48:02.440 --> 00:48:04.969
+Anthony Taylor: right? Is, you would say, Okay, well.
+
+728
+00:48:05.080 --> 00:48:08.860
+Anthony Taylor: it's not matching the constitutional principle. We're gonna stop
+
+729
+00:48:09.100 --> 00:48:10.429
+Anthony Taylor: in its tracks.
+
+730
+00:48:11.530 --> 00:48:12.570
+Anthony Taylor: Okidoki.
+
+731
+00:48:13.840 --> 00:48:16.890
+Anthony Taylor: all right. Any other questions.
+
+732
+00:48:17.360 --> 00:48:22.809
+Anthony Taylor: Now. I know it feels a little bit early, but with schedule right now, we're actually right on time.
+
+733
+00:48:23.352 --> 00:48:25.170
+Anthony Taylor: We're going to take a break.
+
+734
+00:48:25.480 --> 00:48:31.010
+Anthony Taylor: and when you come back we're going to bring in external sources.
+
+735
+00:48:31.890 --> 00:48:35.799
+Anthony Taylor: We're gonna bring in files. It's going to be very exciting.
+
+736
+00:48:36.080 --> 00:48:38.370
+Anthony Taylor: Alright. So come back at
+
+737
+00:48:40.030 --> 00:48:44.110
+Anthony Taylor: oh, God! I don't want to give you 22 min, 5 min till the hour.
+
+738
+00:48:44.380 --> 00:48:48.350
+Anthony Taylor: So 55 actions! Hi! Natalie! Come in!
+
+739
+00:48:49.950 --> 00:48:51.490
+Anthony Taylor: I thought she was too.
+
+740
+00:48:51.490 --> 00:48:55.080
+Mason, Natalie: I'm so sorry. No, I'm so sorry I'm late.
+
+741
+00:48:56.340 --> 00:48:57.619
+Anthony Taylor: You told us she'd be late.
+
+742
+00:48:59.420 --> 00:49:00.180
+Anthony Taylor: Hi.
+
+743
+00:49:00.290 --> 00:49:03.460
+Anthony Taylor: we'll talk after guys. You have 5 min till
+
+744
+00:49:03.640 --> 00:49:05.720
+Anthony Taylor: break time, and today
+
+745
+00:49:05.820 --> 00:49:07.289
+Anthony Taylor: is all good stuff.
+
+746
+00:49:14.450 --> 00:49:15.630
+Anthony Taylor: But this.
+
+747
+00:49:15.900 --> 00:49:16.940
+Anthony Taylor: this
+
+748
+00:49:17.600 --> 00:49:19.370
+Anthony Taylor: is really good stuff.
+
+749
+00:49:20.650 --> 00:49:21.750
+Anthony Taylor: So
+
+750
+00:49:25.690 --> 00:49:26.630
+Anthony Taylor: what?
+
+751
+00:49:28.390 --> 00:49:32.099
+Anthony Taylor: I don't think we have any good slides on this. Let me check before I
+
+752
+00:49:37.120 --> 00:49:38.799
+Anthony Taylor: yeah, that's worthless.
+
+753
+00:49:42.280 --> 00:49:45.440
+Anthony Taylor: Imagine, if you will so do any of you.
+
+754
+00:49:45.570 --> 00:49:48.260
+Anthony Taylor: Some of you are working now for companies. Right?
+
+755
+00:49:49.520 --> 00:49:55.579
+Anthony Taylor: Are they using any of the chat bots at all at your company? Am I working a company that's actively using
+
+756
+00:49:56.080 --> 00:49:57.300
+Anthony Taylor: Chatty, Pt.
+
+757
+00:49:59.760 --> 00:50:01.469
+Masarirambi, Rodney: Oh, yeah, there
+
+758
+00:50:01.983 --> 00:50:04.886
+Masarirambi, Rodney: we're building. We're building a chat.
+
+759
+00:50:05.540 --> 00:50:09.800
+Masarirambi, Rodney: cause we do sales enabling. So there's even like AI Bot powered by
+
+760
+00:50:09.850 --> 00:50:11.889
+Masarirambi, Rodney: Tag, Gbt, 3.5
+
+761
+00:50:12.627 --> 00:50:20.100
+Masarirambi, Rodney: so for people to like ask questions and stuff for that kind of like like OS, Jeeves, kind of thing before, like our product.
+
+762
+00:50:20.560 --> 00:50:24.529
+Anthony Taylor: Okay? And and how are you getting your product information in there? Do you know.
+
+763
+00:50:27.770 --> 00:50:28.680
+Masarirambi, Rodney: Oh,
+
+764
+00:50:29.680 --> 00:50:32.599
+Masarirambi, Rodney: hadn't told him that I was doing this course, so I haven't been on.
+
+765
+00:50:32.893 --> 00:50:41.390
+Anthony Taylor: So they haven't told you. Okay, that's fine. No, that's fine. And but but the cool thing is, I mean, that's kind of the question I was looking for
+
+766
+00:50:41.570 --> 00:50:42.780
+Anthony Taylor: was.
+
+767
+00:50:43.240 --> 00:50:44.120
+Anthony Taylor: Hey, Pete?
+
+768
+00:50:44.520 --> 00:50:45.550
+Anthony Taylor: What
+
+769
+00:50:45.810 --> 00:50:51.270
+Anthony Taylor: the first thing we all have to think about is chat. Tpt. Gbt. 3.5. Turbo was trained on.
+
+770
+00:50:51.350 --> 00:50:53.420
+Anthony Taylor: you know, billions of parameters.
+
+771
+00:50:55.440 --> 00:50:56.710
+Anthony Taylor: and
+
+772
+00:50:57.830 --> 00:50:59.569
+Anthony Taylor: it's great.
+
+773
+00:50:59.790 --> 00:51:15.129
+Anthony Taylor: It answers so many questions, does so much. Even the Gpt. 4 model is is the one that we've all been using most of this class is amazing, right? It can answer so many questions. But can it answer questions about Rod these products
+
+774
+00:51:17.220 --> 00:51:19.820
+Anthony Taylor: right now without modification?
+
+775
+00:51:20.470 --> 00:51:27.940
+Anthony Taylor: Probably not some of them it can. I mean, there are things like, I've noticed a lot of like Api calls and stuff.
+
+776
+00:51:27.980 --> 00:51:36.649
+Anthony Taylor: If they were on the Internet when the model was trained. The Api documentation is in Chat Gpt, but that still doesn't necessarily
+
+777
+00:51:36.690 --> 00:51:41.030
+Anthony Taylor: relay information that you want to relay about your product
+
+778
+00:51:41.250 --> 00:51:42.250
+Anthony Taylor: today.
+
+779
+00:51:44.050 --> 00:51:45.090
+Anthony Taylor: Okay.
+
+780
+00:51:47.100 --> 00:51:49.379
+Anthony Taylor: so what we're going to get into now
+
+781
+00:51:49.460 --> 00:51:53.079
+Anthony Taylor: is how you can. And this isn't real time.
+
+782
+00:51:53.120 --> 00:51:54.720
+Anthony Taylor: Bring in data
+
+783
+00:51:55.320 --> 00:51:58.370
+Anthony Taylor: and ask you questions, basically.
+
+784
+00:51:58.960 --> 00:52:03.620
+Anthony Taylor: okay, using lime chain. And this is one of the big benefits
+
+785
+00:52:03.670 --> 00:52:05.139
+Anthony Taylor: of lynching.
+
+786
+00:52:05.570 --> 00:52:06.640
+Anthony Taylor: Okay,
+
+787
+00:52:09.630 --> 00:52:12.229
+Anthony Taylor: let's do it. So we start off with
+
+788
+00:52:13.370 --> 00:52:15.460
+Anthony Taylor: bringing in our basic stuff here.
+
+789
+00:52:15.890 --> 00:52:18.460
+Anthony Taylor: get our keys done. And then here we go.
+
+790
+00:52:18.550 --> 00:52:23.470
+Anthony Taylor: So land chain has this thing called document motors.
+
+791
+00:52:23.610 --> 00:52:27.730
+Anthony Taylor: Okay, there's a lot of them. In fact, we're gonna go and look
+
+792
+00:52:28.420 --> 00:52:29.430
+Anthony Taylor: at them.
+
+793
+00:52:36.000 --> 00:52:39.399
+Anthony Taylor: So lane chain document loaders.
+
+794
+00:52:39.930 --> 00:52:46.270
+Anthony Taylor: So over here on the left, you can see there's a custom one. There's Csv. A file directory, HTML,
+
+795
+00:52:46.480 --> 00:52:50.620
+Anthony Taylor: Json, Markdown, Microsoft office. Pdfs.
+
+796
+00:52:50.920 --> 00:52:52.860
+Anthony Taylor: all available to us.
+
+797
+00:52:53.620 --> 00:52:54.610
+Anthony Taylor: Okay.
+
+798
+00:52:55.058 --> 00:53:02.450
+Anthony Taylor: very, very cool. There's other things to. We're going to get to. But right now, this is what we're talking about our capabilities. Okay.
+
+799
+00:53:03.110 --> 00:53:05.529
+Anthony Taylor: so we're going to start with
+
+800
+00:53:06.050 --> 00:53:08.570
+Anthony Taylor: one called the Pi Pdf loader.
+
+801
+00:53:09.610 --> 00:53:11.210
+Anthony Taylor: And you might guess
+
+802
+00:53:11.570 --> 00:53:12.910
+Anthony Taylor: this loads.
+
+803
+00:53:13.340 --> 00:53:14.500
+Anthony Taylor: Pdfs.
+
+804
+00:53:15.470 --> 00:53:16.330
+Anthony Taylor: okay.
+
+805
+00:53:17.780 --> 00:53:22.639
+Anthony Taylor: and then we're going to do a question answering chain.
+
+806
+00:53:22.890 --> 00:53:24.779
+Anthony Taylor: Okay, so we haven't done this one yet.
+
+807
+00:53:25.010 --> 00:53:30.430
+Anthony Taylor: But basically, it's just a chain that was specifically designed for questions and answers.
+
+808
+00:53:31.090 --> 00:53:34.980
+Anthony Taylor: okay, so we'll do that. Now, I will tell you that this
+
+809
+00:53:35.210 --> 00:53:38.819
+Anthony Taylor: does not work. Has anyone tried this already, and they got it to work.
+
+810
+00:53:40.250 --> 00:53:43.450
+Anthony Taylor: No, you can't get it to work. So copy this
+
+811
+00:53:45.180 --> 00:53:47.999
+Anthony Taylor: paste below it. Comment this one out.
+
+812
+00:53:48.090 --> 00:53:49.399
+Anthony Taylor: And then
+
+813
+00:53:51.170 --> 00:53:53.490
+Anthony Taylor: actually, you can even delete this whole thing
+
+814
+00:53:55.310 --> 00:53:57.480
+Anthony Taylor: and then type dot slash
+
+815
+00:53:58.120 --> 00:53:59.790
+Anthony Taylor: resources
+
+816
+00:54:03.560 --> 00:54:04.820
+Anthony Taylor: slash.
+
+817
+00:54:05.580 --> 00:54:08.450
+Anthony Taylor: Actually, it's not working. I don't know why, but we'll figure it out.
+
+818
+00:54:09.200 --> 00:54:10.899
+Anthony Taylor: Resources. Stop. Pdf.
+
+819
+00:54:11.460 --> 00:54:12.480
+Anthony Taylor: okay.
+
+820
+00:54:13.160 --> 00:54:14.930
+Anthony Taylor: that should have taken us there.
+
+821
+00:54:16.220 --> 00:54:18.740
+Anthony Taylor: Normally, I get a cool. Maybe it's dot Dot.
+
+822
+00:54:20.800 --> 00:54:22.689
+Anthony Taylor: That's probably it. Okay.
+
+823
+00:54:22.740 --> 00:54:23.850
+Anthony Taylor: so
+
+824
+00:54:24.220 --> 00:54:28.440
+Anthony Taylor: that's going to put our file into this loader
+
+825
+00:54:28.720 --> 00:54:29.730
+Anthony Taylor: object.
+
+826
+00:54:30.420 --> 00:54:32.270
+Anthony Taylor: Then we're going to tell it to load it.
+
+827
+00:54:32.620 --> 00:54:40.759
+Anthony Taylor: Okay, we're going to actually do it. And it's going to load whatever Pdf, whatever we've passed in into this documents. Variable.
+
+828
+00:54:41.739 --> 00:54:46.019
+Anthony Taylor: We're gonna create an Openai chat, same as we've been doing all day.
+
+829
+00:54:46.110 --> 00:54:50.150
+Anthony Taylor: Notice? The temperature is 0. We don't want it to get creative here.
+
+830
+00:54:51.200 --> 00:55:00.309
+Anthony Taylor: and we're going to load the Qa chain or load. QA. Chain. So all this does is put the question. Answer chain into our chain.
+
+831
+00:55:01.170 --> 00:55:04.820
+Anthony Taylor: It's going to be powered by our Llf.
+
+832
+00:55:05.010 --> 00:55:09.200
+Anthony Taylor: That's sort of you know what I like the way I just said that. So I want you guys to think about what I just said.
+
+833
+00:55:09.270 --> 00:55:10.880
+Anthony Taylor: These chains.
+
+834
+00:55:11.050 --> 00:55:14.019
+Anthony Taylor: They have to be powered by an Ll. M.
+
+835
+00:55:14.810 --> 00:55:15.810
+Anthony Taylor: So
+
+836
+00:55:16.090 --> 00:55:22.140
+Anthony Taylor: this chain is powered by this Llm. Right here, which is our open AI,
+
+837
+00:55:23.040 --> 00:55:34.409
+Anthony Taylor: okay? And reason I make the big deal out of that is again, remember, you can use Llama you can use. There's like a number of different models that you can use here.
+
+838
+00:55:35.340 --> 00:55:38.179
+Anthony Taylor: Okay, obviously, wouldn't be called Chat Openai.
+
+839
+00:55:38.250 --> 00:55:43.950
+Anthony Taylor: But it would have a different name but once that Ll. M. Is initialized, that you can use it in the chain.
+
+840
+00:55:45.400 --> 00:55:52.099
+Anthony Taylor: Okay, alright. The query is going to be. Could I write to Jane DOE in Spanish and expect her to understand.
+
+841
+00:55:52.760 --> 00:55:54.939
+Anthony Taylor: Okay, so that's this resin. So
+
+842
+00:55:57.610 --> 00:55:58.720
+Anthony Taylor: yeah, that's not helpful.
+
+843
+00:55:58.850 --> 00:56:00.580
+Anthony Taylor: Let's do this.
+
+844
+00:56:00.760 --> 00:56:02.360
+Anthony Taylor: So this is the resume
+
+845
+00:56:03.170 --> 00:56:04.350
+Anthony Taylor: kind of boring.
+
+846
+00:56:05.160 --> 00:56:06.220
+Anthony Taylor: Okay.
+
+847
+00:56:06.610 --> 00:56:07.350
+Anthony Taylor: but
+
+848
+00:56:07.880 --> 00:56:11.130
+Anthony Taylor: we're going to take that resume. And we're going to ask the question.
+
+849
+00:56:11.810 --> 00:56:13.300
+Anthony Taylor: can I
+
+850
+00:56:13.970 --> 00:56:17.610
+Anthony Taylor: speak to her in Spanish and expect her to understand.
+
+851
+00:56:18.120 --> 00:56:19.170
+Anthony Taylor: Okay?
+
+852
+00:56:19.580 --> 00:56:22.470
+Anthony Taylor: Oh, look at that now. Yeah, no.
+
+853
+00:56:23.531 --> 00:56:26.099
+Anthony Taylor: And then we're going to invoke our chain.
+
+854
+00:56:26.230 --> 00:56:34.370
+Anthony Taylor: The input document is going to be our documents. Object. Our question will be our query, and then we'll see the result output.
+
+855
+00:56:34.650 --> 00:56:36.609
+Anthony Taylor: So it's loading the file.
+
+856
+00:56:36.780 --> 00:56:44.360
+Anthony Taylor: And it said, Yes, Jane DOE mentions in her resume that a conversational level of English, so you could write to her and Spanish inspector to understand.
+
+857
+00:56:44.550 --> 00:56:46.560
+Anthony Taylor: That's freaking amazing!
+
+858
+00:56:48.240 --> 00:56:51.269
+Anthony Taylor: I agree, Natalie. My jaw dropped to the floor, too.
+
+859
+00:56:51.390 --> 00:56:53.000
+Anthony Taylor: Oh, wait. You were yawning
+
+860
+00:56:53.830 --> 00:56:54.580
+Anthony Taylor: that.
+
+861
+00:56:55.144 --> 00:56:58.780
+Anthony Taylor: Okay, so what did you do with this?
+
+862
+00:56:59.300 --> 00:57:02.309
+Anthony Taylor: I agree. I take up a lot of options.
+
+863
+00:57:04.090 --> 00:57:04.890
+Anthony Taylor: Okay.
+
+864
+00:57:05.110 --> 00:57:09.930
+Anthony Taylor: alright. So this means that you could load any Pdf file
+
+865
+00:57:11.200 --> 00:57:13.539
+Anthony Taylor: and be able to ask you questions.
+
+866
+00:57:14.170 --> 00:57:14.870
+Anthony Taylor: Panel.
+
+867
+00:57:15.340 --> 00:57:20.579
+Anthony Taylor: do keep in mind. This is real time, which means it's not storing this.
+
+868
+00:57:22.280 --> 00:57:23.789
+Anthony Taylor: it's reading it.
+
+869
+00:57:24.330 --> 00:57:26.320
+Anthony Taylor: And it's basically
+
+870
+00:57:26.650 --> 00:57:28.470
+Anthony Taylor: using it as a prompt
+
+871
+00:57:31.100 --> 00:57:32.010
+Anthony Taylor: okay.
+
+872
+00:57:33.500 --> 00:57:36.079
+Anthony Taylor: and that's how we're getting this.
+
+873
+00:57:36.220 --> 00:57:44.889
+Anthony Taylor: Okay, there are some built in integrations. Now these come, notice this one up here came from Link Chain.
+
+874
+00:57:45.730 --> 00:57:47.210
+Anthony Taylor: There is also
+
+875
+00:57:48.060 --> 00:57:51.280
+Anthony Taylor: blame chain underscore community.
+
+876
+00:57:54.580 --> 00:57:55.830
+Anthony Taylor: Alright,
+
+877
+00:58:00.790 --> 00:58:03.339
+Anthony Taylor: Oh, that's not helpful. This is what I wanted.
+
+878
+00:58:03.570 --> 00:58:07.529
+Anthony Taylor: So in here, notice, we got a lot.
+
+879
+00:58:12.600 --> 00:58:13.860
+Anthony Taylor: You see how many there are
+
+880
+00:58:14.510 --> 00:58:15.440
+Anthony Taylor: crazy.
+
+881
+00:58:15.900 --> 00:58:19.399
+Anthony Taylor: Okay, actually, let's see, is there an azure? Adls? I'd like that
+
+882
+00:58:19.520 --> 00:58:21.409
+Anthony Taylor: database. Let's see if there's a data breaks
+
+883
+00:58:22.170 --> 00:58:23.389
+Anthony Taylor: data frame.
+
+884
+00:58:28.130 --> 00:58:29.330
+Anthony Taylor: There is a lot
+
+885
+00:58:29.440 --> 00:58:30.310
+Anthony Taylor: in here.
+
+886
+00:58:31.500 --> 00:58:33.850
+Anthony Taylor: It's funny because I haven't seen all. There's a lot.
+
+887
+00:58:36.280 --> 00:58:37.959
+Anthony Taylor: Yeah, right there, look at that.
+
+888
+00:58:41.450 --> 00:58:47.559
+Anthony Taylor: So anyway. So these and and you mean, you know, they're not going to be necessarily as well documented. But
+
+889
+00:58:48.350 --> 00:58:55.130
+Anthony Taylor: we should work like this in most cases. So here we have our document loader. We're going to load Wikipedia loader
+
+890
+00:58:57.550 --> 00:59:00.530
+Anthony Taylor: and into it we're going to
+
+891
+00:59:00.560 --> 00:59:03.930
+Anthony Taylor: say, this is the topic we want to pass in.
+
+892
+00:59:04.970 --> 00:59:09.270
+Anthony Taylor: So, Wikipedia. Lower, we lower them. We pass in the topic
+
+893
+00:59:09.320 --> 00:59:12.760
+Anthony Taylor: how many docks to load, because there could be a lot
+
+894
+00:59:12.940 --> 00:59:13.850
+Anthony Taylor: right
+
+895
+00:59:14.080 --> 00:59:15.520
+Anthony Taylor: the metadata.
+
+896
+00:59:15.700 --> 00:59:22.069
+Anthony Taylor: And then we tell it to load, and that's going to load our documents. Object. The rest is the same. We ask the question.
+
+897
+00:59:22.350 --> 00:59:26.009
+Anthony Taylor: how many albums has Leonardo Cohen released?
+
+898
+00:59:26.440 --> 00:59:29.900
+Anthony Taylor: And then everything else is the same. So we can run this.
+
+899
+00:59:30.050 --> 00:59:32.009
+Anthony Taylor: It's going to go out and grab it.
+
+900
+00:59:34.220 --> 00:59:35.769
+Anthony Taylor: This one's gonna take a second
+
+901
+00:59:35.940 --> 00:59:38.179
+Anthony Taylor: because it's literally going out to the Internet
+
+902
+00:59:38.320 --> 00:59:39.969
+Anthony Taylor: searching the Internet.
+
+903
+00:59:39.970 --> 00:59:45.529
+Clayton Graves: Just forget. I changed the Wiki topic to Star Wars and then asked how many movies there were.
+
+904
+00:59:45.710 --> 00:59:46.420
+Clayton Graves: Edit.
+
+905
+00:59:46.420 --> 00:59:47.319
+Anthony Taylor: Oh no!
+
+906
+00:59:47.320 --> 00:59:49.640
+Clayton Graves: It did. There was 12 movies.
+
+907
+00:59:49.720 --> 00:59:50.800
+Clayton Graves: the original show.
+
+908
+00:59:50.800 --> 00:59:51.480
+Anthony Taylor: Good.
+
+909
+00:59:51.480 --> 00:59:52.629
+Clayton Graves: No, it did it
+
+910
+00:59:57.880 --> 00:59:59.060
+Clayton Graves: pretty spiffy.
+
+911
+00:59:59.428 --> 01:00:06.419
+Anthony Taylor: That's good. Right, that's pretty cool. And here lean article released. Total 15 studio albums during his music career.
+
+912
+01:00:08.040 --> 01:00:11.990
+Anthony Taylor: That's fantastic. So now you guys have the ability
+
+913
+01:00:12.240 --> 01:00:14.140
+Anthony Taylor: to bring in Wiki topics.
+
+914
+01:00:15.270 --> 01:00:16.380
+Anthony Taylor: Okay?
+
+915
+01:00:17.420 --> 01:00:23.099
+Anthony Taylor: Additionally, we could do an Api chain. Now, this is a little different.
+
+916
+01:00:23.140 --> 01:00:24.870
+Anthony Taylor: So follow along.
+
+917
+01:00:27.010 --> 01:00:29.639
+Anthony Taylor: well, let me make sure
+
+918
+01:00:31.110 --> 01:00:32.900
+Anthony Taylor: I don't want to give you something wrong.
+
+919
+01:00:39.130 --> 01:00:43.990
+Anthony Taylor: Right? So you guys remember when we did the numbers Api, I mean, this was a long time ago.
+
+920
+01:00:44.090 --> 01:00:54.110
+Anthony Taylor: but you got it was a fun one, right? You pass in the number you said. I want to do math Trivia, or a date you've got like a special thing to happen a day. Remember that
+
+921
+01:00:54.720 --> 01:00:56.479
+Anthony Taylor: the numbers. Api. Okay, good.
+
+922
+01:00:56.730 --> 01:00:57.700
+Anthony Taylor: So
+
+923
+01:00:57.910 --> 01:01:00.689
+Anthony Taylor: in this case we're going to
+
+924
+01:01:00.820 --> 01:01:04.930
+Anthony Taylor: give a text description of the Api spec
+
+925
+01:01:06.960 --> 01:01:10.860
+Anthony Taylor: just hit newer Api number type to get plain text response
+
+926
+01:01:11.228 --> 01:01:14.330
+Anthony Taylor: trivia. See? Yeah, there's all the stuff I just said, basically right.
+
+927
+01:01:14.790 --> 01:01:17.060
+Anthony Taylor: And so that's the spec.
+
+928
+01:01:18.220 --> 01:01:21.149
+Anthony Taylor: Then we're gonna say, turn it up. And yeah, we're gonna
+
+929
+01:01:21.270 --> 01:01:23.350
+Anthony Taylor: again initialize.
+
+930
+01:01:23.600 --> 01:01:28.260
+Anthony Taylor: We're going to use Api chain from Llm and Api docs.
+
+931
+01:01:28.890 --> 01:01:33.629
+Anthony Taylor: we're going to pass the Llm. The Api. Doc's spec. This up here
+
+932
+01:01:33.750 --> 01:01:40.750
+Anthony Taylor: verbose. We want to see this. Okay, do keep in mind. If this requires E, you will see it in the verbose
+
+933
+01:01:41.340 --> 01:01:47.189
+Anthony Taylor: and then limit 2 domains. All right. We're doing this just to make sure it doesn't go off.
+
+934
+01:01:47.450 --> 01:01:49.370
+Anthony Taylor: Start querying all over the Internet.
+
+935
+01:01:49.630 --> 01:01:50.530
+Anthony Taylor: And
+
+936
+01:01:51.243 --> 01:01:55.370
+Anthony Taylor: define query, what is the fun? Fact about the number 22.
+
+937
+01:01:55.600 --> 01:01:58.020
+Anthony Taylor: Result, chain run it.
+
+938
+01:01:58.280 --> 01:01:59.230
+Anthony Taylor: beau.
+
+939
+01:02:02.260 --> 01:02:04.510
+Anthony Taylor: So it went out. Now notice what it did
+
+940
+01:02:04.790 --> 01:02:07.040
+Anthony Taylor: with just this information
+
+941
+01:02:09.630 --> 01:02:11.869
+Anthony Taylor: it was able to create
+
+942
+01:02:12.500 --> 01:02:13.989
+Anthony Taylor: the Api call.
+
+943
+01:02:14.730 --> 01:02:19.329
+Anthony Taylor: make the Api call and get an answer.
+
+944
+01:02:19.330 --> 01:02:22.402
+Clayton Graves: How was it able to do that with a temperature.
+
+945
+01:02:22.710 --> 01:02:23.550
+Anthony Taylor: Fantastic.
+
+946
+01:02:24.490 --> 01:02:27.990
+Anthony Taylor: Well, it just simply read this. It did exactly what it we told it to do.
+
+947
+01:02:28.490 --> 01:02:30.120
+Anthony Taylor: So it read, this
+
+948
+01:02:30.550 --> 01:02:35.079
+Anthony Taylor: came up, and and then we told it to go and get a fun fact. So it said.
+
+949
+01:02:35.170 --> 01:02:46.489
+Anthony Taylor: just hit blah blah blah to number type to get plain text response, where type is one of trivia, math, date, or year defaults a trivia if omitted, number is an integer or a keyword random.
+
+950
+01:02:46.560 --> 01:02:51.610
+Anthony Taylor: for which we will try to return a random available fact or a day of the year for month day.
+
+951
+01:02:51.870 --> 01:02:57.290
+Anthony Taylor: Okay, so with that information, what is a fun fact? About number 22
+
+952
+01:02:57.410 --> 01:02:59.299
+Anthony Taylor: it was able to come up with.
+
+953
+01:02:59.690 --> 01:03:05.229
+Clayton Graves: So the fun fact originated from the Api, not from the model itself.
+
+954
+01:03:05.590 --> 01:03:07.710
+Anthony Taylor: No, no, this, this, this is
+
+955
+01:03:08.610 --> 01:03:10.320
+Anthony Taylor: this is an Api call.
+
+956
+01:03:13.580 --> 01:03:14.120
+Clayton Graves: I guess.
+
+957
+01:03:14.120 --> 01:03:17.259
+Anthony Taylor: So it actually went out, made the Api call
+
+958
+01:03:17.890 --> 01:03:21.970
+Anthony Taylor: right from that information and receive this, and then
+
+959
+01:03:22.610 --> 01:03:24.329
+Anthony Taylor: formatted it like this.
+
+960
+01:03:24.330 --> 01:03:27.430
+Clayton Graves: I guess I guess I don't understand how we could do it with
+
+961
+01:03:27.910 --> 01:03:32.478
+Clayton Graves: with 0 temperature. There's no creativity there whatsoever.
+
+962
+01:03:33.050 --> 01:03:35.141
+Anthony Taylor: It off of this spec. That's it.
+
+963
+01:03:35.440 --> 01:03:36.220
+Clayton Graves: Alright!
+
+964
+01:03:36.530 --> 01:03:41.860
+Anthony Taylor: Yeah, yeah, that's it. We're we're we don't want it to get creative here. Cause we told it
+
+965
+01:03:41.880 --> 01:03:43.909
+Anthony Taylor: what it should look like. Now.
+
+966
+01:03:44.010 --> 01:03:48.539
+Anthony Taylor: I mean this. I don't know that how many of us could nail this on the first try.
+
+967
+01:03:48.640 --> 01:03:52.860
+Anthony Taylor: But yeah, I mean, we could also say, I see your hand, Sunny? 1 s.
+
+968
+01:03:52.870 --> 01:03:54.287
+Anthony Taylor: we could say,
+
+969
+01:03:56.740 --> 01:03:57.420
+Anthony Taylor: work.
+
+970
+01:03:59.110 --> 01:04:01.490
+Anthony Taylor: What is a math? Fact? Let's try that.
+
+971
+01:04:06.450 --> 01:04:07.240
+Anthony Taylor: And
+
+972
+01:04:09.420 --> 01:04:11.319
+Anthony Taylor: okay, and see again.
+
+973
+01:04:11.370 --> 01:04:12.479
+Anthony Taylor: It came up
+
+974
+01:04:13.650 --> 01:04:15.369
+Anthony Taylor: with the yeah, URL,
+
+975
+01:04:15.400 --> 01:04:17.129
+Anthony Taylor: just from this information.
+
+976
+01:04:17.970 --> 01:04:24.450
+Anthony Taylor: Now do keep in mind. We are using an Api chain. So it knows it's an Api call.
+
+977
+01:04:24.540 --> 01:04:27.949
+Anthony Taylor: and we gave it the base. So all it had to do was figure out
+
+978
+01:04:29.080 --> 01:04:31.520
+Anthony Taylor: what the other 2 arguments were.
+
+979
+01:04:31.920 --> 01:04:33.480
+Anthony Taylor: Yeah, Sony, what was your question?
+
+980
+01:04:34.030 --> 01:04:44.430
+Baro, Sonja: My question is around the key. So because the key is for the model for chat. O Chat Openai model.
+
+981
+01:04:45.459 --> 01:04:51.930
+Baro, Sonja: how how is it? What if the URL we're hitting it requires.
+
+982
+01:04:51.930 --> 01:04:52.560
+Anthony Taylor: And Satya.
+
+983
+01:04:52.560 --> 01:04:55.269
+Baro, Sonja: Separate api key, like.
+
+984
+01:04:55.770 --> 01:04:56.800
+Anthony Taylor: Good question.
+
+985
+01:04:57.610 --> 01:05:00.920
+Anthony Taylor: and I haven't done this one. So let's go look.
+
+986
+01:05:06.330 --> 01:05:09.139
+Baro, Sonja: So maybe there's no key required.
+
+987
+01:05:09.810 --> 01:05:15.420
+Baro, Sonja: or they have a key already defined from open AI.
+
+988
+01:05:21.830 --> 01:05:25.009
+Anthony Taylor: So there is a parameters.
+
+989
+01:05:25.010 --> 01:05:25.850
+Baro, Sonja: Yeah.
+
+990
+01:05:26.070 --> 01:05:26.880
+Baro, Sonja: okay.
+
+991
+01:05:28.790 --> 01:05:29.260
+Anthony Taylor: Looking.
+
+992
+01:05:29.970 --> 01:05:33.929
+Anthony Taylor: I'm certain there's a way to put the key in there just for the just, for the record.
+
+993
+01:05:33.930 --> 01:05:34.700
+Baro, Sonja: But it, I guess.
+
+994
+01:05:34.700 --> 01:05:37.310
+Anthony Taylor: Do I know it off the top? My head? No, but.
+
+995
+01:05:37.310 --> 01:05:45.229
+Baro, Sonja: But the key being unique to the website that we're calling through Openai, right?
+
+996
+01:05:45.450 --> 01:05:46.320
+Baro, Sonja: That that.
+
+997
+01:05:46.320 --> 01:05:50.299
+Anthony Taylor: Well, you're calling it through Lane. Chain. Openai is just working with.
+
+998
+01:05:52.250 --> 01:05:54.740
+Baro, Sonja: Regard. Okay, so, but yeah, my.
+
+999
+01:05:54.740 --> 01:05:57.480
+Anthony Taylor: That's an important distinction. So, but yeah, go ahead.
+
+1000
+01:05:57.700 --> 01:05:59.839
+Baro, Sonja: But the yeah. So the but
+
+1001
+01:06:00.230 --> 01:06:04.719
+Baro, Sonja: if you're if Lane Chain was calling a site that required
+
+1002
+01:06:04.780 --> 01:06:06.390
+Baro, Sonja: a key.
+
+1003
+01:06:06.740 --> 01:06:09.100
+Baro, Sonja: how would it get the key
+
+1004
+01:06:09.970 --> 01:06:12.740
+Baro, Sonja: from that site right? Unless you have to.
+
+1005
+01:06:12.740 --> 01:06:13.909
+Anthony Taylor: Pass it in.
+
+1006
+01:06:13.910 --> 01:06:14.310
+Baro, Sonja: Yeah.
+
+1007
+01:06:14.310 --> 01:06:14.940
+Anthony Taylor: Code.
+
+1008
+01:06:15.620 --> 01:06:16.300
+Baro, Sonja: Right, but.
+
+1009
+01:06:16.300 --> 01:06:18.030
+Anthony Taylor: But I'm certain
+
+1010
+01:06:18.080 --> 01:06:20.280
+Anthony Taylor: I'm a hundred percent certain
+
+1011
+01:06:21.310 --> 01:06:23.539
+Anthony Taylor: that there is a way to pass it in.
+
+1012
+01:06:23.930 --> 01:06:26.389
+Anthony Taylor: sure as it even said there was. Yeah.
+
+1013
+01:06:28.090 --> 01:06:29.479
+Baro, Sonja: Okay, I just wanted to.
+
+1014
+01:06:29.480 --> 01:06:33.849
+Anthony Taylor: Yeah, I'm sure we could find it. I'll try to hunt it down for you. But the bottom line is
+
+1015
+01:06:33.950 --> 01:06:36.709
+Anthony Taylor: is is, you would pass it in
+
+1016
+01:06:36.830 --> 01:06:38.360
+Anthony Taylor: at some point.
+
+1017
+01:06:38.660 --> 01:06:41.569
+Anthony Taylor: and then it would still build. Yeah, URL, the same way.
+
+1018
+01:06:42.400 --> 01:06:44.660
+Anthony Taylor: right? It still would build it the same way.
+
+1019
+01:06:44.980 --> 01:06:46.839
+Anthony Taylor: So let's type.
+
+1020
+01:07:01.590 --> 01:07:03.360
+Anthony Taylor: There is a secrets.
+
+1021
+01:07:19.040 --> 01:07:22.069
+Anthony Taylor: Alright. Well, we'll hunt it down. It's good question, though.
+
+1022
+01:07:22.160 --> 01:07:25.329
+Anthony Taylor: There's no doubt in my mind, though, that you will be able to pass in.
+
+1023
+01:07:26.020 --> 01:07:29.680
+Anthony Taylor: I mean, I don't know where it's at. Maybe it's just another argument for this.
+
+1024
+01:07:29.680 --> 01:07:30.070
+Baro, Sonja: Right.
+
+1025
+01:07:30.070 --> 01:07:31.040
+Anthony Taylor: Like guarantee.
+
+1026
+01:07:31.210 --> 01:07:32.399
+Anthony Taylor: I can pass it in.
+
+1027
+01:07:32.930 --> 01:07:33.670
+Anthony Taylor: Yeah.
+
+1028
+01:07:34.040 --> 01:07:36.440
+Anthony Taylor: okay, but we're not done yet.
+
+1029
+01:07:36.880 --> 01:07:39.730
+Anthony Taylor: Oh, wait! Is this one? Gonna have we look at that
+
+1030
+01:07:42.490 --> 01:07:45.854
+Anthony Taylor: so funny. And I went through all these dang things.
+
+1031
+01:07:46.160 --> 01:07:51.330
+Clayton Graves: Question about that. The Api key is, OS dot, get in envy.
+
+1032
+01:07:51.570 --> 01:07:56.529
+Clayton Graves: and then I cannot get that to work. I've had to manually put.
+
+1033
+01:07:56.530 --> 01:07:58.749
+Anthony Taylor: I can't get it to work for Ny. T.
+
+1034
+01:07:58.860 --> 01:08:00.190
+Anthony Taylor: I don't know why it doesn't work.
+
+1035
+01:08:00.190 --> 01:08:03.190
+Clayton Graves: I had to manually throw my key in instead.
+
+1036
+01:08:04.100 --> 01:08:06.010
+Anthony Taylor: It's funny you say that because
+
+1037
+01:08:06.384 --> 01:08:08.210
+Anthony Taylor: right as you asked that question.
+
+1038
+01:08:08.230 --> 01:08:09.339
+Anthony Taylor: I was like.
+
+1039
+01:08:09.760 --> 01:08:12.450
+Anthony Taylor: I'm gonna have to go get my key because it didn't work.
+
+1040
+01:08:13.500 --> 01:08:15.420
+Anthony Taylor: And you're right. It didn't work.
+
+1041
+01:08:15.710 --> 01:08:17.179
+Anthony Taylor: It didn't work for me, either.
+
+1042
+01:08:18.100 --> 01:08:19.550
+Anthony Taylor: So what I did
+
+1043
+01:08:20.979 --> 01:08:21.880
+Anthony Taylor: I did that
+
+1044
+01:08:23.410 --> 01:08:25.249
+Anthony Taylor: make sure you wrap it in quotes.
+
+1045
+01:08:26.460 --> 01:08:27.529
+Anthony Taylor: and then, just.
+
+1046
+01:08:28.279 --> 01:08:32.589
+Clayton Graves: I I just I replace the OS dot get and be
+
+1047
+01:08:32.849 --> 01:08:35.299
+Clayton Graves: with the key itself, and it ranges.
+
+1048
+01:08:35.300 --> 01:08:37.709
+Anthony Taylor: That works, too. Yeah, that works too.
+
+1049
+01:08:38.240 --> 01:08:40.660
+Anthony Taylor: Alright. So in this one.
+
+1050
+01:08:40.790 --> 01:08:43.349
+Anthony Taylor: we're actually giving the spec
+
+1051
+01:08:43.689 --> 01:08:45.770
+Anthony Taylor: from a Json file.
+
+1052
+01:08:47.270 --> 01:08:50.759
+Anthony Taylor: Okay? So in this case the spec
+
+1053
+01:08:52.270 --> 01:08:53.740
+Anthony Taylor: is in
+
+1054
+01:08:53.840 --> 01:08:56.260
+Anthony Taylor: this Json file. So if we
+
+1055
+01:08:56.640 --> 01:08:58.180
+Anthony Taylor: follow this link.
+
+1056
+01:08:59.710 --> 01:09:03.010
+Anthony Taylor: we can see we have a swagger spent
+
+1057
+01:09:04.529 --> 01:09:06.439
+Anthony Taylor: and are.
+
+1058
+01:09:06.979 --> 01:09:09.229
+Anthony Taylor: AI is smart enough
+
+1059
+01:09:09.760 --> 01:09:14.469
+Anthony Taylor: to look at this and understand how we create the Api call.
+
+1060
+01:09:15.149 --> 01:09:19.339
+Anthony Taylor: So we're gonna give it as a spec Api key. So we're just gonna kind of. Add that to it
+
+1061
+01:09:19.620 --> 01:09:23.450
+Anthony Taylor: we're going to open our chat. Api, lm.
+
+1062
+01:09:23.810 --> 01:09:25.310
+Anthony Taylor: and in here
+
+1063
+01:09:25.720 --> 01:09:29.809
+Anthony Taylor: we have our Api docs equals. So this is cool.
+
+1064
+01:09:30.200 --> 01:09:34.529
+Anthony Taylor: Okay, Api docs equals Json dump, spec.
+
+1065
+01:09:36.310 --> 01:09:37.279
+Anthony Taylor: alright
+
+1066
+01:09:38.300 --> 01:09:40.980
+Anthony Taylor: and verbose is false.
+
+1067
+01:09:41.550 --> 01:09:43.359
+Anthony Taylor: Yeah, you know what? That's like a troop.
+
+1068
+01:09:45.960 --> 01:09:52.239
+Anthony Taylor: and then limit to just that one. What are the headlines of 3 articles about Tracy Chapman since
+
+1069
+01:09:52.380 --> 01:09:53.660
+Anthony Taylor: 2020.
+
+1070
+01:09:53.850 --> 01:09:56.160
+Anthony Taylor: What? Oh.
+
+1071
+01:09:57.890 --> 01:10:00.989
+Anthony Taylor: it helps, if you remember, to run the cell before it. Okay?
+
+1072
+01:10:04.280 --> 01:10:05.960
+Anthony Taylor: So there's the actual
+
+1073
+01:10:06.400 --> 01:10:07.630
+Anthony Taylor: request.
+
+1074
+01:10:08.500 --> 01:10:09.939
+Anthony Taylor: And there they are.
+
+1075
+01:10:13.240 --> 01:10:14.780
+Anthony Taylor: guys that's as crazy.
+
+1076
+01:10:15.100 --> 01:10:16.240
+Anthony Taylor: I mean, crazy.
+
+1077
+01:10:22.170 --> 01:10:25.679
+Anthony Taylor: Realize what this is. Let me just give you a quick, quick little tidbit.
+
+1078
+01:10:27.110 --> 01:10:29.180
+Anthony Taylor: You wrapped this in a function.
+
+1079
+01:10:29.670 --> 01:10:31.270
+Anthony Taylor: Go to radio.
+
+1080
+01:10:31.720 --> 01:10:35.250
+Anthony Taylor: Say, give me a topic, and I will send you
+
+1081
+01:10:35.840 --> 01:10:36.950
+Anthony Taylor: links
+
+1082
+01:10:37.280 --> 01:10:41.450
+Anthony Taylor: for 3 news stories on New York Times. That match. Whatever topic you want
+
+1083
+01:10:42.610 --> 01:10:43.390
+Anthony Taylor: done
+
+1084
+01:10:44.110 --> 01:10:45.030
+Anthony Taylor: right here.
+
+1085
+01:10:45.620 --> 01:10:51.449
+Anthony Taylor: Do you guys remember what we had do for the Api call? Before we had to put it together, we had to assemble all things
+
+1086
+01:10:52.490 --> 01:10:53.609
+Anthony Taylor: not any longer.
+
+1087
+01:10:56.920 --> 01:10:58.469
+Anthony Taylor: Fact. I bet you
+
+1088
+01:10:59.190 --> 01:11:00.770
+Anthony Taylor: headlines
+
+1089
+01:11:02.290 --> 01:11:03.790
+Anthony Taylor: and summary
+
+1090
+01:11:20.100 --> 01:11:21.699
+Anthony Taylor: feels like there should be more.
+
+1091
+01:11:26.190 --> 01:11:29.960
+Anthony Taylor: But this response includes headline summary of 3 articles about tracing.
+
+1092
+01:11:30.280 --> 01:11:32.210
+Anthony Taylor: Oh, I see, I see. I see that
+
+1093
+01:11:32.870 --> 01:11:34.530
+Anthony Taylor: it's just really long.
+
+1094
+01:11:48.330 --> 01:11:49.030
+Anthony Taylor: Oh.
+
+1095
+01:11:50.140 --> 01:11:52.710
+Anthony Taylor: kind of looks like it's just what our
+
+1096
+01:11:56.310 --> 01:11:59.339
+Anthony Taylor: well, still, it's progress.
+
+1097
+01:12:01.530 --> 01:12:02.950
+Anthony Taylor: I want to look at the link.
+
+1098
+01:12:03.960 --> 01:12:07.999
+michael mcpherson: It listed 3 summaries, 3 topics.
+
+1099
+01:12:08.190 --> 01:12:08.930
+michael mcpherson: If you read.
+
+1100
+01:12:08.930 --> 01:12:09.820
+Anthony Taylor: Oh, look at this.
+
+1101
+01:12:09.830 --> 01:12:10.880
+michael mcpherson: It does say.
+
+1102
+01:12:11.277 --> 01:12:12.470
+Anthony Taylor: Did it? Yeah.
+
+1103
+01:12:14.460 --> 01:12:14.910
+michael mcpherson: The article.
+
+1104
+01:12:14.910 --> 01:12:15.580
+Anthony Taylor: Hey! Leo!
+
+1105
+01:12:15.580 --> 01:12:17.049
+michael mcpherson: Topic such as
+
+1106
+01:12:17.200 --> 01:12:18.920
+michael mcpherson: rise to start them.
+
+1107
+01:12:19.030 --> 01:12:20.210
+michael mcpherson: Absence from music, where.
+
+1108
+01:12:20.210 --> 01:12:25.409
+Anthony Taylor: Oh, I got you! Did you guys see the result, though, that actually was called?
+
+1109
+01:12:27.180 --> 01:12:28.939
+Anthony Taylor: There's actually quite a few of
+
+1110
+01:12:32.770 --> 01:12:33.950
+Anthony Taylor: kind of interesting
+
+1111
+01:12:36.950 --> 01:12:37.830
+Anthony Taylor: like it.
+
+1112
+01:12:38.180 --> 01:12:40.069
+Anthony Taylor: Alright. So that's pretty cool. Yeah.
+
+1113
+01:12:41.620 --> 01:12:43.079
+Anthony Taylor: everybody likes that. Huh?
+
+1114
+01:12:43.460 --> 01:12:47.980
+Anthony Taylor: Alright. So let's look at this. Api chats to you. Are not the solution.
+
+1115
+01:12:49.930 --> 01:12:53.030
+Anthony Taylor: Alright. So in this one.
+
+1116
+01:12:55.000 --> 01:12:58.979
+Anthony Taylor: You here's the the spec of the Api.
+
+1117
+01:13:00.110 --> 01:13:02.309
+Anthony Taylor: Look at all that. That's a lot.
+
+1118
+01:13:07.440 --> 01:13:10.469
+Anthony Taylor: And there you go. We just gotta do your thing
+
+1119
+01:13:10.720 --> 01:13:12.089
+Anthony Taylor: that we just did.
+
+1120
+01:13:13.120 --> 01:13:14.370
+Anthony Taylor: I like it?
+
+1121
+01:13:18.060 --> 01:13:20.390
+Anthony Taylor: Alright. So 20 min on this.
+
+1122
+01:13:26.380 --> 01:13:30.890
+Anthony Taylor: And, by the way, it's not that there's anything wrong with Kate. It's just for some reason
+
+1123
+01:13:30.930 --> 01:13:33.980
+Anthony Taylor: his QA chain is failing.
+
+1124
+01:13:33.980 --> 01:13:41.439
+Clayton Graves: I actually got to work and it and it hit the Api, and I can tell that it's running search the way it's supposed to.
+
+1125
+01:13:42.140 --> 01:13:43.990
+Clayton Graves: but
+
+1126
+01:13:45.900 --> 01:13:49.579
+Clayton Graves: and it's not really given me an answer to my question.
+
+1127
+01:13:50.530 --> 01:13:51.240
+Anthony Taylor: Oh.
+
+1128
+01:13:51.520 --> 01:13:52.570
+Anthony Taylor: I'm sorry.
+
+1129
+01:13:54.330 --> 01:13:58.370
+Anthony Taylor: By the way, I did notice just now I was on the land chain website
+
+1130
+01:13:59.230 --> 01:14:03.600
+Anthony Taylor: or no, the A open AI website. And it does appear
+
+1131
+01:14:04.770 --> 01:14:08.379
+Anthony Taylor: that we could actually be running GPT. 4.
+
+1132
+01:14:08.440 --> 01:14:11.990
+Anthony Taylor: But keep in mind, it's significantly more expensive.
+
+1133
+01:14:12.460 --> 01:14:13.350
+Anthony Taylor: So
+
+1134
+01:14:14.490 --> 01:14:17.870
+Anthony Taylor: if you use it, you might actually get charged some books
+
+1135
+01:14:19.250 --> 01:14:21.459
+Anthony Taylor: alright. So they gave you the spec string.
+
+1136
+01:14:23.466 --> 01:14:25.700
+Anthony Taylor: All of this should work
+
+1137
+01:14:26.150 --> 01:14:27.530
+Anthony Taylor: except for for
+
+1138
+01:14:28.020 --> 01:14:29.139
+Anthony Taylor: Mr. Man
+
+1139
+01:14:29.512 --> 01:14:35.359
+Anthony Taylor: and then we have our Api team. So all we're doing passing in that spectrum, that spectrum and the basic
+
+1140
+01:14:35.670 --> 01:14:36.620
+Anthony Taylor: root.
+
+1141
+01:14:37.230 --> 01:14:41.669
+Anthony Taylor: And then we can. Oh, you know what I had trouble with this one, too. Not that it was bad.
+
+1142
+01:14:43.120 --> 01:14:46.170
+Anthony Taylor: just say it was hard to find a book that wasn't too large.
+
+1143
+01:14:47.380 --> 01:14:50.749
+Anthony Taylor: Okay, I'll tell you the quickest way to do it. Hit. Enter.
+
+1144
+01:14:56.060 --> 01:14:56.580
+Baro, Sonja: Yeah, we.
+
+1145
+01:14:56.580 --> 01:14:58.220
+Anthony Taylor: Reason that works.
+
+1146
+01:14:59.220 --> 01:15:02.060
+Baro, Sonja: We had that error, that it was too large.
+
+1147
+01:15:03.000 --> 01:15:08.029
+Anthony Taylor: Yeah, everything you type in. You're pretty much. I tried Moby, Dick. I tried cat in the hat
+
+1148
+01:15:09.370 --> 01:15:12.110
+Anthony Taylor: and it gave it to me. I went to green
+
+1149
+01:15:13.880 --> 01:15:16.080
+Anthony Taylor: eggs and ham.
+
+1150
+01:15:20.010 --> 01:15:25.519
+Meredith McCanse (she/her): We did. We had pretty good success with questions like who wrote 3 nags and ham
+
+1151
+01:15:26.130 --> 01:15:32.290
+Meredith McCanse (she/her): like asking who the author was about a specific book, or how many books did so and so write.
+
+1152
+01:15:38.890 --> 01:15:39.650
+Anthony Taylor: Got nothing
+
+1153
+01:15:39.860 --> 01:15:40.850
+Anthony Taylor: but anyway.
+
+1154
+01:15:41.040 --> 01:15:47.650
+Anthony Taylor: So anyway. But I mean, if you got to here, then you did it right. You did a good job. Oh, wait! There are 64 results.
+
+1155
+01:15:48.310 --> 01:15:52.839
+Anthony Taylor: However, the response did not provide specific information about the offer of the author. But
+
+1156
+01:15:54.290 --> 01:15:57.240
+Anthony Taylor: how many different people wrote green eggs in here. I mean, really.
+
+1157
+01:16:00.590 --> 01:16:02.619
+Anthony Taylor: okay, maybe we needed to be more specific.
+
+1158
+01:16:04.060 --> 01:16:06.760
+michael mcpherson: Yeah, you just wrote wrote in green eggs and ham. You didn't
+
+1159
+01:16:06.880 --> 01:16:07.620
+michael mcpherson: right in.
+
+1160
+01:16:07.620 --> 01:16:10.309
+Anthony Taylor: No. The last time I said who wrote it?
+
+1161
+01:16:12.090 --> 01:16:15.259
+Anthony Taylor: Because it says about the author of the book.
+
+1162
+01:16:17.080 --> 01:16:17.980
+Anthony Taylor: it's alright.
+
+1163
+01:16:18.680 --> 01:16:21.319
+Anthony Taylor: But I mean is, everybody guys, I gotta tell you something.
+
+1164
+01:16:22.090 --> 01:16:23.529
+Anthony Taylor: This is freaking cool.
+
+1165
+01:16:24.300 --> 01:16:31.730
+Anthony Taylor: Okay, to just be able to throw a spec up in there and get the Ap. Just getting the Api call alone is awesome.
+
+1166
+01:16:33.160 --> 01:16:34.809
+Anthony Taylor: But then to think about
+
+1167
+01:16:34.930 --> 01:16:38.190
+Anthony Taylor: when you guys were doing these Api calls in Python.
+
+1168
+01:16:38.330 --> 01:16:42.229
+Anthony Taylor: I mean, look at how easy this is. And this is like, almost guaranteed.
+
+1169
+01:16:43.170 --> 01:16:44.180
+Anthony Taylor: pretty cool.
+
+1170
+01:16:45.360 --> 01:16:46.230
+Anthony Taylor: Okay.
+
+1171
+01:16:46.660 --> 01:16:48.990
+Anthony Taylor: questions about the Api stuff.
+
+1172
+01:16:50.430 --> 01:16:51.369
+Anthony Taylor: Yeah, Mike.
+
+1173
+01:16:52.350 --> 01:16:56.480
+michael mcpherson: Can we use this method for the Api stuff we did earlier?
+
+1174
+01:16:56.540 --> 01:16:57.700
+michael mcpherson: Be it the challenge.
+
+1175
+01:16:57.700 --> 01:16:58.550
+Anthony Taylor: Homework.
+
+1176
+01:16:58.810 --> 01:16:59.220
+michael mcpherson: Yeah.
+
+1177
+01:16:59.220 --> 01:17:02.370
+Anthony Taylor: You you can. You can't turn it in that. Within zoom.
+
+1178
+01:17:02.630 --> 01:17:06.529
+Anthony Taylor: you could technically use it to get the yeah, Urls, if you have trouble with that.
+
+1179
+01:17:07.320 --> 01:17:08.490
+Anthony Taylor: But
+
+1180
+01:17:08.670 --> 01:17:11.109
+Anthony Taylor: no, I would actually
+
+1181
+01:17:11.310 --> 01:17:14.259
+Anthony Taylor: say an interesting thing could be is to
+
+1182
+01:17:14.350 --> 01:17:16.139
+Anthony Taylor: combine this with
+
+1183
+01:17:16.240 --> 01:17:18.999
+Anthony Taylor: like the regular chat, and then say.
+
+1184
+01:17:20.820 --> 01:17:25.590
+Anthony Taylor: you know. Write me python code that would use the request library.
+
+1185
+01:17:25.630 --> 01:17:27.749
+Anthony Taylor: We might even be able to get to do that.
+
+1186
+01:17:28.130 --> 01:17:29.589
+Anthony Taylor: I wouldn't do it on this one
+
+1187
+01:17:30.480 --> 01:17:32.760
+Anthony Taylor: like on one of these other ones
+
+1188
+01:17:34.800 --> 01:17:36.020
+Anthony Taylor: instead of.
+
+1189
+01:17:39.640 --> 01:17:41.889
+Anthony Taylor: So we have the yeah URL structure.
+
+1190
+01:17:42.050 --> 01:17:43.890
+Anthony Taylor: Right? So how about this?
+
+1191
+01:18:12.620 --> 01:18:14.269
+Anthony Taylor: that's not very helpful at all.
+
+1192
+01:18:15.510 --> 01:18:18.370
+Anthony Taylor: Wait. Which which one were we using? Just this one?
+
+1193
+01:18:22.780 --> 01:18:27.569
+Anthony Taylor: Yeah, I would probably have come up with a different one. But I would bet you it's actually.
+
+1194
+01:18:28.610 --> 01:18:34.490
+Anthony Taylor: I'll bet you there's a way to do it, because if we once you have the Api call, you should be able to get it to my ipad, though, to do it.
+
+1195
+01:18:35.260 --> 01:18:37.800
+Anthony Taylor: It's it's it's a good fun challenge.
+
+1196
+01:18:38.160 --> 01:18:38.940
+Anthony Taylor: Okay?
+
+1197
+01:18:40.230 --> 01:18:41.380
+Anthony Taylor: So
+
+1198
+01:18:41.490 --> 01:18:45.950
+Anthony Taylor: everything we've done so far. You ask a question. You get an answer.
+
+1199
+01:18:46.900 --> 01:18:47.980
+Anthony Taylor: Okay?
+
+1200
+01:18:48.280 --> 01:18:50.200
+Anthony Taylor: The next question you asked.
+
+1201
+01:18:50.400 --> 01:18:55.210
+Anthony Taylor: It's basically giving you, and I'm going to say a new answer. It may answer the same thing.
+
+1202
+01:18:55.240 --> 01:18:59.090
+Anthony Taylor: but it has no recollection of what you asked it before.
+
+1203
+01:18:59.900 --> 01:19:01.169
+Anthony Taylor: It's entirely new.
+
+1204
+01:19:03.620 --> 01:19:04.760
+Anthony Taylor: Hmm.
+
+1205
+01:19:05.070 --> 01:19:06.060
+Anthony Taylor: so
+
+1206
+01:19:07.580 --> 01:19:08.910
+Anthony Taylor: we're gonna fix that.
+
+1207
+01:19:09.450 --> 01:19:12.590
+Anthony Taylor: And here's where verbos gets really interesting. By the way.
+
+1208
+01:19:13.010 --> 01:19:17.489
+Anthony Taylor: so we're gonna pull in. We do our first 2 sales. That's same every time.
+
+1209
+01:19:17.590 --> 01:19:22.510
+Anthony Taylor: So here we got our chat opening out. We're going to say, what are 2 common breeds of cat.
+
+1210
+01:19:23.570 --> 01:19:27.330
+Anthony Taylor: We're going to print that result. Print a blank space, then ask
+
+1211
+01:19:27.400 --> 01:19:29.880
+Anthony Taylor: which of those shed the lead.
+
+1212
+01:19:30.550 --> 01:19:32.050
+Anthony Taylor: So let's run this.
+
+1213
+01:19:32.880 --> 01:19:40.690
+Anthony Taylor: and if this was chat Gpt, you would expect it to give you 2 cat names, and which of those cats should least.
+
+1214
+01:19:41.040 --> 01:19:43.040
+Anthony Taylor: Okay. However.
+
+1215
+01:19:43.070 --> 01:19:47.509
+Anthony Taylor: most of the time, at least, as far as I know, and I'm not a cat person.
+
+1216
+01:19:47.680 --> 01:19:49.949
+Anthony Taylor: A Bichon frise.
+
+1217
+01:19:50.150 --> 01:19:53.540
+Anthony Taylor: and a poodle are not cat breeds
+
+1218
+01:19:55.770 --> 01:19:57.540
+Anthony Taylor: right? They're dogs.
+
+1219
+01:19:57.650 --> 01:19:59.930
+Anthony Taylor: So we asked it for cats.
+
+1220
+01:20:00.900 --> 01:20:03.160
+Anthony Taylor: The second question, we got dogs.
+
+1221
+01:20:04.680 --> 01:20:07.070
+Anthony Taylor: Okay? So it had no memory
+
+1222
+01:20:07.190 --> 01:20:10.340
+Anthony Taylor: of what we asked, and we just didn't know. Well.
+
+1223
+01:20:10.890 --> 01:20:12.129
+Anthony Taylor: oh, I didn't do it.
+
+1224
+01:20:12.250 --> 01:20:13.880
+Anthony Taylor: Laying chain
+
+1225
+01:20:13.990 --> 01:20:15.719
+Anthony Taylor: fixes this for us.
+
+1226
+01:20:16.380 --> 01:20:23.910
+Anthony Taylor: Okay, so link Chain, we have a conversation chain and a conversation buffer memory.
+
+1227
+01:20:24.280 --> 01:20:26.440
+Anthony Taylor: So more libraries
+
+1228
+01:20:27.290 --> 01:20:31.029
+Anthony Taylor: we're going to bring in our Lln. This is just a normal chat.
+
+1229
+01:20:31.200 --> 01:20:33.520
+Anthony Taylor: But now we're going to instantiate
+
+1230
+01:20:33.560 --> 01:20:35.380
+Anthony Taylor: a buffer
+
+1231
+01:20:36.810 --> 01:20:38.599
+Anthony Taylor: conversation buffer memory.
+
+1232
+01:20:38.880 --> 01:20:44.429
+Anthony Taylor: Then we're going to create a conversation chain with our Ll. N.
+
+1233
+01:20:44.660 --> 01:20:50.129
+Anthony Taylor: We're going to make it for both, because we want to see it, and the memory will be equal to our buffer memory.
+
+1234
+01:20:51.080 --> 01:20:52.750
+Anthony Taylor: Alright. Now.
+
+1235
+01:20:53.240 --> 01:20:56.309
+Anthony Taylor: the only things different is these 2 live.
+
+1236
+01:20:56.580 --> 01:21:03.030
+Anthony Taylor: Once we have these, we just do well, it doesn't say invoke, which is kind of funny, that doesn't say invoke.
+
+1237
+01:21:05.470 --> 01:21:09.350
+Anthony Taylor: I think this is probably a bug that you will see change
+
+1238
+01:21:09.520 --> 01:21:12.029
+Anthony Taylor: because it used to be lane chain.
+
+1239
+01:21:12.290 --> 01:21:14.150
+Anthony Taylor: It was always predict.
+
+1240
+01:21:15.350 --> 01:21:17.940
+Anthony Taylor: but recently they changed it to invoke.
+
+1241
+01:21:18.080 --> 01:21:33.609
+Anthony Taylor: Well, this one, for some reason they haven't changed to invoke yet. Anyway, it doesn't matter. So you're gonna run this. This is the same as invoke. It's gonna return the result. And then it's using this conversation that we created here. It's going to.
+
+1242
+01:21:34.050 --> 01:21:35.480
+Anthony Taylor: Well, you'll see.
+
+1243
+01:21:37.560 --> 01:21:39.049
+Anthony Taylor: So notice the green.
+
+1244
+01:21:42.350 --> 01:21:51.910
+Anthony Taylor: I love the way it starts. The following is a friendly conversation between human and an AI. AI is talking, provides lots of specific data
+
+1245
+01:21:52.300 --> 01:21:54.169
+Anthony Taylor: or details. Sorry?
+
+1246
+01:21:54.910 --> 01:21:57.080
+Anthony Taylor: Oh, God! It goes on and on and on.
+
+1247
+01:21:57.480 --> 01:22:01.250
+Anthony Taylor: It truthfully says, it does not know. Okay, if it doesn't know
+
+1248
+01:22:01.370 --> 01:22:02.900
+Anthony Taylor: current conversation.
+
+1249
+01:22:03.120 --> 01:22:05.150
+Anthony Taylor: one of the 2 comment breeds cat.
+
+1250
+01:22:05.370 --> 01:22:06.400
+Anthony Taylor: it answers
+
+1251
+01:22:07.050 --> 01:22:09.249
+Anthony Taylor: the next one. Now look what it does.
+
+1252
+01:22:09.410 --> 01:22:13.279
+Anthony Taylor: Current conversation. What are the 2 common breeds of cat?
+
+1253
+01:22:14.340 --> 01:22:18.709
+Anthony Taylor: Shows the answer, and then it adds the next question.
+
+1254
+01:22:21.120 --> 01:22:27.259
+Anthony Taylor: okay? And then it finishes. The Persian cat zone said, less than domestic, shorter do gets longer. And blah blah blah.
+
+1255
+01:22:28.160 --> 01:22:30.049
+Anthony Taylor: Okay, now
+
+1256
+01:22:33.740 --> 01:22:35.300
+Anthony Taylor: we have a problem with that.
+
+1257
+01:22:40.280 --> 01:22:42.290
+Anthony Taylor: Can you think of a problem with this?
+
+1258
+01:22:44.720 --> 01:22:46.170
+Anthony Taylor: Yes, Meredith.
+
+1259
+01:22:48.060 --> 01:22:52.979
+Meredith McCanse (she/her): Well, never mind, maybe not, I was. Gonna say, if someone asked another question it doesn't have.
+
+1260
+01:22:53.580 --> 01:22:57.190
+Meredith McCanse (she/her): But there's not another question baked into it so. Never mind. So I guess that's irrelevant.
+
+1261
+01:22:57.190 --> 01:23:05.860
+Anthony Taylor: You could. I mean, if if you have a if if like, say you do a radio app, or whatever for this, you would keep the memory until you start a new
+
+1262
+01:23:06.200 --> 01:23:06.880
+Anthony Taylor: app.
+
+1263
+01:23:07.980 --> 01:23:10.679
+Meredith McCanse (she/her): Oh, okay, got okay. Got it.
+
+1264
+01:23:10.990 --> 01:23:12.110
+Meredith McCanse (she/her): So never mind. I don't.
+
+1265
+01:23:12.110 --> 01:23:15.109
+Anthony Taylor: What if I asked it like a hundred questions?
+
+1266
+01:23:15.790 --> 01:23:17.490
+Anthony Taylor: What would this look like?
+
+1267
+01:23:21.420 --> 01:23:24.439
+Anthony Taylor: It would be a hundred questions with a hundred answers.
+
+1268
+01:23:25.740 --> 01:23:26.850
+Anthony Taylor: Okay.
+
+1269
+01:23:26.910 --> 01:23:33.039
+Anthony Taylor: So that means every time I ask. So let's let's go back to the token. Count thing again.
+
+1270
+01:23:33.290 --> 01:23:38.790
+Anthony Taylor: Alright, how many tokens was this first question? Well, let's just assume one token per word.
+
+1271
+01:23:38.800 --> 01:23:41.570
+Anthony Taylor: 1, 2, 3, 4, 5, 6, 7.
+
+1272
+01:23:42.530 --> 01:23:43.460
+Anthony Taylor: Okay.
+
+1273
+01:23:43.760 --> 01:23:46.520
+Anthony Taylor: The answer, one token per word.
+
+1274
+01:23:46.830 --> 01:23:49.340
+Anthony Taylor: Adam, 1, 2, 3, 4, 5, 6.
+
+1275
+01:23:50.400 --> 01:23:51.950
+Anthony Taylor: Thank you. Fourteenth, you're Tuesday.
+
+1276
+01:23:53.050 --> 01:23:54.450
+Anthony Taylor: let's say 25.
+
+1277
+01:23:54.830 --> 01:23:57.220
+Anthony Taylor: Okay, so we're at 32 totals.
+
+1278
+01:23:58.970 --> 01:24:00.000
+Anthony Taylor: this one
+
+1279
+01:24:01.420 --> 01:24:03.060
+Anthony Taylor: 32 tokens
+
+1280
+01:24:04.910 --> 01:24:06.060
+Anthony Taylor: instantly.
+
+1281
+01:24:06.440 --> 01:24:08.970
+Anthony Taylor: Then we add these tokens
+
+1282
+01:24:09.120 --> 01:24:10.640
+Anthony Taylor: and these tokens?
+
+1283
+01:24:12.260 --> 01:24:17.890
+Anthony Taylor: Okay, next question, we'll have all of these tokens, these tokens and these tokens.
+
+1284
+01:24:18.240 --> 01:24:20.410
+Anthony Taylor: Bless the answer to that question.
+
+1285
+01:24:21.050 --> 01:24:24.440
+Anthony Taylor: you understand? So every time you ask a question.
+
+1286
+01:24:24.930 --> 01:24:26.419
+Baro, Sonja: Is it adding it.
+
+1287
+01:24:27.620 --> 01:24:28.210
+Anthony Taylor: Every time.
+
+1288
+01:24:28.210 --> 01:24:32.417
+Baro, Sonja: Every time we're going all the way back and adding it. So the point you're making.
+
+1289
+01:24:32.680 --> 01:24:33.660
+Anthony Taylor: Every time.
+
+1290
+01:24:33.660 --> 01:24:38.129
+Baro, Sonja: It's gonna just keep getting so large you're gonna burn through.
+
+1291
+01:24:38.480 --> 01:24:39.050
+Baro, Sonja: You're gonna go.
+
+1292
+01:24:39.050 --> 01:24:40.619
+Anthony Taylor: So through tokens like, crazy. Yeah.
+
+1293
+01:24:41.130 --> 01:24:42.130
+Anthony Taylor: So you have to.
+
+1294
+01:24:42.130 --> 01:24:43.000
+Baro, Sonja: Somehow have.
+
+1295
+01:24:43.000 --> 01:24:43.380
+Anthony Taylor: Them.
+
+1296
+01:24:43.380 --> 01:24:44.230
+Baro, Sonja: Ear.
+
+1297
+01:24:45.160 --> 01:24:50.489
+Anthony Taylor: Well, or figure out a way to get it to not keep every single word.
+
+1298
+01:24:51.770 --> 01:24:53.340
+Anthony Taylor: Okay. So
+
+1299
+01:24:54.800 --> 01:24:57.789
+Anthony Taylor: Lane Chain came up with summaries of members.
+
+1300
+01:24:58.540 --> 01:25:03.249
+Anthony Taylor: Okay, so we can add a conversation chain and add one called
+
+1301
+01:25:03.300 --> 01:25:05.710
+Anthony Taylor: Conversation summary Memory.
+
+1302
+01:25:06.850 --> 01:25:10.769
+Anthony Taylor: So in this one, we're gonna have, we're gonna actually have 2 Lls.
+
+1303
+01:25:11.120 --> 01:25:15.839
+Anthony Taylor: okay? And this is an interesting thing. Look at what this comment says.
+
+1304
+01:25:17.410 --> 01:25:19.290
+Anthony Taylor: This first ll. M.
+
+1305
+01:25:19.750 --> 01:25:24.100
+Anthony Taylor: Just there to summarize the information.
+
+1306
+01:25:24.810 --> 01:25:25.820
+Anthony Taylor: That's it.
+
+1307
+01:25:27.360 --> 01:25:30.719
+Anthony Taylor: The second one will be our actual chat engine.
+
+1308
+01:25:32.180 --> 01:25:37.620
+Anthony Taylor: So we're gonna have a buffer with summary memory. And we're gonna tell it. Which Llm, do you?
+
+1309
+01:25:38.350 --> 01:25:39.549
+Anthony Taylor: We're going to use this.
+
+1310
+01:25:40.860 --> 01:25:41.690
+Anthony Taylor: Okay?
+
+1311
+01:25:41.860 --> 01:25:45.860
+Anthony Taylor: Then we're gonna have a conversation and say, which, Llm, we're going to use
+
+1312
+01:25:46.280 --> 01:25:47.200
+Anthony Taylor: this one.
+
+1313
+01:25:48.530 --> 01:25:49.430
+Anthony Taylor: Okay?
+
+1314
+01:25:50.040 --> 01:25:56.830
+Anthony Taylor: And then we have the same questions as we had before. But we're going to add a third one, which one tends to weigh more.
+
+1315
+01:25:58.360 --> 01:25:59.580
+Anthony Taylor: Let's see what happens.
+
+1316
+01:26:01.120 --> 01:26:06.080
+Anthony Taylor: So current conversation. What if he breeds a cat common breeds. Cats are about short hair, but I laugh.
+
+1317
+01:26:08.880 --> 01:26:10.710
+Anthony Taylor: The following is friendly, so
+
+1318
+01:26:11.050 --> 01:26:13.380
+Anthony Taylor: human. Sd AI! What
+
+1319
+01:26:13.670 --> 01:26:15.360
+Anthony Taylor: which of these shed the leaf?
+
+1320
+01:26:16.050 --> 01:26:18.799
+Anthony Taylor: Persian cat tends to weigh like we have to go to text. Editor
+
+1321
+01:26:19.380 --> 01:26:21.669
+Anthony Taylor: Persian cat tends to way less.
+
+1322
+01:26:23.638 --> 01:26:27.950
+Anthony Taylor: Entry new chain prompt after formatting.
+
+1323
+01:26:29.380 --> 01:26:32.929
+Anthony Taylor: The following is a friendly conversation between human and AI.
+
+1324
+01:26:34.170 --> 01:26:36.629
+Anthony Taylor: Let's see if it says it in here, or if it's in the next one
+
+1325
+01:26:36.930 --> 01:26:38.430
+Anthony Taylor: current conversation.
+
+1326
+01:26:38.720 --> 01:26:43.910
+Anthony Taylor: the so look at what it is here. It's not all of those questions and answers anymore.
+
+1327
+01:26:44.490 --> 01:26:52.479
+Anthony Taylor: It's the human asks the AI to common breeds a cat. The AI responded with domestic, shorter cat common breeds.
+
+1328
+01:26:52.850 --> 01:26:56.269
+Anthony Taylor: So it still answered, pretty long. Summary.
+
+1329
+01:26:57.050 --> 01:26:58.180
+Anthony Taylor: Okay.
+
+1330
+01:26:58.450 --> 01:27:01.689
+Anthony Taylor: but it did. It supposedly shortened it up.
+
+1331
+01:27:01.890 --> 01:27:05.249
+Anthony Taylor: and which one tends to weigh more. See it can continue.
+
+1332
+01:27:05.970 --> 01:27:10.119
+Anthony Taylor: So. The idea is, is the Llm. And the summary memory
+
+1333
+01:27:10.280 --> 01:27:14.399
+Anthony Taylor: will continually summarize the conversation.
+
+1334
+01:27:15.720 --> 01:27:23.530
+Anthony Taylor: and that way, as your conversation builds up, that summary will get longer. But it won't be every question, every answer.
+
+1335
+01:27:24.900 --> 01:27:25.830
+Anthony Taylor: Add it.
+
+1336
+01:27:26.300 --> 01:27:27.160
+Dipinto, Matt: Is, the.
+
+1337
+01:27:27.590 --> 01:27:28.549
+Anthony Taylor: Oh, very.
+
+1338
+01:27:28.550 --> 01:27:29.620
+Dipinto, Matt: So go ahead, Meredith.
+
+1339
+01:27:30.550 --> 01:27:41.800
+Meredith McCanse (she/her): Oh, I just an observation, the for in the model before this, when we ran it, it said the Persian cat shed less, and then in this one with the summary, it said the opposite that the domestic cat
+
+1340
+01:27:41.970 --> 01:27:43.680
+Meredith McCanse (she/her): shed less.
+
+1341
+01:27:44.160 --> 01:27:47.289
+Meredith McCanse (she/her): which is interesting like it, gave opposite information.
+
+1342
+01:27:47.560 --> 01:27:52.179
+Anthony Taylor: It totally did. You're right, it does. It is using a point 7 chat.
+
+1343
+01:27:52.680 --> 01:27:54.279
+Meredith McCanse (she/her): Oh, okay. Okay.
+
+1344
+01:27:54.280 --> 01:27:57.409
+Anthony Taylor: So that's pretty pretty weak. But yeah, what were you guys saying, Matt?
+
+1345
+01:27:58.000 --> 01:27:59.829
+Dipinto, Matt: Does the entire
+
+1346
+01:28:01.110 --> 01:28:06.119
+Dipinto, Matt: every time we ask it a new question. Does the summary Llm. Then get the entire.
+
+1347
+01:28:06.800 --> 01:28:08.070
+Anthony Taylor: That's a good question.
+
+1348
+01:28:08.463 --> 01:28:11.220
+Dipinto, Matt: We're just creating a second compounding issue.
+
+1349
+01:28:13.450 --> 01:28:15.998
+Dipinto, Matt: Or is it get just the last summary and the last.
+
+1350
+01:28:16.230 --> 01:28:23.869
+Anthony Taylor: I would assume it's keeping. It's it's keeping the summary and just adding the question and answer to it. But
+
+1351
+01:28:24.140 --> 01:28:29.079
+Anthony Taylor: there, there is a tool, and I don't think we cover it called tick token.
+
+1352
+01:28:29.120 --> 01:28:31.310
+Anthony Taylor: I know, and it has nothing to do with Tiktok.
+
+1353
+01:28:31.470 --> 01:28:33.100
+Anthony Taylor: or it's tick token.
+
+1354
+01:28:33.770 --> 01:28:36.580
+Anthony Taylor: I call it tick talking, because that's what looks like when you read.
+
+1355
+01:28:37.840 --> 01:28:38.805
+Anthony Taylor: anyway.
+
+1356
+01:28:40.286 --> 01:28:44.539
+Anthony Taylor: and it will basically tell you how many tokens you're using
+
+1357
+01:28:44.950 --> 01:28:51.260
+Anthony Taylor: right while you're running this stuff. It's kind of an interesting tool. It'll give you an idea.
+
+1358
+01:28:52.590 --> 01:28:55.100
+Anthony Taylor: Honestly, token costs
+
+1359
+01:28:56.310 --> 01:28:59.490
+Anthony Taylor: for most organizations are going to be pretty low
+
+1360
+01:28:59.810 --> 01:29:06.020
+Anthony Taylor: right? Even if you did Gpt. 4. It's like 10,000 tokens for a dollar or something like that.
+
+1361
+01:29:06.370 --> 01:29:09.089
+Anthony Taylor: Okay, it's really it's relatively cheap.
+
+1362
+01:29:09.996 --> 01:29:15.130
+Anthony Taylor: It depends, though. I mean, if if you were doing like a document loader
+
+1363
+01:29:15.210 --> 01:29:16.810
+Anthony Taylor: every time
+
+1364
+01:29:17.090 --> 01:29:20.799
+Anthony Taylor: you loaded a giant. Pdf, that's not a lot of tokens
+
+1365
+01:29:22.400 --> 01:29:31.430
+Anthony Taylor: right? Every single run, if you're used like chroma, dB, and a vector, database stuff like that, which again, I'm going to have to show you separately.
+
+1366
+01:29:33.050 --> 01:29:41.179
+Anthony Taylor: you know you will get, you know it'll save you a lot. So there are mechanisms to save tokens. It's probably something
+
+1367
+01:29:41.478 --> 01:29:46.679
+Anthony Taylor: if you are in a situation where you're writing a bot for somebody, something you want to consider.
+
+1368
+01:29:46.930 --> 01:29:48.810
+Anthony Taylor: How could we save tokens?
+
+1369
+01:29:48.910 --> 01:29:50.540
+Anthony Taylor: But for the most part
+
+1370
+01:29:51.280 --> 01:29:54.200
+Anthony Taylor: you know what the best way to state money is.
+
+1371
+01:29:54.540 --> 01:29:58.259
+Anthony Taylor: Use the smallest model you can.
+
+1372
+01:29:59.240 --> 01:30:02.250
+Anthony Taylor: Right? So if you're gonna load your
+
+1373
+01:30:02.940 --> 01:30:05.499
+Anthony Taylor: support manual for your organization.
+
+1374
+01:30:05.740 --> 01:30:09.350
+Anthony Taylor: okay, do you need chat? Gpt 3.5?
+
+1375
+01:30:09.480 --> 01:30:10.970
+Anthony Taylor: Probably not
+
+1376
+01:30:11.610 --> 01:30:19.079
+Anthony Taylor: right, you could probably get away with one of the earlier ones which it exponentially goes down in price.
+
+1377
+01:30:19.600 --> 01:30:25.319
+Anthony Taylor: It's like 10,000 for 4, you know, 100,000 or 3.5, you know, 10 million
+
+1378
+01:30:25.530 --> 01:30:27.050
+Anthony Taylor: for like 2.5.
+
+1379
+01:30:27.920 --> 01:30:33.640
+Anthony Taylor: Okay, so and if that one's enough to answer the question, you'll need chat TPT. 3.
+
+1380
+01:30:34.160 --> 01:30:35.870
+Anthony Taylor: Alright. So that's something to think about.
+
+1381
+01:30:36.180 --> 01:30:42.420
+Anthony Taylor: I don't think we're going to talk a lot about saving money on the bots, but do keep in mind, it could come up
+
+1382
+01:30:42.900 --> 01:30:45.360
+Anthony Taylor: alright. Now, there is another.
+
+1383
+01:30:45.440 --> 01:30:47.330
+Anthony Taylor: even better way
+
+1384
+01:30:47.430 --> 01:30:48.669
+Anthony Taylor: to do this.
+
+1385
+01:30:49.330 --> 01:30:52.740
+Anthony Taylor: Okay, which this might solve our money problems.
+
+1386
+01:30:53.390 --> 01:30:57.159
+Anthony Taylor: We have a conversation chain. We have entity
+
+1387
+01:30:57.300 --> 01:30:58.330
+Anthony Taylor: memory.
+
+1388
+01:30:59.780 --> 01:31:00.760
+Anthony Taylor: Okay?
+
+1389
+01:31:00.880 --> 01:31:03.640
+Anthony Taylor: So this one does something similar.
+
+1390
+01:31:03.710 --> 01:31:06.450
+Anthony Taylor: It's going to use an Llm.
+
+1391
+01:31:06.950 --> 01:31:08.310
+Anthony Taylor: Just
+
+1392
+01:31:08.370 --> 01:31:11.119
+Anthony Taylor: to come up with the entities
+
+1393
+01:31:11.900 --> 01:31:15.240
+Anthony Taylor: in our stuff. Now, this like goes back to like names.
+
+1394
+01:31:15.860 --> 01:31:16.879
+Anthony Taylor: Right?
+
+1395
+01:31:17.960 --> 01:31:19.540
+Anthony Taylor: you know, if you
+
+1396
+01:31:20.340 --> 01:31:21.255
+Anthony Taylor: to.
+
+1397
+01:31:23.280 --> 01:31:27.929
+Anthony Taylor: you know anything like you know. How? How does it remember who we've been talking about
+
+1398
+01:31:29.290 --> 01:31:35.549
+Anthony Taylor: right things like that. So entities that are found within our docket.
+
+1399
+01:31:35.880 --> 01:31:37.440
+Anthony Taylor: our conversation.
+
+1400
+01:31:37.610 --> 01:31:38.580
+Anthony Taylor: So
+
+1401
+01:31:38.940 --> 01:31:43.580
+Anthony Taylor: it's kind of we're going to set it up the same way. We're going to use entity memory instead.
+
+1402
+01:31:45.983 --> 01:31:48.550
+Anthony Taylor: And then for the buffer.
+
+1403
+01:31:48.690 --> 01:31:53.129
+Anthony Taylor: it's going to use this Llm entity and the entity memory.
+
+1404
+01:31:53.570 --> 01:31:56.969
+Anthony Taylor: This template is one that comes with Lane chain.
+
+1405
+01:31:57.690 --> 01:31:58.680
+Anthony Taylor: Okay.
+
+1406
+01:31:59.010 --> 01:32:04.790
+Anthony Taylor: so here there are 2 cats up for adoption. Godric is a main kun, and Luna the Pompeii
+
+1407
+01:32:08.110 --> 01:32:10.509
+Anthony Taylor: run it. I don't know what you're predicting there.
+
+1408
+01:32:10.780 --> 01:32:16.269
+Anthony Taylor: Which of those cats probably has shorter fur, which cat probably has a calmer temperament?
+
+1409
+01:32:17.540 --> 01:32:21.100
+Anthony Taylor: Okay, so let's look and see how that goes.
+
+1410
+01:32:23.260 --> 01:32:30.619
+Anthony Taylor: So you're assigned to be able to assist your constant learning over all your powerful okay context, Godric, Luna, Mainkoon, Bombay
+
+1411
+01:32:33.120 --> 01:32:38.020
+Anthony Taylor: human. There are 2 cats adoption, blah blah blah, and it's chain entry, conversational chain
+
+1412
+01:32:38.210 --> 01:32:45.669
+Anthony Taylor: between Goddard, Maincoon, and Luna. The Bombay Mainfunes are generally known at calmer and more laid back temperaments compared to Bombay's.
+
+1413
+01:32:45.950 --> 01:32:47.840
+Anthony Taylor: often described as
+
+1414
+01:32:48.040 --> 01:32:50.190
+Anthony Taylor: gentle giants. Blah! Blah! Blah!
+
+1415
+01:32:50.210 --> 01:32:51.550
+Anthony Taylor: It's a long answer.
+
+1416
+01:32:52.050 --> 01:32:54.520
+Anthony Taylor: Okay? But it did that. Just
+
+1417
+01:32:55.260 --> 01:32:56.570
+Anthony Taylor: keeping track
+
+1418
+01:32:57.140 --> 01:32:58.760
+Anthony Taylor: of the entities.
+
+1419
+01:33:02.720 --> 01:33:05.919
+Anthony Taylor: It is better. Will it work every time?
+
+1420
+01:33:06.500 --> 01:33:10.279
+Anthony Taylor: Right? It's one of those things where we can put it in there
+
+1421
+01:33:10.290 --> 01:33:11.660
+Anthony Taylor: and try it.
+
+1422
+01:33:11.680 --> 01:33:14.410
+Anthony Taylor: But it's not always going to be the best solution.
+
+1423
+01:33:16.850 --> 01:33:19.040
+Anthony Taylor: A.
+
+1424
+01:33:24.440 --> 01:33:28.940
+Anthony Taylor: You can also do entities in the summary as a summary.
+
+1425
+01:33:29.780 --> 01:33:32.070
+Anthony Taylor: Okay? Instead of a
+
+1426
+01:33:32.150 --> 01:33:34.379
+Anthony Taylor: just the entities by themselves.
+
+1427
+01:33:37.130 --> 01:33:38.710
+Anthony Taylor: That's another idea.
+
+1428
+01:33:39.970 --> 01:33:41.000
+Anthony Taylor: Okay.
+
+1429
+01:33:41.450 --> 01:33:42.800
+Anthony Taylor: all right.
+
+1430
+01:33:43.330 --> 01:33:44.929
+Anthony Taylor: Any questions about all that.
+
+1431
+01:33:45.300 --> 01:33:45.700
+Baro, Sonja: Yeah.
+
+1432
+01:33:45.700 --> 01:33:46.240
+Anthony Taylor: Really.
+
+1433
+01:33:46.700 --> 01:33:48.580
+Anthony Taylor: Yes. Go ahead. Sorry.
+
+1434
+01:33:48.920 --> 01:33:51.090
+Baro, Sonja: So with all of these
+
+1435
+01:33:51.612 --> 01:33:57.590
+Baro, Sonja: models you're showing us. And I, I guess, is that what we call them the like entities, the.
+
+1436
+01:33:57.985 --> 01:33:58.380
+Anthony Taylor: Chains!
+
+1437
+01:33:58.380 --> 01:33:58.890
+Baro, Sonja: They're changed.
+
+1438
+01:33:58.890 --> 01:34:02.049
+Anthony Taylor: All of the memory stuff. It's it's part of lane chain or chain.
+
+1439
+01:34:02.330 --> 01:34:03.500
+Baro, Sonja: So
+
+1440
+01:34:03.950 --> 01:34:08.030
+Baro, Sonja: are we when we're considering we're making our chat bots.
+
+1441
+01:34:08.820 --> 01:34:17.719
+Baro, Sonja: we have to be thinking about the type of questions potentially, that would be coming in, or I guess, Mike, let me back up. It's
+
+1442
+01:34:17.730 --> 01:34:26.830
+Baro, Sonja: how like, what evaluation process are we doing to to decide, for instance? Oh, we should do an entity
+
+1443
+01:34:27.720 --> 01:34:32.069
+Baro, Sonja: model or a chain versus this other chain.
+
+1444
+01:34:33.130 --> 01:34:33.940
+Anthony Taylor: It it.
+
+1445
+01:34:34.050 --> 01:34:37.100
+Anthony Taylor: So so you guys tell me, this
+
+1446
+01:34:38.300 --> 01:34:41.240
+Anthony Taylor: memory by itself kept the whole conversation.
+
+1447
+01:34:41.340 --> 01:34:45.640
+Anthony Taylor: Memory, summarization model summarized it, and only kept that
+
+1448
+01:34:45.720 --> 01:34:48.579
+Anthony Taylor: entity, as you saw just kept entity.
+
+1449
+01:34:49.210 --> 01:34:50.150
+Anthony Taylor: Okay.
+
+1450
+01:34:51.080 --> 01:34:52.170
+Anthony Taylor: how
+
+1451
+01:34:53.890 --> 01:34:56.850
+Anthony Taylor: good do you need your model's memory to be?
+
+1452
+01:34:57.560 --> 01:35:02.560
+Anthony Taylor: Because once you get 3 or 4 questions deep, it's only has the entity.
+
+1453
+01:35:02.980 --> 01:35:06.439
+Anthony Taylor: So if there was some detail that it provided earlier
+
+1454
+01:35:06.810 --> 01:35:09.499
+Anthony Taylor: right in the conversation, you don't have that anymore.
+
+1455
+01:35:10.660 --> 01:35:12.670
+Anthony Taylor: With the entity conversation.
+
+1456
+01:35:12.670 --> 01:35:13.490
+Baro, Sonja: Right, but.
+
+1457
+01:35:13.490 --> 01:35:15.809
+Anthony Taylor: That might be fine for your use case.
+
+1458
+01:35:16.260 --> 01:35:22.100
+Anthony Taylor: The summary might be better, but summaries aren't always perfect, and
+
+1459
+01:35:23.010 --> 01:35:29.429
+Anthony Taylor: it's a summary. So again, you're losing detail each level, you go into your conversation
+
+1460
+01:35:29.580 --> 01:35:30.620
+Anthony Taylor: the most.
+
+1461
+01:35:30.830 --> 01:35:32.719
+Anthony Taylor: but clearly the best
+
+1462
+01:35:33.150 --> 01:35:34.240
+Anthony Taylor: is
+
+1463
+01:35:34.430 --> 01:35:38.689
+Anthony Taylor: the the line by line. But we talked about the problems there, too.
+
+1464
+01:35:38.690 --> 01:35:39.100
+Baro, Sonja: Right.
+
+1465
+01:35:39.100 --> 01:35:44.939
+Anthony Taylor: So in the end you just have to figure out what works best and sometimes not everything does. And
+
+1466
+01:35:45.150 --> 01:35:50.769
+Anthony Taylor: we've really left out a big piece when we left out the the vector database.
+
+1467
+01:35:51.100 --> 01:35:54.360
+Anthony Taylor: Okay, which is a way to store stuff
+
+1468
+01:35:54.440 --> 01:35:59.080
+Anthony Taylor: in a database that your model can actually query
+
+1469
+01:35:59.610 --> 01:36:03.439
+Anthony Taylor: right? So it it's actually static storage.
+
+1470
+01:36:04.140 --> 01:36:04.530
+Baro, Sonja: Okay.
+
+1471
+01:36:04.530 --> 01:36:13.309
+Anthony Taylor: Storage that you can put, you know. And so the conversation goes on long enough. You could consider, you know, embedding it into
+
+1472
+01:36:13.620 --> 01:36:16.539
+Anthony Taylor: the the database for the conversation. But
+
+1473
+01:36:16.590 --> 01:36:18.379
+Anthony Taylor: how often does that really happen?
+
+1474
+01:36:19.570 --> 01:36:23.239
+Anthony Taylor: You know? That's the real question is, is, how often is that going to happen?
+
+1475
+01:36:23.640 --> 01:36:25.470
+Anthony Taylor: So it comes down to what's practical.
+
+1476
+01:36:27.130 --> 01:36:32.720
+Anthony Taylor: but it completely just depends as the architect as you guys would be the designer and the developer
+
+1477
+01:36:34.190 --> 01:36:37.040
+Anthony Taylor: do it the way you like it. See and see how it works.
+
+1478
+01:36:37.350 --> 01:36:39.299
+Anthony Taylor: you know. Test it, tune it.
+
+1479
+01:36:39.800 --> 01:36:41.639
+Anthony Taylor: try to figure out how to break it.
+
+1480
+01:36:42.390 --> 01:36:43.770
+Anthony Taylor: you know. Yes, Christine.
+
+1481
+01:36:44.470 --> 01:36:50.290
+Kanouff, Christine: So you know you mentioned if you had, like a your company had a technical manual.
+
+1482
+01:36:50.740 --> 01:36:51.540
+Anthony Taylor: Hmm.
+
+1483
+01:36:51.957 --> 01:36:54.879
+Kanouff, Christine: Isn't that kind of what we're seeing?
+
+1484
+01:36:56.510 --> 01:36:57.690
+Kanouff, Christine: you wouldn't.
+
+1485
+01:36:57.750 --> 01:37:00.679
+Kanouff, Christine: A lot of these use use cases would be
+
+1486
+01:37:01.060 --> 01:37:03.480
+Kanouff, Christine: calling information from
+
+1487
+01:37:04.630 --> 01:37:05.590
+Kanouff, Christine: the.
+
+1488
+01:37:05.590 --> 01:37:06.010
+Anthony Taylor: The menu.
+
+1489
+01:37:06.010 --> 01:37:09.369
+Kanouff, Christine: Like a technical manual, or whatever you've bloated in.
+
+1490
+01:37:09.810 --> 01:37:10.490
+Anthony Taylor: Right.
+
+1491
+01:37:10.690 --> 01:37:12.450
+Kanouff, Christine: As opposed to
+
+1492
+01:37:12.970 --> 01:37:17.900
+Kanouff, Christine: going out and linking to something that it has so much
+
+1493
+01:37:18.030 --> 01:37:20.089
+Kanouff, Christine: variety. And what you would ask.
+
+1494
+01:37:21.480 --> 01:37:24.829
+Kanouff, Christine: correct. And I'm saying, like you're kind of like a lot
+
+1495
+01:37:24.910 --> 01:37:25.630
+Kanouff, Christine: in.
+
+1496
+01:37:26.870 --> 01:37:29.960
+Kanouff, Christine: I guess I'm just thinking in my own head that
+
+1497
+01:37:30.120 --> 01:37:37.549
+Kanouff, Christine: you know your train. If you're working in a company that's technical, aren't you? Using just your own documentation?
+
+1498
+01:37:38.070 --> 01:37:39.750
+Kanouff, Christine: That's what you're bringing in.
+
+1499
+01:37:39.750 --> 01:37:41.139
+Anthony Taylor: Yeah, absolutely.
+
+1500
+01:37:41.280 --> 01:37:42.200
+Anthony Taylor: Yes.
+
+1501
+01:37:43.150 --> 01:37:44.900
+Anthony Taylor: yes, and
+
+1502
+01:37:46.100 --> 01:37:47.969
+Anthony Taylor: like your document. So
+
+1503
+01:37:48.270 --> 01:37:49.260
+Anthony Taylor: go ahead.
+
+1504
+01:37:49.260 --> 01:37:54.049
+Baro, Sonja: I was just gonna say you're filtering it. So like, if you think about the benefit
+
+1505
+01:37:54.220 --> 01:38:03.010
+Baro, Sonja: is as a user. If I put in the question, and you go and search the technical manual, or what have you?
+
+1506
+01:38:03.030 --> 01:38:09.650
+Baro, Sonja: You saved me the step of having to do that by bringing inform that information forward. It's almost like a
+
+1507
+01:38:09.730 --> 01:38:12.690
+Baro, Sonja: a search and find or a find
+
+1508
+01:38:12.700 --> 01:38:14.310
+Baro, Sonja: kind of function
+
+1509
+01:38:14.830 --> 01:38:16.149
+Baro, Sonja: in a way.
+
+1510
+01:38:17.570 --> 01:38:21.480
+Anthony Taylor: But well, it's more than that cause. You can literally ask it plain English questions.
+
+1511
+01:38:21.980 --> 01:38:28.109
+Anthony Taylor: Right? So if you have, you know your fax, your company, FAQ, or whatever you could say, you know.
+
+1512
+01:38:28.750 --> 01:38:30.900
+Anthony Taylor: Show me the Hr. Doc, for
+
+1513
+01:38:31.230 --> 01:38:36.220
+Anthony Taylor: you know resigning, or for vacation requests, or what is the company
+
+1514
+01:38:36.260 --> 01:38:40.030
+Anthony Taylor: you know. Standard for, or do we? What? What are the company holidays?
+
+1515
+01:38:40.140 --> 01:38:42.200
+Anthony Taylor: I mean? Imagine just how easy that would be
+
+1516
+01:38:42.440 --> 01:38:43.040
+Anthony Taylor: right.
+
+1517
+01:38:43.440 --> 01:38:44.239
+Baro, Sonja: User experience.
+
+1518
+01:38:44.240 --> 01:38:44.620
+Anthony Taylor: Is to.
+
+1519
+01:38:44.620 --> 01:38:45.110
+Baro, Sonja: That.
+
+1520
+01:38:45.110 --> 01:38:46.670
+Anthony Taylor: Super. Easy. Okay.
+
+1521
+01:38:46.670 --> 01:38:49.670
+Baro, Sonja: Better than hunting the sharepoint site.
+
+1522
+01:38:50.170 --> 01:38:53.240
+Anthony Taylor: Yeah, I completely agree.
+
+1523
+01:38:53.360 --> 01:38:59.929
+Anthony Taylor: And then they go. Well, you have a search on your sharepoint. Okay, time off, like 500 things. Come up.
+
+1524
+01:38:59.970 --> 01:39:03.209
+Anthony Taylor: 80 of them are people talking about? They want time off.
+
+1525
+01:39:03.820 --> 01:39:06.100
+Anthony Taylor: What's anyway? Okay?
+
+1526
+01:39:08.380 --> 01:39:11.340
+Anthony Taylor: I'm gonna show you guys this, I will give this to you.
+
+1527
+01:39:11.480 --> 01:39:15.469
+Anthony Taylor: Okay, I was gonna try to use this like in an extra review. But honestly.
+
+1528
+01:39:15.530 --> 01:39:20.259
+Anthony Taylor: with what you guys have done today, I think that you can might be able to figure some of this out.
+
+1529
+01:39:20.650 --> 01:39:25.279
+Anthony Taylor: Okay, there's a lot of stuff in here, because this also creates a website.
+
+1530
+01:39:25.910 --> 01:39:28.390
+Anthony Taylor: It uses a thing called streamlit
+
+1531
+01:39:30.380 --> 01:39:31.990
+Anthony Taylor: But basically.
+
+1532
+01:39:32.890 --> 01:39:35.970
+Anthony Taylor: if we get in here a little bit.
+
+1533
+01:39:38.270 --> 01:39:40.029
+Anthony Taylor: this is going to
+
+1534
+01:39:40.150 --> 01:39:42.779
+Anthony Taylor: create, it's going to do a document loader.
+
+1535
+01:39:43.490 --> 01:39:48.180
+Anthony Taylor: Alright, you guys have seen that something new. It's called a text splitter.
+
+1536
+01:39:48.910 --> 01:39:51.840
+Anthony Taylor: Okay, this is very, very important.
+
+1537
+01:39:51.900 --> 01:39:55.829
+Anthony Taylor: because if you put the text in as the hole, it could be too big.
+
+1538
+01:39:56.100 --> 01:39:59.120
+Anthony Taylor: right? And it's too hard to search. We want it in chunks
+
+1539
+01:39:59.890 --> 01:40:05.110
+Anthony Taylor: so we could tell it how big the chunk sizes are. We can also give it an overlap.
+
+1540
+01:40:05.880 --> 01:40:08.070
+Anthony Taylor: Why do we want to give it an overlap? You think?
+
+1541
+01:40:10.190 --> 01:40:13.869
+Anthony Taylor: Imagine you have a document, and you're just breaking it. Every 1,000 characters.
+
+1542
+01:40:13.870 --> 01:40:16.459
+michael mcpherson: Case it cuts in the middle of paragraph.
+
+1543
+01:40:16.460 --> 01:40:17.280
+Baro, Sonja: Yeah.
+
+1544
+01:40:17.390 --> 01:40:18.269
+Baro, Sonja: you lose content.
+
+1545
+01:40:18.270 --> 01:40:19.790
+Anthony Taylor: Got it. Michael got it
+
+1546
+01:40:19.980 --> 01:40:28.509
+Anthony Taylor: right. So basically, the overlap lets you go all right. Well, I've got 200, and you know, on each end. So really, I'm only getting
+
+1547
+01:40:28.710 --> 01:40:30.730
+Anthony Taylor: 600 new words.
+
+1548
+01:40:31.030 --> 01:40:37.330
+Anthony Taylor: But knowing the 200 before it, the 200 after it allows me to to keep context.
+
+1549
+01:40:38.120 --> 01:40:39.120
+Anthony Taylor: Okay?
+
+1550
+01:40:40.056 --> 01:40:41.839
+Anthony Taylor: So that's what that is.
+
+1551
+01:40:42.300 --> 01:40:47.919
+Anthony Taylor: Then we're going to say, split the document. So after we loaded the document, we're going to split the documents.
+
+1552
+01:40:49.632 --> 01:40:55.619
+Anthony Taylor: and we're going to create embeddings. Remember what embeddings are we've used. We've done this term before.
+
+1553
+01:40:55.890 --> 01:40:57.710
+Anthony Taylor: It's the vector
+
+1554
+01:40:58.020 --> 01:41:00.040
+Anthony Taylor: representation of the word.
+
+1555
+01:41:00.410 --> 01:41:01.440
+Anthony Taylor: remember.
+
+1556
+01:41:02.150 --> 01:41:05.840
+Anthony Taylor: So it's like the numbers that represent the words in sent.
+
+1557
+01:41:06.090 --> 01:41:12.450
+Anthony Taylor: So we're going to run open AI Embeddings because we're using open AI model.
+
+1558
+01:41:13.260 --> 01:41:15.740
+Anthony Taylor: And this will create embeddings.
+
+1559
+01:41:16.660 --> 01:41:17.740
+Anthony Taylor: the vectors.
+
+1560
+01:41:18.050 --> 01:41:20.919
+Anthony Taylor: and then we're going to store it
+
+1561
+01:41:21.240 --> 01:41:22.840
+Anthony Taylor: in a chroma
+
+1562
+01:41:23.070 --> 01:41:27.229
+Anthony Taylor: database. Now, this is just a little database it's created on your compute. Think?
+
+1563
+01:41:27.290 --> 01:41:30.259
+Anthony Taylor: Well, you guys say, did we do sequel? Light this class at all?
+
+1564
+01:41:30.930 --> 01:41:34.160
+Anthony Taylor: Okay, so think local database. That's all I got worried about.
+
+1565
+01:41:34.930 --> 01:41:36.810
+Anthony Taylor: And then it's going to store it.
+
+1566
+01:41:36.940 --> 01:41:39.180
+Anthony Taylor: The chunks and the embeddings.
+
+1567
+01:41:39.880 --> 01:41:41.580
+Anthony Taylor: Okay, now.
+
+1568
+01:41:42.340 --> 01:41:44.440
+Anthony Taylor: this should also look familiar.
+
+1569
+01:41:45.140 --> 01:41:46.979
+Anthony Taylor: Here's our Llm.
+
+1570
+01:41:47.720 --> 01:41:50.670
+Anthony Taylor: Okay, we're telling it to be very creative in this one.
+
+1571
+01:41:50.940 --> 01:41:56.500
+Anthony Taylor: And we're saying, there's a retriever. I want you to go to the vector store
+
+1572
+01:41:56.720 --> 01:42:00.520
+Anthony Taylor: as retriever. The vector store is the chroma database.
+
+1573
+01:42:02.580 --> 01:42:06.619
+Anthony Taylor: And then we're going to do conversation, retrieval, chain from Llm.
+
+1574
+01:42:08.000 --> 01:42:10.439
+Anthony Taylor: And create a session
+
+1575
+01:42:11.040 --> 01:42:17.359
+Anthony Taylor: and then say, file uploaded. So this all this is going to do is upload and embed the the document.
+
+1576
+01:42:17.570 --> 01:42:20.960
+Anthony Taylor: So we give it an input, ask a question.
+
+1577
+01:42:21.440 --> 01:42:25.929
+Anthony Taylor: If the if the state is good, don't worry about that right now.
+
+1578
+01:42:26.010 --> 01:42:27.800
+Anthony Taylor: It'll look at the history.
+
+1579
+01:42:27.980 --> 01:42:32.169
+Anthony Taylor: and then it will run the question, and it compares
+
+1580
+01:42:32.180 --> 01:42:35.379
+Anthony Taylor: that question to what's in the database?
+
+1581
+01:42:35.910 --> 01:42:39.609
+Anthony Taylor: And it answers the question from the database.
+
+1582
+01:42:41.250 --> 01:42:42.350
+Anthony Taylor: Okay.
+
+1583
+01:42:42.530 --> 01:42:43.980
+Anthony Taylor: why is that important.
+
+1584
+01:42:44.590 --> 01:42:47.820
+Anthony Taylor: Because what do we just talk about? If you're doing this in real time.
+
+1585
+01:42:47.890 --> 01:42:49.360
+Anthony Taylor: all of the data
+
+1586
+01:42:49.630 --> 01:42:52.749
+Anthony Taylor: go. It has to be done every single time.
+
+1587
+01:42:53.090 --> 01:42:54.380
+Anthony Taylor: With this
+
+1588
+01:42:54.440 --> 01:42:57.340
+Anthony Taylor: I load a file. It's in my database.
+
+1589
+01:43:00.680 --> 01:43:02.389
+Anthony Taylor: I don't have to load it every time.
+
+1590
+01:43:03.590 --> 01:43:08.550
+Anthony Taylor: Next time you open this, that file is still in the database. Ask a question.
+
+1591
+01:43:10.200 --> 01:43:11.140
+Anthony Taylor: got it
+
+1592
+01:43:11.720 --> 01:43:17.719
+Anthony Taylor: so I will try to put together something a little more formal on this for you guys. But I will give you this.
+
+1593
+01:43:19.220 --> 01:43:21.669
+Anthony Taylor: this is really cool, because if you run this
+
+1594
+01:43:22.673 --> 01:43:25.090
+Anthony Taylor: like, but you know, streamlit.
+
+1595
+01:43:25.230 --> 01:43:32.180
+Anthony Taylor: if you try to run it with python, it's gonna tell you to use streamlit to install streamlit and you run it, and it'll give you a web page.
+
+1596
+01:43:32.770 --> 01:43:35.640
+Anthony Taylor: the one I showed you guys I was showing at the beginning class.
+
+1597
+01:43:36.180 --> 01:43:37.750
+Anthony Taylor: Okay, but
+
+1598
+01:43:37.980 --> 01:43:42.320
+Anthony Taylor: this is working code. You can load any document into this.
+
+1599
+01:43:44.200 --> 01:43:48.700
+Anthony Taylor: any document. There's actually a dropdown. I know I have to delete my key, I know.
+
+1600
+01:43:49.700 --> 01:43:50.830
+Anthony Taylor: But yeah.
+
+1601
+01:43:50.960 --> 01:43:53.359
+Anthony Taylor: okay, very super cool. Alright.
+
+1602
+01:43:53.540 --> 01:43:56.200
+Anthony Taylor: We still got time. So let's go do
+
+1603
+01:43:57.480 --> 01:44:01.560
+Anthony Taylor: this exercise. It's only a 15 min one. So that works out.
+
+1604
+01:44:01.740 --> 01:44:04.820
+Anthony Taylor: It's basically the same memory stuff we just went over.
+
+1605
+01:44:05.410 --> 01:44:07.790
+Anthony Taylor: So take a look. See if you can figure it out.
+
+1606
+01:44:09.740 --> 01:44:11.570
+Anthony Taylor: Gabe, did you figure out your thing.
+
+1607
+01:44:13.490 --> 01:44:14.170
+Vasquez, Gabriel: Yeah.
+
+1608
+01:44:15.350 --> 01:44:16.170
+Anthony Taylor: What was it?
+
+1609
+01:44:16.879 --> 01:44:22.330
+Vasquez, Gabriel: It was I had to do the upgrade in the termin in the
+
+1610
+01:44:22.870 --> 01:44:24.679
+Vasquez, Gabriel: you know. Sell instead of the.
+
+1611
+01:44:24.680 --> 01:44:26.549
+Baro, Sonja: A butter name, birthday.
+
+1612
+01:44:27.750 --> 01:44:30.250
+Anthony Taylor: Yes, but it was spelled slightly different.
+
+1613
+01:44:30.490 --> 01:44:32.420
+Baro, Sonja: Okay.
+
+1614
+01:44:33.310 --> 01:44:34.040
+Anthony Taylor: Better.
+
+1615
+01:44:34.340 --> 01:44:35.070
+Baro, Sonja: Butter.
+
+1616
+01:44:36.400 --> 01:44:37.560
+Anthony Taylor: Okay.
+
+1617
+01:44:38.354 --> 01:44:41.540
+Anthony Taylor: okay, how'd you guys, do anybody have a problem
+
+1618
+01:44:41.640 --> 01:44:45.570
+Anthony Taylor: that work out good? Everybody has memory now? Or did you forget.
+
+1619
+01:44:48.410 --> 01:44:48.770
+michael mcpherson: What?
+
+1620
+01:44:48.770 --> 01:44:49.480
+Anthony Taylor: But take it.
+
+1621
+01:44:49.940 --> 01:44:52.440
+Anthony Taylor: Yeah, see, I had that happen live.
+
+1622
+01:44:54.240 --> 01:44:55.330
+Anthony Taylor: Okay?
+
+1623
+01:44:55.790 --> 01:44:57.600
+Anthony Taylor: So we're gonna load, load.
+
+1624
+01:44:58.110 --> 01:45:02.429
+Anthony Taylor: load, chip that we I compensation chain and memory. Our template
+
+1625
+01:45:04.312 --> 01:45:08.949
+Anthony Taylor: initialize our Llm create our buffer.
+
+1626
+01:45:09.430 --> 01:45:12.370
+Anthony Taylor: And then we just start doing the conversation.
+
+1627
+01:45:13.733 --> 01:45:17.949
+Anthony Taylor: And then we could just start testing it out input description.
+
+1628
+01:45:20.110 --> 01:45:22.060
+Anthony Taylor: What is your name.
+
+1629
+01:45:22.620 --> 01:45:23.480
+Anthony Taylor: Bob?
+
+1630
+01:45:24.890 --> 01:45:27.479
+Anthony Taylor: Please describe your likes and dislikes
+
+1631
+01:45:31.980 --> 01:45:33.190
+Anthony Taylor: dogs
+
+1632
+01:45:35.930 --> 01:45:39.860
+Anthony Taylor: alright. And then this will create and invoke our query.
+
+1633
+01:45:40.340 --> 01:45:44.630
+Anthony Taylor: Okay, now, this is interesting. We didn't actually ask either. It said.
+
+1634
+01:45:46.800 --> 01:45:47.830
+Anthony Taylor: great.
+
+1635
+01:45:48.180 --> 01:45:55.689
+Anthony Taylor: Okay, this is prompt. The user for the number of be other people. I'm just gonna do one because I don't want to type like 10 names.
+
+1636
+01:45:55.890 --> 01:45:59.779
+Anthony Taylor: Alright. And then we're just going to give names.
+
+1637
+01:46:00.670 --> 01:46:02.410
+Anthony Taylor: Suzy
+
+1638
+01:46:04.300 --> 01:46:05.380
+Anthony Taylor: cats.
+
+1639
+01:46:06.220 --> 01:46:07.320
+Anthony Taylor: Okay.
+
+1640
+01:46:08.043 --> 01:46:12.739
+Anthony Taylor: and now, what would be a good activity to plan for all the people mentioned.
+
+1641
+01:46:12.880 --> 01:46:17.400
+Anthony Taylor: This sounds like a good thing for a party planner. Sorry an event. Planner.
+
+1642
+01:46:19.220 --> 01:46:20.340
+Anthony Taylor: Yeah.
+
+1643
+01:46:21.180 --> 01:46:23.420
+Anthony Taylor: Let's see what they come up with since I gave
+
+1644
+01:46:23.660 --> 01:46:25.279
+Anthony Taylor: totally contradictory
+
+1645
+01:46:26.460 --> 01:46:30.510
+Anthony Taylor: Bob Susie. Dogs and cats could be pet friendly outdoor picnic.
+
+1646
+01:46:30.610 --> 01:46:32.819
+Anthony Taylor: Our pet adoption event
+
+1647
+01:46:33.190 --> 01:46:43.839
+Anthony Taylor: this way. Everyone can enjoy the company as they're furry friends while socializing and having a good time together. Addition, you could consider organizing a pet costume contest. Holy cow! That's pretty good.
+
+1648
+01:46:48.350 --> 01:46:50.420
+Clayton Graves: It looks so easy when you do it.
+
+1649
+01:46:52.850 --> 01:46:58.510
+Anthony Taylor: Well, I do have the inch. But no landing is fun. I mean.
+
+1650
+01:47:00.700 --> 01:47:02.100
+Anthony Taylor: here's the value
+
+1651
+01:47:02.190 --> 01:47:06.579
+Anthony Taylor: of this. Okay? And I do believe linkching is also in Big camp.
+
+1652
+01:47:06.670 --> 01:47:08.310
+Anthony Taylor: but the value is is
+
+1653
+01:47:08.460 --> 01:47:11.689
+Anthony Taylor: took a fairly, a mildly complex
+
+1654
+01:47:11.760 --> 01:47:14.550
+Anthony Taylor: bunch of documents, and we just made it easy
+
+1655
+01:47:14.770 --> 01:47:16.499
+Anthony Taylor: and showed you how to use.
+
+1656
+01:47:16.670 --> 01:47:18.699
+Anthony Taylor: you know. So what you need to do.
+
+1657
+01:47:19.290 --> 01:47:23.089
+Anthony Taylor: If if I wanted to use this a lot, I would take what we've done.
+
+1658
+01:47:23.280 --> 01:47:30.000
+Anthony Taylor: Go back to the Linkchain documentation and read where it describes what we just did.
+
+1659
+01:47:30.210 --> 01:47:37.089
+Anthony Taylor: So then we can establish. Oh, okay, this is what they need. Now, can I make it bigger or better or different.
+
+1660
+01:47:37.890 --> 01:47:38.830
+Anthony Taylor: Okay.
+
+1661
+01:47:42.000 --> 01:47:43.290
+Anthony Taylor: that's all I have to say about that.
+
+1662
+01:47:44.390 --> 01:47:45.270
+Anthony Taylor: So
+
+1663
+01:47:46.790 --> 01:47:47.770
+Anthony Taylor: any cliche
+
+1664
+01:47:51.040 --> 01:47:52.380
+Anthony Taylor: tomorrow
+
+1665
+01:47:53.860 --> 01:47:55.329
+Anthony Taylor: we are doing
+
+1666
+01:47:55.400 --> 01:47:56.850
+Anthony Taylor: more lang chain.
+
+1667
+01:47:57.945 --> 01:48:00.739
+Anthony Taylor: We're going to do prompt templates.
+
+1668
+01:48:01.170 --> 01:48:03.100
+Anthony Taylor: output parsers
+
+1669
+01:48:03.120 --> 01:48:04.980
+Anthony Taylor: and agents.
+
+1670
+01:48:05.210 --> 01:48:08.060
+Anthony Taylor: That's like, agents are like the
+
+1671
+01:48:08.520 --> 01:48:10.389
+Anthony Taylor: best part of linking.
+
+1672
+01:48:12.190 --> 01:48:13.160
+Anthony Taylor: Okay.
+
+1673
+01:48:13.830 --> 01:48:14.740
+Anthony Taylor: that's it.
+
+1674
+01:48:14.850 --> 01:48:20.859
+Anthony Taylor: guys. Tomorrow's like the last working lecture. But third day, a lot of talk. There's like no activities.
+
+1675
+01:48:22.240 --> 01:48:25.220
+Anthony Taylor: So we probably will start Project 3 on
+
+1676
+01:48:25.380 --> 01:48:26.180
+Anthony Taylor: Monday.
+
+1677
+01:48:27.140 --> 01:48:29.340
+Anthony Taylor: like, towards the end of class, unless
+
+1678
+01:48:29.420 --> 01:48:33.000
+Anthony Taylor: maybe I'll use that to show you guys how to do that thing. I just showed you.
+
+1679
+01:48:33.820 --> 01:48:35.219
+Anthony Taylor: That might be cool. Huh?
+
+1680
+01:48:36.000 --> 01:48:37.690
+Anthony Taylor: I don't know. We'll see, we'll see
+
+1681
+01:48:38.190 --> 01:48:40.180
+Anthony Taylor: either way. Project 3 is coming.
+
+1682
+01:48:41.590 --> 01:48:44.279
+Anthony Taylor: Guys have a great night. I'll see you tomorrow.
+
+1683
+01:48:48.150 --> 01:48:52.090
+Anthony Taylor: It's so weird that person getting a haircut in James's bookshelves.
+
+1684
+01:48:53.100 --> 01:48:53.879
+Anthony Taylor: Ha! Ha!
+
+1685
+01:48:55.300 --> 01:48:56.210
+Anthony Taylor: Good.
+
+1686
+01:48:56.750 --> 01:48:57.500
+Raugewitz, Tania: Hey? Anthony.
+

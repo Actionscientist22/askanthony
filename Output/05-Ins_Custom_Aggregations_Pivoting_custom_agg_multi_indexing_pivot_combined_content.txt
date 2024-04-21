@@ -1,0 +1,96 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read file into DataFrame
+ufo_df = pd.read_csv('Resources/ufoSightings.csv', low_memory=False)
+
+# Remove the rows with missing data
+clean_ufo_df = ufo_df.dropna(how="any")
+
+# Converting the "duration (seconds)" column's values to numeric
+converted_ufo_df = clean_ufo_df.copy()
+converted_ufo_df["duration (seconds)"] = converted_ufo_df.loc[:, "duration (seconds)"].astype(float)
+
+# Display the DataFrame
+converted_ufo_df.head()
+
+##--CODE--##
+converted_ufo_df.columns
+
+##--CODE--##
+# Create a custom function that will calculate the average of DataFrame column
+
+
+##--CODE--##
+# Use the custom_avg function to show the average seconds for each country and state and round to one decimal place
+
+
+##--CODE--##
+# Rename the columns to reflect the results. 
+
+
+##--CODE--##
+# Create two more custom functions. 
+# 1) Returns the number of items from a DataFrame column.
+
+
+# 2) Returns the total the total from a DataFrame column.
+
+
+
+##--CODE--##
+# Show the total number of sighting, and the avg and total number of seconds of UFOs
+# for each country, state, and city.  
+
+# Display the top 25 results
+
+
+##--CODE--##
+# Get the column names 
+
+
+##--CODE--##
+# Rename the columns to reflect the results. 
+
+# Display the top 20 results
+
+
+##--CODE--##
+# Create a function the column value of a DataFrame if the value is greater than 20.
+
+
+##--CODE--##
+# Show the umber of UFOs for each city, state, and country. 
+ 
+
+
+# Display the results.
+
+
+##--CODE--##
+# Drop the null values
+
+
+##--CODE--##
+# Show the total number of UFO sightings for each city, state, and country. 
+# Limit the number of sightings to 20 or more by using the updated custom function.
+
+
+# Drop the null values
+
+
+# Show the top 25 results
+
+
+##--CODE--##
+# Rename the column to reflect the results. 
+
+
+# Sort the pivot table to show the highest number of UFO sightings by country, state, and city.
+
+
+##--CODE--##
+
+

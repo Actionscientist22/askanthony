@@ -1,0 +1,59 @@
+##--CODE--##
+# Import our dependencies
+import pandas as pd
+import matplotlib as plt
+import sklearn as skl
+import tensorflow as tf
+from sklearn.model_selection import train_test_split
+
+# Read the nonlinear data
+df_moons = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_2/datasets/moons-data-2.csv")
+
+# Separate the X and y
+X = df_moons.drop("Target", axis=1)
+y = df_moons["Target"]
+
+# Use sklearn to split dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=78)
+
+# Create scaler instance
+X_scaler = skl.preprocessing.StandardScaler()
+
+# Fit the scaler
+X_scaler.fit(X_train)
+
+# Scale the data
+X_train_scaled = X_scaler.transform(X_train)
+X_test_scaled = X_scaler.transform(X_test)
+
+
+##--CODE--##
+# Create a Keras Sequential model and add more than one Dense hidden layer
+nn_model = tf.keras.models.Sequential()
+
+# Set the input nodes to the number of features
+input_nodes = len(X.columns)
+
+nn_model.add(tf.keras.layers.Dense(units=6, activation="relu", input_dim=input_nodes))
+
+nn_model.add(tf.keras.layers.Dense(units=6, activation="relu"))
+
+nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid"))
+
+# Check the structure of the Sequential model
+nn_model.summary()
+
+##--CODE--##
+# Compile the model and train over more than 100 epochs
+nn_model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
+
+fit_model = nn_model.fit(X_train_scaled, y_train, epochs=200)
+
+##--CODE--##
+# Evaluate the performance of model using the loss and predictive accuracy of the model on the test dataset.
+model_loss, model_accuracy = nn_model.evaluate(X_test_scaled,y_test,verbose=2)
+print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
+
+##--CODE--##
+
+

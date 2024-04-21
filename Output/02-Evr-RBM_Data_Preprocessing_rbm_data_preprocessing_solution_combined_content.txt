@@ -1,0 +1,44 @@
+##--CODE--##
+import pandas as pd
+
+##--CODE--##
+# Read the data
+ratings_df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_3/datasets/ratings.txt",
+                         sep=" ",
+                         header=None,
+                         names=["user_id", "movie_id", "rating"])
+ratings_df
+
+##--CODE--##
+# Remove duplicates on user_id and movie_id, keeping the last row
+ratings_df = ratings_df.drop_duplicates(subset=["user_id", "movie_id"], keep="last")
+ratings_df
+
+##--CODE--##
+# Pivot the DataFrame so user_id is the index, movie_id is columns,
+# and ratings are the values
+ratings_matrix = ratings_df.pivot(index="user_id", columns="movie_id", values="rating")
+ratings_matrix
+
+##--CODE--##
+# Fill NAs with 0
+ratings_matrix = ratings_matrix.fillna(0)
+ratings_matrix
+
+##--CODE--##
+# Create variable for normalization
+# Ratings are between 0-5
+normalization_factor = 5
+
+# Normalize the ratings
+normalized_ratings = ratings_matrix / normalization_factor
+normalized_ratings
+
+##--CODE--##
+# Save the training data as an array of values from the normalized DataFrame
+X_train = normalized_ratings.values
+X_train
+
+##--CODE--##
+
+

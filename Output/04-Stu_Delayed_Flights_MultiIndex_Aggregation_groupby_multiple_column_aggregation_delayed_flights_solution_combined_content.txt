@@ -1,0 +1,82 @@
+##--CODE--##
+# Import the necessary dependencies
+import pandas as pd
+
+##--CODE--##
+# Read in the data as a DataFrame
+# Provide the dataset over AWS S3 bucket. It's ~100 MB.
+delayed_flights_url = "https://static.bc-edx.com/ai/ail-v-1-0/m5/lesson_2/delayed_flights.csv"
+delayed_flights_df = pd.read_csv(delayed_flights_url)
+delayed_flights_df.head()
+
+##--CODE--##
+# Get the columns
+delayed_flights_df.columns
+
+##--CODE--##
+# 1. Show the average time for delayed arrivals (ArrDelay) for each carrier.
+grouped_arrival_delay = delayed_flights_df.groupby("UniqueCarrier").agg({'ArrDelay':'mean'})
+grouped_arrival_delay
+
+##--CODE--##
+# 2. Show the average time for delayed arrivals and delayed departures for each carrier.
+grouped_arrival_dept_delay = delayed_flights_df.groupby("UniqueCarrier")[["ArrDelay", "DepDelay"]].agg('mean')
+grouped_arrival_dept_delay
+
+### Grouping and aggregating wiht multiple columns and functions.
+
+##--CODE--##
+# 3. Show the total number of flights that were diverted for each carrier by day of the week.
+total_flights_diverted = delayed_flights_df.groupby(["UniqueCarrier","DayOfWeek"])[["Diverted"]].agg(["sum"])
+
+# Display the top 25 rows
+total_flights_diverted.head(25)
+
+##--CODE--##
+# Display the last 25 rows.
+total_flights_diverted.tail(25)
+
+##--CODE--##
+# 4. Show the total and average number flights that were diverted and cancelled for each carrier by day of the week.
+flights_cancelled_diverted = delayed_flights_df.groupby(["UniqueCarrier","DayOfWeek"])\
+            [["Cancelled", "Diverted"]].agg(["sum","mean"])
+
+# Display the top 25 rows
+flights_cancelled_diverted.head(25)
+
+##--CODE--##
+# 5.Show the total and average number flights that were diverted and cancelled 
+# for each flight origin and destination.
+origin_dest_flights_cancelled_diverted = delayed_flights_df.groupby(["Origin","Dest"])\
+                [["Cancelled", "Diverted"]].agg(["sum","mean"])
+
+
+# Display the top 25 rows
+origin_dest_flights_cancelled_diverted.head(25)
+
+##--CODE--##
+# 6.Show the total number flights that were diverted for each airline carrier, flight origin,
+# and destination by day of the week.
+origin_dest_flights_cancelled_diverted = delayed_flights_df.groupby(["UniqueCarrier","Origin","Dest"])\
+                [["Diverted"]].agg(["sum"])
+
+# Display the top 10 rows
+origin_dest_flights_cancelled_diverted.head(10)
+
+##--CODE--##
+# 7. Remove the multi-index from the previous DataFrame so the "Diverted" and "sum" are a column name. 
+# Retrieve the first level 
+level_0 = origin_dest_flights_cancelled_diverted.columns.get_level_values(0)
+print(level_0)
+# Retrieve the second level 
+level_1 = origin_dest_flights_cancelled_diverted.columns.get_level_values(1)
+print(level_1)
+
+##--CODE--##
+# Combine the levels and display the DataFrame.
+origin_dest_flights_cancelled_diverted.columns = level_0 +"_"+ level_1
+origin_dest_flights_cancelled_diverted
+
+##--CODE--##
+
+

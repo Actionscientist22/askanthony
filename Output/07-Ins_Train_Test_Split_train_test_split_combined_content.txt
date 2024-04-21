@@ -1,0 +1,64 @@
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+##--CODE--##
+# Import the data
+car_data = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_1/datasets/car-data-encoded.csv")
+car_data
+
+##--CODE--##
+# Get the features (everything except the "price" column)
+X = car_data.copy().drop(columns="price")
+X.head()
+
+##--CODE--##
+# Get the target column
+y = car_data["price"]
+y.head()
+
+##--CODE--##
+# Use the Sklearn `train_test_split()` function to split the data into training and testing data
+
+
+##--CODE--##
+# Display X_train
+
+
+##--CODE--##
+# Display X_test
+
+
+##--CODE--##
+# Display y_train
+
+
+##--CODE--##
+# Display y_test
+
+
+## Use Feature Selection for X
+
+##--CODE--##
+# Check columns
+
+
+##--CODE--##
+# Features to include: "make", "fuel-type", "num-of-doors", "drive-wheels",
+# "length", "width", "height", "engine-size", "fuel-system", "city-mpg"
+features = ["make", "fuel-type", "num-of-doors", "drive-wheels", 
+            "length", "width", "height", "engine-size", 
+            "fuel-system", "city-mpg"]
+
+
+##--CODE--##
+# Now split the data into training and testing sets again
+
+
+##--CODE--##
+# Preview X_train
+
+
+##--CODE--##
+
+

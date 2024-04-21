@@ -1,0 +1,90 @@
+##--CODE--##
+# Import dependencies
+import requests
+import json
+import pandas as pd
+from dotenv import load_dotenv
+import os
+import time
+
+# Load environment variables and New York Times API key
+
+
+# New York Times Article API URL
+url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?"
+
+# Filter for movie reviews
+# section_name should be "Movies"
+# type_of_material should be "Review"
+filter_query = 'section_name:"Movies" AND type_of_material:"Review"'
+
+# Use a sort filter, sort by newest
+sort = "newest"
+
+# Select the following fields to return:
+# headline, web_url, snippet, source, keywords, pub_date, byline, word_count
+field_list = "headline,web_url,snippet,source,keywords,pub_date,byline,word_count"
+
+# Search for movie reviews published between a begin and end date
+# Select reviews published in July 2023
+begin_date = "20230701"
+end_date = "20230731"
+
+# Build URL
+
+
+##--CODE--##
+# Get the response
+
+
+##--CODE--##
+# Retrieve reviews
+
+
+# Print results in JSON format
+
+
+##--CODE--##
+# Convert results list to JSON normalized Pandas DataFrame
+
+
+##--CODE--##
+# Get the unique writer bylines as a Series
+
+
+##--CODE--##
+# Convert the writers Series to a list
+
+
+##--CODE--##
+# Use the writers list to find the most recent articles by the same writer
+
+# Empty list for results
+
+
+# loop through the writers_list
+
+    # Set up the query
+
+    
+    # Get the results
+
+    
+    # Add a 12 second interval between queries to stay within API query limits
+
+
+    # Use a try-except clause to collect results
+
+        # Loop through the "docs"
+
+            # Save byline.original, headline.main, snippet,
+            # and web_url
+
+
+##--CODE--##
+# Convert the results to a Pandas DataFrame
+
+
+##--CODE--##
+
+

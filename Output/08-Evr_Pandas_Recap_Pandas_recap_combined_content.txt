@@ -1,0 +1,86 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+from pathlib import Path
+
+##--CODE--##
+# Create a reference the CSV file desired
+csv_path = Path("../Resources/CT_fires_2015.csv")
+
+# Read the CSV into a Pandas DataFrame
+fires_df = pd.read_csv(csv_path, low_memory=False)
+
+# Print the first five rows of data to the screen
+fires_df.head()
+
+##--CODE--##
+# Check the names of all the columns and see if there are any rows with missing data
+
+
+##--CODE--##
+# Rename mistyped columns "Aid Given or Received Code " and "Propery Loss"
+
+
+##--CODE--##
+# Reduce to columns: Reporting Year, Fire Department Name, Incident date, Incident Type,
+# Aid Given or Received Code, Aid Given or Received, Number of Alarms, Alarm Date and Time,
+# Arrival Date and Time, Last Unit Cleared Date and Time, Actions Taken 1, Actions Taken 2,
+# Actions Taken 3, Property Value, Property Loss, Contents Value, Contents Loss,
+# Fire Service Deaths, Fire Service Injuries, Other Fire Deaths, Other Fire Injuries,
+# Property Use, Incident Street Address, Incident Apartment Number, Incident City, Incident Zip Code
+
+
+
+##--CODE--##
+# Fill NAs for columns "Actions Taken 1", "Actions Taken 2", "Actions Taken 3", 
+# and "Incident Apartment Number" with ''
+# Fill NAs for columns "Other Fire Deaths", "Other Fire Injuries",
+# "Property Loss", and "Contents Loss" with 0
+
+
+##--CODE--##
+# Remove remaining rows with missing data
+
+
+##--CODE--##
+# Filter data to incidents that caused Property or Contents Loss
+
+
+##--CODE--##
+# Count how many incidents occured in each city
+
+
+##--CODE--##
+# Convert the city_counts Series into a DataFrame
+
+
+##--CODE--##
+# Convert the column name into "Sum of Loss Incidents"
+
+
+##--CODE--##
+# Calculate the number of deaths from fire incidents where loss occurred
+
+
+##--CODE--##
+# Want to calculate the fire department response time? There is a problem
+# Problem can be seen by examining datatypes within the DataFrame
+
+
+##--CODE--##
+# Convert relevant date columns to datetime
+
+
+##--CODE--##
+# Now it is possible to find the response time in seconds
+# Hint: create a new column for "Response Time (seconds)" and use .dt.total_seconds()
+# to calculate the seconds
+
+
+##--CODE--##
+# Check data for columns of your choosing
+
+
+##--CODE--##
+
+

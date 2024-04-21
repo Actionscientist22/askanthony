@@ -1,0 +1,50 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Create reference to CSV file
+
+# Import the CSV into a pandas DataFrame
+
+
+##--CODE--##
+# Collect a list of all the unique values in "Utility"
+
+
+##--CODE--##
+# Create a new DataFrame that only includes electricity usage for tenant owned units.
+
+
+
+##--CODE--##
+# Sort the DataFrame by the values in the "Usage" column to find the months
+# with the highest usage
+
+
+# Reset the index so that the index is now based on the sorting locations
+
+
+##--CODE--##
+# Save all of the information collected on the highest usage month
+
+
+
+##--CODE--##
+# Show some basic summary statistics for the whole DataFrame
+
+
+
+##--CODE--##
+# Find the average usage
+
+
+
+##--CODE--##
+# Find the total usage from all Augusts on record
+
+
+
+##--CODE--##
+
+

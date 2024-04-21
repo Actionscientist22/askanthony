@@ -1,0 +1,89 @@
+##--CODE--##
+# Import our dependencies
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from pathlib import Path
+import pandas as pd
+import tensorflow as tf
+from sklearn.metrics import classification_report
+
+##--CODE--##
+# Import data
+file_path = "https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_2/datasets/sports-articles.csv"
+df = pd.read_csv(file_path)
+df.head()
+
+##--CODE--##
+# Drop the label to create the X data
+X = df.drop('Label', axis=1)
+# Create the y set from the "Label" column
+y = df["Label"]
+
+# Split training/test datasets
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+
+##--CODE--##
+# Encode the y data with the label encoder
+# Create an instance of the label encoder
+le = LabelEncoder()
+
+# Fit and transform the y training and testing data using the label encoder
+y_train_encoded = le.fit_transform(y_train)
+y_test_encoded = le.transform(y_test)
+
+##--CODE--##
+# Scale the X data by using StandardScaler()
+scaler = StandardScaler().fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+##--CODE--##
+# Define the deep learning model
+
+
+# Compile the Sequential model together and customize metrics
+
+
+# Train the model
+
+
+# Evaluate the model using the test data
+
+
+##--CODE--##
+# Make predictions with the test data
+
+
+##--CODE--##
+# Save the predictions to a DataFrame and round the predictions to binary results
+
+
+##--CODE--##
+# Print the classification report with the y test data and predictions
+
+
+## Save the Model
+
+##--CODE--##
+# Set the model's file path
+
+
+# Export your model to a keras file
+
+
+## Load the Model
+
+##--CODE--##
+# Set the model's file path
+
+
+# Load the model to a new object
+
+
+##--CODE--##
+# Evaluate the model using the test data
+
+
+# Display evaluation results
+
+

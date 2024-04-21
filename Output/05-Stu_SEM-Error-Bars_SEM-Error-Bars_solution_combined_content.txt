@@ -1,0 +1,64 @@
+##--CODE--##
+# Import dependencies
+from matplotlib import pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn.datasets import fetch_california_housing
+from scipy.stats import sem
+
+##--CODE--##
+# Import the California housing data set and get description
+california_dataset = fetch_california_housing()
+
+print(california_dataset.DESCR)
+
+##--CODE--##
+# Read California housing data into a Pandas dataframe
+housing_data = pd.DataFrame(data=california_dataset.data,columns=california_dataset.feature_names)
+housing_data['MEDV'] = california_dataset.target
+housing_data.head()
+
+##--CODE--##
+# Create 25 samples, each with sample size of 20
+num_samples = 25
+sample_size = 20
+samples = [housing_data.sample(sample_size) for x in range(0,num_samples)]
+
+##--CODE--##
+# Calculate means
+means = [s['MEDV'].mean() for s in samples]
+# Calculate standard error on means
+sems = [sem(s['MEDV']) for s in samples]
+
+##--CODE--##
+# Plot sample means with error bars
+fig, ax = plt.subplots()
+ax.errorbar(np.arange(0, 25, 1)+1,means, yerr=sems, fmt="o", color="b",
+            alpha=0.5, label="Mean of House Prices")
+ax.set_xlim(0, 25+1)
+ax.set_xlabel("Sample Number")
+ax.set_ylabel("Mean of Median House Prices ($100,000)")
+plt.legend(loc="best", fontsize="small", fancybox=True)
+plt.show()
+
+##--CODE--##
+# Calculate the range of SEM values
+print(f"The range of SEM values in the sample set is {max(sems)-min(sems)}")
+
+##--CODE--##
+# Determine which sample's mean is closest to the population mean
+print(f"The smallest SEM observed was {min(sems)}")
+samp_index = sems.index(min(sems))
+print(f"The sample with the smallest SEM is sample {samp_index+1}")
+
+##--CODE--##
+sems
+
+##--CODE--##
+# Compare to the population mean
+print(f"The mean of the sample 10 is {samples[samp_index]['MEDV'].mean()}")
+print(f"The mean of the population data set is {housing_data['MEDV'].mean()}")
+
+##--CODE--##
+
+

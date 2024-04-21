@@ -1,0 +1,103 @@
+##--CODE--##
+# Import the modules
+import pandas as pd
+import hvplot.pandas
+from pathlib import Path
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+##--CODE--##
+# Read in the CSV file as a Pandas DataFrame
+spread_df = pd.read_csv(
+    Path("../Resources/stock_data.csv"),
+    index_col="date", 
+    parse_dates=True, 
+    infer_datetime_format=True
+)
+
+# Review the DataFrame
+spread_df.head()
+
+##--CODE--##
+# Create a a list to store inertia values
+
+
+# Create a a list to store the values of k
+
+
+##--CODE--##
+# Create a for-loop where each value of k is evaluated using the K-means algorithm
+# Fit the model using the spread_df DataFrame
+# Append the value of the computed inertia from the `inertia_` attribute of the KMeans model instance
+
+
+##--CODE--##
+# Create a Dictionary that holds the list values for k and inertia
+
+
+# Create a DataFrame using the elbow_data Dictionary
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Plot the DataFrame
+
+
+## Perform the following tasks for each of the two most likely values of `k`:
+
+* Define a K-means model using `k` to define the clusters, fit the model, make predictions, and add the prediction values to a copy of the scaled DataFrame and call it `spread_predictions_df`.
+
+* Plot the clusters. The x-axis should reflect the "hi_low_spread", and the y-axis should reflect the "close" price.
+
+##--CODE--##
+# Define the model with the lower value of k clusters
+# Use a random_state of 1 to generate the model
+
+
+# Fit the model
+
+
+# Make predictions
+
+
+# Create a copy of the DataFrame and name it as spread_df_predictions
+
+
+# Add a class column with the labels to the spread_df_predictions DataFrame
+
+
+##--CODE--##
+# Plot the clusters
+
+
+##--CODE--##
+# Define the model with the higher value of k clusters
+# Use a random_state of 1 to generate the model
+model = KMeans(n_clusters=4, random_state=1)
+
+# Fit the model
+model.fit(spread_df)
+
+# Make predictions
+k_higher = model.predict(spread_df)
+
+# Add a class column with the labels to the spread_df_predictions DataFrame
+spread_df_predictions['clusters_higher'] = k_higher
+
+##--CODE--##
+# Plot the clusters
+spread_df_predictions.hvplot.scatter(
+    x="hi_low_spread",
+    y="close",
+    by="clusters_higher"
+).opts(yformatter="%.0f")
+
+## Answer the following question
+
+* Considering the plot, what’s the best number of clusters to choose, or value of k? 
+
+##--CODE--##
+
+

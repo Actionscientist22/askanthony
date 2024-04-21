@@ -1,0 +1,82 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read file into DataFrame
+ufo_df = pd.read_csv('Resources/ufoSightings.csv', low_memory=False)
+
+# Remove the rows with missing data
+clean_ufo_df = ufo_df.dropna(how="any")
+
+# Converting the "duration (seconds)" column's values to numeric
+converted_ufo_df = clean_ufo_df.copy()
+converted_ufo_df["duration (seconds)"] = converted_ufo_df.loc[:, "duration (seconds)"].astype(float)
+
+# Display the DataFrame
+converted_ufo_df.head()
+
+### Single Index (review)
+
+##--CODE--##
+# Show the average seconds for each country. And, round to one decimal place.
+ufo_country_avg_secs = pd.pivot_table(converted_ufo_df, 
+                             columns='country',
+                             values='duration (seconds)',
+                             aggfunc='mean').round(1)
+
+# Rename the index
+ufo_country_avg_secs.rename(index={"duration (seconds)":"Duration: Avg. Seconds"})
+
+### Multi-Indexing
+
+##--CODE--##
+# Show the average seconds for each country and state and round to one decimal place
+ufo_country_state = pd.pivot_table(converted_ufo_df, 
+                                   index=['country','state'],
+                                   values='duration (seconds)',
+                                   aggfunc='mean').round(1)
+# Show the table.
+ufo_country_state.head(20)
+
+##--CODE--##
+# Show the number of UFOs for each country, state, and city. 
+ufo_country_state_city_cnt = pd.pivot_table(converted_ufo_df, 
+                                            index=['country','state','city'],
+                                            values='shape',
+                                            aggfunc='count')
+# Show the table.
+ufo_country_state_city_cnt.head(20)
+
+##--CODE--##
+# Show the number of UFO sightings for each country, state, and city.  
+# And, use `sort=False` to sort in descending order. 
+ufo_country_state_city_cnt = pd.pivot_table(converted_ufo_df, 
+                                           index=['country','state','city'],
+                                           values='shape',
+                                           aggfunc='count',
+                                           sort=False)
+# Show the table. 
+ufo_country_state_city_cnt.head(20)
+
+##--CODE--##
+# Rename the "shape" column to "UFO Sightings"
+ufo_country_state_city_sightings = ufo_country_state_city_cnt.rename(columns={"shape": "UFO Sightings"})
+
+# Sort the pivot table to show the highest number of UFO sightings by country, state, and city.
+ufo_country_state_city_sightings.sort_values(by=["UFO Sightings"], ascending=False).head(20)
+
+### Multi-Index and Multi-Aggregations
+
+##--CODE--##
+# Show the minimum and maximum seconds for each country and state.
+ufo_country_state_min_max = pd.pivot_table(converted_ufo_df, 
+                                           index=['country','state'],
+                                           values='duration (seconds)',
+                                           aggfunc=('min', 'max'))
+# Show the table. 
+ufo_country_state_min_max.head(10)
+
+##--CODE--##
+
+

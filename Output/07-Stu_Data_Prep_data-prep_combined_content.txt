@@ -1,0 +1,42 @@
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+import datetime as dt
+import matplotlib.pyplot as plt
+
+%matplotlib inline
+
+##--CODE--##
+# Read the data from the scarf-google-trends-data.csv file into a Pandas DataFrame
+df_alpaca = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m8/lesson_2/datasets/scarf-google-trends-data.csv")
+
+# Review the DataFrame
+df_alpaca.head()
+
+##--CODE--##
+# Plot the general trends
+
+
+##--CODE--##
+# Create a DataFrame for Canada to include the week and canada columns
+
+
+# Rename the columns to the Prophet model syntax 
+
+
+# Review the Canada DataFrame
+
+
+##--CODE--##
+# Create a DataFrame for Uruguay to include the week and uruguay columns
+
+
+# Rename the columns to the Prophet model syntax 
+
+
+# Review the Uruguay DataFrame
+
+
+##--CODE--##
+
+

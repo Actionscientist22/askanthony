@@ -1,0 +1,49 @@
+##--CODE--##
+# Dependencies
+import requests
+import pandas as pd
+
+##--CODE--##
+# list of TV show titles to query
+tv_shows = ["Altered Carbon", "Grey's Anatomy", "This is Us", 
+            "Stranger Things", "Family Law", "Good Omens",
+            "Vikings", "Shameless", "Arrow", "Dirk Gently"]
+
+# TV Maze show search base URL
+base_url = "http://api.tvmaze.com/search/shows?q="
+
+# set up lists to hold response data for name and rating
+titles = []
+ratings = []
+
+all_results = []
+
+# loop through TV show titles, make requests and parse
+for show in tv_shows:
+    target_url = base_url + show
+    response = requests.get(target_url).json()
+    titles.append(response[0]['show']['name'])
+    ratings.append(response[0]['show']['rating']['average'])
+    all_results.append(response[0]['show'])
+
+##--CODE--##
+# create DataFrame with titles and ratings
+shows_df = pd.DataFrame({
+    "title": titles,
+    "rating": ratings
+})
+
+shows_df
+
+##--CODE--##
+# Use json_normalize to convert all_results to a DataFrame
+all_results_df = pd.json_normalize(all_results)
+all_results_df
+
+##--CODE--##
+# Export all_results_df to CSV
+all_results_df.to_csv("all_results_df.csv", index=False)
+
+##--CODE--##
+
+

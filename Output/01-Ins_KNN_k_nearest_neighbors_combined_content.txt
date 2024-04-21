@@ -1,0 +1,77 @@
+##--CODE--##
+import matplotlib.pyplot as plt
+from sklearn.neighbors import KNeighborsClassifier
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Dataset:  glass.csv
+
+Source: Vina Spiehler, Ph.D., DABFT Diagnostic Products Corporation
+
+Description: Research conducted to test the rule-based system BEAGLE to determine whether a glass was a type of "float" glass or not. 6 types of glass are defined in terms of their oxide content. The study of classification of types of glass was motivated by criminological investigation. At the scene of the crime, the glass left can be used as evidence, but only if it is correctly identified!
+
+Variables/Columns
+
+- rI: refractive index
+- na: Sodium 
+- mg: Magnesium
+- al: Aluminum
+- si: Silicon
+- k: Potassium
+- ca: Calcium
+- ba: Barium
+- fe: Iron
+- glass: (class attribute)
+    - 1: building_windows_float_processed
+    - 2: building_windows_non_float_processed
+    - 3: vehicle_windows_float_processed
+    - 4: vehicle_windows_non_float_processed (none in this database)
+    - 5: containers
+    - 6: tableware
+    - 7: headlamps
+
+##--CODE--##
+# Load data
+glass_dataset = "https://static.bc-edx.com/ai/ail-v-1-0/m13/lesson_2/datasets/glass.csv"
+df = pd.read_csv(glass_dataset)
+df.head()
+
+##--CODE--##
+# Define features set
+X = df.drop("glass", axis=1)
+X.head()
+
+##--CODE--##
+# Define target vector
+y = df["glass"].values
+
+##--CODE--##
+# Split into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+
+##--CODE--##
+# Create a StandardScater model and fit it to the training data
+X_scaler = StandardScaler()
+X_scaler.fit(X_train)
+
+##--CODE--##
+# Transform the training and testing data by using the X_scaler model
+X_train_scaled = X_scaler.transform(X_train)
+X_test_scaled = X_scaler.transform(X_test)
+
+##--CODE--##
+# Loop through different k values to find which has the highest accuracy.
+# Note: We use only odd numbers because we don't want any ties.
+train_scores = []
+test_scores = []
+
+    
+# Plot the results
+
+
+##--CODE--##
+# Train the KNN model with the best k value
+# Note that k: 9 seems to be the best choice for this dataset
+
+

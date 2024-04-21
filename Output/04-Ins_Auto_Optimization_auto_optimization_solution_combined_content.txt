@@ -1,0 +1,88 @@
+##--CODE--##
+!pip install keras-tuner
+
+##--CODE--##
+# Import our dependencies
+import pandas as pd
+import sklearn as skl
+import tensorflow as tf
+
+
+# Read the dataset
+df_moons = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_2/datasets/moons-data-1.csv")
+
+# Separate data into X and y
+X = df_moons.drop("Target", axis=1)
+y = df_moons["Target"]
+
+# Use sklearn to split dataset
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=78)
+
+# Create scaler instance
+X_scaler = skl.preprocessing.StandardScaler()
+
+# Fit the scaler
+X_scaler.fit(X_train)
+
+# Scale the data
+X_train_scaled = X_scaler.transform(X_train)
+X_test_scaled = X_scaler.transform(X_test)
+
+##--CODE--##
+# Create a method that creates a new Sequential model with hyperparameter options
+def create_model(hp):
+    nn_model = tf.keras.models.Sequential()
+
+    # Allow kerastuner to decide which activation function to use in hidden layers
+    activation = hp.Choice('activation',['relu','tanh','sigmoid'])
+
+    # Allow kerastuner to decide number of neurons in first layer
+    nn_model.add(tf.keras.layers.Dense(units=hp.Int('first_units',
+        min_value=1,
+        max_value=10,
+        step=2), activation=activation, input_dim=len(X.columns)))
+
+    # Allow kerastuner to decide number of hidden layers and neurons in hidden layers
+    for i in range(hp.Int('num_layers', 1, 6)):
+        nn_model.add(tf.keras.layers.Dense(units=hp.Int('units_' + str(i),
+            min_value=1,
+            max_value=10,
+            step=2),
+            activation=activation))
+
+    nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid"))
+
+    # Compile the model
+    nn_model.compile(loss="binary_crossentropy", optimizer='adam', metrics=["accuracy"])
+
+    return nn_model
+
+##--CODE--##
+# Import the kerastuner library
+import keras_tuner as kt
+
+tuner = kt.Hyperband(
+    create_model,
+    objective="val_accuracy",
+    max_epochs=20,
+    hyperband_iterations=2)
+
+##--CODE--##
+# Run the kerastuner search for best hyperparameters
+tuner.search(X_train_scaled,y_train,epochs=20,validation_data=(X_test_scaled,y_test))
+
+##--CODE--##
+# Get best model hyperparameters
+best_hyper = tuner.get_best_hyperparameters(1)[0]
+best_hyper.values
+
+##--CODE--##
+# Evaluate best model against full test data
+best_model = tuner.get_best_models(1)[0]
+model_loss, model_accuracy = best_model.evaluate(X_test_scaled,y_test,verbose=2)
+print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
+
+##--CODE--##
+
+

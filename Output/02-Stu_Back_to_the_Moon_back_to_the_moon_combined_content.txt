@@ -1,0 +1,50 @@
+##--CODE--##
+# Import our dependencies
+import pandas as pd
+import matplotlib as plt
+import sklearn as skl
+import tensorflow as tf
+from sklearn.model_selection import train_test_split
+
+# Read the nonlinear data
+df_moons = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_2/datasets/moons-data-2.csv")
+
+# Separate the X and y
+X = df_moons.drop("Target", axis=1)
+y = df_moons["Target"]
+
+# Use sklearn to split dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=78)
+
+# Create scaler instance
+X_scaler = skl.preprocessing.StandardScaler()
+
+# Fit the scaler
+X_scaler.fit(X_train)
+
+# Scale the data
+X_train_scaled = X_scaler.transform(X_train)
+X_test_scaled = X_scaler.transform(X_test)
+
+
+##--CODE--##
+# Create a Keras Sequential model and add more than one Dense hidden layer
+
+
+# Set the input nodes to the number of features
+
+
+# Check the structure of the Sequential model
+
+
+##--CODE--##
+# Compile the model and train over more than 100 epochs
+
+
+##--CODE--##
+# Evaluate the performance of model using the loss and predictive accuracy of the model on the test dataset.
+
+
+##--CODE--##
+
+

@@ -1,0 +1,40 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+from pathlib import Path
+
+##--CODE--##
+# Create a path to the csv and read it into a Pandas DataFrame
+
+
+##--CODE--##
+# Figure out the minimum and maximum IMDB user vote count
+
+
+##--CODE--##
+# Create bins in which to place values based upon IMDB vote count
+
+# Create labels for these bins
+
+
+##--CODE--##
+# Slice the data and place it into bins
+
+
+##--CODE--##
+# Place the data series into a new column inside of the DataFrame
+
+
+##--CODE--##
+# Create a GroupBy object based upon "IMDB User Votes Group"
+
+
+# Find how many rows fall into each bin
+
+
+# Get the average of each of the first 5 rating columns within the GroupBy object
+
+
+##--CODE--##
+
+

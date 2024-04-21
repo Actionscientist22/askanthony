@@ -1,0 +1,72 @@
+##--CODE--##
+# Install the required libraries
+!pip install prophet
+
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+import datetime as dt
+from prophet import Prophet
+
+%matplotlib inline
+
+##--CODE--##
+# Import the `files` library to allow files upload
+from google.colab import files
+
+##--CODE--##
+# Upload "hourly_grid_prices.csv" into Colab, 
+uploaded = files.upload()
+
+##--CODE--##
+# Read in the CSV file to a DataFrame
+
+# Display the first and last five rows of the DataFrame
+
+
+##--CODE--##
+# Plot the DataFrame
+
+
+##--CODE--##
+# Reset the index of the DataFrame
+
+
+# Review the first and last five rows of the DataFrame
+
+
+##--CODE--##
+# Prepare the training data to be read into a prophet model
+# Rename the columns to names that Prophet recognizes
+
+
+##--CODE--##
+# Confirm that there are no NaN values
+
+
+##--CODE--##
+# Call the Prophet function and store as an object
+
+
+##--CODE--##
+# Fit the time series Prophet model
+
+
+##--CODE--##
+# Create a future DataFrame to hold predictions
+# Make the prediction go out as far as 720 hours (30 days)
+
+
+# Review the first and last 10 rows of the DataFrame
+
+
+##--CODE--##
+# Make a forecast based on the future DataFrame
+
+
+# Review the first five rows of the forecast DataFrame
+
+
+##--CODE--##
+
+

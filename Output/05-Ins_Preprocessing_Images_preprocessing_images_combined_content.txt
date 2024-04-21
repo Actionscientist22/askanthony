@@ -1,0 +1,80 @@
+##--CODE--##
+import pandas as pd
+import numpy as np
+from PIL import Image
+
+##--CODE--##
+# Import images from a pickle file
+# This pickle file is hosted at a url, so some
+# additional code is needed
+import pickle
+import requests
+import io
+
+path = 'https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_1/datasets/pickles/face_images.pkl'
+
+imgs = pickle.load(io.BytesIO(requests.get(path).content))
+
+imgs[1]
+
+##--CODE--##
+# Check the size of the second image
+
+
+##--CODE--##
+# Get all the sizes into a list, then convert to a set
+
+
+##--CODE--##
+# Convert the images to the middle 64, 60 size
+# Lets try with the first image
+
+
+##--CODE--##
+# Using the same syntax, use a for loop to apply resizing to all images
+
+
+
+##--CODE--##
+# Lets examine our data numerically.
+# This is most easily done by converting the image to a numpy array
+
+# Convert one image to a NumPy array
+
+# Display the pixel values
+
+
+Note the shape of the data: an array of arrays, where each internal array represents one row of pixels. The numbers indicate how bright each pixel is on a scale of 0 to 255 where 255 is full brightness and zero is black. These numbers are what our model will use to make predictions! Many image models expect floating point values, so its common practice to convert from integers to floating point before other preprocessing steps. Note that from this point forward, we will not be able to visualize the images without using some sort of plotting library; we've converted the images to numbers!
+
+##--CODE--##
+# Convert all images to floating point numpy arrays
+
+# Display the pixel values of the first image
+
+
+##--CODE--##
+# To normalize pixel values to a range between 0 and 1,
+# we need to divide all pixel values by the max of 255
+
+
+# Display the pixel values of the first image
+
+
+##--CODE--##
+# Import the modules
+from google.colab import drive
+import pickle
+
+drive.mount('/content/drive/')
+
+# Open a new file named 'img_preprocessed.pkl' with write permission
+with open('/content/drive/MyDrive/img_preprocessed.pkl', 'wb') as file:
+    # Use pickle.dump to store the list of images
+    pickle.dump(imgs, file)
+
+##--CODE--##
+# Save our preprocessed images to a new pickle file
+
+with open('/content/drive/My Drive/img_preprocessed.pkl', 'wb') as file:
+    pickle.dump(normalized_images, file)
+

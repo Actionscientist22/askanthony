@@ -1,0 +1,132 @@
+##--CODE--##
+# Import pandas and numpy
+import pandas as pd
+import numpy as np
+# Import the required dependencies from sklearn
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.svm import LinearSVC
+from sklearn.pipeline import Pipeline
+from sklearn import metrics
+
+# Set the column width to view the text message data.
+pd.set_option('max_colwidth', 200)
+
+##--CODE--##
+# Load the dataset into a DataFrame
+
+
+##--CODE--##
+# Check for missing values. 
+
+
+##--CODE--##
+#  Get the number of "ham" and "spam" from the "label" column:
+
+
+## Split the data into train & test sets:
+
+##--CODE--##
+# Set the features variable to the text message. 
+
+# Set the target variable to the "label" column.
+
+
+# Split data into training and testing and set the test_size = 33%
+
+
+##--CODE--##
+# Create an instance of the TfidfVectorizer
+
+
+# Transform the data and use the original X_train set.
+
+
+##--CODE--##
+# What stopwords are in the scikit-learn's built-in list
+
+
+##--CODE--##
+# Create a list to hold the words using the vectorizer.get_feature_names_out()
+
+# Create a list to hold the frequency using np.ravel(X.sum(axis=0))
+
+
+##--CODE--##
+# Create a DataFrame of the TF–IDF weights for each word in the working corpus.
+
+
+
+# Sort the DataFrame by word frequency in descending order and reset the index.
+
+# Display the first 10 rows of the DataFrame
+
+
+##--CODE--##
+# Display the last 10 rows of the DataFrame
+
+
+##--CODE--##
+# Train the data on LinearSVC classifier.
+
+# Fit the model to the transformed  data,
+
+
+##--CODE--##
+# Determine predictions.  
+
+
+##--CODE--##
+# Transform the testing data like we did with the training data.
+
+# Make predictions 
+
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+
+
+## For efficiency,  build a Pipeline with the vectorizer and SVM model. 
+
+##--CODE--##
+# Build a pipeline to transform the test set to compare to the training set. 
+
+
+# Fit the model to the transformed data.
+ 
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+
+
+## Test the classifier and display results
+
+##--CODE--##
+# Form a prediction set
+
+
+##--CODE--##
+# Create the confusion matrix on the test data and predictions
+
+
+# Print a classification report
+
+
+# Print the overall accuracy
+
+
+
+##--CODE--##
+# Create some random text messages. 
+text_1 = """<add your review here>"""
+text_2 = """<add your review here>"""
+text_3 = """<add your review here>"""
+text_4 = """<add your review here>"""
+
+##--CODE--##
+# Send the text messages to transform the data and predict the classification.
+
+
+##--CODE--##
+
+

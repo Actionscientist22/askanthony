@@ -1,0 +1,136 @@
+# Demo: Interpreting Prophet Forecasts for Decision Making
+
+## Notebook Set Up
+
+##--CODE--##
+# Install the required libraries
+!pip install prophet
+
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+import datetime as dt
+from prophet import Prophet
+
+%matplotlib inline
+
+##--CODE--##
+# Import the `files` library to allow files upload
+from google.colab import files
+
+## Plot the Data
+
+##--CODE--##
+# Upload "hourly_grid_prices.csv" into Colab, then store in a DataFrame
+uploaded = files.upload()
+
+##--CODE--##
+hourly_prices = pd.read_csv(
+    "hourly_grid_prices.csv",
+    index_col='day-hour',
+    parse_dates=True,
+    infer_datetime_format=True
+).dropna()
+
+# Display the first and last five rows of the DataFrame
+display(hourly_prices.head())
+display(hourly_prices.tail())
+
+##--CODE--##
+# Plot the DataFrame
+hourly_prices.plot()
+
+## Prepare the Data
+
+##--CODE--##
+# Reset the index of the DataFrame
+prophet_df = hourly_prices.reset_index()
+
+# Review the first and last five rows of the DataFrame
+display(prophet_df.head())
+display(prophet_df.tail())
+
+##--CODE--##
+# Prepare the training data to be read into a prophet model
+# Rename the columns to names that Prophet recognizes
+prophet_df.columns = ['ds', 'y']
+prophet_df.head()
+
+##--CODE--##
+# Confirm that there are no NaN values
+prophet_df = prophet_df.dropna()
+prophet_df.tail()
+
+## Create a Prophet Model
+
+##--CODE--##
+# Call the Prophet function and store as an object
+m = Prophet()
+m
+
+## Fit the Prophet Model
+
+##--CODE--##
+# Fit the time series Prophet model
+m.fit(prophet_df)
+
+## Set Up for Predictions
+
+##--CODE--##
+# Create a future DataFrame to hold predictions
+# Make the prediction go out as far as 720 hours (30 days)
+future = m.make_future_dataframe(periods=720, freq='H')
+
+# Review the first and last 10 rows of the DataFrame
+display(future.head(10))
+display(future.tail(10))
+
+## Build a Table of Predictions
+
+##--CODE--##
+# Make a forecast based on the future DataFrame
+forecast = m.predict(future)
+
+# Review the first five rows of the forecast DataFrame
+display(forecast.head())
+display(forecast.tail())
+
+## Plot the Forecast
+
+##--CODE--##
+# Plot the forecast using the model’s plot function
+m.plot(forecast)
+
+## Read the Forecast Results
+
+##--CODE--##
+# Display the underlying forecast dataframe (tail)
+forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+
+## Plot the Upper and Lower Bounds of the Forecast
+
+##--CODE--##
+# Reset the index to this datetime column so that our plot looks nice
+forecast = forecast.set_index('ds')
+
+# Display the DataFrame
+forecast.head()
+
+##--CODE--##
+# Plot predictions for our forecast period
+forecast[['yhat', 'yhat_lower', 'yhat_upper']].iloc[-720:,:].plot()
+
+## Break Down the Forecast
+
+##--CODE--##
+# Reset "ds" from the datetime index back to a column
+forecast = forecast.reset_index()
+forecast.head()
+
+##--CODE--##
+# Plot the individual time series components of the model
+fig2 = m.plot_components(forecast)
+
+##--CODE--##
+
+

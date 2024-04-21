@@ -1,0 +1,194 @@
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+
+### Step 1:  Read in the `stock_data.csv` file and create a DataFrame.
+
+##--CODE--##
+# Read the CSV file into a Pandas DataFrame
+# Set the index using the Ticker column
+df_stocks = pd.read_csv("Resources/stock_data.csv", index_col="Ticker")
+
+# Review the DataFrame
+df_stocks.head()
+
+##--CODE--##
+# Get the shape of the DataFrame
+df_stocks.shape
+
+##--CODE--##
+# Get the information on the DataFrame
+df_stocks.info()
+
+### Step 2: Scale the `df_stocks` DataFrame and create a new DataFrame that contains the scaled data. 
+
+##--CODE--##
+# Use the standard scaler, fit_transform to scale the numerical columns. 
+stock_data_scaled = StandardScaler().fit_transform(df_stocks[["MeanOpen", "MeanHigh", "MeanLow", "MeanClose", "MeanVolume", "MeanPercentReturn"]])
+
+##--CODE--##
+# Create a DataFrame called with the scaled data
+# The column names should match those referenced in the StandardScaler step
+df_stocks_scaled = pd.DataFrame(
+    stock_data_scaled,
+    columns=["MeanOpen", "MeanHigh", "MeanLow", "MeanClose", "MeanVolume", "MeanPercentReturn"]
+)
+
+# Create a Ticker column in the df_stocks_scaled DataFrame
+# using the index of the original df_stocks DataFrame
+df_stocks_scaled["Ticker"] = df_stocks.index
+
+# Set the newly created Ticker column as index of the df_stocks_scaled DataFrame
+df_stocks_scaled = df_stocks_scaled.set_index("Ticker")
+
+# Review the DataFrame
+df_stocks_scaled.head()
+
+##--CODE--##
+# Encode the Sector column
+sector_encoded_df = pd.get_dummies(df_stocks["Sector"])
+
+# Review the DataFrame
+sector_encoded_df.head()
+
+##--CODE--##
+# Concatenate the `Sector` encoded DataFrame with the scaled data DataFrame
+scaled_encoded_stocks = pd.concat([df_stocks_scaled, sector_encoded_df], axis=1)
+
+# Display the sample data
+scaled_encoded_stocks.head()
+
+### Step 3: Initialize the K-means model with three clusters and then fit the `df_stocks_scaled` DataFrame to the model.
+
+##--CODE--##
+# Initialize the K-Means model with n_clusters=3
+model = KMeans(n_clusters=3, n_init='auto', random_state=1)
+
+# Fit the model for the scaled_encoded_stocks DataFrame
+model.fit(scaled_encoded_stocks)
+
+### Step 4. Predict the clusters and then create a new DataFrame with the predicted clusters.
+
+##--CODE--##
+# Create a copy of the scaled_encoded_stocks DataFrame and name it as stocks_scaled_predictions
+stocks_scaled_predictions = scaled_encoded_stocks.copy()
+
+# Predict the model segments (clusters)
+stock_clusters = model.predict(stocks_scaled_predictions)
+
+# Create a new column in the DataFrame with the predicted clusters
+stocks_scaled_predictions["StockCluster"] = stock_clusters
+
+# Review the DataFrame
+stocks_scaled_predictions.head()
+
+### Step 5: Create a scatter plot to visualize the "StockCluster" using  "MeanOpen" as the x-variable and "MeanPercentReturn" as the y-variable.  
+
+##--CODE--##
+# Create a scatter plot with x="MeanOpen" and y="MeanPercentReturn"
+stocks_scaled_predictions.plot.scatter(
+    x="MeanOpen",
+    y="MeanPercentReturn",
+    c="StockCluster",
+    colormap='winter')
+
+### Step 6: Reduce the number of features to two principal components on the `df_stocks_scaled` DataFrame, and  calculate the explained variance ratio that results from the PCA data.
+
+##--CODE--##
+# Create the PCA model instance where n_components=2
+pca = PCA(n_components=2)
+
+##--CODE--##
+# Fit the scaled_encoded_stocks data to the PCA
+stocks_pca_data = pca.fit_transform(scaled_encoded_stocks)
+
+# Review the first five rose of the PCA data
+# using bracket notation ([0:5])
+stocks_pca_data[:5]
+
+##--CODE--##
+# Calculate the explained variance
+pca.explained_variance_ratio_
+
+### Step 7: Use the calculate PCA DataFrame in Step 6 to create a new DataFrame called, `df_stocks_pca`, then add an additional column to the `df_stocks_pca` DataFrame that contains the tickers from the original `df_stocks` DataFrame.
+
+##--CODE--##
+# Creating a DataFrame with the PCA data
+df_stocks_pca = pd.DataFrame(stocks_pca_data, columns=["PCA1", "PCA2"])
+
+# Copy the tickers names from the original data
+df_stocks_pca["Ticker"] = df_stocks.index
+
+# Set the Ticker column as index
+df_stocks_pca = df_stocks_pca.set_index("Ticker")
+
+# Review the DataFrame
+df_stocks_pca.head()
+
+### Step 8: Rerun the K-means algorithm on the `df_stocks_pca` DataFrame and create a scatter plot using the  "StockCluster" and the two principal components for the x- and y-axes. Be sure to style and format your plot.
+
+##--CODE--##
+# Initialize the K-Means model with n_clusters=3
+model = KMeans(n_clusters=3, n_init='auto', random_state=1)
+
+# Fit the model for the df_stocks_pca DataFrame
+model.fit(df_stocks_pca)
+
+# Predict the model segments (clusters)
+stock_clusters = model.predict(df_stocks_pca)
+
+##--CODE--##
+# Create a copy of the df_stocks_pca DataFrame and name it as df_stocks_pca_predictions
+df_stocks_pca_predictions = df_stocks_pca.copy()
+
+# Create a new column in the DataFrame with the predicted clusters
+df_stocks_pca_predictions["StockCluster"] = stock_clusters
+
+# Review the DataFrame
+df_stocks_pca_predictions.head()
+
+##--CODE--##
+# Create the scatter plot with x="PCA1" and y="PCA2"
+df_stocks_pca_predictions.plot.scatter(
+    x="PCA1",
+    y="PCA2",
+    c="StockCluster",
+    colormap='winter')
+
+**Question:** After visually analyzing the cluster analysis results, what is the impact of using fewer features to cluster the data using K-Means?
+
+**Answer:** We can conclude that using less features we can more clearly identify three clusters.
+
+### Step 9. Determine which features have the strongest influence on each componen, and plot the most influencial features for each component.
+
+##--CODE--##
+# Use the columns from the scaled and encoded DataFrame in step 2.
+pca_component_weights = pd.DataFrame(pca.components_.T, columns=['PCA1', 'PCA2'], index=scaled_encoded_stocks.columns)
+pca_component_weights
+
+### Which features have the strongest influence on each component? 
+--- 
+**Answer:** 
+- "MeanOpen", "MeanHigh", "MeanLow", and "MeanClose" have the strongest positive influence on PCA1. 
+- "MeanVolume" has the strongest positive influence on PCA2.
+
+### Step 10: Create a scatterplot of the most influential features for each principal component and stock cluster.
+
+##--CODE--##
+# Plot the features that have the strongest influence on each component. 
+stocks_scaled_predictions.plot.scatter(
+    x="MeanOpen",
+    y="MeanVolume",
+    c="StockCluster",
+    colormap='winter')
+
+### Step 11: What is the difference between the segmentation results of the PCA DataFrame and most influential features for each component? 
+
+**Answer:** It appears that the most influential features for each component are; "MeanHigh" and "MeanVolume", however, plotting these features does not yield similar results as plotting each principal component. Suggesting that more than one feature is influencing one or principal components. 
+
+##--CODE--##
+
+

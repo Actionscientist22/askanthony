@@ -1,0 +1,29 @@
+##--CODE--##
+# Import the dependencies
+from keras.preprocessing.text import Tokenizer
+
+##--CODE--##
+# Define a list of sentences to tokenize. 
+sentences = ["I love my dog.", "I love my family.", "My dog is a lab"]
+
+##--CODE--##
+# Create an instance of the Tokenizer
+tokenizer = Tokenizer()
+# Fit the tokenizer on the documents
+tokenizer.fit_on_texts(sentences)
+
+##--CODE--##
+# Create a dictionary mapping of words to their indices
+
+
+##--CODE--##
+# Encode each word in the text_sequences to the indices. 
+
+
+##--CODE--##
+# Regenerate the sentences from the indcies.
+
+
+##--CODE--##
+
+

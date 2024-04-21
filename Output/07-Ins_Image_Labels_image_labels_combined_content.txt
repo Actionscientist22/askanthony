@@ -1,0 +1,35 @@
+##--CODE--##
+import pandas as pd
+import numpy as np
+from PIL import Image
+
+# Part X: Labels
+
+We've done a good bit of work preprocessing the data but... how are we going to do classification? Supervised learning requires labels for our data, but these pixel values don't contain any secret information that will help us classify images. Different datasets will handle this problem differently, but for our dataset, lets re-examine our image filenames.
+
+##--CODE--##
+# Print the first few image filenames
+path = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_1/datasets/csvs/files_list.csv"
+
+
+
+Note how each filename is broken into four parts. You can read more about the data here https://archive.ics.uci.edu/dataset/124/cmu+face+images, but these filenames contain metadata in the following format: `<userid>_<pose>_<expression>_<eyes>.png`
+
+For our first model, lets see if we can determine whether the person in the picture has sunglasses on. To do this, we'll need to extract the label we want from the filenames. To do this, we can make use of Pandas split function https://pandas.pydata.org/docs/reference/api/pandas.Series.str.split.html
+
+##--CODE--##
+# First, remove the .png file extension, then split into four new columns.
+
+
+##--CODE--##
+from google.colab import drive
+import pickle
+drive.mount('/content/drive')
+# For our purposes, we'll select the eyes column as 'y'
+
+# And we'll export this as another pkl file
+
+
+##--CODE--##
+
+

@@ -1,0 +1,65 @@
+##--CODE--##
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix, classification_report, balanced_accuracy_score, roc_auc_score
+
+##--CODE--##
+# Import the data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m14/lesson_1/datasets/crowdfunding-data-imbalanced.csv")
+df.head()
+
+##--CODE--##
+# Show the total number of positive and negative outcomes
+df['outcome'].value_counts()
+
+##--CODE--##
+# Create an X and y variable
+X = df.drop(columns=['outcome'])
+y = df['outcome']
+
+##--CODE--##
+# Create a Logistic Regression Model
+classifier = LogisticRegression()
+
+# Fit the model to the training data
+classifier.fit(X, y)
+
+# Calculate the accuracy of the model
+classifier.score(X, y)
+
+##--CODE--##
+# Make predictions on the test data
+predictions = classifier.predict(X)
+
+# Create a confusion matrix
+print(confusion_matrix(y, predictions, labels = [1,0]))
+
+##--CODE--##
+# Create a classification report
+print(classification_report(y, predictions, labels = [1, 0]))
+
+##--CODE--##
+# Calculate the balanced accuracy score
+print(balanced_accuracy_score(y, predictions))
+
+##--CODE--##
+# Predict values with probabilities
+pred_probas = classifier.predict_proba(X)
+
+# Print the probabilities
+pred_probas
+
+##--CODE--##
+# Each prediction includes a prediction for both the 0 class and the 1 class
+# We only need the predictions for the 1 class; use a list comprehension to 
+# gather the second value from each list
+
+pred_probas_firsts = [prob[1] for prob in pred_probas]
+
+# Print the first 5 probabilities
+pred_probas_firsts[0:5]
+
+##--CODE--##
+# Calculate the roc_auc_score
+print(roc_auc_score(y, pred_probas_firsts))
+

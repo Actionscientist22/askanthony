@@ -1,0 +1,68 @@
+##--CODE--##
+# Import the dependencies
+import numpy as np
+np.random.seed(0)
+import pandas as pd
+from sklearn import datasets
+
+### Build the Dataset
+
+##--CODE--##
+# Create a simulated dataset for illustration.
+X, y = datasets.make_moons(n_samples=(500), noise=0.05, random_state=1)
+X[0:10]
+
+### Fit and predict a K-Means Model
+
+##--CODE--##
+# Import the alternative algorithms for clustering.
+from sklearn.cluster import KMeans, AgglomerativeClustering, Birch
+# Use the Kmeans algorithm.
+
+
+### Fit and Predict Birch and Agglomerative models
+
+##--CODE--##
+# Use the Birch algorithm.
+
+
+##--CODE--##
+# Use the AgglomerativeClustering algorithm.
+
+
+### Plot Model Predictions for Birch
+
+##--CODE--##
+# Make predictions for the Birch algorithm. 
+
+
+##--CODE--##
+#  Rename the non-string columns 0 and 1, "No" and "Yes" to avoid the Holoviews warning for future versions. 
+
+
+##--CODE--##
+# Plot the clusters
+
+
+### Estimate Scores for two Versions of the Birch Model
+
+##--CODE--##
+# Estimate scores for two clusters for the Birch model. 
+
+
+##--CODE--##
+# Estimate scores for 3 clusters for the Birch model. 
+
+
+##--CODE--##
+# Use the Calinski-Harabasz index or variance ratio criterion to define two clusters. 
+from sklearn import metrics
+
+
+##--CODE--##
+# Use the Calinski-Harabasz index or variance ratio criterion to define three clusters. 
+
+
+##--CODE--##
+
+

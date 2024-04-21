@@ -1,0 +1,85 @@
+##--CODE--##
+# Import libraries and dependencies
+import pandas as pd
+from pathlib import Path
+
+##--CODE--##
+# Import the 2016 - 2020 alternative fuel stations data. 
+alt_fuel_stations_2016_path = Path('Resources/alt_fuel_stations_2016.csv')
+alt_fuel_stations_2017_path = Path('Resources/alt_fuel_stations_2017.csv')
+alt_fuel_stations_2018_path = Path('Resources/alt_fuel_stations_2018.csv')
+alt_fuel_stations_2019_path = Path('Resources/alt_fuel_stations_2019.csv')
+alt_fuel_stations_2020_path = Path('Resources/alt_fuel_stations_2020.csv')
+
+# Read in data setting the `index_col` to the Fuel Type.
+alt_fuel_stations_2016_df = pd.read_csv(alt_fuel_stations_2016_path, index_col="Fuel_Type")
+alt_fuel_stations_2017_df = pd.read_csv(alt_fuel_stations_2017_path, index_col="Fuel_Type")
+alt_fuel_stations_2018_df = pd.read_csv(alt_fuel_stations_2018_path, index_col="Fuel_Type")
+alt_fuel_stations_2019_df = pd.read_csv(alt_fuel_stations_2019_path, index_col="Fuel_Type")
+alt_fuel_stations_2020_df = pd.read_csv(alt_fuel_stations_2020_path, index_col="Fuel_Type")
+
+##--CODE--##
+# Display the 2016 data.
+alt_fuel_stations_2016_df
+
+##--CODE--##
+# Display the 2017 data.
+alt_fuel_stations_2017_df
+
+##--CODE--##
+# Display the 2018 data.
+alt_fuel_stations_2018_df
+
+##--CODE--##
+# Display the 2019 data.
+alt_fuel_stations_2019_df
+
+##--CODE--##
+# Display the 2020 data.
+alt_fuel_stations_2020_df
+
+### Join 2016 to 2017. 
+
+##--CODE--##
+# Join the 2016 and 2017 data where the left suffix is 2016 and right suffix is 2017. 
+alt_fuel_2016_2017 = alt_fuel_stations_2016_df.join(alt_fuel_stations_2017_df, lsuffix='_2016', rsuffix='_2017')
+alt_fuel_2016_2017
+
+### Join 2018, 2019, and 2020 data to the 2016 and 2017 data.
+
+##--CODE--##
+# Create a list to hold the 2018, 2019, and 2020 DataFrames and add "_2018", "_2019" and, "_2020" 
+# suffixes to the 2018, 2019, and 2020 DataFrames using the `add_suffix()` method.
+alt_fuel_2018_2020 = [alt_fuel_stations_2018_df.add_suffix('_2018'),
+                      alt_fuel_stations_2019_df.add_suffix('_2019'),
+                      alt_fuel_stations_2020_df.add_suffix('_2020')]
+
+# Join the 2016-2017 data with the 2018-2020 data. 
+all_alt_fuel_years = alt_fuel_2016_2017.join(alt_fuel_2018_2020)
+all_alt_fuel_years
+
+### Drop all the columns with "year_" and sort the DataFrame.
+
+##--CODE--##
+# Get the column names
+all_alt_fuel_years.columns
+
+##--CODE--##
+# Drop the columns with the "Year_<year>".
+clean_alt_fuel_years = all_alt_fuel_years.drop(['Year_2016','Year_2017','Year_2018', 'Year_2019', 'Year_2020'], axis=1)
+clean_alt_fuel_years
+
+##--CODE--##
+# Sort the DataFrame on all the columns in ascending order.  
+sorted_by_alt_fuel_type = clean_alt_fuel_years.sort_values(by=['Number_Stations_2016',
+                                                           'Number_Stations_2017',
+                                                           'Number_Stations_2018',
+                                                           'Number_Stations_2019',
+                                                           'Number_Stations_2020'], ascending=False)
+
+# Display the sorted DataFrame.
+sorted_by_alt_fuel_type
+
+##--CODE--##
+
+

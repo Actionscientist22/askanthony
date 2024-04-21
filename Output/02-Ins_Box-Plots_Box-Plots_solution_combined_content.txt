@@ -1,0 +1,25 @@
+# Box Plots
+
+##--CODE--##
+# Dependencies
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+##--CODE--##
+# Example outlier plot of reaction times
+times = [96,98,100,105,85,88,95,100,101,102,97,98,5]
+fig1, ax1 = plt.subplots()
+ax1.set_title('Reaction Times at Baseball Batting Cage')
+ax1.set_ylabel('Reaction Time (ms)')
+ax1.boxplot(times)
+plt.show()
+
+##--CODE--##
+# We need to sort the data to determine which could be outliers
+times.sort()
+print(times)
+
+##--CODE--##
+
+

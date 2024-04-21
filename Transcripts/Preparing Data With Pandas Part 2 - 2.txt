@@ -1,0 +1,4282 @@
+WEBVTT
+
+1
+00:00:10.820 --> 00:00:12.630
+Anthony Taylor: Alright! Here we go.
+
+2
+00:00:13.080 --> 00:00:15.610
+Mason, Natalie: I love this class
+
+3
+00:00:15.960 --> 00:00:17.479
+Anthony Taylor: all the other pronouns.
+
+4
+00:00:17.850 --> 00:00:20.519
+michael mcpherson: It is quite entertaining going back to mute.
+
+5
+00:00:21.400 --> 00:00:22.100
+Anthony Taylor: It's
+
+6
+00:00:22.600 --> 00:00:30.969
+Anthony Taylor: grouping, aggregating, and pinning data with pandas. I know that's not nearly as much fun as show me your tattoo, but
+
+7
+00:00:32.049 --> 00:00:35.409
+Anthony Taylor: it's going to be cool. Okay,
+
+8
+00:00:36.600 --> 00:00:51.469
+Anthony Taylor: if you don't understand group by yet, which, which, considering we don't have like any data, people in here are very few data. People in here. Group by is super important. aggregating for summarizing and stuff. You're gonna you're gonna see a lot of it today.
+
+9
+00:00:51.620 --> 00:00:55.030
+Anthony Taylor: This is a pretty important section. The good news is.
+
+10
+00:00:55.510 --> 00:00:56.690
+Anthony Taylor: it's actually
+
+11
+00:00:56.750 --> 00:01:02.179
+Anthony Taylor: pretty smooth as far as the class goes. It's like free things you're gonna learn today.
+
+12
+00:01:02.910 --> 00:01:11.839
+Anthony Taylor: 4 or 5 activities. We're out for the holidays. Okay? And I've got my turkey off spatch cock
+
+13
+00:01:13.000 --> 00:01:14.730
+Anthony Taylor: and everything else. I'm ready.
+
+14
+00:01:15.840 --> 00:01:19.359
+Anthony Taylor: Okay? I spat out my turkey so that it cooks faster.
+
+15
+00:01:21.390 --> 00:01:23.620
+Anthony Taylor: Alright. Yeah.
+
+16
+00:01:24.940 --> 00:01:36.450
+Anthony Taylor: Anyway. Understand the concepts of grouping data and explain its role in data analysis. That's how we start differentiate. We differentiate between single and multiple aggregations with grouping data.
+
+17
+00:01:36.610 --> 00:01:44.030
+Anthony Taylor: Well, I'll do that right now. Single aggregation means you're doing one aggregation multiple aggregations mean, you're doing
+
+18
+00:01:44.710 --> 00:01:50.590
+Anthony Taylor: more than one aggregation. Hurry was so shocked. I saw his face. He's like.
+
+19
+00:01:50.750 --> 00:01:53.060
+Clayton Graves: that's it. Everybody class is over.
+
+20
+00:01:53.130 --> 00:01:56.150
+Anthony Taylor: Yeah, that's like a light bulb moment. It's like boom.
+
+21
+00:01:56.350 --> 00:02:01.870
+Anthony Taylor: That's what they meant. Anyway, apply one or more activation functions to group data.
+
+22
+00:02:01.990 --> 00:02:05.420
+Anthony Taylor: single or multi-aggregations to group data.
+
+23
+00:02:05.570 --> 00:02:12.270
+Anthony Taylor: We are going to get a new function today called Ag, we're also gonna do one called group buy, and one called Cut of 3.
+
+24
+00:02:12.790 --> 00:02:21.429
+Anthony Taylor: For sure. I don't think there's any more. I think it's just those 3 use custom python functions transform group data. That means you're going to write your own function and apply it
+
+25
+00:02:21.590 --> 00:02:27.600
+Anthony Taylor: group data into multi index, which is more than one index.
+
+26
+00:02:28.910 --> 00:02:35.450
+Anthony Taylor: Yeah. Say, you don't learn anything understand the concept of binning and its application in data segmentation analysis.
+
+27
+00:02:36.360 --> 00:02:37.649
+Anthony Taylor: I really
+
+28
+00:02:38.090 --> 00:02:47.359
+Anthony Taylor: want you guys to pay attention to binning. And if you didn't do my resources. And after class, you're not sure you get it. Go do my resources for today.
+
+29
+00:02:47.620 --> 00:02:57.110
+Anthony Taylor:  in machine learning which is coming up in a couple weeks. Binning is actually a pretty important thing to understand.
+
+30
+00:02:57.560 --> 00:03:02.489
+Anthony Taylor: Okay, a lot of times. Binning will give you better results than trying to do like a regression
+
+31
+00:03:03.540 --> 00:03:07.039
+Anthony Taylor: alright. So hand is grouped.
+
+32
+00:03:07.080 --> 00:03:19.920
+Anthony Taylor: So we're going to learn a new function called Group. By what does it do? It creates an object where the data in your data frame is now grouped by whatever column or columns you have passed in.
+
+33
+00:03:22.200 --> 00:03:23.339
+Anthony Taylor: Yes, son.
+
+34
+00:03:23.600 --> 00:03:36.020
+Baro, Sonja: quick question on this cause. When I was reviewing it the group pandas objects so Pandas can have objects like our other python objects right? Is that what?
+
+35
+00:03:36.420 --> 00:03:40.889
+Baro, Sonja: And and then my other question. So everything in in Python is an option.
+
+36
+00:03:41.410 --> 00:03:47.939
+Baro, Sonja: Okay? But pandas. So is data. Frame a data frame, an object in pandas?
+
+37
+00:03:48.440 --> 00:03:58.280
+Anthony Taylor: Yes. Well. data frame is an object is a pandas object in python. so keep my pythons the parents
+
+38
+00:03:58.310 --> 00:04:00.840
+Anthony Taylor: pandas is like in python.
+
+39
+00:04:01.190 --> 00:04:04.900
+Anthony Taylor: Right? So so when you, when you say that
+
+40
+00:04:05.090 --> 00:04:13.230
+Anthony Taylor:  you want to make sure you're saying it correctly. So pandas is a library. Its objects are data frames and series.
+
+41
+00:04:13.880 --> 00:04:24.219
+Anthony Taylor: Now, there are other objects like group by which you know what. Let's just get to it. I'll show you guys so that you see how to tell when you have an object versus like something you can read.
+
+42
+00:04:24.630 --> 00:04:26.929
+Baro, Sonja: okay, so we have 4 pandas.
+
+43
+00:04:27.030 --> 00:04:31.400
+Anthony Taylor: We have their file. We're gonna bring it in and we're gonna peek at it.
+
+44
+00:04:31.590 --> 00:04:34.469
+Anthony Taylor: Okay, this is a good one. I like the Ufo one.
+
+45
+00:04:34.710 --> 00:04:39.939
+Anthony Taylor: So this is date time, city, state, country shape. This is the shape of Ufo
+
+46
+00:04:40.250 --> 00:04:48.950
+Anthony Taylor: duration and seconds. duration and hours and minutes. Comments. gate posted latitude, longitude.
+
+47
+00:04:49.290 --> 00:04:54.260
+Anthony Taylor: Okay? Pretty cool. We're gonna get rid of any null field.
+
+48
+00:04:54.330 --> 00:04:57.180
+Anthony Taylor: Actually, you know what? Thank?
+
+49
+00:04:58.510 --> 00:05:00.569
+Anthony Taylor: Because today is kind of
+
+50
+00:05:01.390 --> 00:05:02.850
+easy.
+
+51
+00:05:03.290 --> 00:05:05.659
+Anthony Taylor: Think we can live code this one together.
+
+52
+00:05:07.370 --> 00:05:11.910
+Anthony Taylor: I know you guys have this solution. Try not to look at it. They're like we already are.
+
+53
+00:05:14.640 --> 00:05:21.609
+Anthony Taylor: But let's let's see if we can just go through it. And I want to quiz you guys as we go on, how to do
+
+54
+00:05:22.060 --> 00:05:24.320
+Anthony Taylor: certain things. Okay.
+
+55
+00:05:24.480 --> 00:05:25.620
+Anthony Taylor: sound like fun
+
+56
+00:05:26.710 --> 00:05:30.110
+Anthony Taylor: that way. We can like reinforce some stuff we've already done
+
+57
+00:05:31.000 --> 00:05:33.339
+Anthony Taylor: all right.
+
+58
+00:05:36.870 --> 00:05:37.790
+Anthony Taylor: back the top.
+
+59
+00:05:39.480 --> 00:05:41.599
+Anthony Taylor: So we've already brought in our file here.
+
+60
+00:05:45.140 --> 00:05:53.749
+Anthony Taylor: and we're gonna take a peek at it. So there's all this stuff we sum up so it says, remove the myths. We just saw it. But somebody tell me what it is, anyway, while I type.
+
+61
+00:05:56.000 --> 00:05:57.520
+Anthony Taylor: how would we remove
+
+62
+00:05:59.300 --> 00:06:03.130
+Anthony Taylor: all of any? Any column has a null. Well, let's first let's check.
+
+63
+00:06:03.400 --> 00:06:09.730
+Anthony Taylor: Let's just check first before we do anything. I'm not gonna do it. I'm gonna do Ufo underscore Dfc. Count.
+
+64
+00:06:10.110 --> 00:06:11.699
+Anthony Taylor: Remember what that does
+
+65
+00:06:12.130 --> 00:06:15.279
+Anthony Taylor: shows us the count of every row.
+
+66
+00:06:15.710 --> 00:06:28.489
+Anthony Taylor: or I'm sorry every column ever. How many rows in each column that are not? No. so you can see we have 80,332. But we have some that don't have state country shape.
+
+67
+00:06:29.320 --> 00:06:31.150
+Anthony Taylor: a few that don't have comments.
+
+68
+00:06:31.640 --> 00:06:35.810
+Anthony Taylor: Okay, so we're just gonna make the call right now. Anything like that. We don't want
+
+69
+00:06:36.050 --> 00:06:41.679
+Anthony Taylor: anything with any null. Just gonna get rid of. So we're gonna go clean Ufo
+
+70
+00:06:41.750 --> 00:06:44.069
+Anthony Taylor: underscore the equals.
+
+71
+00:06:44.700 --> 00:06:46.200
+Anthony Taylor: And what's the function?
+
+72
+00:06:48.540 --> 00:06:51.779
+Meredith McCanse (she/her): Drop something, drop it drop.
+
+73
+00:06:51.940 --> 00:06:55.789
+Anthony Taylor: I was, I was gonna type, drop something just
+
+74
+00:06:56.300 --> 00:06:57.899
+Anthony Taylor: just because you said.
+
+75
+00:06:59.390 --> 00:07:01.509
+Anthony Taylor: Okay, so now
+
+76
+00:07:02.000 --> 00:07:05.000
+Anthony Taylor: we're gonna have a different count.
+
+77
+00:07:06.560 --> 00:07:10.620
+Anthony Taylor: See? So now everything is the same. So we have 66,516.
+
+78
+00:07:11.250 --> 00:07:13.420
+Anthony Taylor: Okay, which is good.
+
+79
+00:07:14.070 --> 00:07:17.720
+Anthony Taylor: You could tell what they're doing. Get get off my screen.
+
+80
+00:07:18.880 --> 00:07:25.460
+Meredith McCanse (she/her): and you said any so that will do any. Will that get it rid of an entire room? If it has
+
+81
+00:07:26.090 --> 00:07:27.230
+Meredith McCanse (she/her): any.
+
+82
+00:07:27.740 --> 00:07:31.040
+Meredith McCanse (she/her): it knows anywhere or any call it gets sort of a
+
+83
+00:07:31.290 --> 00:07:35.909
+Anthony Taylor: column or rows. It's rid of the whole row. If any column in that row is played
+
+84
+00:07:36.030 --> 00:07:43.579
+Meredith McCanse (she/her): has a has an no, okay. But if you said all it would the whole. The entire column would have to be.
+
+85
+00:07:43.630 --> 00:07:53.350
+Anthony Taylor: The entire row would have to row before you got rid of it. Okay, that is very good. Clarification.
+
+86
+00:07:53.360 --> 00:07:55.450
+Anthony Taylor: All I use fairly often.
+
+87
+00:07:56.190 --> 00:08:05.869
+Anthony Taylor: Okay. And here's why someone sends you a report or a file with data on it, and I get it, and every other row is empty
+
+88
+00:08:06.580 --> 00:08:15.230
+Anthony Taylor: because of the way the report was formulated. So I read it in Rob, we're all all of those disappear. One command.
+
+89
+00:08:16.010 --> 00:08:21.490
+Anthony Taylor: okay, so pretty. I mean, you could also like, run a delete from where every where the columns null. But
+
+90
+00:08:22.030 --> 00:08:25.409
+Anthony Taylor: okay, so here's the head that's good.
+
+91
+00:08:25.560 --> 00:08:33.629
+Anthony Taylor: Here I leave. based on the output. It's asking us for the data types. How do I get the data types.
+
+92
+00:08:33.720 --> 00:08:36.240
+Anthony Taylor: What's the the function
+
+93
+00:08:36.330 --> 00:08:39.109
+Anthony Taylor: of Df gives me the data type.
+
+94
+00:08:39.909 --> 00:08:41.330
+Dipinto, Matt: dot d types
+
+95
+00:08:41.880 --> 00:08:43.740
+Anthony Taylor: detites.
+
+96
+00:08:45.360 --> 00:08:49.440
+Anthony Taylor: And there we go. So we see object, opt object, object, object object.
+
+97
+00:08:49.520 --> 00:08:52.260
+Anthony Taylor: Are any of these? Would any of these make a good number.
+
+98
+00:08:53.340 --> 00:08:56.599
+Anthony Taylor: since they're all objects? Would any of these make a good number?
+
+99
+00:08:56.900 --> 00:08:58.400
+Meredith McCanse (she/her): Duration
+
+100
+00:08:58.650 --> 00:09:10.749
+Anthony Taylor: duration seconds. Huh! I don't know about duration hours, minutes, but sorry. What was that latitude? Longitude could be? They do. And the funny thing is, here's the funny thing. Look at this.
+
+101
+00:09:12.370 --> 00:09:13.050
+Jennifer Dahlgren: Hmm.
+
+102
+00:09:13.940 --> 00:09:17.390
+Anthony Taylor: so if I was cleaning this data, I would make them bulk floats.
+
+103
+00:09:17.460 --> 00:09:21.779
+Anthony Taylor: But right now they really just want us to fix duration
+
+104
+00:09:21.920 --> 00:09:24.730
+Anthony Taylor: seconds and make it so.
+
+105
+00:09:25.390 --> 00:09:28.019
+Anthony Taylor: First, let's make a copy.
+
+106
+00:09:28.070 --> 00:09:31.319
+Anthony Taylor: So we don't get that slicing error that we've seen before.
+
+107
+00:09:32.600 --> 00:09:34.690
+Anthony Taylor: Oh, my gosh.
+
+108
+00:09:35.320 --> 00:09:40.329
+Anthony Taylor: ufo equals clean Ufo, dot.
+
+109
+00:09:40.830 --> 00:09:42.240
+Anthony Taylor: Okay, so we have our cup.
+
+110
+00:09:42.480 --> 00:09:44.629
+Anthony Taylor: So now let's take converted
+
+111
+00:09:45.870 --> 00:09:52.979
+Anthony Taylor: Ufo. Now we're going to change the duration second column. So we need to do duration.
+
+112
+00:09:55.440 --> 00:09:57.270
+Anthony Taylor: This is why I don't live. Program.
+
+113
+00:09:57.550 --> 00:09:58.920
+Anthony Taylor: Seconds
+
+114
+00:10:01.230 --> 00:10:03.540
+Anthony Taylor: equals. Hmm.
+
+115
+00:10:03.800 --> 00:10:08.120
+Anthony Taylor: alright. So we have that. So
+
+116
+00:10:08.230 --> 00:10:10.530
+Anthony Taylor: did I. Really, I did. Doc got it.
+
+117
+00:10:10.660 --> 00:10:13.620
+Baro, Sonja: We would got a new column right? If I had done that.
+
+118
+00:10:13.870 --> 00:10:21.370
+Baro, Sonja: Okay, looking at the looking at the data before, was there was there
+
+119
+00:10:21.540 --> 00:10:25.919
+Clayton Graves: text in those cells for the duration as well.
+
+120
+00:10:26.400 --> 00:10:31.630
+Anthony Taylor: We right now we don't know cause we haven't looked at it all. But I can tell you
+
+121
+00:10:31.880 --> 00:10:33.459
+Clayton Graves: I was looking at the other one.
+
+122
+00:10:34.130 --> 00:10:35.870
+Anthony Taylor: Yeah, if you
+
+123
+00:10:36.550 --> 00:10:41.609
+Anthony Taylor: there. If you tried this, it would fail, and it would tell you, and then you would know you gotta go clean that up.
+
+124
+00:10:41.700 --> 00:10:43.240
+Anthony Taylor: But I can tell you
+
+125
+00:10:43.370 --> 00:10:45.449
+Anthony Taylor: it's it's not
+
+126
+00:10:45.470 --> 00:10:51.639
+Anthony Taylor: alright. So how do we do this? Well, first. we need to select it.
+
+127
+00:10:51.830 --> 00:10:56.530
+Anthony Taylor: Okay. And how do we select something in pandas?
+
+128
+00:11:00.240 --> 00:11:11.709
+Anthony Taylor: I guess I should have said, How do we book it? That would have been better. So we went all rows, but we only want
+
+129
+00:11:11.770 --> 00:11:13.700
+Anthony Taylor: the duration
+
+130
+00:11:15.330 --> 00:11:17.639
+Anthony Taylor: seconds, hey? I got it right that time.
+
+131
+00:11:17.780 --> 00:11:22.319
+Anthony Taylor: Oh, okay. And what we want to do with that.as type
+
+132
+00:11:22.890 --> 00:11:23.740
+Anthony Taylor: float
+
+133
+00:11:24.820 --> 00:11:35.180
+Anthony Taylor: alright. Can I ask single quotes during the first duration seconds, and don't.
+
+134
+00:11:36.310 --> 00:11:45.079
+Anthony Taylor: So here's the good news that would have worked anyway. But you're right. It's inconsistent, and it shouldn't be done, and I'm glad you brought it up. That is what you're supposed to do.
+
+135
+00:11:45.250 --> 00:11:52.319
+Anthony Taylor: That's why we do these live typing, so I can see how many mistakes I can make before you guys catch Anthony. Yeah.
+
+136
+00:11:52.560 --> 00:11:56.949
+Meredith McCanse (she/her): How? Why did you have to filter it first? Why did you have to do the log
+
+137
+00:11:57.680 --> 00:12:03.479
+Anthony Taylor: because we wanted to make sure we were only getting this column, because, as type only works on a single column.
+
+138
+00:12:04.780 --> 00:12:11.120
+Dipinto, Matt: what if you were to drop the dot log and drop the call, and then just do converted Ufo duration.
+
+139
+00:12:11.260 --> 00:12:19.949
+Anthony Taylor: so that you understand. And and Matt brought this up so I will tell everybody, but I don't want you to get confused. Dot log is actually the default.
+
+140
+00:12:21.420 --> 00:12:24.830
+Anthony Taylor: So if you do, df, and then a square bracket, and this.
+
+141
+00:12:24.840 --> 00:12:29.520
+Anthony Taylor: It would work without the Dotloc. But it's the same thing as if you did Dotbook.
+
+142
+00:12:29.990 --> 00:12:34.420
+Anthony Taylor: because dialogue is actually the default behavior when you do square brackets after a date.
+
+143
+00:12:36.040 --> 00:12:38.310
+Anthony Taylor: Okay? So yes, you could drop
+
+144
+00:12:40.040 --> 00:12:40.810
+Anthony Taylor: that.
+
+145
+00:12:41.940 --> 00:12:43.060
+Anthony Taylor: And
+
+146
+00:12:45.200 --> 00:12:46.600
+Anthony Taylor: oh, look now, it's not gonna
+
+147
+00:12:47.050 --> 00:12:49.900
+Anthony Taylor: okay. Slice then duration. Second.
+
+148
+00:12:52.050 --> 00:13:01.080
+Anthony Taylor: Oh, cause it's the slice. Let's get rid of this slice. Okay, see? Now, it's gonna get confusing. Alright, yeah. So that'll work. And it worked.
+
+149
+00:13:01.340 --> 00:13:07.909
+Anthony Taylor: But that look is the behavior. That's automatic. The reason we don't need the Colon here does. The Colon is selecting every row
+
+150
+00:13:08.620 --> 00:13:11.380
+Anthony Taylor: right? So we don't need it if we're not going to put that.
+
+151
+00:13:12.570 --> 00:13:14.219
+Anthony Taylor: But that is the default behavior.
+
+152
+00:13:16.160 --> 00:13:25.139
+Anthony Taylor: So what you guys are going to find. And Matt, please, everybody always call me on that. There are often ways to rewrite it, and I will tell you. I won't always know
+
+153
+00:13:25.150 --> 00:13:28.879
+Anthony Taylor: the alternative way to rewrite it. Because why would I miss it?
+
+154
+00:13:29.170 --> 00:13:30.990
+Anthony Taylor: Why would you know that
+
+155
+00:13:31.040 --> 00:13:33.239
+Anthony Taylor: you know it, cause you're studying it right now.
+
+156
+00:13:33.310 --> 00:13:38.520
+Anthony Taylor: I'm like, Well, Dude, I do this every day, and I typed out low, which isn't true at all I never typed out.
+
+157
+00:13:38.800 --> 00:13:39.660
+Anthony Taylor: But
+
+158
+00:13:40.540 --> 00:13:51.419
+Anthony Taylor: the the whole point of it is is that there are other ways to do it. So feel free. If you guys see one in your studies to bring it up. And worst case, we'll go look at the documentation to see how it worked.
+
+159
+00:13:52.290 --> 00:13:57.179
+Anthony Taylor: Alright, because in the end that's what you guys would have to do. Yes.
+
+160
+00:13:57.390 --> 00:14:03.690
+Baro, Sonja: So my question was, why you why did you think you had to slice the the data?
+
+161
+00:14:03.880 --> 00:14:10.029
+Anthony Taylor: Because we did that load? No, we did slice the data. This is still taking one column
+
+162
+00:14:10.720 --> 00:14:18.380
+Anthony Taylor: right the way. When we did that load we were just saying, Give us every row. This is because that located the default behavior
+
+163
+00:14:18.500 --> 00:14:21.570
+Baro, Sonja: right? There's no different. This is exactly the same thing.
+
+164
+00:14:22.390 --> 00:14:30.320
+Baro, Sonja: Oh, so it's just saying, because you it knows. That's what you're doing it. You don't need to specify. Go get everything
+
+165
+00:14:30.600 --> 00:14:32.239
+Anthony Taylor: data, frame bracket
+
+166
+00:14:32.290 --> 00:14:36.810
+Anthony Taylor: and put a column name in. It'll give you every row with that column.
+
+167
+00:14:36.910 --> 00:14:38.300
+Baro, Sonja: Perfect. Thank you.
+
+168
+00:14:38.790 --> 00:14:41.720
+Anthony Taylor: Very simple, which is good. That's good.
+
+169
+00:14:42.250 --> 00:14:43.090
+Anthony Taylor: Okay.
+
+170
+00:14:43.300 --> 00:14:46.739
+Anthony Taylor: so and part of the reason we don't get too much into that guy.
+
+171
+00:14:46.780 --> 00:14:51.470
+Anthony Taylor: right? I see that a lot in the in the throughout the entire
+
+172
+00:14:51.490 --> 00:14:57.090
+Anthony Taylor: course that I've seen so far, right where they're doing things maybe slightly different than I do it.
+
+173
+00:14:57.930 --> 00:15:06.530
+Anthony Taylor: but in the end, as long as it does it the right way, it's easier for me to show you the way they show you, because everywhere else, you see, it will be the way they show.
+
+174
+00:15:06.830 --> 00:15:09.100
+Anthony Taylor: like everywhere else in the curriculum.
+
+175
+00:15:09.710 --> 00:15:15.610
+Anthony Taylor: right? So I could go through and change everything to be Dot Lok and Poland and blah blah blah
+
+176
+00:15:16.160 --> 00:15:21.369
+Anthony Taylor: or without dot, low and cold. But that would be silly. So just know it's possible.
+
+177
+00:15:21.980 --> 00:15:23.210
+Anthony Taylor: Alright okay.
+
+178
+00:15:23.400 --> 00:15:29.280
+Anthony Taylor: continuing. So now we can see our D type for duration seconds is, in fact.
+
+179
+00:15:29.390 --> 00:15:36.109
+Anthony Taylor: a number. And this is, I don't know why they're doing head again. But okay. so we're going to do head here.
+
+180
+00:15:39.090 --> 00:15:39.820
+Anthony Taylor: My go.
+
+181
+00:15:40.980 --> 00:15:43.720
+Anthony Taylor: I mean, remember, you can do this differently, too.
+
+182
+00:15:46.630 --> 00:15:49.650
+Anthony Taylor: So now it says, filter the data.
+
+183
+00:15:50.060 --> 00:15:53.060
+Anthony Taylor: And how do we filter data? How do we
+
+184
+00:15:53.420 --> 00:15:55.060
+Anthony Taylor: locate data?
+
+185
+00:16:00.510 --> 00:16:03.249
+Anthony Taylor: You still got an answer, even though I made it kind of obvious.
+
+186
+00:16:06.950 --> 00:16:08.650
+Anthony Taylor: Hello, thank you very much.
+
+187
+00:16:10.030 --> 00:16:17.410
+Anthony Taylor: So we're gonna use log. And we're gonna say, converted Ufo brackets country.
+
+188
+00:16:19.240 --> 00:16:22.049
+Anthony Taylor: And it says we only want where country is U.S.A.
+
+189
+00:16:22.280 --> 00:16:25.489
+Anthony Taylor: So we're gonna do. Country equals equals
+
+190
+00:16:25.590 --> 00:16:26.510
+Anthony Taylor: us.
+
+191
+00:16:26.930 --> 00:16:33.920
+Anthony Taylor: And then we're gonna say, we want all columns. Do we need to do this? No, we do not. Okay. But
+
+192
+00:16:35.050 --> 00:16:40.010
+Anthony Taylor: okay. So we assign that to a new data frame. So let's take a look at that new data frame.
+
+193
+00:16:43.450 --> 00:16:46.759
+Anthony Taylor: And now you'll see we only have our country's. US.
+
+194
+00:16:47.880 --> 00:16:48.860
+Anthony Taylor: Okay.
+
+195
+00:16:50.110 --> 00:16:52.470
+Anthony Taylor: So now we can count how many
+
+196
+00:16:53.490 --> 00:16:55.419
+sightings we have. So
+
+197
+00:16:55.880 --> 00:17:06.380
+Anthony Taylor: question. And this one's gonna take somebody to remember or something we haven't done in a couple of days at least. I want to get the count by state.
+
+198
+00:17:10.410 --> 00:17:12.400
+Anthony Taylor: and we've already learned how to do.
+
+199
+00:17:13.260 --> 00:17:17.630
+Meredith McCanse (she/her): Can you do count values and then specify state in the
+
+200
+00:17:18.030 --> 00:17:21.189
+Meredith McCanse (she/her): parentheses are
+
+201
+00:17:21.849 --> 00:17:27.699
+Anthony Taylor: pretty doggone, close, close enough that I'm going to accept that as the right answer. It's
+
+202
+00:17:27.790 --> 00:17:28.940
+Anthony Taylor: you do, do
+
+203
+00:17:28.970 --> 00:17:32.260
+Anthony Taylor: you do? Do? And that's a real python word.
+
+204
+00:17:32.420 --> 00:17:34.330
+Anthony Taylor: Okay, state
+
+205
+00:17:35.430 --> 00:17:41.909
+Anthony Taylor: alright in brackets. And then you do value counts. So you said, count values
+
+206
+00:17:41.960 --> 00:17:43.260
+Anthony Taylor: value counts.
+
+207
+00:17:43.390 --> 00:17:46.359
+Anthony Taylor: Okay? So when we do this.
+
+208
+00:17:47.520 --> 00:17:52.789
+Anthony Taylor: Yeah, we're gonna set this equal to state counts and then take a peek at state counts.
+
+209
+00:17:54.610 --> 00:17:56.970
+Anthony Taylor: This will give us what you see down there below.
+
+210
+00:17:58.240 --> 00:17:59.990
+Anthony Taylor: Okay, which is a.
+
+211
+00:18:00.660 --> 00:18:05.950
+Anthony Taylor: what data type is this? I know it says in that's this out, what data type is this whole thing?
+
+212
+00:18:06.060 --> 00:18:07.699
+Anthony Taylor: What kind of object is.
+
+213
+00:18:07.710 --> 00:18:11.140
+Clayton Graves: what was that? This is this is Gary east.
+
+214
+00:18:11.190 --> 00:18:12.510
+Anthony Taylor: absolutely.
+
+215
+00:18:12.730 --> 00:18:16.279
+Anthony Taylor: Okay. So here we go. Here's the thing.
+
+216
+00:18:16.540 --> 00:18:20.789
+Anthony Taylor: A, we're going to create a group by object
+
+217
+00:18:20.870 --> 00:18:25.329
+Anthony Taylor: to do that. We're gonna create a data frame. I'm gonna call it a data frame.
+
+218
+00:18:25.460 --> 00:18:32.800
+Anthony Taylor: And it equals U.S.A., Ufo, Vf, we only want us data, and we want to group by
+
+219
+00:18:33.770 --> 00:18:35.290
+Anthony Taylor: in bracket
+
+220
+00:18:35.730 --> 00:18:39.279
+Anthony Taylor: the column or columns you wish to group up.
+
+221
+00:18:41.700 --> 00:18:46.190
+Anthony Taylor: Okay. now, we're gonna just print that out. So let's do that first
+
+222
+00:18:46.550 --> 00:18:49.820
+Anthony Taylor: group Us idea. So let's just run that.
+
+223
+00:18:50.370 --> 00:18:52.280
+Anthony Taylor: And this is what it looks like.
+
+224
+00:18:53.400 --> 00:18:57.099
+Anthony Taylor: So anytime, you see something like this when you print
+
+225
+00:18:57.350 --> 00:18:59.669
+Anthony Taylor: this is an object.
+
+226
+00:19:00.710 --> 00:19:09.880
+Anthony Taylor: It is something in python that is stored somewhere in memory. and you need to do something else to actually pull it out
+
+227
+00:19:10.020 --> 00:19:23.780
+Anthony Taylor: for Group I. What we need to do is add some kind of aggregation.  so we can do so like if we just type this and do dot, you'll see, here's all the fun things we can do.
+
+228
+00:19:25.230 --> 00:19:26.329
+Anthony Taylor: It's a lot.
+
+229
+00:19:26.600 --> 00:19:33.959
+Anthony Taylor: But look, look at all the aggregations. I don't know. Have we done anything with aggregations yet not really, huh?
+
+230
+00:19:35.630 --> 00:19:38.599
+Anthony Taylor: So an aggregation is basically like, think about
+
+231
+00:19:40.340 --> 00:19:43.249
+Anthony Taylor: think, think of anything. They have a receipt
+
+232
+00:19:43.670 --> 00:19:49.909
+Anthony Taylor: at the grocery store. Okay, the total is an aggregation. The subtotal before taxes
+
+233
+00:19:50.320 --> 00:19:51.730
+Anthony Taylor: is an aggregation.
+
+234
+00:19:52.340 --> 00:20:05.650
+Anthony Taylor: Okay, if I give you an excel sheet, says, give me the average of these values. That average is an aggregation when it comes to data analytics, which is what you need to do before you do data. Science
+
+235
+00:20:06.640 --> 00:20:09.190
+Anthony Taylor: aggregations are vital to understand.
+
+236
+00:20:09.980 --> 00:20:13.750
+Anthony Taylor: So aggregations that we have in here. We have
+
+237
+00:20:15.100 --> 00:20:21.570
+Anthony Taylor: correlation. Count  cumulative counts.
+
+238
+00:20:21.590 --> 00:20:27.770
+Anthony Taylor: Cumulative maxim, no cumulative, some. Okay.
+
+239
+00:20:28.070 --> 00:20:31.590
+Anthony Taylor:  what else is in
+
+240
+00:20:32.530 --> 00:20:40.469
+Anthony Taylor: index, Max? Anything that's like Max from me. Mac, Edm, in. okay, all of those are aggregations.
+
+241
+00:20:41.610 --> 00:20:48.549
+Anthony Taylor: So yeah, so all this stuff, this stuff in here goes on some. Those are the big ones. Okay, so what are we gonna do? We're gonna
+
+242
+00:20:49.450 --> 00:20:50.220
+Anthony Taylor: health.
+
+243
+00:20:52.490 --> 00:20:53.200
+Anthony Taylor: I got.
+
+244
+00:20:54.990 --> 00:20:58.930
+Anthony Taylor: And then we're gonna do a hit on this because this is actually going to return something.
+
+245
+00:20:59.480 --> 00:21:00.440
+Anthony Taylor: Okay?
+
+246
+00:21:01.090 --> 00:21:07.339
+Anthony Taylor: Right here. So look at what we got here. Everybody. Look at that. Does that look helpful?
+
+247
+00:21:15.890 --> 00:21:17.340
+Anthony Taylor: It's kind of weird, huh?
+
+248
+00:21:18.240 --> 00:21:19.590
+Baro, Sonja: Not helpful.
+
+249
+00:21:20.340 --> 00:21:27.350
+Anthony Taylor: So count simply, it works. It counts in this situation, works a lot like
+
+250
+00:21:28.380 --> 00:21:29.430
+Anthony Taylor: this, count.
+
+251
+00:21:30.600 --> 00:21:33.160
+Anthony Taylor: Okay, it says
+
+252
+00:21:33.200 --> 00:21:48.690
+Anthony Taylor: there's a value here plus one. There's a value here, plus 2. There's another 1, 3, 4. So when we get to here and we do count in aggregation, all this is telling us there are 3 and 11 rows for Alaska doesn't matter what the rest is.
+
+253
+00:21:49.330 --> 00:21:55.269
+Anthony Taylor: They're all gonna say the same thing because the count is the same for every column.
+
+254
+00:21:57.170 --> 00:21:59.879
+Anthony Taylor: Okay, especially because we've cleared all the data.
+
+255
+00:22:00.550 --> 00:22:04.219
+Anthony Taylor: So it's still helpful, because now we at least know. But
+
+256
+00:22:04.490 --> 00:22:09.820
+Anthony Taylor: he's California 8, 6, 8, 3, 8, 6, 8, 3.
+
+257
+00:22:10.590 --> 00:22:18.129
+Anthony Taylor: So we did this with value accounts. Okay. alright. Now let's do something a little more pressing.
+
+258
+00:22:18.330 --> 00:22:26.090
+Anthony Taylor: So let's take our grouped. So now that we have it grouped, we can reuse it over and over again and apply aggregations to it.
+
+259
+00:22:26.220 --> 00:22:29.409
+Anthony Taylor: So we're just gonna say, I just want you who.
+
+260
+00:22:29.440 --> 00:22:34.640
+Anthony Taylor: because this is grouped by State. I want the sum of the durations that
+
+261
+00:22:35.180 --> 00:22:36.050
+Anthony Taylor: now.
+
+262
+00:22:37.370 --> 00:22:41.189
+Anthony Taylor: could we have done this on the original data set?
+
+263
+00:22:47.590 --> 00:22:50.140
+Clayton Graves: No, because it was an object. It was a string.
+
+264
+00:22:50.230 --> 00:22:56.500
+Anthony Taylor: Exactly. You can't do a sum on a string. It would have given us error, which is why we converted it to a note.
+
+265
+00:22:56.760 --> 00:23:04.069
+Anthony Taylor: Okay? So now, when we run this, we're gonna get the sum. The total sum of duration seconds by state.
+
+266
+00:23:04.460 --> 00:23:10.120
+Anthony Taylor: Okay, California and Arkansas are the highest Florida
+
+267
+00:23:10.250 --> 00:23:11.880
+Anthony Taylor: and Arkansas.
+
+268
+00:23:12.480 --> 00:23:13.390
+Anthony Taylor: Alright.
+
+269
+00:23:14.730 --> 00:23:19.689
+Anthony Taylor:  And so now we can. You know, this is why we could do
+
+270
+00:23:20.150 --> 00:23:21.130
+Anthony Taylor: okay.
+
+271
+00:23:25.430 --> 00:23:28.809
+Anthony Taylor: I don't know why they do it twice. They're doing it again right here, and all they're doing is
+
+272
+00:23:29.220 --> 00:23:31.909
+Anthony Taylor: showing you the top 5. So I don't know why we're doing networks to get that.
+
+273
+00:23:32.270 --> 00:23:34.320
+Anthony Taylor: Okay.
+
+274
+00:23:34.670 --> 00:23:44.500
+Anthony Taylor: so to end this, we're gonna create a summary data frame. Now, this is in your chart, in your final challenge for this module
+
+275
+00:23:44.730 --> 00:23:46.810
+Anthony Taylor: to do this. So
+
+276
+00:23:47.230 --> 00:23:49.259
+Anthony Taylor: do we have 2 siri?
+
+277
+00:23:49.810 --> 00:23:52.580
+Anthony Taylor: Right? We do right. Here's the counts.
+
+278
+00:23:52.780 --> 00:23:56.840
+Anthony Taylor: That's a series, Clayton told us. Here's the Psalms.
+
+279
+00:23:56.900 --> 00:24:00.250
+Anthony Taylor: that's also, siri, so we can take the
+
+280
+00:24:00.260 --> 00:24:02.909
+Anthony Taylor: because they have the same index
+
+281
+00:24:06.680 --> 00:24:08.900
+Anthony Taylor: and create a data frame. With this
+
+282
+00:24:09.170 --> 00:24:12.969
+Anthony Taylor: to do that, we just have to say, let's do state
+
+283
+00:24:13.960 --> 00:24:15.430
+Anthony Taylor: summary table
+
+284
+00:24:16.140 --> 00:24:19.240
+Anthony Taylor: equals PD dot data frame.
+
+285
+00:24:20.470 --> 00:24:30.530
+Anthony Taylor: And in here we're gonna do a dictionary of lists. As remember, I told you before. a series is basically a list. Okay.
+
+286
+00:24:30.630 --> 00:24:33.270
+we're gonna for the first column. We're gonna call it
+
+287
+00:24:33.900 --> 00:24:35.549
+Anthony Taylor: number of
+
+288
+00:24:37.720 --> 00:24:40.649
+Anthony Taylor: sightings. See? Like, here's another example, guys.
+
+289
+00:24:40.830 --> 00:24:48.650
+Anthony Taylor: if you worked for me or worked even with me. and I saw you put blanks in a column header. I would ask you to stop
+
+290
+00:24:49.070 --> 00:24:56.530
+Anthony Taylor: if you submitted it to production to be put into live environment, I would return it and say, No, you can't do that.
+
+291
+00:24:57.000 --> 00:24:57.910
+Anthony Taylor: But
+
+292
+00:24:59.990 --> 00:25:03.049
+Anthony Taylor: these were curriculum writers, not people that work in this field.
+
+293
+00:25:03.310 --> 00:25:04.509
+Anthony Taylor: So anyway.
+
+294
+00:25:04.810 --> 00:25:06.700
+Anthony Taylor: so that's the first call.
+
+295
+00:25:08.930 --> 00:25:09.870
+Anthony Taylor: So
+
+296
+00:25:12.680 --> 00:25:18.060
+Anthony Taylor: if you want to put blanks, put them in the report. If you're wondering when you would do that. So basically.
+
+297
+00:25:18.680 --> 00:25:20.730
+Anthony Taylor: the report itself.
+
+298
+00:25:21.070 --> 00:25:25.559
+Anthony Taylor:  is where you do formatting, not in python.
+
+299
+00:25:25.680 --> 00:25:26.990
+Anthony Taylor: That's just silly.
+
+300
+00:25:31.860 --> 00:25:34.290
+Anthony Taylor: and it's very problematic.
+
+301
+00:25:34.550 --> 00:25:38.269
+Anthony Taylor: Wait! Do we not have that? Oh, is that why they did it again.
+
+302
+00:25:39.420 --> 00:25:44.690
+Anthony Taylor: So all right. Well, here. we didn't actually save this to a variable. So let's do that.
+
+303
+00:25:47.270 --> 00:25:50.950
+Anthony Taylor: Here we go now alright.
+
+304
+00:25:51.080 --> 00:25:53.309
+Anthony Taylor: and then we'll just take a look at this table.
+
+305
+00:25:59.850 --> 00:26:00.919
+Anthony Taylor: and there you go.
+
+306
+00:26:01.270 --> 00:26:04.930
+Anthony Taylor: Ask of 311 sightings, total visit time.
+
+307
+00:26:05.220 --> 00:26:06.590
+Anthony Taylor: A lot of seconds
+
+308
+00:26:09.260 --> 00:26:10.450
+Anthony Taylor: pretty cool.
+
+309
+00:26:11.010 --> 00:26:16.370
+Anthony Taylor: Everybody more or less follow along with that, we're okay. With that you do have this in the solution as well.
+
+310
+00:26:17.180 --> 00:26:20.990
+Anthony Taylor: So remember you can keep it up by next to you.
+
+311
+00:26:22.620 --> 00:26:23.500
+Anthony Taylor: Alright
+
+312
+00:26:24.690 --> 00:26:25.860
+Meredith McCanse (she/her): question.
+
+313
+00:26:26.210 --> 00:26:26.960
+Anthony Taylor: Yeah.
+
+314
+00:26:27.360 --> 00:26:30.870
+Meredith McCanse (she/her): So in that last step, you didn't have to have
+
+315
+00:26:31.000 --> 00:26:34.930
+Meredith McCanse (she/her): headings of the second column from the 2 different
+
+316
+00:26:35.240 --> 00:26:38.190
+Meredith McCanse (she/her): series. because
+
+317
+00:26:39.370 --> 00:26:53.589
+Meredith McCanse (she/her): you were basically telling it. You were telling it what to call the new column and the new data frame. And then on that right side of the colon. you just had to refer to the data frame itself. So it knows it's automatically, just gonna take
+
+318
+00:26:54.780 --> 00:26:55.870
+Meredith McCanse (she/her): the
+
+319
+00:26:56.860 --> 00:27:03.960
+Anthony Taylor: no. So so remember, those are series. Right, let's look at those series again, real quick.
+
+320
+00:27:04.010 --> 00:27:06.500
+Anthony Taylor: So here's the count. One state counts.
+
+321
+00:27:06.940 --> 00:27:09.520
+Anthony Taylor: So there! There is no
+
+322
+00:27:09.620 --> 00:27:10.800
+Anthony Taylor: column header there.
+
+323
+00:27:11.150 --> 00:27:17.350
+Anthony Taylor: right? There's only the index which has a column header, but but there's no column header for account itself.
+
+324
+00:27:18.200 --> 00:27:22.670
+Anthony Taylor: but it's a series. So it's effectively a list
+
+325
+00:27:22.690 --> 00:27:27.250
+Anthony Taylor: with named indexes. So the first Index, California, Florida, etc.
+
+326
+00:27:27.530 --> 00:27:32.370
+Anthony Taylor: Okay, so instead of 0 1, 2, 3, it's California, Florida Washington text.
+
+327
+00:27:33.150 --> 00:27:35.879
+Anthony Taylor: The next one was the sum.
+
+328
+00:27:36.350 --> 00:27:37.670
+Anthony Taylor: Same idea.
+
+329
+00:27:38.070 --> 00:27:40.149
+Anthony Taylor: It's a series with
+
+330
+00:27:40.400 --> 00:27:41.910
+Anthony Taylor: an index.
+
+331
+00:27:42.280 --> 00:27:46.979
+Anthony Taylor: And so when we bring it down here, that index is, gonna combine
+
+332
+00:27:47.760 --> 00:27:50.349
+Anthony Taylor: those 2 columns with whatever we call.
+
+333
+00:27:51.330 --> 00:27:55.320
+Anthony Taylor: So you you can't. If you left out the name it would just be empty. It'd be no name.
+
+334
+00:27:56.590 --> 00:27:57.400
+Meredith McCanse (she/her): Okay.
+
+335
+00:27:59.010 --> 00:28:11.740
+Meredith McCanse (she/her): so serious is the series. Always gonna have just a this, the row. The column of data just doesn't have any header. Is that always true of series is a list. It's never so this.
+
+336
+00:28:11.850 --> 00:28:14.549
+Anthony Taylor: remember, like the way it displays. This is the data
+
+337
+00:28:15.000 --> 00:28:19.069
+Anthony Taylor: could you have called just for the record? Could you have called
+
+338
+00:28:19.210 --> 00:28:21.199
+Anthony Taylor: this data frame this column?
+
+339
+00:28:21.380 --> 00:28:25.079
+Anthony Taylor: Absolutely, and that would have worked right here because it's a single column.
+
+340
+00:28:25.290 --> 00:28:29.090
+Anthony Taylor: You're passing it into this column, header.
+
+341
+00:28:29.450 --> 00:28:30.770
+Anthony Taylor: and it would have shown up.
+
+342
+00:28:30.990 --> 00:28:35.450
+Meredith McCanse (she/her): Got it? Okay? And you would just refer to it. Okay, you. Okay.
+
+343
+00:28:36.330 --> 00:28:42.900
+Anthony Taylor: The bottom line is this is the dictionary of lists. Remember, we said this to dictionaries or dictionary of list. This is a dictionary
+
+344
+00:28:43.420 --> 00:28:44.190
+Anthony Taylor: of
+
+345
+00:28:44.850 --> 00:28:48.549
+Anthony Taylor: lists? Or how about this? A dictionary of Siri?
+
+346
+00:28:49.280 --> 00:28:55.660
+Meredith McCanse (she/her): Well, and it's a little like a join function, right? Because it's joining based on the State.
+
+347
+00:28:55.680 --> 00:28:59.330
+Anthony Taylor: That is, I like that like that. You said that.
+
+348
+00:29:02.950 --> 00:29:06.970
+Anthony Taylor: What is this lesson as today is this uploading induction to AI.
+
+349
+00:29:07.340 --> 00:29:08.060
+Anthony Taylor: But
+
+350
+00:29:09.740 --> 00:29:10.590
+Anthony Taylor: sorry.
+
+351
+00:29:11.170 --> 00:29:14.080
+Anthony Taylor: Okay, I'll come back to that?
+
+352
+00:29:15.230 --> 00:29:22.549
+Anthony Taylor: technically, yeah, if you wanted to do like, make these both data frames and then join them, you could have done that absolutely.
+
+353
+00:29:23.520 --> 00:29:26.639
+Anthony Taylor: Yeah. But then you would have to create a data frame from each one of these
+
+354
+00:29:27.600 --> 00:29:30.219
+Anthony Taylor: to do that to do. Yeah.
+
+355
+00:29:30.340 --> 00:29:33.050
+Anthony Taylor: it's good, though. I love that. You think you like that.
+
+356
+00:29:33.370 --> 00:29:36.189
+Anthony Taylor: I like that. Everybody keep that thinking cap on.
+
+357
+00:29:37.250 --> 00:29:41.799
+Anthony Taylor: Okay, well, let's see how much thinking you're doing, cause you're gonna get to do an activity
+
+358
+00:29:43.080 --> 00:29:49.369
+Anthony Taylor: in this activity. You got some athletic training data, create data frame convert membership days to weeks.
+
+359
+00:29:50.460 --> 00:29:53.420
+Anthony Taylor: How do we convert a day's column to weeks
+
+360
+00:29:56.840 --> 00:30:00.319
+Raugewitz, Tania: divided by 7 52, very much
+
+361
+00:30:00.450 --> 00:30:02.120
+Baro, Sonja: 5, 5, 7,
+
+362
+00:30:02.270 --> 00:30:05.830
+Anthony Taylor: and then and then add it to your data frame.
+
+363
+00:30:05.960 --> 00:30:08.970
+Anthony Taylor: Create a data frame containing only the trainer
+
+364
+00:30:09.200 --> 00:30:14.889
+Anthony Taylor: wage and membership length in days and weeks. This is not an aggregation.
+
+365
+00:30:15.400 --> 00:30:18.780
+Anthony Taylor: This is just select the correct columns.
+
+366
+00:30:20.600 --> 00:30:22.650
+Anthony Taylor: I'm not even gonna remind you guys how to do that
+
+367
+00:30:22.820 --> 00:30:29.390
+Anthony Taylor: group, the date. Now, we're going to do a group by group, the data by trainer. Listen to those instructions. Group
+
+368
+00:30:29.470 --> 00:30:30.550
+Anthony Taylor: by trainer
+
+369
+00:30:32.250 --> 00:30:34.229
+Anthony Taylor: average, which is mean.
+
+370
+00:30:34.430 --> 00:30:37.450
+Anthony Taylor: okay, weight and length
+
+371
+00:30:37.790 --> 00:30:46.920
+Anthony Taylor: of the gym, so average weight, average length of each gym member and then sort it. Okay?
+
+372
+00:30:48.420 --> 00:30:50.949
+Anthony Taylor: Alright, that's it.
+
+373
+00:30:52.130 --> 00:30:58.770
+Meredith McCanse (she/her): for grouping by multiple things. Do you just separate that by comma and bracket? Okay.
+
+374
+00:31:00.200 --> 00:31:04.410
+Anthony Taylor: yeah, we didn't. We didn't. We didn't cover that. I think you might
+
+375
+00:31:04.660 --> 00:31:06.799
+Meredith McCanse (she/her): just did one call you just did one.
+
+376
+00:31:07.140 --> 00:31:08.550
+Anthony Taylor: We did.
+
+377
+00:31:10.870 --> 00:31:16.320
+Anthony Taylor: I wanna make sure. That's what they did and they didn't do something weird on it. a.
+
+378
+00:31:16.640 --> 00:31:19.550
+Anthony Taylor:  well.
+
+379
+00:31:22.330 --> 00:31:23.720
+Anthony Taylor: actually.
+
+380
+00:31:26.780 --> 00:31:35.709
+Anthony Taylor: we're not group. But no, it does not say we're grouping by more than one column. See? I'm glad I looked that up. I'm like I shouldn't be there. Not yet. We're coming to that right here next activity.
+
+381
+00:31:36.210 --> 00:31:44.020
+Anthony Taylor: But no, it says, group the data by trainer and show the average weight. And and if we read this like
+
+382
+00:31:44.160 --> 00:31:45.939
+Anthony Taylor: that way, average
+
+383
+00:31:46.380 --> 00:31:50.089
+Anthony Taylor: length. So after it's 2
+
+384
+00:31:50.100 --> 00:31:51.720
+aggregations.
+
+385
+00:31:52.610 --> 00:31:59.449
+Anthony Taylor: But only one group by. okay. And you're just gonna do those in separate
+
+386
+00:32:01.370 --> 00:32:03.819
+Anthony Taylor: calls. We are going to learn how to do them in one
+
+387
+00:32:03.990 --> 00:32:07.489
+Anthony Taylor: later. Alright! Good job.
+
+388
+00:32:08.020 --> 00:32:10.520
+Anthony Taylor: Good question. I think your screen is still shared.
+
+389
+00:32:12.140 --> 00:32:14.220
+James Torres: It is outside now.
+
+390
+00:32:14.960 --> 00:32:16.080
+James Torres: or someone's
+
+391
+00:32:27.290 --> 00:32:33.669
+Anthony Taylor: welcome back. So how'd that go? Was that hard? Was it? Was it? Somewhere in between
+
+392
+00:32:35.270 --> 00:32:38.660
+Mason, Natalie: David? Hi did. Great.
+
+393
+00:32:40.020 --> 00:32:44.960
+Mason, Natalie: But I had. I use Chat Gp to help find answers that we
+
+394
+00:32:45.380 --> 00:32:58.420
+Mason, Natalie: we're stuck on. But yeah, I have the lesson. 5 plan that I cloned from get lab, and it has cloned to my computer as introduction to AI and not today's lesson plan.
+
+395
+00:32:58.920 --> 00:33:00.649
+Mason, Natalie: I don't understand.
+
+396
+00:33:02.550 --> 00:33:05.399
+Mason, Natalie: It doesn't. It can show us. I wanna see this.
+
+397
+00:33:05.480 --> 00:33:08.959
+Anthony Taylor: I don't understand. Is everybody else working
+
+398
+00:33:10.660 --> 00:33:12.519
+Anthony Taylor: everybody else's? It's okay.
+
+399
+00:33:13.880 --> 00:33:14.760
+Masarirambi, Rodney: Yeah, I think.
+
+400
+00:33:16.020 --> 00:33:21.520
+Mason, Natalie: okay, can you see it? Why, yeah, you have. You're in a weird folder.
+
+401
+00:33:22.010 --> 00:33:23.089
+Anthony Taylor: But go ahead.
+
+402
+00:33:23.450 --> 00:33:24.470
+Mason, Natalie: Okay.
+
+403
+00:33:24.530 --> 00:33:31.039
+Mason, Natalie: well, this was yesterday's 4. And here's today's 5. Why is there a number there, though?
+
+404
+00:33:31.420 --> 00:33:37.170
+Mason, Natalie: Are you putting that number there? No, that's just pull. That's what it's pulling from
+
+405
+00:33:38.770 --> 00:33:41.519
+Mason, Natalie: here. 5 pandas data prep.
+
+406
+00:33:41.740 --> 00:33:45.180
+Mason, Natalie: And then it says, this is appropriate.
+
+407
+00:33:45.440 --> 00:33:57.649
+Mason, Natalie: See the difference, Natalie. Your 5 is in front of pandas. Not at the end of Llc. One every time. No, no, no, you're supposed to pull
+
+408
+00:33:58.300 --> 00:33:59.180
+Mason, Natalie: shit.
+
+409
+00:33:59.860 --> 00:34:01.979
+Anthony Taylor: That's okay. Easy to fix.
+
+410
+00:34:02.060 --> 00:34:08.890
+Anthony Taylor: Don't worry about it. Go back to your screen. Actually, we won't do it right now, because that's easy to fix. But let me make sure you have everything go there.
+
+411
+00:34:09.230 --> 00:34:19.780
+Anthony Taylor: and what we'll do is after class, if the James or Kevin, and they'll just quickly get you reploned, and then show you how to get pull going forward. But you're right. Number 5, go to 5
+
+412
+00:34:20.530 --> 00:34:24.240
+Anthony Taylor: here now. No, the 5 at the bottom. Oh, 5.
+
+413
+00:34:24.820 --> 00:34:30.159
+Mason, Natalie: Oh, 5. Yeah, that's where we are into. Okay?
+
+414
+00:34:30.650 --> 00:34:40.210
+Anthony Taylor: Yeah. And then activities. Yeah, that's where we are. It'll it'll be right. The guys will help me get set up. Don't worry about it. You're not a bad spot. You're okay.
+
+415
+00:34:40.330 --> 00:34:41.870
+Mason, Natalie: Alright, thanks so much.
+
+416
+00:34:42.040 --> 00:34:43.899
+Anthony Taylor: Not a problem.
+
+417
+00:34:46.199 --> 00:34:50.230
+Anthony Taylor: Alright. Gosh, today's going good.
+
+418
+00:34:51.230 --> 00:34:52.239
+I'm happy.
+
+419
+00:34:52.929 --> 00:34:54.120
+Anthony Taylor: I
+
+420
+00:34:55.929 --> 00:34:59.269
+Anthony Taylor: not gonna say, I've decided, okay. Here we go.
+
+421
+00:35:02.420 --> 00:35:05.680
+Anthony Taylor: So we import pandas.
+
+422
+00:35:06.360 --> 00:35:12.019
+Anthony Taylor: They gave us the training data data frame. Oh, that. So that that makes it a little easier.
+
+423
+00:35:12.390 --> 00:35:13.420
+Anthony Taylor: Okay?
+
+424
+00:35:13.530 --> 00:35:24.139
+Anthony Taylor: And now the first thing says convert membership days into weeks and then add this data in a column to the data frame. So Weeks equals
+
+425
+00:35:24.210 --> 00:35:32.919
+Anthony Taylor: training data, members of days divided by 7 established just before left. You could have just made that problem, but they did
+
+426
+00:35:33.060 --> 00:35:35.580
+Anthony Taylor: did it this way, and that's also fine.
+
+427
+00:35:36.180 --> 00:35:40.230
+Anthony Taylor: So they took the variable and put it there, made a new column.
+
+428
+00:35:40.260 --> 00:35:44.850
+Anthony Taylor: And now it looks like that. Weeks dates.
+
+429
+00:35:46.520 --> 00:35:58.009
+Anthony Taylor: Then to pick select columns. Remember, you use the 2 brackets to get it. So basically one bracket you could have just done one column, but it wouldn't be more than one. You had to give it a list.
+
+430
+00:35:58.310 --> 00:36:00.049
+Anthony Taylor: That's what we're doing there.
+
+431
+00:36:00.620 --> 00:36:05.809
+Anthony Taylor: Now, you have a few less have a train. You don't have the name anymore. Basically.
+
+432
+00:36:06.960 --> 00:36:11.879
+Anthony Taylor: Okay, now, we're going to create our group by object, it said. Group by trainer, bam.
+
+433
+00:36:12.870 --> 00:36:16.460
+Anthony Taylor: group by trainer and get the average.
+
+434
+00:36:16.770 --> 00:36:20.179
+Anthony Taylor: There's the averages. Now, this is interesting.
+
+435
+00:36:21.380 --> 00:36:26.280
+Anthony Taylor: We didn't have to pass in any columns to get the averages of everything. Remember.
+
+436
+00:36:26.540 --> 00:36:34.529
+Anthony Taylor: if you don't pass in a column name it will. It will give you every number in the data frame. It'll average it.
+
+437
+00:36:35.940 --> 00:36:36.960
+Anthony Taylor: So
+
+438
+00:36:38.010 --> 00:36:38.940
+Anthony Taylor: there you go.
+
+439
+00:36:39.050 --> 00:36:41.279
+Anthony Taylor: Okay,
+
+440
+00:36:41.440 --> 00:36:43.119
+Anthony Taylor: And then we wanted to sort
+
+441
+00:36:44.150 --> 00:36:46.260
+Anthony Taylor: sorted by membership days.
+
+442
+00:36:47.320 --> 00:36:52.650
+Anthony Taylor: There's your date. So I'm guessing. Did anybody get that one
+
+443
+00:36:55.290 --> 00:36:56.120
+Anthony Taylor: now
+
+444
+00:36:56.350 --> 00:36:58.870
+Gebrekristos, Hafton: we did in a different way.
+
+445
+00:36:59.470 --> 00:37:08.359
+Anthony Taylor: totally cool half. It's like I said, with the II kind of showed you this, but I don't think I made it crystal clear. Member, count.
+
+446
+00:37:09.030 --> 00:37:13.779
+Anthony Taylor: It says it applied it to every column. and they were all the same
+
+447
+00:37:14.840 --> 00:37:15.760
+Anthony Taylor: same thing.
+
+448
+00:37:18.580 --> 00:37:22.090
+Anthony Taylor: except in this case. Mean can only be applied to numerical columns.
+
+449
+00:37:23.710 --> 00:37:25.240
+Anthony Taylor: probably the only real difference.
+
+450
+00:37:27.780 --> 00:37:30.479
+Anthony Taylor: But since we got rid of
+
+451
+00:37:31.370 --> 00:37:32.940
+Anthony Taylor: the name column
+
+452
+00:37:33.040 --> 00:37:36.469
+Anthony Taylor: and we grouped by the trainer column.
+
+453
+00:37:36.760 --> 00:37:38.100
+Anthony Taylor: Look what was left?
+
+454
+00:37:39.240 --> 00:37:40.950
+Anthony Taylor: Just numeric columns.
+
+455
+00:37:42.720 --> 00:37:43.460
+Anthony Taylor: Okay.
+
+456
+00:37:44.550 --> 00:37:46.139
+Anthony Taylor: pretty cool questions.
+
+457
+00:37:46.160 --> 00:37:48.140
+Meredith McCanse (she/her): Can you show the
+
+458
+00:37:49.880 --> 00:37:56.790
+Meredith McCanse (she/her): I think I grouped by the same way that you did. But I have different numbers. What did you say up a trainer's data group? By
+
+459
+00:37:58.670 --> 00:38:03.090
+Meredith McCanse (she/her): that means. okay, will you show the sort by
+
+460
+00:38:03.870 --> 00:38:12.160
+Meredith McCanse (she/her): the sort at the end again. Yeah, sort values.  Thank you.
+
+461
+00:38:14.700 --> 00:38:16.180
+Meredith McCanse (she/her): Okay, I'm good.
+
+462
+00:38:17.080 --> 00:38:19.450
+Anthony Taylor: Awesome. everybody. Good.
+
+463
+00:38:20.200 --> 00:38:24.820
+Gardner, Curry: Can you scroll back up to? Where you group by?
+
+464
+00:38:25.170 --> 00:38:26.840
+Gardner, Curry: They quick. Yes, sir.
+
+465
+00:38:29.280 --> 00:38:30.909
+Gardner, Curry: okay, thank you.
+
+466
+00:38:31.560 --> 00:38:34.399
+Anthony Taylor: Not a problem. not a problem.
+
+467
+00:38:35.340 --> 00:38:39.749
+Anthony Taylor: Alright. Okay. So we learn how to do one group by call.
+
+468
+00:38:40.240 --> 00:38:41.660
+Anthony Taylor: Now, let's learn
+
+469
+00:38:42.750 --> 00:38:43.600
+by Google.
+
+470
+00:38:48.090 --> 00:38:49.349
+Anthony Taylor: I don't know if I'm gonna do the
+
+471
+00:38:50.110 --> 00:38:52.779
+Anthony Taylor: type a long one this time. I'm just gonna
+
+472
+00:38:53.140 --> 00:38:56.230
+Anthony Taylor: go through the code with you. So in Port pandas.
+
+473
+00:38:56.380 --> 00:39:03.659
+Anthony Taylor: we're going to read it in. We're just going to do the cleanup in one pass. This is the same data we did last time. We don't really need to go through all the steps again.
+
+474
+00:39:03.750 --> 00:39:06.930
+Anthony Taylor: But we can just do it in one pass. And now it's done.
+
+475
+00:39:07.390 --> 00:39:11.539
+Anthony Taylor: Okay, so this is like 5 cells in the last number.
+
+476
+00:39:12.310 --> 00:39:13.270
+Anthony Taylor: Okay.
+
+477
+00:39:13.560 --> 00:39:16.679
+Anthony Taylor: alright. So here we're gonna do the group. By now.
+
+478
+00:39:19.610 --> 00:39:23.050
+Anthony Taylor: this is not 2 columns.
+
+479
+00:39:24.050 --> 00:39:30.819
+Anthony Taylor: It's in a different method. But what they're doing is, they're basically saying, I want you to group by shape
+
+480
+00:39:31.420 --> 00:39:36.969
+Anthony Taylor: and then give me the mean of duration. Second. just in one line.
+
+481
+00:39:38.670 --> 00:39:45.100
+Anthony Taylor: Okay? And then it's gonna output the result. So you get that. is this a data frame or a series
+
+482
+00:39:49.230 --> 00:39:50.130
+Mason, Natalie: series?
+
+483
+00:39:53.300 --> 00:39:55.290
+Anthony Taylor: Does anybody disagree with NATO?
+
+484
+00:39:56.980 --> 00:39:58.460
+Clayton Graves: It's a series.
+
+485
+00:40:00.200 --> 00:40:06.920
+Anthony Taylor: I thought a series didn't have a header on that second column.
+
+486
+00:40:07.170 --> 00:40:09.820
+Anthony Taylor: Look at how Vs code is displaying it.
+
+487
+00:40:10.800 --> 00:40:12.489
+Clayton Graves: Tape is the index.
+
+488
+00:40:13.380 --> 00:40:17.000
+Anthony Taylor: It's it's an in. It's the index for the data frame.
+
+489
+00:40:17.110 --> 00:40:17.880
+Baro, Sonja: Right?
+
+490
+00:40:18.190 --> 00:40:23.850
+Anthony Taylor: Okay? So in this case it is, in fact, David. and and the remember the reason
+
+491
+00:40:24.140 --> 00:40:27.250
+Anthony Taylor: the reason why. Here let me go back to
+
+492
+00:40:27.600 --> 00:40:33.000
+Anthony Taylor: like up here just for a second and remind you.
+
+493
+00:40:33.390 --> 00:40:35.229
+Anthony Taylor: where did I put that?
+
+494
+00:40:36.870 --> 00:40:39.289
+Anthony Taylor: So this is a series.
+
+495
+00:40:39.420 --> 00:40:52.850
+Anthony Taylor: Look at how it looks. Okay. this is a data frame. There's a pretty good visual cue here. that one's a data frame. And that's these alternating colors.
+
+496
+00:40:53.430 --> 00:40:56.020
+Anthony Taylor: Okay? But yes, this is data.
+
+497
+00:40:56.460 --> 00:40:58.519
+Anthony Taylor: Okay? Which just means
+
+498
+00:40:58.780 --> 00:41:04.220
+Anthony Taylor: you, even though this is technically an index. These are rows. This is not a list.
+
+499
+00:41:05.230 --> 00:41:10.970
+Anthony Taylor: This is not a single column. This is 2 columns. So it's basically 2 suits. Okay.
+
+500
+00:41:11.800 --> 00:41:20.920
+Anthony Taylor: that was just a little extra. Don't worry. Okay. So here we're going to use the new Ag method. So this is a little different.
+
+501
+00:41:20.940 --> 00:41:28.399
+Anthony Taylor: But it's the exact same thing. And you're probably going to ask me, why do we need to learn 2 ways to do the exact same thing. Oh, we're building us.
+
+502
+00:41:28.880 --> 00:41:32.830
+Anthony Taylor: Okay? So this will return the same thing. So let's look at these 2 together.
+
+503
+00:41:33.090 --> 00:41:43.670
+Anthony Taylor: So we have duration, shape, duration shape. Ufodf, you have it group by group. I shape shape, shape. dot ad dictionary object.
+
+504
+00:41:45.460 --> 00:41:51.350
+Anthony Taylor: The column is the key. and the aggregating function
+
+505
+00:41:51.450 --> 00:41:52.860
+Anthony Taylor: is the value
+
+506
+00:41:54.270 --> 00:42:04.470
+Anthony Taylor: up here. we said group by shape. And then we selected a column and then did dot aggregation function. Okay?
+
+507
+00:42:04.650 --> 00:42:11.560
+Anthony Taylor: So right now, it's like, well, they're doing the same thing. I like this one better. Right? Most of you like this one better
+
+508
+00:42:12.390 --> 00:42:15.759
+Anthony Taylor: because dictionaries freak people out that are new to this stuff.
+
+509
+00:42:16.950 --> 00:42:20.780
+Anthony Taylor: Okay. that's okay. But
+
+510
+00:42:22.620 --> 00:42:27.210
+Anthony Taylor: multiple aggregations. Yeah. So here
+
+511
+00:42:27.690 --> 00:42:29.190
+Anthony Taylor: we're going to do.
+
+512
+00:42:30.570 --> 00:42:31.640
+Anthony Taylor: Yes, I'm
+
+513
+00:42:32.030 --> 00:42:52.230
+Baro, Sonja: you go back up where you were showing the dictionary version. So under the duration. That's our key. And the value is mean. But mean is currently a string. How did we get? Well, yeah, add function. It only wants you to get. Give it the name of the function.
+
+514
+00:42:53.260 --> 00:42:56.120
+Anthony Taylor: Yeah, it's not doing. It's not like that.
+
+515
+00:42:56.200 --> 00:42:58.199
+Baro, Sonja: So it's not just what's the name?
+
+516
+00:42:58.400 --> 00:43:00.149
+Anthony Taylor: No, it is exactly the same.
+
+517
+00:43:00.390 --> 00:43:11.880
+Anthony Taylor: It is running this. But the Ag. Method, this. Add method, that these parentheses are wrapped around right, that add method wants the column and the name
+
+518
+00:43:12.040 --> 00:43:13.240
+Anthony Taylor: of the function.
+
+519
+00:43:13.990 --> 00:43:16.489
+Baro, Sonja: But does it actually do the calculation?
+
+520
+00:43:16.940 --> 00:43:18.890
+Anthony Taylor: Yeah, I think.
+
+521
+00:43:19.070 --> 00:43:19.910
+Baro, Sonja: okay.
+
+522
+00:43:20.430 --> 00:43:22.320
+Anthony Taylor: yeah, that's what Ag does.
+
+523
+00:43:22.490 --> 00:43:30.040
+Anthony Taylor: Okay? So reason we learned this is because you can't do dot me dot some
+
+524
+00:43:31.520 --> 00:43:32.500
+Anthony Taylor: alright.
+
+525
+00:43:33.610 --> 00:43:36.120
+Anthony Taylor: But if we wanted to do that, we need that sum
+
+526
+00:43:36.410 --> 00:43:39.070
+Anthony Taylor: we could with the Ag method.
+
+527
+00:43:39.250 --> 00:43:44.819
+Anthony Taylor: So we have group by shape. All is the same duration seconds.ag
+
+528
+00:43:45.330 --> 00:43:46.660
+Anthony Taylor: parentheses
+
+529
+00:43:49.450 --> 00:43:55.369
+Anthony Taylor: any aggregation functions we wish run. Now this is a little different than this syntax, but the bottom line is
+
+530
+00:43:55.500 --> 00:44:00.820
+Anthony Taylor: any aggregation functions we let a row could be multiple. It'll be 2, 3, be 5.
+
+531
+00:44:01.350 --> 00:44:04.630
+Dipinto, Matt: It seems like the output from that is a data frame. Is that correct?
+
+532
+00:44:05.750 --> 00:44:13.019
+Anthony Taylor: And could you give the Ag function a dictionary that includes multiple columns
+
+533
+00:44:13.080 --> 00:44:17.730
+Anthony Taylor: and multiple functions stacked together so you could make that go to some degree. Yes.
+
+534
+00:44:17.900 --> 00:44:21.270
+Anthony Taylor: but you can also do something like this.
+
+535
+00:44:22.170 --> 00:44:25.579
+Anthony Taylor: Okay, well, that's different. So
+
+536
+00:44:26.800 --> 00:44:32.670
+Anthony Taylor: I would say, probably, yes. I wouldn't. But yes, you could. Okay.
+
+537
+00:44:32.940 --> 00:44:35.860
+Anthony Taylor:  should be able to.
+
+538
+00:44:36.310 --> 00:44:40.989
+Anthony Taylor: So so here we're going to group by 2 columns.
+
+539
+00:44:42.920 --> 00:44:44.680
+Anthony Taylor: Okay? Which is.
+
+540
+00:44:46.360 --> 00:44:50.049
+Anthony Taylor: we haven't done yet. And notice, it's just in a list.
+
+541
+00:44:50.260 --> 00:44:56.369
+Anthony Taylor: Then we're going to say, give me the average of the mean. So here we're going to group by country
+
+542
+00:44:56.620 --> 00:45:03.250
+Anthony Taylor: state, and we want the average duration in seconds. So there's country state
+
+543
+00:45:03.290 --> 00:45:04.690
+Anthony Taylor: duration and seconds.
+
+544
+00:45:06.970 --> 00:45:08.239
+Anthony Taylor: That's kind of cool. Huh?
+
+545
+00:45:12.460 --> 00:45:15.499
+Anthony Taylor: I'm hoping it's going to show us the example that you just asked about.
+
+546
+00:45:17.380 --> 00:45:18.909
+Anthony Taylor: Pretty sure it does.
+
+547
+00:45:19.710 --> 00:45:22.890
+Anthony Taylor: but it's not as simple as maybe you said
+
+548
+00:45:23.750 --> 00:45:32.650
+Anthony Taylor: So here's the same thing. But this time we're going to do 3 aggregation functions. So country state duration in seconds, I went count mean and sum.
+
+549
+00:45:34.470 --> 00:45:35.459
+Anthony Taylor: And there you go.
+
+550
+00:45:39.200 --> 00:45:42.499
+Anthony Taylor: So this syntax, everyone following
+
+551
+00:45:42.530 --> 00:45:47.759
+Anthony Taylor: name of the data frame group by the columns. You want to group by or column
+
+552
+00:45:47.960 --> 00:45:56.679
+Anthony Taylor: the column that you want to aggregate and the function the aggregation functions you wish to execute.
+
+553
+00:45:58.830 --> 00:45:59.690
+Anthony Taylor: Got it?
+
+554
+00:46:01.020 --> 00:46:03.300
+Anthony Taylor: Okay? So
+
+555
+00:46:04.250 --> 00:46:18.780
+Anthony Taylor: oh, I know what this is. Okay. So here we have an interesting situation, because we have durations and seconds way up here we have country and state is as index. So a 2 column index which look all this blank space over here
+
+556
+00:46:19.790 --> 00:46:26.970
+Anthony Taylor: alright, and then we have the names of our actual columns, which isn't very
+
+557
+00:46:27.900 --> 00:46:28.810
+Anthony Taylor: descriptive.
+
+558
+00:46:29.260 --> 00:46:31.999
+Anthony Taylor: So we're going to first
+
+559
+00:46:32.250 --> 00:46:34.359
+Anthony Taylor: create a copy of this data.
+
+560
+00:46:35.410 --> 00:46:38.250
+Anthony Taylor: Second. we're going to
+
+561
+00:46:38.980 --> 00:46:49.970
+Anthony Taylor: get the columns list and pass it, or and sorry may state this. We're going to get the columns, execute 2 flat index.
+
+562
+00:46:51.070 --> 00:46:53.350
+Anthony Taylor: and then put it into
+
+563
+00:46:53.490 --> 00:46:59.300
+Anthony Taylor: the columns. Name the the same columns right here and then take a look at. So let's look at that.
+
+564
+00:47:00.810 --> 00:47:03.639
+Anthony Taylor: So basically now, instead of
+
+565
+00:47:03.870 --> 00:47:11.110
+Anthony Taylor: just duration seconds and then count mean sum. It now has these little Tuples.
+
+566
+00:47:11.320 --> 00:47:13.600
+Anthony Taylor: Right? Everybody. Remember, these are Tuples.
+
+567
+00:47:14.960 --> 00:47:19.120
+Anthony Taylor: They're in parentheses. There's 2 of them. Okay, with a comment in the middle.
+
+568
+00:47:19.420 --> 00:47:28.419
+Anthony Taylor: It has the column name and the other column name. So this column name. and each one of these in a tuple with it.
+
+569
+00:47:29.270 --> 00:47:31.689
+Anthony Taylor: So because these are now in a tuple.
+
+570
+00:47:32.140 --> 00:47:35.829
+Anthony Taylor: we can use list, comprehension
+
+571
+00:47:37.920 --> 00:47:44.540
+Anthony Taylor: and do a join and put an underscore between these 2. So we're going to say 4 columns
+
+572
+00:47:44.940 --> 00:47:46.030
+Anthony Taylor: in
+
+573
+00:47:47.050 --> 00:47:48.380
+Anthony Taylor: this list.
+
+574
+00:47:49.880 --> 00:47:55.370
+Anthony Taylor: Join this with this underscore. So it's going to be duration seconds underscore, count.
+
+575
+00:47:55.760 --> 00:47:56.770
+Anthony Taylor: and so on.
+
+576
+00:47:57.150 --> 00:47:59.300
+Anthony Taylor: So you end up with that.
+
+577
+00:48:01.870 --> 00:48:09.490
+Anthony Taylor: Okay? So now it's flatter right? There's no, there's not this, this is now gone. It's now a part of that.
+
+578
+00:48:10.590 --> 00:48:14.860
+Anthony Taylor: Alright. And this this kind of stuff. Hmm.
+
+579
+00:48:14.970 --> 00:48:23.619
+Anthony Taylor: okay. So the second method, this is another way of doing it. I don't know if this is easier or not. You guys can decide. Level 0 is just going to grab
+
+580
+00:48:23.800 --> 00:48:24.720
+Anthony Taylor: the
+
+581
+00:48:25.490 --> 00:48:29.009
+Anthony Taylor: the duration seconds, all the duration stuff.
+
+582
+00:48:29.080 --> 00:48:35.709
+Anthony Taylor: It's gonna be 3 times duration seconds and then level, one is going to be these guys.
+
+583
+00:48:35.840 --> 00:48:41.880
+Anthony Taylor: And then we can just concatenate them together and push them back out. So you end up with the same thing.
+
+584
+00:48:42.680 --> 00:48:45.209
+Anthony Taylor: I don't know which one's easier. It's
+
+585
+00:48:45.220 --> 00:48:47.420
+Anthony Taylor: 6 in one hand, half dozen in the other.
+
+586
+00:48:47.960 --> 00:48:51.749
+Anthony Taylor: Okay, you can decide which one you like better or understand.
+
+587
+00:48:52.940 --> 00:49:04.090
+Anthony Taylor: And then when we're all done. these are our new columns. then we can rename them to make it even more clear. Okay, so you can do duration seconds. Count is actually number of sites.
+
+588
+00:49:04.930 --> 00:49:09.770
+Anthony Taylor: duration. Count me average duration. Second. some total duration.
+
+589
+00:49:10.690 --> 00:49:14.980
+Anthony Taylor: I run that. and then you have a final output.
+
+590
+00:49:15.020 --> 00:49:18.540
+Anthony Taylor: So one of the things they do that frustrates me a little.
+
+591
+00:49:18.940 --> 00:49:24.119
+Anthony Taylor: And and I'll tell you we don't really do this very often, because they do a lot of
+
+592
+00:49:25.010 --> 00:49:31.059
+Anthony Taylor: like pseudo reports in Python. You will learn visualization where that makes sense.
+
+593
+00:49:31.540 --> 00:49:34.520
+Anthony Taylor: Okay? But for the most part.
+
+594
+00:49:34.570 --> 00:49:42.200
+Anthony Taylor: as we work through python, whether it be in data or in AI, we're not going to format. Just to look at the date, just to look at.
+
+595
+00:49:42.530 --> 00:49:46.240
+Anthony Taylor: Okay, we can. We could you get the same information
+
+596
+00:49:46.860 --> 00:49:50.580
+Anthony Taylor: from this as you do
+
+597
+00:49:51.550 --> 00:49:54.209
+Anthony Taylor: this without all that extra work.
+
+598
+00:49:55.440 --> 00:49:59.060
+Anthony Taylor: So if you were just doing data analytics, this is sufficient.
+
+599
+00:49:59.450 --> 00:50:03.149
+Anthony Taylor: If you were trying to generate a report to give to a business user.
+
+600
+00:50:04.770 --> 00:50:07.130
+Anthony Taylor: Maybe you would do this. However.
+
+601
+00:50:07.670 --> 00:50:11.009
+Anthony Taylor: I don't know anybody to do this. Most people would take
+
+602
+00:50:12.230 --> 00:50:13.180
+Anthony Taylor: actually
+
+603
+00:50:14.440 --> 00:50:17.149
+Anthony Taylor: this and put it in a reporting tool
+
+604
+00:50:18.160 --> 00:50:20.030
+Anthony Taylor: and give them a report.
+
+605
+00:50:20.160 --> 00:50:22.920
+Anthony Taylor: throw it in. Excel. Give them accept.
+
+606
+00:50:23.220 --> 00:50:29.019
+Anthony Taylor: Okay, you would give them something that makes more sense for viewing the data. You're not going to give them a python notebook
+
+607
+00:50:29.530 --> 00:50:31.859
+Anthony Taylor: or a text file with
+
+608
+00:50:33.050 --> 00:50:36.769
+Anthony Taylor: this in it. You could give this in an excel, but it's not necessary.
+
+609
+00:50:37.110 --> 00:50:39.479
+Anthony Taylor: Excel. Can format this in like 2 clicks.
+
+610
+00:50:41.030 --> 00:50:43.480
+Anthony Taylor: So cool.
+
+611
+00:50:44.660 --> 00:50:53.459
+Anthony Taylor: It's okay. It's good to learn it, anyway. It's good practice to learn to remember how to rename and all that kind of stuff. Cause you do need to know how to rename
+
+612
+00:50:54.330 --> 00:50:58.570
+Anthony Taylor: Hi, hi activity time.
+
+613
+00:50:59.770 --> 00:51:02.560
+Anthony Taylor: So this is the famous airline
+
+614
+00:51:03.000 --> 00:51:06.419
+Anthony Taylor: data frame. It's a bunch of data about
+
+615
+00:51:06.760 --> 00:51:12.559
+Anthony Taylor: delays and all this stuff. It's it's real data, too. So you're going to read Ingots
+
+616
+00:51:13.090 --> 00:51:18.379
+Anthony Taylor: group by unique carrier. So the average time for delayed flights. They even give you the column.
+
+617
+00:51:18.610 --> 00:51:21.300
+Anthony Taylor: show the average time for delayed arrivals
+
+618
+00:51:21.760 --> 00:51:26.169
+Anthony Taylor: and delayed departures for each carrier. You've already grouped it
+
+619
+00:51:27.110 --> 00:51:37.090
+Anthony Taylor: show first and last 25 rows. For each letter line carrier by day of the week show the total. So this is a really good
+
+620
+00:51:37.180 --> 00:51:40.179
+Anthony Taylor: data. Analytics exercise. All right.
+
+621
+00:51:40.300 --> 00:51:45.619
+Anthony Taylor: It's a really good one. And I know you guys are like we can come here for data analytics. Yes, you did.
+
+622
+00:51:45.980 --> 00:51:51.800
+Anthony Taylor: All right. AI is data. you know, not do data analytics, not gonna be able to learn that.
+
+623
+00:51:51.930 --> 00:51:56.819
+Anthony Taylor: So it's an important step along the path. Good news is, we don't spend a lot of time.
+
+624
+00:51:57.940 --> 00:52:11.410
+Anthony Taylor: Okay, does everybody like dating anybody just hate it? So far, I hate data. But Curry does fine curry. you know why Curry hates it because he's a software engineer.
+
+625
+00:52:12.330 --> 00:52:15.920
+Anthony Taylor: right? Software engineers write applications and don't make it.
+
+626
+00:52:16.450 --> 00:52:18.300
+Anthony Taylor: I'm just kidding Kurt
+
+627
+00:52:18.750 --> 00:52:20.030
+data guide.
+
+628
+00:52:20.340 --> 00:52:24.680
+Anthony Taylor: Those are the guys driving the nice foot alright just just
+
+629
+00:52:24.700 --> 00:52:28.309
+Gardner, Curry: unless Perry makes now not wrong. You're not wrong.
+
+630
+00:52:28.340 --> 00:52:33.139
+Anthony Taylor: but Curry is gonna make an app and sell it, and he's gonna be driving like a Tesla side.
+
+631
+00:52:34.170 --> 00:52:36.870
+Anthony Taylor: So there you go. He's gonna make millions.
+
+632
+00:52:37.210 --> 00:52:38.970
+Anthony Taylor: Yeah, anyway.
+
+633
+00:52:39.170 --> 00:52:40.340
+Anthony Taylor: I actually
+
+634
+00:52:41.310 --> 00:52:44.240
+Anthony Taylor: welcome back. Very good.
+
+635
+00:52:46.470 --> 00:52:50.030
+Anthony Taylor: So how did that go?
+
+636
+00:52:51.420 --> 00:52:55.839
+Anthony Taylor: Did anybody besides Christine have trouble pulling in that big old file.
+
+637
+00:52:58.720 --> 00:53:02.910
+Clayton Graves: That was all done for us.
+
+638
+00:53:03.400 --> 00:53:07.560
+Masarirambi, Rodney: Well, no, but you know we had some errors. Did you have errors? Right?
+
+639
+00:53:07.640 --> 00:53:18.259
+Masarirambi, Rodney: No, no, no, but running. It took like like 40 something seconds. I'm not used to doing that long.
+
+640
+00:53:18.540 --> 00:53:26.220
+Anthony Taylor: And it's it's we. There's there's data science stuff in projects you could do with that file. It's so big it's a cool one.
+
+641
+00:53:26.410 --> 00:53:29.990
+Anthony Taylor:  alright so
+
+642
+00:53:33.780 --> 00:53:38.190
+Anthony Taylor: clear. All of so yeah, for me, it takes about 8 s.
+
+643
+00:53:39.540 --> 00:53:41.070
+Anthony Taylor: Let's see what it does this time.
+
+644
+00:53:42.190 --> 00:53:44.059
+Clayton Graves: Oh, yeah, this took a while.
+
+645
+00:53:45.410 --> 00:53:47.879
+Anthony Taylor: pays it?
+
+646
+00:53:48.250 --> 00:53:55.490
+Anthony Taylor: so yeah, so we got that. And we look at the columns. This is show the average time by carrier.
+
+647
+00:53:55.540 --> 00:54:07.339
+Anthony Taylor: which again, that buy is our our our helper. Here. It's telling us all right. We need to move by. So we're going to group by unique carrier aggregate. And you could have done the docking way if you wanted to. But
+
+648
+00:54:07.620 --> 00:54:10.880
+Anthony Taylor: through this. They're gonna do this, add one every time.
+
+649
+00:54:10.890 --> 00:54:14.700
+Anthony Taylor: So add by arrival, delay, need?
+
+650
+00:54:14.940 --> 00:54:16.930
+Anthony Taylor: And you get this?
+
+651
+00:54:18.180 --> 00:54:20.370
+Anthony Taylor: Okay? Pretty cool.
+
+652
+00:54:21.020 --> 00:54:31.510
+Anthony Taylor: And then it says, by delays and by arrivals. So you just have to do the double black brackets, and then the add function. We get both of them
+
+653
+00:54:32.430 --> 00:54:33.480
+Anthony Taylor: alright
+
+654
+00:54:34.220 --> 00:54:38.160
+Anthony Taylor: and then, if we wanted to group by multiple columns.
+
+655
+00:54:38.300 --> 00:54:42.789
+Anthony Taylor: you're gonna pass in columns in a list. Do the group by
+
+656
+00:54:44.090 --> 00:54:54.899
+Anthony Taylor: the column list that you want to aggregate. In this case we only want it diverted, but it's still in the list. right? So we have this list inside brackets
+
+657
+00:54:56.100 --> 00:55:01.229
+Anthony Taylor: to get this one column, and then we want to summit and take a quick get the first 25 rows.
+
+658
+00:55:01.970 --> 00:55:07.369
+Anthony Taylor: Alright. So this is by day. So we're doing unique carrier by day.
+
+659
+00:55:09.020 --> 00:55:17.900
+Anthony Taylor: Pretty cool. American airlines has a lot. Yeah. But you know what American airlines flies a lot. Flights.
+
+660
+00:55:18.060 --> 00:55:24.609
+Anthony Taylor: So it would make sense. They would have a lot. and we should convert Co, you would compare that to Dell or Delta, or
+
+661
+00:55:25.700 --> 00:55:26.920
+Anthony Taylor: maybe united.
+
+662
+00:55:28.990 --> 00:55:30.869
+Anthony Taylor: So here's the bottom of the list.
+
+663
+00:55:33.820 --> 00:55:34.530
+Okay.
+
+664
+00:55:34.830 --> 00:55:42.009
+Anthony Taylor: So here it says, show the total average number of flights that were diverted and canceled for each carrier by day. So
+
+665
+00:55:42.050 --> 00:55:45.860
+Anthony Taylor: we're gonna have group by unique carrier and day.
+
+666
+00:55:45.880 --> 00:55:48.530
+Anthony Taylor: Then we're going to have canceled and diverted
+
+667
+00:55:49.470 --> 00:55:55.309
+Anthony Taylor: right? Cause it said, diverted and canceled. It, flipped it around. And then we want the sum and the average
+
+668
+00:55:55.730 --> 00:56:02.920
+Anthony Taylor: lot of stuff going on there, but it's all fairly straightforward. so canceled. Some canceled me, diverted, some diverted me.
+
+669
+00:56:04.910 --> 00:56:06.689
+Anthony Taylor: Everybody follow me on that one.
+
+670
+00:56:07.260 --> 00:56:10.650
+Anthony Taylor: Okay, so did they do the flattening thing? I bet. Did they do it?
+
+671
+00:56:11.190 --> 00:56:12.980
+Anthony Taylor: Oh, yeah, they did it that way. Okay.
+
+672
+00:56:13.030 --> 00:56:18.350
+Anthony Taylor: so here, total average number of flights that were diverted and cancelled for each flight.
+
+673
+00:56:18.680 --> 00:56:27.269
+Anthony Taylor: origin, and destination. So route by origin and destination cancel, diverted some and mean.
+
+674
+00:56:29.820 --> 00:56:30.820
+Anthony Taylor: pretty cool
+
+675
+00:56:35.740 --> 00:56:43.550
+Anthony Taylor: show the total number of flights that were diverted for each airline carrier. Anytime, they say. Total, we know that's going to be a sum.
+
+676
+00:56:44.400 --> 00:56:47.959
+Anthony Taylor: It could be account depending on how your data is configured.
+
+677
+00:56:48.090 --> 00:56:50.919
+Anthony Taylor: For each airline here
+
+678
+00:56:50.990 --> 00:56:58.770
+Dipinto, Matt: cancelled flights mean and sum is 0 through the whole columns. And I had the same thing. So I'm not saying you're wrong. I'm just saying that that is weird data.
+
+679
+00:57:00.000 --> 00:57:05.829
+Anthony Taylor: What are you talking about? I'm wrong. Wrong about what? No, no, no, oh, no, I hear you.
+
+680
+00:57:06.490 --> 00:57:16.440
+Baro, Sonja: None of them had cancellations, having never had a canceled flight myself. I totally believe this data.
+
+681
+00:57:16.510 --> 00:57:24.099
+Baro, Sonja: and isn't 9 E. South West? No, we question this as well.
+
+682
+00:57:24.610 --> 00:57:26.510
+Baro, Sonja: That's all right. Doesn't have to be real.
+
+683
+00:57:26.790 --> 00:57:37.969
+Clayton Graves: Yeah. I was gonna see if it said somewhere, it's about as useful as aliens favor in California, I mean, yeah, I wanted to know.
+
+684
+00:57:38.940 --> 00:57:45.349
+Anthony Taylor: Californians and Californians and Floridans and Alaskans tend to be the most Ufo people.
+
+685
+00:57:45.690 --> 00:57:51.120
+Masarirambi, Rodney: Florida for different reasons. But you know
+
+686
+00:57:51.380 --> 00:57:58.449
+Baro, Sonja: about port. What about Oregon? You can do psychedelic mushrooms. Now you're gonna be seeing lots of stuff.
+
+687
+00:57:58.940 --> 00:58:07.520
+michael mcpherson: You can do that in Colorado, too. So so what you're saying is the state with the largest sum of hippies. And yeah, the state with the largest sum of
+
+688
+00:58:07.880 --> 00:58:30.510
+Baro, Sonja: geriatrics. Those are the ones that are seeing shit in this guy. I think we should do a correlation right? We have the data so we can look to see if there's a spike in Colorado. sightings.
+
+689
+00:58:30.790 --> 00:58:38.520
+Anthony Taylor: Not yet. I can't run out of time. Alright you need carrier origin destination. We're gonna do a 3 column group by
+
+690
+00:58:38.710 --> 00:58:44.150
+Anthony Taylor: look at diverted aggregate the sub. Check it out. There you go!
+
+691
+00:58:45.120 --> 00:58:57.019
+Anthony Taylor: And then we're gonna do that whole flattening thing. So they're gonna get level 0. They're gonna get level one. They're gonna concatenate them with an underscore and then output it. So we got 2 sales that are gonna do that
+
+692
+00:58:57.790 --> 00:59:00.510
+Anthony Taylor: and that what you end up.
+
+693
+00:59:02.070 --> 00:59:03.560
+Raugewitz, Tania: It's a pivot table
+
+694
+00:59:04.420 --> 00:59:07.150
+Anthony Taylor: more or less. Yeah, well, we're gonna learn actual pivot
+
+695
+00:59:08.050 --> 00:59:10.080
+Anthony Taylor: next Class Monday.
+
+696
+00:59:10.310 --> 00:59:16.169
+Anthony Taylor: We actually have a function that does that, too. Like, if there's something you want to do, we have a function.
+
+697
+00:59:16.960 --> 00:59:22.289
+Mason, Natalie: Anthony, can you just explain this last one to me
+
+698
+00:59:22.400 --> 00:59:27.249
+Anthony Taylor: to explain this when you got to understand this one.
+
+699
+00:59:27.420 --> 00:59:32.420
+Anthony Taylor: So level 0 is going to get this top
+
+700
+00:59:33.730 --> 00:59:37.640
+Anthony Taylor: section. See how there's 2 sections here. By the by, the shading.
+
+701
+00:59:37.730 --> 00:59:41.630
+Anthony Taylor: So the level 0 is this level one. Is this
+
+702
+00:59:41.690 --> 00:59:47.640
+Anthony Taylor: so in the the big, the demonstration I did for you. There were like 3 of these in this cell.
+
+703
+00:59:47.990 --> 00:59:54.500
+Anthony Taylor: Okay. so level 0 gives you that level one gives you this. So here we're saying, Give me level 0,
+
+704
+00:59:54.680 --> 00:59:56.439
+Anthony Taylor: which is diverted.
+
+705
+00:59:57.000 --> 01:00:00.929
+Anthony Taylor: and then give me level one, which is sum.
+
+706
+01:00:01.570 --> 01:00:14.459
+Anthony Taylor: and we assign them to these variables. And then we said. for the columns, I want you to take level 0, concatenate it with an underscore and level ones that gives you diverted
+
+707
+01:00:14.500 --> 01:00:16.420
+Anthony Taylor: underscore some.
+
+708
+01:00:16.870 --> 01:00:25.590
+Anthony Taylor: There's only one column there. Okay, so when you do this. it overwrites the one column with diverted underscores up.
+
+709
+01:00:26.400 --> 01:00:27.460
+Mason, Natalie: Thank you.
+
+710
+01:00:27.980 --> 01:00:29.109
+Anthony Taylor: Not a problem.
+
+711
+01:00:32.040 --> 01:00:33.180
+Anthony Taylor: Any other questions.
+
+712
+01:00:35.270 --> 01:00:38.090
+Anthony Taylor: Okay? So it's
+
+713
+01:00:43.340 --> 01:00:47.230
+Anthony Taylor: alright. So well, you know what? Let's go check the slideshow. See where we are.
+
+714
+01:00:51.600 --> 01:01:02.670
+Anthony Taylor: Break that work. Okay? So customizing aggregations. Well, we have our base aggregations. Mean, Max, Min.
+
+715
+01:01:03.200 --> 01:01:05.190
+Anthony Taylor: all of these right? There's bunches up.
+
+716
+01:01:05.400 --> 01:01:07.700
+Anthony Taylor: Okay, so what do we want to make our own?
+
+717
+01:01:08.710 --> 01:01:09.930
+Anthony Taylor: It's not hard to do.
+
+718
+01:01:10.000 --> 01:01:17.110
+Anthony Taylor: We write upon a function that takes a parameter. And then, if we want to calculate it, we can. Now, I will tell you, kind of cracks me up.
+
+719
+01:01:17.520 --> 01:01:18.909
+Anthony Taylor: For the most part.
+
+720
+01:01:19.340 --> 01:01:24.210
+Anthony Taylor: all of these functions are just gonna be like making remaking actual functions.
+
+721
+01:01:24.660 --> 01:01:29.420
+Anthony Taylor: But that's okay. So like to do an average if you wanted to call it custom average
+
+722
+01:01:29.550 --> 01:01:35.100
+Anthony Taylor: pass in a variable. And we say, Return variable. Dot. Me.
+
+723
+01:01:35.940 --> 01:01:40.329
+Anthony Taylor: Okay. Now, I want you to realize you could put all kinds of logic.
+
+724
+01:01:41.750 --> 01:01:45.469
+Anthony Taylor: Okay, to do this. It doesn't have to be something that simple
+
+725
+01:01:46.250 --> 01:01:50.419
+Anthony Taylor:  we can also apply them.
+
+726
+01:01:50.500 --> 01:01:55.610
+Anthony Taylor: Okay, now, and this is. you know, we can use the whole lambda thing like we did before.
+
+727
+01:01:55.840 --> 01:02:00.299
+Anthony Taylor: Okay, so in this case here, right here
+
+728
+01:02:00.660 --> 01:02:04.329
+Anthony Taylor: I wear. Wait. Here's the lambda there. It is right there.
+
+729
+01:02:04.540 --> 01:02:06.299
+Anthony Taylor: So the X
+
+730
+01:02:06.340 --> 01:02:13.170
+Anthony Taylor: referring to the data item, okay, we're gonna say, give me this column from the series
+
+731
+01:02:13.180 --> 01:02:19.050
+Anthony Taylor: and do get an execute that custom average function passing in
+
+732
+01:02:19.240 --> 01:02:21.790
+Anthony Taylor: X, because that's the item in the
+
+733
+01:02:21.850 --> 01:02:35.439
+Anthony Taylor: series and then the column header, which is duration seconds. Okay? And then that will return pretty much the exact same thing as just gotten by itself.
+
+734
+01:02:35.890 --> 01:02:36.810
+Anthony Taylor: Okay.
+
+735
+01:02:37.160 --> 01:02:45.369
+Anthony Taylor: But we want you to see this because you could come up with something. I mean, it is possible that you would come up with something that required some additional life.
+
+736
+01:02:46.180 --> 01:02:51.460
+Anthony Taylor: And so you wanted to put it into a function so that you can create something that doesn't already exist
+
+737
+01:02:51.800 --> 01:03:01.389
+Anthony Taylor: where that would help you is, you could maybe save a couple of steps where you had to like convert data or something like that. So maybe you could say,
+
+738
+01:03:02.110 --> 01:03:10.740
+Anthony Taylor: you know some x, but bring an X, and you convert it to an integer every time, even if it's even if it's already an integer, you still convert it to an integer.
+
+739
+01:03:11.800 --> 01:03:13.970
+Anthony Taylor: Okay. something like that.
+
+740
+01:03:14.250 --> 01:03:16.860
+Anthony Taylor:  yeah.
+
+741
+01:03:17.270 --> 01:03:32.960
+Anthony Taylor: So this is just a more complicated version. You're gonna see all this in the demo. But you have Pd series number sightings. This is the dictionary object, custom, count duration seconds. So here we're just executing the function on that data.
+
+742
+01:03:33.120 --> 01:03:38.249
+Anthony Taylor: Okay, average rates of seconds, custom, average average rate, custom sum. No, there's no lambda. Z.
+
+743
+01:03:38.630 --> 01:03:45.910
+Anthony Taylor: So this is just those functions that we just created. And that's and that gives you your summary. Okay?
+
+744
+01:03:46.480 --> 01:03:49.179
+Anthony Taylor: Alright. So let's go. Look at
+
+745
+01:03:49.550 --> 01:03:51.060
+Anthony Taylor: our example.
+
+746
+01:03:52.960 --> 01:03:59.859
+Anthony Taylor: Bring in pandas. You're gonna look at that Ufo sightings. Notice they're cleaning it up again, all in one cell, which is a good practice.
+
+747
+01:04:00.960 --> 01:04:01.980
+Anthony Taylor: Okay?
+
+748
+01:04:02.410 --> 01:04:08.730
+Anthony Taylor: So we're probably gonna be working with that duration seconds, since there's really no other numerical column that needs to take it here.
+
+749
+01:04:09.060 --> 01:04:16.409
+Anthony Taylor: So we're going to do group by shape duration seconds, dot me. But we know what that's gonna do, because we've been doing that for a little while. Now, right?
+
+750
+01:04:16.960 --> 01:04:20.779
+Anthony Taylor: So here, we're gonna create a function
+
+751
+01:04:20.890 --> 01:04:24.200
+Anthony Taylor: custom average. It takes a variable.
+
+752
+01:04:24.390 --> 01:04:26.239
+Anthony Taylor: We're going to save return
+
+753
+01:04:26.310 --> 01:04:28.849
+Anthony Taylor: for that variable, the mean.
+
+754
+01:04:29.080 --> 01:04:32.360
+Anthony Taylor: Now, since we are passing this into
+
+755
+01:04:32.620 --> 01:04:36.780
+Anthony Taylor:  well, in this case the apply.
+
+756
+01:04:38.080 --> 01:04:44.220
+Anthony Taylor: But or if you did it like into an ad. it basically is going to apply it to the group by.
+
+757
+01:04:44.250 --> 01:04:47.250
+Anthony Taylor: So it applies it to the group object.
+
+758
+01:04:48.220 --> 01:04:49.210
+Anthony Taylor: Okay?
+
+759
+01:04:49.490 --> 01:04:51.999
+Anthony Taylor: So in this case, shape
+
+760
+01:04:52.170 --> 01:04:53.390
+Anthony Taylor: the group by
+
+761
+01:04:53.800 --> 01:04:58.160
+Anthony Taylor: and then it's going to say again, this is the row from the group 5.
+
+762
+01:04:58.580 --> 01:05:04.530
+Anthony Taylor: This is the item itself, with the column header. and then
+
+763
+01:05:04.660 --> 01:05:11.790
+Anthony Taylor: the function passing in the actual column. Better. So, this is what we call it. This is the actual
+
+764
+01:05:12.400 --> 01:05:15.740
+Anthony Taylor: okay. and then that will return.
+
+765
+01:05:17.560 --> 01:05:25.270
+Anthony Taylor: This is the name we want to call it. And this is the actual. Got it same exact thing as you see
+
+766
+01:05:25.520 --> 01:05:37.439
+Anthony Taylor: here, except for we didn't rename the column yet. Okay, alright. So we wanted to do that with 2 columns. It's exactly the same thing all the way through.
+
+767
+01:05:37.780 --> 01:05:43.890
+Anthony Taylor: Okay, except but we're going to put 2 columns. We're still gonna use a lambda at Series
+
+768
+01:05:43.940 --> 01:05:48.720
+Anthony Taylor: Column that we want to call it. And then the method we want to run against it
+
+769
+01:05:48.970 --> 01:05:51.889
+Anthony Taylor: to get the output. and it looks like that
+
+770
+01:05:53.350 --> 01:05:54.440
+Anthony Taylor: pretty cool.
+
+771
+01:05:54.970 --> 01:06:00.159
+Anthony Taylor: Here's custom count custom sum again. I know these examples are laying
+
+772
+01:06:00.860 --> 01:06:07.949
+Anthony Taylor: and then when we create the summary data frame. We're just going to call each of those functions.
+
+773
+01:06:09.290 --> 01:06:12.080
+Anthony Taylor: And there you go. Okay.
+
+774
+01:06:13.200 --> 01:06:16.749
+Anthony Taylor: the point of this exercise is that, yes.
+
+775
+01:06:16.800 --> 01:06:23.700
+Anthony Taylor: you can create a custom function and put and apply it to a group by.
+
+776
+01:06:24.910 --> 01:06:33.489
+Anthony Taylor: If you were to do this. it would be only if you need to do additional processing before returning the data.
+
+777
+01:06:35.120 --> 01:06:36.080
+Anthony Taylor: Okay.
+
+778
+01:06:36.880 --> 01:06:41.839
+Anthony Taylor: I can't actually think of a use case other than like what I say.
+
+779
+01:06:41.850 --> 01:06:49.480
+Anthony Taylor: I'm gonna convert it to an integer. no matter what I'm going to try to. Or maybe
+
+780
+01:06:49.500 --> 01:06:52.579
+Anthony Taylor: I'm gonna do a try cast. If you don't know what that is yet.
+
+781
+01:06:52.700 --> 01:06:57.319
+Anthony Taylor: And if it fails it's gonna return at 0
+
+782
+01:06:58.320 --> 01:07:04.820
+Anthony Taylor: so that it doesn't fail the whole thing. Okay, there, there could be some stuff. But you still could have done that
+
+783
+01:07:05.330 --> 01:07:08.100
+Anthony Taylor: to the data prior to running your application.
+
+784
+01:07:09.360 --> 01:07:11.680
+Anthony Taylor: But it's still cool. It's a good thing to know.
+
+785
+01:07:12.230 --> 01:07:17.030
+Anthony Taylor: Alright, you get to use that cool. No cancellation airplane data.
+
+786
+01:07:18.220 --> 01:07:23.279
+Anthony Taylor: Gonna read it in. You're gonna create a custom function that will calculate the average.
+
+787
+01:07:23.310 --> 01:07:27.920
+Anthony Taylor: You've seen that a couple of times. It looks like you're going to do basically the same thing
+
+788
+01:07:28.230 --> 01:07:39.509
+Anthony Taylor: as you did in the last one. just using the custom function you're going to create that you could get right out of the instructor. Here's total of the value. So there's a someone
+
+789
+01:07:40.080 --> 01:07:40.790
+Anthony Taylor: oh.
+
+790
+01:07:43.100 --> 01:07:44.260
+a.
+
+791
+01:07:45.260 --> 01:07:47.129
+Anthony Taylor: and then create assembly.
+
+792
+01:07:48.580 --> 01:07:51.789
+Anthony Taylor: Oh, there's a custom percentage function. Where's that?
+
+793
+01:07:52.790 --> 01:07:54.130
+Anthony Taylor: Is that the bonus.
+
+794
+01:07:57.490 --> 01:07:59.449
+Anthony Taylor: It's in there, too. Look, they give you
+
+795
+01:07:59.480 --> 01:08:02.999
+Anthony Taylor: for custom percentage. Use the conditional statement
+
+796
+01:08:03.270 --> 01:08:11.110
+Anthony Taylor: check if it's greater than 0. Okay, so this is a function that has. Alright. I like this. This could be interesting.
+
+797
+01:08:13.310 --> 01:08:17.739
+Anthony Taylor: That's kind of cool. I might still think other ways to do it. But this is a cool way to handle it.
+
+798
+01:08:18.430 --> 01:08:20.220
+Anthony Taylor: Okay? Oh, here you go.
+
+799
+01:08:23.130 --> 01:08:32.810
+Anthony Taylor: So this data frame comes from Kaggle. You guys probably don't know what Kaggle is yet. But you will I guarantee it
+
+800
+01:08:34.470 --> 01:08:36.560
+Masarirambi, Rodney: pretty cool.
+
+801
+01:08:37.189 --> 01:08:38.310
+Anthony Taylor: Yeah.
+
+802
+01:08:40.080 --> 01:08:41.969
+Anthony Taylor: I'm looking for cancelled flights.
+
+803
+01:08:48.479 --> 01:08:50.910
+Anthony Taylor: That's interesting. I don't even see canceled planes.
+
+804
+01:08:51.600 --> 01:08:52.790
+Anthony Taylor: Come on.
+
+805
+01:08:57.410 --> 01:08:58.229
+Anthony Taylor: yeah.
+
+806
+01:09:00.229 --> 01:09:06.380
+Anthony Taylor: every year, month, day, a month, day, a week, part your time. arrival, time.
+
+807
+01:09:07.390 --> 01:09:09.250
+Anthony Taylor: It's not even in there. Maybe that's what
+
+808
+01:09:10.779 --> 01:09:13.339
+Anthony Taylor: it's not part of the data frame. The money must have added.
+
+809
+01:09:16.340 --> 01:09:18.780
+Anthony Taylor: it's kind of fun, all right, anyway.
+
+810
+01:09:19.460 --> 01:09:21.610
+Anthony Taylor: So that's the activity.
+
+811
+01:09:23.069 --> 01:09:24.809
+Anthony Taylor: You will have
+
+812
+01:09:26.029 --> 01:09:29.570
+Anthony Taylor: 20 min to do this. One kind of surprises me.
+
+813
+01:09:29.790 --> 01:09:33.130
+Anthony Taylor: You might get done early on this. I don't hear anybody crying.
+
+814
+01:09:34.399 --> 01:09:37.900
+Anthony Taylor: They would be crying if he was not playing. Huh!
+
+815
+01:09:38.399 --> 01:09:42.700
+Masarirambi, Rodney: Did you just get him back, though? Get him back from Florida.
+
+816
+01:09:42.970 --> 01:09:47.749
+Anthony Taylor: didn't you? Just would that be back since I have back Friday?
+
+817
+01:09:48.189 --> 01:09:50.450
+Anthony Taylor: That's right. Yeah, yeah.
+
+818
+01:09:50.710 --> 01:09:52.680
+Anthony Taylor: no. I get like.
+
+819
+01:09:53.750 --> 01:09:55.510
+Anthony Taylor: okay, gang.
+
+820
+01:09:56.770 --> 01:09:59.050
+Anthony Taylor: So we are all set.
+
+821
+01:10:00.490 --> 01:10:03.350
+Anthony Taylor: Okay. So anybody have any problems with that
+
+822
+01:10:05.750 --> 01:10:11.560
+Mason, Natalie: Gabe killed it. But that made my.
+
+823
+01:10:12.460 --> 01:10:16.120
+Vasquez, Gabriel: I meant that. No, we didn't have any problems.
+
+824
+01:10:16.270 --> 01:10:20.949
+Mason, Natalie: Oh, that's a no, we didn't have any problem. He didn't have any problems.
+
+825
+01:10:22.660 --> 01:10:27.210
+Anthony Taylor: Gabe, you're in there with Natalie to make sure she understands it. Understand?
+
+826
+01:10:27.430 --> 01:10:39.170
+Mason, Natalie: That was, the other challenges were understood that one was. well, let's just let's see if I can help clear it up.
+
+827
+01:10:39.750 --> 01:10:45.540
+Anthony Taylor: So here's our function. We're gonna passing a value, and we're going to use the meet.
+
+828
+01:10:46.170 --> 01:10:47.860
+Anthony Taylor: Nothing fits right?
+
+829
+01:10:48.320 --> 01:10:52.890
+Anthony Taylor: So here, you see, we are grouping by unique carrier.
+
+830
+01:10:52.900 --> 01:10:56.530
+Anthony Taylor: We're going to apply the Lambda function
+
+831
+01:10:56.970 --> 01:11:00.679
+Anthony Taylor: and X is just the value of whatever
+
+832
+01:11:00.820 --> 01:11:05.759
+Anthony Taylor: series is. The is the output of this group. By.
+
+833
+01:11:06.090 --> 01:11:13.870
+Anthony Taylor: we're going to name the column average arrival delay. And we're going to use this function
+
+834
+01:11:14.180 --> 01:11:19.310
+Anthony Taylor: on X, which is the row in series, and the name of the
+
+835
+01:11:20.510 --> 01:11:22.779
+Anthony Taylor: item is the arrive delay.
+
+836
+01:11:22.990 --> 01:11:26.690
+Anthony Taylor: So you do that, and you end up with
+
+837
+01:11:26.870 --> 01:11:32.140
+Anthony Taylor: the exact same thing you would have got if you would have just got me for that call
+
+838
+01:11:32.580 --> 01:11:34.670
+Anthony Taylor: alright again, this is
+
+839
+01:11:35.070 --> 01:11:38.220
+Anthony Taylor: well, actually, the percentage one actually makes sense for this.
+
+840
+01:11:38.290 --> 01:11:48.820
+Anthony Taylor: Alright. So here it says, use custom, function, calculate the average date for column, show the average sign for delayed arrivals and departures.
+
+841
+01:11:49.090 --> 01:11:51.809
+Anthony Taylor: Basically, we're just going to apply
+
+842
+01:11:51.910 --> 01:11:54.049
+Anthony Taylor: and make 2 columns.
+
+843
+01:11:54.460 --> 01:11:59.619
+Anthony Taylor: and apply the same function and different to different targets.
+
+844
+01:12:00.090 --> 01:12:02.619
+Anthony Taylor: Okay, so we end up with that
+
+845
+01:12:02.780 --> 01:12:15.679
+Anthony Taylor: pretty cool. Okay, so here we created a sum function. It's exactly like the mean function, except we're going to do a sum. Now, what's cool is, is we? I mean, and we could do this again with the dot sum.
+
+846
+01:12:15.790 --> 01:12:22.290
+Anthony Taylor: But we're going to do the group by bring to apply. All of this is the same. This is the column we're going to name.
+
+847
+01:12:22.420 --> 01:12:28.780
+Anthony Taylor: And this is how we're going to create and use custom sum passing in the diverted column.
+
+848
+01:12:29.080 --> 01:12:31.269
+Anthony Taylor: And then same for the average
+
+849
+01:12:31.910 --> 01:12:35.269
+Dipinto, Matt: question, I think, what's the backslash at the end of the first line?
+
+850
+01:12:35.300 --> 01:12:38.330
+Anthony Taylor: It's just so that you can do it on multiple lines.
+
+851
+01:12:40.090 --> 01:12:48.040
+Anthony Taylor: It's like a, it's like a a break. If you so basically, if you were to read this code. Without it it would look
+
+852
+01:12:51.130 --> 01:12:52.020
+Anthony Taylor: like that.
+
+853
+01:12:53.320 --> 01:13:01.029
+Anthony Taylor: It just allows to have it all. That's it. It just allows you to break them so you can make it more readable.
+
+854
+01:13:01.690 --> 01:13:02.630
+Anthony Taylor: That's it.
+
+855
+01:13:03.050 --> 01:13:07.990
+Anthony Taylor: Another way to do that. If you wrap the whole thing in parentheses, you don't need to do that. But
+
+856
+01:13:08.280 --> 01:13:17.329
+Anthony Taylor: okay, then count. Okay, so here's the percentages. What? So this one, at least kind of gives you an understanding of how you could do this.
+
+857
+01:13:17.670 --> 01:13:20.280
+Anthony Taylor:  and
+
+858
+01:13:20.580 --> 01:13:23.300
+Anthony Taylor: it's not like an already built in. Well.
+
+859
+01:13:23.870 --> 01:13:31.890
+Anthony Taylor: so here we have a count. We already did some. So for percentage, we're saying, if the count is greater than 0,
+
+860
+01:13:33.070 --> 01:13:44.949
+Anthony Taylor: then return the sum divided by the count, multiplied by a hundred, and round the 2 places. else, if the count is less than 0 or not greater than 0. So 0 or less.
+
+861
+01:13:44.990 --> 01:13:46.710
+Anthony Taylor: then just return a 0.
+
+862
+01:13:47.070 --> 01:13:55.470
+Anthony Taylor: Okay, so here we've got a little bit of logic. So this isn't like, oh, we're just basically calling a function from function like we did here.
+
+863
+01:13:55.580 --> 01:14:03.650
+Anthony Taylor: Okay, here, we're actually doing something. So this is a better example. Alright. So here we're going to group by carrier day of week.
+
+864
+01:14:03.800 --> 01:14:14.839
+Anthony Taylor: We're going to look at the diverted column and all of them. But we're going to apply the sum the count and our cool new percentage column. And you end up with this.
+
+865
+01:14:16.000 --> 01:14:17.189
+Anthony Taylor: That's kind of cool.
+
+866
+01:14:19.090 --> 01:14:20.799
+Anthony Taylor: Right? Is that kind of cool.
+
+867
+01:14:20.830 --> 01:14:21.990
+Anthony Taylor: I think it's kind of cool.
+
+868
+01:14:28.210 --> 01:14:29.519
+Anthony Taylor: All right. Questions.
+
+869
+01:14:29.890 --> 01:14:31.360
+Anthony Taylor: I see. Thumbs up.
+
+870
+01:14:32.900 --> 01:14:45.040
+Dipinto, Matt: Has this been the only bad activity? Wet man questions always. Is there a way to do this that doesn't require a lambda. And also, I mean. yeah, is there way it is that doesn't require the lambda.
+
+871
+01:14:45.930 --> 01:14:51.689
+Anthony Taylor:  yeah, I mean, you should be able to just do an apply of the function by itself.
+
+872
+01:14:52.000 --> 01:14:58.279
+Anthony Taylor:  well, not in this case. I mean, you could actually.
+
+873
+01:14:59.880 --> 01:15:03.699
+Anthony Taylor: yeah, there's lots of ways to do this without doing it because I've never done it this way in my life.
+
+874
+01:15:05.950 --> 01:15:08.100
+Anthony Taylor: It's just.
+
+875
+01:15:08.290 --> 01:15:17.490
+Dipinto, Matt: It's confusing. I will give you guys a little extra right now, just because y'all rock.
+
+876
+01:15:17.680 --> 01:15:20.169
+Anthony Taylor: cause y'all are rockin it today. I'm very proud of all.
+
+877
+01:15:20.630 --> 01:15:26.200
+Anthony Taylor: So there's this other library called, is it called? That's a call. Yeah, there it is.
+
+878
+01:15:27.490 --> 01:15:28.930
+Panda sequel.
+
+879
+01:15:29.540 --> 01:15:35.089
+Anthony Taylor: And basically  you can write SQL statements
+
+880
+01:15:36.670 --> 01:15:39.259
+Anthony Taylor: and execute them against your data frame.
+
+881
+01:15:41.040 --> 01:15:47.379
+Anthony Taylor: So if you know what SQL. Is, you're looking at that going? Oh, my God! That makes it so easy!
+
+882
+01:15:47.850 --> 01:15:50.149
+Anthony Taylor: They could have to came off mute for this.
+
+883
+01:15:51.280 --> 01:15:52.570
+Gebrekristos, Hafton: I love this one.
+
+884
+01:15:52.970 --> 01:15:54.860
+Anthony Taylor: and they're nice.
+
+885
+01:15:55.010 --> 01:15:57.610
+Anthony Taylor: Yeah, simple.
+
+886
+01:15:57.860 --> 01:16:01.030
+Anthony Taylor: Well, and when we get to spark you could do it in spark as well.
+
+887
+01:16:01.170 --> 01:16:05.400
+Anthony Taylor: So, and spark is on big Day. So Spark is when we're like querying like
+
+888
+01:16:05.530 --> 01:16:11.739
+Anthony Taylor: like billions of rows. And you can just write a SQL. Statement and execute it.
+
+889
+01:16:11.760 --> 01:16:13.470
+Anthony Taylor: And you get a data set back.
+
+890
+01:16:14.890 --> 01:16:19.780
+Anthony Taylor: So anyway, there are a lot of easier ways to do it. And this is how I but
+
+891
+01:16:19.990 --> 01:16:27.380
+Anthony Taylor: we don't teach Panda SQL. Here. So if you guys want to learn it. I'm happy to show you like maybe an office hour sometime, or
+
+892
+01:16:27.470 --> 01:16:33.029
+Anthony Taylor: if we have extra time at the end of class or so. it's really pretty simple. You import it.
+
+893
+01:16:33.080 --> 01:16:38.039
+Anthony Taylor: and don't don't even look at that one. You install it with. Pip. Install
+
+894
+01:16:38.300 --> 01:16:40.300
+Anthony Taylor: you import it.
+
+895
+01:16:40.400 --> 01:16:43.020
+Anthony Taylor: and then the rest is pretty simple
+
+896
+01:16:44.270 --> 01:16:52.260
+Anthony Taylor: in the background it uses. If Haftan, you'll understand this and Gabe in the background, it actually creates a little sqlite database.
+
+897
+01:16:52.650 --> 01:17:01.479
+Anthony Taylor: So it loads your data frame into the data, the sqlite database in the background and then executes and then returns. It's not as fast. Obviously it works very, very well.
+
+898
+01:17:02.580 --> 01:17:03.410
+Anthony Taylor: So
+
+899
+01:17:04.440 --> 01:17:08.289
+Anthony Taylor:  yeah. And I mean.
+
+900
+01:17:08.790 --> 01:17:12.049
+Anthony Taylor: it's like, I told you guys, I mean, you know, and we're gonna run
+
+901
+01:17:12.760 --> 01:17:20.779
+Anthony Taylor: throughout this course throughout 24 weeks. There are going to be a number of things that we're going to show you that
+
+902
+01:17:21.510 --> 01:17:24.569
+Anthony Taylor: we show you as much to get repetition.
+
+903
+01:17:25.410 --> 01:17:33.540
+Anthony Taylor: Okay? And as much to get you guys learning these advanced concepts as we do any other reason.
+
+904
+01:17:33.560 --> 01:17:43.240
+Anthony Taylor: It doesn't mean it's wrong. This is not wrong. It's just not hard. because I agree with Matt. I don't really think this is the easiest way to do it.
+
+905
+01:17:44.280 --> 01:17:49.950
+Anthony Taylor: Okay, can I? You should be able to.
+
+906
+01:17:50.080 --> 01:17:52.929
+Anthony Taylor: I don't know. I haven't tried that. We could try it.
+
+907
+01:17:52.980 --> 01:17:57.709
+Anthony Taylor: But yeah, I mean, that's not what you try, but not right now, because I gotta get you guys through
+
+908
+01:17:57.790 --> 01:18:01.390
+Anthony Taylor: binning. Because, remember, I told you. Binning's important this.
+
+909
+01:18:02.200 --> 01:18:05.210
+Anthony Taylor: Try different ways, if you like, and let us know
+
+910
+01:18:05.470 --> 01:18:14.010
+Anthony Taylor: I'd love it if somebody wants to take that off. Bet you can do it. I can do it, but I don't, and I'd love to see you guys do it because you got 4 days off
+
+911
+01:18:14.350 --> 01:18:15.500
+Anthony Taylor: jeez
+
+912
+01:18:17.540 --> 01:18:19.040
+Anthony Taylor: 4 things
+
+913
+01:18:19.170 --> 01:18:22.299
+Anthony Taylor: alright. So let's quickly get into peanut. Okay.
+
+914
+01:18:23.310 --> 01:18:25.209
+Anthony Taylor: we still have, like, 20 min. We're doing good.
+
+915
+01:18:25.260 --> 01:18:37.130
+Anthony Taylor: So we're gonna bring in pandas. All right. So let me give you the use case for being right away? Okay, well, actually, this use case is pretty good. I'll give you another one after this. So here we've got students.
+
+916
+01:18:37.220 --> 01:18:43.550
+Anthony Taylor: We got the class. They were in students and grades. A, BCDF.
+
+917
+01:18:44.790 --> 01:18:45.850
+Anthony Taylor: That's binning.
+
+918
+01:18:47.060 --> 01:18:49.500
+Anthony Taylor: Okay, think about when you were in school.
+
+919
+01:18:50.200 --> 01:18:53.060
+Anthony Taylor: Okay, what was an A, BACA, d, and F,
+
+920
+01:18:55.050 --> 01:18:57.010
+Anthony Taylor: okay, that's beaming.
+
+921
+01:18:58.560 --> 01:19:02.559
+Anthony Taylor: So here, you see. And and and this is
+
+922
+01:19:02.860 --> 01:19:06.379
+the only part that's even got the slightest little wrinkle
+
+923
+01:19:06.410 --> 01:19:10.590
+Anthony Taylor: is the first part. So we create bins.
+
+924
+01:19:11.300 --> 01:19:16.250
+Anthony Taylor: Alright. Now, we're going to include 0.
+
+925
+01:19:17.400 --> 01:19:20.639
+Anthony Taylor: So our first bin is gonna start at 0
+
+926
+01:19:21.000 --> 01:19:23.050
+end at 59.9,
+
+927
+01:19:23.590 --> 01:19:25.650
+Anthony Taylor: and that is an F.
+
+928
+01:19:27.240 --> 01:19:30.059
+Our next one will go from 60
+
+929
+01:19:30.600 --> 01:19:33.510
+Anthony Taylor: 2 69.9. That is, d.
+
+930
+01:19:33.910 --> 01:19:35.130
+See how this works.
+
+931
+01:19:36.300 --> 01:19:41.169
+Anthony Taylor: 70 to 79.9 c, 80 to 89.9 B.
+
+932
+01:19:41.270 --> 01:19:43.080
+Anthony Taylor: 100, a
+
+933
+01:19:43.750 --> 01:19:45.010
+or 90 to a hundred.
+
+934
+01:19:45.400 --> 01:19:48.920
+Anthony Taylor: Okay, so there has to be one left
+
+935
+01:19:49.260 --> 01:19:50.650
+Anthony Taylor: label.
+
+936
+01:19:52.020 --> 01:19:54.689
+Anthony Taylor: Then there are bins.
+
+937
+01:19:54.950 --> 01:19:56.220
+Anthony Taylor: Now, there's
+
+938
+01:19:56.550 --> 01:20:00.359
+Anthony Taylor: arguments you could do to get rid of that. But right now just go with that.
+
+939
+01:20:00.860 --> 01:20:08.380
+Anthony Taylor: You have a start value. And this first one is the range, basically. And then after that, it's between each one.
+
+940
+01:20:10.160 --> 01:20:11.120
+Anthony Taylor: Okay?
+
+941
+01:20:13.890 --> 01:20:15.509
+Anthony Taylor: And it is inclusive.
+
+942
+01:20:16.300 --> 01:20:21.870
+Anthony Taylor: Well, it's inclusive. If you say include lowest, it'll include the 0
+
+943
+01:20:22.930 --> 01:20:28.569
+Anthony Taylor: all right. If I did not put included Lois, it would not. And the 0 would actually return nothing
+
+944
+01:20:29.720 --> 01:20:31.150
+Anthony Taylor: if someone got a 0.
+
+945
+01:20:32.040 --> 01:20:34.940
+Anthony Taylor: Alright. Okay. So this, you set up
+
+946
+01:20:35.010 --> 01:20:38.190
+Anthony Taylor: your bins, your labels for each bin.
+
+947
+01:20:38.510 --> 01:20:42.590
+Anthony Taylor: and then to do it. You tell it what column you want to create.
+
+948
+01:20:44.690 --> 01:20:47.359
+Anthony Taylor: You run. Pd, dot hut
+
+949
+01:20:49.170 --> 01:20:54.479
+Anthony Taylor: in cut. You pass the column you want to be in. We're going to be in this one right here.
+
+950
+01:20:55.650 --> 01:21:02.329
+Anthony Taylor: you say, here's my bins variable. I mean, you could have just put the whole list there. But don't
+
+951
+01:21:02.950 --> 01:21:07.820
+Anthony Taylor: my labels are these group names? So just this value here.
+
+952
+01:21:09.100 --> 01:21:13.060
+Anthony Taylor: And then we are going to include this 0 as it is possible to get 0.
+
+953
+01:21:14.130 --> 01:21:27.440
+Anthony Taylor: Okay? And that's what this include lowest means. And then when we output it. we'd get a fail because I didn't actually run the cell. When we output it, we get the latter grade. These are bins.
+
+954
+01:21:28.370 --> 01:21:30.190
+Anthony Taylor: Okay, we could get
+
+955
+01:21:30.220 --> 01:21:32.190
+Anthony Taylor: the best letter grade
+
+956
+01:21:33.980 --> 01:21:35.279
+Anthony Taylor: for each.
+
+957
+01:21:36.260 --> 01:21:45.879
+Anthony Taylor: each one of them. So test score summary. We're grouping on that. So let that be. That means these 2 as are going to go together. It's going to give us this 98.
+
+958
+01:21:46.400 --> 01:21:48.800
+Anthony Taylor: Okay. But
+
+959
+01:21:50.670 --> 01:21:52.700
+Anthony Taylor: I wonder if anybody sees the problem?
+
+960
+01:21:54.860 --> 01:21:58.090
+Anthony Taylor: Who's my? Let's see who's got the sharpest eye today.
+
+961
+01:22:05.910 --> 01:22:07.690
+Anthony Taylor: Anybody see a problem with that
+
+962
+01:22:07.950 --> 01:22:11.610
+Derek Rikke: is cause is like, lower than A. F.
+
+963
+01:22:12.500 --> 01:22:16.880
+Anthony Taylor: Well, okay, I mean, that could be something. But that's not actually problem
+
+964
+01:22:17.180 --> 01:22:19.480
+Dipinto, Matt: that because Cindy got it.
+
+965
+01:22:19.620 --> 01:22:21.620
+Dipinto, Matt: Aye.
+
+966
+01:22:22.450 --> 01:22:24.480
+Anthony Taylor: like it's Cindy and Crystal.
+
+967
+01:22:25.720 --> 01:22:29.249
+Anthony Taylor: So Crystal scored a 98,
+
+968
+01:22:29.890 --> 01:22:33.079
+Anthony Taylor: not Cindy. but down here
+
+969
+01:22:35.220 --> 01:22:41.840
+Anthony Taylor: it shows that Cindy got a night. So the problem with this is, it's actually giving us the Max of each call
+
+970
+01:22:43.440 --> 01:22:55.820
+Anthony Taylor: right? And so that's why that gets checked out. Anyway. we can sort so we can do a group by a Max and then sort by test scores summary
+
+971
+01:22:56.190 --> 01:23:00.449
+Anthony Taylor: so we can get them in at least the right order. But it's still wrong.
+
+972
+01:23:01.890 --> 01:23:05.149
+Anthony Taylor: so keep that in mind. Don't do this. This is a bad way to do this
+
+973
+01:23:07.430 --> 01:23:09.340
+Anthony Taylor: again. Alright!
+
+974
+01:23:11.820 --> 01:23:20.180
+Anthony Taylor: Alright! But let me give you another use case for Benny. So in machine learning, we always have basketball salary story.
+
+975
+01:23:23.050 --> 01:23:26.709
+Anthony Taylor: Okay? Nobody shook their head. Everybody shook their head. I'll go with go where they have not.
+
+976
+01:23:27.040 --> 01:23:32.759
+Anthony Taylor: We always always have at least one group that does basketball solidness.
+
+977
+01:23:33.400 --> 01:23:38.180
+Anthony Taylor: Okay, we want to predict basketball salaries based on their statistics in college.
+
+978
+01:23:38.790 --> 01:23:41.230
+Anthony Taylor: That seems to be a common project.
+
+979
+01:23:42.040 --> 01:23:50.630
+Anthony Taylor: The problem is basketball salaries. Number one are numbers. So it's a regression problem. And they're big numbers.
+
+980
+01:23:51.150 --> 01:23:55.850
+Anthony Taylor: So when you test your algorithm, if you miss it by $1,
+
+981
+01:23:56.150 --> 01:23:57.020
+Anthony Taylor: it's wrong.
+
+982
+01:23:58.420 --> 01:24:00.979
+Anthony Taylor: You miss it by one cent.
+
+983
+01:24:01.130 --> 01:24:02.180
+Anthony Taylor: It's wrong.
+
+984
+01:24:02.840 --> 01:24:05.270
+Anthony Taylor: So what do I tell them? I say, bin it?
+
+985
+01:24:05.770 --> 01:24:18.399
+Anthony Taylor: Start with the you know. Go with, you know. Oh, he makes you know we're gonna have like 10 million to 50 million. And then we're going to have like 8 million to 10,000,006 to 8 and 4 to 2, and then
+
+986
+01:24:18.510 --> 01:24:19.640
+Anthony Taylor: run your mall
+
+987
+01:24:20.360 --> 01:24:23.349
+Anthony Taylor: and they get way. Better results.
+
+988
+01:24:23.530 --> 01:24:25.410
+Anthony Taylor: Obviously it's not as precise.
+
+989
+01:24:25.590 --> 01:24:28.590
+Anthony Taylor: but for what they needed to do. It was perfect.
+
+990
+01:24:29.090 --> 01:24:35.659
+Anthony Taylor: And so that's where Binning comes in handy. so you will definitely see this again, and you will hear me tell you
+
+991
+01:24:35.760 --> 01:24:45.760
+Anthony Taylor: to do this if you, if I come into your project group. and you're trying to do a regression thing. And and I look at it and I go. You know what you probably been that
+
+992
+01:24:45.950 --> 01:24:50.210
+Anthony Taylor: remember, to come back to this exercise. Okay?
+
+993
+01:24:50.410 --> 01:24:53.059
+Anthony Taylor: But so you got one last exit
+
+994
+01:24:55.720 --> 01:24:59.800
+Anthony Taylor: 3 to Csv find minimum. Item, dB, user vote count.
+
+995
+01:25:00.280 --> 01:25:06.460
+Anthony Taylor: using Min and Max votes as reference create 9 bins. So this is important.
+
+996
+01:25:06.850 --> 01:25:11.369
+Anthony Taylor: Min and Max votes. You need to get the PIN and Max to know what the bin sizes should be
+
+997
+01:25:13.090 --> 01:25:18.090
+Anthony Taylor: make sense. because how do you know what the bin sizes are? If you don't know how many there are.
+
+998
+01:25:19.280 --> 01:25:24.709
+Anthony Taylor: so you need to get that figured out first, which is why they say, do that, then doing your bins
+
+999
+01:25:25.040 --> 01:25:29.510
+Anthony Taylor: create a new column? And then you can do a group by
+
+1000
+01:25:29.880 --> 01:25:32.030
+Anthony Taylor: and have fun. Alright, it's
+
+1001
+01:25:32.250 --> 01:25:38.150
+Anthony Taylor: fairly fairly easy. But follow the instructor example. Okay.
+
+1002
+01:25:38.980 --> 01:25:41.660
+so I'm gonna give you guys 15 to do this.
+
+1003
+01:25:42.300 --> 01:25:44.210
+Anthony Taylor: which means you'll come back right
+
+1004
+01:25:45.300 --> 01:25:48.079
+Anthony Taylor: welcome back everybody.
+
+1005
+01:25:49.860 --> 01:25:52.369
+Anthony Taylor: So how were we at any?
+
+1006
+01:25:53.280 --> 01:25:57.149
+Anthony Taylor: Oh, I lost your faces. Where did your faces go?
+
+1007
+01:25:57.650 --> 01:26:03.019
+Anthony Taylor: There you are! How do we do with the beaming. That's not so bad. Right?
+
+1008
+01:26:04.810 --> 01:26:16.830
+Meredith McCanse (she/her): Can you show we got stuck in the We. We didn't quite get the bin thing to show itself. It took us a long time to type out 9 different situations. I guess I can. Yeah.
+
+1009
+01:26:17.250 --> 01:26:22.499
+Anthony Taylor: alright. Well, let's go. So we we loaded the data frame. I don't think we need to go over that again, like, here's Dean and Max.
+
+1010
+01:26:23.180 --> 01:26:29.610
+Anthony Taylor: So now we know our men is 243, our Max 334,064.
+
+1011
+01:26:29.780 --> 01:26:35.350
+Anthony Taylor: So here's your bins. Okay? A.
+
+1012
+01:26:35.460 --> 01:26:39.999
+Anthony Taylor: And to be honest with, you could have done this any way you wanted, you could have done it.
+
+1013
+01:26:40.160 --> 01:26:43.250
+Anthony Taylor: Does it tell you how many to do? It doesn't right.
+
+1014
+01:26:43.420 --> 01:26:46.350
+Anthony Taylor: You could have done it in 2. You could have done it in 10
+
+1015
+01:26:46.530 --> 01:26:51.619
+Meredith McCanse (she/her): in the. It tells you to do 9, but you're right.
+
+1016
+01:26:52.290 --> 01:26:57.530
+Anthony Taylor: But you could have done anything all right, so. But but following directions, good!
+
+1017
+01:26:57.630 --> 01:27:04.470
+Anthony Taylor:  The the bottom line is just understanding how it's configured. These numbers are not
+
+1018
+01:27:05.360 --> 01:27:07.599
+Anthony Taylor: by any means right or wrong.
+
+1019
+01:27:08.490 --> 01:27:11.500
+Anthony Taylor: and you could've broke it up any way you wanted to. Now
+
+1020
+01:27:12.790 --> 01:27:14.440
+Anthony Taylor: I want to be real with you.
+
+1021
+01:27:15.560 --> 01:27:24.499
+Anthony Taylor: When you guys use this in practice, like when we get to Ml, you wanna actually try to do some analysis to make sure that your bins are mostly
+
+1022
+01:27:26.340 --> 01:27:28.400
+Anthony Taylor: okay when at all possible.
+
+1023
+01:27:28.690 --> 01:27:33.249
+Anthony Taylor: Sometimes it's just not sometimes like this, bins. Just only gonna have a few people in.
+
+1024
+01:27:33.310 --> 01:27:35.309
+Anthony Taylor: you know. Maybe you're gonna make a nice bell curve.
+
+1025
+01:27:35.900 --> 01:27:38.910
+Anthony Taylor: Okay, but the the idea is to get.
+
+1026
+01:27:39.250 --> 01:27:51.330
+Anthony Taylor: you know, as as close to a nice distribution as possible. Then your group labels again. There needs to be one label for N minus one of your bids.
+
+1027
+01:27:52.250 --> 01:27:53.310
+Anthony Taylor: Alright.
+
+1028
+01:27:54.760 --> 01:27:57.530
+Anthony Taylor: Once you do that, you just have to do. Cut.
+
+1029
+01:27:57.820 --> 01:27:59.439
+Anthony Taylor: Tell it what calm.
+
+1030
+01:27:59.470 --> 01:28:02.470
+Anthony Taylor: Give it the bins and the labels and run it.
+
+1031
+01:28:02.550 --> 01:28:05.600
+Anthony Taylor: and you get something like this. Now, this isn't very helpful.
+
+1032
+01:28:05.660 --> 01:28:10.760
+Anthony Taylor: so we're going to actually create a new column and pass that information in.
+
+1033
+01:28:11.710 --> 01:28:12.920
+Anthony Taylor: And
+
+1034
+01:28:15.990 --> 01:28:20.200
+Anthony Taylor: you can see over here. So there's the new column. Yes, I'm
+
+1035
+01:28:20.970 --> 01:28:26.299
+Baro, Sonja: I'm sorry if I missed this instruction. Where did the
+
+1036
+01:28:26.330 --> 01:28:29.400
+Baro, Sonja: cut function come from? The Pd cut?
+
+1037
+01:28:29.690 --> 01:28:31.469
+Baro, Sonja: Is that
+
+1038
+01:28:31.890 --> 01:28:42.240
+Anthony Taylor: that was yeah. We did that in the in the other. No, no, no, it's okay that this is what it's for. This is what you set these guys up for.
+
+1039
+01:28:42.860 --> 01:28:43.760
+Anthony Taylor: Right.
+
+1040
+01:28:43.960 --> 01:28:51.280
+Anthony Taylor: You set these guys up, and then you pass them into the cut method. So you say, this is the column I want to PIN.
+
+1041
+01:28:51.400 --> 01:28:54.179
+Anthony Taylor: Here's the bins. And here's the group labels.
+
+1042
+01:28:55.200 --> 01:28:56.210
+Anthony Taylor: Okay.
+
+1043
+01:28:56.470 --> 01:29:03.660
+Baro, Sonja: that's fine. That's not the only way to do it, but it's the easiest way.
+
+1044
+01:29:04.130 --> 01:29:07.850
+Anthony Taylor: Then we're going to group by that new group.
+
+1045
+01:29:08.370 --> 01:29:09.710
+Anthony Taylor: do accounts
+
+1046
+01:29:09.800 --> 01:29:15.660
+Anthony Taylor: and return. Oh, and then we're gonna group by all of these values and do an average.
+
+1047
+01:29:16.400 --> 01:29:24.129
+Anthony Taylor: Okay? And you see, we got each bin all of these values the average per bid.
+
+1048
+01:29:25.640 --> 01:29:26.530
+Anthony Taylor: That's it.
+
+1049
+01:29:28.640 --> 01:29:39.730
+Meredith McCanse (she/her): You have to do the They sort of did 2 separate steps of like, slice the data into bins and then add it the column into the data frame.
+
+1050
+01:29:40.210 --> 01:29:43.890
+Meredith McCanse (she/her): But you could just put that in there. Yeah.
+
+1051
+01:29:44.140 --> 01:29:45.869
+Anthony Taylor: you could just put like this.
+
+1052
+01:29:46.330 --> 01:29:50.920
+Anthony Taylor: I mean, you don't have to use these variables. They're real nice, though, because keeps it neater.
+
+1053
+01:29:51.890 --> 01:29:55.520
+Meredith McCanse (she/her): No sorry the next, the next cell down below that
+
+1054
+01:29:55.700 --> 01:30:10.879
+Meredith McCanse (she/her): like when I no sorry next sell up the where you put it into bins, like I did the exact same thing, but I told it just the only differences at the end. I just told it to show me the data frame and it put in the column on its own. I didn't.
+
+1055
+01:30:11.650 --> 01:30:19.120
+Meredith McCanse (she/her): I like I didn't have to do all the stuff you did in the cell, down at the very, very bottom of your screen, where you're putting in the new column. It didn't make me do that.
+
+1056
+01:30:21.090 --> 01:30:30.719
+Anthony Taylor: What do you mean? You told that you did that show or something? What did I mean? Just type the name of the data frame. And then
+
+1057
+01:30:31.100 --> 01:30:33.920
+Meredith McCanse (she/her): in the bin in the bin coating cell.
+
+1058
+01:30:37.850 --> 01:30:42.009
+Anthony Taylor: Yeah, you have to set it to something you have to add.
+
+1059
+01:30:42.130 --> 01:30:50.239
+Anthony Taylor: I did. Well, I don't know
+
+1060
+01:30:51.800 --> 01:30:53.810
+Anthony Taylor: a.
+
+1061
+01:30:54.200 --> 01:30:56.500
+Meredith McCanse (she/her): So this is the same thing you had.
+
+1062
+01:30:57.050 --> 01:31:03.309
+Meredith McCanse (she/her): But now, yeah, but where? So show me your label in that bottom. So they're here.
+
+1063
+01:31:04.390 --> 01:31:06.209
+Meredith McCanse (she/her): Vote summary. But it's not
+
+1064
+01:31:06.620 --> 01:31:09.949
+Meredith McCanse (she/her): this it over here? Oh, no, okay, never mind.
+
+1065
+01:31:10.300 --> 01:31:25.300
+Anthony Taylor: Yeah, yeah, you did. I mean, basically you did fine if you but you do have to set it equal to a column. It doesn't know what what to do. It'll still create it, but it won't show you cool. No, don't be sorry. Oh, my goodness.
+
+1066
+01:31:25.470 --> 01:31:33.759
+Anthony Taylor: alright! Everybody! Happy Thanksgiving! I'll have the solutions up in a few minutes, and resources for next class.
+
+1067
+01:31:34.080 --> 01:31:41.370
+Anthony Taylor: Try to look at them before Monday, but until then eat lots of whatever you're gonna eat on Thanksgiving and
+
+1068
+01:31:41.470 --> 01:31:42.670
+Anthony Taylor: have thought.
+
+1069
+01:31:44.160 --> 01:31:47.399
+Anthony Taylor: bye, guys, well, not by. We'll be here for 30 min.
+
+1070
+01:31:48.870 --> 01:31:49.540
+Jennifer Dahlgren: Happy. Thanks.
+

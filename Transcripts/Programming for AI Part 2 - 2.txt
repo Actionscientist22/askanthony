@@ -1,0 +1,4154 @@
+WEBVTT
+
+1
+00:00:04.660 --> 00:00:06.920
+Anthony Taylor: Do that. Hi.
+
+2
+00:00:08.039 --> 00:00:18.850
+Anthony Taylor: yay. welcome back week, 3 day 2. It's an interesting day. I was telling people during office hours.
+
+3
+00:00:19.040 --> 00:00:21.530
+Anthony Taylor: Today's gonna be interesting.
+
+4
+00:00:22.220 --> 00:00:32.030
+Anthony Taylor: We have. It's it's really more of a developer day. As in app development.  it's pretty cool.
+
+5
+00:00:33.720 --> 00:00:36.520
+Anthony Taylor:  So we're gonna do that.
+
+6
+00:00:36.960 --> 00:00:38.159
+Anthony Taylor: It's gonna be fun.
+
+7
+00:00:38.780 --> 00:00:41.709
+Anthony Taylor: Okay, okay, okay, let's do it.
+
+8
+00:00:41.720 --> 00:00:46.100
+Anthony Taylor: So programming with functions part 2, we're gonna learn
+
+9
+00:00:46.700 --> 00:00:52.060
+Anthony Taylor: about importing functions and using external functions
+
+10
+00:00:52.350 --> 00:00:56.480
+Anthony Taylor: and modules. We're going to do some refactoring. Today.
+
+11
+00:00:57.690 --> 00:01:05.360
+Anthony Taylor: we're going to understand how to create software applications based on a business user's needs.
+
+12
+00:01:06.770 --> 00:01:09.569
+Anthony Taylor: And we're going to write and implement our own python modules.
+
+13
+00:01:10.380 --> 00:01:12.130
+Anthony Taylor: All of this stuff is important.
+
+14
+00:01:12.420 --> 00:01:14.730
+Anthony Taylor: All of this stuff is interesting.
+
+15
+00:01:15.210 --> 00:01:29.419
+Anthony Taylor:  there's a lot of variation in some of. So we'll talk about some of the variation we're going to get through today here. Maybe some of y'all probably have experience with this guessing. Matt definitely does program manager right? Matt
+
+16
+00:01:31.090 --> 00:01:35.460
+Dipinto, Matt: tech lead. I don't. I don't manage much other than yeah people's problem.
+
+17
+00:01:36.580 --> 00:01:38.150
+Anthony Taylor: So you don't do agile.
+
+18
+00:01:38.380 --> 00:01:46.759
+Anthony Taylor: You'll do scrums and all that garbage.
+
+19
+00:01:47.650 --> 00:01:53.969
+Anthony Taylor: I'm the guy. I'm the developer that doesn't show up. and everyone goes. Where's Anthony? And like, who knows?
+
+20
+00:01:54.270 --> 00:02:03.240
+Anthony Taylor: And then and then I get everything done, scrum and swim lanes. And oh, yeah. my God, I hate that cart.
+
+21
+00:02:03.440 --> 00:02:13.960
+Anthony Taylor: I do. I see. Then here's the reason. So understand my background. And my work is mostly around data and architecture. So data agile doesn't work
+
+22
+00:02:14.200 --> 00:02:19.420
+Anthony Taylor: just doesn't, no matter who. I don't care. Ken, it'll tell you. Oh, I got no, doesn't.
+
+23
+00:02:19.790 --> 00:02:27.929
+Anthony Taylor: You can do a sort of pseudo agile. But yeah, when you get those program managers and they're like, Oh, well, we're gonna have to look like what happened.
+
+24
+00:02:28.270 --> 00:02:32.560
+Anthony Taylor: Go ahead. Well, you're the main guy. Yeah, guess what you're not doing.
+
+25
+00:02:33.170 --> 00:02:36.130
+Anthony Taylor: But we
+
+26
+00:02:37.170 --> 00:02:42.269
+Anthony Taylor: are actually not learning just data. Data is going to play a huge role in what we do
+
+27
+00:02:43.010 --> 00:02:52.900
+Anthony Taylor: data. Science is going to play a huge role in what we do. But in the end we're really going to be also capable of writing applications.
+
+28
+00:02:52.910 --> 00:03:00.540
+Anthony Taylor: So this is where we start to vary from the data science curriculum. And we start looking. Hey, we also have to look at
+
+29
+00:03:00.620 --> 00:03:10.029
+Anthony Taylor: business requirements, user stories, all of the application development stuff that maybe we wouldn't care about if we were just doing data analytics and data science.
+
+30
+00:03:10.800 --> 00:03:12.419
+Anthony Taylor: Okay, so today's that day.
+
+31
+00:03:13.290 --> 00:03:16.289
+Anthony Taylor: Yeah, here's also some more python course.
+
+32
+00:03:16.460 --> 00:03:17.940
+Anthony Taylor: So
+
+33
+00:03:18.130 --> 00:03:20.809
+Anthony Taylor: we're gonna start with modular program.
+
+34
+00:03:21.150 --> 00:03:27.250
+Anthony Taylor: Okay? Well, what does that mean? Well, we've already talked about import. Right? We all talked about import. Did we talk about import?
+
+35
+00:03:28.100 --> 00:03:29.940
+Anthony Taylor: Well, if we didn't, we'll talk about it again.
+
+36
+00:03:30.360 --> 00:03:32.430
+Anthony Taylor: Basically.
+
+37
+00:03:32.530 --> 00:03:36.540
+Anthony Taylor: when you go to pi Pi.
+
+38
+00:03:39.990 --> 00:03:42.259
+Anthony Taylor: You're like what the heck is. Pipel
+
+39
+00:03:43.610 --> 00:03:50.110
+Anthony Taylor: Pipi is an index of libraries that are all available to us in Python.
+
+40
+00:03:51.670 --> 00:03:52.570
+Anthony Taylor: Okay.
+
+41
+00:03:52.970 --> 00:03:57.049
+Anthony Taylor: they there are 493
+
+42
+00:03:57.600 --> 00:03:58.930
+Anthony Taylor: 1,000
+
+43
+00:03:59.970 --> 00:04:01.570
+Anthony Taylor: available projects.
+
+44
+00:04:03.080 --> 00:04:03.920
+Anthony Taylor: It's a lot.
+
+45
+00:04:04.220 --> 00:04:09.569
+Anthony Taylor: So let's say, I want to create a Pdf python. Come here, type. Pdf, hit, enter
+
+46
+00:04:09.860 --> 00:04:19.130
+Anthony Taylor: and look at this. All these libraries have something to do with Pdfs. Are they the ones I want? I don't know where we'll read the documentation.
+
+47
+00:04:20.130 --> 00:04:21.079
+Anthony Taylor: Okay.
+
+48
+00:04:22.230 --> 00:04:27.999
+Anthony Taylor: what other things you guys like. Well, let's do. AI see what AI comes up, all would be there. There's AI ones, too.
+
+49
+00:04:30.380 --> 00:04:33.860
+Anthony Taylor: Okay. Tells you how to install them and how to use them.
+
+50
+00:04:35.690 --> 00:04:44.330
+Anthony Taylor:  This is part of the reason why Python is so hugely popular.
+
+51
+00:04:45.590 --> 00:04:52.320
+Anthony Taylor: People can create these modules. They can push them out, they can publish them, and code that you've written
+
+52
+00:04:52.340 --> 00:04:53.999
+Anthony Taylor: can be used by other people.
+
+53
+00:04:55.390 --> 00:04:57.809
+Anthony Taylor: This can also be done in Github
+
+54
+00:04:59.290 --> 00:05:02.319
+Anthony Taylor: if you come in here and you search for?
+
+55
+00:05:02.940 --> 00:05:05.710
+Ai Python package.
+
+56
+00:05:06.800 --> 00:05:12.669
+Anthony Taylor: You're gonna come back with 390 repositories.
+
+57
+00:05:13.330 --> 00:05:18.799
+Anthony Taylor: most of which you could come in here and grab their code and import it as package.
+
+58
+00:05:20.660 --> 00:05:22.800
+Anthony Taylor: Okay. very cool.
+
+59
+00:05:24.040 --> 00:05:30.119
+Anthony Taylor:  But most of the time we're gonna be using the stuff out of pi, 5, yeah.
+
+60
+00:05:30.680 --> 00:05:33.070
+Clayton Graves: are there any risks associated with this?
+
+61
+00:05:33.260 --> 00:05:38.379
+Clayton Graves: If I go, if I go through one of these particular places, do I
+
+62
+00:05:38.720 --> 00:05:41.490
+Clayton Graves: run any risk of downloading something nefarious?
+
+63
+00:05:42.270 --> 00:05:48.689
+Anthony Taylor: Pie? Pi. Usually not. And because and plus, there's so many people out there using it right?
+
+64
+00:05:48.770 --> 00:05:51.209
+Anthony Taylor: On pipeline. You're pretty safe.
+
+65
+00:05:51.350 --> 00:06:00.240
+Anthony Taylor: right? And that's most of like, if you just type import, and and like, you see, code. And it says, Oh, import this library. That's almost always coming from pipe.
+
+66
+00:06:00.420 --> 00:06:05.580
+Anthony Taylor: Okay. if they say, Oh, import. And then they give you a yeah URL,
+
+67
+00:06:06.030 --> 00:06:10.700
+Anthony Taylor: that's usually coming like from Github or somebody else's
+
+68
+00:06:10.810 --> 00:06:11.870
+Anthony Taylor: stash.
+
+69
+00:06:12.330 --> 00:06:14.970
+Those you probably want to check and see what you're getting
+
+70
+00:06:15.900 --> 00:06:23.900
+Anthony Taylor: okay, because that could be something bad. I mean, it's very easy with Python to get your passwords off your computer. And
+
+71
+00:06:23.950 --> 00:06:26.040
+Anthony Taylor: you know your environment variables, and
+
+72
+00:06:26.220 --> 00:06:27.989
+Clayton Graves: for personal information
+
+73
+00:06:28.010 --> 00:06:30.180
+Clayton Graves: I upload all your pictures
+
+74
+00:06:30.220 --> 00:06:32.010
+Clayton Graves: I buy. A safer
+
+75
+00:06:32.400 --> 00:06:35.849
+Clayton Graves: I buy is is considered safe.
+
+76
+00:06:36.210 --> 00:06:38.809
+Clayton Graves: And Github is somebody that's
+
+77
+00:06:39.250 --> 00:06:40.510
+Anthony Taylor: somebody vets it.
+
+78
+00:06:40.920 --> 00:06:43.130
+Clayton Graves: Okay? And then Github is much so.
+
+79
+00:06:43.950 --> 00:06:49.699
+Anthony Taylor: Well, yeah, I mean, you could definitely from, I guess it's okay.
+
+80
+00:06:50.280 --> 00:06:53.960
+Anthony Taylor: Yeah, well, you always will, because you won't like if you
+
+81
+00:06:54.240 --> 00:06:55.649
+Anthony Taylor: come in here.
+
+82
+00:06:55.720 --> 00:06:57.839
+Anthony Taylor: So see this right here.
+
+83
+00:06:58.540 --> 00:07:00.859
+Anthony Taylor: Okay, so this is somebody's package
+
+84
+00:07:02.300 --> 00:07:11.289
+Anthony Taylor: toolkit for AI OP, some options using AI, yeah, you could lift it the and and they're showing you. So first you would phone the repository.
+
+85
+00:07:11.390 --> 00:07:15.969
+Anthony Taylor: You would, and then you would run this. But you have no idea what's going on.
+
+86
+00:07:17.580 --> 00:07:22.380
+Anthony Taylor: But you could. You could come in here and go. Oh, well, let's look at Setup. I
+
+87
+00:07:22.500 --> 00:07:24.710
+Anthony Taylor: okay. So here's what it's doing.
+
+88
+00:07:24.740 --> 00:07:31.049
+Anthony Taylor: It's going to install these libraries. And okay, it's going to install those.
+
+89
+00:07:31.170 --> 00:07:33.610
+Anthony Taylor: And that is in here.
+
+90
+00:07:35.090 --> 00:07:41.619
+Anthony Taylor: I mean, this might even be really cool. Right? So I mean, it's one of those things. If you don't know what it does, probably shouldn't be installed.
+
+91
+00:07:42.250 --> 00:07:44.180
+Anthony Taylor: Okay. but
+
+92
+00:07:44.600 --> 00:07:50.209
+Anthony Taylor: you understand, I mean, this is, this is clearly just somebody's repository. You can put anything in
+
+93
+00:07:51.230 --> 00:07:54.770
+Anthony Taylor: and tell you, hey, it's a great place. Go get it and go get it. And
+
+94
+00:07:55.330 --> 00:08:02.080
+Anthony Taylor: normally, though, they get caught. If you see a lot of stars, see how there's the 354 stars.
+
+95
+00:08:02.440 --> 00:08:05.650
+Anthony Taylor: Okay, that means 354 people have said, This is good code.
+
+96
+00:08:07.600 --> 00:08:15.069
+Anthony Taylor: all right. It's been forked 136 times. What's a fork? Fork means that they have copied it into their own repository
+
+97
+00:08:15.810 --> 00:08:17.869
+Anthony Taylor: and made changes to it on their own.
+
+98
+00:08:18.720 --> 00:08:23.800
+Anthony Taylor: Okay, that's also a pretty good indicator. It's safe. But anyway, yes, fine.
+
+99
+00:08:24.500 --> 00:08:38.310
+Baro, Sonja: So is this a case where you would want to use an environment to stage or pull in if these and test so that way, you kind of contain it before it can get into anything
+
+100
+00:08:38.490 --> 00:08:49.840
+Anthony Taylor: it wouldn't actually contain. So there are. There are environments that we don't discuss where you can contain it to not hurt your operating system. It's called Docker. Okay.
+
+101
+00:08:50.030 --> 00:08:55.090
+Anthony Taylor: it's something I could show you guys 30 min. But I probably won't, because it's really complicated.
+
+102
+00:08:55.270 --> 00:09:02.589
+Anthony Taylor:  But basically that would basically I it would. What Docker would do is create a little mini OS
+
+103
+00:09:03.060 --> 00:09:11.770
+Anthony Taylor: with its own file system, its own memory, its own, everything. So whatever you do in. It can't affect your regular computer. Okay, we're not going to do it.
+
+104
+00:09:11.810 --> 00:09:21.070
+Anthony Taylor: No, it wouldn't help you to have an environment. I mean, it would. Just, I mean you could destroy it, and it's easier to uninstall. But you could do Pip uninstall, just like you can do Pip install.
+
+105
+00:09:21.300 --> 00:09:22.710
+Anthony Taylor: So it's no big deal.
+
+106
+00:09:22.820 --> 00:09:28.130
+Anthony Taylor: I actually took you guys way down path. We normally upload it. So I love that we learned something.
+
+107
+00:09:29.270 --> 00:09:40.849
+Anthony Taylor: So why do we do this modular coding? Why do we have all of these packages? Well, not just because people have made them for us, because it's easier. We don't need every bit of functionality in every single program.
+
+108
+00:09:41.140 --> 00:09:45.560
+Anthony Taylor: Right? There is a library. Lets you create video games in python
+
+109
+00:09:46.020 --> 00:09:51.039
+Anthony Taylor: unity quad. So like 3D shooter video games in iphone.
+
+110
+00:09:51.960 --> 00:09:56.530
+Anthony Taylor: okay, do we need that in our AI pro, you know project?
+
+111
+00:09:56.700 --> 00:09:57.620
+Anthony Taylor: Probably not.
+
+112
+00:09:58.040 --> 00:10:02.939
+Anthony Taylor: Okay. So we don't bring in stuff we don't meet. We only bring in stuff we meet
+
+113
+00:10:04.100 --> 00:10:12.029
+Anthony Taylor: alright. that also allows us to organize better. So we can just bring in the stuff we need. We don't have a bunch of other junk floating around
+
+114
+00:10:12.090 --> 00:10:16.119
+Anthony Taylor: maintainability. If we are building our own packages.
+
+115
+00:10:17.110 --> 00:10:22.229
+Anthony Taylor: Okay, we can update a package and it. it just flows into the rest of our code.
+
+116
+00:10:22.970 --> 00:10:29.570
+Anthony Taylor: So if that package is used lots of times in our code, that that that change we make will work with all of our code.
+
+117
+00:10:30.500 --> 00:10:33.149
+Anthony Taylor: You do have to keep in mind scoping
+
+118
+00:10:33.650 --> 00:10:39.389
+Anthony Taylor: any variable in a package that is not exposed, and we'll talk about that
+
+119
+00:10:39.700 --> 00:10:40.770
+Anthony Taylor: to
+
+120
+00:10:40.840 --> 00:10:46.479
+Anthony Taylor: the calling program will not be seen by the calling program which could be good could be bad.
+
+121
+00:10:46.980 --> 00:10:51.850
+Anthony Taylor: It's something you have to be aware of. Alright. So this is how we import
+
+122
+00:10:51.910 --> 00:11:00.599
+Anthony Taylor: import. That's it. And then the name of the module. So starting next week, we're going to import a new module called Pandas.
+
+123
+00:11:01.150 --> 00:11:04.570
+Anthony Taylor: and we're going to take import Pandas.
+
+124
+00:11:06.440 --> 00:11:07.290
+Anthony Taylor: Okay.
+
+125
+00:11:07.870 --> 00:11:24.169
+Anthony Taylor: another way is so these modules pretty much all contain functions. Kind of the point. Okay? Well, you could call out a single function. So say, you don't want to call every or load every function from that module. You only want to load, like what.
+
+126
+00:11:24.590 --> 00:11:28.399
+Anthony Taylor: or 5, or whatever you can do from
+
+127
+00:11:28.450 --> 00:11:35.019
+Anthony Taylor: module. and then import the specific function or method. We were going to do that today. So you'll see.
+
+128
+00:11:36.050 --> 00:11:42.030
+Anthony Taylor: Alright. So those are the 2 ways we import libraries. packages whatever.
+
+129
+00:11:43.130 --> 00:11:47.089
+Anthony Taylor: So here's an example. There is a package called Math.
+
+130
+00:11:48.130 --> 00:11:51.300
+Anthony Taylor: Okay. Math has. Well.
+
+131
+00:11:51.460 --> 00:11:55.820
+Anthony Taylor: think of your scientific calculator. Everything on there is in math.
+
+132
+00:11:56.870 --> 00:12:04.909
+Anthony Taylor: Okay, all of those buttons. So if you wanted square root. you could just import math, and you would have square root.
+
+133
+00:12:05.220 --> 00:12:09.859
+Anthony Taylor: But if you only wanted square root, you could say from math.
+
+134
+00:12:10.150 --> 00:12:14.819
+Anthony Taylor: Give me square root. You guys differentiate the difference. There, you guys see it.
+
+135
+00:12:15.870 --> 00:12:24.640
+Anthony Taylor: One. I'm installing all the functions. One. I'm only getting one. If you try to call a function. That's not
+
+136
+00:12:25.350 --> 00:12:30.489
+Anthony Taylor: that you didn't call here that you didn't add, you would get this. This. We don't know what this is.
+
+137
+00:12:30.900 --> 00:12:32.119
+Anthony Taylor: Yeah, yes, I'm
+
+138
+00:12:32.430 --> 00:12:38.849
+Baro, Sonja: so would you find in the read me file like a table of contents of all the
+
+139
+00:12:39.280 --> 00:12:44.499
+Baro, Sonja: methods with the with the within that like. How do you know
+
+140
+00:12:44.880 --> 00:12:48.800
+Baro, Sonja: what the name is of what you want to call and just pull that in.
+
+141
+00:12:49.940 --> 00:12:52.930
+Anthony Taylor: So I typed math package, python.
+
+142
+00:12:53.750 --> 00:12:56.080
+Anthony Taylor: And this is how you would do.
+
+143
+00:12:56.870 --> 00:12:57.680
+Baro, Sonja: Okay.
+
+144
+00:12:58.340 --> 00:13:04.600
+Anthony Taylor: yeah. So this is the documentation. And this has all the possible functions.
+
+145
+00:13:05.460 --> 00:13:10.490
+Clayton Graves: But the difference between the 2 is one you're you're you're taking actual
+
+146
+00:13:10.660 --> 00:13:20.409
+Clayton Graves:  you're you're scarfing down the whole buffet table, whereas with the other one you're taking only what you want, putting it on your plate.
+
+147
+00:13:20.760 --> 00:13:21.680
+Anthony Taylor: Exactly
+
+148
+00:13:22.120 --> 00:13:34.249
+Anthony Taylor: so like if you just said import math, you would get ceiling, you would get calm. You would get factorial floor, all of it, you wouldn't have to do anything else you would just be able to call it. However, you're also going to get every one of these other functions, too.
+
+149
+00:13:34.300 --> 00:13:38.300
+Anthony Taylor: which is that a big deal? The the
+
+150
+00:13:39.770 --> 00:13:42.640
+Anthony Taylor: when you guys do application development.
+
+151
+00:13:44.880 --> 00:13:47.490
+Anthony Taylor: smaller code is better.
+
+152
+00:13:49.070 --> 00:13:55.380
+Anthony Taylor: Okay for performance purposes. So if I load 500 functions and I needed 2.
+
+153
+00:13:56.090 --> 00:14:06.250
+Anthony Taylor: I've just added a whole bunch of bulk to my program. Is that both really gonna slow me down? Maybe maybe not. But the point is, I added, 498 functions I didn't need.
+
+154
+00:14:07.110 --> 00:14:09.499
+Anthony Taylor: So I want to get rid of those and clean it up.
+
+155
+00:14:10.120 --> 00:14:23.419
+Anthony Taylor: Okay, I'm horrible. I always just that. Just give me a little just in case. Okay. But but a lot of times I don't have to worry about that kind of phones. When you're building an application, you worry more about that kind of phones. Okay.
+
+156
+00:14:24.140 --> 00:14:24.950
+Anthony Taylor: alright
+
+157
+00:14:25.210 --> 00:14:27.550
+Anthony Taylor:  cool.
+
+158
+00:14:28.520 --> 00:14:31.660
+Anthony Taylor: So what else we got here?
+
+159
+00:14:32.180 --> 00:14:35.669
+Anthony Taylor: So here's another one. A random package.
+
+160
+00:14:36.360 --> 00:14:39.009
+Anthony Taylor: Random just gives us the ability
+
+161
+00:14:39.500 --> 00:14:43.979
+Anthony Taylor: to like, generate random numbers, pick random items.
+
+162
+00:14:47.560 --> 00:14:49.960
+Anthony Taylor:  a lot of fun stuff.
+
+163
+00:14:50.380 --> 00:14:53.230
+Anthony Taylor: Okay? And again, here. You see, they're doing
+
+164
+00:14:54.020 --> 00:14:58.869
+Meredith McCanse (she/her): was that Meredith auditors use random number generators all the time.
+
+165
+00:14:59.290 --> 00:15:11.559
+Meredith McCanse (she/her): They have to do testing, and they have to have like a third party nonpartisan way to select what their selections are going to be. So everybody gets this little program. That's a random number generator and you use it for, like almost everything.
+
+166
+00:15:12.240 --> 00:15:15.750
+Anthony Taylor: There you go. Well, here you got your own. It's all in this little patch.
+
+167
+00:15:15.910 --> 00:15:26.809
+Anthony Taylor: okay? And and yeah, so to get the random package which you can do from. and then import specific functions from that package or import rent.
+
+168
+00:15:28.150 --> 00:15:29.070
+Anthony Taylor: Okay.
+
+169
+00:15:29.620 --> 00:15:40.080
+Anthony Taylor: the only thing do they do it as in here? Don't think they are the only thing I allow. I'll show you when we get into the code. So another one date time, date time is a really important.
+
+170
+00:15:40.360 --> 00:15:45.770
+Anthony Taylor: especially with data. Okay. anybody from another country in here.
+
+171
+00:15:47.840 --> 00:15:50.370
+Anthony Taylor: Rodney, how do you write? How do you write?
+
+172
+00:15:50.760 --> 00:15:54.470
+Anthony Taylor: 6, 2767. The date
+
+173
+00:15:54.970 --> 00:15:59.160
+Masarirambi, Rodney: II write it the proper way. The date in the month and the year.
+
+174
+00:15:59.990 --> 00:16:06.370
+Anthony Taylor: No way. Okay. In the country you come from. How do they write it. They write the same.
+
+175
+00:16:06.840 --> 00:16:16.789
+Masarirambi, Rodney: Yeah, zoom in Zimbabwe. It's it's day, month, year. That's how. Well, actually, pretty much the rest of the world. So we us, which I think does month to day, year.
+
+176
+00:16:17.530 --> 00:16:28.569
+Anthony Taylor: Oh, I'm sorry you did say that I think in my head I was hearing month, day, year. But you were saying day months here. Okay, good, correct. Just like, just like we all know
+
+177
+00:16:28.600 --> 00:16:34.270
+Anthony Taylor: that imperial measurement is the right way to do it. Okay, we don't need no stinking metric.
+
+178
+00:16:46.230 --> 00:16:58.910
+Anthony Taylor: She was from Canada, okay? And and she did that, too. She had all the different weird ways to write or dates and stuff, and and I can tell you, though all over the world there's slight variations.
+
+179
+00:16:59.330 --> 00:17:06.730
+Anthony Taylor: Periods, dashes, flashes. 2 digits, one digits 3 digits, 4 digits, not 3 layoffs.
+
+180
+00:17:06.890 --> 00:17:12.769
+Anthony Taylor: But the point is date time. This is the one that we use to standardize and get everything looking the same.
+
+181
+00:17:13.109 --> 00:17:15.969
+Anthony Taylor: Okay, we want everything to look like this one down here.
+
+182
+00:17:17.930 --> 00:17:20.869
+Anthony Taylor: That's the python
+
+183
+00:17:20.970 --> 00:17:23.160
+Anthony Taylor: preferred date format.
+
+184
+00:17:24.010 --> 00:17:24.839
+Anthony Taylor: Okay?
+
+185
+00:17:25.400 --> 00:17:38.340
+Anthony Taylor: So anyway, but yeah. So a date time is another module. and it has its own. But this one I hate the way they do this. There's a date time package, and in it is a function call date time
+
+186
+00:17:38.590 --> 00:17:44.240
+Anthony Taylor: which lead you to really cool code that says stuff like datetime dot weektime. Just weird.
+
+187
+00:17:45.070 --> 00:17:45.770
+Anthony Taylor: Okay?
+
+188
+00:17:46.110 --> 00:17:50.079
+Anthony Taylor: Alright. So let's actually look at some code.
+
+189
+00:17:50.540 --> 00:17:51.540
+Anthony Taylor: Okay.
+
+190
+00:17:53.110 --> 00:17:55.589
+Anthony Taylor: hopefully, everyone has pulled.
+
+191
+00:17:59.370 --> 00:18:12.370
+Anthony Taylor: So I will tell you today, guys, even though I gave you notebooks for everything, there's going to be some stuff that we might do in Bifiles, and you'll see when we get there. I know I'm like, well, you said. Notebooks are the bit they are. They're easier to work with the teach. But
+
+192
+00:18:12.440 --> 00:18:16.300
+Anthony Taylor: because of these packages it's a little different.
+
+193
+00:18:16.400 --> 00:18:19.350
+Anthony Taylor: Okay, so we'll we'll I'll show you when we get.
+
+194
+00:18:19.660 --> 00:18:24.569
+Anthony Taylor: I don't think it'll be too. So we're gonna import. So here, you can see.
+
+195
+00:18:24.830 --> 00:18:26.430
+Anthony Taylor: were from.
+
+196
+00:18:26.970 --> 00:18:31.420
+Anthony Taylor: excuse me, from math. We're going to import square root.
+
+197
+00:18:31.750 --> 00:18:36.830
+Anthony Taylor: Okay, now, we could just type import math
+
+198
+00:18:37.700 --> 00:18:38.720
+Anthony Taylor: that works.
+
+199
+00:18:39.200 --> 00:18:48.209
+Anthony Taylor: Okay. Another thing that you'll see sometimes is alias. Now, math is really short. I don't know if really need to, alias it. But let's say we wanted to just call it M.
+
+200
+00:18:48.530 --> 00:18:49.390
+Anthony Taylor: As in
+
+201
+00:18:50.440 --> 00:18:53.529
+Anthony Taylor: okay. Now, if we wanted to call a method
+
+202
+00:18:53.560 --> 00:18:54.890
+Anthony Taylor: with from that
+
+203
+00:18:54.920 --> 00:18:58.840
+Anthony Taylor: from that library, we would do M. Dot. And
+
+204
+00:18:58.950 --> 00:19:11.509
+Anthony Taylor: as like, so square root. Okay. now, I want you guys to notice what Bs code did for us there. Ii called this. I imported it. Now, when I type in and then a period.
+
+205
+00:19:11.610 --> 00:19:16.240
+Anthony Taylor: I see every function available to that library.
+
+206
+00:19:18.360 --> 00:19:21.280
+Anthony Taylor: Okay? And actually, usually.
+
+207
+00:19:21.540 --> 00:19:22.280
+Anthony Taylor: yeah.
+
+208
+00:19:22.410 --> 00:19:26.210
+Anthony Taylor: if you select one, it'll even kind of tell you what it does
+
+209
+00:19:28.020 --> 00:19:30.579
+Anthony Taylor: super duper handy.
+
+210
+00:19:32.720 --> 00:19:37.630
+Anthony Taylor: So let's so here we're using the from import. Nothing wrong with that.
+
+211
+00:19:37.800 --> 00:19:40.130
+Anthony Taylor: We're going to create a number variable.
+
+212
+00:19:40.260 --> 00:19:41.960
+Anthony Taylor: And
+
+213
+00:19:43.720 --> 00:19:46.670
+Anthony Taylor: we're gonna do the square root of that number and then print it out.
+
+214
+00:19:48.370 --> 00:19:49.090
+Okay.
+
+215
+00:19:50.590 --> 00:20:04.110
+Anthony Taylor: pretty cool. Here. We're gonna do the random. Rand. Int and choice. Okay, let's see if it tells us. Yeah, look at that. Just putting our mouse over this one returns a random integer in range a comma B
+
+216
+00:20:04.200 --> 00:20:07.429
+Anthony Taylor: inclusive of both endpoints.
+
+217
+00:20:10.270 --> 00:20:11.300
+Anthony Taylor: Choice
+
+218
+00:20:11.570 --> 00:20:16.399
+Anthony Taylor: choice is a random element from a non-empty sequence. That's an interesting
+
+219
+00:20:17.450 --> 00:20:18.320
+Anthony Taylor: okay.
+
+220
+00:20:18.820 --> 00:20:25.070
+Anthony Taylor: So here we're gonna do random in one to 10 now is, could could the random number be number one?
+
+221
+00:20:26.900 --> 00:20:29.600
+Anthony Taylor: They could, because we said, it's inclusive.
+
+222
+00:20:30.310 --> 00:20:33.999
+Anthony Taylor: which means it can be one or 10, but it's probably going to be something illegal.
+
+223
+00:20:36.000 --> 00:20:48.229
+Anthony Taylor: Oh, unless I don't. Oh, you have to kind of remember. Run important. And then you go random number 5. Okay for the choice. What it? What they're going to do here is they're giving it an iterable.
+
+224
+00:20:49.070 --> 00:20:54.599
+Anthony Taylor: and it'll just pick one from there. I think we did this with rock paper scissors, right? Everybody remember that.
+
+225
+00:20:56.230 --> 00:21:00.509
+Anthony Taylor: So it's just going to pick one of the items every time you run it, it could pick a different item.
+
+226
+00:21:01.800 --> 00:21:02.540
+Anthony Taylor: Okay.
+
+227
+00:21:03.260 --> 00:21:11.160
+Anthony Taylor: here's the date time. So here, you see, from date time, import date, time and date. we're gonna get date time. So
+
+228
+00:21:11.390 --> 00:21:18.379
+Anthony Taylor: again. Let's look@thisdatetime.you see, all this crazy stuff.
+
+229
+00:21:20.050 --> 00:21:30.189
+Anthony Taylor: Daytime is a lot of stuff. Okay.  So we're saying, Give me now. which basically, is going to give you the date time right now.
+
+230
+00:21:30.990 --> 00:21:34.429
+Anthony Taylor:  this strength from time
+
+231
+00:21:34.710 --> 00:21:35.790
+Anthony Taylor: will
+
+232
+00:21:35.980 --> 00:21:38.579
+Anthony Taylor: basically create a
+
+233
+00:21:40.140 --> 00:21:43.100
+Anthony Taylor: a string from
+
+234
+00:21:43.180 --> 00:21:46.619
+Anthony Taylor: the time using this format.
+
+235
+00:21:47.360 --> 00:21:54.850
+Anthony Taylor: So this format tells me this is going to be our whole and minute, Colonel. and then this is going to give me the current date.
+
+236
+00:21:57.230 --> 00:21:59.940
+Anthony Taylor: I didn't import again. Hmm.
+
+237
+00:22:00.990 --> 00:22:04.590
+Meredith McCanse (she/her): Anthony, can I ask a question
+
+238
+00:22:05.310 --> 00:22:18.170
+Meredith McCanse (she/her): when you import? I'm having trouble wrapping my head around the fact that there's sort of all these things just sort of out there floating around in the ether, and you hit import, and it like pulls it into your local code, is it?
+
+239
+00:22:18.250 --> 00:22:19.949
+Meredith McCanse (she/her): Do? Do you have to
+
+240
+00:22:20.020 --> 00:22:29.149
+Meredith McCanse (she/her): like once you hit import on your computer, will it be available for anything or any new co, any new notebook or file that you create, you have to import it.
+
+241
+00:22:29.650 --> 00:22:32.499
+Anthony Taylor: I love that question. Okay, so
+
+242
+00:22:32.770 --> 00:22:43.219
+Anthony Taylor: there is an extra step. We haven't talked and and we just haven't got to it. Okay. But that's alright. I think we can. I think it's okay to talk about it now, because I don't think we talk about it today. What if
+
+243
+00:22:43.940 --> 00:22:46.239
+Anthony Taylor: I go. Let's go back to
+
+244
+00:22:48.380 --> 00:22:49.430
+Anthony Taylor: pipe high.
+
+245
+00:22:51.830 --> 00:22:54.099
+Anthony Taylor: Let's go back to pipe by for a second.
+
+246
+00:22:54.760 --> 00:22:57.919
+Anthony Taylor: and let's do browse
+
+247
+00:23:01.050 --> 00:23:07.869
+Anthony Taylor: this. I'm kind of looking for like a popular one that I haven't looked at today, or I have it kind of like a
+
+248
+00:23:17.060 --> 00:23:17.740
+Anthony Taylor: hmm.
+
+249
+00:23:19.230 --> 00:23:20.680
+Anthony Taylor: we'll just browse.
+
+250
+00:23:21.400 --> 00:23:25.320
+Anthony Taylor: So we'll do python 3 projects. Okay, so.
+
+251
+00:23:27.140 --> 00:23:28.730
+Anthony Taylor: huh? I don't think we're gonna do that.
+
+252
+00:23:29.600 --> 00:23:40.319
+Anthony Taylor: I like SMS log hand. That sounds good. Okay, I have no idea it does a python ideally. It's quick alerts develop that something has gone horribly wrong with their application.
+
+253
+00:23:40.780 --> 00:23:45.619
+Anthony Taylor: It's only it's okay. So how do I get this? So if I go and I import
+
+254
+00:23:49.300 --> 00:23:50.840
+Anthony Taylor: this program.
+
+255
+00:23:56.710 --> 00:24:03.110
+Anthony Taylor: This might not be a good example, because it looks like they're using logging. I believe it, I said. Believe logging is a default. Python.
+
+256
+00:24:03.460 --> 00:24:04.800
+Anthony Taylor: Let's check it quick.
+
+257
+00:24:11.670 --> 00:24:12.430
+Anthony Taylor: Yeah.
+
+258
+00:24:12.630 --> 00:24:18.050
+Dipinto, Matt: That's fine to do one sec. URL called Pillow.
+
+259
+00:24:19.000 --> 00:24:21.190
+Anthony Taylor: Yeah. Oh, you want me to do for pillow.
+
+260
+00:24:21.340 --> 00:24:23.649
+Dipinto, Matt: Hello, Hello, Sutilo! Sounds fine.
+
+261
+00:24:23.980 --> 00:24:30.160
+Anthony Taylor: I don't think I have used pillow. So let's find out Pillow Import pillow.
+
+262
+00:24:31.460 --> 00:24:34.929
+Anthony Taylor: Right? Okay? And I could tell right away the yellow. I don't have to.
+
+263
+00:24:35.880 --> 00:24:39.429
+Anthony Taylor: Okay. So what does that mean? Is Pillow, a real library
+
+264
+00:24:39.620 --> 00:24:40.480
+could be
+
+265
+00:24:41.000 --> 00:24:45.500
+Anthony Taylor: okay. But because I got no module named Pillow. The next step.
+
+266
+00:24:45.860 --> 00:24:50.730
+Anthony Taylor: if I was worried about it, but not, I trust Matt didn't give me some crazy, active site.
+
+267
+00:24:50.850 --> 00:24:56.489
+Anthony Taylor: so I can just come in here and say, fif install
+
+268
+00:24:57.860 --> 00:25:03.160
+Anthony Taylor: pillow. Yeah, normally, you would do this at a terminal, but you can also do it in a notebook.
+
+269
+00:25:03.780 --> 00:25:14.030
+Anthony Taylor: And now it's going to go. And Pip install is a python program that installs a package from the Internet onto your computer.
+
+270
+00:25:14.840 --> 00:25:15.930
+Anthony Taylor: Okay?
+
+271
+00:25:16.500 --> 00:25:20.080
+Anthony Taylor: And it says, I got it. I start.
+
+272
+00:25:23.540 --> 00:25:25.319
+Anthony Taylor: So now I should.
+
+273
+00:25:26.420 --> 00:25:28.950
+Anthony Taylor: That's weird. Hold on. Let me try some.
+
+274
+00:25:30.210 --> 00:25:34.210
+Anthony Taylor: Normally, we don't have a problem, this bad. Let's see what's going on.
+
+275
+00:25:43.150 --> 00:25:48.970
+Anthony Taylor: Huh? It's still arguable. So I might have to go to a terminal.
+
+276
+00:25:51.920 --> 00:25:54.940
+Anthony Taylor: Try it in here. Pip. Install.
+
+277
+00:25:55.200 --> 00:25:56.540
+Anthony Taylor: Hello.
+
+278
+00:25:58.560 --> 00:26:03.260
+Anthony Taylor: still says it's there that's really interesting. Let's do this python
+
+279
+00:26:03.580 --> 00:26:05.580
+Anthony Taylor: import. Hello!
+
+280
+00:26:06.360 --> 00:26:10.380
+Anthony Taylor: Is it just not called pillow. It must not be culpable.
+
+281
+00:26:10.550 --> 00:26:16.640
+Dipinto, Matt: It's called pillow. It might be capital P. Or the other option would be. You might need to do. Pick 3
+
+282
+00:26:16.970 --> 00:26:20.050
+Dipinto, Matt: important. And Pip 3 is just a
+
+283
+00:26:20.700 --> 00:26:24.880
+Dipinto, Matt: that is, if you have more than one kind of item. That was, that was a Linux thought.
+
+284
+00:26:25.690 --> 00:26:38.149
+Anthony Taylor: That's okay. I just wanna see installation. And maybe it is capital. P. It must be capital. P, because that documentation shows it with a capital P.
+
+285
+00:26:41.970 --> 00:26:43.230
+Anthony Taylor: Ger.
+
+286
+00:26:46.940 --> 00:26:54.200
+Anthony Taylor: Of course, we found one that can't get to work right now. Algebra fan. we'll create a new terminal.
+
+287
+00:26:54.640 --> 00:26:57.190
+Anthony Taylor: Try again. Hit install
+
+288
+00:26:57.290 --> 00:26:59.000
+Anthony Taylor: PILL. OW.
+
+289
+00:27:03.360 --> 00:27:04.850
+Anthony Taylor: About conduct
+
+290
+00:27:12.220 --> 00:27:16.400
+Anthony Taylor: anyway, as you are seeing. And normally, it's not this hard
+
+291
+00:27:16.820 --> 00:27:21.189
+Anthony Taylor: as you're seeing. That's how you get them under. They don't just magically appear.
+
+292
+00:27:21.600 --> 00:27:25.009
+Anthony Taylor: Okay, there are some that are built into python like math
+
+293
+00:27:25.120 --> 00:27:29.560
+Anthony Taylor: random stuff like that. So you don't have to install them. They just come by.
+
+294
+00:27:30.020 --> 00:27:33.460
+Anthony Taylor: Okay.  others
+
+295
+00:27:33.530 --> 00:27:36.409
+Anthony Taylor: you have to pip and stuff. So if you ever get
+
+296
+00:27:36.460 --> 00:27:46.629
+Anthony Taylor: no module names. try a pippin salt. Normally it works very fine. I don't ever have a problem. not sure why this one's getting picked up.
+
+297
+00:27:47.670 --> 00:27:49.350
+Anthony Taylor: Okay.
+
+298
+00:27:49.660 --> 00:27:50.899
+Anthony Taylor: so there is one
+
+299
+00:27:52.190 --> 00:28:05.549
+Meredith McCanse (she/her): does it? Is it sort of assumed that, like, it's the code in it is correct or like. If it's something that spits math problems out, that the math answer it gives you is going to be correct kind of thing, or is it
+
+300
+00:28:05.590 --> 00:28:09.899
+Meredith McCanse (she/her): you? Is it? Is it like you have to check it out yourself?
+
+301
+00:28:10.140 --> 00:28:12.769
+Anthony Taylor: I don't even know how to answer that other than
+
+302
+00:28:16.170 --> 00:28:18.269
+Anthony Taylor: Yes, we all just assume it's right.
+
+303
+00:28:19.150 --> 00:28:40.660
+Meredith McCanse (she/her): But Meredith has trust issues.
+
+304
+00:28:41.390 --> 00:28:45.850
+Anthony Taylor: and and there is, I mean, have any of you heard of Stack Overflow yet?
+
+305
+00:28:46.670 --> 00:28:48.010
+Anthony Taylor: I know some of you have.
+
+306
+00:28:48.130 --> 00:28:51.690
+Anthony Taylor: Okay. Stack overflow is filled
+
+307
+00:28:51.880 --> 00:28:53.819
+Anthony Taylor: with people who found mistakes
+
+308
+00:28:54.320 --> 00:28:56.780
+Anthony Taylor: all right, and it just happens. But
+
+309
+00:28:57.200 --> 00:29:10.579
+Anthony Taylor: here's the thing. Third, most popular language in the world. Probably a billion developers. Okay, use this product.  it's pretty unlikely you're gonna find a lot of common errors. They're usually gonna be pretty
+
+310
+00:29:11.250 --> 00:29:12.460
+Anthony Taylor: edge case.
+
+311
+00:29:12.560 --> 00:29:15.600
+Anthony Taylor: But it's possible I'm not gonna say it's not possible.
+
+312
+00:29:16.110 --> 00:29:17.839
+Anthony Taylor: It is entirely possible.
+
+313
+00:29:18.790 --> 00:29:22.119
+Masarirambi, Rodney: Okay, assuming that.
+
+314
+00:29:22.550 --> 00:29:30.829
+Masarirambi, Rodney: I'm assuming that you're you have a wonderful list of libraries for us to import that you have will share with us later. Right?
+
+315
+00:29:31.550 --> 00:29:38.009
+Anthony Taylor: We'll we'll we will approach them as we get to right. I mean I
+
+316
+00:29:38.780 --> 00:29:50.660
+Anthony Taylor: I mean again. It's one of those things where I have like default code that I use all the time right? That just start my day or my programs. So I mean, I have a bunch of them. But
+
+317
+00:29:50.690 --> 00:29:52.249
+Anthony Taylor: for the most part.
+
+318
+00:29:52.470 --> 00:29:55.809
+Anthony Taylor:  it, it totally depends on what you're working on.
+
+319
+00:29:56.010 --> 00:30:07.690
+Anthony Taylor: So like when we do pandas, every single. every single notebook. You're going to start with import payers every single note. right? When we start doing the Ml stuff. You're gonna do psychic learning
+
+320
+00:30:07.710 --> 00:30:08.940
+Anthony Taylor: every single notebook.
+
+321
+00:30:09.700 --> 00:30:11.530
+Anthony Taylor: Okay?
+
+322
+00:30:11.630 --> 00:30:16.349
+Anthony Taylor: you know. And as we get into the AI stuff, it's gonna be import open. AI, it's gonna be import.
+
+323
+00:30:16.390 --> 00:30:18.610
+Anthony Taylor: whatever we're working. Lane change
+
+324
+00:30:18.810 --> 00:30:19.990
+Anthony Taylor: transformers.
+
+325
+00:30:21.020 --> 00:30:25.729
+Anthony Taylor: So it's kind of cool. But yeah, I don't have like a set. These are my favorites.
+
+326
+00:30:25.760 --> 00:30:27.450
+Anthony Taylor: But there are some we use a lot.
+
+327
+00:30:28.210 --> 00:30:30.750
+Anthony Taylor: so that'll that'll be where we end up
+
+328
+00:30:31.580 --> 00:30:33.260
+Anthony Taylor: alright. So
+
+329
+00:30:35.470 --> 00:30:37.530
+Anthony Taylor: in looking at today's stuff.
+
+330
+00:30:38.570 --> 00:30:48.469
+Anthony Taylor:  I'm going to do a lot of every. Does everyone like, yeah, everyone dues, or you, or what? Anyone like God, I hate everything.
+
+331
+00:30:50.810 --> 00:30:51.610
+Anthony Taylor: No.
+
+332
+00:30:51.740 --> 00:30:53.400
+Clayton Graves: What was that? Repeat that?
+
+333
+00:30:53.940 --> 00:30:58.849
+Anthony Taylor: Everyone news where we kind of do it all in the group, together with the kind of guiding
+
+334
+00:30:59.150 --> 00:31:06.569
+Clayton Graves: with with these, in particular, with with I'm speaking for me, not for everybody, but for for
+
+335
+00:31:06.840 --> 00:31:10.850
+Clayton Graves: for the lectures that everybody dues seem to go smoother.
+
+336
+00:31:11.290 --> 00:31:14.099
+Anthony Taylor: Well, of course they do. I know how to do it.
+
+337
+00:31:14.650 --> 00:31:23.360
+Clayton Graves: but then but it's not useless because we can go back to the recording. And yeah.
+
+338
+00:31:24.760 --> 00:31:29.789
+Clayton Graves: it's just things move so fast that it's it's sometimes hard. Little hang ups. Get us.
+
+339
+00:31:30.040 --> 00:31:31.769
+Anthony Taylor: I totally understand.
+
+340
+00:31:32.460 --> 00:31:34.560
+Anthony Taylor: Okay.
+
+341
+00:31:35.710 --> 00:31:38.960
+Anthony Taylor: alright. Well, then, let's do it. So
+
+342
+00:31:40.210 --> 00:31:41.969
+Anthony Taylor: the readme says
+
+343
+00:31:43.460 --> 00:31:49.880
+Anthony Taylor: we're gonna import the calculate future value function from the Carlo dot key wifi
+
+344
+00:31:50.840 --> 00:31:54.819
+Anthony Taylor: set the function call equal to a variable called our value.
+
+345
+00:31:55.610 --> 00:32:01.359
+Anthony Taylor: Pass the relevant information from a dictionary as parameters to the function, call
+
+346
+00:32:01.970 --> 00:32:06.939
+Anthony Taylor: print the future value of the card to 2 decimal places and thousands.
+
+347
+00:32:07.470 --> 00:32:08.979
+Anthony Taylor: So is that clear as much.
+
+348
+00:32:11.310 --> 00:32:12.160
+Anthony Taylor: Philip?
+
+349
+00:32:12.620 --> 00:32:14.269
+Anthony Taylor: Alright. So first
+
+350
+00:32:14.330 --> 00:32:27.149
+Anthony Taylor: let's go and open this guy. So the first thing it says import the calculate future values from the car loan file, which is interesting because we didn't tell you how to do that yet.
+
+351
+00:32:27.810 --> 00:32:38.239
+Anthony Taylor: But I want to tell you now. So here's the car loan file. Now, notice we have the notebook. But I'm gonna use this PY. File for this
+
+352
+00:32:38.620 --> 00:32:42.659
+Anthony Taylor: in this file. All that's in here is a function.
+
+353
+00:32:43.850 --> 00:32:48.979
+Anthony Taylor: This function calculates future value. It takes 1, 2,
+
+354
+00:32:49.040 --> 00:32:50.529
+Anthony Taylor: 3 variables.
+
+355
+00:32:51.780 --> 00:32:53.559
+Anthony Taylor: our arguments sorry.
+
+356
+00:32:54.180 --> 00:33:01.170
+Anthony Taylor: and we can see what those arguments are. and then it does the calculation, and it returns the future value.
+
+357
+00:33:01.710 --> 00:33:08.460
+Anthony Taylor: I believe we did this in class in notebook the other day. Okay, so in our
+
+358
+00:33:11.330 --> 00:33:15.710
+Anthony Taylor: notebook here, or that's the py file, it's to the note. We can use the notebook for the import.
+
+359
+00:33:16.040 --> 00:33:21.930
+Anthony Taylor: We can do import. and then we can call that file.
+
+360
+00:33:22.990 --> 00:33:25.190
+Anthony Taylor: We do not need to do.py.
+
+361
+00:33:26.350 --> 00:33:37.640
+Anthony Taylor: okay. And then. Now, we have the whole file. Now, that's not technically what they said to do. They're saying, import calculate future value functions. So what we're gonna do is from
+
+362
+00:33:38.610 --> 00:33:43.610
+Anthony Taylor: Carlo import that function.
+
+363
+00:33:45.130 --> 00:33:47.020
+Anthony Taylor: Okay? And now we can run this.
+
+364
+00:33:48.400 --> 00:33:50.270
+Anthony Taylor: and it should work without issue.
+
+365
+00:33:51.770 --> 00:33:54.430
+Anthony Taylor: And it did. Now.
+
+366
+00:33:55.090 --> 00:34:00.540
+Anthony Taylor: Clayton pointed out something that Matt pointed out to him, and and I think it's a good thing to point out. So
+
+367
+00:34:00.920 --> 00:34:03.089
+Anthony Taylor: this is Gray. Why is this Gray
+
+368
+00:34:06.650 --> 00:34:07.940
+Anthony Taylor: anybody want? Guess
+
+369
+00:34:10.190 --> 00:34:12.230
+Mason, Natalie: they haven't been assigned the value.
+
+370
+00:34:12.330 --> 00:34:17.840
+Anthony Taylor: We haven't done anything with it right? So I need Natalie. We haven't done anything with it yet. It's just sitting there.
+
+371
+00:34:18.100 --> 00:34:20.740
+Anthony Taylor: We called it. We created it. We didn't do anything.
+
+372
+00:34:21.340 --> 00:34:26.930
+Anthony Taylor: Okay. So here we we have imported it. Here's our values that we're going to pass into it.
+
+373
+00:34:27.250 --> 00:34:31.010
+Anthony Taylor: Okay? Now, it says. set the function call
+
+374
+00:34:32.219 --> 00:34:36.509
+Anthony Taylor: equal to a variable called car value. Well, we can do that
+
+375
+00:34:37.550 --> 00:34:42.989
+Anthony Taylor: underscore value equals. And then we're going to call the function calculate
+
+376
+00:34:43.210 --> 00:34:44.429
+Anthony Taylor: future value.
+
+377
+00:34:45.469 --> 00:34:53.830
+Anthony Taylor: Parentheses! Now look at that, because in our code we documented it properly. Look, we can see what we need pass it.
+
+378
+00:34:55.770 --> 00:34:59.080
+Anthony Taylor: Okay? So we need to pass in
+
+379
+00:34:59.100 --> 00:35:07.150
+Anthony Taylor: the current loan value the annual interest month rate. That's these in there in the same order. So it's not too bad. So the first one is new car loan
+
+380
+00:35:07.240 --> 00:35:11.340
+Anthony Taylor: brackets and then current loan value
+
+381
+00:35:13.440 --> 00:35:14.370
+Anthony Taylor: comma
+
+382
+00:35:16.150 --> 00:35:19.640
+Anthony Taylor: new Carlo. That's the name of the dictionary object, right?
+
+383
+00:35:19.710 --> 00:35:22.030
+Anthony Taylor: We need months remaining this time
+
+384
+00:35:24.060 --> 00:35:25.250
+Anthony Taylor: that equals.
+
+385
+00:35:26.350 --> 00:35:36.100
+Anthony Taylor: And then one more new Carlo bracket. And we'll interest trade 9 equals. Okay?
+
+386
+00:35:37.750 --> 00:35:39.370
+Anthony Taylor: So now we can run this.
+
+387
+00:35:39.900 --> 00:35:42.420
+Anthony Taylor: and then it says, Print it out.
+
+388
+00:35:44.620 --> 00:35:45.769
+Anthony Taylor: yeah, clean.
+
+389
+00:35:46.650 --> 00:35:56.499
+Clayton Graves: So calling it like this. You they were already, and listed in order. So it's fine. But if they weren't calling it like this wouldn't
+
+390
+00:35:56.600 --> 00:36:00.169
+Clayton Graves: you. You don't run any risk of any problems, because
+
+391
+00:36:01.830 --> 00:36:04.429
+Clayton Graves: the way you're calling it the order's irrelevant.
+
+392
+00:36:05.200 --> 00:36:06.210
+Anthony Taylor: Well.
+
+393
+00:36:06.700 --> 00:36:13.819
+Anthony Taylor: no, I think these are the way we called it. Remember, we did that yesterday or the other day, did we did put these in position.
+
+394
+00:36:14.030 --> 00:36:24.029
+Anthony Taylor: If we really wanted it to be right, we would do current loan value equals new car months remaining equals and annual interest rate. No, we just happen
+
+395
+00:36:24.120 --> 00:36:25.770
+Anthony Taylor: to put them in in the same world.
+
+396
+00:36:26.340 --> 00:36:29.149
+Anthony Taylor: So so no reception, different
+
+397
+00:36:30.150 --> 00:36:37.719
+Derek Rikke: interest rates in the middle. Got it? It sure is.
+
+398
+00:36:38.470 --> 00:36:47.759
+Anthony Taylor: Look at that, and that's why it didn't work right well, it'll still work, cause they're all numbers. But well, thank you. Could have called that out sooner, though.
+
+399
+00:36:49.880 --> 00:36:52.590
+Anthony Taylor: Yeah, alright.
+
+400
+00:36:54.180 --> 00:36:58.029
+Anthony Taylor: that was one of those mistakes I actually made. I didn't make it for fun.
+
+401
+00:36:58.360 --> 00:36:59.180
+Anthony Taylor: Okay.
+
+402
+00:36:59.930 --> 00:37:04.389
+Anthony Taylor: there you go now? Did we finish it? Did we do it right? Is it right?
+
+403
+00:37:06.580 --> 00:37:08.780
+Anthony Taylor: No, what's wrong, Derek?
+
+404
+00:37:11.430 --> 00:37:14.080
+Derek Rikke: You need a limited decimal places to do?
+
+405
+00:37:14.600 --> 00:37:19.300
+Anthony Taylor: How would you do it? I know how I would. How would you do it?
+
+406
+00:37:21.910 --> 00:37:23.020
+Derek Rikke: A.
+
+407
+00:37:23.240 --> 00:37:27.730
+Derek Rikke: Do you make it a F string? And then you call in comma
+
+408
+00:37:28.210 --> 00:37:29.260
+Derek Rikke: add to
+
+409
+00:37:30.890 --> 00:37:31.940
+Anthony Taylor: comma.
+
+410
+00:37:32.300 --> 00:37:35.079
+Anthony Taylor: Oh, at the end. Okay? Well, okay.
+
+411
+00:37:35.260 --> 00:37:36.629
+Anthony Taylor: gotcha. Go ahead.
+
+412
+00:37:38.430 --> 00:37:41.190
+Derek Rikke: Colin. Kaada.
+
+413
+00:37:42.810 --> 00:37:44.990
+Anthony Taylor: 2 F. Maybe
+
+414
+00:37:45.780 --> 00:37:49.280
+Anthony Taylor: we got a curly bracket. We got to curly brackets.
+
+415
+00:37:51.500 --> 00:37:56.789
+Anthony Taylor: Alright, that's sure. What am I missing? Hold on! Oh, we need double quotes
+
+416
+00:37:57.610 --> 00:37:58.739
+Anthony Taylor: that should do it.
+
+417
+00:37:59.620 --> 00:38:02.759
+Anthony Taylor: or if you didn't care about the comma
+
+418
+00:38:03.650 --> 00:38:08.749
+Anthony Taylor: to get rid of that, or you coulda just went round
+
+419
+00:38:10.620 --> 00:38:12.069
+Anthony Taylor: what we call it again.
+
+420
+00:38:14.190 --> 00:38:15.210
+Anthony Taylor: Car value
+
+421
+00:38:17.130 --> 00:38:17.980
+Anthony Taylor: not much
+
+422
+00:38:19.590 --> 00:38:23.269
+Anthony Taylor: whoops. See what I miss? Oh, I got an extra. I'm missing, Prince.
+
+423
+00:38:24.940 --> 00:38:25.800
+Anthony Taylor: hey?
+
+424
+00:38:26.230 --> 00:38:37.509
+Anthony Taylor: All those were the way Derek did. It was courteous. What's the biggest difference the way Derek said. Do it made it into a string the way I did it. It's still a number. Well, it's afloat.
+
+425
+00:38:38.270 --> 00:38:39.170
+Anthony Taylor: Okay.
+
+426
+00:38:40.270 --> 00:38:45.260
+Anthony Taylor: so that's it. That was the whole exercise. What do you guys think was that fun? Any question
+
+427
+00:38:47.630 --> 00:38:50.940
+Anthony Taylor: everybody follow how we got where this function came from?
+
+428
+00:38:51.740 --> 00:38:56.129
+Anthony Taylor: Right? Came from in this file right here.
+
+429
+00:38:58.190 --> 00:39:00.969
+Anthony Taylor: That's like the most important thing to take away from this.
+
+430
+00:39:01.540 --> 00:39:05.630
+Anthony Taylor: We can import, then, this name of a file
+
+431
+00:39:05.770 --> 00:39:06.750
+Anthony Taylor: into here
+
+432
+00:39:08.320 --> 00:39:09.390
+Anthony Taylor: just like that.
+
+433
+00:39:11.030 --> 00:39:15.779
+Anthony Taylor: That means we can write our own functions. put them in another package.
+
+434
+00:39:16.830 --> 00:39:20.059
+Anthony Taylor: Exciting? Yes, Tanya.
+
+435
+00:39:20.530 --> 00:39:21.799
+Raugewitz, Tania: thank you. So
+
+436
+00:39:21.980 --> 00:39:26.419
+Raugewitz, Tania: in the beginning the calculate future value was grey. And
+
+437
+00:39:26.620 --> 00:39:28.870
+Raugewitz, Tania: so how did it become gray again.
+
+438
+00:39:29.820 --> 00:39:30.950
+Anthony Taylor: because we used.
+
+439
+00:39:31.680 --> 00:39:32.350
+okay.
+
+440
+00:39:33.100 --> 00:39:35.480
+Anthony Taylor: yeah, if you comment this slide now.
+
+441
+00:39:37.000 --> 00:39:38.280
+Anthony Taylor: it turns free again.
+
+442
+00:39:39.250 --> 00:39:42.689
+Anthony Taylor: Now, guys, this is there are. So this is.
+
+443
+00:39:42.960 --> 00:39:48.240
+Anthony Taylor: And and I want you guys to remember we're about to. Vs code is an Id E,
+
+444
+00:39:49.060 --> 00:40:01.090
+Anthony Taylor: it's a development environment. It is feature, rich to do development. There are other ids out there that also do color coding and other cool features as well.
+
+445
+00:40:01.350 --> 00:40:02.980
+Anthony Taylor: Okay, but not all.
+
+446
+00:40:03.410 --> 00:40:15.320
+Anthony Taylor: So keep that in mind. Vs code has just become in the last couple of years, like the de facto everybody's using. If you're not using it, you're probably using notebooks, only so.
+
+447
+00:40:15.570 --> 00:40:18.170
+Anthony Taylor: or some a like
+
+448
+00:40:18.700 --> 00:40:22.180
+Anthony Taylor: expensive one. There are some expenses that's up.
+
+449
+00:40:24.080 --> 00:40:26.309
+Anthony Taylor: Any other questions.
+
+450
+00:40:28.410 --> 00:40:29.679
+Anthony Taylor: That was fun.
+
+451
+00:40:29.780 --> 00:40:32.550
+Anthony Taylor: I went so fast. I'm like, I feel.
+
+452
+00:40:32.820 --> 00:40:34.009
+Anthony Taylor: I feel cheated.
+
+453
+00:40:37.160 --> 00:40:39.340
+Anthony Taylor: Okay. So back to slides.
+
+454
+00:40:40.600 --> 00:40:42.950
+Anthony Taylor: Now we're going to talk about refactoring.
+
+455
+00:40:47.880 --> 00:40:50.140
+Anthony Taylor: The winner's refactor.
+
+456
+00:40:50.940 --> 00:40:57.939
+Anthony Taylor: Well, we have some code. We've written some code code works. We're exciting
+
+457
+00:40:58.490 --> 00:41:02.309
+Anthony Taylor: somebody. Some dude comes over. It's probably curry
+
+458
+00:41:03.420 --> 00:41:06.789
+Anthony Taylor: points at your code, giggles a little bit and walks it
+
+459
+00:41:07.570 --> 00:41:11.690
+Anthony Taylor: all right. You're like dude. What's wrong with my code? And he's like
+
+460
+00:41:12.860 --> 00:41:15.390
+Anthony Taylor: you didn't. You weren't very pythonic.
+
+461
+00:41:16.230 --> 00:41:19.710
+Anthony Taylor: You could have made that so much more compressed.
+
+462
+00:41:19.790 --> 00:41:27.499
+Anthony Taylor: less words. That's what he would have said and made fun of you, and laughed as he walked off to the cafeteria.
+
+463
+00:41:28.570 --> 00:41:32.809
+Anthony Taylor: Okay. it is possible that somebody would do that.
+
+464
+00:41:34.000 --> 00:41:38.229
+Anthony Taylor: Okay, sorry, Curry said.
+
+465
+00:41:38.470 --> 00:41:46.929
+Anthony Taylor: You guys feel like what I'm looking at. I just like randomly pick it names and trying to not pick names, I think, before.
+
+466
+00:41:47.060 --> 00:41:51.589
+Anthony Taylor: So, anyway. So why do we do it? Well, it proves, decide.
+
+467
+00:41:52.340 --> 00:41:54.279
+Anthony Taylor: Sometimes it does.
+
+468
+00:41:54.830 --> 00:42:03.520
+Anthony Taylor: Okay. It doesn't have to be more pythonic. To be refactored could be that it's so pythonic that it's stupid, in fact.
+
+469
+00:42:04.850 --> 00:42:07.160
+Anthony Taylor: Most iconic
+
+470
+00:42:07.340 --> 00:42:11.340
+Anthony Taylor: working line of code, node
+
+471
+00:42:11.590 --> 00:42:12.830
+Anthony Taylor: I put no.
+
+472
+00:42:15.380 --> 00:42:20.170
+Anthony Taylor: I mean, there's just such stupid ones out there. It's it's hilarious.
+
+473
+00:42:27.620 --> 00:42:35.640
+Baro, Sonja: Can you go to the Pythonic one liners to impress your friend.
+
+474
+00:42:38.580 --> 00:42:41.030
+Anthony Taylor: I mean, there is that what it's called pythonic?
+
+475
+00:42:41.340 --> 00:42:47.770
+Baro, Sonja: I don't know. I just saw a reference. Briefly. It just cracked me up because I'm like
+
+476
+00:42:48.790 --> 00:42:55.800
+Baro, Sonja: certain environments that would fall flat. My household. Not but you guys.
+
+477
+00:42:55.900 --> 00:42:58.610
+Baro, Sonja: okay. the
+
+478
+00:42:58.980 --> 00:43:00.449
+Anthony Taylor: this is fine one.
+
+479
+00:43:00.540 --> 00:43:02.730
+Baro, Sonja: There was one. Yeah, I mean, like, here's what
+
+480
+00:43:02.950 --> 00:43:03.840
+Anthony Taylor: I mean.
+
+481
+00:43:05.310 --> 00:43:09.270
+Anthony Taylor: I understand what that means. But why?
+
+482
+00:43:10.090 --> 00:43:14.519
+Anthony Taylor: Right? There's no point. Okay, what's some other ones in here?
+
+483
+00:43:16.740 --> 00:43:22.429
+Anthony Taylor: They're they're just, you know, here's another one. It's like, Oh, we're gonna rewrite this into this.
+
+484
+00:43:23.480 --> 00:43:24.549
+Anthony Taylor: What's the point?
+
+485
+00:43:26.590 --> 00:43:28.339
+Anthony Taylor: We're gonna rewrite this one.
+
+486
+00:43:30.650 --> 00:43:35.190
+Anthony Taylor: Oh, here's your lambda function. So here's the function here it is all in one line.
+
+487
+00:43:35.530 --> 00:43:37.150
+Anthony Taylor: Here it is as a lambda.
+
+488
+00:43:38.190 --> 00:43:42.980
+Clayton Graves: Are they using the number 42? For the reason I think they're using it
+
+489
+00:43:43.470 --> 00:43:45.030
+Anthony Taylor: for the random seed.
+
+490
+00:43:45.810 --> 00:43:49.819
+Clayton Graves: Yes, because it is the answer to all things.
+
+491
+00:43:51.350 --> 00:43:54.730
+Baro, Sonja: Let us in on the joke. I don't know that one
+
+492
+00:43:55.310 --> 00:43:56.590
+Anthony Taylor: go ahead like.
+
+493
+00:43:57.410 --> 00:44:06.579
+Clayton Graves: should II see smiles coming on, people's faces, the answer to life, the universe, and everything. If you don't know what it means, then you need a towel.
+
+494
+00:44:07.390 --> 00:44:11.819
+Clayton Graves: It's actually all references from hitchhikers, Guy.
+
+495
+00:44:11.840 --> 00:44:16.660
+Masarirambi, Rodney:  hello! Okay.
+
+496
+00:44:16.880 --> 00:44:17.710
+Masarirambi, Rodney: bye, bye.
+
+497
+00:44:17.960 --> 00:44:20.700
+Masarirambi, Rodney: So the point is is
+
+498
+00:44:21.670 --> 00:44:31.399
+Anthony Taylor: so the point is, we will, Rodney, that I mean, I just I had to. I always. Everyone always points that out cause you'll see it throughout all the code examples. We use random seed a lot.
+
+499
+00:44:31.550 --> 00:44:33.390
+Anthony Taylor: and it's always 42.
+
+500
+00:44:33.580 --> 00:44:37.090
+Anthony Taylor: So it comes up a lot. Every cohort that one comes up
+
+501
+00:44:37.170 --> 00:44:49.830
+Anthony Taylor: that went in the best movie ever made. Princess Bride greatest movie ever made. like all of the dude. Do you see that. ladies? Did you see that half the dudes in the room went.
+
+502
+00:44:51.430 --> 00:44:52.510
+Anthony Taylor: it's true.
+
+503
+00:44:53.100 --> 00:44:55.440
+Anthony Taylor: Do join Princess Pride.
+
+504
+00:44:58.730 --> 00:45:00.099
+Anthony Taylor: Yeah, I don't.
+
+505
+00:45:00.280 --> 00:45:03.960
+Anthony Taylor: It's inconceivable. I don't know. Okay, so anyway.
+
+506
+00:45:06.320 --> 00:45:12.610
+Anthony Taylor: so just because you can make it, one line doesn't mean it needs to be one line.
+
+507
+00:45:12.700 --> 00:45:16.750
+Anthony Taylor: If it makes sense, do it, it doesn't. Don't worry about it.
+
+508
+00:45:17.260 --> 00:45:20.350
+Anthony Taylor: If it makes the code more readable.
+
+509
+00:45:20.480 --> 00:45:21.390
+Anthony Taylor: do it
+
+510
+00:45:22.330 --> 00:45:26.920
+Anthony Taylor: so that those one-liners I showed you those weren't more readable. And at all
+
+511
+00:45:27.280 --> 00:45:35.020
+Anthony Taylor: they didn't perform any faster. There's nothing special about them other than to show off. Okay.
+
+512
+00:45:35.540 --> 00:45:40.449
+Anthony Taylor: just so you guys understand, I'm not gonna get too deep in this. But the way python works
+
+513
+00:45:40.620 --> 00:45:42.810
+Anthony Taylor: is, it's a scripting language.
+
+514
+00:45:43.240 --> 00:45:45.770
+Anthony Taylor: So you write code.
+
+515
+00:45:46.100 --> 00:45:47.669
+Anthony Taylor: you kick it off.
+
+516
+00:45:47.740 --> 00:45:56.179
+Anthony Taylor: An application on your computer, takes what you wrote, converts it into something the computer understands and executes it.
+
+517
+00:45:57.150 --> 00:45:57.970
+Anthony Taylor: So
+
+518
+00:45:58.600 --> 00:46:02.990
+Anthony Taylor: if you do it in one line. It doesn't take the computer any longer to convert it.
+
+519
+00:46:04.570 --> 00:46:09.579
+Anthony Taylor: If you do it in 4 lines. I mean, I gather you did it in 400 lines, and you could have done it. One line.
+
+520
+00:46:09.980 --> 00:46:13.619
+Anthony Taylor: maybe, but that's never gonna happen, you know, you're gonna save like
+
+521
+00:46:13.760 --> 00:46:16.940
+Anthony Taylor: couple of bytes of strings just to look cool. And
+
+522
+00:46:17.290 --> 00:46:27.429
+Anthony Taylor: but anyway, so. But all of these are reasons to refactor. One improves the design. 2. It makes it easier to understand 3. It helps your teammates understand
+
+523
+00:46:27.900 --> 00:46:35.570
+Anthony Taylor: what it is. So maybe if you're on a project group and none of your teammates know this comprehension, and maybe you do a for loop.
+
+524
+00:46:36.600 --> 00:46:37.590
+Anthony Taylor: Okay?
+
+525
+00:46:38.320 --> 00:46:45.819
+Anthony Taylor: And it just broadens your knowledge. Yeah, it's cool. It is cool and like to me, it's cool like
+
+526
+00:46:48.740 --> 00:46:51.129
+Anthony Taylor: any of you ever go to cracker barrel.
+
+527
+00:46:52.940 --> 00:46:56.389
+Anthony Taylor: You guys heard of it, you know that little puzzle on the table
+
+528
+00:46:56.650 --> 00:47:00.159
+Anthony Taylor: with a little triangle, and you got the golf tees right?
+
+529
+00:47:00.380 --> 00:47:08.900
+Anthony Taylor: Everybody wants to solve it, and everybody can. Everybody has solved that puzzle, but very few people like know the exact way to solve it every single time.
+
+530
+00:47:09.090 --> 00:47:10.830
+Anthony Taylor: Do you need to know that?
+
+531
+00:47:11.300 --> 00:47:24.750
+Anthony Taylor: No, you don't. Okay, but it's cool that you do. And if you can say I do, you're like, I'm like dude. You're cool. But that's really the only benefit to know and how to do this stuff. It's like, yeah, sometimes how you do it for fun.
+
+532
+00:47:25.290 --> 00:47:28.400
+Anthony Taylor: Okay? But many times. It's just to be cool.
+
+533
+00:47:28.910 --> 00:47:34.310
+Anthony Taylor: And I'm not saying refactoring is just be cool. I'm saying refactoring is not just
+
+534
+00:47:35.290 --> 00:47:36.550
+Anthony Taylor: compressing your code.
+
+535
+00:47:38.180 --> 00:47:47.090
+Anthony Taylor: So You should always wait till after you're done. as in everything works. Now go refect.
+
+536
+00:47:48.350 --> 00:47:50.410
+Anthony Taylor: Okay.
+
+537
+00:47:50.490 --> 00:47:55.959
+Anthony Taylor: You should do it in small bits. So you like, change one for loop
+
+538
+00:47:56.450 --> 00:47:59.510
+Anthony Taylor: test it. Make sure it works. Yes, right?
+
+539
+00:48:01.050 --> 00:48:09.049
+Masarirambi, Rodney: So I guess I'd always thought when I heard people talking about refactoring code, that it was to make like something run more efficiently.
+
+540
+00:48:09.490 --> 00:48:13.829
+Masarirambi, Rodney: So and so can be, does it? It can. Okay? Alright. Ken, okay.
+
+541
+00:48:13.860 --> 00:48:16.940
+Anthony Taylor: Yeah. Yeah. Yeah. I mean, that would go with number one.
+
+542
+00:48:17.980 --> 00:48:18.860
+Anthony Taylor: Right?
+
+543
+00:48:18.990 --> 00:48:26.679
+Anthony Taylor: But it doesn't it? It just. It's not always the case. And and honestly, if you said
+
+544
+00:48:26.730 --> 00:48:36.509
+Anthony Taylor: I mean, if Gabe wrote us a program. And it took, you know, 5 min run. And I'm like, you know, maybe you should go refactor that cause. I bet you we could get that down to 30 s.
+
+545
+00:48:36.980 --> 00:48:43.360
+Anthony Taylor: Okay, that is an accurate statement. There's nothing wrong with that statement. It's totally legit. Alright.
+
+546
+00:48:43.370 --> 00:48:54.370
+Anthony Taylor: And it does. But a lot of times, I mean, at least in this context. They're like talking about, you know. Trim it down from a for loop to this comprehension, or whatever. Okay.
+
+547
+00:48:54.700 --> 00:48:57.409
+Anthony Taylor:  yes, Gabe. -Oh.
+
+548
+00:48:57.430 --> 00:49:04.919
+Vasquez, Gabriel: he's gonna get me for saying 5 min program. would. Are we gonna go over a big o notation?
+
+549
+00:49:05.330 --> 00:49:06.310
+Anthony Taylor: No.
+
+550
+00:49:07.600 --> 00:49:17.500
+Anthony Taylor: that's a full stack thing game. I'm not. We are teaching. We're gonna touch on applications like today. But we don't really get like deep into it like you did it. Full stack.
+
+551
+00:49:18.070 --> 00:49:23.540
+Anthony Taylor: Yeah. Well, you said, you know there wasn't. There is a program. I don't know if we still offer it. I taught it for Wi-fi to do
+
+552
+00:49:24.050 --> 00:49:30.110
+Anthony Taylor: for teaching la from full stack. It's an add on to teach
+
+553
+00:49:31.470 --> 00:49:38.189
+Anthony Taylor: aws certified development. And that one really got into all of that stuff. We're not gonna do that here.
+
+554
+00:49:38.740 --> 00:49:40.710
+Anthony Taylor: Okay? Good question, though, Gabe.
+
+555
+00:49:41.750 --> 00:49:47.520
+Anthony Taylor: All right. Everybody knows. Gabe took our full stack boot camp right? I told you you guys remember that from his intro.
+
+556
+00:49:47.900 --> 00:49:52.920
+Anthony Taylor: okay, cool. So some common tips. Okay. And this is.
+
+557
+00:49:53.560 --> 00:49:58.040
+Anthony Taylor: I gotta be honest with you. Some of this in like buying.
+
+558
+00:49:58.240 --> 00:50:05.180
+Anthony Taylor: Does it really matter? But it's still some examples. How's that? Not going to say tips? They're examples.
+
+559
+00:50:05.410 --> 00:50:14.630
+Anthony Taylor: So using the range function, we can say range length numbers. So this will cycle through each one of these numbers and do something with.
+
+560
+00:50:15.520 --> 00:50:16.250
+okay.
+
+561
+00:50:17.300 --> 00:50:25.480
+Anthony Taylor: this is the index. because it starts at 0 and just goes up until it gets to the length of this list.
+
+562
+00:50:26.220 --> 00:50:30.380
+Anthony Taylor: Another option which you haven't learned yet is enumerate.
+
+563
+00:50:31.350 --> 00:50:40.730
+Anthony Taylor: enumerate, returns to value for each value in the list. The 2 values are the index
+
+564
+00:50:41.000 --> 00:50:42.289
+Anthony Taylor: and the value.
+
+565
+00:50:42.860 --> 00:50:45.059
+Anthony Taylor: So the index
+
+566
+00:50:45.640 --> 00:50:46.729
+Anthony Taylor: and the value.
+
+567
+00:50:48.600 --> 00:50:53.049
+Anthony Taylor: Okay, so even though when we print it out, it looks almost the same.
+
+568
+00:50:53.440 --> 00:50:54.660
+Anthony Taylor: it's a little bit different.
+
+569
+00:50:56.070 --> 00:51:00.910
+Anthony Taylor: There are times where enumerate is more helpful. then range.
+
+570
+00:51:02.190 --> 00:51:06.370
+Anthony Taylor: Do I think it should be that way every single time? No.
+
+571
+00:51:10.170 --> 00:51:11.629
+Anthony Taylor: I smell something weird.
+
+572
+00:51:19.760 --> 00:51:21.670
+Anthony Taylor: Sorry. Smell something weird.
+
+573
+00:51:21.940 --> 00:51:24.029
+Anthony Taylor: Okay. here's another one.
+
+574
+00:51:24.550 --> 00:51:30.070
+Anthony Taylor: Okay, so here we are. We're not using a function. We're just running this thing. So we have
+
+575
+00:51:30.430 --> 00:51:35.069
+Anthony Taylor: a list, we have a couple of variables. We're gonna do a for loop, basically
+
+576
+00:51:35.220 --> 00:51:39.029
+Anthony Taylor: looks like we're adding up total and account variable.
+
+577
+00:51:39.100 --> 00:51:40.750
+Anthony Taylor: And we're basically we're gonna get to F,
+
+578
+00:51:42.000 --> 00:51:42.830
+Anthony Taylor: okay.
+
+579
+00:51:43.470 --> 00:51:52.639
+Anthony Taylor: this is actually a good use of refactoring. If you see you have code that probably should be encapsulated in a function that you may use again later.
+
+580
+00:51:52.810 --> 00:52:05.710
+Anthony Taylor: This would be a good time to do it. So here we're just going to take basically the same logic and put it into a function and return the value and then call function. This is how I
+
+581
+00:52:06.950 --> 00:52:09.909
+Anthony Taylor: cause I'll write like a big exotic
+
+582
+00:52:10.040 --> 00:52:11.370
+Anthony Taylor: watchmadilly
+
+583
+00:52:11.550 --> 00:52:26.599
+Anthony Taylor: right? And then I'll go back and block it down into functions. And then I mean, understand my role as an architect and instructor. And all this kind of stuff, right? So it's up to me to kind of make sure everybody is doing it. The way
+
+584
+00:52:31.030 --> 00:52:33.989
+Anthony Taylor: do not have control issues. Stop saying that.
+
+585
+00:52:34.870 --> 00:52:35.820
+Anthony Taylor: okay.
+
+586
+00:52:37.070 --> 00:52:38.990
+Anthony Taylor: okay, all right?
+
+587
+00:52:39.270 --> 00:52:45.879
+Anthony Taylor: Okay? So another active. I mean, I think this one, you guys will be okay up.
+
+588
+00:52:47.570 --> 00:52:53.160
+Anthony Taylor: Oh, no, it's everyone dude. Never buy. This one is an actual everyone new.
+
+589
+00:52:53.490 --> 00:52:58.460
+Anthony Taylor:  actually, I
+
+590
+00:52:58.930 --> 00:53:00.000
+understand this.
+
+591
+00:53:01.500 --> 00:53:08.979
+Anthony Taylor: And when I say that I don't mean I don't understand how to refactor, I mean. it's there's no difference in the solution
+
+592
+00:53:09.100 --> 00:53:11.260
+Anthony Taylor: and in the
+
+593
+00:53:11.900 --> 00:53:16.100
+Anthony Taylor: actual thing. So
+
+594
+00:53:21.540 --> 00:53:24.080
+Anthony Taylor: let's see, maybe there's some code or something.
+
+595
+00:53:25.790 --> 00:53:30.450
+Anthony Taylor: Oh, here we go. there we go alright. So
+
+596
+00:53:32.860 --> 00:53:36.530
+Anthony Taylor: well, we got here. So they're saying, travel cities.
+
+597
+00:53:38.090 --> 00:53:42.110
+Anthony Taylor: add the code to be refactored. So let's look at travel loops.
+
+598
+00:53:44.120 --> 00:53:48.860
+Anthony Taylor:  now I understand. Okay. So here's what we're gonna do.
+
+599
+00:53:48.910 --> 00:53:53.129
+Anthony Taylor: We're going to open this guy
+
+600
+00:53:54.360 --> 00:53:58.019
+Anthony Taylor: and put this guy here all right. So what they're saying is
+
+601
+00:53:58.110 --> 00:54:01.750
+Anthony Taylor: is they want us to
+
+602
+00:54:02.300 --> 00:54:08.290
+Anthony Taylor: refactor this big pipi file into a function effectively.
+
+603
+00:54:08.620 --> 00:54:12.570
+Anthony Taylor: So that's what we're going to do. And second.
+
+604
+00:54:18.210 --> 00:54:21.629
+Anthony Taylor: I'm just trying to get to it. Make sure I'm getting the right thing for you.
+
+605
+00:54:26.180 --> 00:54:27.829
+Anthony Taylor: Are you cooking in there?
+
+606
+00:54:29.950 --> 00:54:31.330
+Anthony Taylor: He's not answering me.
+
+607
+00:54:32.470 --> 00:54:36.230
+Anthony Taylor: Gotta be cooking, so I have to check to make sure nothing. Burn one sec.
+
+608
+00:54:41.480 --> 00:54:42.219
+How are you?
+
+609
+00:54:49.410 --> 00:54:51.790
+Masarirambi, Rodney: Let's completely refactor before he gets back.
+
+610
+00:54:55.570 --> 00:54:57.860
+Clayton Graves: He's out to go refactor dinner.
+
+611
+00:55:05.920 --> 00:55:07.819
+Anthony Taylor: No, II make dinner hours.
+
+612
+00:55:08.040 --> 00:55:14.080
+Anthony Taylor: But or something.
+
+613
+00:55:14.360 --> 00:55:16.210
+Anthony Taylor: Okay. So
+
+614
+00:55:17.990 --> 00:55:19.830
+Anthony Taylor: back to it.
+
+615
+00:55:21.570 --> 00:55:22.280
+Anthony Taylor: okay.
+
+616
+00:55:23.200 --> 00:55:25.870
+Anthony Taylor: So anyway. So here we have
+
+617
+00:55:27.040 --> 00:55:28.220
+Anthony Taylor: power
+
+618
+00:55:29.580 --> 00:55:36.010
+Anthony Taylor: function. And in here we're going to put this guy.
+
+619
+00:55:38.560 --> 00:55:41.509
+Anthony Taylor: I mean, it's it's really gonna be this easy guys. I'm not joking.
+
+620
+00:55:43.100 --> 00:55:47.510
+Anthony Taylor: Okay, we. I'm actually close this. So we have a little more screen space.
+
+621
+00:55:52.450 --> 00:55:56.939
+Anthony Taylor: So all right, you know what? It's troubleshooting time. Why is that yellow?
+
+622
+00:56:00.360 --> 00:56:02.380
+Anthony Taylor: Why does it say it's not defined you?
+
+623
+00:56:02.890 --> 00:56:13.440
+Masarirambi, Rodney: Because we've defined travel underscore cities. But cities has not been oh, also, cause it hasn't been called, hasn't been used at all right.
+
+624
+00:56:13.810 --> 00:56:17.189
+Anthony Taylor: That's good. Guess I like to guess Rodney good.
+
+625
+00:56:17.660 --> 00:56:19.020
+Dipinto, Matt: because scope
+
+626
+00:56:19.970 --> 00:56:26.809
+Anthony Taylor: scope cities is inside to function. I am outside to function. See where I'm indented at.
+
+627
+00:56:28.090 --> 00:56:31.850
+Anthony Taylor: So if we hit tab now, it goes.
+
+628
+00:56:32.460 --> 00:56:33.230
+Okay.
+
+629
+00:56:33.410 --> 00:56:37.839
+Anthony Taylor: How far is it? I think it's literally gonna have me put this whole thing in.
+
+630
+00:56:38.070 --> 00:56:48.260
+Anthony Taylor: Yep. So basically, we're just going to take this entire thing. And yeah, the whole thing. And we're going to put it.
+
+631
+00:56:49.110 --> 00:56:51.899
+Anthony Taylor: Oh, Crud, I hit. I love that.
+
+632
+00:56:56.790 --> 00:57:04.550
+Anthony Taylor: Okay, so we need to make sure it's all indented properly. Give you some pointers on that. You highlight the whole thing
+
+633
+00:57:06.090 --> 00:57:07.410
+Anthony Taylor: hit Tab.
+
+634
+00:57:08.260 --> 00:57:14.690
+Anthony Taylor: That'll take care of that. So that we'll write that function most likely.
+
+635
+00:57:18.070 --> 00:57:20.589
+Anthony Taylor: Yeah. And then at the end, we're gonna call our function.
+
+636
+00:57:23.640 --> 00:57:30.029
+Anthony Taylor: Well, that was exciting. Oh, we didn't actually follow. I'm like, jeez, that was that was fun.
+
+637
+00:57:33.090 --> 00:57:37.679
+Anthony Taylor: Okay. yeah, see, this is a real useful exercise. I I'm I'm into this
+
+638
+00:57:37.970 --> 00:57:44.759
+Anthony Taylor:  I'll I'll go over it bit by bit, just to make it something.
+
+639
+00:57:45.390 --> 00:57:46.660
+Anthony Taylor: But
+
+640
+00:57:48.310 --> 00:57:49.320
+Anthony Taylor: the heck!
+
+641
+00:57:52.130 --> 00:58:01.460
+Anthony Taylor: I hear the hand 1 s make sure that works. Yep, there we go. What city should be added to the list
+
+642
+00:58:02.180 --> 00:58:03.330
+Anthony Taylor: Houston.
+
+643
+00:58:04.530 --> 00:58:07.129
+Anthony Taylor: what city should we add to list, Austin?
+
+644
+00:58:07.880 --> 00:58:09.690
+Anthony Taylor: I said bolder.
+
+645
+00:58:12.420 --> 00:58:16.880
+Anthony Taylor: 3, 2. There we go!
+
+646
+00:58:18.400 --> 00:58:21.200
+Anthony Taylor: There we go, anyway. Why was the question, Sonya?
+
+647
+00:58:22.490 --> 00:58:23.510
+Baro, Sonja: So?
+
+648
+00:58:23.620 --> 00:58:28.450
+Baro, Sonja: What did we refactor cause?
+
+649
+00:58:28.480 --> 00:58:31.489
+Anthony Taylor: We did look over here. No function.
+
+650
+00:58:31.830 --> 00:58:42.009
+Baro, Sonja: Oh, I see. Okay, if statements while statements and you made a function
+
+651
+00:58:42.260 --> 00:58:43.520
+Baro, Sonja: on the left.
+
+652
+00:58:44.110 --> 00:58:45.620
+Anthony Taylor: is it that hardcore?
+
+653
+00:58:46.440 --> 00:58:50.510
+II know. II gotta tell you guys, when I was looking at this activity earlier today, I'm like.
+
+654
+00:58:52.980 --> 00:58:57.210
+Anthony Taylor: why, they just copy and pasted the whole damn thing into a cell. And that was it?
+
+655
+00:58:58.470 --> 00:59:05.360
+Anthony Taylor: But but being real. that's refactoring, I mean, that's a legitimate prefactor.
+
+656
+00:59:05.500 --> 00:59:12.590
+Anthony Taylor: I had a bunch of code, and I want to throw it into a function. So now I can do all of this
+
+657
+00:59:13.650 --> 00:59:15.310
+Anthony Taylor: by making one call.
+
+658
+00:59:16.680 --> 00:59:18.750
+Anthony Taylor: Okay? Which means.
+
+659
+00:59:19.750 --> 00:59:27.230
+Anthony Taylor: I mean, I can use it wherever I want. It's this one's really specific. more realistic like.
+
+660
+00:59:28.350 --> 00:59:33.629
+Anthony Taylor: And again, I would I should log into my work computer to show you guys some stuff. But
+
+661
+00:59:35.110 --> 00:59:42.030
+Anthony Taylor: like, I have stuff like some data engineering stuff. I have, right? I have a function that will read
+
+662
+00:59:42.590 --> 00:59:44.829
+Anthony Taylor: flash files from
+
+663
+00:59:45.550 --> 00:59:47.190
+Anthony Taylor: a cloud directory.
+
+664
+00:59:47.590 --> 00:59:54.300
+Anthony Taylor: And I mean, it's commented. It's very generic. It's very easy to
+
+665
+00:59:54.360 --> 00:59:59.840
+Anthony Taylor: utilize, and nobody has to tell you anything. You just put it in. You run it, pass in the parameters, and it works
+
+666
+01:00:00.240 --> 01:00:07.079
+Anthony Taylor: right that you know, that was refactored into that when I first wrote it, it looked more like this over here
+
+667
+01:00:07.430 --> 01:00:09.939
+Anthony Taylor: was just a bunch of coat.
+
+668
+01:00:10.190 --> 01:00:15.409
+Anthony Taylor: Well, after a while, I'm like this, we're gonna reuse this, and I'm gonna verify, make everything into variables.
+
+669
+01:00:15.640 --> 01:00:28.840
+Anthony Taylor: We'll make everything something I could pass into it and then make it into a function. And that's probably the most important part about refactoring is making everything into variables
+
+670
+01:00:29.480 --> 01:00:35.910
+Anthony Taylor: and making it so. It's reusable, like in this example. Everything is so hard coded in this example
+
+671
+01:00:36.130 --> 01:00:40.220
+Anthony Taylor: that it's not ideal like, please add 3 cities.
+
+672
+01:00:40.600 --> 01:00:44.389
+Anthony Taylor: Okay? Well, I mean, I would make that into a variable.
+
+673
+01:00:44.760 --> 01:00:47.209
+Anthony Taylor: At least, then you can add different numbers of city.
+
+674
+01:00:48.600 --> 01:00:53.280
+Anthony Taylor: Okay, you know, stuff like that. So yeah.
+
+675
+01:00:53.300 --> 01:00:56.569
+Anthony Taylor: And then you would have to handle that variable throughout the rest of your code
+
+676
+01:00:56.620 --> 01:01:00.370
+Anthony Taylor: so that the function will let you do more. Now, the function might be personal.
+
+677
+01:01:01.910 --> 01:01:02.670
+Okay.
+
+678
+01:01:03.310 --> 01:01:10.169
+Anthony Taylor: anyway, that's it. That was pretty easy exercise room. It's funny, because when I was like, what are we trying to do here
+
+679
+01:01:10.390 --> 01:01:11.710
+Anthony Taylor: was weird.
+
+680
+01:01:12.990 --> 01:01:21.619
+Anthony Taylor:  let's go back to here.
+
+681
+01:01:23.140 --> 01:01:25.820
+Anthony Taylor: Wow! That was quite the joke.
+
+682
+01:01:26.910 --> 01:01:31.940
+Anthony Taylor: Let's make sure there's nothing else to see. nothing to see here.
+
+683
+01:01:33.130 --> 01:01:41.170
+Anthony Taylor: Alright. Well, we're ready for this is good, though I'm kinda glad because I wanted to get to this part anyway. Cause this is where we could spend some time today.
+
+684
+01:01:43.400 --> 01:01:51.000
+Anthony Taylor: User stories business required. So I know some of you have talked about azure.
+
+685
+01:01:51.420 --> 01:01:53.190
+Anthony Taylor: How many of you have ever
+
+686
+01:01:53.640 --> 01:01:54.950
+Anthony Taylor: been part
+
+687
+01:01:55.890 --> 01:01:58.230
+Anthony Taylor: of writing business requirements?
+
+688
+01:01:59.490 --> 01:02:00.679
+Anthony Taylor: Okay, sign it.
+
+689
+01:02:00.820 --> 01:02:02.570
+Anthony Taylor: Meredith. Natalie
+
+690
+01:02:02.930 --> 01:02:05.140
+Anthony Taylor: Jennifer. Okay?
+
+691
+01:02:05.600 --> 01:02:10.190
+Anthony Taylor:  all the rest of you. How many of you have received
+
+692
+01:02:10.300 --> 01:02:12.090
+Anthony Taylor: business requirements?
+
+693
+01:02:13.570 --> 01:02:15.610
+Anthony Taylor: Hafton? Derrick
+
+694
+01:02:16.730 --> 01:02:17.770
+Anthony Taylor: Curry?
+
+695
+01:02:18.030 --> 01:02:26.280
+Anthony Taylor: No, you guys just learned. Oh, so you guys know, stuff you don't probably have to do work. I got it. Okay, Matt.
+
+696
+01:02:27.200 --> 01:02:29.840
+Anthony Taylor: don't lie. Okay.
+
+697
+01:02:32.660 --> 01:02:36.779
+Anthony Taylor: So business requirements are interesting. Business requirements can be
+
+698
+01:02:37.380 --> 01:02:50.080
+Anthony Taylor: practically anything. Okay, what we're gonna talk about today is a very specific type of business requirement. Okay.
+
+699
+01:02:50.740 --> 01:02:58.750
+Anthony Taylor:  and we're going to talk about agile method.
+
+700
+01:02:59.050 --> 01:03:05.469
+Anthony Taylor: You heard me complaining about it earlier. It is perfectly legitimate. It is used a lot
+
+701
+01:03:05.510 --> 01:03:07.460
+Anthony Taylor: in application development.
+
+702
+01:03:07.500 --> 01:03:13.490
+Anthony Taylor: So most places that are doing that are writing applications web apps, phone apps
+
+703
+01:03:13.640 --> 01:03:16.760
+Anthony Taylor: computer apps they are using agile
+
+704
+01:03:16.790 --> 01:03:19.839
+Anthony Taylor: as it works great for object-oriented
+
+705
+01:03:19.920 --> 01:03:21.530
+Anthony Taylor: type of coding.
+
+706
+01:03:22.200 --> 01:03:27.490
+Anthony Taylor: Okay? Which we may end up doing some of that with our AI. Still.
+
+707
+01:03:28.020 --> 01:03:29.520
+Anthony Taylor: okay?
+
+708
+01:03:30.420 --> 01:03:33.549
+Anthony Taylor: yeah. So what is agile? So
+
+709
+01:03:34.050 --> 01:03:41.939
+Anthony Taylor: basically. when business requirements are developed. So what is it? You know what? I don't think we should talk about this till we talk about what business requirements.
+
+710
+01:03:42.940 --> 01:03:54.500
+Anthony Taylor: The business requirement is and we're gonna get like crazy and user stories and stuff. But business requirement is, I need this to do this for this.
+
+711
+01:03:55.640 --> 01:03:56.900
+Anthony Taylor: That's pretty generic.
+
+712
+01:03:57.360 --> 01:03:59.029
+Anthony Taylor: Okay. Head of the county.
+
+713
+01:03:59.630 --> 01:04:03.680
+Anthony Taylor: She needs to be able to see. There we go, Meredith, give us a business requirement.
+
+714
+01:04:03.930 --> 01:04:20.359
+Meredith McCanse (she/her): Sure. I might say I need a report that will give me the list of invoices received in the last month with and indicate if which of them are prepaid and what their start and end dates are.
+
+715
+01:04:20.470 --> 01:04:24.819
+Meredith McCanse (she/her):  and the full amount dollar amount of the invoice.
+
+716
+01:04:26.250 --> 01:04:27.770
+Anthony Taylor: Meredith is hardcore.
+
+717
+01:04:27.990 --> 01:04:42.649
+Anthony Taylor: We did an oracle erp implementation at twilio. That was very painful. There you go. Okay, so that was a business requirement. Now, that would probably be ported to about 20 pages
+
+718
+01:04:42.770 --> 01:04:44.190
+Anthony Taylor: of a word document
+
+719
+01:04:45.560 --> 01:04:57.289
+Anthony Taylor: broken down into column by column transformations. business rules at every layer. Somebody's got to identify where this data is and how we're going to get it
+
+720
+01:04:58.120 --> 01:05:02.080
+Anthony Taylor: once we get it. What tool are we gonna use to create the report?
+
+721
+01:05:03.180 --> 01:05:06.819
+Anthony Taylor: Okay, what parameters, what security layers.
+
+722
+01:05:07.620 --> 01:05:18.560
+Anthony Taylor: All of this is can be part of a business requirements.com. It can also be. Meredith sent an email to Susie Q. Said, I need. Dan report says this.
+
+723
+01:05:20.940 --> 01:05:22.300
+Anthony Taylor: there's your business require.
+
+724
+01:05:23.320 --> 01:05:27.569
+Anthony Taylor: Okay? And it varies depending on the company and how
+
+725
+01:05:27.670 --> 01:05:34.660
+Anthony Taylor: mature they are in their development environment. You know that you're gonna see all of the above. Okay.
+
+726
+01:05:35.020 --> 01:05:39.669
+Anthony Taylor: but let's talk about the Meredith example, the 20 page example.
+
+727
+01:05:39.810 --> 01:05:47.569
+Anthony Taylor: So Meredith starts with, I need this. And we're going to show you that's a user story. I need this for this
+
+728
+01:05:48.660 --> 01:05:54.960
+Anthony Taylor: in this. Okay.  and then we. And then a team.
+
+729
+01:05:55.220 --> 01:06:05.519
+Anthony Taylor: we'll get together and start building the actual requirements documents while that's going on. Normally, in the old days we had this methodology called waterfall.
+
+730
+01:06:06.360 --> 01:06:11.050
+Anthony Taylor: Okay? Now, if you say, waterfall. It's like, Very, not. PC, if people get upset about
+
+731
+01:06:11.440 --> 01:06:12.410
+Anthony Taylor: okay.
+
+732
+01:06:12.620 --> 01:06:18.010
+Anthony Taylor: waterfall means when they're done with the requirements we'll start to develop
+
+733
+01:06:18.980 --> 01:06:22.719
+Anthony Taylor: when we're done with the development. QA. Will start testing.
+
+734
+01:06:23.250 --> 01:06:26.939
+Anthony Taylor: When they're done testing. We'll let the business look at it again.
+
+735
+01:06:28.450 --> 01:06:29.480
+Anthony Taylor: Waterfall.
+
+736
+01:06:29.810 --> 01:06:32.710
+Anthony Taylor: They're done. They're done. They're done
+
+737
+01:06:33.090 --> 01:06:38.509
+Anthony Taylor: agile, says, you know what? We have a requirement. We know this needs to be done.
+
+738
+01:06:38.690 --> 01:06:51.450
+Anthony Taylor: Let's start this. is it the whole thing? Nope. is it part of it. Yep. okay. Well, we're making progress. even though there's other things going on. we can start.
+
+739
+01:06:51.900 --> 01:07:01.520
+Anthony Taylor: And then this builds on top of itself. So they break it into smaller pieces. And we can design, develop, test deploy review.
+
+740
+01:07:01.680 --> 01:07:04.750
+Anthony Taylor: All along, the requirements are still being worked on.
+
+741
+01:07:05.530 --> 01:07:08.469
+Anthony Taylor: This, of course, has a huge negative impact.
+
+742
+01:07:08.590 --> 01:07:12.380
+Anthony Taylor: If, in fact, the requirements change halfway through
+
+743
+01:07:13.180 --> 01:07:14.669
+Anthony Taylor: which happens a lot.
+
+744
+01:07:15.570 --> 01:07:22.810
+Anthony Taylor: Okay. But the idea? Oh, well, we're actually to change our direction. Now, what that means is you're gonna throw away a bunch of code.
+
+745
+01:07:23.240 --> 01:07:31.420
+Anthony Taylor: But at least you were moving. And this is why a lot of people get into agile very much right, because
+
+746
+01:07:31.800 --> 01:07:34.519
+Anthony Taylor: before we just weren't moving
+
+747
+01:07:35.810 --> 01:07:44.739
+Anthony Taylor: right, they were working on. And so everything was waterfall. So we are the requirements. Team was working on requirement developers were working on a whole different thing.
+
+748
+01:07:46.030 --> 01:07:53.649
+Anthony Taylor: And when the requirements were done, when these developers were done, they would take over the new requirement. And this everybody was basically working on something else
+
+749
+01:07:54.410 --> 01:07:57.939
+Anthony Taylor: in agile methodology. Everyone is all working on the same project.
+
+750
+01:07:58.940 --> 01:08:07.849
+Anthony Taylor: Okay, in this constant loop. So yeah. one of the big things they'll talk about here. I'm not going to get into it too terribly much
+
+751
+01:08:07.890 --> 01:08:11.600
+Anthony Taylor: scrum if you ever hear. Oh, you gotta come to the scrum.
+
+752
+01:08:12.290 --> 01:08:15.800
+Anthony Taylor: Scrum is short for waste your damn time.
+
+753
+01:08:18.479 --> 01:08:20.900
+Anthony Taylor: Alright, scrum is a beating
+
+754
+01:08:20.979 --> 01:08:25.290
+Anthony Taylor: that the program manager has at the morning without doughnuts.
+
+755
+01:08:26.500 --> 01:08:28.430
+Anthony Taylor: and all he wants to hear
+
+756
+01:08:29.210 --> 01:08:33.340
+Anthony Taylor: is how you're doing. And if anything is in your way.
+
+757
+01:08:34.100 --> 01:08:37.160
+Anthony Taylor: what are you working on? And do you have any bloggers?
+
+758
+01:08:38.140 --> 01:08:40.790
+Anthony Taylor: Okay? Which, if that's all they ask me.
+
+759
+01:08:40.850 --> 01:08:48.460
+Anthony Taylor: I'd be like. I'm working on this. Got no buck. Okay? I have a problem with this.
+
+760
+01:08:48.630 --> 01:08:54.460
+Anthony Taylor: My problem is, I have sit there and listen to all the other idiots. Tell me what their blockers are.
+
+761
+01:08:54.830 --> 01:08:57.819
+Anthony Taylor: and it drives me nuts. I don't care.
+
+762
+01:08:59.630 --> 01:09:04.840
+Clayton Graves: or if you have something to add that might help remove one of those blocks for those other people
+
+763
+01:09:04.870 --> 01:09:08.650
+Anthony Taylor: it, but that never happened. They don't want to hear that during scrum, like
+
+764
+01:09:09.270 --> 01:09:17.260
+Anthony Taylor: nobody wants to hear that during scrub you don't solve problem. What I get told I got told this. We don't solve problems during scrub. I'm like, then why am I?
+
+765
+01:09:17.790 --> 01:09:26.329
+Clayton Graves: I am. God blessed enterprise! Architect for the organization. Hey? I have something to add to that. Let's talk after the meeting.
+
+766
+01:09:26.790 --> 01:09:28.839
+Anthony Taylor: Yes, and that's usually what.
+
+767
+01:09:29.130 --> 01:09:38.970
+Anthony Taylor: But it could have just came to me, and I would've. Anyway. The point is, I'm not a fan of scrum. You will most likely experience it. You can decide if you like it, or hate it on your own.
+
+768
+01:09:39.240 --> 01:09:49.270
+Anthony Taylor: Do not take my opinion of it. It can be very useful. Okay. especially if you have a whole team working on the same thing. Okay.
+
+769
+01:09:50.430 --> 01:09:54.470
+Anthony Taylor: it's very useful. So yes, sir.
+
+770
+01:09:55.230 --> 01:10:06.330
+Baro, Sonja: And just one other thought is scrum or agile helps you get your code out to market to test faster to your customer. There's a lot of good things that happen
+
+771
+01:10:06.390 --> 01:10:08.330
+Baro, Sonja: compared to waterfall.
+
+772
+01:10:08.430 --> 01:10:10.710
+Baro, Sonja: It was, it should be.
+
+773
+01:10:10.910 --> 01:10:17.660
+Baro, Sonja: I'm not gonna lie. II think I think you're right. I'm not gonna deny that it is. There is advantages to agile.
+
+774
+01:10:17.740 --> 01:10:21.179
+Anthony Taylor: I just don't like. I just don't like project.
+
+775
+01:10:25.650 --> 01:10:27.580
+Anthony Taylor: That's pretty much it. I just think
+
+776
+01:10:29.400 --> 01:10:32.970
+Anthony Taylor: they they rarely like me. But that's
+
+777
+01:10:36.070 --> 01:10:37.770
+Anthony Taylor: we don't have any project. Managers in.
+
+778
+01:10:41.260 --> 01:10:45.779
+Anthony Taylor: dang it, Rodney. Well, but you're here to learn something new.
+
+779
+01:10:46.700 --> 01:10:56.690
+Anthony Taylor: No project managers are great. But I mean, keep keep mind, it's it's just. It's a. It's an interesting role. And you guys will all either love them or hate them. I guarantee you.
+
+780
+01:10:56.920 --> 01:11:04.210
+Anthony Taylor: okay, so let's talk about a user story. So user story is a term that is used in discussing agile.
+
+781
+01:11:05.360 --> 01:11:06.420
+Anthony Taylor: Okay?
+
+782
+01:11:06.460 --> 01:11:14.529
+Anthony Taylor: And this is kind of like, I don't know why, you know, if this is real. But this is a a way to explain as a
+
+783
+01:11:14.550 --> 01:11:17.380
+Anthony Taylor: Meredith is, you know, a head accountant.
+
+784
+01:11:18.710 --> 01:11:24.939
+Anthony Taylor: Okay? I want, she said. She wanted a report that showed invoices broken. Shit a whole bunch of stuff.
+
+785
+01:11:25.400 --> 01:11:31.289
+Anthony Taylor: So's that. And this is, gonna explain what having this is going to do to help herbal.
+
+786
+01:11:33.180 --> 01:11:35.669
+Anthony Taylor: That is our user story.
+
+787
+01:11:36.440 --> 01:11:40.250
+Anthony Taylor: From that we will build our requirements.
+
+788
+01:11:41.250 --> 01:11:42.160
+Anthony Taylor: Okay.
+
+789
+01:11:42.590 --> 01:11:46.560
+Anthony Taylor:  so
+
+790
+01:11:47.190 --> 01:11:54.570
+Anthony Taylor: I can't tell you the importance of requirements. I would say, on average, on an average day.
+
+791
+01:11:54.770 --> 01:11:59.190
+Anthony Taylor: I probably get between 20 and 30 requests.
+
+792
+01:11:59.400 --> 01:12:06.140
+Anthony Taylor: and of those I will say 17 times. do you have it required?
+
+793
+01:12:07.630 --> 01:12:10.549
+Anthony Taylor: Okay? But do you have a BRD, which BRD.
+
+794
+01:12:10.860 --> 01:12:12.070
+Anthony Taylor: Oh, that beardy!
+
+795
+01:12:12.320 --> 01:12:15.419
+Anthony Taylor: Did I have that? Brd, did I sign off on that? Brd.
+
+796
+01:12:16.110 --> 01:12:17.419
+Anthony Taylor: I say, Brd.
+
+797
+01:12:19.020 --> 01:12:21.979
+Anthony Taylor: okay, that is business requirements, Doc.
+
+798
+01:12:22.730 --> 01:12:33.860
+Anthony Taylor: Mostly I say it just to get more time to do the work. Because I like to give people a lot of red tape and bureaucracy. It's my favorite thing to do.
+
+799
+01:12:34.570 --> 01:12:40.819
+Anthony Taylor: Okay, but rest of the time I need it for documentation. So I know what they want.
+
+800
+01:12:41.830 --> 01:12:44.369
+Anthony Taylor: If I don't know what they really really want.
+
+801
+01:12:46.080 --> 01:12:49.439
+Anthony Taylor: I need them to tell me what they really really want. Come on.
+
+802
+01:12:50.360 --> 01:12:51.470
+Anthony Taylor: we know it's coming.
+
+803
+01:12:58.400 --> 01:13:00.999
+Anthony Taylor: But yeah, we don't know what they really want. How do we develop
+
+804
+01:13:01.340 --> 01:13:10.950
+Anthony Taylor: right? Or we're gonna waste our time. We're gonna develop what we think they really want, give it to them. And they say, this is not what they want. so business requirements. It is important
+
+805
+01:13:11.540 --> 01:13:15.840
+Anthony Taylor: all my funny little quirks and and folks.
+
+806
+01:13:15.870 --> 01:13:16.949
+Anthony Taylor: It doesn't matter.
+
+807
+01:13:17.340 --> 01:13:22.380
+Anthony Taylor: When you first start you will deal with this stuff. Agile Brds, all of it.
+
+808
+01:13:22.870 --> 01:13:35.390
+Anthony Taylor: So we need to know what it is we need to make. And then we need to know why, and then we need to design it, which for some reason no one talks about design in this class. But
+
+809
+01:13:35.410 --> 01:13:38.399
+Anthony Taylor: as the architect that's like my favorite part
+
+810
+01:13:38.590 --> 01:13:48.359
+Anthony Taylor: is figuring out how we're going to make that work. Okay? Alright. So we're gonna let you guys kind of build your own requirement.
+
+811
+01:13:49.800 --> 01:13:53.770
+Anthony Taylor: It's gonna be pretty simple for this first 10, wait!
+
+812
+01:13:54.170 --> 01:13:55.530
+Anthony Taylor: Might have something to show.
+
+813
+01:14:04.270 --> 01:14:08.240
+Anthony Taylor: Oh, no, this is for you guys. Well, it says it's group.
+
+814
+01:14:11.950 --> 01:14:14.660
+Anthony Taylor: So what they want you to do.
+
+815
+01:14:18.290 --> 01:14:29.540
+Anthony Taylor: You know what I'm gonna create, like 3 or 4 groups with my my, like, 3 or 4 like developer people, that and all of you guys are gonna be in those groups so that you guys can work together with them.
+
+816
+01:14:29.850 --> 01:14:31.820
+Anthony Taylor: Okay, this
+
+817
+01:14:31.900 --> 01:14:34.120
+Anthony Taylor: is what you have to figure out.
+
+818
+01:14:34.580 --> 01:14:37.029
+Anthony Taylor: Okay, no, I know what I'm gonna do.
+
+819
+01:14:37.060 --> 01:14:42.279
+Anthony Taylor: I don't wanna do. I wonder? I want this to be an everyone do. But I don't want it to be an everyone.
+
+820
+01:14:43.070 --> 01:14:43.950
+Anthony Taylor: Okay.
+
+821
+01:14:45.370 --> 01:14:50.219
+Anthony Taylor: yeah. I like that. Like, they learn something there, or they got to do something fun.
+
+822
+01:14:51.340 --> 01:14:55.980
+Anthony Taylor: cool, awesome. Well, I mean, there's nothing really to review. You were with your person.
+
+823
+01:14:56.590 --> 01:14:58.850
+Anthony Taylor: So you know.
+
+824
+01:14:58.960 --> 01:15:02.349
+Anthony Taylor: let's continue. I think we can, I think.
+
+825
+01:15:02.400 --> 01:15:07.370
+Baro, Sonja: did the Ta. What like was any feedback from the tas like, what did you guys think?
+
+826
+01:15:09.120 --> 01:15:13.380
+Baro, Sonja: Was it good, was it? I'm just rambling?
+
+827
+01:15:13.560 --> 01:15:18.909
+James Torres: Well, they guide. It was a guided conversation, wasn't it?
+
+828
+01:15:18.980 --> 01:15:23.610
+James Torres: II think one thing that was really great about the exercise was. It showed
+
+829
+01:15:23.660 --> 01:15:27.950
+James Torres: how easy it is to deviate from the original requirement.
+
+830
+01:15:28.920 --> 01:15:33.399
+Anthony Taylor: Woo! I like that I don't think we had a lot of deviations.
+
+831
+01:15:34.430 --> 01:15:35.739
+Clayton Graves: What about you, Kevin?
+
+832
+01:15:36.410 --> 01:15:44.980
+Kevin Nguyen: I think the group did a really good job, and if the group think about it, though if you did that before you program, you'd probably it'd be a lot easier.
+
+833
+01:15:45.090 --> 01:15:49.529
+Kevin Nguyen: So next time you start programming, do that before you start programming.
+
+834
+01:15:50.760 --> 01:15:53.059
+Anthony Taylor: There you go. That's good stuff.
+
+835
+01:15:53.840 --> 01:15:59.310
+Anthony Taylor: Excellent! James. Have her bring something over here for dinner, too. Doug. Got it
+
+836
+01:15:59.810 --> 01:16:03.869
+Clayton Graves: that look good. Where was it? I don't know why it was.
+
+837
+01:16:06.020 --> 01:16:09.209
+Anthony Taylor: Oh, no, he's California. Don't worry, guys.
+
+838
+01:16:09.400 --> 01:16:11.560
+Anthony Taylor: I know you're all Denver idiots.
+
+839
+01:16:12.300 --> 01:16:14.280
+Anthony Taylor: Is that a word Denver means
+
+840
+01:16:15.240 --> 01:16:17.940
+Anthony Taylor: okay, so
+
+841
+01:16:18.400 --> 01:16:26.810
+Anthony Taylor: break time. We're actually like doing so. Good on time. Very proud of everybody. Have a nice break. I'll see you in 15 min.
+
+842
+01:16:27.520 --> 01:16:36.840
+Anthony Taylor: Hi. thank you. Everybody. Welcome back from break. Cindy Kevin did. Okay. Alright. So
+
+843
+01:16:37.920 --> 01:16:49.089
+Anthony Taylor: we had a nice little talk talking about, you know, pseudo coding from user story. which is kind of cool right? So now we're gonna go like the next step.
+
+844
+01:16:49.560 --> 01:16:51.689
+Anthony Taylor: So you've got some pseudocode
+
+845
+01:16:51.950 --> 01:16:57.630
+Anthony Taylor: and like for the ATM for the PIN number. In fact, you know, I don't think we really need this slide. Let's just go
+
+846
+01:16:57.950 --> 01:16:59.780
+Anthony Taylor: look at some code while we do it.
+
+847
+01:17:01.190 --> 01:17:02.610
+Anthony Taylor: So for
+
+848
+01:17:04.270 --> 01:17:10.720
+Anthony Taylor: the basic ATM app. we're going to have a login right? Which is effectively
+
+849
+01:17:10.900 --> 01:17:14.419
+Anthony Taylor:  you know, they got to put in your PIN number
+
+850
+01:17:15.030 --> 01:17:27.739
+Anthony Taylor: so to put in their PIN number hopefully, your group talked about it. And you said, Well, hey, yeah, they have to PIN maybe a username. Okay? And then we're probably gonna need data that associates how much money they have
+
+851
+01:17:27.910 --> 01:17:32.090
+Anthony Taylor: in that account. That's like the bare minimum. Okay?
+
+852
+01:17:32.250 --> 01:17:36.319
+Anthony Taylor: So here you can see, we have a PIN in and we have a value. We don't have a user.
+
+853
+01:17:37.130 --> 01:17:37.980
+Anthony Taylor: Okay?
+
+854
+01:17:38.150 --> 01:17:50.669
+Anthony Taylor: So I should be, you guys didn't even see it. Darn it, okay, I didn't get too far. That's okay. So here we have a list with some dictionary items.
+
+855
+01:17:51.420 --> 01:17:57.480
+Anthony Taylor: And in those those dictionary items have a PIN. And okay.
+
+856
+01:17:57.650 --> 01:18:02.260
+Anthony Taylor: so our first step is to get them logged into the Ato.
+
+857
+01:18:02.920 --> 01:18:05.080
+Anthony Taylor: So we're going to create a function.
+
+858
+01:18:05.440 --> 01:18:08.749
+Anthony Taylor: and the function will be nothing more than login.
+
+859
+01:18:08.890 --> 01:18:18.519
+Anthony Taylor: and they have to pass in the PIN number. So remember, in our pseudocode the first step. Well, how do we log it? Okay. So all this is going to do
+
+860
+01:18:20.250 --> 01:18:24.409
+Anthony Taylor: is if they get logged in. It's going to return something.
+
+861
+01:18:24.920 --> 01:18:40.839
+Anthony Taylor:  that says they're logged in now, in this case, see for me like the applications that I used to build. I would have done like a return true, or return a session variable, or something, which is far too advanced for this particular app.
+
+862
+01:18:40.930 --> 01:18:45.519
+Anthony Taylor: but in this case, if they get it right, we're simply going to return their values.
+
+863
+01:18:46.830 --> 01:18:47.800
+Anthony Taylor: Okay?
+
+864
+01:18:47.930 --> 01:18:50.439
+Anthony Taylor: So so that's that. So we can
+
+865
+01:18:50.460 --> 01:19:02.190
+Anthony Taylor: call this, we can create this function. Well, we also got to run this data. Wait for that to get. We got to load the data. So that's our basically our database with our bin numbers and accounts.
+
+866
+01:19:02.560 --> 01:19:11.750
+Anthony Taylor: Here's the function. It's going to go through that list looking for the PIN number we pass in. If it finds it. it's gonna print
+
+867
+01:19:12.230 --> 01:19:25.980
+Anthony Taylor: the PIN number and the balance. Okay? So again, you don't need this here because we're in a notebook. Actually, even if you weren't. we can run it. And you can see. 300-24-6802, this one.
+
+868
+01:19:27.420 --> 01:19:33.039
+Anthony Taylor: Okay. So that is our pseudocode, which should have been something along the lines of
+
+869
+01:19:33.860 --> 01:19:40.819
+Anthony Taylor: import data, username storage, the Python dictionary. Ask the user. for you know their PIN.
+
+870
+01:19:41.080 --> 01:19:49.080
+Anthony Taylor:  look up the PIN associated with. You see, they have user name in here. We didn't do that, but it's alright. We're we're building.
+
+871
+01:19:49.410 --> 01:19:52.410
+Anthony Taylor: Okay, if it is, proceed otherwise, stop.
+
+872
+01:19:52.890 --> 01:20:03.960
+Anthony Taylor: Okay. So this is a way you could have done it. And you can actually use your pseudocode in your docstring right to say what it is you're doing.
+
+873
+01:20:05.960 --> 01:20:11.290
+Anthony Taylor: Okay? So we keep. We don't have to throw stuff away. I mean, I don't want you to. II want you to keep everything.
+
+874
+01:20:11.750 --> 01:20:16.559
+Anthony Taylor: Okay, be a hoarder when it comes to your code. Least good code.
+
+875
+01:20:18.030 --> 01:20:18.930
+Anthony Taylor: Alright
+
+876
+01:20:19.990 --> 01:20:21.080
+Anthony Taylor: questions.
+
+877
+01:20:23.120 --> 01:20:27.660
+Anthony Taylor: We're finally gonna let you guys go to a room by yourself. I know you've been dying, too.
+
+878
+01:20:28.160 --> 01:20:30.939
+Anthony Taylor:  but I'm going to tell you.
+
+879
+01:20:31.450 --> 01:20:32.890
+Anthony Taylor: got a lot to do in this one.
+
+880
+01:20:33.990 --> 01:20:36.760
+Anthony Taylor: Okay? So you've we've done the login.
+
+881
+01:20:37.940 --> 01:20:41.850
+Anthony Taylor: I want you to create a check balance
+
+882
+01:20:43.780 --> 01:20:46.710
+Anthony Taylor: function, and they make deposit function.
+
+883
+01:20:46.740 --> 01:20:50.650
+Anthony Taylor: Now the good news is everything's there. It tells you what what arguments
+
+884
+01:20:50.840 --> 01:20:52.959
+Anthony Taylor: tells you, what it's going to do.
+
+885
+01:20:53.280 --> 01:20:56.569
+Anthony Taylor: So even if you don't get it to work
+
+886
+01:20:57.090 --> 01:21:01.060
+Anthony Taylor: right. Try to code it the way you think it should be coded.
+
+887
+01:21:01.990 --> 01:21:04.590
+Anthony Taylor: Okay? And that's all you're doing this. That's it
+
+888
+01:21:04.970 --> 01:21:06.979
+Anthony Taylor: is try to build those 2 functions
+
+889
+01:21:08.110 --> 01:21:10.140
+Anthony Taylor: alright questions.
+
+890
+01:21:10.450 --> 01:21:20.579
+Anthony Taylor: define or make deposit.
+
+891
+01:21:20.830 --> 01:21:24.340
+Anthony Taylor: It's there's a there's, there's 3. You got the login. We just did.
+
+892
+01:21:24.480 --> 01:21:27.460
+Anthony Taylor: Okay? And then you have check balance and make it possible.
+
+893
+01:21:28.540 --> 01:21:34.859
+Anthony Taylor: And it does tell you it has the whole Doc string. So all you really got to do is come up with some idea on how to do the code.
+
+894
+01:21:35.950 --> 01:21:38.500
+Anthony Taylor: Okay? Awesome
+
+895
+01:21:39.690 --> 01:21:40.980
+Anthony Taylor: welcome back.
+
+896
+01:21:43.600 --> 01:21:52.369
+Anthony Taylor: So you guys had to do that with turned out to be a little more challenging than I think anyone thought it was going to be.
+
+897
+01:21:52.870 --> 01:21:59.450
+Anthony Taylor:  So anybody finish you?
+
+898
+01:22:02.360 --> 01:22:04.750
+Clayton Graves: I think we did
+
+899
+01:22:06.300 --> 01:22:11.900
+Clayton Graves: for me it was a victory, because I felt like I knew what I was talking about, even though
+
+900
+01:22:11.940 --> 01:22:13.630
+Anthony Taylor: nice Clayton.
+
+901
+01:22:13.690 --> 01:22:20.419
+Clayton Graves: Even though I we you know we had some struggles, but I think we did get it written out, we didn't get it tested.
+
+902
+01:22:20.910 --> 01:22:25.090
+Anthony Taylor: That's okay. That's hey. You only have 15 min. That's pretty amazing in chat.
+
+903
+01:22:25.110 --> 01:22:35.209
+Anthony Taylor: So first, here's the PIN. We've done the PIN already, so we'll just kind of gloss over that. Okay, the next one said. The argument is count Balance.
+
+904
+01:22:35.720 --> 01:22:51.329
+Anthony Taylor: So account balance went there print the account balance formatted to 2 decimal places and thousands. Now this answer, I don't know that it really does that unless that's what they are.
+
+905
+01:22:52.260 --> 01:22:56.120
+Anthony Taylor: no. but this is the minimal.
+
+906
+01:22:56.360 --> 01:23:02.380
+Anthony Taylor: So you pass it in, and all you're doing is passing out a print statement that says, this is your account balance.
+
+907
+01:23:03.700 --> 01:23:08.970
+Anthony Taylor: Okay, that's the minimum you needed to do in that that particular function.
+
+908
+01:23:09.340 --> 01:23:16.580
+Anthony Taylor: So really, yeah, just read with this define, make deposits. So here it says, this function takes in an account balance
+
+909
+01:23:16.950 --> 01:23:18.720
+Anthony Taylor: and a deposit
+
+910
+01:23:18.730 --> 01:23:26.419
+Anthony Taylor: as parameters, arguments whatever. Okay, returns the balance after being adjusted
+
+911
+01:23:26.520 --> 01:23:27.940
+Anthony Taylor: for the deposit.
+
+912
+01:23:28.900 --> 01:23:31.900
+Anthony Taylor: So if the deposit is greater than 0.
+
+913
+01:23:32.070 --> 01:23:44.000
+Anthony Taylor: The deposit balance equals account balance plus deposit. Print out your new balance. Hell's Bridget Posit must be positive. Return deposit out.
+
+914
+01:23:45.220 --> 01:23:46.100
+Anthony Taylor: That's it.
+
+915
+01:23:49.460 --> 01:23:51.529
+Anthony Taylor: Last make withdrawal.
+
+916
+01:23:51.740 --> 01:24:01.389
+Anthony Taylor: So same idea, account balance. How much do you want to withdraw? These are your arguments, returns account balance after being adjusted for the withdrawal
+
+917
+01:24:02.020 --> 01:24:07.639
+Anthony Taylor: notes. The withdrawal balance should equal the account. Balance minus the withdrawal amount.
+
+918
+01:24:08.990 --> 01:24:15.900
+Anthony Taylor: so is account balance greater than the withdrawal. If it is, subtract the withdrawal from balance, print out the new balance.
+
+919
+01:24:17.370 --> 01:24:21.050
+Anthony Taylor: Otherwise you don't have another link richer.
+
+920
+01:24:23.090 --> 01:24:23.930
+Anthony Taylor: That's it.
+
+921
+01:24:24.430 --> 01:24:26.499
+Anthony Taylor: Does that make mostly sense.
+
+922
+01:24:28.140 --> 01:24:31.780
+Derek Rikke: So if you want to use it, you have to make another.
+
+923
+01:24:31.850 --> 01:24:39.259
+Derek Rikke: You have to like, make a program that uses all these functions. We're going to do that. But I mean, you could have just made another salad
+
+924
+01:24:39.640 --> 01:24:40.679
+Anthony Taylor: called the function
+
+925
+01:24:40.870 --> 01:24:42.930
+Clayton Graves: Holy Crap. I understood. That.
+
+926
+01:24:43.420 --> 01:24:44.730
+Anthony Taylor: Isn't that awesome?
+
+927
+01:24:45.330 --> 01:24:54.669
+Anthony Taylor: But we are going to do that next. The next thing we're going to do is we're going to use. We're going to put all this into iphiles, organize it, and then call it from a single
+
+928
+01:24:56.460 --> 01:24:57.430
+Anthony Taylor: okay.
+
+929
+01:24:58.580 --> 01:24:59.280
+Anthony Taylor: Alright.
+
+930
+01:25:00.640 --> 01:25:02.739
+Anthony Taylor: any questions about what we did there, though.
+
+931
+01:25:03.520 --> 01:25:10.230
+Anthony Taylor: I mean, the only thing we're trying to get you guys to understand is that we're we're trying to modularize steps.
+
+932
+01:25:10.690 --> 01:25:18.160
+Anthony Taylor: Okay. we want to get it as as single process as possible.
+
+933
+01:25:18.450 --> 01:25:24.850
+Anthony Taylor: Login has to be its own function, withdraw, own function, deposit, check, balance
+
+934
+01:25:25.040 --> 01:25:26.440
+Anthony Taylor: all their own function.
+
+935
+01:25:27.340 --> 01:25:29.600
+Anthony Taylor: Okay, they can be called from
+
+936
+01:25:29.690 --> 01:25:31.260
+Anthony Taylor: wherever they need to be called.
+
+937
+01:25:32.220 --> 01:25:34.540
+Anthony Taylor: So let's
+
+938
+01:25:35.560 --> 01:25:39.930
+Anthony Taylor: let me see. Yeah, we have this. Oh, that's on the other screen.
+
+939
+01:25:42.390 --> 01:25:45.629
+Anthony Taylor:  Oh, no, I have it here. Okay.
+
+940
+01:25:46.070 --> 01:25:47.090
+Anthony Taylor: so
+
+941
+01:25:48.480 --> 01:25:53.140
+Anthony Taylor: now we're going to take our code, all of those functions. And we're going to start
+
+942
+01:25:53.220 --> 01:25:55.850
+Anthony Taylor: logically organizing them
+
+943
+01:25:56.910 --> 01:25:59.049
+Anthony Taylor: to create our full program.
+
+944
+01:26:00.590 --> 01:26:01.390
+Anthony Taylor: Okay.
+
+945
+01:26:02.860 --> 01:26:06.600
+Anthony Taylor: the main goal. We don't want to repeat ourselves. The
+
+946
+01:26:07.340 --> 01:26:12.609
+Anthony Taylor: okay, we want things to be organized in a way that
+
+947
+01:26:12.680 --> 01:26:16.860
+Anthony Taylor: if I say this is broken, we know where to go, find it.
+
+948
+01:26:18.340 --> 01:26:19.419
+Anthony Taylor: Stuff like that.
+
+949
+01:26:20.690 --> 01:26:21.870
+Anthony Taylor: As an example.
+
+950
+01:26:22.530 --> 01:26:27.240
+Anthony Taylor: Here is our entire ATM application structure.
+
+951
+01:26:28.150 --> 01:26:33.080
+Anthony Taylor: So we have our atm.py, this is the main program.
+
+952
+01:26:34.220 --> 01:26:36.950
+Anthony Taylor: It has a login. Obviously.
+
+953
+01:26:37.090 --> 01:26:40.380
+Anthony Taylor: login could be in utils.
+
+954
+01:26:41.200 --> 01:26:43.679
+Anthony Taylor: Okay, but I mean.
+
+955
+01:26:43.740 --> 01:26:47.239
+Anthony Taylor: you can't even do anything unless you can log in. So we can leave that in the Meta
+
+956
+01:26:47.910 --> 01:26:50.629
+Anthony Taylor: we have a main menu. What do you want to do?
+
+957
+01:26:50.670 --> 01:26:51.730
+Anthony Taylor: That makes sense.
+
+958
+01:26:52.430 --> 01:26:57.250
+Anthony Taylor: and then we have run, run. What does run do? Well, run? Basically, does everything else.
+
+959
+01:26:58.190 --> 01:27:09.920
+Anthony Taylor: Okay. from this python, we're going to include some utilities. The utilities might load other components, they might load whatever
+
+960
+01:27:11.300 --> 01:27:12.140
+Anthony Taylor: alright.
+
+961
+01:27:12.400 --> 01:27:21.790
+Anthony Taylor: the utility will validate the PIN for us, which means to do our login. We're going to have to call our util validate pair function.
+
+962
+01:27:24.910 --> 01:27:32.870
+Anthony Taylor: Okay? Now, once we're validated, we get the main menu. The main menu said, what actions do you wish to do?
+
+963
+01:27:34.810 --> 01:27:37.080
+Anthony Taylor: Well, maybe I want to make it to possible.
+
+964
+01:27:38.850 --> 01:27:45.560
+Anthony Taylor: So I'm going to call this make deposit python function in the make deposit python package.
+
+965
+01:27:47.070 --> 01:27:53.110
+Anthony Taylor: Now, you could easily argue that these could be in the same package with 2 different functions. None of that.
+
+966
+01:27:54.800 --> 01:28:03.320
+Anthony Taylor: Okay. But remember. And just like those functions were rather simple, that we were looking at before. We're really just trying to get you to understand how you can
+
+967
+01:28:03.540 --> 01:28:05.540
+Anthony Taylor: breakdown an application.
+
+968
+01:28:07.080 --> 01:28:07.860
+Anthony Taylor: Okay?
+
+969
+01:28:08.120 --> 01:28:12.449
+Anthony Taylor: And then over here we have the data and a Csv file that's feeding today.
+
+970
+01:28:14.530 --> 01:28:18.100
+Anthony Taylor: Alright, so this is a structure that you could easily build
+
+971
+01:28:18.570 --> 01:28:23.690
+Anthony Taylor: off of any program you're creating. Tab.
+
+972
+01:28:24.560 --> 01:28:27.430
+Anthony Taylor: so you guys are gonna do this
+
+973
+01:28:28.340 --> 01:28:34.070
+Anthony Taylor: in just a moment. And this is what I want you to do. You have
+
+974
+01:28:34.380 --> 01:28:40.859
+Anthony Taylor:  the ATM folder. And I believe all this is built in your
+
+975
+01:28:41.790 --> 01:28:43.849
+Anthony Taylor: in your unsolved
+
+976
+01:28:43.960 --> 01:28:47.500
+Anthony Taylor: yeah. So in the end, South, you have an ATM folder.
+
+977
+01:28:47.650 --> 01:28:49.609
+Anthony Taylor: There's a data folder.
+
+978
+01:28:50.360 --> 01:28:54.040
+Anthony Taylor: There is a modular atm.py.
+
+979
+01:28:54.980 --> 01:28:57.420
+Anthony Taylor: Okay. and what's her name?
+
+980
+01:28:57.560 --> 01:29:05.090
+Anthony Taylor: It's got a lot of stuff in. Most of it's already done. You don't even have to go remake all of this. Okay, but
+
+981
+01:29:05.100 --> 01:29:10.020
+Anthony Taylor: what they want you to do is take this. break it into
+
+982
+01:29:11.110 --> 01:29:17.060
+Anthony Taylor: these pie files. I don't think you have that. Well, maybe you do hold on. Let me check.
+
+983
+01:29:17.750 --> 01:29:29.939
+Anthony Taylor: Yeah, yeah, that, too. So they want you to take that one big python file and break it into an actions subfolder with these 2 files.
+
+984
+01:29:30.700 --> 01:29:32.919
+Anthony Taylor: utils
+
+985
+01:29:33.090 --> 01:29:34.510
+Anthony Taylor: python file
+
+986
+01:29:34.720 --> 01:29:38.419
+Anthony Taylor: and then import them into the main
+
+987
+01:29:38.560 --> 01:29:41.679
+Anthony Taylor: python? 5, so that it will run
+
+988
+01:29:43.800 --> 01:29:45.599
+Anthony Taylor: alright. Does that make sense.
+
+989
+01:29:45.720 --> 01:29:47.269
+Anthony Taylor: Here's the structure.
+
+990
+01:29:47.410 --> 01:29:49.709
+Anthony Taylor: One more time. Here's the structure.
+
+991
+01:29:51.480 --> 01:30:01.839
+Anthony Taylor: This is. you can either use the notebook one, or you can use the py file for this one actually looks like the notebook wants Jack. So just use the 5.
+
+992
+01:30:02.260 --> 01:30:06.490
+Anthony Taylor: Okay, basically, all everything's been laid out for you.
+
+993
+01:30:07.400 --> 01:30:12.229
+Anthony Taylor: All you have to do is put the right things in the right folders. and your gold
+
+994
+01:30:14.700 --> 01:30:19.580
+Anthony Taylor: is everybody more or less? I'm looking at somebody else's faces. I'm not sure you're catching the directions.
+
+995
+01:30:19.890 --> 01:30:23.809
+Anthony Taylor: So anybody confused? Yes, you were the face I was looking at.
+
+996
+01:30:24.220 --> 01:30:38.720
+Baro, Sonja: Yeah. Cause. So you're basically saying, we're gonna go through. And we lift this code that's in here since it's done and we're gonna put it into the boxes or the buckets
+
+997
+01:30:39.040 --> 01:30:44.599
+Baro, Sonja: of the structure of actions, data, modular utilities.
+
+998
+01:30:44.820 --> 01:30:50.710
+Anthony Taylor: Let me give you the first one. Let me give everybody the first one. If you click.
+
+999
+01:30:50.720 --> 01:30:53.440
+Anthony Taylor: if you right, click, ATM, and you say new folder.
+
+1000
+01:30:54.080 --> 01:30:58.350
+Anthony Taylor: Okay, ATM, we need a actions holder. So I'm gonna do actions.
+
+1001
+01:30:59.340 --> 01:31:04.819
+Anthony Taylor: Okay? Now, under action, I need to create a python file 2 of them
+
+1002
+01:31:05.420 --> 01:31:12.479
+Anthony Taylor: and put the functions for make deposit, make withdrawal in each one. And then when I'm done
+
+1003
+01:31:12.990 --> 01:31:17.050
+Anthony Taylor: back in the main program, I want to import
+
+1004
+01:31:18.700 --> 01:31:22.580
+Anthony Taylor: those things. I wanna take them out of here. So we're gonna refactor. This.
+
+1005
+01:31:23.210 --> 01:31:30.249
+Anthony Taylor: Take those functions out of here. put them into a new python file and then import them
+
+1006
+01:31:30.260 --> 01:31:31.699
+Anthony Taylor: into this program.
+
+1007
+01:31:34.020 --> 01:31:35.910
+Anthony Taylor: How big a headache does that give everybody?
+
+1008
+01:31:38.470 --> 01:31:50.999
+Baro, Sonja: Is there? A format like when we say import. we'd say import actions. for instance. and the value right? So you name it.
+
+1009
+01:31:53.010 --> 01:31:54.439
+Baro, Sonja: I'll give you a little hint
+
+1010
+01:31:55.500 --> 01:31:58.019
+Anthony Taylor: if you write. If you create something.
+
+1011
+01:32:01.180 --> 01:32:02.909
+Anthony Taylor: What's this one gonna be called?
+
+1012
+01:32:05.100 --> 01:32:06.260
+Make deposit.
+
+1013
+01:32:06.800 --> 01:32:07.989
+Baro, Sonja: Yeah, there you go
+
+1014
+01:32:10.130 --> 01:32:13.830
+Baro, Sonja: put a PY on the end. Right click.
+
+1015
+01:32:13.940 --> 01:32:16.940
+Anthony Taylor: right click. Copied relative path.
+
+1016
+01:32:18.350 --> 01:32:23.110
+Anthony Taylor: Okay? And then, now and actually, you don't even necessarily have to do that
+
+1017
+01:32:23.350 --> 01:32:24.720
+Anthony Taylor: import.
+
+1018
+01:32:25.460 --> 01:32:30.370
+Anthony Taylor: This is where everyone we did. We do terminal. Yet we did do terminal right
+
+1019
+01:32:30.560 --> 01:32:36.700
+Anthony Taylor: where you could do like dot slash, and all that kind of. But you can. Also.
+
+1020
+01:32:44.280 --> 01:32:48.139
+Anthony Taylor: I'm looking to see where I'm at, although. So I'm in. ATM.
+
+1021
+01:32:49.420 --> 01:33:00.010
+Anthony Taylor: Yeah, that should do it right there and then. It doesn't look like it is, though. Oh, it's just not accessed yet. So you can do from
+
+1022
+01:33:02.150 --> 01:33:04.390
+Anthony Taylor: right and then
+
+1023
+01:33:04.790 --> 01:33:10.080
+Anthony Taylor: import your function. So and so. okay.
+
+1024
+01:33:10.190 --> 01:33:14.129
+Anthony Taylor: I'm not gonna say that's right or wrong, we're gonna have to figure that out like I give it to you.
+
+1025
+01:33:15.230 --> 01:33:27.379
+Anthony Taylor: Are we importing? Are we creating a brand new fresh file to import things into. Are we importing it into the modular one? Just delete as you? What I would do is as you create the new
+
+1026
+01:33:27.560 --> 01:33:32.159
+Anthony Taylor: right, since you're pulling them all out of the modular, just delete it out of the module
+
+1027
+01:33:33.680 --> 01:33:36.339
+Anthony Taylor: delete, like the full function out of the module
+
+1028
+01:33:36.910 --> 01:33:38.540
+Anthony Taylor: right? So
+
+1029
+01:33:38.610 --> 01:33:41.940
+Anthony Taylor: I mean, for instance. make deposit.
+
+1030
+01:33:43.070 --> 01:33:43.980
+Anthony Taylor: Okay.
+
+1031
+01:33:47.230 --> 01:33:48.150
+Anthony Taylor: correct.
+
+1032
+01:33:48.860 --> 01:33:50.810
+Anthony Taylor: Make deposit.
+
+1033
+01:33:52.080 --> 01:33:59.010
+Anthony Taylor: Okay? So that one's basically done. Now, you just go back to the modular and import it from.
+
+1034
+01:34:01.240 --> 01:34:03.199
+Anthony Taylor: anyway? Alright. So
+
+1035
+01:34:03.870 --> 01:34:05.099
+Anthony Taylor: you guys have.
+
+1036
+01:34:07.130 --> 01:34:11.329
+Anthony Taylor: I think we're doing good enough. I could probably give you guys 20 min to do this.
+
+1037
+01:34:12.160 --> 01:34:13.880
+Anthony Taylor: Yeah, 20 min.
+
+1038
+01:34:14.260 --> 01:34:16.069
+Anthony Taylor: I think that should be plenty of time.
+

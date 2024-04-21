@@ -1,0 +1,43 @@
+##--CODE--##
+# Imports for loading environment variables.
+from dotenv import load_dotenv
+import os
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+##--CODE--##
+# Additional imports for agent with built-in tools.
+from langchain_openai import ChatOpenAI
+from langchain.agents import initialize_agent, load_tools
+
+##--CODE--##
+# Initialize the model.
+
+
+##--CODE--##
+# Set up the built-in wikipedia and open weather tools.
+
+
+##--CODE--##
+# Initialize the agent.
+
+
+##--CODE--##
+# Ask the user for their location.
+
+
+##--CODE--##
+# Define a format for our prompt template.
+
+
+##--CODE--##
+# Run the agent and print the result.
+
+

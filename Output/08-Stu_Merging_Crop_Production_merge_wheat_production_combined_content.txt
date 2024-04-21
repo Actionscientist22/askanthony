@@ -1,0 +1,64 @@
+##--CODE--##
+# Import Libraries and Dependencies
+import pandas as pd
+from pathlib import Path
+
+##--CODE--##
+# Import data
+
+
+# Read in data 
+
+
+##--CODE--##
+# Display the 2018 wheat data
+
+
+##--CODE--##
+# Display the 2019 wheat data
+
+
+##--CODE--##
+# Display the 2020 wheat data
+
+
+### Merge the 2018 wheat data with the 2019 wheat data. 
+
+##--CODE--##
+#  Perform an inner merge that combines the 2018 and 2019 DataFrames on the `Country` column.
+
+
+##--CODE--##
+# Perform another inner merge that combines the 2018-2019 merged DataFrame 
+# with the 2020 DataFrame on the `Country` column. 
+
+
+##--CODE--##
+# Get the column names.
+
+
+##--CODE--##
+# Drop the "Crop_x", "Year_x", "Crop_y", "Year_y", "Crop" and "Year" columns. 
+
+
+##--CODE--##
+# Rename the remaining columns (Tonnes of Wheat HA)_2018, (Tonnes of Wheat HA)_2019, and (Tonnes of Wheat HA)_2020. 
+
+
+# Display the DataFrame
+
+
+##--CODE--##
+# Get the columns
+
+
+##--CODE--##
+# Sort on the amount of tonnes of wheat for each year and reset the index. 
+
+
+# Display the sorted DataFrame.
+
+
+##--CODE--##
+
+

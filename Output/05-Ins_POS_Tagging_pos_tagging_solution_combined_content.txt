@@ -1,0 +1,66 @@
+##--CODE--##
+# Import spacy library
+import spacy
+# Load the small English language model for spacy
+nlp = spacy.load("en_core_web_sm")
+
+##--CODE--##
+# Provide a sentence to be analyzed using spacy
+sentence = "The brown cow jumped over the round moon."
+
+##--CODE--##
+# Tokenize text and parse each token
+tokens = nlp(sentence)
+
+##--CODE--##
+# Print POS-Tags for each token
+[(token.text+ " ---> " +token.pos_) for token in tokens]
+
+##--CODE--##
+# Retrieve all the nouns in the sentence using a list comprehension
+nouns = [token.text for token in tokens if token.pos_ == "NOUN"]
+
+# Print the nouns in the sentence
+print(nouns)
+
+##--CODE--##
+# Print grammar dependencies for each word. 
+[(token.text + " ---> " + token.dep_) for token in tokens]
+
+##--CODE--##
+# Import the displacy module from spacy
+from spacy import displacy
+
+##--CODE--##
+# Show the dependency tree
+displacy.render(tokens, style="dep", options={'distance': 125})
+
+##--CODE--##
+# Change the style and color of the relationships of words. 
+options = {'distance': 125,
+           'compact': 'True',
+           'color': 'yellow',
+           'bg': 'navy',
+           'font': 'Arial'}
+
+# Show the dependency tree
+displacy.render(tokens, style="dep", options=options)
+
+##--CODE--##
+# Host the image on a webpage.
+# displacy.serve(tokens, style="dep", options=options, port=5050)
+
+##--CODE--##
+# Print the POS-tag and head word of each token
+[token.text + " ---> " + token.pos_ + " ---> " + token.head.text for token in tokens]
+
+##--CODE--##
+# Retrieve the adjectives that describe the word "cow"
+cow_describers = [token.text for token in tokens if (token.head.text == "cow" and token.pos_ == "ADJ")]
+
+# Print describers
+print(cow_describers)
+
+##--CODE--##
+
+

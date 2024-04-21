@@ -1,0 +1,138 @@
+# Traveling Companions: Part 3
+
+##--CODE--##
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+##--CODE--##
+# Take in all of our traveler data and read it into pandas
+travel_2016 = "../Resources/2016_travelers.csv"
+travel_2017 = "../Resources/2017_travelers.csv"
+travel_2018 = "../Resources/2018_travelers.csv"
+
+travel_2016_df = pd.read_csv(travel_2016)
+travel_2017_df = pd.read_csv(travel_2017)
+travel_2018_df = pd.read_csv(travel_2018)
+
+
+##--CODE--##
+# Merge the first two datasets on "COUNTRY OF NATIONALITY" so that no data is lost (should be 44 rows)
+combined_travel_df = pd.merge(travel_2016_df, travel_2017_df,
+                                 how='outer', on='COUNTRY OF NATIONALITY')
+combined_travel_df.head()
+
+##--CODE--##
+# Rename our _x columns to "2016 Alone", "2016 With Spouse", "2016 With Children", "2016 With Family/Relatives",
+# "2016 Student Group", "2016 With Friends", "2016 With Business Associate", "2016 With Incentive Group",
+# and "2016 Others"
+
+combined_travel_df = combined_travel_df.rename(columns={"ALONE_x":"2016 Alone",
+                                                        "WITH SPOUSE_x":"2016 With Spouse",
+                                                        "WITH CHILDREN_x":"2016 With Children",
+                                                        "WITH FAMILY/RELATIVES_x":"2016 With Family/Relatives",
+                                                        "STUDENT GROUP_x":"2016 Student Group",
+                                                        "WITH FRIENDS_x":"2016 With Friends",
+                                                        "WITH BUSINESS ACCOCIATE_x":"2016 With Business Associate",
+                                                        "WITH INCENTIVE GROUP_x":"2016 With Incentive Group",
+                                                        "OTHERS_x":"2016 Others"})
+
+# Rename our _y columns to "2016 Alone", "2016 With Spouse", "2016 With Children", "2016 With Family/Relatives",
+# "2016 Student Group", "2016 With Friends", "2016 With Business Associate", "2016 With Incentive Group",
+# and "2016 Others"
+combined_travel_df = combined_travel_df.rename(columns={"ALONE_y":"2017 Alone",
+                                                        "WITH SPOUSE_y":"2017 With Spouse",
+                                                        "WITH CHILDREN_y":"2017 With Children",
+                                                        "WITH FAMILY/RELATIVES_y":"2017 With Family/Relatives",
+                                                        "STUDENT GROUP_y":"2017 Student Group",
+                                                        "WITH FRIENDS_y":"2017 With Friends",
+                                                        "WITH BUSINESS ACCOCIATE_y":"2017 With Business Associate",
+                                                        "WITH INCENTIVE GROUP_y":"2017 With Incentive Group",
+                                                        "OTHERS_y":"2017 Others"})
+
+combined_travel_df.head()
+
+##--CODE--##
+# Merge our newly combined dataframe with the 2018 dataframe
+combined_travel_df = pd.merge(combined_travel_df, travel_2018_df, how="outer", on="COUNTRY OF NATIONALITY")
+combined_travel_df
+
+##--CODE--##
+# Rename "ALONE", "WITH SPOUSE", "WITH CHILDREN", "WITH FAMILY/RELATIVES", "STUDENT GROUP", "WITH FRIENDS",
+# "WITH BUSINESS ACCOCIATE","WITH INCENTIVE GROUP", "OTHERS" to 
+# "2018 Alone", "2018 With Spouse", "2018 With Children", "2018 With Family/Relatives", "2018 Student Group", 
+# "2018 With Friends", "2018 With Business Associate", "2018 With Incentive Group", and "2018 Others"
+combined_travel_df = combined_travel_df.rename(columns={"ALONE":"2018 Alone",
+                                                        "WITH SPOUSE":"2018 With Spouse",
+                                                        "WITH CHILDREN":"2018 With Children",
+                                                        "WITH FAMILY/RELATIVES":"2018 With Family/Relatives",
+                                                        "STUDENT GROUP":"2018 Student Group",
+                                                        "WITH FRIENDS":"2018 With Friends",
+                                                        "WITH BUSINESS ACCOCIATE":"2018 With Business Associate",
+                                                        "WITH INCENTIVE GROUP":"2018 With Incentive Group",
+                                                        "OTHERS":"2018 Others"})
+
+combined_travel_df.head()
+
+### Part 2
+
+##--CODE--##
+# Check the mean of the columns
+combined_travel_df.mean()
+
+##--CODE--##
+# Reduce columns where mean of traveling companions is > 1 across all years
+travel_reduced = pd.DataFrame(combined_travel_df[["COUNTRY OF NATIONALITY",
+                                                  "2016 Alone","2016 With Spouse","2016 With Children",
+                                                  "2016 With Family/Relatives","2016 With Friends",
+                                                  "2016 With Business Associate","2017 Alone",
+                                                  "2017 With Spouse","2017 With Children",
+                                                  "2017 With Family/Relatives","2017 With Friends",
+                                                  "2017 With Business Associate","2018 Alone",
+                                                  "2018 With Spouse","2018 With Children",
+                                                  "2018 With Family/Relatives","2018 With Friends",
+                                                  "2018 With Business Associate"]])
+
+# Set index to "Country of Nationality"
+travel_reduced = travel_reduced.set_index("COUNTRY OF NATIONALITY")
+travel_reduced
+
+### Part 3 - Charting Traveling Companions
+
+* Create 3 variables, one for each country to chart.
+
+* Create a variable for the type of traveling companion to compare.
+
+* Store each country's percentage of travelers for the chosen traveling companion over time in 3 variables (one for each country)
+
+* Create a line chart that will plot the comparison of each country's percentage of travelers with the chosen traveling companion from 2016 to 2018
+
+##--CODE--##
+# Create a variable for each country to chart
+
+
+##--CODE--##
+# Set type of traveling companion
+
+
+##--CODE--##
+# Create a Series for each chosen country that looks for the chosen travel companion from 2016 to 2018
+
+
+##--CODE--##
+# Create a list of the years that we will use as our x axis
+
+# Plot our line that will be used to track the first country's traveling companion percentage over the years
+
+# Plot our line that will be used to track the second country's traveling companion percentage over the years
+
+# Plot our line that will be used to track the third country's traveling companion percentage over the years
+
+# Place a legend on the chart in what matplotlib believes to be the "best" location
+
+# Print our chart to the screen
+
+
+##--CODE--##
+
+

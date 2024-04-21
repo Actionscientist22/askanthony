@@ -1,0 +1,89 @@
+##--CODE--##
+# Import the Reuters database from the nltk corpus 
+from nltk.corpus import reuters, stopwords
+# Import tokenizers and pandas
+from nltk.tokenize import sent_tokenize, word_tokenize
+# Import regular expressions
+import re
+
+# Import nltk the sentence tokenizer.
+import nltk
+nltk.download('punkt')
+
+##--CODE--##
+# Get the second article from the crude category of the Reuters library and print out the article.
+crude_article = reuters.raw(fileids=reuters.fileids(categories='crude')[2])
+print(crude_article)
+
+##--CODE--##
+# Write a function to clean the article using stopwords and regular expressions.
+def clean_text(article):
+    """
+    Preprocesses a given text article by performing the following steps:
+    
+    1. Removes stopwords (common words in English language).
+    2. Uses regular expressions to remove non-alphabet characters (e.g., punctuation).
+    3. Tokenizes the cleaned text into words.
+    4. Filters out words that are in the stopwords list.
+    
+    Parameters:
+        article (str): The input text article to be processed.
+
+    Returns:
+        list of str: A list of preprocessed words from the input article.
+    """
+    # Get the stopwords
+    sw = set(stopwords.words('english'))
+    # Use regex to substitute everything that is not a letter with an empty string.
+    regex = re.compile("[^a-zA-Z ]") 
+    re_clean = regex.sub(' ', article)
+    # Tokenize the words 
+    words = word_tokenize(re_clean)
+    # Retrieve only the words that aren't in the stopwords.
+    output = [word.lower() for word in words if word.lower() not in sw]
+    return output
+
+##--CODE--##
+# Call the function with the article and print out the unique words. 
+result = clean_text(crude_article)
+print(set(result))
+
+##--CODE--##
+# Write a second function that does the same as the first function, but adds custom stopwords to the NLTK stopwords.
+def clean_text_again(article):
+    """
+    Preprocesses a given text article by performing the following steps:
+    
+    1. Removes stopwords (common words in English language).
+    2. Creates a custom dictionary of stopwords. 
+    3. Uses regular expressions to remove non-alphabet characters (e.g., punctuation).
+    4. Tokenizes the cleaned text into words.
+    5. Filters out words that are not stopwords.
+    
+    Parameters:
+        article (str): The input text article to be processed.
+
+    Returns:
+        list of str: A list of preprocessed words from the input article.
+    """
+    # Get the stopwords
+    sw = set(stopwords.words('english'))
+    # Create a custom dictionary of stopwords. 
+    sw_addons = {'said', 'sent', 'found', 'including', 'today', 'announced', 'week', 'basicly','also'}
+    # Use regex to substitute everything that is not a letter with an empty string.
+    regex = re.compile("[^a-zA-Z ]")
+    re_clean = regex.sub('', article)
+    # Tokenize the words 
+    words = word_tokenize(re_clean)
+    # Retrieve only the words not in the stopwords. Create a union of the sw and sw_addons.
+    output = [word.lower() for word in words if word.lower() not in sw.union(sw_addons)]
+    return output
+
+##--CODE--##
+# Call the function with the article and print out the unique words.
+result2 = clean_text_again(crude_article)
+print(set(result2))
+
+##--CODE--##
+
+

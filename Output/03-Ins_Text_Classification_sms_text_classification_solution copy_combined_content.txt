@@ -1,0 +1,150 @@
+##--CODE--##
+# Import pandas and numpy
+import pandas as pd
+import numpy as np
+# Import the required dependencies from sklearn
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.svm import LinearSVC
+from sklearn.pipeline import Pipeline
+from sklearn import metrics
+
+# Set the column width to view the text message data.
+pd.set_option('max_colwidth', 200)
+
+##--CODE--##
+# Load the dataset into a DataFrame
+sms_text_df = pd.read_csv('Resources/SMSSpamCollection.csv')
+sms_text_df.head()
+
+##--CODE--##
+# Check for missing values. 
+sms_text_df.info()
+
+##--CODE--##
+#  Get the number of "ham" and "spam" from the "label" column:
+sms_text_df['label'].value_counts()
+
+## Split the data into train & test sets:
+
+##--CODE--##
+# Set the features variable to the text message. 
+X = sms_text_df['text_message']  
+# Set the target variable to the "label" column.
+y = sms_text_df['label']
+
+# Split data into training and testing and set the test_size = 33%
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+
+##--CODE--##
+# Create an instance of the TfidfVectorizer
+vectorizer = TfidfVectorizer(stop_words='english')
+
+# Transform the data and use the original X_train set.
+X_train_tfidf = vectorizer.fit_transform(X_train) 
+X_train_tfidf.shape
+
+##--CODE--##
+# What stopwords are in the scikit-learn's built-in list
+from sklearn.feature_extraction import text
+print(text.ENGLISH_STOP_WORDS)
+
+##--CODE--##
+# Create a list to hold the words using the vectorizer.get_feature_names_out()
+words = list(vectorizer.get_feature_names_out())
+# Create a list to hold the frequency using np.ravel(X.sum(axis=0))
+frequency = list(np.ravel(X_train_tfidf.sum(axis=0)))
+
+##--CODE--##
+# Create a DataFrame of the TF–IDF weights for each word in the working corpus.
+messages_df = pd.DataFrame({
+    "Word": words,
+    "Frequency": frequency})
+
+# Sort the DataFrame by word frequency in descending order and reset the index.
+messages_df = messages_df.sort_values(by=["Frequency"], ascending=False).reset_index(drop=True)
+
+# Display the DataFrame
+messages_df.head(10)
+
+##--CODE--##
+# Display the DataFrame
+messages_df.tail(10)
+
+##--CODE--##
+# Train the data on LinearSVC classifier.
+linear_svc_model = LinearSVC()
+# Fit the model to the transformed  data,
+linear_svc_model.fit(X_train_tfidf,y_train)
+
+##--CODE--##
+# Determine predictions. 
+# Run this to show that we can't run predcitions on our linear SVC model. 
+# We have to transform our testing data the same way as we transformed the training data. 
+predictions = linear_svc_model.predict(X_test)
+
+##--CODE--##
+# Transform the testing data like we did with the training data.
+X_test_tfidf = vectorizer.transform(X_test) 
+# Make predictions 
+predictions = linear_svc_model.predict(X_test_tfidf)
+print(predictions[:30])
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print('Train Accuracy: %.3f' % linear_svc_model.score(X_train_tfidf, y_train))
+print('Test Accuracy: %.3f' % linear_svc_model.score(X_test_tfidf, y_test))
+
+## For efficiency,  build a Pipeline with the vectorizer and SVM model. 
+
+##--CODE--##
+# Build a pipeline to transform the test set to compare to the training set. 
+text_clf = Pipeline([('tfidf', TfidfVectorizer(stop_words='english')),
+                     ('clf', LinearSVC()),
+])
+
+# Fit the model to the transformed data.
+text_clf.fit(X_train, y_train)  
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print('Train Accuracy: %.3f' % text_clf.score(X_train, y_train))
+print('Test Accuracy: %.3f' % text_clf.score(X_test, y_test))
+
+## Test the classifier and display results
+
+##--CODE--##
+# Form a prediction set
+message_predictions = text_clf.predict(X_test)
+print(message_predictions[0:30])
+
+##--CODE--##
+# Create the confusion matrix on the test data and predictions
+print(metrics.confusion_matrix(y_test,message_predictions))
+
+# Print a classification report
+print(metrics.classification_report(y_test,message_predictions))
+
+# Print the overall accuracy
+print(metrics.accuracy_score(y_test,message_predictions))
+
+Using the text of the messages, our model performed exceedingly well; it correctly predicted spam **98.9%** of the time!<br>
+Now let's apply what we've learned to a text classification project involving positive and negative movie reviews.
+
+##--CODE--##
+# Create some random text messages. 
+text_1 = """You are a lucky winner of $5000!!"""
+text_2 = """You won 2 free tickets to the Super Bowl."""
+text_3 = """You won 2 free tickets to the Super Bowl text us to claim your prize"""
+text_4 = """Thanks for registering. Text 4343 to receive free updates on medicare"""
+
+##--CODE--##
+# Send the text messages to transform the data and predict the classification.
+print(text_clf.predict([text_1]))
+print(text_clf.predict([text_2]))
+print(text_clf.predict([text_3]))
+print(text_clf.predict([text_4]))
+
+##--CODE--##
+
+

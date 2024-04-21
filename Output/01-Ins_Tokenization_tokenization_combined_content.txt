@@ -1,0 +1,55 @@
+##--CODE--##
+# Import reuters database from the nltk corpus 
+from nltk.corpus import reuters
+# Import tokenizers
+from nltk.tokenize import sent_tokenize, word_tokenize
+
+# Download the reuters corpora and the "punkt" sentence tokenizer.
+import nltk
+nltk.download("reuters")
+nltk.download('punkt')
+
+## The NLTK Reuters corpus
+
+##--CODE--##
+# The reuters corpus includes over 10,000 news articles, many of which are about financial markets
+# These articles are tagged by topic, or category
+# Get the categories
+print(reuters.categories())
+
+##--CODE--##
+# We'll find the first article about cocoa.
+reuters.fileids(categories = 'cocoa')[0]
+
+##--CODE--##
+# Get the raw text from the first article. 
+article = reuters.raw('test/15095')
+print(article)
+
+## Tokenizing with Python `split()`
+
+##--CODE--##
+# We can mimic tokenization first by using `split()` on the article.
+
+
+##--CODE--##
+# Then we split the first sentence on the whitespace.
+
+
+## NLTK tokenization
+
+##--CODE--##
+# NLTK tokenizes in similar way by using the `sent_tokenize` function
+
+
+##--CODE--##
+# We can tokenize the first sentence with the `word_tokenize` function.
+
+
+**Question: What differences are there between using Python to split the sentence and tokenizer functions?**
+- Python: 
+- NLTK tokenizer:  
+
+##--CODE--##
+
+

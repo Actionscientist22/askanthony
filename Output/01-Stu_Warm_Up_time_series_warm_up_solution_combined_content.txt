@@ -1,0 +1,33 @@
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+
+##--CODE--##
+# Read csv file as DataFrame, with datetime index as the column date
+data_path = "../Resources/bitcoin_hourly.csv"
+df = pd.read_csv(
+    data_path,
+    infer_datetime_format=True,
+    parse_dates=True,
+    index_col='date'
+)
+
+# Preview the dataset
+df.head()
+
+##--CODE--##
+# Plot volume to get a sense of what's typical volume for the cryptocurrency.
+df['volume'].plot()
+
+##--CODE--##
+df.groupby(df.index.isocalendar().week).mean().plot(kind='bar')
+
+
+##--CODE--##
+# Plot hourly trends in prices and volume for the cryptocurrency
+df.groupby(df.index.hour).mean().plot(kind='bar')
+
+##--CODE--##
+# Slice to one day before and after Jan 29, 2021
+df.loc['2021-01-27':'2021-01-31'].plot()
+

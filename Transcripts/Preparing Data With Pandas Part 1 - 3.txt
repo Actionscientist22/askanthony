@@ -1,0 +1,5742 @@
+WEBVTT
+
+1
+00:00:34.700 --> 00:00:36.040
+Anthony Taylor: Alright.
+
+2
+00:00:39.330 --> 00:00:41.620
+Anthony Taylor: Panda's day. 3.
+
+3
+00:00:41.890 --> 00:00:44.689
+Anthony Taylor:  three's not bad.
+
+4
+00:00:45.370 --> 00:00:48.499
+We're gonna do like 2 new things and
+
+5
+00:00:50.350 --> 00:00:55.720
+Anthony Taylor: use our pandas to do some little exercises together, and that's pretty much it.
+
+6
+00:00:56.140 --> 00:00:58.870
+Anthony Taylor: Pretty light day, to be honest with you.
+
+7
+00:00:59.070 --> 00:01:04.610
+Anthony Taylor: I'm not gonna say it's a simple day, but it's fairly light. So look forward to that.
+
+8
+00:01:04.910 --> 00:01:05.890
+Anthony Taylor: We
+
+9
+00:01:06.160 --> 00:01:13.039
+Anthony Taylor: may or may not. In fact, if we get done early, I what I might do is go over the challenge with you guys, I know you guys like that.
+
+10
+00:01:13.180 --> 00:01:16.840
+Anthony Taylor: So that's probably what we're doing today.
+
+11
+00:01:17.070 --> 00:01:20.199
+Anthony Taylor: So first and and it's kind of interesting.
+
+12
+00:01:20.320 --> 00:01:21.650
+Anthony Taylor: I
+
+13
+00:01:21.820 --> 00:01:31.160
+Anthony Taylor: they do a lot of review. But as I was going through this in the Lesson plan, they treat it like you haven't ever seen some of these things that they're gonna do as review
+
+14
+00:01:31.230 --> 00:01:35.470
+Anthony Taylor: which is good. Which means you guys get to kind of like, learn them again. So that's cool.
+
+15
+00:01:35.550 --> 00:01:39.689
+Anthony Taylor: We're going to create new columns and data frame. We all actually know how to do this already, don't we?
+
+16
+00:01:40.460 --> 00:01:44.890
+Anthony Taylor: Right? Name in the data frame bracket, new column name equals
+
+17
+00:01:45.190 --> 00:01:46.130
+Anthony Taylor: something.
+
+18
+00:01:46.390 --> 00:02:03.299
+Anthony Taylor: Okay, we're going to use a new method with our data frame called Apply, you're going to find it incredibly useful. We're going to do some cleanup. So we're going to walk through the steps that you would do, maybe to clean up your data frame.
+
+19
+00:02:03.690 --> 00:02:10.480
+Anthony Taylor: Okay? And then we're gonna do like an exercise that just has a lot of steps in it.
+
+20
+00:02:10.550 --> 00:02:17.800
+Anthony Taylor: And kind of walk through how we use canvas. Okay, kind of a fun day.
+
+21
+00:02:18.270 --> 00:02:29.719
+Anthony Taylor: So first creating new columns. Now we have done this already. But we're going to talk. We're going to do it a couple of we're going to do it a few different ways today.
+
+22
+00:02:29.930 --> 00:02:35.810
+Anthony Taylor: So why would you do it? Well, maybe you want to add 2 columns together
+
+23
+00:02:35.980 --> 00:02:37.359
+Anthony Taylor: and get a result.
+
+24
+00:02:37.740 --> 00:02:39.430
+Anthony Taylor: Okay, that makes sense.
+
+25
+00:02:39.760 --> 00:02:43.420
+Anthony Taylor: Alright. Say you have like, I don't know.
+
+26
+00:02:45.650 --> 00:02:47.280
+Anthony Taylor: Room dimensions.
+
+27
+00:02:47.600 --> 00:02:49.360
+Anthony Taylor: height with
+
+28
+00:02:51.730 --> 00:02:54.809
+Anthony Taylor: depth, and you want to get the value.
+
+29
+00:02:55.010 --> 00:03:01.630
+Anthony Taylor: Okay? So you could take those 3 columns. multiply them together and make a new column with
+
+30
+00:03:01.900 --> 00:03:03.439
+Anthony Taylor: the total right
+
+31
+00:03:03.580 --> 00:03:08.249
+Anthony Taylor: stringing manipulation. You have multiple strings. So you have an address.
+
+32
+00:03:08.580 --> 00:03:15.070
+Anthony Taylor: and it's broken up by Street City State Zip, and you actually want a column that has it all in one like a label
+
+33
+00:03:15.970 --> 00:03:19.550
+Anthony Taylor: could do that, create a new column, concatenate all the strings together.
+
+34
+00:03:19.800 --> 00:03:21.970
+Anthony Taylor: Maybe you want to get
+
+35
+00:03:21.980 --> 00:03:29.019
+Anthony Taylor: how much time is passed. So you have a start time, timestamp, and an end time stamp column, and you want to do some time, math
+
+36
+00:03:29.260 --> 00:03:32.610
+Anthony Taylor: and come up with like, how much time has passed?
+
+37
+00:03:32.970 --> 00:03:41.370
+Anthony Taylor: Maybe you just want to clean some data. but you don't want to get rid of your old data. So you make a new column with the cleaned version of the data.
+
+38
+00:03:42.650 --> 00:03:44.110
+Anthony Taylor: found that whoops
+
+39
+00:03:44.280 --> 00:03:52.280
+Anthony Taylor: and then we're also going to get to eventually, not this week, but visualizations of the data frames. And sometimes you want
+
+40
+00:03:52.450 --> 00:03:57.069
+Anthony Taylor: new columns just for the purpose of visualizing the data.
+
+41
+00:03:57.270 --> 00:04:00.960
+Anthony Taylor: Okay? So right away, we're gonna start with a fairly
+
+42
+00:04:01.180 --> 00:04:03.780
+Anthony Taylor: this, this should be all review.
+
+43
+00:04:04.040 --> 00:04:12.319
+Anthony Taylor:  that's interesting. Actually, let's go. Let's go through this first.
+
+44
+00:04:13.440 --> 00:04:20.690
+Anthony Taylor:  this is, we're gonna I'm gonna show you how to use. I think we're gonna use apply in here.
+
+45
+00:04:21.120 --> 00:04:27.610
+Anthony Taylor: I think this is just using the functions we've already used. Yeah, so this is pretty much just a review for you guys.
+
+46
+00:04:27.770 --> 00:04:31.780
+Anthony Taylor: which I'm sure no one is upset about. Yeah, let's review.
+
+47
+00:04:31.870 --> 00:04:36.290
+Anthony Taylor: So here. We're going to bring in a new file car purchases.
+
+48
+00:04:37.860 --> 00:04:41.059
+Anthony Taylor: and we're gonna take a look at it.
+
+49
+00:04:42.620 --> 00:04:49.409
+Anthony Taylor: So we've got full name gender amount and car and an Id column which is kind of worthless.
+
+50
+00:04:49.550 --> 00:04:53.139
+Anthony Taylor: So first we're going to run, describe what does describe, do
+
+51
+00:04:57.180 --> 00:05:00.909
+Baro, Sonja: gives an overview of the files of what's in it
+
+52
+00:05:01.090 --> 00:05:04.929
+Baro, Sonja: every column or no. No.
+
+53
+00:05:05.280 --> 00:05:06.510
+Anthony Taylor: just the
+
+54
+00:05:07.490 --> 00:05:09.870
+Anthony Taylor: number number times.
+
+55
+00:05:09.950 --> 00:05:11.200
+Baro, Sonja: Okay.
+
+56
+00:05:11.210 --> 00:05:18.120
+Anthony Taylor: yeah. So we have Id, which again, it's just a running number. There's no point in getting the statistics on a running number.
+
+57
+00:05:18.180 --> 00:05:21.480
+Anthony Taylor: however, the amount is probably interesting.
+
+58
+00:05:21.620 --> 00:05:31.369
+Anthony Taylor: Of a thousand rows. We can see the average. We can see the standard deviation, the minimum value and the maximum value. So this is supposed to be
+
+59
+00:05:31.490 --> 00:05:41.779
+Anthony Taylor: well, actually, I guess we don't technically know what this is, but it does say, car purchases, and there is an amount. And we have a value in here. That is $15.
+
+60
+00:05:43.120 --> 00:05:46.849
+Anthony Taylor: Okay, this is probably something to at least explore.
+
+61
+00:05:48.190 --> 00:05:53.229
+Why do we have a car? That purch was purchased for $15? Is that a typo?
+
+62
+00:05:53.360 --> 00:05:55.700
+Anthony Taylor: Maybe? Okay.
+
+63
+00:05:56.030 --> 00:06:02.709
+Anthony Taylor:  So then we can take a look at just the head of the amount. So just the first 5 of them.
+
+64
+00:06:03.200 --> 00:06:11.860
+Anthony Taylor: those all look fine. We can look at amount and gender, not sure what this relationship's all about. But why not? Okay?
+
+65
+00:06:12.800 --> 00:06:17.710
+Anthony Taylor: We can get the average of the amount by using our mean.
+
+66
+00:06:19.070 --> 00:06:28.170
+Anthony Taylor: we can get the sum like of the amount. The total amount in the entire data frame is what this sum is. This is not a sum by row or anything. It's
+
+67
+00:06:28.370 --> 00:06:31.640
+Anthony Taylor: just a sum for the whole day different. So a lot
+
+68
+00:06:32.260 --> 00:06:35.270
+Anthony Taylor: unique car.
+
+69
+00:06:35.540 --> 00:06:40.659
+Anthony Taylor: So this is going to give us a list of all of the unique car values
+
+70
+00:06:40.790 --> 00:06:45.849
+Anthony Taylor: that we have in here. Okay, so there's a car in here called a spiker.
+
+71
+00:06:48.450 --> 00:06:50.020
+Anthony Taylor: Never heard of a spiker.
+
+72
+00:06:50.540 --> 00:06:55.000
+Clayton Graves: That's probably the $15 one.
+
+73
+00:06:55.560 --> 00:07:08.100
+Baro, Sonja: But just a quick clarification. Unique doesn't mean necessarily unique. It means in relationship to the other data. We only see this once or
+
+74
+00:07:08.280 --> 00:07:15.619
+Anthony Taylor: unique is that where, no matter how many times it shows, it's basically well. Another way of saying this is distinct.
+
+75
+00:07:15.770 --> 00:07:21.420
+Anthony Taylor: So basically it looks at that column and only gives us one instance
+
+76
+00:07:21.560 --> 00:07:25.549
+Baro, Sonja: of every value, even if it appears multiple times.
+
+77
+00:07:25.700 --> 00:07:29.209
+Anthony Taylor: So Jeep might be in there 20 times. But join us. See it once here.
+
+78
+00:07:30.330 --> 00:07:32.960
+Anthony Taylor: Okay. each of these could.
+
+79
+00:07:33.950 --> 00:07:40.200
+Anthony Taylor:  okay? And now we're into value counts which remember now, we can see the unique
+
+80
+00:07:40.490 --> 00:07:44.240
+Anthony Taylor: values. But how many of each one exists.
+
+81
+00:07:44.980 --> 00:07:53.379
+Anthony Taylor: and this one's on gender. So we have 455 males, 446 females, 99. Non-binary.
+
+82
+00:07:54.150 --> 00:07:55.060
+Anthony Taylor: Okay.
+
+83
+00:07:55.530 --> 00:07:58.559
+Anthony Taylor: Now, to add a calculated column.
+
+84
+00:07:58.620 --> 00:08:04.880
+Anthony Taylor: This is a way to do it. You don't have to. You could have just put this here. But
+
+85
+00:08:05.200 --> 00:08:14.630
+Anthony Taylor: let's just go along with this. We have a variable. We're going to take the data frame pass in a column divided by a thousand.
+
+86
+00:08:16.110 --> 00:08:19.369
+Anthony Taylor: That's all. This does so the output of this.
+
+87
+00:08:19.700 --> 00:08:22.029
+Anthony Taylor: It returns one column.
+
+88
+00:08:22.610 --> 00:08:25.470
+Anthony Taylor: What would this variable be?
+
+89
+00:08:29.310 --> 00:08:36.719
+Clayton Graves: A list or series? Very good. Clayton. A series in in the Pandas case. But yes, effectively. A list.
+
+90
+00:08:36.840 --> 00:08:40.799
+Anthony Taylor: Okay. And because it is a series in pandas.
+
+91
+00:08:41.610 --> 00:08:48.120
+Anthony Taylor: When we run, we can now create a new column in our data frame and just pass in
+
+92
+00:08:48.180 --> 00:08:51.759
+Anthony Taylor: that series, and it treats it as a new column.
+
+93
+00:08:51.850 --> 00:08:53.879
+Anthony Taylor: And then we can show our data frame.
+
+94
+00:08:55.310 --> 00:09:00.550
+Anthony Taylor: And there's the thousands of dollars which is just the amount divided by a thousand.
+
+95
+00:09:02.650 --> 00:09:07.940
+Anthony Taylor: Okay. so all this is this, a little bit is just kind of remind everybody.
+
+96
+00:09:08.210 --> 00:09:13.079
+Anthony Taylor: This is what we can do looking at pandas. So your exercise is more of the same.
+
+97
+00:09:14.840 --> 00:09:18.090
+Anthony Taylor: your activity. It's it's coming ever so slowly.
+
+98
+00:09:19.700 --> 00:09:29.389
+Anthony Taylor: So you're going to do some simple analytics. You're going to collect all the names of trainers figure out how many students each trainer has. So
+
+99
+00:09:29.770 --> 00:09:34.360
+Anthony Taylor: all the names of trainers. What method is that data frame dot?
+
+100
+00:09:37.940 --> 00:09:40.279
+Anthony Taylor: I'm going to say. Column name dot
+
+101
+00:09:41.460 --> 00:09:42.380
+Derek Rikke: unique.
+
+102
+00:09:42.490 --> 00:09:47.089
+Anthony Taylor: unique. So this would give us the unique, the distinct names.
+
+103
+00:09:47.150 --> 00:09:58.439
+Anthony Taylor: How many students does each trainer has? Well, this data frame is the students period. So if I wanted to see how many rows there are for each trainer.
+
+104
+00:10:00.520 --> 00:10:02.000
+Anthony Taylor: what method is that
+
+105
+00:10:03.900 --> 00:10:07.109
+Masarirambi, Rodney: value counts value counts. Thank you, Roger.
+
+106
+00:10:07.190 --> 00:10:15.600
+Anthony Taylor: Okay, the average weight of the students in the gym  and this does not say per student. So
+
+107
+00:10:18.690 --> 00:10:26.740
+Anthony Taylor: could you use? And could you use describe to do that you actually, you technically could, because indescribed, there is a mean
+
+108
+00:10:26.830 --> 00:10:30.420
+Anthony Taylor: right? But let's just let let's go with mean
+
+109
+00:10:30.510 --> 00:10:33.989
+Anthony Taylor: in this case. But you could use describe. That's actually very valid.
+
+110
+00:10:34.220 --> 00:10:39.470
+Anthony Taylor: Okay? The combined weight of all of the students in the gym
+
+111
+00:10:43.750 --> 00:10:44.860
+Meredith McCanse (she/her): thumbs
+
+112
+00:10:45.100 --> 00:10:55.930
+Anthony Taylor: some dumdum. And then it says, convert the days column into weeks. How would you convert a hundred days into weeks?
+
+113
+00:10:58.600 --> 00:11:04.019
+Anthony Taylor: Simple math problem, not a met. It's not a method. It's not a function. It's a math problem.
+
+114
+00:11:06.020 --> 00:11:09.200
+Anthony Taylor: Go, Mike. oh, or Meredith
+
+115
+00:11:10.250 --> 00:11:13.419
+Meredith McCanse (she/her): divide by 7, divided by 7.
+
+116
+00:11:13.460 --> 00:11:20.630
+Anthony Taylor: So you're just gonna take that column divided by 7. Make a new column. Okay. that's the whole thing. You guys are. Gonna go do this
+
+117
+00:11:20.900 --> 00:11:25.119
+Anthony Taylor: right now, and you have 10 min. So let me
+
+118
+00:11:26.330 --> 00:11:27.700
+Anthony Taylor: make that happen.
+
+119
+00:11:27.880 --> 00:11:30.589
+michael mcpherson: That is like the fate of my existence right now.
+
+120
+00:11:31.230 --> 00:11:35.780
+Clayton Graves: I don't know. Brandon, and Derek seem to remember it. Just fine.
+
+121
+00:11:36.510 --> 00:11:37.910
+Anthony Taylor: That's amazing.
+
+122
+00:11:38.250 --> 00:11:41.310
+Masarirambi, Rodney: I don't remember this. They've been working with her for a while, right?
+
+123
+00:11:41.500 --> 00:11:46.739
+Anthony Taylor: It's not even that. I've worked with it for a really long time older than most of you. But
+
+124
+00:11:46.900 --> 00:11:52.989
+Anthony Taylor:  it still doesn't mean you're gonna remember it all all the time I look step up all the time
+
+125
+00:11:53.150 --> 00:11:57.349
+Anthony Taylor: I do. All the time I look up stuff. I know I know
+
+126
+00:11:58.270 --> 00:12:03.580
+Anthony Taylor: right? Just in case it's changed since the last time I looked it up.
+
+127
+00:12:04.220 --> 00:12:07.230
+Anthony Taylor: So don't be ashamed to look it up.
+
+128
+00:12:08.490 --> 00:12:10.160
+Anthony Taylor: Perfectly acceptable.
+
+129
+00:12:11.350 --> 00:12:13.550
+Anthony Taylor: Okay. okay.
+
+130
+00:12:15.110 --> 00:12:17.280
+Anthony Taylor: you will remember a lot of it eventually.
+
+131
+00:12:23.700 --> 00:12:33.869
+Anthony Taylor:  and again, just a reminder, just a level set for everybody.
+
+132
+00:12:34.350 --> 00:12:36.879
+Anthony Taylor: How long have you been learning Python title.
+
+133
+00:12:38.840 --> 00:12:48.980
+Anthony Taylor: How many hours! The same amount of time with the other 2 that were in my group that didn't have a problem remembering the syntax. Oh, see now I disagree with that. Who was in your group.
+
+134
+00:12:51.040 --> 00:12:54.029
+Clayton Graves: Brandon? And I think, Derek.
+
+135
+00:12:54.650 --> 00:12:58.899
+Clayton Graves: Well, Eric has plenty of experience with this stuff.
+
+136
+00:12:58.940 --> 00:13:00.240
+Anthony Taylor: Yes.
+
+137
+00:13:00.810 --> 00:13:05.060
+Derek Rikke: I did some online self pace. So to get ready for the class.
+
+138
+00:13:05.680 --> 00:13:17.850
+Anthony Taylor: So and then and then Brandon's got 6,000 experience on data camp already. Well, Brandon's more computer than man. So that makes sense.
+
+139
+00:13:19.810 --> 00:13:21.960
+Anthony Taylor: Okay, bimport pandas.
+
+140
+00:13:24.940 --> 00:13:33.360
+Anthony Taylor: alright. So we did that. And then here's the data. They just gave us a bunch of data. What is this? A list of dictionaries, or a dictionary of lists?
+
+141
+00:13:36.780 --> 00:13:41.319
+Clayton Graves: That's a list of dictionaries, because those are all keys at the beginning. There.
+
+142
+00:13:41.820 --> 00:13:43.900
+Baro, Sonja: that's a name is a key
+
+143
+00:13:43.920 --> 00:13:50.140
+Anthony Taylor: trainers. So you're saying it backwards. Clayton, that's okay, though, right early bracket
+
+144
+00:13:50.280 --> 00:13:53.530
+Anthony Taylor: key key
+
+145
+00:13:53.590 --> 00:13:56.309
+Anthony Taylor: values. The values are in a list.
+
+146
+00:13:56.840 --> 00:14:00.380
+Anthony Taylor: So it's a dictionary of lists.
+
+147
+00:14:01.200 --> 00:14:09.499
+Anthony Taylor: but I love that you identify that. Yes, there are keys there, but that should be like a big hint right away that oh, wait! If there's keys there.
+
+148
+00:14:09.660 --> 00:14:21.919
+Anthony Taylor: and the value is a big old list, then that's a dictionary list. But that's good. I love that. That means you're on the right track. Okay? So it says, summary of all the data do describe.
+
+149
+00:14:22.920 --> 00:14:31.720
+Anthony Taylor: Which I mean here some of these questions you can get answered right here. Right? Cause we have, like the count, the main standard deviation of
+
+150
+00:14:31.840 --> 00:14:36.370
+Anthony Taylor: wait. So we know that's going to come up to get the unique trainers.
+
+151
+00:14:38.400 --> 00:14:42.959
+Anthony Taylor: If the value counts by trainer. So how many students they have?
+
+152
+00:14:44.080 --> 00:14:49.850
+Anthony Taylor: There's that mean of wait you could have used describe, and you would have got
+
+153
+00:14:50.940 --> 00:14:53.539
+Anthony Taylor: that there. Well, this there technically.
+
+154
+00:14:54.050 --> 00:14:58.839
+Anthony Taylor:  what else? Oh, here's the sum.
+
+155
+00:15:00.430 --> 00:15:01.809
+Anthony Taylor: That's a lot of weight.
+
+156
+00:15:02.240 --> 00:15:07.499
+Anthony Taylor: And then here you go, membership days divided by 7 new column membership weeks
+
+157
+00:15:08.030 --> 00:15:10.100
+Anthony Taylor: and done
+
+158
+00:15:12.140 --> 00:15:13.350
+Anthony Taylor: questions.
+
+159
+00:15:15.080 --> 00:15:26.070
+Anthony Taylor: So which syntax issues? What was which was bugging you, Clayton? What was the syntax stuff? I'm just curious now, because these are all. It's nothing specific. It's just remembering what to type
+
+160
+00:15:26.230 --> 00:15:40.400
+Anthony Taylor: like. Okay, how how do I get that? What was that? It's mean? Clay? Oh, yeah, mean, okay, so that's II do want to say this. So that is, that's not syntax as much as it is.
+
+161
+00:15:40.700 --> 00:15:52.980
+Anthony Taylor: J. And this is what I do what you guys to work for. Right? If someone says I need the average of a data set in your head, you should immediately be able to identify
+
+162
+00:15:53.130 --> 00:16:02.799
+Anthony Taylor: like, okay, I know that's a mean, or I know that. You know there's a function for that. You don't have to know what it's called. You don't have to know how to call it.
+
+163
+00:16:02.900 --> 00:16:11.519
+Anthony Taylor: but I want you to be able to identify that that, you know there's a function that does that my 12 year old had to explain the 3 of them to me again.
+
+164
+00:16:11.760 --> 00:16:14.880
+Anthony Taylor: I love that so it's not.
+
+165
+00:16:14.890 --> 00:16:20.880
+Anthony Taylor: I've got a type error at or near 100 times, and I press run. Let's
+
+166
+00:16:21.100 --> 00:16:29.990
+Anthony Taylor: press run, run! I get that lovely type error almost every time. You probably need to redo your kernel. But let me see? Show us?
+
+167
+00:16:30.240 --> 00:16:35.780
+michael mcpherson: No, no, no, it's it's not just this one. It's everyone I said. 100% of the time
+
+168
+00:16:36.740 --> 00:16:40.699
+Anthony Taylor: like, so is it just a typo or
+
+169
+00:16:41.200 --> 00:16:50.709
+michael mcpherson: what's going on? Oh, okay, alright. Alright. Oh, yeah. You did show us. Okay. I was like.
+
+170
+00:16:50.860 --> 00:16:58.319
+Anthony Taylor: you're showing type error method. Object is not subscript.
+
+171
+00:16:58.590 --> 00:16:59.600
+michael mcpherson: Exactly
+
+172
+00:16:59.880 --> 00:17:00.880
+Anthony Taylor: what.
+
+173
+00:17:01.050 --> 00:17:03.520
+Anthony Taylor: Oh, there's something wrong there.
+
+174
+00:17:05.099 --> 00:17:10.940
+Clayton Graves: even even I say, that looks correct.
+
+175
+00:17:11.930 --> 00:17:15.089
+Anthony Taylor: Methodobject is not subscriptable. Scroll up
+
+176
+00:17:16.190 --> 00:17:17.480
+Derek Rikke: Newport. Pandas.
+
+177
+00:17:19.339 --> 00:17:20.760
+Anthony Taylor: Now that's there
+
+178
+00:17:22.150 --> 00:17:23.820
+Anthony Taylor: training. Df.
+
+179
+00:17:24.010 --> 00:17:26.840
+Anthony Taylor: training. Dfdscribe. Okay.
+
+180
+00:17:28.310 --> 00:17:29.600
+michael mcpherson: now, honestly.
+
+181
+00:17:29.780 --> 00:17:33.659
+Anthony Taylor: yeah, he just needed. He did. He had something weird happened there. Alright, you're good.
+
+182
+00:17:34.590 --> 00:17:39.609
+Anthony Taylor: I know you want an explanation. The explanation is it's about.
+
+183
+00:17:39.750 --> 00:17:41.300
+michael mcpherson: It's not
+
+184
+00:17:43.860 --> 00:17:46.820
+Anthony Taylor: alright. Okay. Let's continue.
+
+185
+00:17:46.960 --> 00:17:48.330
+Anthony Taylor: I mean,
+
+186
+00:17:49.630 --> 00:17:58.539
+Anthony Taylor: so we're gonna talk about. We are gonna introduce something new. We're not gonna introduce a lot of new things today to be honest with you. So that's a good news. Right? That's a good news
+
+187
+00:17:59.230 --> 00:18:01.790
+Anthony Taylor: we're going to talk about. Apply
+
+188
+00:18:02.330 --> 00:18:04.980
+Anthony Taylor:  Apply
+
+189
+00:18:05.570 --> 00:18:07.549
+Anthony Taylor: is a way for us
+
+190
+00:18:08.060 --> 00:18:11.570
+Anthony Taylor: to execute code
+
+191
+00:18:12.750 --> 00:18:15.460
+Anthony Taylor: for every row in our data frame.
+
+192
+00:18:16.880 --> 00:18:17.770
+Anthony Taylor: Okay.
+
+193
+00:18:18.380 --> 00:18:25.920
+Anthony Taylor: so let's first, let's get a data frame. So we're gonna import pandas. We're gonna import some data. So we have this. But
+
+194
+00:18:26.090 --> 00:18:33.840
+Anthony Taylor: data frame. aye. So if we just wanted to create a column called match amount
+
+195
+00:18:34.390 --> 00:18:39.820
+Anthony Taylor: and so we just wanted to say, Okay, well, everyone's going to
+
+196
+00:18:40.040 --> 00:18:42.970
+Anthony Taylor: match by 10. Okay?
+
+197
+00:18:43.070 --> 00:18:49.670
+Anthony Taylor: So when we run that we'll see, we'll have a new column, and it's 10% of
+
+198
+00:18:49.940 --> 00:18:50.910
+Anthony Taylor: the amount.
+
+199
+00:18:51.750 --> 00:18:53.240
+Anthony Taylor: Okay, pretty cool.
+
+200
+00:18:54.420 --> 00:18:55.789
+Anthony Taylor: Everybody see how we did that.
+
+201
+00:18:55.900 --> 00:19:00.379
+Anthony Taylor: We just made a new column and did some math. We did that last exercise.
+
+202
+00:19:00.810 --> 00:19:07.270
+Anthony Taylor: which is cool. Okay. But what if we wanted to be a little smarter about it?
+
+203
+00:19:08.130 --> 00:19:11.099
+Anthony Taylor: Okay? And we wanted to say, Well.
+
+204
+00:19:11.140 --> 00:19:19.970
+Anthony Taylor: we'll do 10% on donations that are below $500 and 20% on donations that are 500 or more.
+
+205
+00:19:21.690 --> 00:19:32.029
+Anthony Taylor: So could we do it here? Probably. But there's a cool, nifty python way to do this. So here we're going to create a function.
+
+206
+00:19:32.870 --> 00:19:44.750
+Anthony Taylor: And our function is called match amount. We're gonna pass in an amount. and we're gonna say, if the amount is less than 500, return amount times one.
+
+207
+00:19:45.340 --> 00:19:49.310
+Anthony Taylor: otherwise return amount times point 2. So
+
+208
+00:19:50.220 --> 00:19:54.850
+Anthony Taylor: alright, understand? That's what this says here, 10% on donations below 500.
+
+209
+00:19:54.860 --> 00:20:02.519
+Anthony Taylor: If it's not below 500, then it's either 500 or above. So we can. We don't have to do greater than or equal to. We can just do.
+
+210
+00:20:03.020 --> 00:20:05.160
+Anthony Taylor: You know, if it's not less than 500 do this.
+
+211
+00:20:06.100 --> 00:20:09.550
+Anthony Taylor: So now, when we create this new column.
+
+212
+00:20:10.090 --> 00:20:19.680
+Anthony Taylor: we're going to say, use amount for the amount column. I want you to apply this function for every single row.
+
+213
+00:20:21.050 --> 00:20:34.610
+Anthony Taylor: Alright. and what that will do is take the value in the amount column 500 in this case. pass it into this function. and then it'll run this function and based on the value it will return
+
+214
+00:20:35.310 --> 00:20:43.979
+Anthony Taylor: whatever this says, and it'll execute it for that column. So in this case, 500, what's it going to be point one or point 2
+
+215
+00:20:50.430 --> 00:20:55.360
+Anthony Taylor: values 500. What's it? Gonna return amount times point one or amount times point 2.
+
+216
+00:20:55.440 --> 00:21:04.459
+Anthony Taylor: Christine got it. Everybody adily got it amount times white. Why? Because 500 is not less than 500,
+
+217
+00:21:05.500 --> 00:21:10.219
+Anthony Taylor: right? It's equal to 500. So when we run this.
+
+218
+00:21:11.510 --> 00:21:13.249
+Anthony Taylor: we will see. Now
+
+219
+00:21:13.360 --> 00:21:18.729
+Anthony Taylor: we get 20% of 510% of 2, 50, 10% of people.
+
+220
+00:21:18.930 --> 00:21:22.570
+Anthony Taylor: 20% of a thousand. 10% of 2 feet.
+
+221
+00:21:23.720 --> 00:21:24.550
+Anthony Taylor: Okay.
+
+222
+00:21:25.160 --> 00:21:35.080
+Anthony Taylor: alright. So we can do that, I mean. And and the other thing about this. So with the other cool thing about using, apply with a function is we don't have to limit it to one column.
+
+223
+00:21:35.790 --> 00:21:38.130
+Anthony Taylor: so we can say, Here.
+
+224
+00:21:38.240 --> 00:21:43.000
+Anthony Taylor: I want you to take this entire row of data.
+
+225
+00:21:44.050 --> 00:21:45.069
+the whole row.
+
+226
+00:21:46.250 --> 00:21:53.950
+Anthony Taylor: And with that row I want you to check, and if the State's not equal to Delaware. return 0,
+
+227
+00:21:55.340 --> 00:21:59.840
+Anthony Taylor: if the row amount is less than 5, and then this is the same function as up above.
+
+228
+00:22:00.750 --> 00:22:05.510
+Anthony Taylor: Okay, so here we're gonna say, we're gonna do the same thing we did up above, but only
+
+229
+00:22:05.810 --> 00:22:06.740
+Anthony Taylor: when
+
+230
+00:22:06.910 --> 00:22:10.619
+Anthony Taylor:  it's equal to Delaware.
+
+231
+00:22:11.480 --> 00:22:12.270
+Anthony Taylor: Okay.
+
+232
+00:22:12.410 --> 00:22:15.420
+Anthony Taylor: now, there is a new argument here.
+
+233
+00:22:15.430 --> 00:22:17.820
+Anthony Taylor: Axis equals one.
+
+234
+00:22:18.090 --> 00:22:22.419
+Anthony Taylor: So by default, apply goes by column
+
+235
+00:22:23.280 --> 00:22:24.800
+Anthony Taylor: access equals 0.
+
+236
+00:22:25.800 --> 00:22:33.379
+Anthony Taylor: Okay? So when you run this, it looks for a column and executes the function based on a column of data.
+
+237
+00:22:34.890 --> 00:22:38.289
+Anthony Taylor: In this case, notice, we're not passing in a column.
+
+238
+00:22:39.160 --> 00:22:43.170
+Anthony Taylor: We're only passing in the data frame, we're saying, Apply
+
+239
+00:22:43.190 --> 00:22:44.679
+Anthony Taylor: this function
+
+240
+00:22:44.750 --> 00:22:52.880
+Anthony Taylor: on the axis equals one which gives us the whole row of data. So instead of going vertically, we're going across
+
+241
+00:22:53.640 --> 00:23:02.629
+Clayton Graves: and that's how we're able to do this. So now, when we run this, can you that can you dumb that access thing access down for me.
+
+242
+00:23:02.960 --> 00:23:12.489
+Anthony Taylor: I mean. So let's look at. Let's look at this state of frame right? So we can all look at this and identify it has columns and it has rows. Correct.
+
+243
+00:23:13.190 --> 00:23:17.100
+Anthony Taylor: Okay? So the amount column in this example.
+
+244
+00:23:18.470 --> 00:23:23.539
+Anthony Taylor: we took the amount column and passed it into our apply function
+
+245
+00:23:23.880 --> 00:23:28.069
+Anthony Taylor: alright. because our and and you can't see it.
+
+246
+00:23:28.100 --> 00:23:37.900
+Anthony Taylor: But there is that same access. Argument is basically default in this. Let me show you what it would look like. If it was here, it would look like that.
+
+247
+00:23:39.150 --> 00:23:40.170
+Anthony Taylor: Okay.
+
+248
+00:23:40.840 --> 00:23:47.209
+Anthony Taylor: axis equals 0. Which means we're only applying this function at a column level.
+
+249
+00:23:48.270 --> 00:23:53.199
+Anthony Taylor: We're passing in a column, and I want you to go up and down. Don't worry about the rest of the data.
+
+250
+00:23:53.630 --> 00:24:01.069
+Anthony Taylor: Okay, when we make it, Axis equals one. Well, first off we probably wouldn't pass in a column name which we didn't
+
+251
+00:24:02.010 --> 00:24:03.200
+here.
+
+252
+00:24:03.480 --> 00:24:13.840
+Anthony Taylor: right? We only passed in the data frame. and then we said, Axis equals one. So now it's going to apply the function by row.
+
+253
+00:24:15.020 --> 00:24:24.500
+Clayton Graves: So it's applying it horizontally instead of vertically. Does that mean that there's only 2 possible
+
+254
+00:24:24.600 --> 00:24:26.289
+Clayton Graves: values for that
+
+255
+00:24:26.730 --> 00:24:30.709
+Clayton Graves: for axis. Yes, it's either 0 or one. Okay.
+
+256
+00:24:30.860 --> 00:24:37.060
+Anthony Taylor: yeah. 0 means it's gonna go down the table. And one means it's gonna go across
+
+257
+00:24:37.440 --> 00:24:47.009
+Anthony Taylor: which is super helpful. If you need to do any kind of calculation or conditional based on a row of data, we could use every one of these fields in this function.
+
+258
+00:24:50.250 --> 00:24:51.400
+Anthony Taylor: Yes, Meredith.
+
+259
+00:24:52.710 --> 00:24:55.559
+Anthony Taylor: you're muted, or you're not. You have no sound.
+
+260
+00:24:56.260 --> 00:24:58.840
+Anthony Taylor: You're not muted, though, so it must be something else.
+
+261
+00:25:01.880 --> 00:25:03.349
+Anthony Taylor: She's like. Dang it
+
+262
+00:25:04.910 --> 00:25:06.210
+Anthony Taylor: helps. Okay.
+
+263
+00:25:10.440 --> 00:25:12.419
+Meredith McCanse (she/her): There you go.
+
+264
+00:25:12.630 --> 00:25:20.090
+Meredith McCanse (she/her): Can you hear me now? Sorry it's my headphones. I don't know why I'm having trouble with them. So
+
+265
+00:25:20.570 --> 00:25:32.630
+Meredith McCanse (she/her): when you, but when you did the first example, where the access was the default, which is 0, it still did it for every row of data it it still does it for every row, but it's only applying the function to the column
+
+266
+00:25:32.740 --> 00:25:33.860
+Baro, Sonja: because you
+
+267
+00:25:33.990 --> 00:25:47.449
+Baro, Sonja: oh, sorry I'm on. I'm not muted. Is that because you defined amount, the column right? So when you pass in a column you will do access equals 0. You won't do access at all, because it defaults to 0.
+
+268
+00:25:47.570 --> 00:25:54.879
+Anthony Taylor: But I mean, you could technically pass in more than one column and then say, go across. I wouldn't
+
+269
+00:25:54.900 --> 00:26:05.730
+Anthony Taylor: right. So usually, if you're gonna apply to a single column. You're just going to apply a function to that column. That's it. If you want to do more than one column, it's better to do it this way.
+
+270
+00:26:06.680 --> 00:26:18.719
+Meredith McCanse (she/her): and you still specified. You still specified which columns it has to look at. It has to look at the state column and the amount column. So it's still gonna basically, it's not gonna got it. Okay?
+
+271
+00:26:18.860 --> 00:26:22.919
+Anthony Taylor: Right? Because remember, because we're passing in the whole row.
+
+272
+00:26:23.450 --> 00:26:33.439
+Anthony Taylor: we row is all of this data. So we can say, row, state. And we get this data, we can say, row, amount. And we get this data. Same goes for name. If we needed the name.
+
+273
+00:26:33.590 --> 00:26:43.109
+Anthony Taylor: we could say, row, name, and we would have access to that. In this function as well. This function has every single value available to it
+
+274
+00:26:43.300 --> 00:26:44.410
+Anthony Taylor: in that row.
+
+275
+00:26:45.450 --> 00:27:02.569
+Anthony Taylor: So whatever we put here, it's just gonna pass that whole row in there, and then we can do whatever we need to do, and then return it, and this new column will become whatever we return. Do keep in mind, though, you can't return like a whole row to a column, you'll get an error.
+
+276
+00:27:03.440 --> 00:27:08.369
+Meredith McCanse (she/her): so you would have to return a single value or a reasonable value for
+
+277
+00:27:08.950 --> 00:27:13.160
+Anthony Taylor: the the column. I mean, I guess technically, you could return the whole row as a string
+
+278
+00:27:13.520 --> 00:27:14.850
+Anthony Taylor: if it's possible.
+
+279
+00:27:15.570 --> 00:27:20.759
+Baro, Sonja: So, Anthony, is this like this first part of the function, it's basically saying.
+
+280
+00:27:20.890 --> 00:27:36.249
+Anthony Taylor: Delaware. So return 0. Right? So actually, what this is really saying, if we read to here, it says.
+
+281
+00:27:36.430 --> 00:27:43.369
+Anthony Taylor: suppose the donor was only matching donations from Delaware. So anything that's not Delaware
+
+282
+00:27:43.390 --> 00:27:47.860
+Baro, Sonja: kicking out. It's gonna get 0 money. right? Okay?
+
+283
+00:27:48.020 --> 00:27:58.210
+Anthony Taylor: And then and then benefit. And and and and then it just stops because it it returned at that point. If it is Delaware, it's gonna run this part of the function.
+
+284
+00:27:59.990 --> 00:28:03.159
+Anthony Taylor: Okay? So we haven't actually run this. So let's run that
+
+285
+00:28:04.410 --> 00:28:10.460
+Anthony Taylor: you can see. Only Delaware got to return. Everybody else got 0.
+
+286
+00:28:11.900 --> 00:28:15.859
+Anthony Taylor: A great question, everybody. That was a good interaction I liked.
+
+287
+00:28:16.020 --> 00:28:19.299
+Anthony Taylor: Alright, now I'm gonna burn. Br, I'm gonna hurt your brain.
+
+288
+00:28:19.790 --> 00:28:21.830
+Anthony Taylor: Remember, lambda functions.
+
+289
+00:28:23.390 --> 00:28:26.240
+Anthony Taylor: Anybody. Remember, we've actually spoken of them.
+
+290
+00:28:26.300 --> 00:28:36.259
+Anthony Taylor: Okay? And again, it's one of those things. It's cool. If you want to do it. You don't need to, but here it is, so you can use apply with a lambda function.
+
+291
+00:28:36.280 --> 00:28:39.540
+Anthony Taylor: All that means is is that we're not going to define it.
+
+292
+00:28:39.960 --> 00:28:45.940
+Anthony Taylor: We're simply going to. We're we're not gonna formally define it. So here we're saying.
+
+293
+00:28:46.250 --> 00:28:47.250
+Anthony Taylor: X
+
+294
+00:28:48.260 --> 00:28:53.340
+Anthony Taylor: is X, times point one. If X is less than 500
+
+295
+00:28:53.350 --> 00:28:58.610
+Anthony Taylor: else. X is sorry. It's x times point 2. Which, by the way.
+
+296
+00:28:59.120 --> 00:29:01.150
+Anthony Taylor: is this exact function?
+
+297
+00:29:03.000 --> 00:29:12.230
+Anthony Taylor: Okay, okay, just done in lambda format. Now, what's good about this? If you're only doing this one calculation, you don't need to define a function.
+
+298
+00:29:12.850 --> 00:29:23.019
+Anthony Taylor: Okay? Other than that there is absolutely no difference in performance or readability. It's exactly the same.
+
+299
+00:29:23.230 --> 00:29:33.920
+Anthony Taylor: Okay.
+
+300
+00:29:34.140 --> 00:29:37.960
+Anthony Taylor: like list comprehension. This comprehension is cool.
+
+301
+00:29:37.990 --> 00:29:40.299
+Anthony Taylor: Is it necessary? No.
+
+302
+00:29:40.960 --> 00:29:50.020
+Anthony Taylor: you can do it without doing this comprehension? Same with this lambda function. You can do it with just defining a function. You don't have to do, Lambda.
+
+303
+00:29:50.300 --> 00:29:55.369
+Anthony Taylor: but I want you to know it exists because it's something that
+
+304
+00:29:55.740 --> 00:30:03.140
+Anthony Taylor: if you go apply for a python job which I don't think any of you guys are gonna do, because that's not what we're teaching you to be. We're not teaching you
+
+305
+00:30:03.160 --> 00:30:16.649
+Anthony Taylor: to be like python app developers. Okay? But I mean, if you're discussing python with somebody they might ask you. Do you know what a lambda function is? And all you have to say? That's an anonymous function
+
+306
+00:30:17.010 --> 00:30:18.970
+Anthony Taylor: very much. That's the answer.
+
+307
+00:30:19.770 --> 00:30:20.590
+Okay.
+
+308
+00:30:23.040 --> 00:30:27.310
+Anthony Taylor: so I wouldn't completely throw it away. But I wouldn't get too hung up on.
+
+309
+00:30:28.530 --> 00:30:29.520
+Anthony Taylor: Okay.
+
+310
+00:30:29.720 --> 00:30:35.139
+Anthony Taylor: student, active already. And all we did there. What do we learn? Apply?
+
+311
+00:30:35.680 --> 00:30:51.490
+Anthony Taylor: We learned, apply at a column level and apply at a row level. That's pretty much all we just did. So we're going to use that apply function to create a tax rate column assume that every year and type of utility has a tax rate of 5%,
+
+312
+00:30:51.510 --> 00:30:52.850
+Anthony Taylor: except
+
+313
+00:30:52.940 --> 00:31:06.649
+Anthony Taylor: for 2,019, when the tax rate was raised to 5.5. So now in your head, you guys should be thinking of what this function is going to look like. Okay, you're gonna have a tax rate column that you're gonna create.
+
+314
+00:31:06.720 --> 00:31:11.929
+Anthony Taylor: You're going to do it by year. You're gonna have a if condition that says, Hey, if it's
+
+315
+00:31:12.130 --> 00:31:21.329
+Anthony Taylor: not this year, and it's 5. It is this year. It's 5.5, or you can flip it. If it's this year, it's 5.5. Otherwise it's 5.
+
+316
+00:31:22.330 --> 00:31:31.239
+Anthony Taylor: Okay, recalculate the tax rate assuming the Commission don't. Units were taxed for an additional 1%.
+
+317
+00:31:31.920 --> 00:31:34.650
+Anthony Taylor: So there's another condition.
+
+318
+00:31:34.820 --> 00:31:43.390
+Anthony Taylor: And then if you and then it says, use lambda. So try to use the lambda. It's cool to use it. But don't get too worked up if you have trouble with it.
+
+319
+00:31:43.520 --> 00:31:44.470
+Anthony Taylor: Alright.
+
+320
+00:31:44.870 --> 00:31:50.320
+Anthony Taylor: Okay. So for this, you get 15 min. Look at that.
+
+321
+00:31:51.030 --> 00:31:51.930
+Anthony Taylor: Wow!
+
+322
+00:31:57.970 --> 00:31:59.570
+Anthony Taylor: So.
+
+323
+00:32:02.640 --> 00:32:06.680
+Anthony Taylor: my little rock stars, how are we doing? How do we do with that.
+
+324
+00:32:07.670 --> 00:32:08.730
+Anthony Taylor: for again
+
+325
+00:32:10.750 --> 00:32:12.849
+Anthony Taylor: I don't see any thumbs down.
+
+326
+00:32:13.760 --> 00:32:17.919
+michael mcpherson: only see thumbs. Oh, I saw it was okay.
+
+327
+00:32:17.940 --> 00:32:20.470
+michael mcpherson: There was a lot of confusion.
+
+328
+00:32:21.410 --> 00:32:31.709
+michael mcpherson: I got it to work, and then II messed it up. And now I'm back to syntax errors. I'm gonna play with it and try to figure it out. Hey? Syntax errors are the de facto life?
+
+329
+00:32:32.430 --> 00:32:35.460
+Anthony Taylor: So it's good practice.
+
+330
+00:32:36.230 --> 00:32:39.900
+Anthony Taylor: Alright, so well, let's go through it. So we had to import pandas.
+
+331
+00:32:40.310 --> 00:32:46.469
+Anthony Taylor: Read in the file and take a quick peek at it.
+
+332
+00:32:47.260 --> 00:33:00.840
+Anthony Taylor: Let's see what we have. 2,013 month number month. Utility owner units and usage alright. First instruction. Add a column that tracks the tax rate
+
+333
+00:33:01.010 --> 00:33:05.859
+Anthony Taylor: assume every year in type of utility, had a tax rate of 5%,
+
+334
+00:33:06.910 --> 00:33:12.470
+Anthony Taylor: except for 2,019. When we update it to 5. So
+
+335
+00:33:12.760 --> 00:33:18.339
+Anthony Taylor: they did this really, simply, they did a function called tax rate past end the year.
+
+336
+00:33:18.400 --> 00:33:29.089
+Anthony Taylor: And they said, return 0 5 5.0 5 5, if year is greater than or equal to 2,019, else return 0 5.
+
+337
+00:33:30.200 --> 00:33:31.090
+Anthony Taylor: Okay.
+
+338
+00:33:34.140 --> 00:33:39.559
+Anthony Taylor: it's an interesting way to do that. Okay? And so then they did.
+
+339
+00:33:39.660 --> 00:33:46.150
+Anthony Taylor: They passed in the column year and ran that function to a column called Tax Rate.
+
+340
+00:33:46.810 --> 00:33:49.090
+Anthony Taylor: and that will give us a new column.
+
+341
+00:33:49.200 --> 00:33:58.989
+Anthony Taylor: and we can see here 2,019 got 0 5 5. So we're just passing in the value. We're not doing any math. anything special suggest the tax rate.
+
+342
+00:34:00.010 --> 00:34:01.020
+Anthony Taylor: Okay.
+
+343
+00:34:01.770 --> 00:34:05.790
+Mason, Natalie: Anthony, have we seen that dot tail before?
+
+344
+00:34:06.690 --> 00:34:07.510
+Anthony Taylor: I
+
+345
+00:34:08.350 --> 00:34:13.280
+Anthony Taylor: think so, cause we had? We showed with low, we were showing like negative one.
+
+346
+00:34:13.310 --> 00:34:19.229
+Anthony Taylor: and then tail is basically the same thing. It's just the last 5 instead of the first 5.
+
+347
+00:34:19.260 --> 00:34:23.459
+Anthony Taylor: But if not, I would like to introduce you to dot tail.
+
+348
+00:34:23.810 --> 00:34:29.830
+Anthony Taylor: That tail will show you the last 5. It's like a doggy
+
+349
+00:34:30.060 --> 00:34:32.250
+Anthony Taylor: or a panda bear.
+
+350
+00:34:33.980 --> 00:34:40.980
+Kevin Nguyen: And Anthony, did you show them like how to look up the documentation for canvas. Anybody had a question like that.
+
+351
+00:34:41.270 --> 00:34:46.420
+Anthony Taylor: Well, sure, that's a good question. We have done that. I'm happy to do it again.
+
+352
+00:34:46.719 --> 00:34:49.989
+Anthony Taylor: So what I would do is simply
+
+353
+00:34:50.150 --> 00:34:51.900
+Anthony Taylor: either copy it.
+
+354
+00:34:52.540 --> 00:35:00.680
+Anthony Taylor: Okay, probably that's the best case. In this way. There is a Google search extension. By the way.
+
+355
+00:35:00.760 --> 00:35:02.820
+Anthony Taylor: I think my computer at home has that.
+
+356
+00:35:03.640 --> 00:35:16.390
+Anthony Taylor: and then come in here and then paste the function just as it was written. You might if it's like a common word type. Python, Doc.
+
+357
+00:35:17.740 --> 00:35:19.080
+Anthony Taylor: and there it is.
+
+358
+00:35:21.990 --> 00:35:27.609
+Anthony Taylor: This will tell you. Return the last in rows. The default is in equals 5,
+
+359
+00:35:28.110 --> 00:35:30.019
+Anthony Taylor: which is why you get vibrant.
+
+360
+00:35:31.530 --> 00:35:34.829
+Anthony Taylor: Pretty cool. You guys have seen this, too. Yeah.
+
+361
+00:35:35.500 --> 00:35:40.399
+Anthony Taylor: the python docs. I've shown you this. I don't know if I'm showing you pandas, docs, just a little different.
+
+362
+00:35:40.650 --> 00:35:47.710
+Anthony Taylor: But yeah. so that's good. Good. Thank you for that. Kev. Okay, so
+
+363
+00:35:48.140 --> 00:35:59.960
+Anthony Taylor: there you go. Alright. So then it says, recalculate the tax rate. Assuming that the Commission own units were taxed an additional 1%. So basically, this is just a longer
+
+364
+00:36:00.500 --> 00:36:06.839
+Anthony Taylor: conditional. But it's using multiple columns. It's not just using year anymore.
+
+365
+00:36:06.970 --> 00:36:17.829
+Anthony Taylor: So that means we go, we're going to do the row. The whole access equals one thing that we talked about. So we're gonna pass in the row. We have this rate.
+
+366
+00:36:18.440 --> 00:36:24.979
+Anthony Taylor: Okay? And it says, if the year equals 2,019, add 0 0 5 to the rate
+
+367
+00:36:25.310 --> 00:36:26.780
+Anthony Taylor: that's so clever.
+
+368
+00:36:26.800 --> 00:36:32.090
+Anthony Taylor: But basically, that's gonna make it point 0 5 5. Right? You add this to that.
+
+369
+00:36:32.340 --> 00:36:33.190
+Anthony Taylor: Okay.
+
+370
+00:36:33.500 --> 00:36:44.069
+Anthony Taylor: if the owner equals commission and the utility equals electricity. Add another point 0 1 and then return the final rate.
+
+371
+00:36:44.350 --> 00:36:48.350
+Anthony Taylor: Okay? And so we're gonna run the same apply function.
+
+372
+00:36:48.530 --> 00:36:56.229
+Anthony Taylor: But we're gonna run it on axis one. So we get the entire row instead of just the column and then take a look.
+
+373
+00:36:56.570 --> 00:37:00.870
+Anthony Taylor: And there you can see now we've got some point 6 5 s. And all that good stuff.
+
+374
+00:37:01.750 --> 00:37:04.480
+Anthony Taylor: Okay. questions on that one up there.
+
+375
+00:37:05.840 --> 00:37:08.130
+Anthony Taylor: If you understood this, then you're good.
+
+376
+00:37:12.530 --> 00:37:20.860
+Anthony Taylor: I don't see anyone vehemently shaking their head. What, Natalie, can you just repeat it? What you? I will absolutely repeat it. If you understand this, we're good.
+
+377
+00:37:22.410 --> 00:37:39.529
+Baro, Sonja: Yeah, I wouldn't say hands are not shaking our heads doesn't equate understanding. I think we're it doesn't equal understanding. It means holy crap. Okay.
+
+378
+00:37:39.610 --> 00:37:51.439
+Baro, Sonja: we went to. We went to complex. At least my group. I think we tried to do everything. In the first part we got stuck on. We gotta figure out what the tax rate is
+
+379
+00:37:51.480 --> 00:38:01.990
+Baro, Sonja: right out of the gate instead of like app and applying it earlier than if the box up ahead of you the previous one
+
+380
+00:38:02.450 --> 00:38:05.320
+Baro, Sonja: we were trying to do this in that.
+
+381
+00:38:05.790 --> 00:38:09.400
+That's fine. I mean nothing wrong with that. You could have done it all in one
+
+382
+00:38:09.490 --> 00:38:13.759
+Anthony Taylor: you could have done. You can do one column
+
+383
+00:38:13.840 --> 00:38:20.140
+Anthony Taylor: with this row. Capability. You would just only do row, amount or row, year, or whatever you're looking at.
+
+384
+00:38:20.190 --> 00:38:22.890
+Anthony Taylor: There's nothing wrong with that. It's not wrong.
+
+385
+00:38:23.260 --> 00:38:26.130
+Anthony Taylor: But you have to do
+
+386
+00:38:26.400 --> 00:38:31.370
+Anthony Taylor: the axis equals. What if you need more than one column and your function
+
+387
+00:38:32.270 --> 00:38:35.319
+okay? But if you only have one. You can do row, or
+
+388
+00:38:35.610 --> 00:38:37.119
+Anthony Taylor: that individual column
+
+389
+00:38:37.550 --> 00:38:40.619
+Anthony Taylor: efficient. Really? Talk about clean code.
+
+390
+00:38:41.590 --> 00:38:44.710
+Anthony Taylor: Okay, you would want to do column with the column. But
+
+391
+00:38:46.460 --> 00:39:05.470
+Baro, Sonja: yes, I'm I was just gonna say, I I'm still not. I'm getting any of that.
+
+392
+00:39:05.860 --> 00:39:08.890
+Anthony Taylor: There are 2 axes here. Does everyone agree with that statement?
+
+393
+00:39:09.490 --> 00:39:10.699
+Baro, Sonja: X and y.
+
+394
+00:39:10.750 --> 00:39:12.189
+Anthony Taylor: there's an X and a y.
+
+395
+00:39:12.270 --> 00:39:16.110
+Anthony Taylor: okay? Or in this case, a 0 and a one
+
+396
+00:39:16.530 --> 00:39:22.980
+Anthony Taylor: 0 is considered the vertical columns. Okay.
+
+397
+00:39:23.010 --> 00:39:24.740
+Anthony Taylor: so it's going up and down.
+
+398
+00:39:24.920 --> 00:39:31.679
+Anthony Taylor: That's that. So with the default for apply is to apply at a column level.
+
+399
+00:39:32.120 --> 00:39:39.900
+Baro, Sonja: and only one you have to specify it. You have to specify the column, and it will apply that function to that column.
+
+400
+00:39:40.080 --> 00:39:41.110
+Anthony Taylor: Okay.
+
+401
+00:39:42.640 --> 00:39:51.809
+Anthony Taylor: zo, axis. One is the actual row. So what we're saying is, apply this function
+
+402
+00:39:52.680 --> 00:39:55.020
+Anthony Taylor: to the entire row
+
+403
+00:39:55.250 --> 00:40:00.350
+Anthony Taylor: in our data frame this function? Do the entire row in our data frame.
+
+404
+00:40:00.750 --> 00:40:04.239
+Baro, Sonja: So, Anthony, how come it like?
+
+405
+00:40:04.330 --> 00:40:06.620
+Baro, Sonja: What if it doesn't make sense
+
+406
+00:40:07.060 --> 00:40:17.520
+Baro, Sonja: to do that when you say each row does it? Is it trying to do it on every column or the column that you know, it's just passing in the row as a single variable.
+
+407
+00:40:18.620 --> 00:40:19.760
+Baro, Sonja: Oh.
+
+408
+00:40:20.260 --> 00:40:27.049
+Anthony Taylor: so when you do this, it's gonna pass that row. And basically as look, it's gonna basically pass it in as
+
+409
+00:40:27.170 --> 00:40:29.240
+Anthony Taylor: a named
+
+410
+00:40:29.720 --> 00:40:39.730
+Anthony Taylor: set of objects like, I mean, this looks like a dictionary. We can say it's a dictionary, whatever. But the the point is is, it's going to pass it in so that you can address every column in that row
+
+411
+00:40:40.060 --> 00:40:41.729
+Anthony Taylor: and use it in your function.
+
+412
+00:40:44.480 --> 00:40:46.990
+Anthony Taylor: and and as opposed to up here.
+
+413
+00:40:47.280 --> 00:40:53.780
+Anthony Taylor: since we only had the one column. The only value you're gonna get here is the value of the year column.
+
+414
+00:40:55.200 --> 00:40:57.360
+Baro, Sonja: It isn't. Hmm.
+
+415
+00:40:58.350 --> 00:41:00.730
+Anthony Taylor: so that's all you're to get is this column.
+
+416
+00:41:01.050 --> 00:41:05.549
+Anthony Taylor: And it's gonna apply the function to every row
+
+417
+00:41:05.590 --> 00:41:09.539
+Anthony Taylor: based on only. And it only has this column available to it.
+
+418
+00:41:10.080 --> 00:41:19.599
+Anthony Taylor: Okay? But in this one it's gonna pass the whole row into the function. So therefore, you can actually call any of these calls.
+
+419
+00:41:20.960 --> 00:41:35.720
+Baro, Sonja: why doesn't it error out if it doesn't make any sense like, what does that mean? Doesn't make any sense? Well, if you're trying to say, apply point 0 0 5 up to increase the rate.
+
+420
+00:41:36.280 --> 00:41:48.819
+Baro, Sonja: and you're running it through every value of every column, on every row. It wouldn't like. It wouldn't make sense to to put it under owner tenant. Just see what I'm
+
+421
+00:41:49.150 --> 00:41:59.729
+Baro, Sonja: like. I don't know if I'm making any sense. But well. cause what I think you're saying is, it's saying, Okay, I'm gonna look at 5 5 5.
+
+422
+00:42:00.020 --> 00:42:11.340
+Baro, Sonja: I'm gonna go. And I'm gonna try and apply these conditions to the value of 2019, the value of month number. The value of August. The value of gas
+
+423
+00:42:11.670 --> 00:42:15.999
+Baro, Sonja: is, that's what I think it's saying. But to me it seems like that
+
+424
+00:42:16.070 --> 00:42:20.710
+Baro, Sonja: would error out because it doesn't make any sense to do that. So
+
+425
+00:42:20.880 --> 00:42:26.819
+Anthony Taylor: let's just let's run this function to our head. And, Christine, I do see your hand. Let's see, we can finish this one. So
+
+426
+00:42:26.850 --> 00:42:35.139
+Anthony Taylor: you you receive. So the first loop. So you do this. it reads this data frame. It grabs the first row.
+
+427
+00:42:35.520 --> 00:42:36.940
+Anthony Taylor: Okay, this row.
+
+428
+00:42:37.570 --> 00:42:39.360
+Anthony Taylor: Well, this is the end. But that's okay.
+
+429
+00:42:39.420 --> 00:42:49.680
+Anthony Taylor: And actually tax rates, not even there at this point. Okay, so it grabs this row. passes it in. We set this variable rate equal to 0 5.
+
+430
+00:42:50.010 --> 00:42:53.740
+Anthony Taylor: Okay, then we say, if row that whole row
+
+431
+00:42:53.990 --> 00:43:01.490
+Anthony Taylor: column year. this column equals 2,019, it does
+
+432
+00:43:02.770 --> 00:43:04.949
+Anthony Taylor: rate this variable
+
+433
+00:43:05.260 --> 00:43:09.070
+Anthony Taylor: plus equals point 0 0 5, which would make it point 0 5 5.
+
+434
+00:43:09.670 --> 00:43:12.569
+Anthony Taylor: Okay? Which is actually the answer. And we're done.
+
+435
+00:43:12.740 --> 00:43:25.180
+Anthony Taylor: But there was an additional thing in this one. If Row owner, this row equals commission, it does not. So we're done because there's an and
+
+436
+00:43:25.370 --> 00:43:32.669
+Anthony Taylor: okay, so we're gonna skip this one. And we're just gonna return point 0 5 5, which you can see is, in fact, the answer.
+
+437
+00:43:33.370 --> 00:43:37.220
+Anthony Taylor: So let's go to the second row. Well, yeah, let's go to second row.
+
+438
+00:43:37.260 --> 00:43:50.550
+Anthony Taylor: So second row. it's going to pass the whole row in this whole dude right? And there. Okay. it's gonna set the rate to 0 5.
+
+439
+00:43:50.690 --> 00:43:54.150
+Anthony Taylor: If row year equals 2,019, it does.
+
+440
+00:43:54.160 --> 00:43:57.470
+Anthony Taylor: we're going to add 0 0 5, making it point 0 5 5.
+
+441
+00:43:58.270 --> 00:44:01.769
+Anthony Taylor: If row owner equals commission.
+
+442
+00:44:01.830 --> 00:44:03.190
+Anthony Taylor: it does
+
+443
+00:44:03.500 --> 00:44:07.769
+Anthony Taylor: and row utility equals electricity.
+
+444
+00:44:08.030 --> 00:44:09.400
+Anthony Taylor: it does.
+
+445
+00:44:09.570 --> 00:44:12.410
+Anthony Taylor: We're gonna add another 10%.
+
+446
+00:44:12.790 --> 00:44:16.960
+Anthony Taylor: And then we're gonna return it, which would make it point 6 5 and see down here.
+
+447
+00:44:17.380 --> 00:44:20.560
+Anthony Taylor: You can see that that is, in fact, what was returned.
+
+448
+00:44:22.230 --> 00:44:31.919
+Anthony Taylor: Okay, does that make sense now and then. It's going to go to the next row and do the same thing. Now you were saying, wouldn't it air out? It would air out if you like.
+
+449
+00:44:32.520 --> 00:44:35.030
+Tried to call a column that doesn't exist.
+
+450
+00:44:35.150 --> 00:44:36.519
+Anthony Taylor: That would error out.
+
+451
+00:44:36.790 --> 00:44:52.089
+Anthony Taylor:  I mean, you could have all kinds of logic errors in here that would cause it to error out. But biggest thing I think that you're asking is, what if the column didn't exist in that row? And yes, that would give you an an index error.
+
+452
+00:44:52.530 --> 00:45:04.430
+Baro, Sonja: Now, the way you explained it was great, Anthony cause basically said, I'm going here first, and I'm looking at the conditions, and seeing if the conditions are met, and if so, then doing X.
+
+453
+00:45:04.720 --> 00:45:07.210
+Baro, Sonja: Before I move to the next row?
+
+454
+00:45:07.330 --> 00:45:10.510
+Anthony Taylor: Perfect Christine, did that answer your question or no
+
+455
+00:45:12.440 --> 00:45:24.860
+Kanouff, Christine: I was just more curious, you know, if you're looking at a whole database, there's other I don't know where the why they decided just to look at 2,019. Is that just because was returned before that?
+
+456
+00:45:25.010 --> 00:45:39.129
+Anthony Taylor: Well, so what they said, if you look at the the original statement was, assume every year has a tax rate of 5%. But in 2,019 it was raised to 5.
+
+457
+00:45:39.320 --> 00:45:41.640
+Anthony Taylor: So with that statement
+
+458
+00:45:42.180 --> 00:45:45.420
+Anthony Taylor: we assumed, every row is going to be
+
+459
+00:45:45.560 --> 00:45:52.050
+Anthony Taylor: 5%. Yeah? And then if it was 2,019, we had to make it point 5 5%.
+
+460
+00:45:52.490 --> 00:45:58.329
+Anthony Taylor: And that's what we're doing here. We're basically raising the rate. If the year was 2,019,
+
+461
+00:45:58.580 --> 00:45:59.860
+Kanouff, Christine: which they all are
+
+462
+00:46:00.040 --> 00:46:05.129
+Anthony Taylor: well in in this example, they are. But remember, the rows at the top might not be.
+
+463
+00:46:05.150 --> 00:46:13.830
+Anthony Taylor: Yeah. See the 2,000. So if we did a head instead of a tail. you would see that all these, like 2,000 thirteens, would only be getting up 5%
+
+464
+00:46:13.930 --> 00:46:15.030
+Kanouff, Christine: right?
+
+465
+00:46:15.910 --> 00:46:20.580
+Anthony Taylor: So we did tail because we wanted to show the 2,019, but like
+
+466
+00:46:21.620 --> 00:46:23.179
+Anthony Taylor: well,
+
+467
+00:46:24.520 --> 00:46:28.500
+Anthony Taylor: Well, we'll get to this 1 s. Here, let's just do a a head right here.
+
+468
+00:46:28.910 --> 00:46:30.410
+Anthony Taylor: So it's a
+
+469
+00:46:34.460 --> 00:46:38.529
+Anthony Taylor: so here you'll see the 2,013 s, just have a 5% tax rate.
+
+470
+00:46:41.140 --> 00:46:46.640
+Anthony Taylor: But yeah, in our database, yeah, absolutely. The the idea is is that you could apply a condition
+
+471
+00:46:46.780 --> 00:46:52.440
+Anthony Taylor: and apply it to every row in your table. That's it. Yeah. And this is something you would normally do with. SQL,
+
+472
+00:46:54.600 --> 00:46:59.190
+Anthony Taylor: okay, for my SQL. People who are my skele people again
+
+473
+00:47:02.250 --> 00:47:06.679
+Kevin Nguyen: downside of it. Pretty slow.
+
+474
+00:47:06.960 --> 00:47:14.409
+Anthony Taylor: this goal. Yeah. Cause think about it. It's got to go one row, one row, one row, one row. SQL, it'd be almost instant.
+
+475
+00:47:14.870 --> 00:47:18.620
+Anthony Taylor: even if there was hundreds of thousands of rows. Okay.
+
+476
+00:47:18.720 --> 00:47:27.039
+Anthony Taylor: but as you guys, we I don't think we're ever gonna cover SQL in this class, because it's very data. Specific sequel is the language of databases.
+
+477
+00:47:27.130 --> 00:47:28.720
+Anthony Taylor: Pandas is
+
+478
+00:47:29.510 --> 00:47:37.740
+Anthony Taylor: Python's answer to that. I will tell you if we were to do big data like spark stuff in spark. We use SQL to do stuff like this.
+
+479
+00:47:38.720 --> 00:47:42.170
+Anthony Taylor: Okay, it's kind of interesting. But anyway.
+
+480
+00:47:42.240 --> 00:47:45.539
+Anthony Taylor: don't worry too much about that, because it's not something we're gonna cover.
+
+481
+00:47:45.790 --> 00:47:53.000
+Anthony Taylor: Alright. So the last one said, use a lambda function to set the existing tax rate column to 0
+
+482
+00:47:53.020 --> 00:47:57.550
+Anthony Taylor: if the utility was passengers. So
+
+483
+00:47:58.550 --> 00:48:01.619
+Anthony Taylor: X, that's the variable. We're calling it
+
+484
+00:48:01.710 --> 00:48:05.219
+Anthony Taylor: 0. That's the value we're going to return. If
+
+485
+00:48:05.260 --> 00:48:08.340
+Anthony Taylor: utility equals passengers
+
+486
+00:48:10.040 --> 00:48:12.609
+else just returned the tax rate.
+
+487
+00:48:12.660 --> 00:48:19.069
+Anthony Taylor: And we're going to execute this by row, not by column. Okay, that's it.
+
+488
+00:48:19.500 --> 00:48:23.419
+Anthony Taylor: Not too much. So here you can see, passengers went to 0.
+
+489
+00:48:25.400 --> 00:48:26.750
+Anthony Taylor: Yes, Derek.
+
+490
+00:48:28.300 --> 00:48:30.960
+Derek Rikke: for the going back.
+
+491
+00:48:31.120 --> 00:48:32.590
+Derek Rikke: Second assumption.
+
+492
+00:48:33.300 --> 00:48:41.530
+Derek Rikke: Can you call the? I guess I was trying to do with calling the tax rate that we had created
+
+493
+00:48:41.640 --> 00:48:45.700
+Derek Rikke: my previous function instead of just can you do that instead of just hard coding?
+
+494
+00:48:46.160 --> 00:48:48.109
+Derek Rikke: 105 into that function?
+
+495
+00:48:49.670 --> 00:48:58.670
+Anthony Taylor: Can you call this function with that function? Yes, I mean, you'd have to name it in this in this function. Can you just call like the tax rate.
+
+496
+00:48:59.030 --> 00:49:04.010
+Derek Rikke: Yeah, if you wanted to. Sure you could, you can have a nested function inside of there. Absolutely
+
+497
+00:49:04.280 --> 00:49:17.229
+Anthony Taylor: right? I mean, obviously, they couldn't have the same name. But yeah, if you change like the name of this one and then and ran it defined it, and then you wanted to call it here instead of that
+
+498
+00:49:17.350 --> 00:49:19.920
+Anthony Taylor: and assign it to a variable. Yeah, you could do that.
+
+499
+00:49:20.580 --> 00:49:23.170
+Derek Rikke: That would work. Could you set that rate to equal
+
+500
+00:49:23.750 --> 00:49:32.120
+Anthony Taylor: the the function because the function returns. So just everyone's clear. The function returns a number.
+
+501
+00:49:33.000 --> 00:49:46.200
+Anthony Taylor: Okay, so that means you can use this to assign a value to a variable. So I could call this function pass in a year value. And and I mean I can do that without apply. I can do that right here.
+
+502
+00:49:46.350 --> 00:49:48.440
+Anthony Taylor: right? I can say,
+
+503
+00:49:48.770 --> 00:49:52.449
+Anthony Taylor: rate equals tax
+
+504
+00:49:53.320 --> 00:49:54.280
+8
+
+505
+00:49:54.580 --> 00:49:55.960
+Anthony Taylor: 2,000 nineteenth.
+
+506
+00:49:56.700 --> 00:49:59.420
+Anthony Taylor: Okay? And then we'll print rate
+
+507
+00:50:02.030 --> 00:50:03.590
+where to go. It's up there.
+
+508
+00:50:03.630 --> 00:50:09.370
+Anthony Taylor: Oh, you know what it's gonna Barf because it it. I have to rerun me because we're using the same function. Name.
+
+509
+00:50:09.790 --> 00:50:14.180
+Anthony Taylor: Hold on! We gotta rerun that function. Otherwise it's tried to run the row one, which is not good.
+
+510
+00:50:15.020 --> 00:50:16.240
+Anthony Taylor: Yeah, see?
+
+511
+00:50:16.530 --> 00:50:17.610
+Anthony Taylor: And there's a rate.
+
+512
+00:50:18.530 --> 00:50:23.230
+Anthony Taylor: Okay, so it's just a normal function. So yeah, if you change the name of this one
+
+513
+00:50:23.420 --> 00:50:25.309
+Anthony Taylor: say,
+
+514
+00:50:25.590 --> 00:50:28.829
+Derek Rikke: I guess I'm saying like, since we already
+
+515
+00:50:28.960 --> 00:50:31.899
+Derek Rikke: set the tax rate to point 0 5
+
+516
+00:50:31.920 --> 00:50:33.300
+Derek Rikke: 0 5 5.
+
+517
+00:50:33.460 --> 00:50:39.449
+Derek Rikke: And then basically on the second function. You're like ignoring that work.
+
+518
+00:50:39.510 --> 00:50:40.910
+Derek Rikke: Right? Cause you're just
+
+519
+00:50:41.160 --> 00:50:52.290
+Anthony Taylor: yeah, we're just like redoing it. Basically, I mean, yeah, can you do it? Calling that column into that. Oh, with the column. I'm sorry I assumed you meant the function.
+
+520
+00:50:52.550 --> 00:50:57.749
+Anthony Taylor: Oh, you are going nearly that complicated. Yes, absolutely. You could have just called that column. And again.
+
+521
+00:50:57.960 --> 00:51:04.179
+Anthony Taylor: pretty much this whole part. Okay? And then only did this part in this function.
+
+522
+00:51:04.880 --> 00:51:08.199
+Derek Rikke: Can you talk? Yeah, you could have done that absolutely.
+
+523
+00:51:08.620 --> 00:51:16.420
+Anthony Taylor: Yeah. But I mean, okay. So since I thought you were asking something more complicated, let me show you what I just did. So
+
+524
+00:51:16.540 --> 00:51:25.989
+Anthony Taylor: we took the Cal. Great function are the well, the tax rate function. I renamed it to calculate, because this one actually does
+
+525
+00:51:26.290 --> 00:51:28.020
+Anthony Taylor: the first part
+
+526
+00:51:29.250 --> 00:51:42.010
+Anthony Taylor: of this one right. It gave us the point 0 5, and if it was 2,019, it made it point 5 5. So I could comment this out. run this which calls that other function and then
+
+527
+00:51:42.880 --> 00:51:44.869
+Anthony Taylor: run this, and it would do the same thing
+
+528
+00:51:45.520 --> 00:51:48.749
+Anthony Taylor: is that is that just confusing it for everybody, or
+
+529
+00:51:50.170 --> 00:52:02.409
+Anthony Taylor: I mean, you don't need to do this, it's really not necessary, but it absolutely would work. So you can. The only the moral of that story is you can call a function from a function which, by the way.
+
+530
+00:52:02.730 --> 00:52:10.150
+Anthony Taylor: good Dr. Y. Practices. If I had a function that calculated rate, why would I rewrite it?
+
+531
+00:52:10.930 --> 00:52:13.570
+Anthony Taylor: Why would I not just use the one I already wrote?
+
+532
+00:52:14.170 --> 00:52:18.579
+Kevin Nguyen: The Ri's? Don't repeat themselves. They know that. Kevin.
+
+533
+00:52:19.340 --> 00:52:20.210
+Anthony Taylor: Right?
+
+534
+00:52:20.350 --> 00:52:22.810
+Kevin Nguyen: You guys knew. Why was, don't repeat yourself on.
+
+535
+00:52:23.040 --> 00:52:28.679
+Anthony Taylor: I know we said it once in class, but I don't know if everybody remembers and thank you, Kev.
+
+536
+00:52:29.910 --> 00:52:34.099
+Anthony Taylor: I just make sure. You know I told them I didn't. I don't just make this step up as I go.
+
+537
+00:52:36.700 --> 00:52:42.099
+Mason, Natalie: You can remind us of these things as many times as you'd like, Kevin.
+
+538
+00:52:42.160 --> 00:52:44.950
+Anthony Taylor: I appreciate it.
+
+539
+00:52:45.520 --> 00:52:49.019
+michael mcpherson: What, Buddy? Go back. Go to the lambda. I'm here.
+
+540
+00:52:49.290 --> 00:52:52.150
+michael mcpherson: Yeah. trying to figure out what I did wrong.
+
+541
+00:52:59.530 --> 00:53:00.580
+Okay.
+
+542
+00:53:02.790 --> 00:53:05.530
+Anthony Taylor: did you? Did you want us to help you figure it out
+
+543
+00:53:08.840 --> 00:53:11.180
+Anthony Taylor: because we have an activity to do.
+
+544
+00:53:14.750 --> 00:53:18.400
+Anthony Taylor: This is so long. I don't know how this is going to take this long.
+
+545
+00:53:27.900 --> 00:53:29.910
+Anthony Taylor: Hi! I'm gonna move on.
+
+546
+00:53:31.590 --> 00:53:33.520
+Anthony Taylor: I can help you with it. If you want them.
+
+547
+00:53:37.380 --> 00:53:39.940
+michael mcpherson: I'll figure it out. There's something in there.
+
+548
+00:53:40.530 --> 00:53:42.210
+Baro, Sonja: Anthony. That's true.
+
+549
+00:53:42.240 --> 00:53:46.790
+Baro, Sonja: A quick question, this backslash after utilities
+
+550
+00:53:47.290 --> 00:53:50.689
+Baro, Sonja: data frame for a dot apply.
+
+551
+00:53:52.140 --> 00:53:56.620
+Baro, Sonja: Where did that show? That's just to that. It's just to break it into a new line.
+
+552
+00:53:57.470 --> 00:54:10.270
+Baro, Sonja: Okay, okay, okay. I thought it was some new thing.
+
+553
+00:54:11.390 --> 00:54:15.310
+Anthony Taylor: any other questions before we move on to the next one.
+
+554
+00:54:16.130 --> 00:54:25.469
+Anthony Taylor: Next, the next 2 activities are everyone news. and then we're done for the day. But we have to do this first one, then break and then
+
+555
+00:54:27.200 --> 00:54:31.980
+Anthony Taylor: that's it. Okay. alright. I'm gonna move on, Mike, are you good?
+
+556
+00:54:33.860 --> 00:54:35.709
+Anthony Taylor: Do you want me to paste this in the slack?
+
+557
+00:54:35.730 --> 00:54:39.490
+Anthony Taylor: No cause. I want you to watch what we're doing. No, no, I'll figure it out
+
+558
+00:54:40.440 --> 00:54:41.990
+Anthony Taylor: alright. I'm happy to help.
+
+559
+00:54:43.130 --> 00:54:45.940
+michael mcpherson: Sure. Class, yeah, after class, if you remind me.
+
+560
+00:54:46.330 --> 00:54:47.240
+Okay.
+
+561
+00:54:48.630 --> 00:54:52.190
+Anthony Taylor: alright. So notice these instructions are quite extensive.
+
+562
+00:54:52.320 --> 00:54:56.659
+Anthony Taylor: Okay, don't worry. This isn't everyone. Do. But let's go through them, anyway.
+
+563
+00:54:56.680 --> 00:55:00.940
+Anthony Taylor: And I want you guys to talk with me. This isn't everyone. Do
+
+564
+00:55:01.020 --> 00:55:05.860
+Anthony Taylor: not an Anthony. Okay, Anthony do start with Ims.
+
+565
+00:55:06.240 --> 00:55:15.939
+Anthony Taylor: Everyone do. Is everyone so load Csv, while we know how to do that. identify the number of rows and columns in the data frame otherwise known as its shape.
+
+566
+00:55:16.520 --> 00:55:23.940
+Anthony Taylor: And we haven't actually discussed this. But I'm going to give you a big hint. It's DF dot shape.
+
+567
+00:55:26.230 --> 00:55:40.330
+Anthony Taylor: Okay. that's pretty big hand. Alright. So we're gonna call a method called shape. And basically, it's gonna tell us how many rows and columns we have. We're going to generate a sample of the data to visually ensure data has been loaded.
+
+568
+00:55:40.540 --> 00:55:43.179
+Anthony Taylor: What is that? What method would that be?
+
+569
+00:55:44.020 --> 00:55:46.350
+Anthony Taylor: Almost any method? Really, we have, like 5 of them.
+
+570
+00:55:47.520 --> 00:55:51.860
+Clayton Graves: could use head or perfect way to perfect Clayton.
+
+571
+00:55:52.280 --> 00:55:56.229
+Anthony Taylor: We're gonna identify the number of records in the data frame.
+
+572
+00:55:56.420 --> 00:56:01.950
+Anthony Taylor: Compare it to the number of rows in the original file. How are we going to get the count of? Oh, crap!
+
+573
+00:56:03.540 --> 00:56:07.379
+Meredith McCanse (she/her): How do we get? How many rows are in a data frame count.
+
+574
+00:56:07.530 --> 00:56:10.299
+Meredith McCanse (she/her): Look at that! Meredith nailed it.
+
+575
+00:56:10.570 --> 00:56:20.420
+Anthony Taylor: We're gonna do. We're gonna see how many no records we have. And they're actually gonna do it kind of an interesting way. We're gonna calculate the average
+
+576
+00:56:20.450 --> 00:56:29.290
+Anthony Taylor: number of nulls per column. This you haven't seen. But you've used all you've used all of it. So I'll show you that when we get in there.
+
+577
+00:56:29.390 --> 00:56:31.889
+Anthony Taylor: We're gonna drum null records. How do we do that?
+
+578
+00:56:36.310 --> 00:56:37.630
+Baro, Sonja: Drop any
+
+579
+00:56:37.780 --> 00:56:44.849
+Anthony Taylor: drop in, hey, we're going to validate. They've all been dropped by calculating the sum of the values that are null.
+
+580
+00:56:45.240 --> 00:56:51.889
+Anthony Taylor: So we but calculated the sum of all the values that are null, and there are no values that are null. What's that going to be
+
+581
+00:56:52.190 --> 00:56:55.890
+Anthony Taylor: 0? Sonya said at 0, okay.
+
+582
+00:56:56.060 --> 00:57:11.399
+Anthony Taylor: we're gonna default. Null Ebi da values to 0. Now I went. I went. This is one of those moments where, as I read through this today to prepare for class, I went. That's the dumbest thing I've ever heard.
+
+583
+00:57:12.480 --> 00:57:22.849
+Anthony Taylor: and they're like, No, Meredith's like, no, Eva, be 0. No, that's not what I mean. Okay. The fact that we just dropped all the null records
+
+584
+00:57:24.050 --> 00:57:34.169
+Anthony Taylor: and confirmed. We drop them all, and then we're gonna do default to know if it does give it to 0. Guess what?
+
+585
+00:57:36.100 --> 00:57:39.210
+Anthony Taylor: Okay. But then we're gonna check to make sure there are none.
+
+586
+00:57:39.380 --> 00:57:47.679
+Anthony Taylor: Which I thought we did up here. But that's okay. We'll get there now, okay, then, we're gonna remove duplicate rows. Anybody remember that command? What's that one? It's a tough one.
+
+587
+00:57:48.730 --> 00:57:49.990
+Anthony Taylor: Have we covered that one?
+
+588
+00:57:50.110 --> 00:57:52.930
+Baro, Sonja: Yes, we did. Okay. Good. What is it
+
+589
+00:57:53.200 --> 00:57:54.350
+Meredith McCanse (she/her): unique
+
+590
+00:57:54.480 --> 00:57:59.909
+Baro, Sonja: that lists all the distinct values? How do we drop duplicates?
+
+591
+00:58:01.110 --> 00:58:09.040
+Anthony Taylor: It is data frame dot drop duplicates. Very good.
+
+592
+00:58:09.230 --> 00:58:17.220
+Anthony Taylor: So DF dot drop duplicates. Okay, I don't know. We've done that one curry. Have we done, Ellen?
+
+593
+00:58:19.250 --> 00:58:23.329
+Anthony Taylor: Yeah, no. he's like I'm only paying half attention, dude.
+
+594
+00:58:24.120 --> 00:58:26.660
+Anthony Taylor: But, Matt.
+
+595
+00:58:28.230 --> 00:58:39.309
+Baro, Sonja: that hasn't said anything to do. I don't think we've done that one. No, I don't. I don't think we did. It was in another one of the tutorials you gave us. Okay? Well, I'll I'll take that credit.
+
+596
+00:58:39.390 --> 00:58:45.779
+Anthony Taylor: So I'll just say this. The method to drop duplicates it's called drop duplicates
+
+597
+00:58:45.990 --> 00:58:50.119
+Anthony Taylor: next. Now then, nulls and duplicates are gone.
+
+598
+00:58:50.450 --> 00:59:02.519
+Anthony Taylor: Okay, we're gonna look at a little bit more. There's a dollar sign in some of the data, you're gonna see. But we want Price to be a float. Can can and can a value be afloat with a dollar sign?
+
+599
+00:59:03.730 --> 00:59:06.090
+Anthony Taylor: Not in python? It can't.
+
+600
+00:59:06.220 --> 00:59:11.219
+Anthony Taylor: So ours got to be outside. clean that up and make it into a float.
+
+601
+00:59:11.750 --> 00:59:13.880
+Anthony Taylor: That's it. Okay.
+
+602
+00:59:14.140 --> 00:59:24.300
+Anthony Taylor: so let's go do it. Let's do it. That's the solved one. I don't want you to see that
+
+603
+00:59:27.290 --> 00:59:28.530
+Anthony Taylor: here we go.
+
+604
+00:59:30.290 --> 00:59:33.570
+Anthony Taylor: It's taking a lot of select our kernel.
+
+605
+00:59:34.660 --> 00:59:40.140
+Anthony Taylor: So we kind of already reviewed all of this. So let's oh, my God, is it really gonna make me type that much?
+
+606
+00:59:42.450 --> 00:59:47.140
+Anthony Taylor: Alright. So we're gonna bring in our. So I will show you this. This is
+
+607
+00:59:47.800 --> 00:59:52.300
+Anthony Taylor: really close to like a real exercise that you might get.
+
+608
+00:59:52.370 --> 00:59:55.820
+Anthony Taylor:  you know, on the job. Okay.
+
+609
+00:59:55.880 --> 01:00:01.170
+Anthony Taylor: it it. you know. Obviously it is not terribly challenging
+
+610
+01:00:01.380 --> 01:00:04.860
+Anthony Taylor:  but it is
+
+611
+01:00:05.390 --> 01:00:11.480
+Anthony Taylor: pretty realistic. Okay? So we're gonna read this in. So Csv data will call this
+
+612
+01:00:11.490 --> 01:00:16.999
+Anthony Taylor: Pd dot, read underscore Csv and then pass in our Csv path.
+
+613
+01:00:17.620 --> 01:00:21.869
+Anthony Taylor: and that should do it, and then we'll well, we'll take a look at it in the next one.
+
+614
+01:00:22.700 --> 01:00:27.790
+Anthony Taylor: Okay, so it does tell us to look at our data. So let's go look at our data real quick.
+
+615
+01:00:28.260 --> 01:00:32.800
+michael mcpherson: There it is. Let's see, it's pretty exciting. How can I tell how many Rose are in here?
+
+616
+01:00:32.950 --> 01:00:33.840
+Anthony Taylor: Oh.
+
+617
+01:00:34.420 --> 01:00:35.880
+michael mcpherson: it's called bound.
+
+618
+01:00:36.550 --> 01:00:43.080
+Anthony Taylor: Well, we're doing. This is the file. So we're just reading a file. So there's 505 rows. But
+
+619
+01:00:43.570 --> 01:00:44.940
+Anthony Taylor: remember.
+
+620
+01:00:45.370 --> 01:00:47.650
+Anthony Taylor: there's a header. So there's 504.
+
+621
+01:00:47.940 --> 01:00:48.880
+Anthony Taylor: Okay.
+
+622
+01:00:49.440 --> 01:00:51.870
+Anthony Taylor: alright. So yeah.
+
+623
+01:00:52.080 --> 01:00:59.909
+Anthony Taylor: so here's that first thing. And it even says right here, shape. So we called our data frame Csv underscore data dot
+
+624
+01:01:00.550 --> 01:01:01.570
+Anthony Taylor: sheep.
+
+625
+01:01:03.110 --> 01:01:08.490
+Anthony Taylor: Okay? And we hit run. And it shows us our shape. And sure enough.
+
+626
+01:01:08.580 --> 01:01:15.470
+Anthony Taylor: 504 rows, 14 columns. Notice the return rows.
+
+627
+01:01:15.970 --> 01:01:16.930
+Anthony Taylor: Columns.
+
+628
+01:01:18.600 --> 01:01:24.400
+Anthony Taylor: Okay, so that's how you can quickly tell how many rows and columns your data has.
+
+629
+01:01:24.850 --> 01:01:28.739
+Anthony Taylor: It says, generate a sample. How do we generate a sample? Again?
+
+630
+01:01:30.640 --> 01:01:32.389
+Clayton Graves: We've had a couple ways, Ed.
+
+631
+01:01:32.750 --> 01:01:33.770
+Anthony Taylor: and
+
+632
+01:01:36.710 --> 01:01:49.080
+Anthony Taylor: and there we go. So now we can take a look at our data and see, we got a symbol, a name, a sector. There's the price with the. There's some dolls. Look, some of the prices don't have a dollar sign. That's bogus.
+
+633
+01:01:49.930 --> 01:01:59.790
+Anthony Taylor: Okay, we got some nulls here and price per earning. Earnings lots and alls in here. Price provides sex feeling.
+
+634
+01:01:59.860 --> 01:02:02.410
+Anthony Taylor: Ivida Ivada.
+
+635
+01:02:02.790 --> 01:02:18.950
+Anthony Taylor: Okay. So now it says, identify the number of records in the data frame and compare it with the number of rows in the original file. So we already looked. It was 504 we kinda already know from our shape, but we can still do account here
+
+636
+01:02:19.190 --> 01:02:20.660
+Anthony Taylor: and see
+
+637
+01:02:21.430 --> 01:02:25.170
+Anthony Taylor: a little more, you know. Exciting way
+
+638
+01:02:25.340 --> 01:02:30.870
+Anthony Taylor: to see the count in our database, so we can see there's 504 records, because that's the largest number.
+
+639
+01:02:32.170 --> 01:02:35.430
+Anthony Taylor: What does count. Tell us. remind me.
+
+640
+01:02:37.250 --> 01:02:38.990
+Anthony Taylor: why are those numbers different?
+
+641
+01:02:39.990 --> 01:02:54.609
+Anthony Taylor: It doesn't count empty values. Right? So we're we have some null records. So the next step we're gonna identify the null records.
+
+642
+01:02:54.640 --> 01:03:02.360
+Anthony Taylor: So we can do this a lot of ways. So let's do this in parts. Because they told us in the directions to get like the percentage
+
+643
+01:03:02.540 --> 01:03:04.470
+Anthony Taylor: of records that had a null
+
+644
+01:03:06.130 --> 01:03:09.399
+Anthony Taylor: kind of so we could just do is null
+
+645
+01:03:11.120 --> 01:03:15.189
+Anthony Taylor: and notice what it does here. So it says
+
+646
+01:03:15.510 --> 01:03:25.579
+Anthony Taylor: false, if it's not all true, if it is alright. Well, that's not particularly helpful. Kind of a lot to look at, so we could get a mean of this. Now.
+
+647
+01:03:26.500 --> 01:03:30.250
+Anthony Taylor: what does that mean? It's like, what do you mean? You get a mean of that?
+
+648
+01:03:31.090 --> 01:03:32.110
+Anthony Taylor: Okay?
+
+649
+01:03:32.310 --> 01:03:35.229
+Anthony Taylor: So keeping in mind that.
+
+650
+01:03:35.290 --> 01:03:37.970
+Anthony Taylor: true and false is basically 0 and one.
+
+651
+01:03:39.180 --> 01:03:43.059
+Anthony Taylor: So if every column, if every value is one
+
+652
+01:03:43.450 --> 01:03:47.990
+Anthony Taylor: or I mean is 0. Okay, so that's false, the mean would be
+
+653
+01:03:48.090 --> 01:03:48.960
+Anthony Taylor: 0
+
+654
+01:03:49.100 --> 01:03:53.520
+Anthony Taylor: if every column is day is empty, which is true.
+
+655
+01:03:53.650 --> 01:03:57.659
+Anthony Taylor: it's null is true. That would be an a mean of one.
+
+656
+01:03:57.820 --> 01:04:09.769
+Anthony Taylor: So what we're saying here is, give me a mean of what percentage of these are, in fact, negative. Now, because we're doing percentage, we would need to multiply this by 100 to get a true
+
+657
+01:04:10.370 --> 01:04:11.300
+percentage.
+
+658
+01:04:12.170 --> 01:04:21.519
+Anthony Taylor: And there you go. So we can see, 40% of the names are no, 60% of the sectors. 80%. See. And that doesn't make a lot of sense, because we got some that say 1.3.
+
+659
+01:04:21.990 --> 01:04:27.369
+Dipinto, Matt: That's bizarre. No, that's actually 1.3, because it was, oh, thank you. Thank you.
+
+660
+01:04:27.670 --> 01:04:30.499
+Anthony Taylor: That's right. These aren't even a whole percent. Thank you.
+
+661
+01:04:31.650 --> 01:04:37.939
+Anthony Taylor: So yeah, these aren't even a whole percent. So it's not 40%. It's not 3, 30, 39%. It's less than 1%.
+
+662
+01:04:38.980 --> 01:04:40.720
+Anthony Taylor: Okay. Thank you.
+
+663
+01:04:41.740 --> 01:04:45.849
+Anthony Taylor: Good call alright. So we're gonna get rid of those. Now.
+
+664
+01:04:46.950 --> 01:04:49.920
+Anthony Taylor: does everybody follow what we did there? Exactly.
+
+665
+01:04:50.740 --> 01:04:58.030
+Anthony Taylor: We just said, show us all the null records which made them true or false. Get the average. multiply it by a hundred.
+
+666
+01:04:58.050 --> 01:05:03.790
+Anthony Taylor: This is the percent, 1.1%. Okay, 2.3.
+
+667
+01:05:04.380 --> 01:05:06.289
+Anthony Taylor: Alright. So now we're gonna drop
+
+668
+01:05:06.760 --> 01:05:11.389
+Anthony Taylor: all of the records that haven't no. How do we do that?
+
+669
+01:05:14.410 --> 01:05:18.220
+Baro, Sonja: Could you use the apply here because you wanted to go through every
+
+670
+01:05:19.240 --> 01:05:20.479
+Baro, Sonja: every row?
+
+671
+01:05:20.980 --> 01:05:26.929
+Anthony Taylor: No, ma'am, and and we have there actually, where there is a method that does this without any apply anything like that.
+
+672
+01:05:27.060 --> 01:05:28.289
+Anthony Taylor: We've already learned it.
+
+673
+01:05:29.590 --> 01:05:32.880
+Baro, Sonja: So this is the drop and a
+
+674
+01:05:33.110 --> 01:05:41.280
+Anthony Taylor: perfect okay, so we'll run that. and then we're going to run counts again. as it says, check and see.
+
+675
+01:05:41.500 --> 01:05:43.160
+Anthony Taylor: So do count again.
+
+676
+01:05:44.040 --> 01:05:55.740
+Anthony Taylor:  You didn't have to save the file after Csv to Cs.
+
+677
+01:05:57.590 --> 01:06:02.780
+Baro, Sonja: so what did I do wrong? Here, look at this weird return. I got very string.
+
+678
+01:06:06.200 --> 01:06:08.279
+Derek Rikke: If your how equals?
+
+679
+01:06:08.520 --> 01:06:10.330
+Anthony Taylor: I just forgot to do the S.
+
+680
+01:06:13.640 --> 01:06:18.760
+Anthony Taylor: I just did count and set accounts. It wasn't too bad. Alright. So let's wait for it.
+
+681
+01:06:20.870 --> 01:06:21.650
+Anthony Taylor: Let's
+
+682
+01:06:22.170 --> 01:06:25.230
+Anthony Taylor: what is that? What am I doing over here.
+
+683
+01:06:25.440 --> 01:06:34.459
+Anthony Taylor: You need count with parentheses.
+
+684
+01:06:35.390 --> 01:06:39.159
+Raugewitz, Tania: but I do that right. That's how I knew you were faking.
+
+685
+01:06:39.510 --> 01:06:50.160
+Anthony Taylor: Come on! I even went up and like looked at it and came back to see if anybody would notice. But anyway, okay, so 478. So are there any nulls here anymore? Do?
+
+686
+01:06:50.700 --> 01:06:58.459
+Anthony Taylor: They're all gone now. What they wanted you, what they wanted us to do in the instructions, though, is to sum
+
+687
+01:06:59.210 --> 01:07:08.919
+Anthony Taylor: the is nulls, and make sure they all cause member. If it's not null, the value is 0. So if we sum the is null.
+
+688
+01:07:10.000 --> 01:07:16.369
+Anthony Taylor: it should be 0. Right? So let's do. Csv underscore data is no
+
+689
+01:07:17.370 --> 01:07:19.689
+Anthony Taylor: and then that sum.
+
+690
+01:07:21.460 --> 01:07:25.890
+Anthony Taylor: So when we run this, they all should come back with a 0. No, no.
+
+691
+01:07:26.770 --> 01:07:31.270
+Anthony Taylor: okay. I don't know why, you wouldn't just do count. Seems like a lot less. So here's the
+
+692
+01:07:31.870 --> 01:07:34.039
+Anthony Taylor: I don't even know what to say about this.
+
+693
+01:07:34.220 --> 01:07:43.460
+Anthony Taylor:  this is how about how you would do it, even though it doesn't make a lot of sense. Let's just see how good. So we have a Csv
+
+694
+01:07:43.520 --> 01:07:49.990
+Anthony Taylor: Underscore data going to call the column. Evida. am I saying that? Right, Meredith?
+
+695
+01:07:51.210 --> 01:07:53.439
+Meredith McCanse (she/her): Yeah. People, sometimes people do.
+
+696
+01:07:53.600 --> 01:08:04.530
+Meredith McCanse (she/her): Yeah, it's you're fine. You're good.
+
+697
+01:08:04.680 --> 01:08:09.600
+Anthony Taylor: Return this value. But Phil. in A's.
+
+698
+01:08:09.880 --> 01:08:12.210
+Anthony Taylor: Have we done fill an a. I think we have
+
+699
+01:08:12.310 --> 01:08:19.009
+Anthony Taylor: with the value 0. So all this would do if there were any null. If it does, would put a 0 there
+
+700
+01:08:19.529 --> 01:08:24.089
+Anthony Taylor: probably should have done this before we removed all the else.
+
+701
+01:08:24.220 --> 01:08:28.809
+Anthony Taylor: But that's okay. Okay, and then if we wanted
+
+702
+01:08:30.050 --> 01:08:35.530
+Anthony Taylor: okay, then we're going to check that nulls the way we did a minute ago, but only for that column.
+
+703
+01:08:38.540 --> 01:08:44.649
+Anthony Taylor: Actually, you know what we're gonna do just to make sure that maybe they know something I don't know. Maybe there's some empties I don't know.
+
+704
+01:08:45.109 --> 01:08:51.290
+Anthony Taylor: I don't know. I don't understand why they're having to do this. So I'm gonna comment out this first line. Let's just do a quick account.
+
+705
+01:08:51.300 --> 01:09:02.839
+Anthony Taylor: See? They're already 0. So it's still a good exercise to know how to do it to remember how to do it. But yeah, if you remove all the nulls, doesn't make a lot of sense to fill in it.
+
+706
+01:09:04.170 --> 01:09:09.639
+Anthony Taylor: But it is. In fact, there are no, no's. Okay. So here's our drop duplicates.
+
+707
+01:09:09.850 --> 01:09:16.210
+Anthony Taylor: Okay? And Csv data. So we're going to overwrite our data set with
+
+708
+01:09:16.300 --> 01:09:17.910
+Anthony Taylor: dot drop
+
+709
+01:09:20.350 --> 01:09:22.580
+Anthony Taylor: underscore. Actually
+
+710
+01:09:22.609 --> 01:09:26.979
+Anthony Taylor: notice this, I'm pretty sure. Oh, no, it is understood.
+
+711
+01:09:27.010 --> 01:09:35.090
+Anthony Taylor: Drop duplicates. Okay. And this is a method. So you just do that. You run that. Now we have no duplicates. Okay.
+
+712
+01:09:35.500 --> 01:09:42.539
+Anthony Taylor: alright. Now, here's something new. We haven't done this yet. So here's the only new thing in this whole activity.
+
+713
+01:09:44.080 --> 01:09:46.470
+Anthony Taylor: Well, I guess we did some new logic. But
+
+714
+01:09:46.580 --> 01:09:50.070
+Anthony Taylor: so we're gonna get rid of that dollar sign
+
+715
+01:09:50.240 --> 01:09:58.369
+Anthony Taylor: before I even type it. Anybody have any suggestions? How would you suggest we get rid of that dollar sign that was in our data.
+
+716
+01:10:01.830 --> 01:10:03.309
+Mason, Natalie: Is it a remove?
+
+717
+01:10:03.420 --> 01:10:07.500
+Anthony Taylor: That's very good. That is really close. What did you say, Mike.
+
+718
+01:10:08.960 --> 01:10:10.629
+michael mcpherson: remove dot dollar sign.
+
+719
+01:10:10.950 --> 01:10:14.829
+Anthony Taylor: My gosh, you guys are like almost there.
+
+720
+01:10:14.940 --> 01:10:18.899
+Anthony Taylor: Oh, Jennifer got it! Jennifer got it.
+
+721
+01:10:19.220 --> 01:10:21.180
+Anthony Taylor: She had to google it, but she got it.
+
+722
+01:10:21.260 --> 01:10:24.410
+Jennifer Dahlgren: Oh, I have my notes like.
+
+723
+01:10:24.420 --> 01:10:30.280
+Anthony Taylor: so basically, it's not remove, it's replace.
+
+724
+01:10:31.270 --> 01:10:34.469
+Anthony Taylor: Okay? So we have Csv and and
+
+725
+01:10:34.520 --> 01:10:39.169
+Anthony Taylor: replace isn't a method that you can call on
+
+726
+01:10:39.470 --> 01:10:45.379
+Anthony Taylor: a column, and right now we have a column so, but we can call it on a string
+
+727
+01:10:45.560 --> 01:10:53.659
+Anthony Taylor: so we can take our column. Do dot STR. Converting it to a string, and then dot replace.
+
+728
+01:10:55.640 --> 01:10:59.489
+Anthony Taylor: Okay? And then the arguments you pass in to replace are just
+
+729
+01:10:59.540 --> 01:11:09.660
+Anthony Taylor: what you want to replace. We want to get rid of this dollar sign not the $4 sign and then comma. What do you want to replace it with? Well, in our case
+
+730
+01:11:10.320 --> 01:11:11.509
+we want nothing.
+
+731
+01:11:11.590 --> 01:11:18.689
+Anthony Taylor: So we're just going to do quote. okay? And then we can look at it after we do this.
+
+732
+01:11:22.280 --> 01:11:27.150
+Anthony Taylor: Alright. So we'll run that. and we'll see. Now, nothing has a dollar sign.
+
+733
+01:11:27.780 --> 01:11:32.259
+Anthony Taylor: Okay? But is it so? But notice the data type still.
+
+734
+01:11:33.450 --> 01:11:35.569
+Anthony Taylor: does everybody remember what an object is.
+
+735
+01:11:35.620 --> 01:11:41.520
+Anthony Taylor: we see, object. What kind of data type is that just string string? So it's still not a float.
+
+736
+01:11:41.660 --> 01:11:52.360
+Anthony Taylor: So, and it's funny. Now they're telling us to confirm the data type. Well, we already know the answer because we just looked at it. But what is the method to confirm the data type?
+
+737
+01:11:53.770 --> 01:11:56.210
+Meredith McCanse (she/her): D-type d type.
+
+738
+01:11:56.870 --> 01:11:59.930
+Anthony Taylor: right? D type. So that's data type.
+
+739
+01:12:00.160 --> 01:12:01.210
+Anthony Taylor: So we'll do
+
+740
+01:12:03.250 --> 01:12:07.149
+Anthony Taylor: dot d type. And then we'll see that it is an O
+
+741
+01:12:07.190 --> 01:12:08.400
+Anthony Taylor: sure is
+
+742
+01:12:08.530 --> 01:12:13.319
+Anthony Taylor: alright last step. My God, guys, we're flew through this. Okay.
+
+743
+01:12:13.540 --> 01:12:15.659
+Anthony Taylor: how do we convert
+
+744
+01:12:15.810 --> 01:12:25.190
+Anthony Taylor: a Panda's column to another data type? And we've done this. I know we've it like you've at least seen it. I don't know. We talked about it, but you've seen it.
+
+745
+01:12:25.890 --> 01:12:27.100
+Anthony Taylor: How do we do it?
+
+746
+01:12:28.860 --> 01:12:32.419
+Clayton Graves: It's not set type, is it. No.
+
+747
+01:12:33.060 --> 01:12:36.779
+Anthony Taylor: it it does have the word type in it. So you got that part right?
+
+748
+01:12:38.700 --> 01:12:40.750
+Jennifer Dahlgren: Anybody has
+
+749
+01:12:41.090 --> 01:12:52.750
+Anthony Taylor: as type. Thank you, jennifer.as type. And then the type that you want to convert it to. Now remember, when we talked about this last time, I said, this works as long as it's possible
+
+750
+01:12:52.800 --> 01:12:56.539
+Anthony Taylor: to convert it to that type. If we hadn't removed the dollar.
+
+751
+01:12:56.800 --> 01:12:57.959
+Anthony Taylor: this would fail.
+
+752
+01:12:59.280 --> 01:13:06.089
+Anthony Taylor: Okay, because it wouldn't be possible to convert it to a float. And then, when we're done, we're going to do the d-type again.
+
+753
+01:13:06.230 --> 01:13:11.069
+Anthony Taylor: Csv underscore dated Dot bracket price.
+
+754
+01:13:11.850 --> 01:13:16.210
+Anthony Taylor: But be tight. Oh. not inside the breakfast.
+
+755
+01:13:16.310 --> 01:13:23.469
+Baro, Sonja: Anthony, can you convert, using the command to.
+
+756
+01:13:24.650 --> 01:13:31.739
+Anthony Taylor: because in one of the tutorials it said, like, if you have a wrong format.
+
+757
+01:13:32.130 --> 01:13:38.370
+Baro, Sonja: you can either remove the row or you can convert the cells to the same format using the 2
+
+758
+01:13:39.440 --> 01:13:40.580
+Baro, Sonja: function.
+
+759
+01:13:40.950 --> 01:13:47.310
+Anthony Taylor: I'm not gonna say new. I don't use that one, but that doesn't mean that it doesn't exist. Let's look real quick.
+
+760
+01:13:48.480 --> 01:13:54.959
+Baro, Sonja: That's that's one of those really good like. And and I mean, you'll find that this can actually happen a lot
+
+761
+01:13:55.370 --> 01:13:56.130
+Anthony Taylor: a
+
+762
+01:13:58.860 --> 01:14:00.200
+Anthony Taylor: see where it comes up.
+
+763
+01:14:03.480 --> 01:14:07.349
+Anthony Taylor: This might be a hard one to figure out, probably 2 with a open closed.
+
+764
+01:14:13.830 --> 01:14:16.410
+Anthony Taylor: I mean cause there are things like to date.
+
+765
+01:14:16.780 --> 01:14:20.630
+Anthony Taylor: And there are things like that. I don't.
+
+766
+01:14:20.730 --> 01:14:28.670
+Anthony Taylor: I'm not familiar with one that's just 2, but it doesn't mean it doesn't exist. Just so, you guys know you will come across
+
+767
+01:14:28.990 --> 01:14:42.649
+Anthony Taylor: examples of of functions or methods that do similar things. And it's just it could be new. They could be some one-off that somebody wrote, and they could be all kinds of stuff. So it's not wrong if it works.
+
+768
+01:14:44.030 --> 01:14:50.130
+Anthony Taylor: Okay, alright. So here we go. We're gonna run this. And this should come back with it's now a flow, and it it
+
+769
+01:14:50.920 --> 01:14:51.830
+Anthony Taylor: so
+
+770
+01:14:52.230 --> 01:14:55.950
+Anthony Taylor: to summarize, we just cleaned a data set.
+
+771
+01:14:57.830 --> 01:15:02.020
+Anthony Taylor: This is like a real exercise. You could run into at work
+
+772
+01:15:02.300 --> 01:15:12.489
+Anthony Taylor: whether you're doing machine learning AI or data and analytics data engineering. we just clean this data set. We could output this as a Csv. And it is a nice
+
+773
+01:15:12.520 --> 01:15:14.570
+Anthony Taylor: clean data set
+
+774
+01:15:16.090 --> 01:15:18.070
+Anthony Taylor: alright. Any questions.
+
+775
+01:15:21.790 --> 01:15:23.600
+Anthony Taylor: Haven't seen my pets in a while.
+
+776
+01:15:25.190 --> 01:15:27.419
+Anthony Taylor: I don't even know if I should let you guys see that.
+
+777
+01:15:30.130 --> 01:15:33.329
+Anthony Taylor: Yes, there is an extension that'll put little pets on your screen.
+
+778
+01:15:33.600 --> 01:15:35.400
+Baro, Sonja: Okay.
+
+779
+01:15:35.460 --> 01:15:38.549
+Baro, Sonja: anyway, I see your your real pets.
+
+780
+01:15:39.000 --> 01:15:45.290
+Baro, Sonja: They're not. Well, I'm at the hotel. They're not gonna be here
+
+781
+01:15:45.720 --> 01:15:47.190
+michael mcpherson: tomorrow morning.
+
+782
+01:15:47.430 --> 01:15:49.730
+Baro, Sonja: Yay, good to see your doggies.
+
+783
+01:15:50.150 --> 01:15:53.069
+Anthony Taylor: Curry's like. Now I've done it.
+
+784
+01:15:53.270 --> 01:15:57.880
+Anthony Taylor: There's there's a bunch of them, too. You can have a tutorial.
+
+785
+01:15:58.120 --> 01:15:59.689
+Anthony Taylor: and you could give it a name
+
+786
+01:16:01.190 --> 01:16:02.769
+michael mcpherson: and shut up.
+
+787
+01:16:03.190 --> 01:16:09.710
+Anthony Taylor: Okay, anyway. that's
+
+788
+01:16:09.890 --> 01:16:12.570
+michael mcpherson: sorry, my son. I was talking to my dog.
+
+789
+01:16:12.970 --> 01:16:26.610
+Anthony Taylor: Oh, I thought he was telling me, shut up! I could totally like move him to the waiting room for a while. Here, cool off, mister. Okay, so it's break time.
+
+790
+01:16:27.140 --> 01:16:30.690
+Anthony Taylor:  yeah.
+
+791
+01:16:32.550 --> 01:16:36.530
+Anthony Taylor: Why is my mouse on me? That's so weird. I am recording.
+
+792
+01:16:37.860 --> 01:16:47.590
+Anthony Taylor:  alright. Okay. So it's funny. I said all that. And now we have
+
+793
+01:16:49.940 --> 01:16:51.300
+Anthony Taylor: we have a slide.
+
+794
+01:16:53.440 --> 01:16:54.260
+Anthony Taylor: 1 s.
+
+795
+01:17:00.850 --> 01:17:01.650
+Anthony Taylor: Come on.
+
+796
+01:17:07.790 --> 01:17:10.109
+Anthony Taylor: what is wrong with my screen?
+
+797
+01:17:20.240 --> 01:17:21.080
+Okay.
+
+798
+01:17:21.890 --> 01:17:23.630
+Anthony Taylor: back to sharing.
+
+799
+01:17:29.390 --> 01:17:31.560
+Anthony Taylor: Okay, we're back in business.
+
+800
+01:17:31.700 --> 01:17:33.770
+Anthony Taylor: So
+
+801
+01:17:39.020 --> 01:17:44.980
+Anthony Taylor: thing is just fighting me on every front. Alright.
+
+802
+01:17:47.460 --> 01:17:49.070
+Anthony Taylor: For our last
+
+803
+01:17:49.500 --> 01:17:52.980
+Anthony Taylor: pandas week. One discussion
+
+804
+01:17:53.120 --> 01:18:05.129
+Anthony Taylor: we're going to do a very. And I actually have to make this bigger, because there's no way you can read this. By the way, if you want this, there is a Pdf. It's in your git lab. You can do a git, poll, and it's there. But
+
+805
+01:18:05.820 --> 01:18:09.299
+Anthony Taylor: this is what we're going to talk about. Now, this is like.
+
+806
+01:18:10.870 --> 01:18:21.679
+Anthony Taylor: if you were given some data. And you needed to do some Eda exploratory data analysis. These are the steps you would follow.
+
+807
+01:18:22.490 --> 01:18:24.619
+Anthony Taylor: Okay. you would
+
+808
+01:18:24.980 --> 01:18:29.360
+Anthony Taylor: make sure that the question makes sense and that you understand
+
+809
+01:18:29.410 --> 01:18:30.529
+Anthony Taylor: the question.
+
+810
+01:18:30.930 --> 01:18:34.600
+Anthony Taylor: This, believe it or not, is maybe the hardest part.
+
+811
+01:18:34.900 --> 01:18:39.169
+Anthony Taylor: Alright. Determine what method of analysis you're going to do.
+
+812
+01:18:39.670 --> 01:18:51.390
+Anthony Taylor: And what does that mean? Well, I mean, could be predicted, could be time series. some other machine learning technique. Figure out how you're gonna collect the data. We're gonna get really into data collection in a couple of weeks.
+
+813
+01:18:51.900 --> 01:18:56.499
+Anthony Taylor: But I mean, it could just be read it in with pandas. Could be.
+
+814
+01:18:56.780 --> 01:19:01.519
+Anthony Taylor: you know, right now, that's pretty much what you guys don't read independence.
+
+815
+01:19:01.620 --> 01:19:08.850
+Anthony Taylor: You're going to clean the data, whether that be with machine learning algorithms or pandas functions like, we just did a little while ago.
+
+816
+01:19:09.200 --> 01:19:17.249
+Anthony Taylor: And then you can begin doing data analysis. And what are you doing? You're looking for the answer to the question.
+
+817
+01:19:18.230 --> 01:19:24.300
+Anthony Taylor: okay, and then at the end, you would have some way to share the results. Now.
+
+818
+01:19:24.840 --> 01:19:38.120
+Anthony Taylor: that's often visualizations. But it could be tables, or what have you. Okay? So the abstract question we're going to answer. which utilities usage changed the most
+
+819
+01:19:38.190 --> 01:19:41.739
+Anthony Taylor: from 2,013 to 2,018.
+
+820
+01:19:42.300 --> 01:19:44.960
+Anthony Taylor: Alright, there you go. There's the slides.
+
+821
+01:19:45.460 --> 01:19:48.799
+Anthony Taylor: So let's go and look
+
+822
+01:19:49.520 --> 01:19:51.669
+Anthony Taylor: at our problem.
+
+823
+01:19:51.960 --> 01:19:54.200
+and are what what they gave us, and see.
+
+824
+01:19:54.290 --> 01:19:58.340
+Anthony Taylor: we'll use the starter. It gives us a little more stuff.
+
+825
+01:20:01.280 --> 01:20:02.310
+Okay?
+
+826
+01:20:05.790 --> 01:20:20.319
+Anthony Taylor: Hi. so we have to import pandas. We know we're gonna start there. We're not looking at the question yet, because first, for our benefit, we want to go see what the data looks like that we have.
+
+827
+01:20:20.640 --> 01:20:22.169
+Anthony Taylor: So we'll do a quick
+
+828
+01:20:22.980 --> 01:20:25.090
+Anthony Taylor: once it finishes importing
+
+829
+01:20:28.630 --> 01:20:30.430
+Anthony Taylor: so weird that my mouse is.
+
+830
+01:20:40.880 --> 01:20:42.180
+Anthony Taylor: I think I got it back.
+
+831
+01:20:42.340 --> 01:20:56.359
+Anthony Taylor:  so we can see we have year, we have month number. We have month. We have utility owner units and usage question which utilities usage, change the most from 2,013 to 2,018.
+
+832
+01:20:56.830 --> 01:21:01.039
+Anthony Taylor: Okay, so to answer this question, what data
+
+833
+01:21:01.500 --> 01:21:02.879
+Anthony Taylor: do you think we need
+
+834
+01:21:04.700 --> 01:21:10.889
+Clayton Graves: start there? You're gonna need year definitely utility.
+
+835
+01:21:11.980 --> 01:21:13.519
+Clayton Graves: And you said
+
+836
+01:21:14.140 --> 01:21:25.779
+Anthony Taylor: your utility and usage. I would say. that is absolutely correct one. Sec. Me, bring out the instructions over here, so I don't have to flip back and forth.
+
+837
+01:21:33.490 --> 01:21:34.510
+Okay.
+
+838
+01:21:38.460 --> 01:21:39.660
+got it
+
+839
+01:21:40.510 --> 01:21:50.210
+Anthony Taylor: alright. So year utility. Do we need units. We might need units because the units is another unit of measurement.
+
+840
+01:21:51.200 --> 01:21:58.830
+Anthony Taylor: So maybe I'm going to throw it in there because it's easier to get rid of it than it is to add it later. So let's just create a data frame.
+
+841
+01:21:59.100 --> 01:22:09.209
+Anthony Taylor: Do you have underscore cleaning? And in this data frame, we're going to add utilities. Df bracket
+
+842
+01:22:09.250 --> 01:22:13.849
+Anthony Taylor: bracket because we got more than one column. We're gonna add year.
+
+843
+01:22:14.800 --> 01:22:17.240
+Anthony Taylor: Utility
+
+844
+01:22:20.540 --> 01:22:21.730
+Anthony Taylor: units
+
+845
+01:22:23.550 --> 01:22:34.220
+Anthony Taylor: and usage now, just because we're only adding, these right now doesn't mean that we might not get a little deeper in here and realize we need more or we need less. And that's okay.
+
+846
+01:22:34.430 --> 01:22:38.509
+Anthony Taylor: okay. But this is gonna start giving us what we need
+
+847
+01:22:38.880 --> 01:22:43.690
+Anthony Taylor: to answer the question. alright,
+
+848
+01:22:45.300 --> 01:22:46.470
+Anthony Taylor: So
+
+849
+01:22:51.590 --> 01:22:55.850
+Anthony Taylor: this time come up and see if they gonna give us anything that we wanted to work with here.
+
+850
+01:22:56.210 --> 01:22:59.940
+Anthony Taylor: Alright. So, looking at this data.
+
+851
+01:23:00.620 --> 01:23:01.410
+Anthony Taylor: what?
+
+852
+01:23:02.230 --> 01:23:05.159
+Anthony Taylor: What would tell us? What has changed
+
+853
+01:23:05.180 --> 01:23:06.480
+Anthony Taylor: year over year.
+
+854
+01:23:07.060 --> 01:23:10.779
+Anthony Taylor: I mean, how would you do it if you were just looking at this data? How would you do it?
+
+855
+01:23:15.240 --> 01:23:18.900
+Mason, Natalie: Would we want to arrange it by year?
+
+856
+01:23:19.990 --> 01:23:30.450
+Anthony Taylor: What kind is? It's all 2,013 to 2,019. So it's sorted by year. Do you have to do like? Couldn't you do an average for each type
+
+857
+01:23:30.690 --> 01:23:42.440
+Baro, Sonja: of utility to try and see. So you start to see a trend. What's the trend in passenger? What's the trend in gas between 2,013 and 2018.
+
+858
+01:23:42.680 --> 01:23:44.770
+Anthony Taylor: Okay, I like that
+
+859
+01:23:45.420 --> 01:23:47.970
+Anthony Taylor: like that. Any other thoughts on that.
+
+860
+01:23:48.340 --> 01:23:59.019
+Masarirambi, Rodney: the usage the usage of cause the you wanna like, get the the differences like year over year until you get you can compare all them.
+
+861
+01:23:59.870 --> 01:24:00.820
+Anthony Taylor: Okay?
+
+862
+01:24:01.020 --> 01:24:06.090
+Anthony Taylor: Alright, alright. I like that. That's good.  what?
+
+863
+01:24:07.020 --> 01:24:13.860
+Anthony Taylor: What would you think the outputs gonna look like? I mean, like Sonia said, a comparison. But like what? Like a percentage change.
+
+864
+01:24:14.090 --> 01:24:17.480
+Anthony Taylor: just total usage visual.
+
+865
+01:24:18.410 --> 01:24:30.260
+Baro, Sonja: Yeah, I was actually thinking of some of the when going to the visual, some of the standard deviation things like that. Some of the changes, maybe. Yeah, yeah, it could be
+
+866
+01:24:30.590 --> 01:24:34.580
+Gebrekristos, Hafton: I think I would go with person difference.
+
+867
+01:24:34.960 --> 01:24:37.149
+Gebrekristos, Hafton: percent difference. That's probably.
+
+868
+01:24:37.190 --> 01:24:46.659
+Anthony Taylor: I mean, II think if you're not going to do, a visual difference might end up being the final result. Absolutely. Okay. So let's talk about
+
+869
+01:24:48.050 --> 01:24:50.060
+Anthony Taylor: how we're going to do that.
+
+870
+01:24:50.780 --> 01:24:56.950
+Anthony Taylor: Okay, so we're gonna of course, get. We started with our columns. I think we're pretty good there.
+
+871
+01:24:57.260 --> 01:24:59.500
+Anthony Taylor: Okay,
+
+872
+01:25:01.150 --> 01:25:04.709
+Anthony Taylor: wow. We need to come up with a way
+
+873
+01:25:05.250 --> 01:25:07.520
+Anthony Taylor: to make our
+
+874
+01:25:08.160 --> 01:25:09.990
+Anthony Taylor: stuff a little more readable.
+
+875
+01:25:10.440 --> 01:25:15.229
+Clayton Graves: Could you come up with, could you do like?
+
+876
+01:25:15.740 --> 01:25:19.859
+Clayton Graves: Could you do? The sum of each utility for each year?
+
+877
+01:25:20.880 --> 01:25:27.670
+Clayton Graves: Is that we could doable absolutely. I mean, it might be. And and it might be the answer actually. Or it might end up being the answer, absolutely.
+
+878
+01:25:28.080 --> 01:25:35.209
+Anthony Taylor: Okay. But let's let's start prepping our data a little bit. Because right now, we got this scientific notation data right?
+
+879
+01:25:35.420 --> 01:25:41.220
+Anthony Taylor: That's that's not particularly easy to read. Right? So let's see if we can't
+
+880
+01:25:41.480 --> 01:25:46.450
+Anthony Taylor: clean that up first. So we're going to scale the usage to be a little bit more readable.
+
+881
+01:25:46.850 --> 01:25:51.599
+Anthony Taylor:  And the water ones. We don't need to change at all.
+
+882
+01:25:51.880 --> 01:25:56.060
+Anthony Taylor: because the water is apparently not so bad.
+
+883
+01:25:56.640 --> 01:26:00.919
+Anthony Taylor: So what do we got so electricity gas, water? I'm assuming water.
+
+884
+01:26:01.180 --> 01:26:01.860
+Anthony Taylor: but
+
+885
+01:26:01.970 --> 01:26:06.759
+Anthony Taylor: I think the water ones are fine. Oh, here's some. So water is already in millions.
+
+886
+01:26:07.700 --> 01:26:11.160
+Anthony Taylor: Okay, we're gonna make all these other ones in millions. Also.
+
+887
+01:26:11.620 --> 01:26:16.549
+Anthony Taylor: So first thing we need to do is we're going to use our wicked cool apply.
+
+888
+01:26:17.100 --> 01:26:23.329
+Anthony Taylor: So we're going to create a function. So we're going to say, define scale
+
+889
+01:26:24.390 --> 01:26:26.660
+Anthony Taylor: to millions. Okay?
+
+890
+01:26:29.070 --> 01:26:31.940
+Anthony Taylor: And why did we come up with this? Well, I mean
+
+891
+01:26:32.290 --> 01:26:42.350
+Anthony Taylor: more. Because when we look at the data, it's in a totally. This is in millions of gallons. So this is, you know, 1 point well. 15. If you do the scientific notation
+
+892
+01:26:42.420 --> 01:26:45.950
+Anthony Taylor: right? 1 million gallons of water.
+
+893
+01:26:46.230 --> 01:26:48.279
+Anthony Taylor: While these are kilowatts.
+
+894
+01:26:48.450 --> 01:26:53.659
+Anthony Taylor: These are terms. So we want them all to be basically the same scale.
+
+895
+01:26:53.680 --> 01:27:01.070
+Anthony Taylor: Okay? So we're gonna say, Hey, we're gonna scale everything out except for water to
+
+896
+01:27:01.710 --> 01:27:04.930
+Anthony Taylor: a million. Okay, so we're going to say, if row
+
+897
+01:27:05.160 --> 01:27:06.530
+Anthony Taylor: utility
+
+898
+01:27:07.100 --> 01:27:11.660
+Anthony Taylor: don't want water, all right, is equal equal to water.
+
+899
+01:27:15.470 --> 01:27:18.200
+Anthony Taylor: We're gonna just return
+
+900
+01:27:18.290 --> 01:27:21.820
+Anthony Taylor: row. As it is, we're not even gonna bother. Okay, it's a row.
+
+901
+01:27:24.020 --> 01:27:31.770
+Baro, Sonja: Anthony would have been okay to just drop water out of your data frame. And and then
+
+902
+01:27:31.780 --> 01:27:34.660
+Anthony Taylor: I mean, yes, you could totally do that 100%.
+
+903
+01:27:34.770 --> 01:27:41.180
+Anthony Taylor: But you would have to add it back. So cause we're not getting rid of it. We just want to say, yeah, but that's a good question.
+
+904
+01:27:41.460 --> 01:27:51.590
+Anthony Taylor: Okay, so return row usage.  divided by a million men.
+
+905
+01:27:56.160 --> 01:28:00.329
+Anthony Taylor: That's 10, 1 0 0. That's 100,000.
+
+906
+01:28:00.510 --> 01:28:02.149
+Anthony Taylor: That's me. Okay.
+
+907
+01:28:02.220 --> 01:28:13.069
+Anthony Taylor: all right. So now, if it's not water, if it's water, it's just going to return the number. Otherwise it's going to return a million them. Okay? So to work with this.
+
+908
+01:28:13.130 --> 01:28:15.819
+Anthony Taylor: we're going to take our data frame
+
+909
+01:28:16.080 --> 01:28:19.390
+Anthony Taylor: and our usage column
+
+910
+01:28:21.300 --> 01:28:25.000
+Anthony Taylor: and set it equal to our data. Frame
+
+911
+01:28:26.050 --> 01:28:27.080
+Anthony Taylor: dots
+
+912
+01:28:27.100 --> 01:28:30.019
+Anthony Taylor: apply, I will hit the right button.
+
+913
+01:28:30.030 --> 01:28:33.580
+Anthony Taylor: Oh, my goodness! How many times I hit the wrong button! Apply
+
+914
+01:28:33.630 --> 01:28:37.449
+Anthony Taylor: and run our function scaled to millions.
+
+915
+01:28:37.590 --> 01:28:43.370
+Anthony Taylor: and we're going to pass in now. is this an axis? One or an axis? 0
+
+916
+01:28:45.250 --> 01:28:46.230
+Clayton Graves: one
+
+917
+01:28:46.360 --> 01:28:49.520
+Clayton Graves: one, because we're passing in the whole row
+
+918
+01:28:49.710 --> 01:29:03.639
+Anthony Taylor: right? So we need to do. Access was what okay? And then we'll take a look at what we've got. I'm going to do tail on this one, because water seems to be at the bottom.
+
+919
+01:29:05.930 --> 01:29:06.790
+Anthony Taylor: Okay?
+
+920
+01:29:07.150 --> 01:29:11.129
+Anthony Taylor:  I made a mistake. Huh!
+
+921
+01:29:14.900 --> 01:29:16.830
+Anthony Taylor: Nobody caught my mistake.
+
+922
+01:29:21.430 --> 01:29:22.860
+Anthony Taylor: What did I do wrong?
+
+923
+01:29:24.770 --> 01:29:27.670
+Gebrekristos, Hafton: You need to return usage instead of utility.
+
+924
+01:29:27.950 --> 01:29:37.480
+Anthony Taylor: Right there. Right? Thank you, sir. Okay. So now I have a bit of a problem, though, because I overwrote my data frame. So now I gotta go back up here and rerun.
+
+925
+01:29:38.230 --> 01:29:40.170
+Anthony Taylor: So I'm gonna rerun this cell
+
+926
+01:29:41.600 --> 01:29:45.350
+Anthony Taylor: now it's all back to normal. And now I can rerun this one.
+
+927
+01:29:47.300 --> 01:29:49.120
+Anthony Taylor: and there we go. That's much better.
+
+928
+01:29:49.760 --> 01:29:59.729
+Gebrekristos, Hafton: Anthony, would it be better if you use you need, in a state of on your function right to make it more general
+
+929
+01:30:00.060 --> 01:30:03.800
+Gebrekristos, Hafton: instead of Italy close to water. You need.
+
+930
+01:30:04.430 --> 01:30:06.690
+Gebrekristos, Hafton: how about using unit? Right?
+
+931
+01:30:16.410 --> 01:30:20.730
+Anthony Taylor: Right? I mean, I see where you're going with that. And and and actually, we're gonna
+
+932
+01:30:20.800 --> 01:30:25.889
+Anthony Taylor: we're gonna change the units right now also. But yeah, I mean, this is one of those
+
+933
+01:30:26.170 --> 01:30:36.849
+Anthony Taylor: again, 6 and one and a half dozen the other. You could use 1 million gallons, or you could use utility, what water? And it would work. But you would need to know at least that in your data, that that is the case.
+
+934
+01:30:36.860 --> 01:30:37.980
+Anthony Taylor: Now.
+
+935
+01:30:39.050 --> 01:30:48.119
+Anthony Taylor: obviously, if water had different units somewhere else, that would change it. Or if 1 million gallons showed up somewhere else, say they have a
+
+936
+01:30:48.410 --> 01:30:49.209
+Anthony Taylor: I don't know.
+
+937
+01:30:49.550 --> 01:30:53.520
+Anthony Taylor: Propane. I don't know. It's propane measured, and gallons is right.
+
+938
+01:30:54.290 --> 01:31:00.440
+Anthony Taylor: Okay, anyway. So now. Oh, sorry. Did you have more after
+
+939
+01:31:02.320 --> 01:31:07.989
+Meredith McCanse (she/her): Anthony, what's the error? Did this work, though? Cause what's the error message it's giving?
+
+940
+01:31:08.110 --> 01:31:13.690
+Anthony Taylor: It's a warning saying the value you're trying to be sent on a copy of a slice from a tative frame.
+
+941
+01:31:14.280 --> 01:31:18.830
+Anthony Taylor: yeah, I mean, we could have. So right.
+
+942
+01:31:19.780 --> 01:31:23.989
+Anthony Taylor: they they they use this function called copy
+
+943
+01:31:24.330 --> 01:31:36.720
+Anthony Taylor: we don't use it very often. So it was like, right here we could have done dot copy. And then that would eliminate that warning. Okay, all this does is instead of creating a slice
+
+944
+01:31:36.830 --> 01:31:41.730
+Anthony Taylor: of the data frame. it actually creates a copy of the data frame.
+
+945
+01:31:41.840 --> 01:31:45.280
+Anthony Taylor: And then that eliminates this crazy error.
+
+946
+01:31:46.300 --> 01:31:50.810
+Anthony Taylor: Okay, what does that mean? I. The best way to explain it is
+
+947
+01:31:51.050 --> 01:31:56.550
+Anthony Taylor: when you slice the data frame, the data frame is still sitting in memory, and you just took a slice like a pie.
+
+948
+01:31:56.830 --> 01:32:04.630
+Anthony Taylor: Okay, so you have this pie and add all those columns in it, and we only took 2, 3 of those columns. But the pie still exists
+
+949
+01:32:05.780 --> 01:32:10.700
+Anthony Taylor: alright. So when we make changes, it's saying, Hey, this could cause you problems downstream.
+
+950
+01:32:11.000 --> 01:32:19.720
+Anthony Taylor: Okay. if we do dot copy, we get a new pi. and we take those columns out, and the other pie is left alone.
+
+951
+01:32:20.360 --> 01:32:32.150
+Baro, Sonja: and that'd be just a best practice like, especially if we're messing with stuff is. you know, we kind of you keep a a safety if I can go back to this. If I screw this one up over here.
+
+952
+01:32:32.340 --> 01:32:40.260
+Anthony Taylor: it I mean, again, dealing with the small data like this. Not as much, but yes, it is a good practice.
+
+953
+01:32:40.370 --> 01:32:54.060
+Anthony Taylor:  I can tell you, in like very large scale situations. We we do copies all over the place and think about it. I just said very large scale, and we do copies
+
+954
+01:32:54.500 --> 01:33:03.819
+Anthony Taylor: right? So it takes up tons of storage and tons of memory, but we don't want to have to rerun everything. So yeah, you know. So so that's good. That's good.
+
+955
+01:33:04.020 --> 01:33:07.680
+Anthony Taylor: Alright. So the next thing we're gonna do
+
+956
+01:33:07.820 --> 01:33:09.680
+Anthony Taylor: now that we got rid of that warning.
+
+957
+01:33:09.860 --> 01:33:13.440
+Anthony Taylor: Okay, we're going to alter our units
+
+958
+01:33:13.600 --> 01:33:16.579
+Anthony Taylor: to match since we basically made them all.
+
+959
+01:33:16.620 --> 01:33:19.610
+Anthony Taylor:  basically 1 million.
+
+960
+01:33:19.620 --> 01:33:29.639
+Anthony Taylor: Okay. we need to do another apply. And this time we're going to basically add the word 1 million
+
+961
+01:33:29.660 --> 01:33:35.550
+Anthony Taylor: to all of our units that are not already 1 million. Does that make sense?
+
+962
+01:33:36.680 --> 01:33:40.680
+Clayton Graves: So we're gonna do millions, if not gallons
+
+963
+01:33:41.040 --> 01:33:42.540
+Anthony Taylor: pretty much
+
+964
+01:33:42.980 --> 01:33:51.549
+Anthony Taylor: pretty much. Well, we can still use utility, because right now we know that the only utility, or the only one that has millions in it is water.
+
+965
+01:33:51.900 --> 01:33:59.479
+Clayton Graves: so we can continue to use. If utility equals water, so we can say it, row, fix millions and millions of units.
+
+966
+01:34:00.590 --> 01:34:01.760
+Anthony Taylor: I'm sorry, sir.
+
+967
+01:34:01.860 --> 01:34:07.230
+Clayton Graves: Fix the word millions and your did II did legalize the millions
+
+968
+01:34:07.250 --> 01:34:11.969
+Anthony Taylor: millions. Maybe it could have been millions
+
+969
+01:34:12.270 --> 01:34:17.640
+Baro, Sonja: that would have been even better. Millions of units
+
+970
+01:34:17.800 --> 01:34:20.729
+Anthony Taylor: was water. And let me go fix that before.
+
+971
+01:34:21.950 --> 01:34:35.940
+Anthony Taylor: That's one of those typos utility. You need to throw a T in there. I missed that T all the time.
+
+972
+01:34:38.360 --> 01:34:43.349
+Anthony Taylor: Okay? And then so if this is the case, we're just gonna simply return
+
+973
+01:34:43.740 --> 01:34:44.840
+Anthony Taylor: pro.
+
+974
+01:34:46.000 --> 01:34:51.230
+Anthony Taylor: So we're just gonna return it. Cause it's already there. My typing is whack.
+
+975
+01:34:52.470 --> 01:34:54.489
+Maybe I should let somebody else drive.
+
+976
+01:34:54.950 --> 01:35:01.229
+Anthony Taylor: Okay? If it's not, we're going to. If it's not water, we're going to return
+
+977
+01:35:01.410 --> 01:35:06.850
+Anthony Taylor: the word 1 million. Okay, space
+
+978
+01:35:08.150 --> 01:35:15.500
+Anthony Taylor: plus the row. The value of the row units. Okay?
+
+979
+01:35:16.620 --> 01:35:22.520
+Anthony Taylor: And that's all you need for that. And now we're just going to apply it. So
+
+980
+01:35:22.530 --> 01:35:23.950
+Anthony Taylor: column
+
+981
+01:35:24.620 --> 01:35:30.760
+Anthony Taylor:  touched on it equals
+
+982
+01:35:31.360 --> 01:35:34.330
+Anthony Taylor: Nope rocket units. I'll get it right?
+
+983
+01:35:35.860 --> 01:35:37.460
+Anthony Taylor: Okay, equals.
+
+984
+01:35:38.650 --> 01:35:41.270
+Anthony Taylor: I'm really struggling. Okay,
+
+985
+01:35:43.360 --> 01:35:52.459
+Anthony Taylor: and apply. And then in here, we're going to pass in our function. So is this a row or a column axis, 0 axis one.
+
+986
+01:35:54.520 --> 01:35:59.620
+Anthony Taylor: That's kind of a tricky question. but you can tell by the function which one it should be.
+
+987
+01:36:00.490 --> 01:36:06.040
+Clayton Graves: Well, you're looking for water. So I'm thinking you're gonna have to look at the row
+
+988
+01:36:06.320 --> 01:36:11.820
+Anthony Taylor: the whole row. And actually the function. See how the function says, row, that's gonna that's a dead giveaway.
+
+989
+01:36:12.200 --> 01:36:20.840
+Anthony Taylor: Okay, we're going to need. I mean, it could say anything. It's a variable. But because we're looking at more than one column. It's going to usually be a row.
+
+990
+01:36:20.950 --> 01:36:21.860
+Anthony Taylor: Okay?
+
+991
+01:36:22.160 --> 01:36:24.749
+Anthony Taylor: Alright. So let's look at this one.
+
+992
+01:36:28.360 --> 01:36:32.539
+Anthony Taylor: And there we go. So now they all say, 1 million.
+
+993
+01:36:35.050 --> 01:36:36.170
+Anthony Taylor: Alright.
+
+994
+01:36:38.330 --> 01:36:45.050
+Anthony Taylor: okay. So combine utility. You did columns by putting units in parentheses.
+
+995
+01:36:47.190 --> 01:36:48.620
+Anthony Taylor: No, I'm not even gonna do that.
+
+996
+01:36:48.810 --> 01:37:03.259
+Anthony Taylor:  basically, they're saying, combine these 2 so that they're it's gas, 1 million therms, electricity, 1 million kilowatts in this column. I there's no that is strictly aesthetics. And that's not what we're here to do. So
+
+997
+01:37:03.280 --> 01:37:11.010
+Anthony Taylor: now we're going to create 2 data frames, one with 2,013 data
+
+998
+01:37:11.130 --> 01:37:12.330
+Anthony Taylor: and
+
+999
+01:37:12.560 --> 01:37:15.809
+Anthony Taylor: one with 2,018 data.
+
+1000
+01:37:17.280 --> 01:37:25.420
+Anthony Taylor: So first, we need a name of data frame. Right? So we'll do that. I'll do that part start thinking of what we got to do to make this happen.
+
+1001
+01:37:26.550 --> 01:37:30.409
+Anthony Taylor: Okay. so we know we're going to filter df, cleaning.
+
+1002
+01:37:31.570 --> 01:37:34.739
+Anthony Taylor: How are we gonna filter it? How do we filter a data frame?
+
+1003
+01:37:38.300 --> 01:37:39.690
+Anthony Taylor: Okay, Tanya.
+
+1004
+01:37:39.760 --> 01:37:41.050
+Anthony Taylor: that Luke.
+
+1005
+01:37:41.840 --> 01:37:45.029
+Anthony Taylor: okay, so and what are we gonna pass in
+
+1006
+01:37:47.280 --> 01:37:49.409
+Anthony Taylor: the data frame and column. Right?
+
+1007
+01:37:51.740 --> 01:37:57.060
+Anthony Taylor: We want year, cause we want to get just 2,013 so equals equals
+
+1008
+01:37:57.540 --> 01:38:10.409
+Anthony Taylor: 2,013. And what columns do we want? Well, they're combining. They remember they combined utility and unit. We're gonna bring in utility and unit separate. Or also.
+
+1009
+01:38:10.420 --> 01:38:12.920
+Anthony Taylor: so we're gonna have utility
+
+1010
+01:38:15.410 --> 01:38:20.379
+Anthony Taylor: comma unit comma usage.
+
+1011
+01:38:22.120 --> 01:38:24.579
+Anthony Taylor: Okay? So that'll create
+
+1012
+01:38:24.840 --> 01:38:29.359
+Anthony Taylor: are like, now remember that whole copy thing.
+
+1013
+01:38:29.620 --> 01:38:35.059
+Anthony Taylor: since since I think it was, Simon pointed out, this would be a good practice. We're going to do it again.
+
+1014
+01:38:36.160 --> 01:38:49.400
+Anthony Taylor: We're gonna make a copy. We're gonna make a new pie. Okay. and we're also gonna set our index to utility, and we'll talk about why in a second. unless you can think of a reason why we might want to do that.
+
+1015
+01:38:53.720 --> 01:38:54.620
+Anthony Taylor: Okay.
+
+1016
+01:38:56.080 --> 01:39:00.029
+Anthony Taylor: so there's one. Now, I'm just gonna go.
+
+1017
+01:39:02.340 --> 01:39:03.180
+Baro, Sonja: So
+
+1018
+01:39:03.490 --> 01:39:10.470
+Baro, Sonja: Anthony, setting the index means you're gonna move the left hand column to be utility
+
+1019
+01:39:10.640 --> 01:39:18.180
+Anthony Taylor: right? So instead of the index, one through 559. It's going to be the utility name.
+
+1020
+01:39:18.710 --> 01:39:19.640
+Anthony Taylor: Okay?
+
+1021
+01:39:20.200 --> 01:39:22.809
+Anthony Taylor: So I just copied
+
+1022
+01:39:24.500 --> 01:39:30.210
+Anthony Taylor: the 13 that whole line. And I'm going to change it. Painting.
+
+1023
+01:39:31.640 --> 01:39:32.460
+Anthony Taylor: that's it.
+
+1024
+01:39:34.410 --> 01:39:40.819
+Anthony Taylor: Okay, and you know what? Let's make these names of one. Let's add clean.
+
+1025
+01:39:41.020 --> 01:39:49.129
+Anthony Taylor: So df, underscore clean as we cleaned up the numbers so that it's a little clear that we did this work
+
+1026
+01:39:51.180 --> 01:39:53.810
+Anthony Taylor: alright. So with that.
+
+1027
+01:39:55.710 --> 01:39:58.659
+Anthony Taylor: we'll look at one of them doesn't matter which.
+
+1028
+01:40:12.210 --> 01:40:15.950
+Anthony Taylor: So since it's making a copy, it's gonna take a little longer to do it. Oh.
+
+1029
+01:40:21.840 --> 01:40:23.780
+Anthony Taylor: are they? Gonna make me do that
+
+1030
+01:40:24.800 --> 01:40:25.510
+alright.
+
+1031
+01:40:26.210 --> 01:40:31.910
+Anthony Taylor: and it's called oh, it's called units. My bad. not unit units.
+
+1032
+01:40:35.710 --> 01:40:37.390
+Anthony Taylor: There we go. Try again.
+
+1033
+01:40:44.180 --> 01:40:47.889
+Anthony Taylor: Here we go. So now you can see the utility is
+
+1034
+01:40:48.520 --> 01:40:53.469
+Anthony Taylor: the index. Okay? Now it says, analyze
+
+1035
+01:40:53.810 --> 01:40:57.130
+Anthony Taylor:  And what we want
+
+1036
+01:40:57.430 --> 01:41:02.900
+Anthony Taylor: is the totals for each utility.
+
+1037
+01:41:05.290 --> 01:41:06.460
+Anthony Taylor: Okay.
+
+1038
+01:41:06.980 --> 01:41:14.859
+Clayton Graves: you're gonna work with 2 columns again, this time utility and usage correct. So you're gonna want an axis one.
+
+1039
+01:41:16.130 --> 01:41:17.110
+Anthony Taylor: Okay.
+
+1040
+01:41:17.450 --> 01:41:29.009
+Anthony Taylor: I like that. Well, that's if we were doing an apply. We don't actually what we really just need to do is isolate the utilities and get a sum right. So first let's get.
+
+1041
+01:41:29.510 --> 01:41:31.710
+Anthony Taylor: let's create
+
+1042
+01:41:32.590 --> 01:41:37.040
+Anthony Taylor: variable. And for this we're going to take 2,013.
+
+1043
+01:41:39.920 --> 01:41:46.500
+Anthony Taylor: As if we know these are basically gonna be the same, we're gonna say, take that index and give me the unique values.
+
+1044
+01:41:47.820 --> 01:41:50.519
+Anthony Taylor: Okay. so we have that.
+
+1045
+01:41:50.530 --> 01:41:56.859
+Anthony Taylor: And then we're going to create a dictionary object
+
+1046
+01:41:57.200 --> 01:42:03.799
+Clayton Graves: that you're not calling unique. There, it's thank you. Mr. Man is on fire today.
+
+1047
+01:42:04.030 --> 01:42:07.090
+Anthony Taylor: Nice work. love that.
+
+1048
+01:42:07.100 --> 01:42:12.559
+Baro, Sonja: Okay, get off of there
+
+1049
+01:42:12.950 --> 01:42:18.140
+Baro, Sonja: he is. He's on fire. He's on fire. He's totally on fire.
+
+1050
+01:42:18.510 --> 01:42:23.379
+Anthony Taylor: Okay? So I'm gonna create this. I'm gonna create like a seed
+
+1051
+01:42:23.640 --> 01:42:28.009
+Anthony Taylor: for. And it's a dictionary object. And I'm gonna start it
+
+1052
+01:42:28.230 --> 01:42:29.720
+Anthony Taylor: with period.
+
+1053
+01:42:30.720 --> 01:42:34.270
+Anthony Taylor: Call in 2,013.
+
+1054
+01:42:34.460 --> 01:42:36.749
+Anthony Taylor: Okay, I'm going to copy this.
+
+1055
+01:42:37.850 --> 01:42:40.030
+Anthony Taylor: If my mouse is working in there, we go
+
+1056
+01:42:40.910 --> 01:42:44.630
+Anthony Taylor: create another one for 2,018. Okay.
+
+1057
+01:42:45.220 --> 01:42:55.450
+Anthony Taylor: so we're only starting this, this is gonna hold our data. Okay? And this isn't something you've seen before. So don't worry. If you're like, well, why would we do that? It's just a way to do it.
+
+1058
+01:42:56.020 --> 01:42:58.569
+Anthony Taylor: Okay, you could do this a couple of ways.
+
+1059
+01:42:58.590 --> 01:43:01.720
+Anthony Taylor: We're just kind of giving you an example of a way to do it.
+
+1060
+01:43:01.850 --> 01:43:05.470
+Anthony Taylor: Alright. So now we're gonna loop through
+
+1061
+01:43:05.550 --> 01:43:13.310
+Anthony Taylor: our list of utilities. So use of utility is going to be all utilities one time, right? Because it's unique.
+
+1062
+01:43:13.360 --> 01:43:15.210
+Anthony Taylor: So we're gonna loop through this.
+
+1063
+01:43:20.580 --> 01:43:21.280
+there we go.
+
+1064
+01:43:21.820 --> 01:43:26.059
+Anthony Taylor: And for each one of these we're gonna sum
+
+1065
+01:43:27.910 --> 01:43:40.560
+Anthony Taylor: that data. Okay? So we're gonna say, totals. And what am I? What is this I just wrote. this is that dictionary. Right? So totals
+
+1066
+01:43:41.350 --> 01:43:42.510
+Anthony Taylor: pass in
+
+1067
+01:43:43.560 --> 01:43:44.800
+Anthony Taylor: a key
+
+1068
+01:43:44.920 --> 01:43:46.900
+Anthony Taylor: of utility.
+
+1069
+01:43:48.060 --> 01:43:59.800
+Anthony Taylor: Okay? And that's going to be equal to utils. Underscore 2,013, Luke
+
+1070
+01:44:00.910 --> 01:44:05.820
+Anthony Taylor: Bracket utility comma
+
+1071
+01:44:06.940 --> 01:44:08.260
+Anthony Taylor: usage.
+
+1072
+01:44:08.330 --> 01:44:15.280
+Anthony Taylor: Remember this. So utility gives us the row usage gives us the column, dot
+
+1073
+01:44:15.410 --> 01:44:16.410
+Anthony Taylor: some.
+
+1074
+01:44:17.410 --> 01:44:25.310
+Anthony Taylor: So let's let's just walk through this line. So we're going to put in this dictionary a new key called utility. Actually.
+
+1075
+01:44:26.990 --> 01:44:33.540
+Anthony Taylor: is this right? Should I leave it? The word utility like that? Anybody want to correct that? Or is that okay? You think.
+
+1076
+01:44:35.350 --> 01:44:36.789
+Anthony Taylor: Derek, do you have a headache?
+
+1077
+01:44:39.860 --> 01:44:55.429
+Anthony Taylor: I always looked. I looked to Derek and Matt. And these guys is this is, this is a little bit of an advanced thing right here. So should that be in quotes, or shouldn't it be what you guys think it's a column, right? So it should be in quotes
+
+1078
+01:44:55.440 --> 01:44:59.820
+Anthony Taylor: it should be. But remember, what I'm doing is I'm adding it as a key
+
+1079
+01:44:59.910 --> 01:45:08.559
+Anthony Taylor: to this dictionary. What I really want to put here is the utility itself. So either gas, electricity, water.
+
+1080
+01:45:09.510 --> 01:45:11.469
+Anthony Taylor: right? So what do you guys think
+
+1081
+01:45:11.510 --> 01:45:13.059
+Anthony Taylor: quotes or no quotes
+
+1082
+01:45:14.460 --> 01:45:20.640
+Anthony Taylor: no, quotes Natalie. Very good. Okay. What we really want there is
+
+1083
+01:45:21.490 --> 01:45:24.570
+Anthony Taylor: the value of the variable utility
+
+1084
+01:45:24.930 --> 01:45:26.700
+Anthony Taylor: and a spell it by the course.
+
+1085
+01:45:27.750 --> 01:45:28.540
+Anthony Taylor: Oh.
+
+1086
+01:45:29.110 --> 01:45:35.879
+Anthony Taylor: okay, so now it's gonna put totals, 2,013 gas totals, 2,013. Electricity
+
+1087
+01:45:35.910 --> 01:45:38.010
+Anthony Taylor: total's 2,013 water.
+
+1088
+01:45:38.080 --> 01:45:43.180
+Anthony Taylor: Okay? And then over here, we're saying, search by utility
+
+1089
+01:45:43.960 --> 01:45:47.320
+Anthony Taylor: and then take the usage column and sum it up
+
+1090
+01:45:47.820 --> 01:45:56.670
+Clayton Graves: alright. We're gonna do the same. Sorry, after after the clean Dotloc you were talking about utility being a row right there.
+
+1091
+01:45:56.720 --> 01:46:06.109
+Clayton Graves: Correct. So this first one is the row, the filter. Every time I've seen a row call in the activities we actually had to specify row.
+
+1092
+01:46:06.260 --> 01:46:16.289
+Anthony Taylor: correct. Well, with Locke, we we really didn't with Loc, because, remember, loc is the condition. But the reason we set the index
+
+1093
+01:46:16.950 --> 01:46:27.659
+Anthony Taylor: is, if you if you're using low, you can call the index, and you don't need to give it a condition. It's whatever the value of the index is. So in this case it's going to say.
+
+1094
+01:46:27.670 --> 01:46:31.530
+Anthony Taylor: water. Locate all of the rows with water
+
+1095
+01:46:31.690 --> 01:46:34.150
+Anthony Taylor: and sum the usage column.
+
+1096
+01:46:35.560 --> 01:46:42.499
+Anthony Taylor: See how that works. We're by the way we're gonna get into group buy and aggregates and all that stuff like next week. But
+
+1097
+01:46:42.530 --> 01:46:53.690
+Clayton Graves: this is how we're gonna do it today. The short answer is because it's the index we don't have to worry about exactly. We don't need to worry about it, because with we can turn index without a condition.
+
+1098
+01:46:54.200 --> 01:46:58.540
+Anthony Taylor: Okay? So when we're done with this, we're gonna print
+
+1099
+01:46:58.990 --> 01:47:03.429
+Anthony Taylor: total. So we're gonna print these little dictionaries, 2,018
+
+1100
+01:47:03.790 --> 01:47:07.400
+Anthony Taylor: and OS
+
+1101
+01:47:09.360 --> 01:47:12.230
+Anthony Taylor: 2,013. Okay.
+
+1102
+01:47:13.510 --> 01:47:17.399
+Anthony Taylor: think alright. So if everything was coated beautifully.
+
+1103
+01:47:20.050 --> 01:47:21.489
+Anthony Taylor: we will see
+
+1104
+01:47:21.710 --> 01:47:30.639
+Anthony Taylor: passengers 57 45. Now remember, they're upside down, 3.8 3.6. Electricity, 3, 33, 11, water, 3, 94, 10.
+
+1105
+01:47:31.290 --> 01:47:34.230
+Anthony Taylor: I think we're getting pretty close here. Guys.
+
+1106
+01:47:34.470 --> 01:47:40.550
+Anthony Taylor:  so for the last part of this, this is pretty
+
+1107
+01:47:40.990 --> 01:47:44.610
+Anthony Taylor: hefty function. Calculate the change per utility
+
+1108
+01:47:44.850 --> 01:47:50.319
+Anthony Taylor: as a percentage of each utilities. 2,013 total.
+
+1109
+01:47:51.050 --> 01:47:57.139
+Anthony Taylor: Okay, so we're going to start with a function. Let's just get that out of the way. And it's going to be called get percentage.
+
+1110
+01:48:01.660 --> 01:48:08.600
+Anthony Taylor: And into that we're gonna pass 2 values, the original value and the final value.
+
+1111
+01:48:09.470 --> 01:48:17.449
+Anthony Taylor: Alright. And from there we're gonna return. And this is just a generic function. By the way, round
+
+1112
+01:48:17.830 --> 01:48:20.140
+Anthony Taylor: final
+
+1113
+01:48:21.220 --> 01:48:23.050
+Anthony Taylor: minus original.
+
+1114
+01:48:24.050 --> 01:48:25.790
+Anthony Taylor: divided by
+
+1115
+01:48:27.150 --> 01:48:28.510
+Anthony Taylor: original
+
+1116
+01:48:29.560 --> 01:48:35.680
+Anthony Taylor: round when we're rounding it. So rounded to 3 places divided times 100.
+
+1117
+01:48:36.810 --> 01:48:41.740
+Anthony Taylor: Okay, so this is just getting a percentage we could pass anything in here
+
+1118
+01:48:42.450 --> 01:48:45.329
+Clayton Graves: you're missing. You're missing in parentheses.
+
+1119
+01:48:45.720 --> 01:48:47.429
+Anthony Taylor: I don't want good fish today.
+
+1120
+01:48:50.890 --> 01:48:55.399
+Clayton Graves: Which one am I missing? That's a close.
+
+1121
+01:48:57.280 --> 01:48:59.579
+Baro, Sonja: you good Mister man.
+
+1122
+01:49:02.330 --> 01:49:04.800
+Clayton Graves: you need an open and a closed man.
+
+1123
+01:49:04.820 --> 01:49:08.270
+Anthony Taylor: I need 2 parentheses. Look at that.
+
+1124
+01:49:10.150 --> 01:49:14.019
+Anthony Taylor: Okay. alright. that looks good.
+
+1125
+01:49:14.440 --> 01:49:19.480
+Anthony Taylor: Okay, so then we're gonna create a list to hold some data
+
+1126
+01:49:20.730 --> 01:49:22.049
+Anthony Taylor: got that
+
+1127
+01:49:22.310 --> 01:49:24.890
+Anthony Taylor: smooth that up so everybody can see what's happening.
+
+1128
+01:49:25.450 --> 01:49:29.689
+Anthony Taylor: Alright, here we go. So we're gonna say, for utility
+
+1129
+01:49:30.370 --> 01:49:33.979
+Anthony Taylor: in 2,013
+
+1130
+01:49:34.220 --> 01:49:40.879
+Anthony Taylor: sorry totals. So we're going to use that little dictionary we just created. And we want the keys
+
+1131
+01:49:42.020 --> 01:49:51.019
+Anthony Taylor: alright. So we have that. And we're gonna say, if utility equals equals period.
+
+1132
+01:49:53.440 --> 01:49:57.849
+Anthony Taylor: and I'd have to look and see why this matters just pass. Don't do anything.
+
+1133
+01:49:57.930 --> 01:50:01.560
+Anthony Taylor: So oh, period, is this okay, that makes sense. The
+
+1134
+01:50:01.740 --> 01:50:08.920
+Anthony Taylor: So period is 2,018, 2,013. We don't need that information. We don't need to calculate that. So we're just going to skip that. So we'll just go to the next one.
+
+1135
+01:50:09.240 --> 01:50:15.930
+Anthony Taylor: Then we're gonna say original. So what's the original value? 2,013?
+
+1136
+01:50:16.300 --> 01:50:18.820
+Anthony Taylor: All right, I know, I answered, that for you, but
+
+1137
+01:50:18.900 --> 01:50:24.180
+Anthony Taylor: distressing, that's what it is. Total's 2,013 racket
+
+1138
+01:50:24.540 --> 01:50:28.419
+Anthony Taylor: utility. No. Is this supposed to be in quotes or no.
+
+1139
+01:50:30.030 --> 01:50:33.709
+Anthony Taylor: no quotes. Look at you guys, you guys are on fire.
+
+1140
+01:50:34.650 --> 01:50:39.790
+Anthony Taylor: I hope you guys are just watching this because this is a lot of typing. Even, I think it's a lot of tight.
+
+1141
+01:50:40.300 --> 01:50:46.620
+Anthony Taylor: Okay, final equals, totals underscore, 2,018
+
+1142
+01:50:47.030 --> 01:50:49.490
+Anthony Taylor: bracket utility.
+
+1143
+01:50:51.460 --> 01:50:54.859
+Anthony Taylor: Okay? So now we have our original. We have our final.
+
+1144
+01:50:55.780 --> 01:51:07.679
+Anthony Taylor: So we have pretty much enough to create our function. But we're gonna go a step further than this. We're gonna say, row equals, we're gonna create a dictionary object.
+
+1145
+01:51:07.860 --> 01:51:12.930
+Anthony Taylor: and we're gonna pass in utility. So we're gonna pass in some keys.
+
+1146
+01:51:14.540 --> 01:51:18.539
+Anthony Taylor: First, one's going to be utility. And we're passing that value comma.
+
+1147
+01:51:18.650 --> 01:51:20.959
+Anthony Taylor: And we're going to pass in 2,013.
+
+1148
+01:51:23.050 --> 01:51:26.240
+Anthony Taylor: And for that we're going to pass round
+
+1149
+01:51:26.950 --> 01:51:30.420
+Anthony Taylor: original. And we're gonna round it to one place.
+
+1150
+01:51:33.150 --> 01:51:35.559
+Anthony Taylor: Okay, everybody follow that so far.
+
+1151
+01:51:36.100 --> 01:51:51.149
+Anthony Taylor: so 2,000 member, we said, original is totals for 2,013. So now we'll do 2,018, and for that we're going to round final. So this is basically just going to show us what numbers we're going to use for our calculation.
+
+1152
+01:51:51.480 --> 01:51:53.879
+Anthony Taylor: And we're going to output them. So we can read them.
+
+1153
+01:51:54.100 --> 01:51:54.950
+Okay.
+
+1154
+01:51:55.100 --> 01:51:57.670
+Anthony Taylor: and then the difference.
+
+1155
+01:51:59.750 --> 01:52:06.930
+Anthony Taylor: how would we get the difference here between 2,013 or more accurately original and final.
+
+1156
+01:52:08.900 --> 01:52:09.789
+Anthony Taylor: And, bye.
+
+1157
+01:52:13.770 --> 01:52:15.600
+Anthony Taylor: how about this? I'll give you a round
+
+1158
+01:52:18.160 --> 01:52:20.680
+Anthony Taylor: about final minus original. Come on.
+
+1159
+01:52:22.320 --> 01:52:24.430
+Anthony Taylor: We want the difference between the 2.
+
+1160
+01:52:25.490 --> 01:52:30.000
+Anthony Taylor: Okay? And then, last, but not least, we're gonna do change percentage.
+
+1161
+01:52:30.020 --> 01:52:32.319
+Anthony Taylor: And how are we going to get the change percentage
+
+1162
+01:52:35.170 --> 01:52:36.820
+Gebrekristos, Hafton: call, call the function.
+
+1163
+01:52:37.220 --> 01:52:40.619
+Anthony Taylor: call that cool function up at the top. So we're gonna do get
+
+1164
+01:52:41.130 --> 01:52:49.550
+Anthony Taylor: underscore percentage. We're going to pass in original comma final.
+
+1165
+01:52:51.570 --> 01:52:52.859
+Anthony Taylor: That's a lot of stuff.
+
+1166
+01:52:53.240 --> 01:52:54.110
+So
+
+1167
+01:52:54.800 --> 01:52:56.669
+Anthony Taylor: I hear a lot of silence.
+
+1168
+01:52:56.810 --> 01:52:59.880
+Baro, Sonja: Fix your original spell. It'll fail on you.
+
+1169
+01:53:00.290 --> 01:53:01.450
+Anthony Taylor: Tom Bryant.
+
+1170
+01:53:01.790 --> 01:53:02.570
+Anthony Taylor: to.
+
+1171
+01:53:03.480 --> 01:53:06.979
+Baro, Sonja: I just don't wanna see all that hard work and get an error.
+
+1172
+01:53:07.780 --> 01:53:13.800
+Anthony Taylor: Okay, so does anyone wait? We got one more step
+
+1173
+01:53:14.580 --> 01:53:17.880
+Clayton Graves: that we're gonna do here. Well, to understand?
+
+1174
+01:53:18.400 --> 01:53:19.690
+Anthony Taylor: No.
+
+1175
+01:53:20.170 --> 01:53:26.209
+Anthony Taylor: that's that's probably not. PC, okay, so append
+
+1176
+01:53:26.970 --> 01:53:30.890
+Anthony Taylor: row. So what's that mean? So to this list.
+
+1177
+01:53:32.370 --> 01:53:37.190
+Anthony Taylor: I am going to append this row. And what is this Row
+
+1178
+01:53:40.420 --> 01:53:41.430
+Vasquez, Gabriel: Dictionary?
+
+1179
+01:53:41.740 --> 01:53:47.110
+Anthony Taylor: And so, if I'm appending a dictionary to a list.
+
+1180
+01:53:47.290 --> 01:53:49.650
+Anthony Taylor: Does that mean? I could create a data frame
+
+1181
+01:53:51.560 --> 01:53:54.220
+Anthony Taylor: because I would have a list of
+
+1182
+01:53:56.100 --> 01:53:58.960
+Anthony Taylor: my favorite list of dictionaries.
+
+1183
+01:53:59.660 --> 01:54:00.730
+Anthony Taylor: right?
+
+1184
+01:54:02.320 --> 01:54:03.660
+Anthony Taylor: Capital FA.
+
+1185
+01:54:05.060 --> 01:54:10.910
+Anthony Taylor: And then we'll pass in the list. And then when we're done, we can do ahead
+
+1186
+01:54:20.750 --> 01:54:22.580
+Anthony Taylor: and fun
+
+1187
+01:54:24.310 --> 01:54:25.979
+Anthony Taylor: all began. It worked.
+
+1188
+01:54:27.660 --> 01:54:29.139
+Anthony Taylor: That's practically a miracle.
+
+1189
+01:54:30.770 --> 01:54:37.510
+Anthony Taylor: Okay, so let's so first off. Do you want me to go through this step by step, and explain again what we did here?
+
+1190
+01:54:38.180 --> 01:54:42.030
+Mason, Natalie: Yes, please. But also, are you saying that it's
+
+1191
+01:54:59.210 --> 01:55:03.799
+Anthony Taylor: no. I mean, it's just a lot of code. right? One of the actually.
+
+1192
+01:55:05.030 --> 01:55:08.549
+Anthony Taylor: I've shown you guys like real code before, right
+
+1193
+01:55:09.610 --> 01:55:11.110
+Anthony Taylor: like from my work.
+
+1194
+01:55:12.470 --> 01:55:13.830
+Anthony Taylor: I did, didn't I?
+
+1195
+01:55:14.380 --> 01:55:25.019
+Anthony Taylor: Maybe after maybe after cause I have, because my, where computer is the Anthony that's on the screen that doesn't have a picture. So I actually have it on. And I can show you some stuff if you want to see.
+
+1196
+01:55:25.120 --> 01:55:31.460
+Anthony Taylor: But anyway, so let's go through this again. Get percentage does nothing more than calculate percentage. You could pass any 2 numbers in here.
+
+1197
+01:55:33.350 --> 01:55:35.509
+Anthony Taylor: and it will, it will determine
+
+1198
+01:55:35.710 --> 01:55:38.880
+Anthony Taylor: the percentage difference in those 2 numbers.
+
+1199
+01:55:39.050 --> 01:55:41.310
+Anthony Taylor: Data is just an empty list
+
+1200
+01:55:41.700 --> 01:55:51.689
+Anthony Taylor: here. We're going to go through all of the utility values in the totals. 2,013 dictionary, which isn't very much passengers. Gas, electricity, water.
+
+1201
+01:55:52.720 --> 01:55:54.050
+Anthony Taylor: right?
+
+1202
+01:55:54.840 --> 01:55:58.990
+Anthony Taylor:  and then
+
+1203
+01:56:00.750 --> 01:56:14.939
+Anthony Taylor: we're going to create a dictionary with the output. those values. So we have the utility. So it would be like. For the first one passengers. the original would be the passengers from 2,013
+
+1204
+01:56:15.200 --> 01:56:26.890
+Anthony Taylor: final passengers from 2,018 round final, minus original. I'm sorry difference change percent. We're going to run our cool function and get the percentage difference in the 2.
+
+1205
+01:56:28.210 --> 01:56:34.660
+Anthony Taylor: We're going to append this dictionary to our list, giving us a list of dictionaries
+
+1206
+01:56:34.950 --> 01:56:40.590
+Anthony Taylor: with that list of dictionaries. We're going to create a data frame and then take a look at it.
+
+1207
+01:56:41.660 --> 01:56:45.280
+Anthony Taylor: Alright. And there you go. And this is the output.
+
+1208
+01:56:46.250 --> 01:56:49.780
+Anthony Taylor: Okay? So we're getting really close to being able to tell
+
+1209
+01:56:50.140 --> 01:56:52.160
+Anthony Taylor: the usage difference
+
+1210
+01:56:53.040 --> 01:56:57.830
+Anthony Taylor: of 2,013, 2,018 right? I would say we pretty much have.
+
+1211
+01:56:58.150 --> 01:57:04.379
+Anthony Taylor: In fact, the only thing I think, that we can do to make this a little more
+
+1212
+01:57:04.440 --> 01:57:10.519
+Anthony Taylor: is, let's set the index to utility, and then let's sort it on utility.
+
+1213
+01:57:10.910 --> 01:57:12.500
+Anthony Taylor: And then we're pretty much good.
+
+1214
+01:57:13.950 --> 01:57:22.099
+Anthony Taylor: Okay, so let's do that. So for this, we'll do summary. Df equals. Summary.
+
+1215
+01:57:22.230 --> 01:57:25.349
+Anthony Taylor: Yeah. Set index
+
+1216
+01:57:26.720 --> 01:57:28.990
+Anthony Taylor: to utility
+
+1217
+01:57:30.170 --> 01:57:32.349
+Anthony Taylor: is this, one need to be in quotes or no.
+
+1218
+01:57:34.420 --> 01:57:36.350
+Anthony Taylor: Yes, very good.
+
+1219
+01:57:36.620 --> 01:57:41.059
+Anthony Taylor: Okay. And then, when that's done. We're just going to do something.
+
+1220
+01:57:41.400 --> 01:57:43.400
+Anthony Taylor: Yeah, equals something.
+
+1221
+01:57:46.640 --> 01:57:55.110
+Anthony Taylor: Yeah, dot sort underscore values. And we're gonna sort by
+
+1222
+01:57:57.810 --> 01:57:59.100
+Anthony Taylor: the change percentage.
+
+1223
+01:58:04.100 --> 01:58:07.650
+Anthony Taylor: And we want this in
+
+1224
+01:58:11.190 --> 01:58:12.860
+Anthony Taylor: descending order.
+
+1225
+01:58:13.920 --> 01:58:16.260
+Anthony Taylor: So we'll do. Do we need to do anything
+
+1226
+01:58:18.480 --> 01:58:20.419
+Clayton Graves: ascending equals? No
+
+1227
+01:58:21.120 --> 01:58:23.630
+Baro, Sonja: or false? Oh, that works. That's right.
+
+1228
+01:58:24.750 --> 01:58:25.730
+Anthony Taylor: false.
+
+1229
+01:58:26.460 --> 01:58:30.249
+Anthony Taylor: Okay, so then we can just output it.
+
+1230
+01:58:30.270 --> 01:58:33.720
+Anthony Taylor: And we sure
+
+1231
+01:58:35.420 --> 01:58:36.300
+Anthony Taylor: you done.
+
+1232
+01:58:37.730 --> 01:58:46.269
+Anthony Taylor: And so we can see passengers 28.4% change water, 4.9 electricity down gas down
+
+1233
+01:58:46.420 --> 01:58:47.350
+Anthony Taylor: Tristan.
+
+1234
+01:58:49.390 --> 01:59:00.059
+Anthony Taylor: So the summary. the number of passengers using the airport grew 28% in just 5 short years. Water consumption rose slightly at 4.9%.
+
+1235
+01:59:00.080 --> 01:59:10.650
+Anthony Taylor: But despite the increase in airport traffic, electricity and gas stages were both down compared to 2,013, with gas leading the charge at a 6.8% decline
+
+1236
+01:59:15.120 --> 01:59:16.940
+Anthony Taylor: da.
+
+1237
+01:59:19.050 --> 01:59:24.950
+Anthony Taylor: so that's and and and I know. So let me guess what some of you are thinking.
+
+1238
+01:59:25.360 --> 01:59:29.230
+Anthony Taylor:  okay, that was cool.
+
+1239
+01:59:29.570 --> 01:59:31.190
+Anthony Taylor: How would I know to do all that?
+
+1240
+01:59:32.290 --> 01:59:36.180
+Anthony Taylor: Is that why, any of you thinkin that? Besides, Natalie? Okay, good.
+
+1241
+01:59:37.570 --> 01:59:39.180
+Anthony Taylor: The answer is
+
+1242
+01:59:40.670 --> 01:59:46.450
+Anthony Taylor: practice. You just have to break it apart. So we had to come up with
+
+1243
+01:59:46.510 --> 01:59:52.549
+Anthony Taylor: at the beginning, and then I probably should have spent more time explaining what we wanted to achieve.
+
+1244
+01:59:52.780 --> 01:59:56.009
+Anthony Taylor: I mean, we knew what the question was, and we we kind of took that apart.
+
+1245
+01:59:56.330 --> 01:59:59.880
+Anthony Taylor: And remember, I mean, we started with this.
+
+1246
+02:00:01.250 --> 02:00:14.150
+Anthony Taylor: and it's like, well, how do we come up with the usage difference? So first thing we did, we came up with the columns. That meant something. Well, clearly, we needed year. Utility units turned out to be important and usage.
+
+1247
+02:00:14.340 --> 02:00:19.709
+Anthony Taylor: Obviously, these other ones, we didn't really care. We don't need month, month, number, or owner didn't matter
+
+1248
+02:00:20.110 --> 02:00:24.199
+Anthony Taylor: alright, so once we pulled those out.
+
+1249
+02:00:24.400 --> 02:00:34.030
+Anthony Taylor: we then were able to standardize our numbers to a measure that made so that they looked correct, and by the way, standardization of numbers is something you're going to see again.
+
+1250
+02:00:35.060 --> 02:00:43.670
+Anthony Taylor: Because in machine learning, you can't have like numbers, like measurements and feet compared to measurements in millimeters.
+
+1251
+02:00:44.720 --> 02:00:50.700
+Anthony Taylor: Bad. Okay, so we're going to learn to scale again later in a much more scientific way.
+
+1252
+02:00:50.990 --> 02:00:58.930
+Anthony Taylor: Okay? So we divided everything by a million that made everything in except for water, which was already in millions.
+
+1253
+02:00:59.020 --> 02:01:00.490
+Anthony Taylor: and that gave us
+
+1254
+02:01:00.820 --> 02:01:05.919
+Anthony Taylor: what we needed. You know, a standardized value more or less. Okay.
+
+1255
+02:01:06.070 --> 02:01:19.140
+Anthony Taylor: once we did that we had everything in millions. We changed the units which we ended up not using anyway, because I didn't combine them. as you guys will see in the solution when you get it. They actually combined utility and units. I didn't see a point in that
+
+1256
+02:01:19.450 --> 02:01:22.590
+Anthony Taylor: so we brought that in
+
+1257
+02:01:22.820 --> 02:01:32.330
+Anthony Taylor: giving us just the 3 columns that really were important to us. But one for 2,013, and one for 2,018, cause those are what we were comparing
+
+1258
+02:01:33.390 --> 02:01:36.010
+Anthony Taylor: with that we.
+
+1259
+02:01:36.060 --> 02:01:41.480
+Anthony Taylor: we summed the totals of each utility through them into a dictionary.
+
+1260
+02:01:41.840 --> 02:01:46.789
+Anthony Taylor: And then we cycle through that dictionary to get our percent change and our differences
+
+1261
+02:01:47.060 --> 02:01:56.330
+Anthony Taylor: and create a new data frame with utility. year difference and change which allowed us to answer the question.
+
+1262
+02:01:56.470 --> 02:02:01.879
+Anthony Taylor: why was the difference, you know, in our utility usage over a 5 year period.
+
+1263
+02:02:07.420 --> 02:02:08.660
+Anthony Taylor: It is.
+
+1264
+02:02:10.360 --> 02:02:15.070
+Anthony Taylor: is it? Does anybody work in utilities or airports? No.
+
+1265
+02:02:15.350 --> 02:02:27.799
+Anthony Taylor: okay. So I know II don't wanna pick on Meredith. I could pick on micro Meredith a little bit on this one, so I know Meredith has been a Cpa. I know Mike does a trucking company right.
+
+1266
+02:02:28.880 --> 02:02:31.309
+Anthony Taylor: If we change the question
+
+1267
+02:02:31.430 --> 02:02:34.890
+Anthony Taylor: to make sense to their domains.
+
+1268
+02:02:36.220 --> 02:02:38.150
+Anthony Taylor: they would probably know
+
+1269
+02:02:38.340 --> 02:02:41.730
+Anthony Taylor: what answer they're looking for, and that
+
+1270
+02:02:42.620 --> 02:02:50.140
+Anthony Taylor: is how you would know how to get from point A to Point B. All the steps may be complicated or difficult to work with, but
+
+1271
+02:02:50.730 --> 02:02:52.799
+Anthony Taylor: the the point is is.
+
+1272
+02:02:53.300 --> 02:03:04.760
+Anthony Taylor: unless you know what the final results gonna look like, it's gonna be really hard to get there. We can take the question apart and say, well, we know this because this is what the question said. But
+
+1273
+02:03:04.870 --> 02:03:13.509
+Anthony Taylor: the reality is is, wherever you work you're gonna be a domain expert. Okay, eventually, if not immediately.
+
+1274
+02:03:13.840 --> 02:03:28.029
+Anthony Taylor: So if it's on, you know, logistics and trucking and stuff like that, Mike's gonna know what he needs to see. And his job, if he was like doing data, analysis for work would be to get the data from point A to what he needs to see.
+
+1275
+02:03:29.200 --> 02:03:34.580
+Anthony Taylor: And that's all those steps in the middle, and they could be totally different. Okay.
+
+1276
+02:03:34.970 --> 02:03:40.710
+Anthony Taylor: so that's just kind of how this works. There is no easy answer to how do I know how to get there.
+
+1277
+02:03:41.130 --> 02:03:43.360
+Anthony Taylor: Okay, yeah, you have to know what you're looking for.
+
+1278
+02:03:44.030 --> 02:03:49.750
+Anthony Taylor: you know, it's kinda hard to get to the Land of Oz. If you don't know, you're looking for a giant green city.
+
+1279
+02:03:50.950 --> 02:03:54.900
+Anthony Taylor: Okay, you might walk right. But by it, not even though it's there.
+
+1280
+02:03:56.290 --> 02:03:58.560
+Anthony Taylor: Okay. alright.
+
+1281
+02:04:02.160 --> 02:04:06.299
+Anthony Taylor: Any questions. Other questions, more questions, no questions.
+
+1282
+02:04:08.710 --> 02:04:09.690
+Anthony Taylor: So
+
+1283
+02:04:14.140 --> 02:04:15.530
+Anthony Taylor: class is over. Yeah.
+
+1284
+02:04:17.290 --> 02:04:18.739
+Anthony Taylor: Or do we still have an hour?
+
+1285
+02:04:19.410 --> 02:04:21.370
+michael mcpherson: That's 9 30.
+
+1286
+02:04:22.160 --> 02:04:24.289
+Anthony Taylor: I was hoping to go over to challenge.
+
+1287
+02:04:25.660 --> 02:04:35.619
+michael mcpherson: I mean, I tell you what, I won't make everybody stay. If you wanna go you can go. I'm gonna review the challenge for like 10 min. If you have office hours
+
+1288
+02:04:35.640 --> 02:04:46.980
+Anthony Taylor: you can either go to office hours or wait till after I review the challenge and then go to office hours. But here's what I'm gonna do. I'm gonna leave the recording on so that you guys will have this. How's that sound?
+
+1289
+02:04:47.780 --> 02:04:49.530
+Anthony Taylor: That sound good? Okay?
+
+1290
+02:04:49.800 --> 02:04:56.569
+Anthony Taylor:  what I'm gonna do is I'm gonna go. And so.
+
+1291
+02:04:57.020 --> 02:04:57.760
+okay.
+
+1292
+02:04:58.390 --> 02:05:10.439
+Anthony Taylor:  would you guys like this folder?
+
+1293
+02:05:15.680 --> 02:05:28.229
+michael mcpherson: Are you going over the next one or the one module 4? That's the one we're in now. Okay, so it's one due a week from today. Yeah. Yeah. Cause we deal with. Didn't we go over Module 3 a little bit already.
+
+1294
+02:05:29.590 --> 02:05:30.689
+Anthony Taylor: that's all we did.
+
+1295
+02:05:30.950 --> 02:05:36.060
+Anthony Taylor: Yeah, you went over it last Thursday. Okay? Good. I don't think I recorded that. So
+
+1296
+02:05:36.740 --> 02:05:37.930
+michael mcpherson: where's I missed that
+
+1297
+02:05:41.450 --> 02:05:45.209
+Anthony Taylor: alright. So wait for these to open up. There we go. So you have this data set.
+
+1298
+02:05:45.430 --> 02:05:51.999
+Anthony Taylor: This is our data pretty cool. Okay, here's our challenge file.
+
+1299
+02:05:52.910 --> 02:05:59.269
+Anthony Taylor:  it's cool. It gives you quite a bit. So should be okay. So
+
+1300
+02:05:59.550 --> 02:06:03.920
+Anthony Taylor: you're gonna read it in. That's obvious. You're gonna view the column names
+
+1301
+02:06:05.030 --> 02:06:08.400
+Anthony Taylor: data frame is called. Df, how would you view column names.
+
+1302
+02:06:12.990 --> 02:06:16.239
+Mckimmy, Brandon: dot columns. Df, dot columns?
+
+1303
+02:06:16.290 --> 02:06:19.969
+Anthony Taylor: Okay, you're gonna use. Describe? How do you do describe? Of df.
+
+1304
+02:06:22.150 --> 02:06:25.530
+Meredith McCanse (she/her): df, dot described parentheses.
+
+1305
+02:06:25.550 --> 02:06:29.500
+Anthony Taylor: Okay? So now, we're gonna use this space to any additional research whatever.
+
+1306
+02:06:29.600 --> 02:06:33.179
+Anthony Taylor: Okay? So you can do some other functions. You wanna do here
+
+1307
+02:06:33.190 --> 02:06:35.259
+doesn't actually say you have to do anything.
+
+1308
+02:06:35.440 --> 02:06:37.880
+Anthony Taylor: So you can decide
+
+1309
+02:06:38.010 --> 02:06:44.110
+Anthony Taylor: what you want to do. There. run. is this, why is this in my screen?
+
+1310
+02:06:45.080 --> 02:06:50.469
+Anthony Taylor: Okay, let me see if they actually have something they want you to do there
+
+1311
+02:06:54.740 --> 02:06:59.760
+Anthony Taylor: columns describe. Yeah, that that part's fine.
+
+1312
+02:07:01.150 --> 02:07:07.239
+Anthony Taylor: Okay? So here they want you to look at the category column.
+
+1313
+02:07:08.290 --> 02:07:11.370
+Anthony Taylor: Is that what it's called?
+
+1314
+02:07:13.190 --> 02:07:22.269
+Anthony Taylor: Which column is it that they're saying to look at here? What 3 item categories had the most entries. So apparently there is a category column.
+
+1315
+02:07:22.620 --> 02:07:27.849
+Anthony Taylor: and they want you to do what? Wha? How would you get this return?
+
+1316
+02:07:30.180 --> 02:07:34.569
+Meredith McCanse (she/her): It's it's a basically account data type.
+
+1317
+02:07:34.660 --> 02:07:40.130
+Anthony Taylor: Almost flip it, flip. It value counts
+
+1318
+02:07:40.520 --> 02:07:47.239
+Anthony Taylor: right? Exactly. It's only one. There's only one column.
+
+1319
+02:07:47.250 --> 02:07:49.890
+Anthony Taylor: and it is category.
+
+1320
+02:07:50.980 --> 02:07:54.579
+Anthony Taylor: Okay? Now I'm gonna write it down. But just remember that.
+
+1321
+02:07:54.650 --> 02:07:56.309
+Anthony Taylor: Okay,
+
+1322
+02:07:56.480 --> 02:08:04.649
+Anthony Taylor: for the category with the most entry, which sub category had the most entries. So this is an interesting one. So
+
+1323
+02:08:06.670 --> 02:08:12.250
+Anthony Taylor: I'm gonna say it like this, you may want to write this down. Okay, you need look
+
+1324
+02:08:12.640 --> 02:08:25.910
+Anthony Taylor: the filter to this, to the category with the most entries. Then you're going to ask for the subcategory column and do a value counts. Does that make sense?
+
+1325
+02:08:28.650 --> 02:08:32.870
+Anthony Taylor: Okay? You want the sub categories of consumables.
+
+1326
+02:08:34.390 --> 02:08:40.850
+Anthony Taylor: And you actually just want the top one. It just says the most entries. So really, you could just do like the first one.
+
+1327
+02:08:41.760 --> 02:08:46.159
+Anthony Taylor: Okay? Oh, look! And it gave you the answer. So that's what you're looking for.
+
+1328
+02:08:47.020 --> 02:08:51.140
+Anthony Taylor: So which 5 clients have the most entries.
+
+1329
+02:08:52.150 --> 02:08:57.310
+Anthony Taylor: So here we go again. Which one is that, Meredith? You said it a minute ago. What is it?
+
+1330
+02:08:58.270 --> 02:09:03.990
+Meredith McCanse (she/her): So I was gonna say, sort. But I did what I said a minute ago was account value or value
+
+1331
+02:09:04.160 --> 02:09:08.660
+Anthony Taylor: right? Except this time, it's on a different column. So which column?
+
+1332
+02:09:08.680 --> 02:09:12.590
+Anthony Taylor: Well. looking at the data.
+
+1333
+02:09:13.500 --> 02:09:16.489
+Anthony Taylor: I'm guessing they're going by client id
+
+1334
+02:09:16.950 --> 02:09:21.420
+Anthony Taylor: right? Because that's a unique value for this data. Okay.
+
+1335
+02:09:23.480 --> 02:09:34.520
+Anthony Taylor: store the client ids, although there you go, client. Ids. of those top 5 clients in a list. Oh.
+
+1336
+02:09:37.290 --> 02:09:41.489
+Anthony Taylor: so this is what's returned more or less, if we did
+
+1337
+02:09:42.520 --> 02:09:43.910
+Anthony Taylor: value counts.
+
+1338
+02:09:44.920 --> 02:09:50.019
+Anthony Taylor:  I don't know that we talked about how to convert that to a list.
+
+1339
+02:09:50.220 --> 02:10:00.849
+Anthony Taylor: It is a series, right? As we're just looking at basically one little bit. So I'll just tell you to convert a series to a list. You simply wrap it in a list method.
+
+1340
+02:10:02.610 --> 02:10:03.500
+Anthony Taylor: That's it.
+
+1341
+02:10:04.220 --> 02:10:09.110
+Anthony Taylor: Okay? So I'm gonna type in here. If I did lists.
+
+1342
+02:10:09.280 --> 02:10:17.400
+Anthony Taylor: do you have? And what does it say? Client ids. clients. Id. Okay.
+
+1343
+02:10:17.540 --> 02:10:22.860
+Anthony Taylor: and then I want value counts, because that's what Meredith said to do.
+
+1344
+02:10:25.860 --> 02:10:29.309
+Anthony Taylor: Okay? And then I just want the top 5
+
+1345
+02:10:31.780 --> 02:10:34.110
+Anthony Taylor: right?
+
+1346
+02:10:34.440 --> 02:10:37.990
+Anthony Taylor: and I mean, I suppose you could do an index of them if you wanted to.
+
+1347
+02:10:38.790 --> 02:10:41.580
+Anthony Taylor: Okay, I'm set the index. That's pretty much it.
+
+1348
+02:10:43.830 --> 02:10:49.449
+Anthony Taylor: Okay? So that will return a list. In effect, it'll return this list
+
+1349
+02:10:50.700 --> 02:10:54.629
+Anthony Taylor: when you're done. Alright, you guys got that.
+
+1350
+02:10:56.060 --> 02:11:03.440
+Anthony Taylor: How many total units quantity column did the client and an in, and that so this is just a filter with a sum.
+
+1351
+02:11:04.190 --> 02:11:05.250
+Anthony Taylor: Okay.
+
+1352
+02:11:05.690 --> 02:11:13.190
+Anthony Taylor: it's saying how many units Claudy column did the client with the most entries order. So you're going to take the the most entry client.
+
+1353
+02:11:13.370 --> 02:11:14.520
+Anthony Taylor: this guy.
+
+1354
+02:11:14.700 --> 02:11:20.170
+Anthony Taylor: and then you're going to filter on him. Look at the quantity column and sum it
+
+1355
+02:11:21.920 --> 02:11:23.020
+Anthony Taylor: pretty good.
+
+1356
+02:11:24.600 --> 02:11:28.010
+Anthony Taylor: Alright, let's continue. How long is this thing?
+
+1357
+02:11:28.260 --> 02:11:29.559
+Anthony Taylor: I said, 10 min.
+
+1358
+02:11:30.060 --> 02:11:33.090
+Anthony Taylor: I will make it okay.
+
+1359
+02:11:33.910 --> 02:11:40.329
+Anthony Taylor: So here you're going to create a column and calculate subtotal for each line. How do you think we would do that?
+
+1360
+02:11:41.780 --> 02:11:44.139
+Anthony Taylor: I don't want to just give it to you guys? So
+
+1361
+02:11:46.300 --> 02:11:50.820
+Anthony Taylor: it's I'll give you a hint. It's not applied here. It's just math
+
+1362
+02:11:52.120 --> 02:12:01.600
+Anthony Taylor:  So we're basically gonna create a new column. And it's gonna equal. And it says so. Unit price times, quantity. See? There.
+
+1363
+02:12:01.850 --> 02:12:04.090
+Anthony Taylor: it's actually kind of showing you the answer here.
+
+1364
+02:12:04.730 --> 02:12:12.340
+Anthony Taylor: So unit price and quantity. So we're just going to create a new column called line subtotal multiply unit price times quantity.
+
+1365
+02:12:12.580 --> 02:12:13.340
+Anthony Taylor: Okay.
+
+1366
+02:12:13.880 --> 02:12:27.009
+Anthony Taylor: create a column for shipping price. Assume shipping price of $7 per round for orders over 50 pounds and $10, 4 orders, 50 pounds. And under this is apply.
+
+1367
+02:12:28.200 --> 02:12:35.880
+Anthony Taylor: you're going to create a function that meets this criteria and then use apply to create a new column.
+
+1368
+02:12:37.120 --> 02:12:38.060
+Anthony Taylor: Got it.
+
+1369
+02:12:39.460 --> 02:12:41.290
+Anthony Taylor: So I'm gonna say about that. We just covered that
+
+1370
+02:12:41.520 --> 02:12:52.079
+Anthony Taylor: here, you're going to create a column for the total price using subtotal and the shipping price along with sales tax of 9.2 5%. So
+
+1371
+02:12:52.170 --> 02:12:56.970
+Anthony Taylor: again. you're going to be using, apply. Well.
+
+1372
+02:12:59.370 --> 02:13:01.620
+Anthony Taylor: actually, you don't have to use. Apply in this one.
+
+1373
+02:13:01.860 --> 02:13:09.679
+Anthony Taylor: You can just do math in this one, so you can say the subtotal plus the shipping price times 1.0 9 2 5.
+
+1374
+02:13:10.450 --> 02:13:13.390
+Anthony Taylor: Why 1.0 9 2 5. Because that's how you
+
+1375
+02:13:14.740 --> 02:13:15.979
+add the tax on
+
+1376
+02:13:17.050 --> 02:13:20.800
+Anthony Taylor: alright. There's no apply in this one. Remember that. Apply in this one.
+
+1377
+02:13:21.150 --> 02:13:22.319
+Anthony Taylor: not in this one.
+
+1378
+02:13:23.560 --> 02:13:28.019
+Anthony Taylor: Okay. create a column for the cost of each line.
+
+1379
+02:13:28.760 --> 02:13:36.009
+Anthony Taylor: Using unit cost, quantity and shipping price. Assume the shipping cost is exactly what is charged
+
+1380
+02:13:36.030 --> 02:13:39.460
+Anthony Taylor: to the client. Again. This is just math.
+
+1381
+02:13:39.580 --> 02:13:44.519
+Anthony Taylor: says unit cost, quantity and shipping price. How do you think those would go together
+
+1382
+02:13:44.730 --> 02:13:51.560
+Anthony Taylor: unicast times, quantity plus shipping price. That's it. Just math
+
+1383
+02:13:52.640 --> 02:13:57.020
+Anthony Taylor: alright. create a column for the profit of each line
+
+1384
+02:13:57.940 --> 02:14:00.860
+Anthony Taylor: using line price.
+
+1385
+02:14:00.960 --> 02:14:08.950
+Anthony Taylor: So again. It's just math. So we're going to do a line price minus line cost.
+
+1386
+02:14:09.850 --> 02:14:22.759
+Anthony Taylor: That gives you a new column that we're going to call line profit. That was it? Okay? Part 3. Confirm your work. You don't want to hear all this, Meredith.
+
+1387
+02:14:22.910 --> 02:14:24.119
+Anthony Taylor: Darn it.
+
+1388
+02:14:24.610 --> 02:14:29.640
+Anthony Taylor: she's gonna watch the video you watch now. She's gonna watch video and see, I was saying, she's gonna watch the video.
+
+1389
+02:14:29.770 --> 02:14:31.420
+Anthony Taylor: That's madness.
+
+1390
+02:14:31.630 --> 02:14:34.650
+Anthony Taylor: Okay? So here we have
+
+1391
+02:14:34.770 --> 02:14:48.440
+Anthony Taylor: email receipts showing total prices for 3 orders. Confirm that your calculations match the receipts. That's interesting. So here's the receipts. So how would we do this? So there's a couple of ways to do this?
+
+1392
+02:14:48.720 --> 02:14:57.830
+Anthony Taylor:  what they would like you to do is write down these order Ids to a list.
+
+1393
+02:14:58.180 --> 02:15:01.690
+Anthony Taylor: create a function that says, find the price.
+
+1394
+02:15:02.000 --> 02:15:07.989
+Anthony Taylor: So you're basically gonna do a loke on the order id, and return the line price and return
+
+1395
+02:15:08.060 --> 02:15:10.290
+Anthony Taylor: the sum of the 2
+
+1396
+02:15:11.670 --> 02:15:20.419
+Anthony Taylor: like, well, wait the sum of the 2. Yeah. and then you're gonna loop through the order Ids and apply that function. And what you're
+
+1397
+02:15:20.460 --> 02:15:23.240
+Anthony Taylor: hoping to see is
+
+1398
+02:15:24.350 --> 02:15:28.250
+Anthony Taylor: them. It? It should match these values here.
+
+1399
+02:15:28.800 --> 02:15:32.419
+Anthony Taylor: Okay? Oh, that's just one thing that's pretty cool.
+
+1400
+02:15:32.630 --> 02:15:37.619
+Anthony Taylor: So the last thing, how much did each of the top 5 clients by quantity
+
+1401
+02:15:37.870 --> 02:15:43.780
+Anthony Taylor: spend check your work from part one for client ids. Okay, so
+
+1402
+02:15:43.850 --> 02:15:48.490
+Anthony Taylor: here's the values we're looking for. We know where the 5 plan Ids are. We did those way up. Above
+
+1403
+02:15:48.950 --> 02:15:50.889
+Anthony Taylor: all right.
+
+1404
+02:15:51.220 --> 02:15:58.610
+Anthony Taylor: we're going to create a function. And you're gonna pass in the client Id. and a column name.
+
+1405
+02:15:58.990 --> 02:16:10.689
+Anthony Taylor: Okay, it could be any column you want? No, that's so. You could return a different column. You're going to do a local on the client. Id equals the client id that you passed in.
+
+1406
+02:16:10.900 --> 02:16:16.150
+Anthony Taylor: And then you're going to round in some. The total. Okay?
+
+1407
+02:16:16.740 --> 02:16:25.010
+Anthony Taylor: And in this case the column we're passing in is line price. So this function would let you put any client id in
+
+1408
+02:16:25.170 --> 02:16:30.899
+Anthony Taylor: any column, and it would input the sum of that column for that client. Id.
+
+1409
+02:16:31.040 --> 02:16:33.660
+Anthony Taylor: You don't have to be this clever if you don't want to. Guys.
+
+1410
+02:16:34.120 --> 02:16:39.559
+Anthony Taylor: Okay, it doesn't say you have to do that. You could just say client id, and pass in line price and be done with it.
+
+1411
+02:16:40.139 --> 02:16:41.190
+Anthony Taylor: Okay.
+
+1412
+02:16:41.520 --> 02:16:48.919
+Anthony Taylor:  create a summary data frame
+
+1413
+02:16:48.990 --> 02:16:53.379
+Anthony Taylor: showing the totals for the top 5 clients with the following information.
+
+1414
+02:16:53.650 --> 02:17:01.869
+Anthony Taylor: okay, now, I see why they said to do that. So that function? I said that you could write up here where you pass in the client Id and a column name.
+
+1415
+02:17:02.260 --> 02:17:06.969
+Anthony Taylor: If you do it that way here you can call
+
+1416
+02:17:07.209 --> 02:17:10.380
+Anthony Taylor: the client Id and pass in
+
+1417
+02:17:10.840 --> 02:17:19.860
+Anthony Taylor: each of these column names and get these values. Once you have these values, you can assign them to a dictionary key for each value.
+
+1418
+02:17:20.410 --> 02:17:26.809
+Anthony Taylor: and then do the same thing we did in that last activity where we took that dictionary, put it into a list
+
+1419
+02:17:27.320 --> 02:17:30.439
+Anthony Taylor: for each row, and then we made a data frame out of it.
+
+1420
+02:17:30.629 --> 02:17:34.550
+Anthony Taylor: Okay, this is. And and this is all I'm gonna tell you.
+
+1421
+02:17:34.879 --> 02:17:36.760
+Anthony Taylor: The last activity we did.
+
+1422
+02:17:36.850 --> 02:17:39.979
+Anthony Taylor: This is like the last 2 or 3 cells.
+
+1423
+02:17:41.309 --> 02:17:45.379
+Anthony Taylor: Okay, just remember that. Write that down. Come back to there.
+
+1424
+02:17:45.709 --> 02:17:51.550
+Anthony Taylor:  similar in this one.
+
+1425
+02:17:51.629 --> 02:17:56.380
+Anthony Taylor: almost exactly the same, but different. Or it's it's actually the output of
+
+1426
+02:17:56.799 --> 02:17:57.649
+Anthony Taylor: oh, wait
+
+1427
+02:17:58.110 --> 02:18:08.339
+Anthony Taylor: what I do here. Yeah. So the output of this you're gonna do here in the dictionary thing that we talked about last, you're gonna sort just like we did at the end of that last activity.
+
+1428
+02:18:09.340 --> 02:18:10.239
+Anthony Taylor: And you're done
+
+1429
+02:18:13.500 --> 02:18:14.650
+Anthony Taylor: so.
+
+1430
+02:18:15.490 --> 02:18:20.109
+Anthony Taylor: Was that just like way too fast? Or was that helpful, you guys remember? Go to the recording
+
+1431
+02:18:20.150 --> 02:18:21.240
+Anthony Taylor: push, pause.
+
+1432
+02:18:22.280 --> 02:18:24.209
+Anthony Taylor: Alright. I'm gonna stop the recording now.
+
+1433
+02:18:25.940 --> 02:18:26.740
+Hold it on.
+
+1434
+02:18:28.570 --> 02:18:30.629
+Anthony Taylor: if I can find it there. It is.
+
+1435
+02:18:32.650 --> 02:18:35.280
+Anthony Taylor: So those you that left and are watching us.
+

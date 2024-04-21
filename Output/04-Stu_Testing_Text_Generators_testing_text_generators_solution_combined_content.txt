@@ -1,0 +1,47 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install transformers
+
+##--CODE--##
+# Import the pipeline class from the transformers module. 
+from transformers import pipeline
+
+##--CODE--##
+# Give the model a prompt. 
+prompt = """All the world's a stage and we are"""
+
+##--CODE--##
+# Use the text_generator function to generate text
+def text_generator(model, prompt):
+    # Initialize the pipeline with the task and model
+    generator = pipeline('text-generation', model=model)
+    # Pass the prompt, set the max_length and pad_token_id parameters for generator.
+    results = generator(prompt,max_length=125, pad_token_id=50256)
+    # Return the generated text. 
+    return results[0]['generated_text']
+
+##--CODE--##
+# Call the text_generator function with your first model and the prompt.
+small_generator = text_generator('EleutherAI/gpt-neo-125m', prompt)
+# Display the generated text.
+small_generator
+
+##--CODE--##
+# Call the text_generator function with the second model and the prompt.
+medium_generator = text_generator('EleutherAI/gpt-neo-1.3B', prompt)
+# Display the generated text.
+medium_generator
+
+##--CODE--##
+# Call the text_generator function with the third model and the prompt.
+large_generator = text_generator('EleutherAI/gpt-neo-2.7B', prompt)
+# Display the generated text.
+large_generator
+
+**Question:** What was the best model? Why?
+
+**Answer:** The best model was "EleutherAI/gpt-neo-2.7B" because it gave the answer that made the most sense.
+
+##--CODE--##
+
+

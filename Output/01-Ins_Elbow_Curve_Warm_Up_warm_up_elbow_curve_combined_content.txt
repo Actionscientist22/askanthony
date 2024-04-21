@@ -1,0 +1,41 @@
+##--CODE--##
+# Import the modules
+import pandas as pd
+from sklearn.cluster import KMeans
+
+##--CODE--##
+# Read in the CSV file as a pandas DataFrame and make the "year" column the index.
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Create a a list to store inertia values
+
+
+# Create a a list to store the values of k
+
+
+# Create a for-loop where each value of k is evaluated using the K-means algorithm
+# Fit the model using the spread_df DataFrame
+# Append the value of the computed inertia from the `inertia_` attribute of the K-means model instance
+
+
+##--CODE--##
+# Create a dictionary that holds the list values for k and inertia
+
+
+# Create a DataFrame using the elbow_datadictionary
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Plot the elbow curve
+
+
+##--CODE--##
+
+

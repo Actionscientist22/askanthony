@@ -1,0 +1,54 @@
+##--CODE--##
+import pandas as pd
+import tensorflow as tf
+import numpy as np
+
+# Import our utilities functions
+import utils
+
+## Prepare the Data
+
+##--CODE--##
+# Get the original DataFrame for new users
+
+
+##--CODE--##
+# Get the normalized ratings
+
+
+##--CODE--##
+# Get the weights and bias tensors
+W = utils.weights()
+hb = utils.hidden_bias()
+vb = utils.visible_bias()
+
+##--CODE--##
+# Get new users
+
+
+##--CODE--##
+# Select a test user
+
+
+# Get the ratings row for the test user
+
+
+##--CODE--##
+# Get the recommendations for the user
+
+
+# Construct user recommendation DataFrame
+
+
+# View sorted user recommendation
+
+
+##--CODE--##
+# Merge user recommendation scores with original dataset ratings
+
+
+##--CODE--##
+# Reduce the merged DataFrame to locate the unrated movies that have a
+# recommendation score higher than 0.5 to find the movies to recommend
+
+

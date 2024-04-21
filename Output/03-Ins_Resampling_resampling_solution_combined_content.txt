@@ -1,0 +1,148 @@
+# Random Resampling
+
+##--CODE--##
+# Import modules
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_blobs
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
+
+## Generating the features and targets dataset
+
+##--CODE--##
+# Generate Data
+X, y = make_blobs(n_samples=[5000, 50], random_state=1, cluster_std=7)
+
+# Convert ndarray to pandas datatypes
+X = pd.DataFrame(X)
+y = pd.Series(y)
+
+##--CODE--##
+# Plot data
+plt.scatter(
+    x=X[0],
+    y=X[1],
+    c=y)
+plt.show()
+
+##--CODE--##
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+
+##--CODE--##
+# Count distinct values
+y_train.value_counts()
+
+---
+
+## Random Undersampling
+---
+We need to import the RandomUnderSampler function from the imbalance learn module, `imblearn.under_sampling` as follows: 
+* `pip install imbalanced-learn`.
+
+##--CODE--##
+# Import RandomUnderSampler from imblearn
+from imblearn.under_sampling import RandomUnderSampler
+
+# Instantiate the RandomUnderSampler instance
+rus = RandomUnderSampler(random_state=1)
+
+# Fit the data to the model
+X_resampled, y_resampled = rus.fit_resample(X_train, y_train)
+
+##--CODE--##
+# Count distinct resampled values
+y_resampled.value_counts()
+
+##--CODE--##
+# Instantiate an initial RamdonForestClassifier instance
+model = RandomForestClassifier()
+
+# Fit the initial model based the training data
+model.fit(X_train, y_train)
+
+##--CODE--##
+# Instantiate a second RamdonForestClassifier instance
+model_resampled = RandomForestClassifier()
+
+# Fit the second model based the resampled data
+model_resampled.fit(X_resampled, y_resampled)
+
+##--CODE--##
+# Make predictions using the initial model
+y_pred = model.predict(X_test)
+
+# Make predictions using the model based on the resampled data
+y_pred_resampled = model_resampled.predict(X_test)
+
+##--CODE--##
+# Plot the data using the original y_test information
+plt.scatter(
+    x=X_test[0],
+    y=X_test[1],
+    c=y_test)
+plt.show()
+
+##--CODE--##
+# Plot the data using the predictions based on the original test data
+plt.scatter(
+    x=X_test[0],
+    y=X_test[1],
+    c=y_pred)
+plt.show()
+
+##--CODE--##
+# Plot the data using the predictions based on the resampled test data
+plt.scatter(
+    x=X_test[0],
+    y=X_test[1],
+    c=y_pred_resampled)
+plt.show()
+
+##--CODE--##
+# Print classification report
+print(classification_report(y_test, y_pred))
+print(classification_report(y_test, y_pred_resampled))
+
+---
+
+## Random Oversampling
+
+##--CODE--##
+# Import RandomOverSampler from imblearn
+from imblearn.over_sampling import RandomOverSampler
+
+# Instantiate the RandomOverSampler instance
+random_oversampler = RandomOverSampler(random_state=1)
+
+# Fit the data to the model
+X_resampled, y_resampled = random_oversampler.fit_resample(X_train, y_train)
+
+##--CODE--##
+# Count distinct values
+y_resampled.value_counts()
+
+##--CODE--##
+# Create a RandomForestClassifier instance and fit it to the original data
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+
+# Create a RandomForestClassifier instance and fit it to the resampled data
+model_resampled = RandomForestClassifier()
+model_resampled.fit(X_resampled, y_resampled)
+
+##--CODE--##
+# Make predictions for testing features
+y_pred = model.predict(X_test)
+y_pred_resampled = model_resampled.predict(X_test)
+
+##--CODE--##
+# Print the classification reports for the two models
+print(classification_report(y_test, y_pred))
+print(classification_report(y_test, y_pred_resampled))
+
+##--CODE--##
+
+

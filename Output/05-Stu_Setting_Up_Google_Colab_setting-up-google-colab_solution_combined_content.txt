@@ -1,0 +1,11 @@
+##--CODE--##
+# Install the required libraries
+!pip install prophet
+
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+from prophet import Prophet
+import datetime as dt
+%matplotlib inline
+

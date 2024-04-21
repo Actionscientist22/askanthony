@@ -1,0 +1,73 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install -U sentence-transformers
+
+##--CODE--##
+# Import the SentenceTransformer class and utility function class from the sentence_transformers module 
+from sentence_transformers import SentenceTransformer, util
+# Use the `all-MiniLM-L6-v2` model.
+model = SentenceTransformer('all-MiniLM-L6-v2')
+# Import pandas
+import pandas as pd
+pd.set_option('max_colwidth', 200)
+
+##--CODE--##
+# Create a DataFrame for the "news_headlines.csv" 
+news_headlines_df = pd.read_csv("Resources/news_headlines.csv")
+news_headlines_df
+
+##--CODE--##
+# Convert the "headline" column to a list 
+news_headlines = news_headlines_df["headline"].tolist()
+news_headlines
+
+##--CODE--##
+# Get the vector embeddings for the headlines.
+news_headlines_embeddings = model.encode(news_headlines)
+
+##--CODE--##
+# Get the vector embeddings from the following news headline. 
+new_headline = "Top 10 Hacks for Traveling Like a Pro."
+new_headline_embedding = model.encode([new_headline])
+
+##--CODE--##
+# Create a list to store tuples of (news headline, similarity score)
+similarities = []
+
+# Loop through the headline embeddings.
+for i, headline_embedding in enumerate(news_headlines_embeddings):
+    # Calculate the cosine similarity score between each headline embedding and the ew headline embedding. 
+    cosine_similarity_score = util.cos_sim(headline_embedding, new_headline_embedding)
+
+    # Store the news headline and similarity score as a tuple in the list.
+    similarities.append((news_headlines[i], cosine_similarity_score))
+
+# Sort the list of tuples based on similarity score in descending order
+similarities.sort(key=lambda x: x[1], reverse=True)
+
+##--CODE--##
+# Print the sorted results
+print(f"News headline to categorize: {new_headline}")
+print()
+
+# Loop through the similarities list and get the headline and similarity score.
+for i, (headline, similarity_score) in enumerate(similarities):
+    # Get the category from the DataFrame for each headline.
+    category = news_headlines_df.loc[news_headlines_df['headline'] == headline, 'category'].values[0]
+    # Print the rank, category, and the news headline.
+    print(f"Rank {i+1}: Category: {category}, Headline: {headline}")
+    # Print the similarity score of the news headline.
+    print(f"Similarity score: {similarity_score[0][0]}")
+    print()
+
+**Question:** What category is the new headline? 
+
+**Answer:** "Travel".
+
+**Question:** Why did you choose this category?
+
+**Answer:** The headline "Top 10 Hacks for Traveling Like a Pro" is most similar to a "Technology" headline, however we should classify it as "Travel" since the second and third best similarity scores are "Travel". 
+
+##--CODE--##
+
+

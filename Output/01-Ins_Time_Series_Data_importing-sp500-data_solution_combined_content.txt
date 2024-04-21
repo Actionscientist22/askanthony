@@ -1,0 +1,45 @@
+##--CODE--##
+# Initial imports
+import pandas as pd
+
+##--CODE--##
+# Read the S&P 500 CSV data into a DataFrame
+df_sp500 = pd.read_csv("../Resources/sp500.csv")
+
+# Display the DataFrame
+df_sp500.head()
+
+##--CODE--##
+# Verify the data types using dtypes
+df_sp500.dtypes
+
+##--CODE--##
+# Reviewing the time value from index position 0
+df_sp500["time"][0]
+
+##--CODE--##
+# Getting the current date and time
+pd.to_datetime("today")
+
+##--CODE--##
+# Transform the time column to a datetime data type
+df_sp500["time"] = pd.to_datetime(
+    df_sp500["time"],
+    infer_datetime_format =True,
+    utc = True
+)
+
+# Verify the data type transformation using the info function
+df_sp500.info()
+
+##--CODE--##
+# Convert the time column to the US/Eastern timezone
+df_sp500["time"] = df_sp500["time"].dt.tz_convert("US/Eastern")
+
+# Verify the data type transformation using the info function
+df_sp500.info()
+
+##--CODE--##
+# Review the DataFrame with the new timezone information
+df_sp500.head()
+

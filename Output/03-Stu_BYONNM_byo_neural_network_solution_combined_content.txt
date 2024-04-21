@@ -1,0 +1,72 @@
+##--CODE--##
+# Import our dependencies
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+import tensorflow as tf
+
+##--CODE--##
+# Import the sample data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_1/datasets/sample-data-5000.csv")
+
+# Plot the sample data
+df.plot.scatter(x="Feature 1", y="Feature 2", c="Target", colormap="winter")
+
+##--CODE--##
+# Separate the X and y
+X = df.drop(columns="Target")
+y = df["Target"]
+
+# Use sklearn to split dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=78)
+
+##--CODE--##
+# Create scaler instance
+X_scaler = StandardScaler()
+
+# Fit the scaler
+X_scaler.fit(X_train)
+
+# Scale the data
+X_train_scaled = X_scaler.transform(X_train)
+X_test_scaled = X_scaler.transform(X_test)
+
+##--CODE--##
+# Create the Keras Sequential model
+nn_model = tf.keras.models.Sequential()
+
+##--CODE--##
+# Set input nodes to the number of features
+input_nodes = len(X.columns)
+
+# Add our first Dense layer, including the input layer
+nn_model.add(tf.keras.layers.Dense(units=5, activation="relu", input_dim=input_nodes))
+
+##--CODE--##
+# Add the output layer that uses a probability activation function
+nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid"))
+
+##--CODE--##
+# Check the structure of the Sequential model
+nn_model.summary()
+
+##--CODE--##
+# Compile the Sequential model together and customize metrics
+nn_model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
+
+##--CODE--##
+# Fit the model to the training data
+fit_model = nn_model.fit(X_train_scaled, y_train, epochs=50)
+
+##--CODE--##
+# Evaluate the model using the test data
+model_loss, model_accuracy = nn_model.evaluate(X_test_scaled, y_test, verbose=2)
+print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
+
+##--CODE--##
+# Create a DataFrame containing training history
+history_df = pd.DataFrame(fit_model.history, index=range(1,len(fit_model.history["loss"])+1))
+
+# Plot the accuracy
+history_df.plot(y="accuracy")
+

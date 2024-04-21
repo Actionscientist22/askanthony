@@ -1,0 +1,74 @@
+##--CODE--##
+# Import dependencies
+import requests
+from PIL import Image
+import pandas as pd
+
+##--CODE--##
+path = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_1/datasets/csvs/fungi_files.csv"
+
+# Read the csv file in and view the first few rows
+filenames_df = pd.read_csv(path)
+filenames_df.head()
+
+##--CODE--##
+# Build a list of images using a for loop
+
+# Define the base_url
+base_url = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_1/datasets/fungi_images/"
+
+# Create an empty list for the urls
+img_urls = []
+
+# Loop through the DataFrame and build and append the full image urls
+for i in range(len(filenames_df)):
+    filename = filenames_df.iloc[i,0]
+    img_urls.append(base_url + filename)
+
+img_urls[0:5]
+
+##--CODE--##
+# Check the number of urls
+len(img_urls)
+
+##--CODE--##
+# Create and empty list for images
+imgs = []
+
+# Loop through ONLY THE FIRST 20 image_urls to open and append each image
+num_imgs = 20
+
+for i in range(num_imgs):
+    img_url = img_urls[i]
+    # Print a statement to show progress
+    print(f"{i}/{num_imgs}: Attempting to import {img_url}")
+
+    # Use requests.get along with the stream parameter and raw attribute
+    response = requests.get(img_url, stream=True).raw
+
+    # Append each img to the imgs list
+    imgs.append(Image.open(response))
+
+# View the first image to confirm
+imgs[0]
+
+
+##--CODE--##
+# Import the modules
+from google.colab import drive
+import pickle
+
+drive.mount('/content/drive/')
+
+# Open a new file named 'fungi.pkl' with write permission
+with open('/content/drive/MyDrive/fungi.pkl', 'wb') as file:
+    # Use pickle.dump to store the list of images
+    pickle.dump(imgs, file)
+
+##--CODE--##
+# Load the images from the pkl file
+with open('/content/drive/MyDrive/fungi.pkl', 'rb') as file:
+    recalled_imgs = pickle.load(file)
+
+recalled_imgs[0]
+

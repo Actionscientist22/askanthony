@@ -1,0 +1,93 @@
+##--CODE--##
+from sklearn.datasets import make_regression
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import Ridge
+from sklearn.metrics import mean_squared_error
+import pandas as pd
+
+##--CODE--##
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_2/datasets/real-estate-evaluation.csv')
+df.head()
+
+##--CODE--##
+# Separate the data into features and target 
+X = df.drop('Y house price of unit area', axis=1)
+y = df['Y house price of unit area']
+
+##--CODE--##
+# Check the features shape 
+X.shape
+
+### Perform ridge regression
+
+##--CODE--##
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+
+##--CODE--##
+# Scale the training data
+scaler = StandardScaler()
+X_train_transformed = scaler.fit_transform(X_train)
+
+##--CODE--##
+# Create and train the model
+model = Ridge(alpha=1)
+model.fit(X_train_transformed, y_train)
+
+##--CODE--##
+# Scale the testing data and create predictions
+X_test_transformed = scaler.transform(X_test)
+y_predicted = model.predict(X_test_transformed)
+
+##--CODE--##
+# Assess the MSE
+mean_squared_error(y_test, y_predicted)
+
+##--CODE--##
+# Use RidgeCV to optimize for alpha
+from sklearn.linear_model import RidgeCV
+model_cv = RidgeCV(alphas=[0.001, 0.01, 0.1, 1, 10])
+model_cv = model_cv.fit(X_train_transformed, y_train)
+
+##--CODE--##
+# Identify the optimzied alpha value
+model_cv.alpha_
+
+### Compare performance with a linear regression model
+
+##--CODE--##
+# Create and train a linear regression model, create predictions with the model, and evaluate its MSE
+from sklearn.linear_model import LinearRegression
+lr_model = LinearRegression()
+lr_model.fit(X_train_transformed, y_train)
+y_predicted_lr = lr_model.predict(X_test_transformed)
+mean_squared_error(y_test, y_predicted_lr)
+
+### Lasso regression
+
+##--CODE--##
+from sklearn.linear_model import Lasso
+
+##--CODE--##
+# Create and train a lasso regression model
+lasso_model = Lasso(alpha=1)
+lasso_model.fit(X_train_transformed, y_train)
+
+##--CODE--##
+# Get the model coeffcients
+lasso_model.coef_
+
+##--CODE--##
+# Create predictions with the model
+y_predicted_lasso = lasso_model.predict(X_test_transformed)
+
+### Assess the lasso regression MSE and compare to ridge regression
+
+##--CODE--##
+# Evaluate the MSE
+mean_squared_error(y_test, y_predicted_lasso)
+
+##--CODE--##
+
+

@@ -1,0 +1,92 @@
+##--CODE--##
+# Import the data
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import balanced_accuracy_score
+
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m14/datasets/bank_marketing.csv')
+df.head()
+
+##--CODE--##
+# Drop rows with null values
+df_clean = df.dropna().copy()
+
+# Convert y to numeric
+df_clean['y'] = pd.get_dummies(df_clean['y'], drop_first = True)
+
+# Drop all non-numeric columns
+df_clean = df_clean.select_dtypes(include='number')
+
+# Verify changes with the info method
+df_clean.info()
+
+##--CODE--##
+# Setup X and y variables
+X = df_clean.drop(columns='y')
+y = df_clean['y']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=13)
+
+##--CODE--##
+# Create and train a random forest model
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+
+##--CODE--##
+# Check the model's balanced accuracy on the test set
+
+y_pred = model.predict(X_test)
+print(balanced_accuracy_score(y_test, y_pred))
+
+##--CODE--##
+# Check the model's balanced accuracy on the training set
+
+y_train_pred = model.predict(X_train)
+print(balanced_accuracy_score(y_train, y_train_pred))
+
+##--CODE--##
+# Try the following values for max_depth
+
+max_depths = range(1, 10)
+models = {'train_score': [], 'test_score': [], 'max_depth': []}
+
+# Loop through each value in max_depths
+for depth in max_depths:
+    clf = RandomForestClassifier(max_depth = depth)
+    clf.fit(X_train, y_train)
+
+    train_pred = clf.predict(X_train)
+    test_pred = clf.predict(X_test)
+
+    train_score = balanced_accuracy_score(y_train, train_pred)
+    test_score = balanced_accuracy_score(y_test, test_pred)
+
+    models['train_score'].append(train_score)
+    models['test_score'].append(test_score)
+    models['max_depth'].append(depth)
+
+# Create a dataframe from the models dictionary with max_depth as the index
+models_df = pd.DataFrame(models).set_index('max_depth')
+
+
+##--CODE--##
+# Plot the results
+models_df.plot()
+
+##--CODE--##
+clf = RandomForestClassifier(max_depth=5)
+clf.fit(X_train, y_train) 
+
+train_pred = clf.predict(X_train)
+test_pred = clf.predict(X_test)
+
+print(balanced_accuracy_score(y_train, train_pred))
+print(balanced_accuracy_score(y_test, test_pred))
+
+
+##--CODE--##
+
+

@@ -1,0 +1,83 @@
+##--CODE--##
+# Import the dependencies
+import nltk
+from nltk.corpus import stopwords
+nltk.download('punkt')
+# Initialize the stopwords
+stop_words = set(stopwords.words('english'))
+
+##--CODE--##
+# Define the sentences.
+sentence_1 = "I want to invest for retirement."
+sentence_2 = "Should I invest in mutual funds, or should I invest in stocks?"
+sentence_3 = "I should schedule an appointment with a financial planner."
+
+##--CODE--##
+# Import regex
+import re
+
+# Create a regex pattern to remove punctuation. 
+pattern = r'[^a-zA-Z\s ]'
+
+# Create an empty list to hold the tokens.
+
+
+# Remove punctuation, tokenize sentence 1, and add the tokens to the tokens list.
+
+
+# Remove punctuation, tokenize sentence 2, and add the tokens to the tokens list.
+
+
+# Remove punctuation, tokenize sentence 3, and add the tokens to the tokens list.
+
+
+# Display the tokens.
+tokens
+
+##--CODE--##
+# Remove stopwords
+
+
+
+# Display the filtered tokens.
+
+
+##--CODE--##
+# Create a dictionary that will be our bag-of-words.
+
+
+# Display the bag-of-words.
+
+
+### Use scikit-learn's `CountVectorizer` demonstrate how a BoW is created.
+
+##--CODE--##
+# Import the dependencies
+from sklearn.feature_extraction.text import CountVectorizer
+import pandas as pd
+
+##--CODE--##
+# Create a CountVectorizer object
+vectorizer = CountVectorizer(stop_words='english')
+
+# Fit the vectorizer to the input sentences and transform them into a bag of words
+
+
+# Print the resulting bag of words
+
+
+##--CODE--##
+# Create a DataFrame of the bag of words. 
+
+
+##--CODE--##
+# Print the vocabulary. 
+
+
+##--CODE--##
+# Get the number of times each word appears in the vocabulary.
+
+
+##--CODE--##
+
+

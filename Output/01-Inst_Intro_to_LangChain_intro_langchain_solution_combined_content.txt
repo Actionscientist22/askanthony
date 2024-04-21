@@ -1,0 +1,140 @@
+##--CODE--##
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+# Model and API Key
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Basic Query
+
+##--CODE--##
+# Initialize the model.
+llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+# Define a query as a string.
+query = "Give me two dinners to make this week, one has to have chicken and the other salmon."
+
+# Pass the query to the invoke method and print the result.
+result = llm.invoke(query)
+print(result.content)
+
+##--CODE--##
+# Define a function to use two ingredients as inputs for the query sent to our LLM.
+def dinner_recipe(food1, food2):
+    # Initialize the model.
+    llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+    # Construct the query using the parameters.
+    query = f"Give me two dinners to make this week, one has to have {food1} and the other {food2}."
+    # Pass the query to the invoke method which will make a prediction based on the query, and print the result.
+    result = llm.invoke(query)
+    print(result.content)
+
+
+# Ask the user for a main ingredient for each day.
+food1 = input("What main ingredient would you like in the first day's meal?")
+food2 = input("What main ingredient would you like in the second day's meal?")
+
+# Call the function with the two ingredients.
+dinner_recipe(food1, food2)
+
+# Chains
+
+##--CODE--##
+# Additional imports for specific chain we'll use.
+from langchain.chains import LLMMathChain
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.0)
+
+# Create a math chain for performing calculations.
+chain = LLMMathChain.from_llm(llm=llm, verbose=True)
+
+# Set the input query as a text description of a math problem.
+query = {"question": "What is the sum of 18 and the cubed root of 24?"}
+
+# Run the chain using the query as input and print the result.
+result = chain.invoke(query)
+print(result["answer"])
+
+# Combining Chains
+
+##--CODE--##
+# Additional imports for specific chains we'll use.
+from langchain.chains import LLMChain
+from langchain.chains import LLMMathChain
+from langchain.chains import SimpleSequentialChain
+from langchain.prompts import ChatPromptTemplate
+
+##--CODE--##
+# Initialize the LLM for text.
+chat_llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+# Initialize the LLM for math.
+math_llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.0)
+
+# Create a chat chain for creating text.
+simple_prompt = ChatPromptTemplate.from_template("{query}")
+chat_chain = LLMChain(llm=chat_llm, prompt=simple_prompt)
+
+# Create a math chain for performing calculations.
+math_chain = LLMMathChain.from_llm(llm=math_llm)
+
+# Construct the simple sequential chain from the two other chains.
+chain = SimpleSequentialChain(
+    chains=[chat_chain, math_chain],
+    verbose=True
+)
+
+# Set the input query for the first chain in the sequence.
+query = {"input": "Please write a simple math word problem requiring multiplication."}
+
+# Run the sequential chain using the query as the first input. Print the result.
+result = chain.invoke(query)
+print(result["output"])
+
+##--CODE--##
+# Additional imports for specific chains we'll use.
+from langchain.chains import LLMChain
+from langchain.prompts import ChatPromptTemplate
+from langchain.chains.constitutional_ai.base import ConstitutionalChain
+from langchain.chains.constitutional_ai.models import ConstitutionalPrinciple
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+# Create a chat chain for creating text.
+chat_chain = LLMChain(llm=llm, prompt=ChatPromptTemplate.from_template("{query}"))
+
+# Create a principle for our constitutional chain.
+principle = ConstitutionalPrinciple(
+    name="Fear of Dogs",
+    critique_request="The model should not include dogs in stories it writes.",
+    revision_request="Modify the story to be about animals other than dogs.",
+)
+
+# Create a constitutional chain for ensuring the story does not include dogs.
+constitutional_chain = ConstitutionalChain.from_llm(
+    chain=chat_chain,
+    constitutional_principles=[principle],
+    llm=llm,
+    verbose=True
+)
+
+# Set the input query for the chat chain.
+query = {"query": "Please give me the main events of a story about three household pets."}
+
+# Run the constitutional chain using the query as the first input.
+result = constitutional_chain.invoke(query)
+print(result["output"])
+

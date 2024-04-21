@@ -1,0 +1,45 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+import scipy.stats as st
+
+##--CODE--##
+# Import the WDI dataset, drop missing data
+wdi_data = pd.read_csv('../Resources/WDI_2018.csv')
+wdi_data = wdi_data.dropna()
+wdi_data.head()
+
+##--CODE--##
+# For the first example, determine which pairs of factors are correlated. 
+
+
+##--CODE--##
+
+
+##--CODE--##
+
+
+##--CODE--##
+
+
+##--CODE--##
+# The next example will compute the Pearson correlation coefficient between "Income per Capita" and "Average Alcohol Consumed"
+
+
+##--CODE--##
+# Compare the calcualted Pearson's r to the plots
+
+
+##--CODE--##
+
+
+##--CODE--##
+
+
+##--CODE--##
+
+
+##--CODE--##
+
+

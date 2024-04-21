@@ -1,0 +1,114 @@
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+from sklearn.cluster import KMeans, AgglomerativeClustering, Birch
+from sklearn.preprocessing import StandardScaler
+
+##--CODE--##
+# Read the CSV file into a Pandas DataFrame
+rate_df = pd.read_csv("Resources/global_carry_trades.csv")
+
+# Review the DataFrame
+rate_df.head()
+
+## Prepare the Data 
+
+##--CODE--##
+# Use the StandardScaler module and fit_transform function to 
+# scale all columns with numerical values
+
+
+# Diplay the first three rows of the scaled data
+
+
+##--CODE--##
+# Create a DataFrame called with the scaled data
+# The column names should match those referenced in the StandardScaler step
+
+
+##--CODE--##
+# Encode (convert to dummy variables) the "IMF Country Code" column
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Concatenate the scaled data DataFrame with the "IMF Country Code" encoded dummies 
+
+
+# Display the combined DataFrame.
+
+
+## Fit and Predict with KMeans
+
+##--CODE--##
+# Initialize the K-Means model with n_clusters=3
+
+
+# Fit the model for the rate_df_scaled DataFrame
+
+
+# Save the predicted model clusters to a new DataFrame.
+
+
+# View the country clusters
+
+
+##--CODE--##
+# Create a copy of the concatenated DataFrame
+
+
+# Create a new column in the copy of the concatenated DataFrame with the predicted clusters
+
+
+# Review the DataFrame
+
+
+## Plot and Analyze the Results
+
+##--CODE--##
+# Group the saved DataFrame by cluster using `groupby` to calculate average currency returns
+
+
+
+##--CODE--##
+# Create a scatter plot of the interest differential and next months currency return.
+
+
+* Based on this plot, which cluster of country appears to provide both the highest interest spread and currency return?
+
+## Fit and Predict with the Birch Clustering Algorithm
+
+##--CODE--##
+# Initialize a Birch model with n_clusters=5
+
+
+# Fit the model for the rate_df_scaled DataFrame
+
+
+# Predict the model segments (clusters)
+
+
+# View the stock segments
+
+
+##--CODE--##
+# Create a copy of the concatenated DataFrame
+
+
+# Create a new column in the copy of the concatenated DataFrame with the predicted clusters
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Create a scatter plot of the interest differential and next months currency return.
+
+
+* Based on this plot, which cluster of country appears to provide both the highest interest spread and currency return?
+
+##--CODE--##
+
+

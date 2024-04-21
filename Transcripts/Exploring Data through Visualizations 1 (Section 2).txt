@@ -1,0 +1,1082 @@
+WEBVTT
+
+1
+00:00:04.130 --> 00:00:05.220
+Anthony Taylor: Okay.
+
+2
+00:00:12.240 --> 00:00:17.059
+Anthony Taylor: So bar charts. Right? So now we're on bar charts.
+
+3
+00:00:17.450 --> 00:00:18.560
+Anthony Taylor: So
+
+4
+00:00:20.430 --> 00:00:21.940
+Anthony Taylor: Clayton, part 2,
+
+5
+00:00:22.650 --> 00:00:24.949
+Anthony Taylor: II Mpl.
+
+6
+00:00:26.470 --> 00:00:27.170
+hmm.
+
+7
+00:00:34.280 --> 00:00:36.490
+Anthony Taylor: not everybody came back yet
+
+8
+00:00:39.140 --> 00:00:48.410
+Anthony Taylor: I am truly sorry that I ended the meeting one last time. That was an accident. Okay, so map. Now, we're gonna do bar charts. So here.
+
+9
+00:00:48.430 --> 00:00:53.300
+Anthony Taylor: keeping in mind that the X-axis is simply a label.
+
+10
+00:00:53.500 --> 00:00:58.429
+Anthony Taylor: Okay, the the data values are going to rise
+
+11
+00:00:59.110 --> 00:01:00.549
+Anthony Taylor: from that label
+
+12
+00:01:01.240 --> 00:01:03.630
+Anthony Taylor: alright. The good news is
+
+13
+00:01:04.090 --> 00:01:06.930
+Anthony Taylor: instead of dot plot.
+
+14
+00:01:07.640 --> 00:01:10.800
+Anthony Taylor: Right? You're gonna put bar.
+
+15
+00:01:11.740 --> 00:01:12.580
+Anthony Taylor: That's it.
+
+16
+00:01:12.840 --> 00:01:16.160
+Anthony Taylor: Okay, you need to pass in the X axes.
+
+17
+00:01:16.170 --> 00:01:26.339
+Anthony Taylor: which in this case is just going to be some number values the values that you want to rise from each one in the order at which they're gonna they're going in there.
+
+18
+00:01:26.450 --> 00:01:28.910
+Anthony Taylor: The color of the bar.
+
+19
+00:01:29.670 --> 00:01:34.369
+Anthony Taylor: the alpha, so like an alpha again, is, how transparent it is!
+
+20
+00:01:34.700 --> 00:01:38.890
+Anthony Taylor: Alright. And this alignment is where the tick
+
+21
+00:01:39.110 --> 00:01:40.870
+Anthony Taylor: under the bar
+
+22
+00:01:41.620 --> 00:01:44.350
+Anthony Taylor: sits. So if we run this
+
+23
+00:01:44.540 --> 00:01:49.329
+Anthony Taylor: because we said aligned center is right in the middle of the bar.
+
+24
+00:01:49.660 --> 00:01:54.820
+Anthony Taylor: You might want it on the left side. You might want it on the right side. But this is right in the middle of the ball.
+
+25
+00:01:56.250 --> 00:01:57.190
+Anthony Taylor: Okay.
+
+26
+00:01:59.100 --> 00:02:03.730
+Anthony Taylor: so bars very similar to your regular plots. Just
+
+27
+00:02:04.210 --> 00:02:06.240
+Anthony Taylor: dot bar instead of that bar.
+
+28
+00:02:06.770 --> 00:02:09.919
+Anthony Taylor: Now, here's where Bar gets a little more interesting.
+
+29
+00:02:09.930 --> 00:02:17.750
+Anthony Taylor: This is not very informative, is it? 0 1, 2, 3, 4. So we want to put values like, so.
+
+30
+00:02:18.870 --> 00:02:23.270
+Anthony Taylor: okay, so what we can do. And and you is, you get
+
+31
+00:02:23.530 --> 00:02:27.680
+Anthony Taylor: the tick locations is basically these numbers.
+
+32
+00:02:28.320 --> 00:02:33.189
+Anthony Taylor: Alright. So this is a really simple one. So the numbers are 0, 1, 2, 3, 4. But
+
+33
+00:02:33.880 --> 00:02:39.730
+Anthony Taylor: okay. the tick location. So, but that's not always the case.
+
+34
+00:02:40.030 --> 00:02:44.399
+Anthony Taylor: All right. You might have an X that has all kinds of different things.
+
+35
+00:02:45.680 --> 00:02:55.850
+Anthony Taylor:  so you use this, or you can do a for loop, whichever you prefer, and this will give you a list
+
+36
+00:02:55.890 --> 00:03:00.550
+Anthony Taylor: of values that correspond to your ex axis.
+
+37
+00:03:02.110 --> 00:03:08.380
+Anthony Taylor: Then you run X ticks. give it that list of value.
+
+38
+00:03:08.760 --> 00:03:13.479
+Anthony Taylor: and then tell it what place each one. And again, this is in order.
+
+39
+00:03:13.590 --> 00:03:20.019
+Anthony Taylor: So Java will replace 0 c plus plus 1, 5, 2 ruby, 3. Close your pool.
+
+40
+00:03:21.190 --> 00:03:24.279
+Anthony Taylor: Okay? And then you can show it, and you'll have
+
+41
+00:03:26.210 --> 00:03:27.360
+Anthony Taylor: pick marks
+
+42
+00:03:39.530 --> 00:03:41.650
+Anthony Taylor: account. Okay?
+
+43
+00:03:41.800 --> 00:03:46.850
+Anthony Taylor: So now you get the cool tick marks for each bar. So the actual leaders.
+
+44
+00:03:47.250 --> 00:03:48.090
+Anthony Taylor: alright.
+
+45
+00:03:48.240 --> 00:03:59.140
+Anthony Taylor: again, we can do, Xlim, because this is still just. A map plotlid plot. So Xlim applies to everything. I do want you guys to notice we're starting to add some mathematics to it
+
+46
+00:03:59.220 --> 00:04:05.180
+Anthony Taylor: instead of just, you know, like, earlier, we were saying 0 to 10 negative 1 one, because we could see
+
+47
+00:04:05.580 --> 00:04:07.650
+Anthony Taylor: that was the values that were there.
+
+48
+00:04:07.990 --> 00:04:13.540
+Anthony Taylor: Okay. But in this case we're like, well, X,
+
+49
+00:04:13.630 --> 00:04:19.580
+Anthony Taylor: we're gonna start, you know, we're gonna do this. And then why we want to go up to the top.
+
+50
+00:04:19.990 --> 00:04:22.549
+Anthony Taylor: and then maybe subtract a little bit.
+
+51
+00:04:22.800 --> 00:04:26.369
+Anthony Taylor: But you know, so this gives us a way to dynamically
+
+52
+00:04:27.140 --> 00:04:32.180
+Anthony Taylor: do the the same thing. Sorry, this is just X. So we're starting at 0 point 7 5 and going
+
+53
+00:04:32.240 --> 00:04:37.610
+Anthony Taylor: all the way over to just slightly less than what it is. Now I'm gonna run it again and say.
+
+54
+00:04:37.620 --> 00:04:44.790
+Anthony Taylor: and then for y, we're doing the verdict. You're starting at 0 point 7 5 negative. And you're going
+
+55
+00:04:44.970 --> 00:04:50.180
+Anthony Taylor: in this case, the Max. whatever this value means, plus
+
+56
+00:04:50.250 --> 00:04:51.299
+Anthony Taylor: 5,000.
+
+57
+00:04:51.940 --> 00:04:53.660
+Anthony Taylor: Okay, so
+
+58
+00:04:53.920 --> 00:04:55.310
+Anthony Taylor: get that to run again.
+
+59
+00:04:59.750 --> 00:05:04.370
+Anthony Taylor: Alright. So we go from that. And now we have a little bit cleaner
+
+60
+00:05:04.610 --> 00:05:11.580
+Anthony Taylor: output. I ran off so last, but not least, you're make your chart as aesthetically pleasing as possible.
+
+61
+00:05:11.610 --> 00:05:15.109
+Anthony Taylor: Add your title, your labels, and that's the end of it.
+
+62
+00:05:15.540 --> 00:05:19.960
+Anthony Taylor: So all of this can be done in one cell. Just so we're clear on this.
+
+63
+00:05:20.320 --> 00:05:23.040
+Anthony Taylor: Okay, you can create it.
+
+64
+00:05:24.090 --> 00:05:31.840
+Anthony Taylor: Do your tick locations. your excellent Ylm. And your titles. One cell show at the end, and you're done.
+
+65
+00:05:34.060 --> 00:05:35.280
+Anthony Taylor: Okay.
+
+66
+00:05:37.580 --> 00:05:38.580
+Anthony Taylor: alright.
+
+67
+00:05:39.300 --> 00:05:41.419
+Anthony Taylor: So for the next
+
+68
+00:05:45.540 --> 00:05:47.140
+Anthony Taylor: a
+
+69
+00:05:48.270 --> 00:05:53.169
+Anthony Taylor:  I was hoping we had a little extra, but we don't.
+
+70
+00:05:55.240 --> 00:05:58.899
+Anthony Taylor: Yeah. So for this one you will get
+
+71
+00:06:04.560 --> 00:06:08.750
+Anthony Taylor: 12 min. Brian. and
+
+72
+00:06:08.980 --> 00:06:11.180
+Anthony Taylor: knock it out.
+
+73
+00:06:12.020 --> 00:06:24.090
+Anthony Taylor: It's should be fairly similar to what I just showed you. Okay. they've given. They're giving you the except in this one. They're even giving you the labels and the value.
+
+74
+00:06:24.670 --> 00:06:26.140
+Anthony Taylor: Alright. So
+
+75
+00:06:26.910 --> 00:06:33.420
+Anthony Taylor: really, a lot of this is just going to be. Get your ticks, so follow the example. Set your limits.
+
+76
+00:06:34.130 --> 00:06:37.280
+Anthony Taylor: give your your title and your labels, and save
+
+77
+00:06:37.600 --> 00:06:40.200
+Anthony Taylor: right awesome
+
+78
+00:06:41.300 --> 00:06:45.590
+Anthony Taylor: welcome back. So how do we do we get through it? That one was
+
+79
+00:06:45.620 --> 00:06:54.220
+Clayton Graves: probably tougher than some of the other ones. Actually, the the tick stuff was a little tricky, but we got it figured out.
+
+80
+00:06:54.270 --> 00:06:57.750
+Clayton Graves: and we didn't further than that. But we did get it
+
+81
+00:06:58.410 --> 00:06:59.510
+Anthony Taylor: actually.
+
+82
+00:06:59.840 --> 00:07:10.810
+Anthony Taylor: everything in here, because plot bar is so similar to the other one. The X ticks was probably the most important thing to pick up in this one. because it's the only thing that's like totally different.
+
+83
+00:07:11.000 --> 00:07:14.650
+Anthony Taylor: Then the line chart one. So once you have this
+
+84
+00:07:15.130 --> 00:07:20.199
+Anthony Taylor: figured out, then this other stuff, you know, is is going to be the same all the time.
+
+85
+00:07:20.620 --> 00:07:24.590
+Anthony Taylor: Alright, let me talk through that real quick. So you have your values.
+
+86
+00:07:24.620 --> 00:07:33.860
+Anthony Taylor: You have your city. Okay, we're just doing plucked up our X and values. We're doing color blue, align center. Alright.
+
+87
+00:07:34.170 --> 00:07:40.959
+Anthony Taylor: For tick locations. We did our list comprehension, or you could have used a for loop. And we passed in
+
+88
+00:07:40.970 --> 00:07:42.660
+Anthony Taylor: this list of cities.
+
+89
+00:07:43.670 --> 00:07:49.630
+Anthony Taylor: Okay, so this is often in this situation, how you might be presented with the data.
+
+90
+00:07:50.270 --> 00:07:56.390
+Anthony Taylor: Okay, is in either 2 arrays or even series.
+
+91
+00:07:57.030 --> 00:08:01.719
+Anthony Taylor:  so that's often how that will get presented to
+
+92
+00:08:02.170 --> 00:08:04.779
+Anthony Taylor: the X-lim and wiling.
+
+93
+00:08:05.190 --> 00:08:13.020
+Anthony Taylor: It's just like that. It's just here to kind of clean up. Make this look a little nicer. This one doesn't actually look too bad nicely
+
+94
+00:08:13.280 --> 00:08:14.370
+Anthony Taylor: laid out.
+
+95
+00:08:14.390 --> 00:08:16.840
+Anthony Taylor: But I mean, you can see. Okay.
+
+96
+00:08:17.050 --> 00:08:20.980
+Anthony Taylor: I don't know. I don't really think that changed that much at all. But
+
+97
+00:08:22.730 --> 00:08:24.730
+Anthony Taylor: yeah. anyway.
+
+98
+00:08:24.920 --> 00:08:32.279
+Anthony Taylor: And then you have your title, your label, your Y label. So the bottom line there is on configuring.
+
+99
+00:08:33.840 --> 00:08:46.450
+Anthony Taylor: There's whole books written on how to make visualizations as aesthetically pleasing as possible. Okay, for what we're using visualizations for cause. Remember
+
+100
+00:08:46.690 --> 00:08:54.279
+Anthony Taylor: our deal with machine learning. And AI, we're learn using them more for ourselves or for our peers.
+
+101
+00:08:54.660 --> 00:08:56.599
+Anthony Taylor: If you're gonna do it for management.
+
+102
+00:08:57.610 --> 00:09:08.309
+Anthony Taylor: It's good to make it look as nice as possible, but you know they're gonna value much more for your ability to analyze this and all of that than they are to do. Dashboard.
+
+103
+00:09:08.470 --> 00:09:11.210
+Anthony Taylor: Okay, that's a different group of people. Yeah, there
+
+104
+00:09:12.720 --> 00:09:14.660
+Derek Rikke: for the X ticks.
+
+105
+00:09:15.250 --> 00:09:17.390
+Derek Rikke: Can you just go X-axis
+
+106
+00:09:17.410 --> 00:09:25.630
+Derek Rikke: instead of doing the tick. I don't know when you do the tick locations. Are you just getting X-axis again?
+
+107
+00:09:25.670 --> 00:09:28.770
+Anthony Taylor: A 100%. Yes. in this case.
+
+108
+00:09:29.410 --> 00:09:38.580
+Anthony Taylor: okay, but not all, if there's values there, or something, you need to let it come up with those values. Because, yeah, it's just that's just how it works.
+
+109
+00:09:39.070 --> 00:09:50.510
+Anthony Taylor: right? That that the reason we show you this is because it's not always going to be as simple as 0 1 2 people. It could be almost anything
+
+110
+00:09:51.150 --> 00:09:56.430
+Anthony Taylor: alright. So since we don't know you do this, you're for sure. Gonna get the right thing in the right place.
+
+111
+00:09:58.240 --> 00:10:00.480
+Anthony Taylor: Okay? Any questions.
+
+112
+00:10:02.610 --> 00:10:03.370
+Anthony Taylor: Alright.
+
+113
+00:10:03.790 --> 00:10:11.730
+Anthony Taylor: So last one, we're gonna learn today. And you guys are gonna have it. Ask a question on that. Please stick locations thing. Can you go back to?
+
+114
+00:10:12.400 --> 00:10:13.209
+Anthony Taylor: Yeah, hold on
+
+115
+00:10:13.650 --> 00:10:14.380
+kind of
+
+116
+00:10:14.640 --> 00:10:16.499
+Anthony Taylor: type in before I lose it. Okay.
+
+117
+00:10:17.260 --> 00:10:23.300
+Dipinto, Matt: so is that not effectively just recreating the X Axis list.
+
+118
+00:10:24.560 --> 00:10:37.689
+Anthony Taylor:  because effective, because it's exactly the one to one transposal of it. Yeah, yeah, 100% for X equals X and X axis print X, that's basically what it is.
+
+119
+00:10:37.840 --> 00:10:40.829
+Dipinto, Matt: So again, this is something that we always
+
+120
+00:10:41.250 --> 00:10:48.039
+Anthony Taylor: explain that you might have situations where you might need to do more with it. Okay, so, but I'm with you. I agree
+
+121
+00:10:48.440 --> 00:10:52.769
+Anthony Taylor: 100% that you could probably just leave that out. But
+
+122
+00:10:52.860 --> 00:10:57.400
+Anthony Taylor: X-axis here, and you'll be fine. Okay, especially with these really simple.
+
+123
+00:10:59.130 --> 00:11:02.870
+Anthony Taylor: Okay? Right? Now, that's a great observation. Thank you.
+
+124
+00:11:04.380 --> 00:11:07.750
+Anthony Taylor: All right, scatterplot. So
+
+125
+00:11:08.930 --> 00:11:10.620
+Anthony Taylor: scatterplots
+
+126
+00:11:11.580 --> 00:11:13.760
+same imports.
+
+127
+00:11:13.930 --> 00:11:21.260
+Anthony Taylor: Remember the biggest difference between a scatterplot, a bar chart and line chart is a scatterplot at at
+
+128
+00:11:21.350 --> 00:11:22.510
+Anthony Taylor: values.
+
+129
+00:11:23.680 --> 00:11:31.589
+Anthony Taylor: It's not a label and a value. It's too value. So we're going to do an X limit of a hundred. We're going to grab
+
+130
+00:11:31.750 --> 00:11:33.900
+Anthony Taylor: 0 to a hundred.
+
+131
+00:11:34.380 --> 00:11:39.560
+Anthony Taylor: and then we're going to grab a random value for each of these values.
+
+132
+00:11:40.200 --> 00:11:44.260
+Anthony Taylor: Alright, does everybody see how that's working? We're saying, give me a hundred.
+
+133
+00:11:44.760 --> 00:11:53.369
+Anthony Taylor: So Npa, range 0 to a hundred. And then here we're saying for each value in here.
+
+134
+00:11:54.160 --> 00:11:55.710
+Anthony Taylor: give me a random number.
+
+135
+00:11:58.220 --> 00:12:02.360
+Anthony Taylor: Okay. now. plt.
+
+136
+00:12:02.410 --> 00:12:06.199
+Anthony Taylor: there it is, gather not bar, not plot.
+
+137
+00:12:06.510 --> 00:12:12.150
+Anthony Taylor: scatter. pass in X passen y way, you want your markers.
+
+138
+00:12:12.390 --> 00:12:16.049
+Anthony Taylor: They're normally when we teach this, we don't actually show.
+
+139
+00:12:16.190 --> 00:12:18.760
+Anthony Taylor: Like all of this extra stuff. First.
+
+140
+00:12:19.480 --> 00:12:25.330
+Anthony Taylor: okay, we just say you can make it with just these actually, just these 2 valid.
+
+141
+00:12:25.680 --> 00:12:26.630
+Anthony Taylor: And that's it.
+
+142
+00:12:27.620 --> 00:12:30.709
+Anthony Taylor: So all the rest of this is to make it prettier
+
+143
+00:12:30.870 --> 00:12:35.389
+Anthony Taylor: markers. This is going to make little. So little circle. face, color.
+
+144
+00:12:35.450 --> 00:12:40.930
+Anthony Taylor: the face, color, and the edge color. It's just like you might well, you know. Let me show.
+
+145
+00:12:41.550 --> 00:12:48.549
+Anthony Taylor: So the face color is this inside the circle. the edge color. the edge of the circle.
+
+146
+00:12:49.640 --> 00:12:56.740
+Anthony Taylor: Alright. Now cool thing about scatterplots is you can have
+
+147
+00:12:57.090 --> 00:12:58.360
+third
+
+148
+00:12:58.620 --> 00:12:59.560
+Anthony Taylor: value.
+
+149
+00:13:00.830 --> 00:13:02.060
+Anthony Taylor: which is side
+
+150
+00:13:02.720 --> 00:13:10.490
+Anthony Taylor: so S equals. In this case they made it the same as the X axis. So as it moves across the screen, they get bigger and bigger and bigger.
+
+151
+00:13:10.850 --> 00:13:13.510
+Anthony Taylor: Okay, but you could have.
+
+152
+00:13:13.690 --> 00:13:17.230
+Anthony Taylor: you know, an X-axis, a Y axis, and then a side
+
+153
+00:13:17.890 --> 00:13:23.650
+Anthony Taylor: and be honest. You could actually put values into the colors as well.
+
+154
+00:13:24.690 --> 00:13:30.770
+Anthony Taylor: So a single scatter plot, when done well. can actually represent a lot of value
+
+155
+00:13:31.980 --> 00:13:33.330
+Anthony Taylor: not just to.
+
+156
+00:13:34.300 --> 00:13:36.679
+Anthony Taylor: But we need at least 2.
+
+157
+00:13:37.070 --> 00:13:42.950
+Anthony Taylor: So then we're just gonna do our Y lim, and it's gonna break again and our x ln, and then that's it. Okay.
+
+158
+00:13:44.430 --> 00:13:45.780
+Anthony Taylor: y'all might.
+
+159
+00:13:46.330 --> 00:13:47.710
+michael mcpherson: What is the Alpha
+
+160
+00:13:48.840 --> 00:13:51.560
+Anthony Taylor: alpha is how transparent is it?
+
+161
+00:13:52.280 --> 00:13:54.600
+Anthony Taylor: Right? So 1.0
+
+162
+00:13:54.620 --> 00:13:58.150
+Anthony Taylor: stallage can't see through it at all. The reason
+
+163
+00:13:58.200 --> 00:13:59.710
+Anthony Taylor: we do, Alpha.
+
+164
+00:13:59.810 --> 00:14:03.049
+Anthony Taylor: If you have face color, you want to do our.
+
+165
+00:14:04.100 --> 00:14:05.940
+Anthony Taylor: You want to explain why that might be
+
+166
+00:14:09.390 --> 00:14:12.850
+michael mcpherson: overlap. Look at this. Look at this circle right there. Oh.
+
+167
+00:14:13.160 --> 00:14:19.419
+Anthony Taylor: that figures! You can't see it when you do that. But if you look at that circle, you see how you can see the circle underneath it.
+
+168
+00:14:20.270 --> 00:14:24.280
+michael mcpherson: That's because we did, Alpha. If we didn't, that would just look like a blob.
+
+169
+00:14:25.550 --> 00:14:26.460
+Anthony Taylor: Okay.
+
+170
+00:14:27.020 --> 00:14:30.230
+Anthony Taylor: so that's why we do, Alpha, any time we do face cover.
+
+171
+00:14:30.810 --> 00:14:31.700
+michael mcpherson: Thank you.
+
+172
+00:14:32.070 --> 00:14:33.479
+Anthony Taylor: It's a great question.
+
+173
+00:14:34.510 --> 00:14:37.060
+Anthony Taylor: Hi. feeling good.
+
+174
+00:14:37.380 --> 00:14:46.350
+Anthony Taylor: pretty, straightforward, locked up together. Alright. We are going to go a few minutes over. That's probably because of my accidentally ending meeting. Apologize.
+
+175
+00:14:46.410 --> 00:14:56.730
+Anthony Taylor:  So for this one I gotta give you 10. But I gotta be honest. This looks pretty straightforward. You're gonna have 3 values. Well.
+
+176
+00:14:57.200 --> 00:15:01.239
+Anthony Taylor: but you guys just want to do this, doesn't everyone do? Let's do it as everyone
+
+177
+00:15:01.270 --> 00:15:02.909
+Anthony Taylor: that's fine. We can do that.
+
+178
+00:15:03.550 --> 00:15:07.870
+Anthony Taylor: We can do that. I don't think you need it as an. But
+
+179
+00:15:09.400 --> 00:15:12.829
+that way we can get through on time. Mostly.
+
+180
+00:15:14.670 --> 00:15:20.270
+Anthony Taylor: Okay. So we're gonna change this BYNP. L.
+
+181
+00:15:20.640 --> 00:15:21.970
+Anthony Taylor: Going to
+
+182
+00:15:22.270 --> 00:15:24.569
+Anthony Taylor: run that one
+
+183
+00:15:27.590 --> 00:15:41.409
+Anthony Taylor: alright gonna import. So here's the temps they gave us. And then they gave us. They? Okay. So we're going to. We're going to have map, plot, live.
+
+184
+00:15:42.060 --> 00:15:44.120
+Anthony Taylor: Create us
+
+185
+00:15:45.690 --> 00:15:50.509
+Anthony Taylor: a charts that will have that. Now
+
+186
+00:15:50.630 --> 00:15:55.349
+Anthony Taylor: let's just go straight down here. We don't need to do the without scoop price. Let's throw this in.
+
+187
+00:15:55.450 --> 00:15:57.540
+Anthony Taylor: So this will be our third value.
+
+188
+00:15:58.380 --> 00:16:02.420
+Anthony Taylor: Okay, so we're going to do pl tatter.
+
+189
+00:16:04.000 --> 00:16:07.260
+Anthony Taylor: and we're gonna pass in our X, which was 10,
+
+190
+00:16:07.610 --> 00:16:15.280
+Anthony Taylor: our Y, which was failed. Honestly, you could have reversed them. It wouldn't have been that big a deal. You just have to make sure you do your labels right?
+
+191
+00:16:15.710 --> 00:16:21.250
+Anthony Taylor: We're gonna do a circle. So we'll say, Marker equals. O,
+
+192
+00:16:22.300 --> 00:16:23.260
+Anthony Taylor: okay.
+
+193
+00:16:23.730 --> 00:16:25.489
+and then face color.
+
+194
+00:16:26.780 --> 00:16:32.159
+Anthony Taylor: That's interesting. Why did it go away? It shouldn't stay there, and then we'll do red again.
+
+195
+00:16:33.000 --> 00:16:34.530
+Edge colors.
+
+196
+00:16:36.360 --> 00:16:37.180
+Anthony Taylor: what?
+
+197
+00:16:38.380 --> 00:16:42.890
+Anthony Taylor: And then for Ste, we're going to use scoop price.
+
+198
+00:16:43.880 --> 00:16:51.770
+Anthony Taylor: Okay? Which is kind of cool, right? We can say, Okay, well, this is the individual scoop price. And that's really all we need.
+
+199
+00:16:52.260 --> 00:16:55.000
+Anthony Taylor: Once you have that, you can plot that show.
+
+200
+00:16:56.910 --> 00:17:06.519
+Anthony Taylor: And what did I not run? Oh, I didn't run to sell. That was lame. Okay, and see and hearing. You can see we have
+
+201
+00:17:06.680 --> 00:17:09.880
+Anthony Taylor: our temp. our sales.
+
+202
+00:17:10.030 --> 00:17:14.760
+Anthony Taylor: and the size is how much we were charging by the school
+
+203
+00:17:16.030 --> 00:17:18.460
+Anthony Taylor: definitely a correlation here. Huh?
+
+204
+00:17:19.270 --> 00:17:31.789
+Mccanse, Meredith: Yeah. Sorry. Yeah. I'm sorry I didn't need to interrupt. Oh, when you say the S. Are you saying size 5 Si ze like small medium, large.
+
+205
+00:17:31.910 --> 00:17:34.329
+Anthony Taylor: yes, and the size of the circle.
+
+206
+00:17:34.400 --> 00:17:36.919
+Anthony Taylor: So the size of the circle, like
+
+207
+00:17:36.990 --> 00:17:40.770
+Anthony Taylor: like, if you look here, you know, the first one was 89.
+
+208
+00:17:41.520 --> 00:17:49.589
+Anthony Taylor: The first value, which was 14 to 215. So 14 to 215. So this one. you see how it's kind of big
+
+209
+00:17:49.790 --> 00:17:54.640
+Anthony Taylor: right? And then like this one, the third 1, 11, 9, 1, 85,
+
+210
+00:17:55.320 --> 00:17:57.370
+Anthony Taylor: 11, 9, 1 85. D.
+
+211
+00:17:57.430 --> 00:17:59.180
+Mccanse, Meredith: Got it. Okay? Yup.
+
+212
+00:17:59.210 --> 00:18:04.420
+Baro, Sonja: thank you. Thank you
+
+213
+00:18:04.460 --> 00:18:07.250
+Baro, Sonja: was like, cause, what's making it bigger, small.
+
+214
+00:18:07.510 --> 00:18:12.220
+Anthony Taylor: right? Because of that? That's what they asked. That that's all that does. That's why I'm saying. That's what's so cool.
+
+215
+00:18:12.530 --> 00:18:14.800
+Anthony Taylor: We get 1, 2,
+
+216
+00:18:14.940 --> 00:18:22.420
+Anthony Taylor: 3 different values to look at in one chart, and like I said we could do the color too sorry.
+
+217
+00:18:22.460 --> 00:18:23.859
+Anthony Taylor: alright like.
+
+218
+00:18:23.990 --> 00:18:32.920
+Clayton Graves: Why your dots look so much bigger than mine. That's not a euphemism. Why, why.
+
+219
+00:18:33.330 --> 00:18:38.450
+Anthony Taylor: II don't know. Let me see yours. I don't know. It's probably just
+
+220
+00:18:38.610 --> 00:18:41.819
+Anthony Taylor: some kind of formatting or something or screen, or
+
+221
+00:18:43.040 --> 00:18:47.550
+Anthony Taylor: maybe my red, because I do have my stuff scaled up really big. So you guys can see it. But
+
+222
+00:18:51.880 --> 00:18:54.499
+Anthony Taylor: oh, looks like your size is wrong. Go back up.
+
+223
+00:18:57.690 --> 00:19:00.759
+Anthony Taylor: Yeah. Okay. So while that is great.
+
+224
+00:19:01.030 --> 00:19:06.370
+Anthony Taylor: move that below scoop price. So so copy that line you you wrote there.
+
+225
+00:19:07.380 --> 00:19:08.879
+Anthony Taylor: we can fix this fast
+
+226
+00:19:11.070 --> 00:19:14.520
+Anthony Taylor: or cut it. Yeah, and then put it under here under scoop price
+
+227
+00:19:16.140 --> 00:19:17.750
+Anthony Taylor: uncomment scoop.
+
+228
+00:19:20.560 --> 00:19:25.239
+Anthony Taylor: This member control slash or you're complete. Go ahead and comment this line back out. So you don't
+
+229
+00:19:25.500 --> 00:19:27.090
+Anthony Taylor: accidentally run it again.
+
+230
+00:19:27.800 --> 00:19:31.820
+Anthony Taylor: Okay, and then here, up that. That too sorry.
+
+231
+00:19:33.290 --> 00:19:38.239
+Anthony Taylor: And then here put S. Equals scoop price
+
+232
+00:19:40.500 --> 00:19:41.780
+Anthony Taylor: instead of 10.
+
+233
+00:19:45.490 --> 00:19:46.419
+Anthony Taylor: Now run it.
+
+234
+00:19:50.770 --> 00:19:54.270
+Anthony Taylor: you having that weird problem like I'm having you have to restart everything, every name time.
+
+235
+00:19:55.350 --> 00:19:56.720
+Derek Rikke: Give you show.
+
+236
+00:19:59.890 --> 00:20:09.170
+Anthony Taylor: Oh, yeah, yeah, you could. Yeah, you got you, Plato. Thank you very much. But actually, I guess you don't with that one. But yeah. So now you have your science. So good work.
+
+237
+00:20:10.940 --> 00:20:17.030
+Anthony Taylor: Okay? What else is on here? Okay, so real quick. We'll do y-lin.
+
+238
+00:20:18.310 --> 00:20:25.689
+Anthony Taylor: And and I mean, I've kind of blossomed over. Why, we ended all of that stuff. But honestly, guys, these were these are really.
+
+239
+00:20:25.970 --> 00:20:29.580
+Anthony Taylor: I mean, they can be
+
+240
+00:20:29.610 --> 00:20:38.599
+Anthony Taylor: really helpful like if you have like a chart that's just totally imbalanced. Putting in Xlim and Y Lim is helpful.
+
+241
+00:20:38.790 --> 00:20:42.949
+Anthony Taylor: And and again, I'm gonna say, this is another one of those moments
+
+242
+00:20:42.970 --> 00:20:47.740
+Anthony Taylor: where if II mean when I'm doing something like this for a data science project.
+
+243
+00:20:48.620 --> 00:20:53.439
+Anthony Taylor: I'm I'm I'm not worrying too much about, you know whether or not
+
+244
+00:20:53.500 --> 00:20:55.699
+Anthony Taylor: there's space around the
+
+245
+00:20:56.340 --> 00:21:04.580
+Anthony Taylor:  the chart. Okay. So here, ice cream sales versus Tim.
+
+246
+00:21:04.870 --> 00:21:14.180
+Anthony Taylor: That's our title. But dots hex label. we'll just say, Temp.
+
+247
+00:21:15.470 --> 00:21:17.690
+Anthony Taylor: You might want to be a little more descriptive.
+
+248
+00:21:17.880 --> 00:21:18.770
+Anthony Taylor: but that
+
+249
+00:21:18.980 --> 00:21:21.589
+Anthony Taylor: Bilabel is sales.
+
+250
+00:21:23.220 --> 00:21:24.320
+Anthony Taylor: and
+
+251
+00:21:24.970 --> 00:21:27.090
+Anthony Taylor: we'll go ahead and show it again.
+
+252
+00:21:27.550 --> 00:21:31.719
+Anthony Taylor: and there we go. Oh, I'm way zoomed in, or something. What happened there?
+
+253
+00:21:32.390 --> 00:21:37.039
+Anthony Taylor: Well, that's interesting. What? Oh. but I do.
+
+254
+00:21:38.660 --> 00:21:39.940
+Anthony Taylor: That's so weird.
+
+255
+00:21:41.040 --> 00:21:43.530
+Anthony Taylor: Okay, that's alright. We can fix it.
+
+256
+00:21:45.240 --> 00:21:48.989
+Jennifer Dahlgren: I think, on your y lim, you you can put in like 200.
+
+257
+00:21:49.530 --> 00:21:57.939
+Anthony Taylor: Did I do something weird? Oh, you're right. 186, 20.
+
+258
+00:21:58.810 --> 00:22:01.289
+Anthony Taylor: I'm not even dyslexic. That was just me.
+
+259
+00:22:01.750 --> 00:22:04.720
+michael mcpherson: I did Max sales plus a hundred.
+
+260
+00:22:04.960 --> 00:22:07.220
+Anthony Taylor: And that is the way to do it right.
+
+261
+00:22:07.500 --> 00:22:10.960
+Anthony Taylor: Okay. What Mike just said is actually the way that
+
+262
+00:22:11.130 --> 00:22:20.400
+Anthony Taylor: I would want you to do this, and you'll learn to do it more when we do Pantis tomorrow. But yeah, I mean, mathematically doing this makes sense
+
+263
+00:22:20.640 --> 00:22:24.380
+Anthony Taylor: doing this like hard coded like this is really.
+
+264
+00:22:25.160 --> 00:22:32.359
+Anthony Taylor: it's okay. If you just, you know one visual. But you know what if the data substantially changed? And
+
+265
+00:22:32.910 --> 00:22:41.100
+Anthony Taylor: now you're you know. Why don't we change it to Fahrenheit all of a sudden? Now you have to go hard code and change everything. You do it. The way Michael just said you wouldn't have to.
+
+266
+00:22:42.750 --> 00:22:46.660
+Anthony Taylor: Okay. But that's it. Questions
+
+267
+00:22:47.760 --> 00:22:49.100
+Anthony Taylor: pretty exciting.
+
+268
+00:22:50.660 --> 00:22:57.000
+Anthony Taylor: I can. You guys have a great night? I we will be here for office hours.
+
+269
+00:22:57.240 --> 00:23:01.350
+Anthony Taylor:  Feel free to stop in.
+
+270
+00:23:01.460 --> 00:23:03.750
+Anthony Taylor: We can discuss anything you like.
+

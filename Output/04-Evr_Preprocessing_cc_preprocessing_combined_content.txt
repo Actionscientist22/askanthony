@@ -1,0 +1,128 @@
+##--CODE--##
+# Import the required modules
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+
+## Load the Credit Card Data into a Pandas DataFrame
+
+##--CODE--##
+# Read in the CSV file as a pandas Dataframe
+
+# Review the first five rows of the DataFrame
+display(ccinfo_df.head())
+# Review the last five rows of the DataFrame
+display(ccinfo_df.tail())
+
+##--CODE--##
+# Review the info of the DataFrame
+
+
+## Data Preprocessing
+---
+###  Transform "education" column with get_dummies
+
+##--CODE--##
+# Verify the categories of the "education" column
+
+
+##--CODE--##
+# Transform the education column using get_dummies
+
+
+# Display the last five rows of the transformed data
+
+
+##--CODE--##
+# Concatenate the df_shopping_transformed and the card_dummies DataFrames
+
+
+# Drop the original education column
+
+
+# Display the DataFrame
+
+
+### Transform "marriage" column with encoding function
+
+##--CODE--##
+# Encoding the marriage column using a custom function
+
+
+# Call the encode_marriage function on the marriage column
+
+
+# Review the DataFrame 
+
+
+## Data Scaling
+---
+
+### Apply the Standard Scaler to "limit_bal", "bill_amt", "pay_amt"
+
+##--CODE--##
+# Scaling the numeric columns
+
+
+# Review the scaled data
+
+
+##--CODE--##
+# Create a DataFrame of the scaled data
+
+
+# Replace the original data with the columns of information from the scaled Data
+
+
+# Review the DataFrame
+
+
+### Use the elbow method to find the best `k`.
+
+##--CODE--##
+# Create a a list to store inertia values and the values of k
+
+
+##--CODE--##
+# Create a for loop where each value of k is evaluated using the K-means algorithm
+# Fit the model using the service_ratings DataFrame
+# Append the value of the computed inertia from the `inertia_` attribute of the KMeans model instance
+
+
+##--CODE--##
+# Define a DataFrame to hold the values for k and the corresponding inertia
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Plot the elbow curve
+
+
+##  Apply the KMeans Algorithm
+---
+### Use Kmeans to cluster data
+
+##--CODE--##
+# Define the model with 3 clusters
+
+
+# Fit the model
+
+
+# Make predictions
+
+
+# Create a copy of the preprocessed data
+
+
+# Add a class column with the labels
+
+
+##--CODE--##
+# Plot the clusters
+
+
+##--CODE--##
+
+

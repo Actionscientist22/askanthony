@@ -1,0 +1,52 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+
+##--CODE--##
+raw_data_info = {
+    "customer_id": [112, 403, 999, 543, 123],
+    "name": ["John", "Kelly", "Sam", "April", "Bobbo"],
+    "email": ["jman@gmail", "kelly@aol.com", "sports@school.edu", "April@yahoo.com", "HeyImBobbo@msn.com"]
+}
+info_df = pd.DataFrame(raw_data_info, columns=["customer_id", "name", "email"])
+info_df
+
+##--CODE--##
+# Create DataFrames
+raw_data_items = {
+    "customer_id": [403, 112, 543, 999, 654],
+    "item": ["soda", "chips", "TV", "Laptop", "Cooler"],
+    "cost": [3.00, 4.50, 600, 900, 150]
+}
+items_df = pd.DataFrame(raw_data_items, columns=[
+                        "customer_id", "item", "cost"])
+items_df
+
+##--CODE--##
+# Merge two DataFrames. An inner join is used by default.
+merge_df = pd.merge(info_df, items_df, on="customer_id")
+merge_df
+
+##--CODE--##
+# Merge two DataFrames using an outer join
+merge_df = pd.merge(info_df, items_df, on="customer_id", how="outer")
+merge_df
+
+##--CODE--##
+# Merge two DataFrames using a left join
+merge_df = pd.merge(info_df, items_df, on="customer_id", how="left")
+merge_df
+
+##--CODE--##
+# Merge two DataFrames using a right join
+merge_df = pd.merge(info_df, items_df, on="customer_id", how="right")
+merge_df
+
+##--CODE--##
+# Drop null values if it is necessary.
+cleaned_merged_df = merge_df.dropna(subset=['name', 'email'])
+cleaned_merged_df
+
+##--CODE--##
+
+

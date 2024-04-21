@@ -1,0 +1,114 @@
+##--CODE--##
+# Import the dependencies 
+import pandas as pd
+import re
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import NMF
+
+# Set the column width to 200.
+pd.set_option('max_colwidth', 200)
+
+##--CODE--##
+# Read the bbc_news_articles.csv file into a DataFrame.
+
+# Display the first 20 rows. 
+
+
+## Preprocessing
+
+##--CODE--##
+# Check for null values.
+
+
+##--CODE--##
+# Remove numbers and non-alphabetic characters from the news_summary column.
+
+
+## Create a TF-IDF matrix from our documents.
+
+##--CODE--##
+# Create an instance of the TfidfVectorizer and set the max_df to 0.95 and min_df to 5, and use the English stopwords to be ignored.
+
+
+##--CODE--##
+# Transform each row from the news summary to a DTM.
+
+# Get the shape of the DTM.
+
+
+## Applying NMF
+
+##--CODE--##
+# Initialize the NMF and set the number of topics to 5. 
+
+# Fit the model with our DTM data. 
+
+
+##--CODE--##
+# Check the length of the vocabulary 
+
+
+## Get the Top 15 Words Per Topic
+
+##--CODE--##
+# Print the top 15 words for each topic
+
+
+### **Question:** What is the label for each topic? 
+---
+- TOPIC 1: 
+- TOPIC 2: 
+- TOPIC 3: 
+- TOPIC 4: 
+- TOPIC 5: 
+
+## Assign the Topics and Labels to the News Summaries
+
+##--CODE--##
+# Transform our DTM so we get an array with the (number_of_documents, number_of_topics).
+
+
+# Get the shape of the topic results
+
+
+##--CODE--##
+# Read the bbc_news_articles.csv file into a DataFrame.
+news_articles_df_2 = pd.read_csv('Resources/bbc_news_articles.csv')
+# Display the DataFrame. 
+news_articles_df_2.head()
+
+##--CODE--##
+# Use the add_topic_labels function to add the topic and topic label to each news summary. 
+# Dictionary of  topics and topic label.
+topic_labels = {
+    1: '',
+    2: '',
+    3: '',
+    4: '',
+    5: ''
+}
+
+# Define the function and pass in the DataFrame, the topic_results, and topic_labels dictionary.
+def add_topic_labels(df, topic_results, topic_labels):
+    # Find the dominant topic for each document and add the label to a new column
+    df['topic'] = topic_results.argmax(axis=1) + 1
+    # Use the map function to add the topic label to the news summary based on the topic number.
+    df['topic_label'] = df['topic'].map(topic_labels)
+
+
+##--CODE--##
+# Call the function to add topic labels to your DataFrame.
+add_topic_labels(news_articles_df_2, topic_results, topic_labels)
+
+##--CODE--##
+# Display the first 10 rows of the updated DataFrame. 
+
+
+##--CODE--##
+# Display the last 10 rows of the updated DataFrame.
+
+
+##--CODE--##
+
+

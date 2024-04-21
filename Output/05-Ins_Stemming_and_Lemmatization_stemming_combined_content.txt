@@ -1,0 +1,44 @@
+# Stemming
+
+## Porter Stemmer
+
+##--CODE--##
+# Import NLTK and the full PorterStemmer library
+import nltk
+from nltk.stem.porter import PorterStemmer
+# Import the word tokenizer
+from nltk.tokenize import word_tokenize
+
+##--CODE--##
+# Instantiate the PorterStemmer() class
+p_stemmer = PorterStemmer()
+
+##--CODE--##
+# Create a list of words with different tenses.
+
+
+##--CODE--##
+# Print the word and the stem of the word.
+
+
+## Snowball Stemmer
+
+##--CODE--##
+# Import the SnowballStemmer class
+from nltk.stem.snowball import SnowballStemmer
+# Instantiate the Snowball Stemmer and pass in the "english" language parameter.
+s_stemmer = SnowballStemmer(language='english')
+
+##--CODE--##
+# Print the word and the stem of the word.
+
+
+##--CODE--##
+# Tokenize the sentence 
+
+# Apply the Porter Stemmer to the list of words.
+
+
+##--CODE--##
+
+

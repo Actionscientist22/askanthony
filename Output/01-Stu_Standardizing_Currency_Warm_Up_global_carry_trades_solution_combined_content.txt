@@ -1,0 +1,125 @@
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+from sklearn.cluster import KMeans, AgglomerativeClustering, Birch
+from sklearn.preprocessing import StandardScaler
+
+##--CODE--##
+# Read the CSV file into a Pandas DataFrame
+rate_df = pd.read_csv("Resources/global_carry_trades.csv")
+
+# Review the DataFrame
+rate_df.head()
+
+## Prepare the Data 
+
+##--CODE--##
+# Use the StandardScaler module and fit_transform function to 
+# scale all columns with numerical values
+rate_df_scaled = StandardScaler().fit_transform(rate_df[["interest_differential" , "next_month_currency_return"]])
+
+# Diplay the first three rows of the scaled data
+rate_df_scaled[0:5]
+
+##--CODE--##
+# Create a DataFrame called with the scaled data
+# The column names should match those referenced in the StandardScaler step
+rate_df_scaled = pd.DataFrame(
+    rate_df_scaled,
+    columns=["interest_differential" , "next_month_currency_return"])
+rate_df_scaled
+
+##--CODE--##
+# Encode (convert to dummy variables) the "IMF Country Code" column
+countries_encoded = pd.get_dummies(rate_df['IMF Country Code'])
+
+# Review the DataFrame
+countries_encoded.head()
+
+##--CODE--##
+# Concatenate the scaled data DataFrame with the "IMF Country Code" encoded dummies 
+rate_df_scaled = pd.concat([rate_df_scaled, countries_encoded], axis=1)
+
+# Display the combined DataFrame.
+rate_df_scaled.head()
+
+## Fit and Predict with KMeans
+
+
+##--CODE--##
+# Initialize the K-Means model with n_clusters=3
+model = KMeans(n_clusters=3, n_init='auto', random_state=1)
+
+# Fit the model for the rate_df_scaled DataFrame
+model.fit(rate_df_scaled)
+
+# Save the predicted model clusters to a new DataFrame.
+country_clusters = model.predict(rate_df_scaled)
+
+# View the country clusters
+print(country_clusters)
+
+##--CODE--##
+# Create a copy of the concatenated DataFrame
+rate_scaled_predictions = rate_df_scaled.copy()
+
+# Create a new column in the copy of the concatenated DataFrame with the predicted clusters
+rate_scaled_predictions["CountryCluster"] = country_clusters
+
+# Review the DataFrame
+rate_scaled_predictions.head()
+
+## Plot and Analyze the Results
+
+##--CODE--##
+# Group the saved DataFrame by cluster using `groupby` to calculate average currency returns
+rate_scaled_predictions.groupby(by=['CountryCluster'])['next_month_currency_return'].mean()
+
+##--CODE--##
+# Create a scatter plot of the interest differential and next months currency return.
+rate_scaled_predictions.plot.scatter(
+    x="interest_differential",
+    y="next_month_currency_return",
+    c="CountryCluster",
+    colormap='winter')
+
+* Based on this plot, which cluster of country appears to provide both the highest interest spread and currency return?
+
+## Fit and Predict with the Birch Clustering Algorithm
+
+##--CODE--##
+# Initialize a Birch model with n_clusters=5
+birch_model = Birch(n_clusters=5)
+
+# Fit the model for the rate_df_scaled DataFrame
+birch_model.fit(rate_df_scaled)
+
+# Predict the model segments (clusters)
+country_clusters = birch_model.predict(rate_df_scaled)
+
+# View the stock segments
+print(country_clusters)
+
+##--CODE--##
+# Create a copy of the concatenated DataFrame
+rate_scaled_predictions = rate_df_scaled.copy()
+
+# Create a new column in the copy of the concatenated DataFrame with the predicted clusters
+rate_scaled_predictions["CountryCluster"] = country_clusters
+
+# Review the DataFrame
+rate_scaled_predictions.head()
+
+##--CODE--##
+# Create a scatter plot of the interest differential and next months currency return.
+rate_scaled_predictions.plot.scatter(
+    x="interest_differential",
+    y="next_month_currency_return",
+    c="CountryCluster",
+    colormap='winter')
+
+* Based on this plot, which cluster of country appears to provide both the highest interest spread and currency return?
+
+##--CODE--##
+
+

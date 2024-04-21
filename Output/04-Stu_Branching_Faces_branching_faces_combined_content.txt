@@ -1,0 +1,104 @@
+# 1. Import the Preprocessed Data
+Import the pickle file with the preprocessed images.
+
+##--CODE--##
+import pickle
+import requests
+import io
+
+pickle_file = 'https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_3/datasets/pickles/preprocessed_faces_data.pkl'
+data = pickle.load(io.BytesIO(requests.get(pickle_file).content))
+data.keys()
+
+
+##--CODE--##
+# Collect the data into individual variables
+X_train = data['X_train']
+X_test = data['X_test']
+
+y_train_userid = data['y_train_userid']
+y_train_pose = data['y_train_pose']
+y_train_expression = data['y_train_expression']
+y_train_eyes = data['y_train_eyes']
+
+y_test_userid = data['y_test_userid']
+y_test_pose = data['y_test_pose']
+y_test_expression = data['y_test_expression']
+y_test_eyes = data['y_test_eyes']
+
+# 2. Build the Model
+
+##--CODE--##
+from tensorflow.keras import layers, models, Model
+# First we build the input layer
+
+
+# Shared layers (common across all tasks)
+# The second layer should be a Conv2D layer built off the input_layer
+
+
+# The third layer should be a MaxPooling2D layer built off the second layer
+
+
+# The fourth layer should be a Conv2D layer built off the third layer
+
+
+# The fifth layer should be a MaxPooling2D layer built off the fourth layer
+
+
+# The sixth layer should be a Conv2D layer built off the fifth layer
+
+
+# The seventh layer should be a Flatten layer built off the sixth layer
+
+
+# Lastly, build one dense layer before branching to the different y branches
+
+
+
+
+##--CODE--##
+# Build the branches for each of the y variables
+# Include a dense hidden layer in each along with the output layer.
+# Remember to include the correct number of nodes for the output!
+
+# userid
+
+
+# pose
+
+
+# expression
+
+
+# eyes
+
+
+##--CODE--##
+# Assemble the model
+
+
+# Compile the model
+
+
+##--CODE--##
+# Train the model with the training data
+
+
+
+##--CODE--##
+# Evaluate the model using the testing data
+results = model.evaluate(np.array(X_test), {
+        'userid_output': y_test_userid,
+        'pose_output': y_test_pose,
+        'expression_output': y_test_expression,
+        'eyes_output': y_test_eyes
+    })
+
+pred_categories = ['userid', 'pose', 'expression', 'eyes']
+for i, cat in enumerate(pred_categories):
+    print(f"{cat} accuracy: {results[i+5]}")
+
+##--CODE--##
+
+

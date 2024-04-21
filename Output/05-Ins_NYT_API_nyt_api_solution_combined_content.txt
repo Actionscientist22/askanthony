@@ -1,0 +1,42 @@
+##--CODE--##
+# Import dependencies
+import requests
+import json
+from dotenv import load_dotenv
+import os
+
+##--CODE--##
+# Load environment variables and New York Times API key
+load_dotenv()
+api_key = os.getenv("NYT_API_KEY")
+type(api_key)
+
+##--CODE--##
+# New York Times Article API URL
+url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?"
+
+# Search for articles that mention granola
+query = "granola"
+
+##--CODE--##
+# Build query URL
+query_url = url + "api-key=" + api_key + "&q=" + query
+
+##--CODE--##
+# Request articles
+articles = requests.get(query_url).json()
+
+# The "response" property in articles contains the actual articles
+# list comprehension.
+articles_list = articles["response"]["docs"]
+print(json.dumps(articles_list, indent=4))
+
+##--CODE--##
+# Print the web_url of each stored article
+print("Your Reading List")
+for article in articles_list:
+    print(article["web_url"])
+
+##--CODE--##
+
+

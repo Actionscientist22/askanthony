@@ -1,0 +1,61 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+from pathlib import Path
+
+##--CODE--##
+# Store filepaths into variable
+state_avg_csv = Path("Resources/state_avg.csv")
+state_totals_csv = Path("Resources/state_totals.csv")
+
+##--CODE--##
+# Read in files.
+state_avg_df = pd.read_csv(state_avg_csv)
+state_totals_df = pd.read_csv(state_totals_csv)
+
+##--CODE--##
+# Display the state averages.
+state_avg_df.head()
+
+##--CODE--##
+# Display the state totals.
+state_totals_df.head()
+
+##--CODE--##
+# Merge the two DataFrames together based on the Year and State they share
+census_df = pd.merge(state_avg_df, state_totals_df, on=["Year", "State"])
+census_df.head()
+
+##--CODE--##
+# Create a DataFrame that filters the data on only 2019
+census_2019_df = pd.DataFrame(census_df.loc[census_df["Year"]==2019,:])
+census_2019_df.head()
+
+##--CODE--##
+# Add a new column that calculates the Poverty Rate
+census_2019_df["Poverty Rate (%)"] = census_2019_df["Total Population in Poverty"] / \
+                                        census_2019_df["Total Population"] * 100
+census_2019_df.head()
+
+##--CODE--##
+# Sort the data by Poverty Rate and Average Per Capita Income by County, Highest to Lowest
+poverty_sorted_df = census_2019_df.sort_values(["Poverty Rate (%)", 
+                                             "Average Per Capita Income by County"],
+                                           ascending=False)
+
+# Reset Index
+poverty_sorted_df = poverty_sorted_df.reset_index(drop=True)
+poverty_sorted_df.head()
+
+##--CODE--##
+# Print out the data for the state or territory with the highest poverty rate
+highest_poverty = poverty_sorted_df.loc[0, :]
+highest_poverty
+
+##--CODE--##
+# Print out the data for the state or territory with the lowest poverty rate with one line of code
+poverty_sorted_df.loc[len(poverty_sorted_df)-1, :]
+
+##--CODE--##
+
+

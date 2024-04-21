@@ -1,0 +1,24 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# A DataFrame of individuals' contact information
+people_df = pd.read_csv('../Resources/people.csv')
+people_df.head()
+
+##--CODE--##
+# Collect a list of all columns within the DataFrame
+
+
+##--CODE--##
+# Reorganize the columns using double brackets
+
+
+##--CODE--##
+# Use .rename(columns={}) to rename columns
+
+
+##--CODE--##
+
+

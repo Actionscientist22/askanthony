@@ -1,0 +1,43 @@
+# Demo: Using Pandas to Work with Time Data
+
+##--CODE--##
+# Initial imports
+import pandas as pd
+
+##--CODE--##
+# Read the S&P 500 CSV data into a DataFrame
+
+
+# Display the DataFrame
+
+
+##--CODE--##
+# Verify the data types using dtypes
+
+
+##--CODE--##
+# Reviewing the time value from index position 0
+
+
+##--CODE--##
+# Getting the current date and time
+
+
+##--CODE--##
+# Transform the time column to a datetime data type
+
+
+# Verify the data type transformation using the info function
+
+
+##--CODE--##
+# Convert the time column to the US/Eastern timezone
+
+
+# Verify the data type transformation using the info function
+
+
+##--CODE--##
+# Review the DataFrame with the new timezone information
+
+

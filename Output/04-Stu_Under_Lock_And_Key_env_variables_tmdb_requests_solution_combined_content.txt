@@ -1,0 +1,137 @@
+##--CODE--##
+# Initial imports
+import requests
+from dotenv import load_dotenv
+import os
+import json
+
+### Use the `load_dotenv()` method from the `dotenv` package to load and export the environment variables
+
+##--CODE--##
+load_dotenv()
+
+### Use the `os.getenv` function to retrieve the environment variable named `TMDB_API_KEY`. Store as a Python variable named `api_key`
+
+##--CODE--##
+api_key = os.getenv("TMDB_API_KEY")
+
+### Use the `type` function to confirm the retrieval of the API key.
+
+##--CODE--##
+type(api_key)
+
+### Concatenate `request_url` with the `api_key` variable
+
+##--CODE--##
+# Search The Movie Database for a movie title
+# Documentation: https://developer.themoviedb.org/docs/search-and-query-for-details
+search_url = "https://api.themoviedb.org/3/search/movie?query="
+
+# Save a movie title to search for as a variable
+title = "Elemental"
+
+# Concatenate request_url, title, and api_key. Store as new variable
+request_url = search_url + title + "&api_key=" + api_key
+
+### Execute GET request with API key
+
+##--CODE--##
+# Execute get request
+response_data = requests.get(request_url).json()
+
+### Display JSON to screen using `json.dumps()`
+
+##--CODE--##
+# Print the JSON results
+print(json.dumps(response_data, indent=4))
+
+### Bonus: Retrieve Movie Credits Data
+
+##--CODE--##
+# Create a function that retrieves a movie's credits
+def get_credits(movie_id):
+    # Prepare the API URL
+    credits_url = f"https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key={api_key}"
+    
+    # Execute get request
+    credits_data = requests.get(credits_url).json()
+
+    # Print results
+    print(json.dumps(credits_data, indent=4))
+
+##--CODE--##
+# Retrieve the movie ID for Elemental
+movie_id = response_data["results"][0]["id"]
+movie_id
+
+##--CODE--##
+# Use get_credits function for Elemental movie_id
+get_credits(movie_id)
+
+##--CODE--##
+# House of Flying Daggers request
+
+# Concatenate request_url, title, and api_key. Store as new variable
+request_url = search_url + "House of Flying Daggers&api_key=" + api_key
+
+# Execute get request
+response_data = requests.get(request_url).json()
+
+# Get movie ID
+movie_id = response_data["results"][0]["id"]
+movie_id
+
+# Call get_credits function
+get_credits(movie_id)
+
+##--CODE--##
+# Howl's Moving Castle request
+
+# Concatenate request_url, title, and api_key. Store as new variable
+request_url = search_url + "Howl's Moving Castle&api_key=" + api_key
+
+# Execute get request
+response_data = requests.get(request_url).json()
+
+# Get movie ID
+movie_id = response_data["results"][0]["id"]
+movie_id
+
+# Call get_credits function
+get_credits(movie_id)
+
+##--CODE--##
+# The Adventures of Priscilla: Queen of the Desert request
+
+# Concatenate request_url, title, and api_key. Store as new variable
+request_url = search_url + "The Adventures of Priscilla: Queen of the Desert&api_key=" + api_key
+
+# Execute get request
+response_data = requests.get(request_url).json()
+
+# Get movie ID
+movie_id = response_data["results"][0]["id"]
+movie_id
+
+# Call get_credits function
+get_credits(movie_id)
+
+##--CODE--##
+# Moana request
+
+# Concatenate request_url, title, and api_key. Store as new variable
+request_url = search_url + "Moana&api_key=" + api_key
+
+# Execute get request
+response_data = requests.get(request_url).json()
+
+# Get movie ID
+movie_id = response_data["results"][0]["id"]
+movie_id
+
+# Call get_credits function
+get_credits(movie_id)
+
+##--CODE--##
+
+

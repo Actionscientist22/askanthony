@@ -1,0 +1,83 @@
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+##--CODE--##
+# Import the data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_2/datasets/rent-data-cleaned.csv").dropna()
+df.head()
+
+##--CODE--##
+# Get the features (everything except the "price" column)
+X = df.copy().drop(columns="price")
+X.head()
+
+##--CODE--##
+# Get the target column
+y = df["price"].values.reshape(-1,1)
+y[0:5]
+
+##--CODE--##
+# Use the Sklearn `train_test_split()` function to split the data into training and testing data
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+##--CODE--##
+import statsmodels.api as sm
+
+# Use the statsmodels package to create and fit a linear regression
+lr = sm.OLS(y_train, X_train).fit()
+
+##--CODE--##
+# Create a variable to hold the p-values of all columns sorted in ascending order
+p_values = lr.pvalues.sort_values()
+p_values
+
+##--CODE--##
+# Use loc to filter to columns with p-values below 0.05
+select_cols = p_values.loc[p_values < 0.05]
+
+# Show the index of the results
+select_cols.index
+
+##--CODE--##
+# Create an X variable with all features and another with
+# only features that meet the 0.05 threshold.
+
+# Hint: Use the index from the previous cell
+
+X_full = X
+X_sel = X[select_cols.index]
+
+##--CODE--##
+# Split the data into training and testing sets
+X_full_train, X_full_test, X_sel_train, X_sel_test, y_train, y_test = train_test_split(X_full, X_sel, y)
+
+##--CODE--##
+# Train two models using the different X variables
+
+# Create the models
+lr1 = LinearRegression()
+lr2 = LinearRegression()
+
+# Fit the models
+lr1.fit(X_full_train, y_train)
+lr2.fit(X_sel_train, y_train)
+
+##--CODE--##
+# Provided code to create the adjusted r-squared function
+def r2_adj(x, y, model):
+    r2 = model.score(x,y)
+    n_cols = x.shape[1]
+    return 1 - (1 - r2) * (len(y) - 1) / (len(y) - n_cols - 1)
+
+##--CODE--##
+# Compare the adjusted r-squared of the two models
+adj_score1 = r2_adj(X_full_test, y_test, lr1)
+adj_score2 = r2_adj(X_sel_test, y_test, lr2)
+print(f"1 Feature Adjusted R2: {adj_score1}")
+print(f"2 Feature Adjusted R2: {adj_score2}")
+
+##--CODE--##
+
+

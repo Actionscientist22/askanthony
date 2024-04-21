@@ -1,0 +1,36 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+from pathlib import Path
+
+##--CODE--##
+csv_path = "../Resources/VT_tax_statistics.csv"
+taxes_df = pd.read_csv(csv_path)
+taxes_df.head()
+
+##--CODE--##
+# Sorting the DataFrame based on "Meals" column
+# Will sort from lowest to highest if no other parameter is passed
+
+
+##--CODE--##
+# To sort from highest to lowest, ascending=False must be passed in
+
+
+##--CODE--##
+# It is possible to sort based upon multiple columns
+
+
+##--CODE--##
+# To see the sorting by multiple columns better, we can compare the last 
+# DataFrame with a second column sort on "Alcohol Count"
+# (Compare the order of the two "54" value Rent Count rows)
+
+
+##--CODE--##
+# The index can be reset to provide index numbers based on the new rankings.
+
+
+##--CODE--##
+
+

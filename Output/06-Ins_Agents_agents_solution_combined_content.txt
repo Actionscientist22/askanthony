@@ -1,0 +1,122 @@
+##--CODE--##
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+# Model and API Key
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Agents & Tools
+
+##--CODE--##
+# Additional imports for agent with built-in tools.
+from langchain.agents import initialize_agent, load_tools
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+# Set up the built-in wikipedia tool.
+tools = load_tools(['wikipedia'], llm=llm)
+
+# Initialize the agent.
+agent = initialize_agent(tools, agent="chat-zero-shot-react-description", verbose=True, llm=llm)
+
+# Define a query as a string inside a dictionary.
+query = {"input": "What is the age of the mayor of the capital of Canada?"}
+
+result = agent.run(query)
+print(result)
+
+# Agent with Multiple Tools
+
+##--CODE--##
+# Additional imports for agent with built-in tools.
+from langchain.agents import initialize_agent, load_tools
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+# Set up the built-in wikipedia and open weather tools.
+tools = load_tools(['wikipedia', "openweathermap-api"], llm=llm)
+
+# Initialize the agent.
+agent = initialize_agent(tools,
+                         verbose=True,
+                         handle_parsing_errors = True,
+                         max_iterations=10,
+                         llm=llm)
+
+# Define a query as a string inside a dictionary.
+query = {"input": "What is the current weather in the city where penicillin was first isolated?"}
+
+# Run the agent using the query.
+result = agent.run(query)
+print(result)
+
+# Creating Custom Tools
+
+##--CODE--##
+# Additional imports for creating tools.
+from langchain.tools import tool
+from langchain.agents import initialize_agent
+from langchain.chains import APIChain, LLMMathChain
+
+##--CODE--##
+# Initialize the model.
+llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.0)
+
+# Text description of API spec.
+spec = """URL STRUCTURE
+        Just hit http://numbersapi.com/number/type to get a plain text response, where
+        type is one of trivia, math, date, or year. Defaults to trivia if omitted.
+        number is an integer, or the keyword random, for which we will try to return
+        a random available fact, or a day of year in the form month/day 
+        (eg. 2/29, 1/09, 04/1), if type is date ranges of numbers"""
+
+# Create the API chain from the spec, using the LLM.
+api_chain = APIChain.from_llm_and_api_docs(
+    llm,
+    api_docs=spec,
+    verbose=True,
+    limit_to_domains=["https://numbersapi.com", "http://numbersapi.com"],
+)
+
+# Define a tool for querying the Numbers API.
+@tool("numbers_API")
+def numbers_tool(query: str) -> str:
+    """Look up fun facts about numbers or dates."""
+    result = api_chain.run(query)
+    return result
+
+# Initialize the math chain using the LLM.
+math_chain = LLMMathChain.from_llm(llm=llm, verbose=True)
+
+# Define a tool for doing math.
+@tool("math_tool")
+def math_tool(query: str) -> str:
+    """Perform math calculations."""
+    result = math_chain.run(query)
+    return result
+
+# Store the tools in a list.
+tools = [math_tool, numbers_tool]
+
+# Initialize the agent.
+agent = initialize_agent(tools, agent="zero-shot-react-description", verbose=True, llm=llm)
+
+# Define a query as a string inside a dictionary.
+query = {"input": 'What is a fun fact about the sum of 22 and 35?'}
+
+result = agent.run(query)
+print(result)
+

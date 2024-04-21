@@ -1,0 +1,47 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install transformers
+
+##--CODE--##
+# Import the pipeline class from the transformers module. 
+from transformers import pipeline
+
+##--CODE--##
+# Give the model a prompt. 
+prompt = """<>"""
+
+##--CODE--##
+# Use the text_generator function to generate text
+def text_generator(model, prompt):
+    # Initialize the pipeline with the task and model
+    
+    # Pass the prompt, set the max_length and pad_token_id parameters for generator.
+    
+    # Return the generated text. 
+   
+
+##--CODE--##
+# Call the text_generator function with your first model and the prompt.
+
+# Display the generated text. 
+
+
+##--CODE--##
+# Call the text_generator function with a second model and the prompt.
+
+# Display the generated text. 
+
+
+##--CODE--##
+# Call the text_generator function with a third model and the prompt.
+
+# Display the generated text. 
+
+
+**Question:** What was the best model? Why?
+
+**Answer:**
+
+##--CODE--##
+
+

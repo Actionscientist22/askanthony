@@ -1,0 +1,112 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read file into DataFrame
+ufo_df = pd.read_csv('Resources/ufoSightings.csv', low_memory=False)
+
+# Remove the rows with missing data
+clean_ufo_df = ufo_df.dropna(how="any")
+
+# Converting the "duration (seconds)" column's values to numeric
+converted_ufo_df = clean_ufo_df.copy()
+converted_ufo_df["duration (seconds)"] = converted_ufo_df.loc[:, "duration (seconds)"].astype(float)
+
+# Change the 'date' column to a datetime object because resample will only work on datetime data types.
+converted_ufo_df['datetime']= pd.to_datetime(converted_ufo_df['datetime'], errors='coerce')
+
+# Drop the values that didn't get converted to a datetime format. 
+converted_ufo_df = converted_ufo_df.dropna(subset=['datetime']).reset_index(drop=True)
+converted_ufo_df.head(20)
+
+##--CODE--##
+# Get the columns.
+converted_ufo_df.info()
+
+### Apply the `resample()` Function
+
+##--CODE--##
+# Create a pivot table with the 'datetime' as the index, the columns ='outside/inside', and the "temp" as the values.
+ufo_pivot = pd.pivot_table(converted_ufo_df, 
+                                            index=['datetime'],
+                                            values='duration (seconds)',
+                                            aggfunc='sum')
+# Show the table.
+ufo_pivot.head(20)
+
+##--CODE--##
+# Resample the pivot table into weekly bins 
+# and get the average duration in seconds for each week rounded to one decimal place.
+avg_weekly_ufo = ufo_pivot.resample('W').mean().round(1)
+
+# Sort the resampled pivot table in ascending order on "duration (seconds)".
+avg_weekly_ufo.sort_values(by="duration (seconds)", ascending=False).head(10)
+
+##--CODE--##
+# Resample the pivot table into monthly bins 
+# and get the average duration in seconds for each month rounded to one decimal place.
+avg_monthly_ufo = ufo_pivot.resample('M').mean().round(1)
+
+# Sort the resampled pivot table in ascending order on "duration (seconds)".
+avg_monthly_ufo.sort_values(by="duration (seconds)", ascending=False).head(10)
+
+##--CODE--##
+# Create a pivot table with the 'datetime' as the index, the columns ='shape', and the count as the values.
+ufo_pivot_sum = pd.pivot_table(converted_ufo_df, 
+                                            index=['datetime'],
+                                            values='shape',
+                                            aggfunc='count')
+# Show the table.
+ufo_pivot_sum.head(20)
+
+##--CODE--##
+# Resample the pivot table into weekly bins and get the total number of sightings for each week.
+weekly_ufo_sightings = ufo_pivot_sum.resample('W').sum()
+
+# Sort the resampled pivot table in ascending order on "shape".
+weekly_ufo_sightings.sort_values(by="shape", ascending=False).head(10)
+
+##--CODE--##
+# Resample the pivot table into monthly bins and get the total number of sightings for each month.
+monthly_ufo_sightings = ufo_pivot_sum.resample('M').sum()
+
+# Sort the resampled pivot table in ascending order on "shape".
+monthly_ufo_sightings.sort_values(by="shape", ascending=False).head(10)
+
+### Apply the `melt()` Function
+
+##--CODE--##
+# Read the book_sales.csv file into a DataFrame
+book_sales_df = pd.read_csv('Resources/book_sales.csv')
+
+# Pivot on the date_ending with the book_name as the index, and pass the "total_sales" as the values.
+# Remove the index axis "date_ending".
+book_sales_pivot = pd.pivot(book_sales_df, columns="date_ending",index="book_name",values="total_sales" ).rename_axis(None, axis=1)
+
+# Reset the index so "book_name" is a column.
+book_sales_reindexed = book_sales_pivot.reset_index()
+book_sales_reindexed
+
+##--CODE--##
+# Convert the DataFrame from short form to long form. 
+# Melt the DataFrame
+book_sales_reindexed.melt()
+
+##--CODE--##
+# Convert the DataFrame using the variable ("book_name") we'd like to keep in the long DataFrame.
+book_sales_reindexed.melt(id_vars="book_name")
+
+##--CODE--##
+# Convert the DataFrame and rename the columns to reflect the values. 
+melted_book_sales = book_sales_reindexed.melt(id_vars="book_name", var_name="date", value_name="total_sales")
+melted_book_sales
+
+##--CODE--##
+# Group the previous DataFrame on the date and show the total sales by the "date".
+book_sales_grouped = melted_book_sales.groupby("date")[["total_sales"]].sum()
+book_sales_grouped
+
+##--CODE--##
+
+

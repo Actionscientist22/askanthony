@@ -1,0 +1,127 @@
+##--CODE--##
+# Import the dependencies 
+import pandas as pd
+import re
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import NMF
+
+# Set the column width to 200.
+pd.set_option('max_colwidth', 200)
+
+##--CODE--##
+# Load the news_articles.csv into a DataFrame.
+news_articles_df = pd.read_csv('Resources/news_articles.csv')
+# Display the first 20 headlines 
+news_articles_df.head(10)
+
+## Preprocess the Text
+
+##--CODE--##
+# Remove digits and non-alphabetic characters
+
+
+## Create a TF-IDF matrix from our documents.
+
+##--CODE--##
+# Create an instance of the TfidfVectorizer and set the max_df to 0.95 and min_df to 10, and use the English stopwords to be ignored.
+
+
+##--CODE--##
+# Transform each row from the headlines Series to a DTM.
+
+# Get the shape of the DTM.
+
+
+##--CODE--##
+# Print the sparse matrix of the transformed data.
+# We have 23,377 documents, the first number in the tuple represents the document number.
+# The second number in the tuple represents the index of the word in the vocabulary created by fit_transform.
+# The last number represents the value of the TF-IDF score for the vocabulary word.
+
+
+##--CODE--##
+# Get the feature names (words) from the TfidfVectorizer
+
+
+# Get all the non-zero elements from the first row.
+
+
+# Get the indices for each non-zero element.
+
+
+# Print out the word and the number of times the word is in the row. 
+
+
+## Applying NMF
+
+##--CODE--##
+# Initialize the NMF and set the number of topics to 7. 
+
+# Fit the model with our DTM data. 
+
+
+##--CODE--##
+# Get the length of the array of each topic. It should be the same as the vocabulary.
+
+
+##--CODE--##
+# Get the array of the first topic 
+
+# This is the ranking of each word in the array. Lower values have less impact than higher values.
+
+
+##--CODE--##
+# Get the indices of the top ten words for the first topic (e.g., top 10 words for topic 0):
+
+
+##--CODE--##
+# Get the top ten words from the indices. 
+
+
+##--CODE--##
+# Print the top 30 words for each topic
+
+
+### Taking our best guess at the topics.
+---
+- TOPIC 1: 
+- TOPIC 2: 
+- TOPIC 3: 
+- TOPIC 4: 
+- TOPIC 5: 
+- TOPIC 6: 
+- TOPIC 7: 
+
+## Assigning the Topic to the Headline
+
+##--CODE--##
+# Transform our DTM so we get an array with the (number_of_documents, number_of_topics).
+
+
+# Get the shape of the topic results
+
+
+##--CODE--##
+# Get the sorted indices for each topic in the first headline.
+
+# Print the ranking of topics for the headline
+
+
+##--CODE--##
+# Read in our original news headlines. 
+
+# Combine the original data with the topic label. 
+
+
+##--CODE--##
+# Get the first 10 rows. 
+
+
+##--CODE--##
+# Get the last 10 rows. 
+
+
+##--CODE--##
+
+

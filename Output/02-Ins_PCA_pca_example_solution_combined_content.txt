@@ -1,0 +1,154 @@
+##--CODE--##
+# Required imports
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+## Load the Data Into a Pandas DataFrame
+
+##--CODE--##
+# Read in the CSV file as a Pandas Dataframe
+ccinfo_default_df = pd.read_csv("Resources/ccinfo_transformed.csv")
+# Show the DataFrame.
+ccinfo_default_df.head()
+
+##--CODE--##
+# Plot the clusters using the "limit_bal" and "age" columns
+ccinfo_default_df.plot.scatter(
+    x="limit_bal",
+    y="age",
+    c="customer_segments",
+    colormap='winter')
+
+##--CODE--##
+# Plot the clusters using the "bill_amt" and "pay_amt" columns
+ccinfo_default_df.plot.scatter(
+    x="bill_amt",
+    y="pay_amt",
+    c="customer_segments",
+    colormap='winter')
+
+## Normalize and Transform the Data
+
+##--CODE--##
+# Drop the customer_segments column so it isn't considered a feature. 
+cc_df_clean = ccinfo_default_df.drop(['customer_segments'], axis=1)
+cc_df_clean.head()
+
+##--CODE--##
+# Import the PCA module
+from sklearn.decomposition import PCA
+
+##--CODE--##
+# Instantiate the PCA instance and declare the number of PCA variables
+pca = PCA(n_components=2)
+
+##--CODE--##
+# Fit the PCA model on the transformed credit card DataFrame
+ccinfo_pca = pca.fit_transform(cc_df_clean)
+
+# Review the first 5 rows of list data
+ccinfo_pca[:5]
+
+## Get the Variance of Each Component
+
+##--CODE--##
+# Calculate the PCA explained variance ratio
+pca.explained_variance_ratio_
+
+## Creating the PCA DataFrame
+
+##--CODE--##
+# Create the PCA DataFrame
+ccinfo_pca_df = pd.DataFrame(
+    ccinfo_pca,
+    columns=["PCA1", "PCA2"]
+)
+
+# Review the PCA DataFrame
+ccinfo_pca_df.head(10)
+
+## Determine the Optimal `k` Value
+
+##--CODE--##
+# Create a a list to store inertia values and the values of k
+inertia = []
+k = list(range(1, 11))
+
+# Append the value of the computed inertia from the `inertia_` attribute of teh KMeans model instance
+for i in k:
+    k_model = KMeans(n_clusters=i, n_init='auto', random_state=1)
+    k_model.fit(ccinfo_pca_df)
+    inertia.append(k_model.inertia_)
+
+# Define a DataFrame to hold the values for k and the corresponding inertia
+elbow_data = {"k": k, "inertia": inertia}
+df_elbow = pd.DataFrame(elbow_data)
+
+# Review the DataFrame
+df_elbow.head()
+
+##--CODE--##
+# Plot the Elbow Curve
+df_elbow.plot.line(
+    x="k", 
+    y="inertia", 
+    title="Elbow Curve", 
+    xticks=k
+)
+
+##--CODE--##
+# Determine the rate of decrease between each k value
+k = df_elbow["k"]
+inertia = df_elbow["inertia"]
+for i in range(1, len(k)):
+    percentage_decrease = (inertia[i-1] - inertia[i]) / inertia[i-1] * 100
+    print(f"Percentage decrease from k={k[i-1]} to k={k[i]}: {percentage_decrease:.2f}%")
+
+## Segmentation of the PCA data with K-means 
+
+##--CODE--##
+# Define the model with 3 clusters
+model = KMeans(n_clusters=3, n_init='auto', random_state=0)
+
+# Fit the model
+model.fit(ccinfo_pca_df)
+
+# Make predictions
+k_3 = model.predict(ccinfo_pca_df)
+
+# Create a copy of the PCA DataFrame
+ccinfo_pca_predictions_df = ccinfo_pca_df.copy()
+
+# Add a class column with the labels
+ccinfo_pca_predictions_df["customer_segments"] = k_3
+
+##--CODE--##
+# Plot the clusters
+ccinfo_pca_predictions_df.plot.scatter(
+    x="PCA1",
+    y="PCA2",
+    c="customer_segments",
+    colormap='winter')
+
+##--CODE--##
+# What columns contribute the most to the explained variance?
+# Calculate the PCA explained variance ratio
+pca.explained_variance_ratio_
+
+##--CODE--##
+# Determine which feature has the stronger influence on each principal component. 
+# Use the columns from the original DataFrame. FYI: The data has already been scaled and fitted.
+pca_component_weights = pd.DataFrame(pca.components_.T, columns=['PCA1', 'PCA2'], index=cc_df_clean.columns)
+pca_component_weights
+
+### Which features have the strongest influence on each component?
+---
+
+- "age" has the strongest influence on PCA1 at 99.9% and probably has the biggest influence on segmenting the data.
+- "limit_bal", "bill_amt", and "pay_amt" have the strongest influence on PCA2 at 57%, 55%, and 60%. 
+-  Based on these results, our original graph of using the "limit_bal" and "age" before applying PCA may be good enough to segment the data. Similar results would have been achieved for "bill_amt" and "age", and "pay_amt" and "age". 
+
+##--CODE--##
+
+

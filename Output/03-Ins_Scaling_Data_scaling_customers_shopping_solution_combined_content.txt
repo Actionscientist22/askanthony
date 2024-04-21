@@ -1,0 +1,52 @@
+##--CODE--##
+# Import the modules
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+##--CODE--##
+# Read in the CSV file and create the Pandas DataFrame
+customers_df = pd.read_csv("Resources/customer-shopping-data.csv")
+
+# Review the DataFrame
+customers_df.head()
+
+##--CODE--##
+# Check the DataFrame data types
+customers_df.dtypes
+
+##--CODE--##
+# Get the column names.
+customers_df.columns
+
+##--CODE--##
+# Scaling the numeric columns: 'Fresh', 'Milk', 'Grocery', 'Frozen', 'Detergents_Paper', 'Delicassen' columns
+customers_scaled = StandardScaler().fit_transform(customers_df[['Fresh','Milk','Grocery',
+                                                                'Frozen','Detergents_Paper','Delicassen']])
+# Display the arrays. 
+customers_scaled
+
+##--CODE--##
+# Creating a DataFrame with with the scaled data
+customers_transformed_df = pd.DataFrame(customers_scaled, columns=['Fresh', 'Milk', 'Grocery', 'Frozen', 'Detergents_Paper', 'Delicassen'])
+
+# Display sample data
+customers_transformed_df.head()
+
+##--CODE--##
+# Transform the "Method" column using get_dummies()
+purchase_method = pd.get_dummies(customers_df["Method"])
+
+# Display the transformed data
+purchase_method.head()
+
+##--CODE--##
+# Concatenate the df_shopping_transformed and the card_dummies DataFrames
+customers_transformed_df = pd.concat([customers_transformed_df, purchase_method], axis=1)
+
+# Display concatenated DataFrame
+customers_transformed_df.head()
+
+##--CODE--##
+
+

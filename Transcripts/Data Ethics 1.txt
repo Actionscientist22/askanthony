@@ -1,0 +1,4426 @@
+WEBVTT
+
+1
+00:00:06.730 --> 00:00:09.750
+Anthony Taylor: We're gonna do data ethics today.
+
+2
+00:00:10.510 --> 00:00:16.450
+Anthony Taylor:  I think I mentioned this the other day, I'll mention it one more time.
+
+3
+00:00:18.380 --> 00:00:22.709
+Anthony Taylor: You guys are going to have to be kind of hopefully, not too much.
+
+4
+00:00:23.030 --> 00:00:25.539
+Anthony Taylor: but at least understand
+
+5
+00:00:27.050 --> 00:00:28.789
+Anthony Taylor: that we are aware
+
+6
+00:00:29.830 --> 00:00:34.410
+Anthony Taylor: in the data industry that there are biases
+
+7
+00:00:35.580 --> 00:00:38.090
+Anthony Taylor: and what we're going to discuss today
+
+8
+00:00:38.600 --> 00:00:43.019
+Anthony Taylor: is, though, are, those is, those are those biases.
+
+9
+00:00:43.460 --> 00:00:50.560
+Anthony Taylor: But we're also going to discuss why they're there. And if, in fact, there's anything that can be done about.
+
+10
+00:00:51.980 --> 00:00:54.660
+Clayton Graves: I think it's good. Good
+
+11
+00:00:55.390 --> 00:00:57.769
+Clayton Graves: probably won't get honored.
+
+12
+00:00:58.120 --> 00:00:59.060
+Anthony Taylor: -Oh.
+
+13
+00:00:59.480 --> 00:01:01.720
+Clayton Graves: yeah, you're probably gonna say no
+
+14
+00:01:01.890 --> 00:01:09.469
+Clayton Graves: but I'm gonna ask, anyway. is there any chance that you could stop recording
+
+15
+00:01:09.760 --> 00:01:13.280
+Clayton Graves: and tell us what you think about this?
+
+16
+00:01:14.190 --> 00:01:14.850
+Anthony Taylor: Ha!
+
+17
+00:01:15.290 --> 00:01:20.570
+Anthony Taylor: You know what I think I will. No, you know what I don't have to stop recording.
+
+18
+00:01:20.690 --> 00:01:25.389
+Anthony Taylor: I'll just tell you, anyway, right? I do think that data ethics is a vital.
+
+19
+00:01:25.700 --> 00:01:28.250
+Anthony Taylor: a step in your journey.
+
+20
+00:01:28.410 --> 00:01:36.370
+Anthony Taylor:  and and I do think that it's appropriate here. I don't know about 3 days of it. I think it might have been done less, but
+
+21
+00:01:37.260 --> 00:01:51.559
+Anthony Taylor: but after going through the material on this. I'm like, you know, what this really isn't bad, and this will put you in a a better position to discuss this kind of stuff if it comes up
+
+22
+00:01:51.930 --> 00:01:53.980
+Anthony Taylor: right. Cause you're gonna hear, I mean.
+
+23
+00:01:56.760 --> 00:01:58.469
+Anthony Taylor: So let let me put it. This
+
+24
+00:02:02.340 --> 00:02:10.430
+Anthony Taylor: I can say without question. I have handled data and seeing data that ethically
+
+25
+00:02:11.660 --> 00:02:16.109
+Anthony Taylor: might not have been concerned or might not have been considered ethic full
+
+26
+00:02:16.270 --> 00:02:17.610
+Anthony Taylor: when I worked with it.
+
+27
+00:02:18.640 --> 00:02:19.640
+Anthony Taylor: Okay.
+
+28
+00:02:21.290 --> 00:02:25.420
+Anthony Taylor: But the option was, do it or walk.
+
+29
+00:02:26.630 --> 00:02:29.869
+Anthony Taylor: Most people are going to do it.
+
+30
+00:02:31.110 --> 00:02:32.220
+Anthony Taylor: Okay.
+
+31
+00:02:32.230 --> 00:02:38.240
+Anthony Taylor: but doesn't, I mean, and does that mean it's wrong? Well, probably. But we're not talking illegal.
+
+32
+00:02:38.360 --> 00:02:44.909
+Anthony Taylor: We're talking. We know that this is going on, we know, and no one in the data field is surprised
+
+33
+00:02:45.210 --> 00:02:50.569
+Anthony Taylor: that this is going on. And as we talk today, we're, gonna I mean, we need to be honest.
+
+34
+00:02:51.860 --> 00:02:59.759
+Anthony Taylor: And we need to say things that may not be comfortable to really talk about ethics. We can keep it really PC
+
+35
+00:03:00.540 --> 00:03:11.040
+Anthony Taylor: way up here. Really, PC, and we can dodge the issue. But all that's gonna do is maintain it's gonna keep the bias around. We're not gonna fix anything.
+
+36
+00:03:13.380 --> 00:03:22.609
+Anthony Taylor: Okay? So my opinion on this is that I would rather be open and honest about it. And tell you guys at the beginning of class
+
+37
+00:03:23.040 --> 00:03:26.569
+Anthony Taylor: that we may talk about things that can make you uncomfortable.
+
+38
+00:03:27.260 --> 00:03:28.280
+Anthony Taylor: Alright.
+
+39
+00:03:28.310 --> 00:03:40.749
+Anthony Taylor:  hopefully, they don't. Hopefully, we can all just be like, you know what this is like. This is the way the world is where we can fix it. One person at a time. One day at a time, but until we know what's wrong
+
+40
+00:03:41.640 --> 00:03:42.879
+Anthony Taylor: can't fix anything
+
+41
+00:03:44.660 --> 00:03:47.349
+Anthony Taylor: for all walking along like there ain't nothing wrong
+
+42
+00:03:48.510 --> 00:03:49.600
+Anthony Taylor: we can't fix.
+
+43
+00:03:51.150 --> 00:03:58.300
+Anthony Taylor: Okay. I don't think I started that statement. I'm sure that was said by somebody way smarter than me. But
+
+44
+00:03:59.080 --> 00:04:05.889
+Anthony Taylor: this whole week is going to be talking about ethics and data. So there's value Clayton, I mean
+
+45
+00:04:06.410 --> 00:04:13.160
+Anthony Taylor: in my head, I you know, II think there's some fun technical stuff we could do. But I really do think
+
+46
+00:04:15.170 --> 00:04:19.670
+Anthony Taylor: that by talking about this now, if you're in an interview situation
+
+47
+00:04:19.769 --> 00:04:21.560
+Anthony Taylor: and someone brings it up.
+
+48
+00:04:22.240 --> 00:04:25.939
+Anthony Taylor: you're going to have a better place to talk from
+
+49
+00:04:26.190 --> 00:04:30.120
+Anthony Taylor: than if we just do it off the cuff. Alright.
+
+50
+00:04:30.540 --> 00:04:34.190
+Anthony Taylor: So there you go. I didn't have to stop recording, because I actually.
+
+51
+00:04:35.690 --> 00:04:40.199
+Anthony Taylor: I'm not gonna lie. When I first saw a whole week for this I was not overly supported.
+
+52
+00:04:40.220 --> 00:04:46.400
+Anthony Taylor: But as I read through the material, I'm like, you know what? Okay. I could see this. I could see this being
+
+53
+00:04:46.710 --> 00:04:49.119
+Anthony Taylor: important enough to have the discussion.
+
+54
+00:04:49.820 --> 00:04:58.400
+Anthony Taylor:  I don't believe there's a challenge for it. and I don't think there's a requirement for it like in the project. But it is.
+
+55
+00:04:58.430 --> 00:05:02.370
+Anthony Taylor: I think it's going to be like. I hope it will be.
+
+56
+00:05:02.600 --> 00:05:09.389
+Anthony Taylor: There's very few activities, the ones that you do have pretty much. It's go off. Read an article, come up with an opinion. Come back.
+
+57
+00:05:11.830 --> 00:05:26.499
+Anthony Taylor: Okay. so not any coding. I don't think we coded all this at all. But that's okay. Because project 2 starts next. Also, I'm out on Wednesday. So the second day of this, you're gonna get from some total string
+
+58
+00:05:28.110 --> 00:05:33.250
+Anthony Taylor: alright which could be cool. Who knows? They might have a whole different opinion? Alright.
+
+59
+00:05:33.780 --> 00:05:35.809
+Anthony Taylor: So let's get started.
+
+60
+00:05:36.470 --> 00:05:43.490
+Anthony Taylor:  So what is the first thing. And this is a very today is a talk out loud class. Okay.
+
+61
+00:05:44.280 --> 00:05:47.960
+Anthony Taylor: what's the first thing you think of when you hear the term a IF
+
+62
+00:05:48.320 --> 00:05:50.190
+Clayton Graves: morale, and
+
+63
+00:05:50.680 --> 00:05:55.509
+Anthony Taylor: that's a big one like. So wait before you go too far. What do you mean by morale?
+
+64
+00:05:57.410 --> 00:06:03.329
+Clayton Graves: I mean moral responsible ways to use. AI.
+
+65
+00:06:04.600 --> 00:06:05.490
+Anthony Taylor: Okay.
+
+66
+00:06:06.170 --> 00:06:20.979
+Anthony Taylor: alright. Do you have an example of something that is not morally used in AI right now that you can see from the news. It's been some stuff lately, a lot. So let's let's go with the the Taylor swift, nude photos.
+
+67
+00:06:21.480 --> 00:06:24.210
+Anthony Taylor: There you go. Those are easy.
+
+68
+00:06:24.650 --> 00:06:33.100
+Anthony Taylor: Yeah, I mean, because that's like way up in the news right now. right? Because I mean, Taylor Swift is literally everywhere, literally
+
+69
+00:06:33.720 --> 00:06:39.500
+Clayton Graves: okay, alright. What else? What else do you guys think about? Oh, go ahead.
+
+70
+00:06:39.780 --> 00:06:43.360
+Clayton Graves: Generating some art and and passing it off as your own.
+
+71
+00:06:44.620 --> 00:06:48.559
+Anthony Taylor: Okay, that's interesting. Now, that's a good one. That's a really good.
+
+72
+00:06:48.620 --> 00:07:03.270
+Anthony Taylor: because that did raise a lot of red flags. But let's talk about. So let's talk about that copyright. That's a big one. right. Everybody agree. Copyright. How many of you have used it to write something that you like an email or a post?
+
+73
+00:07:04.680 --> 00:07:08.430
+Anthony Taylor: Nobody has used it for that. There go! Mic, has Derek has
+
+74
+00:07:09.160 --> 00:07:15.990
+michael mcpherson: Sonya has? I know I have. I use it all the time. All doesn't matter. Cover letters.
+
+75
+00:07:16.550 --> 00:07:19.569
+Anthony Taylor: Hi, I'm a Google guy.
+
+76
+00:07:19.890 --> 00:07:26.460
+Anthony Taylor: right? We. I'm like Level 7, which is pretty high. If you do. Google Guide. That's a pretty big deal right?
+
+77
+00:07:26.630 --> 00:07:28.600
+Anthony Taylor: And I've been using the heck out of.
+
+78
+00:07:29.480 --> 00:07:39.350
+Clayton Graves: I just typed in a whole paragraph what I did, what I ate, what I thought of it. I'm very careful about it. If I come up if if I go to
+
+79
+00:07:39.460 --> 00:07:49.060
+Clayton Graves: chat, gpt for an answer, and then II pass that answer on to somebody else. I'm I didn't come up with that. That was Chat. Gpt
+
+80
+00:07:49.600 --> 00:07:52.759
+Anthony Taylor: there. No problem with that. I think that's good. Go ahead, Sonya.
+
+81
+00:07:52.830 --> 00:07:56.679
+sonja baro: I was just going to say it's really great for editing purposes, too, like.
+
+82
+00:07:56.910 --> 00:08:05.160
+sonja baro: you know, it's that's, I think, one of the best uses I've had for it in my in what I was doing previously. So
+
+83
+00:08:06.400 --> 00:08:08.280
+Anthony Taylor: alright. So let me ask you this like.
+
+84
+00:08:08.560 --> 00:08:28.530
+sonja baro: oh, sorry. Did you have more time? No, I have. I have another. Yeah, no. The other example I was thinking of is especially with this coming year, is the use of AI to do some type of campaigning, and either, you know.
+
+85
+00:08:29.380 --> 00:08:36.839
+sonja baro: intentional misinformation or unintentional like, there could be something that
+
+86
+00:08:36.900 --> 00:08:43.259
+sonja baro: you make a mistake. But the use of AI in campaigns, I think, is one that I'm worried about
+
+87
+00:08:44.240 --> 00:08:49.769
+Clayton Graves: real quick. Yeah, go ahead. Absolutely amazed balls.
+
+88
+00:08:49.890 --> 00:08:53.559
+Clayton Graves: You sound so much better. It's so good to
+
+89
+00:09:14.070 --> 00:09:20.740
+Anthony Taylor: hold on, Natalie. I'm gonna I'm gonna talk a little bit about that. So are you worried? They're gonna use the AI for misinformation.
+
+90
+00:09:20.810 --> 00:09:24.230
+Anthony Taylor: Or are they going to use it to just? I mean
+
+91
+00:09:24.720 --> 00:09:53.399
+Anthony Taylor: to write their their, you know right there. oh, my God! I had the word in my head what it was, basically their their speech like robo, the robo calls, or where they they splice together. Someone's speech with their voices. And this is, I'm not saying one. I agree with that. Oh, yeah, yeah.
+
+92
+00:09:53.450 --> 00:09:59.380
+Anthony Taylor: bring up an AI right now, that'll that'll take your voice. And I can make you say anything I want
+
+93
+00:09:59.590 --> 00:10:02.579
+sonja baro: all the time.
+
+94
+00:10:03.020 --> 00:10:08.860
+Anthony Taylor: Well, Deepfake videos, really common but deep fake audio is less common, but actually easier to do.
+
+95
+00:10:09.520 --> 00:10:12.139
+Okay, so let's keep going, Natalie. What you got.
+
+96
+00:10:14.290 --> 00:10:27.399
+Mason, Natalie: Do you have any knowledge about legislation that's been passed recently. In regards to how they're going, how the Government's going to be censoring the use of AI.
+
+97
+00:10:29.880 --> 00:10:35.810
+Anthony Taylor: My, II have some legislation from last year. Why have you heard something specific?
+
+98
+00:10:35.820 --> 00:10:41.070
+Mason, Natalie: It was just within like the past couple of months there's been more
+
+99
+00:10:41.400 --> 00:10:46.829
+Mason, Natalie:  I guess. Talk.
+
+100
+00:10:47.550 --> 00:10:56.150
+Anthony Taylor: There's a lot of talk about trying to control. Give you the the big one that came up last year. Supreme Court ruled on it.
+
+101
+00:10:56.280 --> 00:11:05.120
+Anthony Taylor: and I think I've mentioned it to you guys before. If you publish something on Internet. and you do not require a log in to get to it.
+
+102
+00:11:05.360 --> 00:11:08.330
+Anthony Taylor: it is considered public domain done.
+
+103
+00:11:09.580 --> 00:11:18.950
+Anthony Taylor: Okay, you publish a picture on Instagram. and they don't have to follow you or pay to see it. It is public domain.
+
+104
+00:11:20.310 --> 00:11:25.189
+Anthony Taylor: You write some crazy political statement that sounds like, in that case.
+
+105
+00:11:25.270 --> 00:11:30.939
+Anthony Taylor: that's public domain. If it's on a public law. Yeah, click.
+
+106
+00:11:31.240 --> 00:11:34.179
+Clayton Graves: Urls for that, I'd I'd be interested.
+
+107
+00:11:34.250 --> 00:11:47.370
+Anthony Taylor: Oh, she doesn't sure that she that she saw Jesus. And but yes, they are doing a lot. There's a lot of people talking, and we're gonna get into some of those areas today, as far as the Government intervening.
+
+108
+00:11:48.300 --> 00:11:52.839
+Anthony Taylor: Do you want my honest opinion? And this is old guy opinion. This is no fact to it whatsoever.
+
+109
+00:11:53.060 --> 00:11:59.070
+Anthony Taylor: But okay, it's old guyaping alright, and that is that there's too much money.
+
+110
+00:11:59.950 --> 00:12:01.399
+Anthony Taylor: There's too much men.
+
+111
+00:12:01.410 --> 00:12:03.850
+Anthony Taylor: Apple Microsoft, Google.
+
+112
+00:12:04.180 --> 00:12:09.510
+Anthony Taylor: Ibm. you know, Openai. Now. I mean, we're talking.
+
+113
+00:12:09.580 --> 00:12:12.430
+Anthony Taylor: you know, the richest companies in the world.
+
+114
+00:12:12.920 --> 00:12:15.390
+Anthony Taylor: and they're all making money off of this stuff.
+
+115
+00:12:15.950 --> 00:12:31.399
+Anthony Taylor: you know. It's gonna be hard to control it, and we can't control it around the world. So even if they said, and this happens happens in Europe, a lot with Gdpr, right? Even if, like the Europeans come up with, we're gonna restrict it. Okay, go ahead.
+
+116
+00:12:31.720 --> 00:12:33.550
+Anthony Taylor: Right? Didn't restrict China.
+
+117
+00:12:34.950 --> 00:12:37.140
+Anthony Taylor: Okay? Didn't restrict other countries.
+
+118
+00:12:37.420 --> 00:12:43.330
+Anthony Taylor: People will just go there, they'll get it there. It's the freaking Internet. I don't need it to be in my country. I can go to any country
+
+119
+00:12:44.290 --> 00:12:45.879
+Anthony Taylor: and never leave my chair.
+
+120
+00:12:46.950 --> 00:12:51.249
+Anthony Taylor: Alright, so they will get it. A lot of this is open source already.
+
+121
+00:12:52.900 --> 00:12:58.399
+Anthony Taylor: Alright, so like Llama 70 B. I can make my own chatty Pt.
+
+122
+00:13:00.410 --> 00:13:03.429
+Anthony Taylor: With Llama 70 B. And it's almost as good.
+
+123
+00:13:04.460 --> 00:13:10.030
+Anthony Taylor: So I don't even need it anymore. I don't need. I don't care if Openai is
+
+124
+00:13:10.200 --> 00:13:14.870
+Anthony Taylor: is available because I can use Llama 70 B to do it and all. And there's
+
+125
+00:13:14.920 --> 00:13:23.480
+Anthony Taylor: enough other open source models. It's just not a hard thing to do anymore. So I have a feeling there will be attempts.
+
+126
+00:13:23.790 --> 00:13:29.220
+Anthony Taylor: and I don't know that they will be bad. I think that there needs to probably be a whole new
+
+127
+00:13:29.310 --> 00:13:33.209
+Anthony Taylor: set a laws about misusing it intentionally
+
+128
+00:13:34.350 --> 00:13:36.990
+Anthony Taylor: right. I think deep fakes are a shame.
+
+129
+00:13:37.410 --> 00:13:39.300
+Anthony Taylor: I think.
+
+130
+00:13:40.200 --> 00:13:42.640
+Anthony Taylor: you know I mean deep fakes on on any level
+
+131
+00:13:42.890 --> 00:13:53.819
+Anthony Taylor: right, whether it be for adult material, for, you know, doing a commercial for doing an advertisement. I don't care. You don't have permission to use that person's likeness, you shouldn't be allowed to use it.
+
+132
+00:13:54.060 --> 00:13:56.190
+Anthony Taylor: A likeness is personal.
+
+133
+00:13:57.030 --> 00:14:04.079
+Anthony Taylor: The argument, of course, is. it's on public domain. Why can't I use it? If you've ever published a picture.
+
+134
+00:14:04.450 --> 00:14:06.300
+Anthony Taylor: Well, it's public now.
+
+135
+00:14:07.460 --> 00:14:15.079
+Clayton Graves: So might you like. This is now public. My question is this, if let's say, Okay, we can't do that to
+
+136
+00:14:15.170 --> 00:14:18.670
+Clayton Graves: Taylor Swift. whatever. But
+
+137
+00:14:19.820 --> 00:14:22.170
+Clayton Graves: would you say? Take
+
+138
+00:14:22.640 --> 00:14:27.339
+Clayton Graves: Johnny Depp is Captain Jack Sparrow, and use that if it's
+
+139
+00:14:27.750 --> 00:14:29.010
+Clayton Graves: public domain.
+
+140
+00:14:29.300 --> 00:14:34.470
+Clayton Graves: Well, see now, that's an interesting one, because that's copyrighted material.
+
+141
+00:14:34.610 --> 00:14:39.570
+Anthony Taylor: It hasn't been released as a public domain. Item.
+
+142
+00:14:39.750 --> 00:14:43.490
+Anthony Taylor: right? So you can argue that movies are off limits.
+
+143
+00:14:43.730 --> 00:14:53.210
+Anthony Taylor: But you can't argue that an Instagram post is off limits or a Facebook post that's been set the public. You can argue that a Facebook post set to friends only
+
+144
+00:14:54.930 --> 00:14:57.169
+Anthony Taylor: is at least somewhat private.
+
+145
+00:14:58.240 --> 00:15:02.449
+Anthony Taylor: But I mean, and this is this. And guys, I mean, we in the first
+
+146
+00:15:02.690 --> 00:15:06.119
+Anthony Taylor: 15 min we've touched on one of the biggest issues.
+
+147
+00:15:07.010 --> 00:15:14.630
+Anthony Taylor: And that is that the Internet is not private. It's never been private, not since freaking the the 80 S.
+
+148
+00:15:15.650 --> 00:15:17.130
+Anthony Taylor: It's just not private
+
+149
+00:15:18.050 --> 00:15:28.239
+Anthony Taylor: and forget social media. There's almost nothing in social media that Friday, unless you have specifically marked it as pride. And even then there's probably loopholes.
+
+150
+00:15:30.160 --> 00:15:36.810
+Anthony Taylor: Aye. oh! And keep in mind that llama 70 B. We were talking about, you know, who made that? Right? Facebook.
+
+151
+00:15:37.890 --> 00:15:45.140
+Anthony Taylor: Okay. wait. What is all of this reading it as satire? Yes, Derek, is this real derrick?
+
+152
+00:15:46.220 --> 00:15:47.550
+Anthony Taylor: Okay, anyway?
+
+153
+00:15:47.570 --> 00:15:52.180
+Anthony Taylor:  So anyway, yeah, any other
+
+154
+00:15:52.930 --> 00:15:59.200
+Anthony Taylor: things you guys want to mention before we move on on on AI ethics, we'll get into a lot more of these in detail. But
+
+155
+00:15:59.440 --> 00:16:01.780
+Anthony Taylor: it's good to hear you guys talking about.
+
+156
+00:16:02.240 --> 00:16:06.379
+Clayton Graves: I would like to know if there is a
+
+157
+00:16:08.010 --> 00:16:13.389
+Clayton Graves: recognize difference between AI that has been deemed safe
+
+158
+00:16:13.510 --> 00:16:19.059
+Clayton Graves: an AI that has been deemed unsafe, and what that would look like. What's the difference?
+
+159
+00:16:19.740 --> 00:16:22.500
+Anthony Taylor: Officially? I don't think so?
+
+160
+00:16:22.720 --> 00:16:28.199
+sonja baro: Who deems it like deep? That's the whole question, right?
+
+161
+00:16:28.380 --> 00:16:29.370
+sonja baro: Right?
+
+162
+00:16:30.120 --> 00:16:34.950
+Anthony Taylor: But you guys realize that these ones that are safe. It's just just
+
+163
+00:16:35.300 --> 00:16:40.360
+Anthony Taylor: I. I'm not gonna bring it up, but I'm not gonna bring it up on my screen. But I can tell you
+
+164
+00:16:40.760 --> 00:16:43.579
+Anthony Taylor: that you can download Llama 7 dB.
+
+165
+00:16:43.840 --> 00:16:47.440
+Anthony Taylor: And ask it to show you how to make a bomb, and it won't do it.
+
+166
+00:16:48.270 --> 00:16:58.110
+Anthony Taylor: he'll tell you. Oh, no, I can't do that. however. with just a few tweaks of the setting I can. I can get it to go absolutely and tell you every step.
+
+167
+00:16:58.360 --> 00:16:59.130
+sonja baro: Hmm.
+
+168
+00:17:00.100 --> 00:17:07.019
+Anthony Taylor: okay, so it's in there. It's in Chat Gp. It's in. It's in all of
+
+169
+00:17:07.190 --> 00:17:08.240
+Anthony Taylor: most likely.
+
+170
+00:17:09.560 --> 00:17:16.150
+Anthony Taylor: but there are safeguards put in place to prevent that. Now. Those safeguards are for all of us in this room
+
+171
+00:17:17.390 --> 00:17:20.250
+Anthony Taylor: the people who code these things. They don't have those safeguards
+
+172
+00:17:20.450 --> 00:17:21.280
+sonja baro: right?
+
+173
+00:17:21.680 --> 00:17:23.519
+Anthony Taylor: Yeah, turn them right off.
+
+174
+00:17:23.550 --> 00:17:38.080
+sonja baro: I'll share. I will fess up. I was thinking, gosh! Could I create a web form or something that could, or an AI machine learning code that could submit
+
+175
+00:17:38.080 --> 00:17:59.370
+sonja baro: every day to the home and Gardens house give away right? It's like, cause I wanna have to get on there and do that. And so I was like, Oh, I bet it's just a matter of passing the field over. And so I asked, Chat Gp. And you know what I said. We can't do that for you. That is unethical.
+
+176
+00:17:59.520 --> 00:18:03.829
+sonja baro: No, it didn't. It didn't show any. Yeah, I could talk it into it.
+
+177
+00:18:04.250 --> 00:18:09.589
+Anthony Taylor: So you wanted to scrape the website and submit an entry form.
+
+178
+00:18:09.650 --> 00:18:14.259
+sonja baro: Yeah, that's basically for thinking
+
+179
+00:18:14.570 --> 00:18:41.969
+sonja baro: there were 2. One is Hgtv, and the other was a food network. Cause you could enter twice. So what they were doing was using that as a way to drive traffic right to their website. And I was like, Well, heck! Let me just. I could submit every day by just setting up a code right? And it wouldn't. It gave me the. It's that's unethical and against the law, because it's a sweepstakes and blah blah, blah.
+
+180
+00:18:46.940 --> 00:18:53.230
+sonja baro: let's just find out. And you guys could do, too, the the houses in Florida this year. So it was
+
+181
+00:18:53.310 --> 00:18:59.529
+sonja baro: on an island. By Saint Augustine.
+
+182
+00:18:59.710 --> 00:19:07.880
+sonja baro: I can. That's crazy. How do you do with? She didn't mention sweepstakes. It's all about how you ask.
+
+183
+00:19:08.570 --> 00:19:18.650
+Anthony Taylor: Well, II didn't mention. I mean, I just said, well, I know the tool you would need in python to do this. So I said, using this library, how would I do this?
+
+184
+00:19:20.750 --> 00:19:29.489
+sonja baro: Yeah. And then? And so that's a good point, Clayton, because, like I included in that, it was a daily entry.
+
+185
+00:19:29.820 --> 00:19:41.409
+Anthony Taylor: So because this yeah daily sweeps, see if I can get it to say what it said to you. So it did earlier. It did reference always be sure to follow.
+
+186
+00:19:41.770 --> 00:19:45.380
+sonja baro: However, it's control terms of service.
+
+187
+00:19:45.570 --> 00:19:49.389
+sonja baro: That's funny. I just I guess I didn't ask it the right way.
+
+188
+00:19:49.700 --> 00:19:56.370
+Anthony Taylor: Which goes back to knowing how to prompt these things is 90% of the job. Yeah, yeah, yeah.
+
+189
+00:19:56.950 --> 00:20:01.160
+sonja baro: so, but that's an example. Right? Is that ethical or unethical?
+
+190
+00:20:01.310 --> 00:20:07.180
+Anthony Taylor: Okay, so let's talk about well, here's the crazy part. I wouldn't have needed AI to do it
+
+191
+00:20:07.780 --> 00:20:12.999
+sonja baro: right. AI is just guiding me on how to do it. I could have easily have done this without ever having an AI.
+
+192
+00:20:13.400 --> 00:20:17.300
+Anthony Taylor: That's absolutely true. Yeah, I just, I said, Look, there's an ethics.
+
+193
+00:20:17.680 --> 00:20:21.950
+sonja baro: Look at this going into ethics and practical
+
+194
+00:20:22.170 --> 00:20:23.940
+Anthony Taylor: while it's technically possible.
+
+195
+00:20:26.060 --> 00:20:35.639
+Clayton Graves: Yeah. And there may be service on your site that says, Don't do that. If you ask it the best way to dispose of a body, it's kind of straight up till you know
+
+196
+00:20:36.320 --> 00:20:44.480
+Anthony Taylor: that. Well, unless you do the one that I just told you, which you can go on Youtube and figure out how to do it. To take you back takes about an hour to download.
+
+197
+00:20:44.560 --> 00:20:50.490
+sonja baro: But watch the video. It takes about 10 min.
+
+198
+00:20:50.690 --> 00:20:58.129
+sonja baro: Alright, Mike, I'm laugh. I'm laughing at Michael's response to the get rid of a dead body.
+
+199
+00:20:59.430 --> 00:21:00.530
+Anthony Taylor: Stop it.
+
+200
+00:21:00.900 --> 00:21:02.530
+sonja baro: Okay, yes, Natalie.
+
+201
+00:21:03.280 --> 00:21:06.870
+Mason, Natalie: it's perfectly true. Pigs will eat anything.
+
+202
+00:21:07.880 --> 00:21:31.190
+Mason, Natalie: Mike. Okay, there are there ways to be able to like, stop people from doing things like creating these horrible graphic images of people and putting them out there on the Internet. Is that is that going to become a part of like security for AI security. And that kind of thing. Or
+
+203
+00:21:31.240 --> 00:21:35.440
+Mason, Natalie: is that just what people are going to be able to get away with because they can.
+
+204
+00:21:36.170 --> 00:21:38.550
+Mason, Natalie: I would say there's no way to stop it.
+
+205
+00:21:38.720 --> 00:21:50.139
+Anthony Taylor: Internet is the Internet. Worst case. We could go to Dark Web right? And I haven't even begun to talk to you about dark web. I don't even know if I need to. Okay, yeah. I mean, it's it. Dark Web is
+
+206
+00:21:50.600 --> 00:21:52.189
+Anthony Taylor: dark. Web for a reason.
+
+207
+00:21:52.730 --> 00:22:04.490
+Anthony Taylor:  as far as the images go, I mean the stable diffusion, which is one of the it's not the best, but it's one of the top problem. 5 image generators.
+
+208
+00:22:04.890 --> 00:22:10.949
+Anthony Taylor: I can download it to my laptop and run it. and once you've done that all of the safeguards are removed.
+
+209
+00:22:11.530 --> 00:22:15.830
+Clayton Graves: No, you can. You can create lives. Really any.
+
+210
+00:22:16.070 --> 00:22:18.540
+Clayton Graves: Take take AI out of the equation.
+
+211
+00:22:18.780 --> 00:22:27.980
+Clayton Graves: any system that you can build. be it a societal system or a network system, or whatever
+
+212
+00:22:28.520 --> 00:22:30.710
+Clayton Graves: humans will find a way to exploit it.
+
+213
+00:22:30.920 --> 00:22:38.070
+Clayton Graves: Period and and AI is just the latest tool for us to use to do that
+
+214
+00:22:38.560 --> 00:22:42.850
+Anthony Taylor: well, and it's very powerful. So alright, Rodie, you got you got your hand up, sir.
+
+215
+00:22:44.810 --> 00:22:50.229
+Masarirambi, Rodney: so Just think about what caps is said. so I think
+
+216
+00:22:52.200 --> 00:22:53.959
+Masarirambi, Rodney: I think as long as people
+
+217
+00:22:54.200 --> 00:22:58.719
+Masarirambi, Rodney: look to look for that stuff and
+
+218
+00:22:58.820 --> 00:23:03.420
+Masarirambi, Rodney: look to, you know, do those search terms of those horrible things.
+
+219
+00:23:03.710 --> 00:23:15.389
+Masarirambi, Rodney: Somebody's gonna create it. And I think it's on individual people to not do that. And the where I find the big issue is that is where.
+
+220
+00:23:16.300 --> 00:23:25.279
+Masarirambi, Rodney: when people say that oh, it's too late, like the horses out of the barn and stuff I'm like, no, it's not. There's this stuff that can be done. It's like, do we let it happen
+
+221
+00:23:25.430 --> 00:23:28.440
+Masarirambi, Rodney: like you know. And
+
+222
+00:23:29.510 --> 00:23:33.820
+Masarirambi, Rodney: it's it's it's a, you know. It's a it's a hard, it's a hard topic, because
+
+223
+00:23:34.530 --> 00:23:36.070
+Masarirambi, Rodney: part of it is like
+
+224
+00:23:36.590 --> 00:23:44.930
+Masarirambi, Rodney: a whole lot of people like need to have those personal like be able to come to that place personally to say that, hey?
+
+225
+00:23:45.220 --> 00:23:49.639
+Masarirambi, Rodney: I could do this or I could not. And that's the issue. Is that
+
+226
+00:23:49.810 --> 00:23:54.969
+Masarirambi, Rodney: a lot more? People think that's fine and like AI doesn't do that
+
+227
+00:23:55.250 --> 00:24:02.220
+Masarirambi, Rodney: like, you know, like, that's yeah. They find another way to do it. And and
+
+228
+00:24:02.240 --> 00:24:17.549
+Anthony Taylor: yeah, and and and that's the thing that. So yeah, no, that's why I want to say to to respond to that. No, I think that's good, II mean, and that's you know what almost be able to move on this topic. Is the this the fact that it's just a tool.
+
+229
+00:24:17.750 --> 00:24:21.599
+Anthony Taylor: the fact that it is capable and it makes it easier.
+
+230
+00:24:22.850 --> 00:24:25.009
+Anthony Taylor: I think that's inevitable.
+
+231
+00:24:25.420 --> 00:24:30.289
+Clayton Graves: It's like everything, you know. Go ahead. I just finished reading
+
+232
+00:24:30.380 --> 00:24:33.140
+Clayton Graves: the Oppenheimer biography.
+
+233
+00:24:33.320 --> 00:24:38.039
+Clayton Graves: And there are parallels between the nuclear bomb nuclear fission
+
+234
+00:24:38.200 --> 00:24:40.899
+Clayton Graves: and AI. They're both
+
+235
+00:24:42.530 --> 00:24:51.550
+Clayton Graves: game changing life, changing technologies, you will see. And and I think you're gonna see this in the coming, coming, coming years.
+
+236
+00:24:51.580 --> 00:24:54.650
+Clayton Graves: that we're gonna treat it similar to how we treated
+
+237
+00:24:55.820 --> 00:25:14.540
+Clayton Graves: the atomic bomb. And we're going to human beings. Whoever has the upper hand, they're gonna try to hoard that and the the human beings that are at a disadvantage are going to try to level the playing field. And you're gonna end up with
+
+238
+00:25:14.950 --> 00:25:19.050
+Clayton Graves: a different kind of arms race. But I definitely think, yeah.
+
+239
+00:25:20.700 --> 00:25:35.920
+Anthony Taylor: I mean, II see that. I mean, we could go different directions with this, right? We could send it because we know China's working on it. We know Russia's working on it. We know lots of industry is working on it. Almost every major organization that has the ability
+
+240
+00:25:36.070 --> 00:25:43.199
+Anthony Taylor: to train. An Llm. Is now training. Lms. right with the intention of coming up with, because right now it's all about the money.
+
+241
+00:25:43.360 --> 00:25:46.930
+Anthony Taylor: And as we saw this past week. Microsoft's win in that poop.
+
+242
+00:25:47.550 --> 00:25:51.770
+Anthony Taylor: Right? Co-pilot is ridiculous. It's perfect in almost every way
+
+243
+00:25:52.120 --> 00:25:54.310
+Anthony Taylor: until the next perfect one comes out.
+
+244
+00:25:55.330 --> 00:26:06.680
+Anthony Taylor: Okay, so Microsoft's going to sail are going to surf this wave as long as they can, but somebody's going to come out with something just as good. The difference is is Microsoft's effectively giving it away.
+
+245
+00:26:07.270 --> 00:26:10.870
+Anthony Taylor: which is a really interesting thing, because it's expensive to run this thing.
+
+246
+00:26:11.690 --> 00:26:14.759
+Anthony Taylor: But look around, guys, they're giving it away.
+
+247
+00:26:15.240 --> 00:26:20.270
+Anthony Taylor: You don't need chat. Gvt, just use bing chat. It's Chat GPT. 4.
+
+248
+00:26:20.430 --> 00:26:22.269
+Anthony Taylor: And it's live.
+
+249
+00:26:22.580 --> 00:26:24.210
+Anthony Taylor: It's on the Internet.
+
+250
+00:26:25.730 --> 00:26:27.629
+sonja baro: So that's another thing
+
+251
+00:26:28.100 --> 00:26:38.359
+sonja baro: that that's really interesting to the discussion of they're giving it away. Why? Right? Cause that? What is because they want the the data that you're and what the prompts you're putting in, you know
+
+252
+00:26:38.610 --> 00:26:45.740
+sonja baro: they might. It might be some of that. But you know why I tell you why, they just became the highest valuated company in the history
+
+253
+00:26:45.810 --> 00:26:46.830
+Anthony Taylor: this week.
+
+254
+00:26:47.070 --> 00:26:48.789
+Clayton Graves: That was, they beat out Apple.
+
+255
+00:26:49.140 --> 00:26:55.579
+Clayton Graves: That was for the first time in a long time. That was Oppenheimer's
+
+256
+00:26:55.860 --> 00:27:10.509
+Clayton Graves: suggestion. To avoid an arms race was to give it away. Let the Russians have it, be open about it, share it. And and that route. And the the the government, said Heck. No.
+
+257
+00:27:10.690 --> 00:27:12.920
+Clayton Graves: ended up with what we have now.
+
+258
+00:27:13.240 --> 00:27:24.340
+Anthony Taylor: I don't see that with chat. I don't see that with the Gpt, partly because it's really not that hard to make these, I mean, it's all published. It's all open source, anyway. Well, most of it.
+
+259
+00:27:24.600 --> 00:27:43.310
+Anthony Taylor: I see more likely that people will. Somebody's gonna come up with a better one, and they're gonna try to hold on. Keep it a secret. Really, honestly. chat GPT. 4.5, and chat. Gp, T. 5, you know. After Chapter GPT. 3.5 they stopped sharing.
+
+260
+00:27:44.820 --> 00:27:46.970
+Anthony Taylor: At 3.5 they shared everything.
+
+261
+00:27:47.090 --> 00:27:49.979
+Anthony Taylor: At 4 they stopped. They said, Nope, we're not going to ship.
+
+262
+00:27:50.720 --> 00:27:54.859
+Anthony Taylor: And they stopped. Why? Because they knew they had something that no one in the world.
+
+263
+00:27:56.130 --> 00:28:03.600
+Anthony Taylor: And and now, you know we have other ones that are compatible, compatible, competing, but not.
+
+264
+00:28:03.840 --> 00:28:09.569
+Anthony Taylor: you know, I mean, anyway. Alright. So let's move on. We got it a little bit, and I, we we're gonna talk about this all day.
+
+265
+00:28:10.170 --> 00:28:19.450
+Anthony Taylor: Alright. So ethics are system principles that determine how people make decisions about what is good to do and what is bad to do ethics. That goes back to what Rodney said.
+
+266
+00:28:19.910 --> 00:28:24.329
+Anthony Taylor: Okay, we just all. All that's happened is, is, we now have a pool
+
+267
+00:28:24.550 --> 00:28:27.639
+Anthony Taylor: that allows some bad people to do more bad things.
+
+268
+00:28:28.710 --> 00:28:31.599
+Anthony Taylor: but it also allows all the good people to do good thing.
+
+269
+00:28:33.860 --> 00:28:46.680
+Anthony Taylor: Is it a scale? Is it balance. I don't know. and are the bad things outweighing the good things we can now do. I don't know that, either. you know, Rodney said. It really well stop looking for it. I don't know. Nobody here is.
+
+270
+00:28:47.200 --> 00:28:50.289
+Anthony Taylor: if nobody's paying for it, nobody could sell it.
+
+271
+00:28:51.550 --> 00:28:53.990
+Anthony Taylor: and nobody can sell it. It ain't gonna last for you.
+
+272
+00:28:55.070 --> 00:28:56.769
+Anthony Taylor: and that includes clicks.
+
+273
+00:28:57.770 --> 00:28:59.160
+Anthony Taylor: Clicks are money.
+
+274
+00:29:00.660 --> 00:29:12.149
+Anthony Taylor: right? So I don't know. I don't know on that  So anyway, there's a lot a lot, and we're going to get into a lot of the different
+
+275
+00:29:12.490 --> 00:29:25.110
+Anthony Taylor: causes and reasons and such around ethics in AI. So the big areas for now that we'll talk about privacy. but we talked a little bit about privacy, consent.
+
+276
+00:29:25.810 --> 00:29:29.430
+Anthony Taylor: and accountability. So we all
+
+277
+00:29:32.000 --> 00:29:32.960
+Anthony Taylor: feel
+
+278
+00:29:33.290 --> 00:29:40.780
+Anthony Taylor: that the wording says we all have a right price. And I'm like we all feel we should have a right privacy
+
+279
+00:29:40.950 --> 00:29:42.940
+Anthony Taylor: right?
+
+280
+00:29:43.650 --> 00:29:52.590
+Anthony Taylor: And and and I think that 20 years ago, 30 years ago. maybe most of us had privacy.
+
+281
+00:29:53.420 --> 00:30:02.200
+Anthony Taylor: But these days it's less of that these days through the Internet and the social media and all of that stuff. You only have privacy. If you just don't post.
+
+282
+00:30:03.140 --> 00:30:08.220
+Anthony Taylor: Okay. Once you start posting the social media, you've given up a part of your price.
+
+283
+00:30:08.540 --> 00:30:22.150
+Anthony Taylor: If you post a lot. they know where you are when you are, what you're doing, what you're eating, what you're wearing. what you're listening to. how many have guilty of all of those things. I am.
+
+284
+00:30:22.930 --> 00:30:35.609
+Clayton Graves: II did. I gave up any chance of privacy years ago, and I I've embraced it. you know, when the when the whole cancer thing started. II didn't even I just shared it.
+
+285
+00:30:35.680 --> 00:30:46.650
+Anthony Taylor: This is what chemo's like. And this is what this is like and that. And but see, that's one of the advantages of social media, though. Not only did you get to tell your story, you may have helped somebody else that's about to go through the same thing.
+
+286
+00:30:47.010 --> 00:30:51.969
+Anthony Taylor: So that's an advantage. I don't consider that at this. But let me say this, my daughter, she's
+
+287
+00:30:54.190 --> 00:30:56.460
+Anthony Taylor: 28 this year.
+
+288
+00:30:57.270 --> 00:31:03.180
+Anthony Taylor: and I remember asking her years ago about like privacy.
+
+289
+00:31:03.300 --> 00:31:11.529
+Anthony Taylor: like it was something to do with, I think her room or her stuff, or something, and it was crystal clear to me that her generation
+
+290
+00:31:12.470 --> 00:31:25.179
+Anthony Taylor: we're like. there's really no privacy. I mean, yeah, I can close my door. I can hide stuff in my drawer. But I mean, outside of that, there's no privacy that it's like. They just don't even expect it anymore.
+
+291
+00:31:25.460 --> 00:31:32.230
+Anthony Taylor: because you don't expect it. It's very easy to post. It's like, well. no big deal. I don't have privacy, anyway. Here's what I'm doing.
+
+292
+00:31:32.860 --> 00:31:39.770
+Anthony Taylor: and I don't know if that's true. Some of you around that age, you know, you know, I mean but yeah, I mean, do you feel the same way or no
+
+293
+00:31:40.160 --> 00:31:41.990
+Anthony Taylor: curry? Aren't you around that age?
+
+294
+00:31:43.880 --> 00:31:44.979
+Curry Gardner: I am? Yeah.
+
+295
+00:31:45.550 --> 00:31:50.910
+Anthony Taylor: do you. What do you feel about your expectation of privacy in today's world?
+
+296
+00:31:51.740 --> 00:31:57.480
+Curry Gardner: I mean, I personally feel like there's not that much privacy left, but
+
+297
+00:31:57.630 --> 00:32:00.749
+Curry Gardner: I still don't like go out and like remote
+
+298
+00:32:00.950 --> 00:32:04.380
+Anthony Taylor: it pretty much. You're not an Instagram model or anything.
+
+299
+00:32:04.860 --> 00:32:08.739
+Curry Gardner: Okay, not not yet. Maybe. Maybe in a few years
+
+300
+00:32:08.920 --> 00:32:18.949
+Anthony Taylor: there's still time, Buddy. I know that there's no such thing as privacy anymore. Clayton.
+
+301
+00:32:18.970 --> 00:32:25.409
+Anthony Taylor: We expected at least some level of privacy. We just it wasn't even an expectation. It was just like.
+
+302
+00:32:25.700 --> 00:32:29.320
+Anthony Taylor: Of course, there's privacy. Duve. right? We didn't think about it.
+
+303
+00:32:29.450 --> 00:32:39.409
+Anthony Taylor: you know. Now, when you ask people Cindy and Curry and Gabe and Natalie, you know, and Brandon, all of those people that are on that age group. They're like, well, we never had it.
+
+304
+00:32:39.940 --> 00:32:57.739
+Anthony Taylor: So why do we? Why, you know, it's not even a thought anymore, anyway. So I must think it's one to the other side, where, if you're not posting, if you're not sharing people are like, what? What do you mean? You don't. What's wrong with you? Yeah. And it's it's interesting. Because
+
+305
+00:32:57.930 --> 00:33:26.899
+sonja baro: II mean, I made a conscious choice of many years ago to not go down that path because I wasn't liking what I was seeing. There's a lot of positives, but I was seeing a lot more negative. And so I just said, You know what I just won't participate. And so now people are like, well, what do you mean? You don't have that, you know. You're not posting on install. I'm like, I'm not doing that. And it's it's just interesting, cause it is a paradigm shift, for sure.
+
+306
+00:33:27.160 --> 00:33:32.689
+Anthony Taylor: Yeah, I I'm very low on on social. The only thing I really post a lot of is reviews.
+
+307
+00:33:33.500 --> 00:33:35.310
+Anthony Taylor: I post a lot of reviews.
+
+308
+00:33:35.680 --> 00:33:42.079
+Anthony Taylor: anyway. Okay. So privacy is a big one consent. So now we get to
+
+309
+00:33:42.400 --> 00:33:49.810
+Anthony Taylor: people who are posting. And they're like, wait a minute. They're using my material, my picture. They're using my statements.
+
+310
+00:33:50.730 --> 00:33:53.090
+Anthony Taylor: That goes back to what I said.
+
+311
+00:33:53.210 --> 00:33:56.040
+Anthony Taylor: If it's public, it's public.
+
+312
+00:33:56.550 --> 00:33:59.879
+Anthony Taylor: right? You can't copyright a public post.
+
+313
+00:34:00.800 --> 00:34:06.160
+Anthony Taylor: Well, maybe you could. But most people don't. and almost all of us
+
+314
+00:34:06.450 --> 00:34:12.900
+Anthony Taylor: freely consent when we sign up to these social media sites that they can use it any damn way they want.
+
+315
+00:34:14.370 --> 00:34:26.630
+Anthony Taylor: Okay, so consent. Accountability's probably the hardest. Alright, what you guys are going to find in the Llm. Space in particular
+
+316
+00:34:26.820 --> 00:34:27.840
+Anthony Taylor: is
+
+317
+00:34:28.639 --> 00:34:33.749
+Anthony Taylor: we don't really know how to interpret how it's doing what it's doing at times.
+
+318
+00:34:33.840 --> 00:34:34.850
+Anthony Taylor: Yeah, right?
+
+319
+00:34:35.860 --> 00:34:41.659
+Masarirambi, Rodney: So when when the question about privacy comes up,
+
+320
+00:34:43.920 --> 00:34:58.719
+Masarirambi, Rodney: sorry. So yeah. The way I kind of look at is that and and actually this comes into the consent bit. Is that the the just, the sharing of information. Say that, hey? I'm posting this and stuff like that. I think that that's a choice that somebody makes to put that on there.
+
+321
+00:34:58.730 --> 00:35:18.619
+Masarirambi, Rodney: I think we're, we're, we're privacy, I think. And maybe it's just a shift into how I think about privacy. It's like, I think about it as what you what happens like with the algorithm, or you know the tracking of your movements and stuff like that, and how that's used to monetize like, I think that's
+
+322
+00:35:18.620 --> 00:35:33.660
+Masarirambi, Rodney: a bigger issue. Then, like, Oh, I'm just gonna post whatever I want to post cause that's like on a personal level. That's like you deciding to do that. But the track goes along with those posts where I think that the bigger issue is. And that's why I think that
+
+323
+00:35:34.090 --> 00:35:36.079
+Masarirambi, Rodney: obviously she should still be there.
+
+324
+00:35:36.590 --> 00:35:39.719
+Masarirambi, Rodney: But yeah, well, and and that goes with the consent as well.
+
+325
+00:35:39.860 --> 00:35:43.500
+Anthony Taylor: right by being on that site, did you? I mean?
+
+326
+00:35:43.930 --> 00:35:51.949
+Anthony Taylor: And and and again, this goes back to so many like different court decisions and ethical talks and stuff like that. When you go on a website
+
+327
+00:35:53.130 --> 00:35:58.550
+Anthony Taylor: they could track everything to do. And they're and it's an implied consent you came here.
+
+328
+00:35:58.700 --> 00:36:04.329
+Anthony Taylor: This goes back to remember the target story I told you with all the cameras and how they tracked you walking store.
+
+329
+00:36:04.390 --> 00:36:07.599
+Anthony Taylor: and if you did pay with a credit card or the red card.
+
+330
+00:36:08.620 --> 00:36:12.209
+Anthony Taylor: they know exactly who you are, and they know exactly what you did
+
+331
+00:36:12.650 --> 00:36:18.770
+Anthony Taylor: as you walk through their store. Well, why can they do that? Because somewhere on the door there's a little sign.
+
+332
+00:36:18.830 --> 00:36:22.289
+Anthony Taylor: This is, you are being filmed. that's all they need to say.
+
+333
+00:36:23.880 --> 00:36:29.969
+Anthony Taylor: That's all they need to say. I mean, I I'm not a lawyer, I don't know, but that's usually all.
+
+334
+00:36:30.020 --> 00:36:39.329
+Clayton Graves: Also it's private property. I mean, it's their store. I mean, they can do that same thing with Facebook. right? It's it's a.
+
+335
+00:36:39.870 --> 00:36:44.250
+Clayton Graves: it's a company. The Constitution doesn't apply
+
+336
+00:36:45.220 --> 00:36:46.550
+Anthony Taylor: right? Exactly.
+
+337
+00:36:46.690 --> 00:36:58.869
+Anthony Taylor: So. So I'm I'm with you, Ronnie. Adu. And and that goes back to privacy and consent. It's like, okay. Well, should I have privacy when I'm on your site that you're not tracking where I'm going. Because just so, you know.
+
+338
+00:36:59.400 --> 00:37:03.820
+Anthony Taylor: when you leave a website. it tells them where you went.
+
+339
+00:37:05.780 --> 00:37:12.299
+Anthony Taylor: Okay. So if you go from Facebook, you know to to, you know, Pornhub.
+
+340
+00:37:12.710 --> 00:37:16.950
+Anthony Taylor: okay, they have an event that says you did this.
+
+341
+00:37:19.070 --> 00:37:25.310
+Anthony Taylor: Okay, I'm not joking. I mean that I could show you that. Remember that click, click, click, site. I showed you guys
+
+342
+00:37:25.650 --> 00:37:31.290
+Anthony Taylor: right that it captured all the events. That's one of the events that it captured where you went from their site.
+
+343
+00:37:32.220 --> 00:37:41.649
+Anthony Taylor:  So they I mean, all of that stuff is, do everybody capture that? No, most people don't care where you went from their site. All they care is what you're doing on their site.
+
+344
+00:37:42.620 --> 00:37:53.080
+Anthony Taylor: Okay, and they don't know anything after got so don't get too paranoid about. They just know that when you left, last thing that came through was, you're going
+
+345
+00:37:53.890 --> 00:38:00.849
+Anthony Taylor: over there. Wherever over there is alright. You are on target. You went to Walmart. Target cares about that.
+
+346
+00:38:01.570 --> 00:38:07.789
+Anthony Taylor: You were shopping on. On on a retail site, and you go to another retail site. They care.
+
+347
+00:38:08.810 --> 00:38:14.020
+Anthony Taylor: Because what's that mean you're doing? You're either shopping around or you didn't like their something about their site.
+
+348
+00:38:14.490 --> 00:38:16.010
+Anthony Taylor: So that's important, anyway.
+
+349
+00:38:16.780 --> 00:38:19.320
+Anthony Taylor: Okay? So accountability,
+
+350
+00:38:19.570 --> 00:38:22.480
+Anthony Taylor: The biggest issue with accountability is
+
+351
+00:38:22.550 --> 00:38:28.820
+Anthony Taylor: especially in the Llm space in the the current. AI space. It's a lot of black box.
+
+352
+00:38:29.370 --> 00:38:35.280
+Anthony Taylor: Can't necessarily explain everything. It's coming up with. But even the stuff we can explain
+
+353
+00:38:35.560 --> 00:38:44.460
+Anthony Taylor: we can't necessarily guarantee where it got its information. We scan the Internet well, which part? No, no, no. we scan the Internet
+
+354
+00:38:45.620 --> 00:38:50.410
+Anthony Taylor: whole damn thing. everything that was excessive. We scanned it.
+
+355
+00:38:51.570 --> 00:38:55.179
+Anthony Taylor: put it in the system. And now, when you ask questions, you get an answer.
+
+356
+00:38:55.500 --> 00:38:59.200
+Anthony Taylor: Well, well, where'd that answer come from? Somewhere on the Internet?
+
+357
+00:39:00.660 --> 00:39:01.829
+Anthony Taylor: That's the answer.
+
+358
+00:39:03.240 --> 00:39:07.220
+Anthony Taylor: Okay, so it's kind of hard to to really hold on to account.
+
+359
+00:39:07.840 --> 00:39:14.649
+Anthony Taylor: Alright. So today's activities are a little weird. Because they're really not root bacteria
+
+360
+00:39:15.460 --> 00:39:21.380
+Anthony Taylor: but what I'm going to do. Just so we're not all sitting here talking to each other. I am going to create breakouts.
+
+361
+00:39:22.290 --> 00:39:24.769
+Anthony Taylor: But I'm gonna put one person in each breakout.
+
+362
+00:39:26.190 --> 00:39:31.059
+Anthony Taylor: Okay, you guys gonna do it yourself. and then come back
+
+363
+00:39:31.280 --> 00:39:36.380
+Anthony Taylor: alright. So it's only 15 min. Basically, they just want you.
+
+364
+00:39:36.470 --> 00:39:39.080
+Anthony Taylor: Let me see if this, if this really has anything in it
+
+365
+00:39:40.530 --> 00:39:45.119
+Anthony Taylor: use Google news. Here, let's bring this. Let me go back to sharing for a, second.
+
+366
+00:39:47.710 --> 00:39:53.070
+Anthony Taylor:  does it say, it doesn't say, so i'll just bring in the reading
+
+367
+00:39:54.380 --> 00:40:02.269
+Anthony Taylor: alright. So it says, use Google News or something. Find an article about AI ethics. Try to find one that's in the last 6 months.
+
+368
+00:40:02.510 --> 00:40:07.669
+Anthony Taylor: Try to use a reputable source, such as university or something else.
+
+369
+00:40:07.810 --> 00:40:13.429
+Anthony Taylor: And after you found it, read the article. try to summarize it.
+
+370
+00:40:15.540 --> 00:40:21.550
+Anthony Taylor: It's kind of I'm gonna I'm gonna show you when I read these instructions. This is what went through my mind.
+
+371
+00:40:25.120 --> 00:40:28.950
+Anthony Taylor: oh, wait. Current article
+
+372
+00:40:29.140 --> 00:40:31.340
+Anthony Taylor: on AI ethics.
+
+373
+00:40:32.570 --> 00:40:34.180
+Anthony Taylor: Okay.
+
+374
+00:40:35.660 --> 00:40:37.650
+Anthony Taylor: Wall Street Journal.
+
+375
+00:40:38.600 --> 00:40:41.419
+Anthony Taylor: Now, ethical concerns. Here we go, Harvard.
+
+376
+00:40:41.880 --> 00:40:46.260
+Anthony Taylor: So I look at this. And I'm like, Oh, that's interesting. I'm just gonna come over here
+
+377
+00:40:46.300 --> 00:40:51.310
+Anthony Taylor: and like a bing. And
+
+378
+00:40:52.260 --> 00:40:59.690
+Anthony Taylor: oh, it didn't give it to me this time. That's okay. Summarize
+
+379
+00:41:00.010 --> 00:41:01.430
+Anthony Taylor: this web page.
+
+380
+00:41:06.160 --> 00:41:08.690
+Anthony Taylor: Normally, it actually asks you if you want to do that.
+
+381
+00:41:09.180 --> 00:41:11.850
+Anthony Taylor: But yeah, so there you go.
+
+382
+00:41:13.530 --> 00:41:14.620
+Anthony Taylor: Isn't that funny?
+
+383
+00:41:14.750 --> 00:41:29.529
+Anthony Taylor: So we're going to talk about AI ethics and then use AI to summarize the article on AI ethics. You think it's telling us the truth could be unethical to do that, anyway. So there's there's basically what they want you to do. You got 15 min to do it.
+
+384
+00:41:32.060 --> 00:41:37.230
+Anthony Taylor: Welcome back. everybody. Yeah. Okay.
+
+385
+00:41:37.360 --> 00:41:39.070
+Anthony Taylor: So
+
+386
+00:41:39.110 --> 00:41:41.050
+Anthony Taylor: I'll share
+
+387
+00:41:41.330 --> 00:41:51.750
+Anthony Taylor: not much to share. It's the same thing that you guys were just looking at  So we're just gonna spend a few minutes. I don't wanna spend more than like 10 min on this.
+
+388
+00:41:52.940 --> 00:41:59.389
+Anthony Taylor: Talk to me. Somebody volunteer. Tell me about the article you found and your thoughts.
+
+389
+00:42:00.780 --> 00:42:08.149
+Clayton Graves: I found one on the dangers of AI, and I didn't get very far into it.
+
+390
+00:42:08.300 --> 00:42:10.220
+Clayton Graves: because it was pretty dense.
+
+391
+00:42:10.340 --> 00:42:38.100
+Clayton Graves: But it talked a lot about some of the stuff that we've already covered, like, you know, lack of transparency and explainability. Social manipulation through algorithm algorithm social surveillance, things like and lack of data privacy. But it also covered a couple of others like job losses due to AI automation. As AI gets smarter and more capable. It'll start doing the jobs that currently need people.
+
+392
+00:42:38.590 --> 00:42:59.380
+Clayton Graves: We talked about social surveillance a a little bit more in depth, like China Uses, facial recognition and officers offices, schools other than use. And Us. Police departments are embracing predictive policing algorithms so trying to predict when a crime will occur like minor minority report, but without the side case.
+
+393
+00:42:59.820 --> 00:43:07.749
+Clayton Graves:  and then it also talked about biased AI. So I mean, if you've got.
+
+394
+00:43:07.820 --> 00:43:24.999
+Clayton Graves: But yeah, but if you've got somebody who's who's, you know, white supremac, and they're good at coding, and they could conceivably make a white supremacist artificial intelligence. It wouldn't be that different but to make an I mean, they'd have to have some considerate and don't get wrong. It's awesome
+
+395
+00:43:25.650 --> 00:43:33.370
+Anthony Taylor: deal with enough enough resources. But you can definitely steer an AI to to have white supremacy
+
+396
+00:43:33.480 --> 00:43:36.119
+Anthony Taylor: ideations. It's pretty simple
+
+397
+00:43:36.260 --> 00:43:50.599
+Clayton Graves: weakening ethics and goodwill because of AI. So you know, as as we rely more on AI for for content generation and things like that that will work creativity wither in a trophy.
+
+398
+00:43:50.850 --> 00:43:59.520
+Clayton Graves:  It talks about autonomous weapons powered by AI on that front. We're already in an arms race.
+
+399
+00:43:59.570 --> 00:44:06.309
+Clayton Graves: Because we've already started deploying stuff like that. And you know that the other countries are gonna answer with that.
+
+400
+00:44:06.700 --> 00:44:10.980
+Clayton Graves: So I so hold on. I want you to take the whole time. I wanna address
+
+401
+00:44:11.450 --> 00:44:17.959
+Anthony Taylor: one thing I mean, we did this couple of things with the State. II got one more, and this is the big
+
+402
+00:44:18.340 --> 00:44:19.880
+Clayton Graves: self-aware AI
+
+403
+00:44:20.460 --> 00:44:22.729
+Clayton Graves: that is listed as potential danger.
+
+404
+00:44:23.610 --> 00:44:25.269
+Anthony Taylor: Well, of course it is.
+
+405
+00:44:25.430 --> 00:44:34.369
+Anthony Taylor: but we've never given an AI the ability to do anything. So that's one thing about the whole like Terminator. You know, theories
+
+406
+00:44:34.460 --> 00:44:40.359
+Clayton Graves: right and in Terminator, and all of those they that AI had the ability to do so.
+
+407
+00:44:40.530 --> 00:44:43.129
+Anthony Taylor: Our AI is just have the ability to write.
+
+408
+00:44:43.220 --> 00:44:54.280
+Clayton Graves: but human beings are human beings. Human human mentality is, if we can do it, let's do it and see what happens. And then let's do it a lot.
+
+409
+00:44:55.140 --> 00:45:00.959
+Anthony Taylor: Oh, I agree with that, too. Yeah. So okay, so one thing on the job front.
+
+410
+00:45:01.310 --> 00:45:12.570
+Anthony Taylor: you know. And I think I said this at 1 point in this course where I was talking about AI taking people's jobs, you know. I mean, they said this when you know the Industrial Revolution happen, they said it wouldn't.
+
+411
+00:45:12.660 --> 00:45:17.040
+Anthony Taylor: The, you know, computers became popular. They said it would. Internet became popular.
+
+412
+00:45:17.260 --> 00:45:28.519
+Anthony Taylor: It. It's a very common thing that the reality is is. while all of those things did happen. And and there was the dip in jobs. There was an increase out.
+
+413
+00:45:29.530 --> 00:45:41.310
+Anthony Taylor: The right increase always led us to more jobs at where we are today, where we have more jobs, people look. The reality is that this is a whole different beast. And we don't know
+
+414
+00:45:41.390 --> 00:45:42.680
+Clayton Graves: for sure
+
+415
+00:45:43.160 --> 00:45:47.080
+Clayton Graves: what it's gonna look like 1015, 20 years from now, we don't know
+
+416
+00:45:47.240 --> 00:45:50.429
+Anthony Taylor: completely agree. you know, but no matter what
+
+417
+00:45:51.110 --> 00:46:03.579
+Anthony Taylor: there will, the way the the world works is, we will find other ways to put people to work. And maybe it's people like you. and maybe people like you that are starting right now
+
+418
+00:46:04.050 --> 00:46:14.240
+Anthony Taylor: right at the very beginning of this revolution. To start to understand it are going to be. you know, incredibly necessary in 5 to 10 years.
+
+419
+00:46:14.660 --> 00:46:18.949
+Anthony Taylor: right? Because you had it from the beginning, you said, Hey, guys,
+
+420
+00:46:19.890 --> 00:46:25.800
+Anthony Taylor: pay attention. You know, this is, this is what's going on about here. We need to pay attention.
+
+421
+00:46:26.290 --> 00:46:28.800
+Anthony Taylor: But anyway, I'm with you.
+
+422
+00:46:29.090 --> 00:46:34.649
+Anthony Taylor: I do believe there will be a difference in in. in jobs that are easy to replace.
+
+423
+00:46:35.020 --> 00:46:42.900
+Anthony Taylor: There are some jobs that I would be more worried for than others like writers. Writers are very concerned
+
+424
+00:46:43.240 --> 00:46:51.189
+Anthony Taylor: alright, and you could even say, Well, I don't want to take an article that I've written in Chat. Gvd, but you know what I wrote this really, C. Host
+
+425
+00:46:51.300 --> 00:46:56.469
+Anthony Taylor: to my friend. And and I think. why doesn't Dr. Stu.
+
+426
+00:46:57.100 --> 00:47:00.350
+Anthony Taylor: Okay, I guarantee you. Dr. Chutes never wrote this.
+
+427
+00:47:00.810 --> 00:47:05.119
+Anthony Taylor: Okay, but it was in the style of that, too. So now it is completely original.
+
+428
+00:47:05.370 --> 00:47:08.849
+Anthony Taylor: Did I write it. No. Did they know I didn't write it?
+
+429
+00:47:09.120 --> 00:47:19.940
+Clayton Graves: Of course they did. There was a recent article about a guy who use Chat Gpt to talk with potential romantic interests, and then forward him
+
+430
+00:47:19.950 --> 00:47:24.220
+Clayton Graves: referrals based on the chat gpt feedback.
+
+431
+00:47:24.710 --> 00:47:28.450
+Anthony Taylor: You guys have seen my chatty Vt. I have one called Dr. Love.
+
+432
+00:47:28.730 --> 00:47:37.089
+Anthony Taylor: I created it. and its only purpose is to give dating advice, which I don't need anymore. But I mean that was it.
+
+433
+00:47:37.190 --> 00:47:44.570
+Anthony Taylor: That was all it was there for, and it wasn't unethical. It was simply basing it, you know. It was like, Hey, write me a 9, you know
+
+434
+00:47:44.660 --> 00:47:47.029
+Anthony Taylor: this or that, and it worked. It was great.
+
+435
+00:47:47.090 --> 00:47:50.200
+Anthony Taylor: And I told everybody like I was being secretive about it.
+
+436
+00:47:50.390 --> 00:47:54.140
+Clayton Graves: But anyway, okay.
+
+437
+00:47:54.610 --> 00:47:56.310
+Anthony Taylor: well, yeah. And again.
+
+438
+00:47:56.830 --> 00:48:00.180
+Anthony Taylor: it goes back to what we said, it's tool. How do you use it? Well.
+
+439
+00:48:00.510 --> 00:48:04.360
+Anthony Taylor: that I can't control anybody else. Want to talk about an article they read.
+
+440
+00:48:04.900 --> 00:48:06.700
+Anthony Taylor: Yes, Jennifer.
+
+441
+00:48:07.810 --> 00:48:14.190
+Jennifer Dahlgren: so II found one that was actually kind of changed my view slightly, and it was that
+
+442
+00:48:15.390 --> 00:48:27.660
+Jennifer Dahlgren: AI and Ethics doesn't have any teeth. And it's because it's monitored based upon legal regulations, and the real benefits of ethics is that it's the
+
+443
+00:48:27.770 --> 00:48:37.290
+Jennifer Dahlgren: the ability to constantly renew and see the new. And that's why A. I is presenting such an issue because it is going faster than we can see the new.
+
+444
+00:48:37.860 --> 00:48:46.949
+Jennifer Dahlgren: And so if all we're doing is looking at legislation, we are gonna miss the boat because we're missing the point of ethics, to begin with.
+
+445
+00:48:47.790 --> 00:48:49.990
+Anthony Taylor: Well, legislation won't be able to keep up. Anyway.
+
+446
+00:48:50.100 --> 00:49:04.869
+Anthony Taylor: they could make lay, I mean, even if they could come up with a rule, they're basing it on something that was probably happening 6 months ago, and that's already changed. I mean, nothing is moving as fast as AI. Nothing has ever moved as fast as ais.
+
+447
+00:49:05.280 --> 00:49:12.799
+Anthony Taylor: So I mean, that's that's I love that. I love that alright. So we did. Yes, Rodney, he'll be the last one for this this topic.
+
+448
+00:49:13.210 --> 00:49:26.949
+Masarirambi, Rodney: I think this actually like blends into what Jennifer just said. I read something from the American Psychological Association. Whether we're talking about like the fears of like AI like, how would that
+
+449
+00:49:26.980 --> 00:49:46.899
+Masarirambi, Rodney: the algorithms contribute to bias in AI. But also it holds the power to correct or reverse the inequalities amongst humans and being able to use it in that way. So it was like taking it like, instead of just like focusing on like the doom groom of what AI is. Gonna bring and and bring us down is like, well, there's a place for us to be like. Okay.
+
+450
+00:49:47.070 --> 00:50:13.890
+Masarirambi, Rodney: find like in in in the article. They said that New York now has, like a new State, has got like a, a, a, an article, a a law that says that you have to disclose. If AI is being used so you could write an algorithm to figure out if AI is being used like in in the post, and this kind of stuff. So now you can like start to make things for the better to make it a new playing field and that kind of stuff. So II thought that might be good to bring up as like a sunshine.
+
+451
+00:50:14.470 --> 00:50:17.330
+Anthony Taylor: And you know what guys that's actually brings up really great
+
+452
+00:50:17.800 --> 00:50:23.439
+Anthony Taylor: a lot of this? This discussion does kind of talk about the downside and dark side
+
+453
+00:50:23.790 --> 00:50:33.970
+Anthony Taylor: and and we shouldn't just talk about the downside dark side. The reason I mean, I'm gonna finish it with again point on the tools earlier.
+
+454
+00:50:34.150 --> 00:50:39.300
+Anthony Taylor: I mean, this tool is amazing. This tool is going to enable us.
+
+455
+00:50:39.380 --> 00:50:47.659
+Anthony Taylor: our children, our grandchildren, and every generation in the future to be better than the past.
+
+456
+00:50:49.380 --> 00:50:51.110
+Anthony Taylor: Okay, more.
+
+457
+00:50:51.190 --> 00:51:09.380
+Clayton Graves: I'm not trying. I'm not trying to say. It's all doom and gloom that AI is bad. No, no, no, I don't think you are. But what I what I am trying to say is that the the one common denominator here is is human beings, and we. I'm sorry, but we screw up everything we touch.
+
+458
+00:51:09.650 --> 00:51:11.280
+Anthony Taylor: Yeah, well, there's that.
+
+459
+00:51:11.920 --> 00:51:20.320
+Anthony Taylor: But we also grow and benefit and and amazing things, including AI come from the human being
+
+460
+00:51:20.530 --> 00:51:28.739
+Anthony Taylor: right? AI didn't make itself right. And the benefits that we're getting out of it are are changing the world as we know it.
+
+461
+00:51:28.910 --> 00:51:33.210
+Anthony Taylor: at a pace like we just said faster than ever before.
+
+462
+00:51:33.620 --> 00:51:38.009
+Anthony Taylor: So that's really exciting. Alright. So let's go on. We still got a lot to cover
+
+463
+00:51:38.090 --> 00:51:42.070
+Anthony Taylor: algorithmic bias. Alright.
+
+464
+00:51:42.150 --> 00:51:52.529
+Anthony Taylor: So let's break this down into 2 things. Alright. Well, first, let's read, this is a situation which computer makes decisions impact different people groups in different ways.
+
+465
+00:51:52.990 --> 00:51:55.809
+Anthony Taylor: Okay, this is a big topic right now.
+
+466
+00:51:56.410 --> 00:51:57.910
+Anthony Taylor: And it makes sense.
+
+467
+00:51:58.680 --> 00:52:05.750
+Anthony Taylor: Okay? And it's not just color. It's not just race, it's gender. It's all
+
+468
+00:52:06.120 --> 00:52:11.630
+Anthony Taylor: recognized. Genders are affected. all
+
+469
+00:52:11.790 --> 00:52:14.990
+Anthony Taylor: races are affected, cultures
+
+470
+00:52:15.010 --> 00:52:16.250
+Anthony Taylor: are affected
+
+471
+00:52:16.600 --> 00:52:23.520
+Anthony Taylor: right, the only ones that are the the one. I should say that. No, I'll say it this way. The least affected
+
+472
+00:52:24.480 --> 00:52:25.669
+Anthony Taylor: old white guys.
+
+473
+00:52:26.520 --> 00:52:34.100
+Anthony Taylor: Okay, sorry. It's fact. It's not that we meant it that way. It's just the fact. Okay,
+
+474
+00:52:34.350 --> 00:52:39.550
+Anthony Taylor: And you know, people with money. Why? Well, let's think about this. It's coming from the Internet.
+
+475
+00:52:41.210 --> 00:52:45.990
+Anthony Taylor: right? They've been state, they scan the Internet 50 years of the Internet.
+
+476
+00:52:47.050 --> 00:52:50.040
+Anthony Taylor: has everybody had the Internet flew over all those years
+
+477
+00:52:51.460 --> 00:52:58.060
+Anthony Taylor: around the world not even close. not even clips.
+
+478
+00:52:58.290 --> 00:53:03.210
+Anthony Taylor: There are whole countries that still don't have the Internet.
+
+479
+00:53:04.960 --> 00:53:09.399
+Anthony Taylor: Are they represented in the environment? No.
+
+480
+00:53:10.030 --> 00:53:16.460
+Anthony Taylor: that Gpg don't even know they exist unless someone wrote about it. Probably some old white guy
+
+481
+00:53:17.140 --> 00:53:19.400
+Anthony Taylor: wrote about it in a different article.
+
+482
+00:53:22.320 --> 00:53:23.330
+Anthony Taylor: Okay?
+
+483
+00:53:23.640 --> 00:53:33.130
+Anthony Taylor: And and trust me, I'm not trying to say that all white guys have written everything. No, that's not it at all. The point is is that they. the the majority of the American
+
+484
+00:53:33.550 --> 00:53:35.560
+Anthony Taylor: over the years
+
+485
+00:53:35.730 --> 00:53:38.870
+Anthony Taylor: has been about making money.
+
+486
+00:53:40.850 --> 00:53:46.640
+Anthony Taylor: Well, that's it. I wanted to give you a number 2. There's really not a number 2. It's about making money
+
+487
+00:53:47.200 --> 00:53:48.260
+Anthony Taylor: okay?
+
+488
+00:53:48.410 --> 00:53:55.380
+Anthony Taylor: And everybody got their hand and crossed the bull all right. The problem was accessibility.
+
+489
+00:53:55.710 --> 00:53:58.510
+Anthony Taylor: Who had accent in the beginning
+
+490
+00:53:58.530 --> 00:54:00.719
+Anthony Taylor: middle class, upper class.
+
+491
+00:54:00.760 --> 00:54:02.249
+Anthony Taylor: They were the ones that could afford.
+
+492
+00:54:03.750 --> 00:54:06.820
+Anthony Taylor: It doesn't matter what race you were, but it was middle class and up
+
+493
+00:54:06.970 --> 00:54:08.960
+Anthony Taylor: overflow. Then
+
+494
+00:54:09.400 --> 00:54:14.510
+Anthony Taylor: it came available, and you still had to pay for it. But just like to have a computer.
+
+495
+00:54:16.140 --> 00:54:23.830
+Anthony Taylor: Okay, so now we're talking. Only people that have computers are fill in the Internet. And then eventually.
+
+496
+00:54:24.170 --> 00:54:32.029
+Anthony Taylor: right well, now it's a little we're right now. Cell phones come out. Now. We got a lot of people filling, but even then I have cell phones.
+
+497
+00:54:33.240 --> 00:54:34.690
+Anthony Taylor: You had to have a data plan.
+
+498
+00:54:36.480 --> 00:54:39.020
+Anthony Taylor: It all comes down to follow the money
+
+499
+00:54:40.770 --> 00:54:51.350
+Anthony Taylor: and the the the way that the Internet is done. And I mean. it's just the way it was done, is it? Do we see it balancing out absolutely
+
+500
+00:54:51.520 --> 00:54:55.339
+Anthony Taylor: 100%? Everybody remember the yelp. Api thing?
+
+501
+00:54:56.340 --> 00:55:00.620
+Anthony Taylor: Who is the number one contributor? Yelp. What age, group and
+
+502
+00:55:01.020 --> 00:55:04.190
+Anthony Taylor: race culture whatever gender?
+
+503
+00:55:04.320 --> 00:55:05.490
+michael mcpherson: Aaron's?
+
+504
+00:55:06.390 --> 00:55:07.590
+Anthony Taylor: What was that, Mike?
+
+505
+00:55:07.960 --> 00:55:11.430
+michael mcpherson: Parents, middle-aged middle class? No, no.
+
+506
+00:55:11.710 --> 00:55:22.479
+Anthony Taylor: didn't we talk about this. III could've. Oh, well, this is something we do in our data science class, according to Yelp's own statistics, like 60% of the demographic of yelp
+
+507
+00:55:22.560 --> 00:55:26.900
+Anthony Taylor: is Asian girls between the ages 18 and 25,
+
+508
+00:55:29.070 --> 00:55:30.880
+Anthony Taylor: 60%
+
+509
+00:55:32.310 --> 00:55:33.370
+Anthony Taylor: of guilt.
+
+510
+00:55:35.770 --> 00:55:39.939
+Anthony Taylor: Right? That's the interesting group. But even that causes bias.
+
+511
+00:55:42.170 --> 00:55:45.790
+Anthony Taylor: Okay? It does. Why? Because 60%
+
+512
+00:55:46.150 --> 00:55:49.700
+Anthony Taylor: of yelp, if you use yelp for any of your models, guess what
+
+513
+00:55:49.790 --> 00:55:52.309
+Anthony Taylor: your bias towards that group.
+
+514
+00:55:53.590 --> 00:55:54.610
+Anthony Taylor: Alright.
+
+515
+00:55:54.620 --> 00:55:58.009
+Anthony Taylor: So, anyway, let's talk more about the definitions.
+
+516
+00:55:58.730 --> 00:56:09.870
+Anthony Taylor: so there, there are number of algorithms. We're gonna take it apart, new algorithms first and then bias. Okay, so algorithms, there's priorit prioritization. Not
+
+517
+00:56:10.140 --> 00:56:14.099
+Anthony Taylor: okay. So this would be an example of this would be like.
+
+518
+00:56:14.140 --> 00:56:18.119
+Anthony Taylor: You're on Amazon. And you say, I wanna buy a T-shirt.
+
+519
+00:56:18.770 --> 00:56:22.950
+Anthony Taylor: or, better yet. You see somebody wearing a T-shirt like it.
+
+520
+00:56:23.140 --> 00:56:27.309
+Anthony Taylor: You go on Amazon and you type. I want this T-shirt. It's an AI channel.
+
+521
+00:56:28.470 --> 00:56:35.379
+Anthony Taylor: Okay. Amazon comes up shows you most likely what you search for first
+
+522
+00:56:35.500 --> 00:56:38.950
+Anthony Taylor: after it shows you sponsored information.
+
+523
+00:56:41.330 --> 00:56:49.589
+Anthony Taylor: Okay, so and then it prioritizes, based on people who have bought that, but not just people who have bought that shirt.
+
+524
+00:56:49.730 --> 00:56:51.950
+Anthony Taylor: It's also looking at what you bought before
+
+525
+00:56:53.240 --> 00:56:58.270
+Clayton Graves: is that prioritization? Or is that association? Because they seem kind of similar
+
+526
+00:56:58.640 --> 00:57:02.170
+Anthony Taylor: prioritization in this case is
+
+527
+00:57:02.240 --> 00:57:03.730
+Anthony Taylor: it's it's it's
+
+528
+00:57:04.030 --> 00:57:11.229
+Anthony Taylor: I see where you're going with that. But prioritization is, I'm listing something out. And it's giving it to me in a priority that a model came up.
+
+529
+00:57:11.840 --> 00:57:15.570
+Anthony Taylor: And yes, it is also associating it to what you've done in the past. But we'll get to that.
+
+530
+00:57:16.140 --> 00:57:22.059
+Anthony Taylor: Okay, but it prioritizes them based on the relevance of the search.
+
+531
+00:57:22.100 --> 00:57:25.090
+Anthony Taylor: And your history. If there isn't
+
+532
+00:57:25.470 --> 00:57:28.130
+Anthony Taylor: okay. classification
+
+533
+00:57:28.520 --> 00:57:31.550
+Anthony Taylor: is basically putting things into categories.
+
+534
+00:57:32.590 --> 00:57:34.639
+Anthony Taylor: Okay,
+
+535
+00:57:37.580 --> 00:57:41.000
+Anthony Taylor: so I'll try to find this one.
+
+536
+00:57:45.810 --> 00:57:51.000
+Anthony Taylor: Okay, so classification is basically what we've been doing like with the loan approvals and stuff like that.
+
+537
+00:57:51.500 --> 00:57:53.970
+Anthony Taylor: Okay? And this is all great.
+
+538
+00:57:55.070 --> 00:57:57.250
+Anthony Taylor: Do you think there's bias in low approvals?
+
+539
+00:57:59.470 --> 00:58:01.950
+Anthony Taylor: Come on. That's an easy question.
+
+540
+00:58:02.840 --> 00:58:04.830
+Anthony Taylor: Okay, absolute.
+
+541
+00:58:05.400 --> 00:58:07.100
+Anthony Taylor: Based on your education.
+
+542
+00:58:07.380 --> 00:58:12.000
+Anthony Taylor: You could be biased. We didn't have to get into the touching area. Let's just talk about education.
+
+543
+00:58:12.620 --> 00:58:16.039
+Anthony Taylor: You got bachelors. You're more eligible for a loan than somebody without
+
+544
+00:58:18.360 --> 00:58:19.180
+Anthony Taylor: period.
+
+545
+00:58:20.950 --> 00:58:26.040
+Anthony Taylor: There's not an algorithm on the planet that would say different. Now. There may be other factors
+
+546
+00:58:26.130 --> 00:58:31.649
+Anthony Taylor: that will change that. But just that one flag will make you more eligible.
+
+547
+00:58:31.770 --> 00:58:40.410
+Anthony Taylor: Is that bias spirited? I make more money than most people that have a higher degree. Why wouldn't I be more eligible than it
+
+548
+00:58:42.590 --> 00:58:44.360
+Anthony Taylor: right, why wouldn't you?
+
+549
+00:58:47.030 --> 00:58:58.519
+Anthony Taylor: So there you go. And what about military military people? A lot of people who went to the military for their for 4 years they didn't go get a degree. They went military. They served our country
+
+550
+00:58:59.140 --> 00:59:01.310
+Anthony Taylor: that make them less eligible.
+
+551
+00:59:03.270 --> 00:59:06.440
+Anthony Taylor: Ridiculous, right? But it's a real buyer
+
+552
+00:59:07.010 --> 00:59:10.379
+Anthony Taylor: association. Okay? And so this goes.
+
+553
+00:59:10.470 --> 00:59:16.089
+Anthony Taylor:  this goes. And and really this does go back to the products thing. But
+
+554
+00:59:16.360 --> 00:59:21.160
+Anthony Taylor: less about you did a search more about you've actually selected it. Now
+
+555
+00:59:21.220 --> 00:59:34.390
+Anthony Taylor: and then. It finds other things that people like this goes back to the recommendation engines and stuff like that. Right? You listen to a song on spotify. You now have recommended songs for other songs that people
+
+556
+00:59:34.590 --> 00:59:38.979
+Anthony Taylor: who liked that song also liked. They live in Netflix.
+
+557
+00:59:39.770 --> 00:59:49.020
+Anthony Taylor: Okay, like a movie, Derek, like the same movie. Now, you see movies that Derek likes, but you'll know that Derek's likes. There's just somebody else that liked the same.
+
+558
+00:59:50.010 --> 00:59:51.830
+Anthony Taylor: Okay,
+
+559
+00:59:51.930 --> 00:59:54.950
+Anthony Taylor: filtering. So
+
+560
+00:59:57.300 --> 00:59:58.750
+Anthony Taylor: filtering
+
+561
+00:59:59.370 --> 01:00:08.770
+Anthony Taylor:  is like spam filter. Let's use spam filters as an example. How many of you guys have had spam filters, filter stuff you didn't want them to take
+
+562
+01:00:10.710 --> 01:00:14.970
+Anthony Taylor: absolutely right. What if it came from a friend?
+
+563
+01:00:15.990 --> 01:00:21.040
+Anthony Taylor: For God forbid a friend that can't spell very well, or a dyslexic friend
+
+564
+01:00:22.230 --> 01:00:24.270
+Anthony Taylor: forget about it. You'll never see
+
+565
+01:00:25.630 --> 01:00:30.590
+Anthony Taylor: one of the primary criteria of a spam filter. Look for misspelling
+
+566
+01:00:32.700 --> 01:00:39.189
+Anthony Taylor: that you think. Well, everybody misspells. Yeah. But certain misspellings will trigger your spam filter.
+
+567
+01:00:41.920 --> 01:00:50.170
+Anthony Taylor: Okay, not every time. And they can be. They can be tuned. But the point is is, that's a way that Abi is, and we shall.
+
+568
+01:00:51.190 --> 01:00:52.150
+Anthony Taylor: Okay.
+
+569
+01:00:53.410 --> 01:00:59.449
+Anthony Taylor: So again, what is bias bias? Just in general, we're treating somebody
+
+570
+01:00:59.560 --> 01:01:03.540
+Anthony Taylor: based on some factor doesn't matter what factor
+
+571
+01:01:03.990 --> 01:01:07.760
+Anthony Taylor: differently than other people without that fact.
+
+572
+01:01:10.230 --> 01:01:11.970
+Anthony Taylor: does it have to be unfair
+
+573
+01:01:14.350 --> 01:01:15.610
+Anthony Taylor: to be biased?
+
+574
+01:01:15.760 --> 01:01:23.600
+Clayton Graves: We always think of bias as negative right? It's not necessary. Not necessarily. I mean, I can spot a spam email
+
+575
+01:01:23.880 --> 01:01:27.910
+Clayton Graves: pretty quickly based on the sender's use of English
+
+576
+01:01:28.310 --> 01:01:33.450
+Clayton Graves: and and their their their grammar structure. And and it's
+
+577
+01:01:33.540 --> 01:01:42.709
+Clayton Graves: and and you know. am I am I wrong? For automatically assuming that's a scam? I don't know it's debatable. But III tell you I'm right.
+
+578
+01:01:43.540 --> 01:01:50.670
+Anthony Taylor: Well, yeah. yeah. II I'm gonna I'm gonna say, yeah.
+
+579
+01:01:50.760 --> 01:02:00.260
+Anthony Taylor: okay, the point is, but basically, I want to leave. I want to end bias discussion with our, we're not ending it. But continue it with bias isn't necessarily all wrong.
+
+580
+01:02:01.170 --> 01:02:09.090
+Anthony Taylor: Okay, bias. The term tends to have a negative connotation. But it's not always negative. Sometimes bias makes sense.
+
+581
+01:02:10.590 --> 01:02:12.440
+Anthony Taylor: Alright.
+
+582
+01:02:14.000 --> 01:02:16.090
+Anthony Taylor: Okay, so let's talk about
+
+583
+01:02:16.240 --> 01:02:19.560
+Anthony Taylor: our own bikes. because we all have bike.
+
+584
+01:02:20.590 --> 01:02:22.920
+Anthony Taylor: So like, where did you have for breakfast?
+
+585
+01:02:24.460 --> 01:02:26.739
+Anthony Taylor: I mean, did anybody have breakfast this morning.
+
+586
+01:02:27.260 --> 01:02:31.640
+Clayton Graves: A lot of people don't have breakfast anymore.
+
+587
+01:02:32.210 --> 01:02:34.639
+Anthony Taylor: Clayton. I'm sorry I missed.
+
+588
+01:02:35.350 --> 01:02:39.569
+Clayton Graves: I said. Sausage put muffin with egg and a large hot coffee with 10 cream and 10 sugar.
+
+589
+01:02:39.900 --> 01:02:42.639
+Anthony Taylor: That sounds very practice, doesn't it?
+
+590
+01:02:43.160 --> 01:02:47.650
+Clayton Graves: How many times a day, how many times a week you have that breakfast?
+
+591
+01:02:49.660 --> 01:03:02.860
+Anthony Taylor: Okay? So me, III have one of 3 things, cause I have diabetes. I don't have cereal. right? So I have I. But I have low cholesterol. So I have sausage eggs, bacon, eggs that has browns.
+
+592
+01:03:02.890 --> 01:03:07.430
+Anthony Taylor: Breakfast, taco man day. Make it myself.
+
+593
+01:03:07.830 --> 01:03:15.699
+Anthony Taylor: Alright. But that's my choice. Okay, that's the decision I made. So how did you choose to get to work?
+
+594
+01:03:15.810 --> 01:03:17.270
+michael mcpherson: I walked
+
+595
+01:03:18.180 --> 01:03:20.280
+Anthony Taylor: from over there over here.
+
+596
+01:03:20.600 --> 01:03:21.850
+Anthony Taylor: the rest of you.
+
+597
+01:03:21.860 --> 01:03:26.209
+Anthony Taylor: Most of you either drove to work uber bus
+
+598
+01:03:26.220 --> 01:03:27.740
+Anthony Taylor: gotta ride right?
+
+599
+01:03:28.580 --> 01:03:33.509
+Anthony Taylor: Pretty easy to say, did you shower? Take a bath? Did you? Just watch your face?
+
+600
+01:03:34.620 --> 01:03:36.540
+Anthony Taylor: Everybody has a different routine.
+
+601
+01:03:37.840 --> 01:03:42.579
+Anthony Taylor: Okay? So the questions. And the reason we we we bring all this stuff up
+
+602
+01:03:42.610 --> 01:03:48.599
+Anthony Taylor: is, how long did it take you to decide? I'm guessing. Clayton didn't even think twice
+
+603
+01:03:48.860 --> 01:03:50.160
+Anthony Taylor: about that breakfast
+
+604
+01:03:51.820 --> 01:03:56.039
+Anthony Taylor: he naturally drove to Mcdonald's, or he ordered it on the apple.
+
+605
+01:03:56.900 --> 01:04:00.590
+Anthony Taylor: and he went through the line, and they probably know him, and they're like
+
+606
+01:04:00.600 --> 01:04:03.470
+Anthony Taylor: Hi Clayton. And may goddess there.
+
+607
+01:04:04.040 --> 01:04:05.010
+Anthony Taylor: Okay.
+
+608
+01:04:05.160 --> 01:04:12.179
+Anthony Taylor: and can you identify the factors that went into it? Well, that's okay.
+
+609
+01:04:13.070 --> 01:04:15.320
+Anthony Taylor: Right? Okay.
+
+610
+01:04:15.700 --> 01:04:16.700
+Kevin Nguyen: hello.
+
+611
+01:04:17.720 --> 01:04:23.910
+Anthony Taylor:  so are those biases? Or are those preferences?
+
+612
+01:04:27.100 --> 01:04:30.140
+Clayton Graves: I suppose it could be considered a bias? Because.
+
+613
+01:04:30.490 --> 01:04:33.029
+Clayton Graves: I mean I why didn't you go to whatever
+
+614
+01:04:33.190 --> 01:04:40.449
+Clayton Graves: exactly I drive past Burger King to get to Mcdonalds. But I don't go to Mcdonald's for lunch or dinner, because I don't like it.
+
+615
+01:04:41.560 --> 01:04:44.160
+Clayton Graves: Only breakfast like at Mcdonald's Burgers.
+
+616
+01:04:44.340 --> 01:04:52.559
+Anthony Taylor: You know, I mean to me, it's kind of stretching the bias statement. But the point is is that we make these decisions based on
+
+617
+01:04:52.790 --> 01:04:54.310
+Anthony Taylor: our experience.
+
+618
+01:04:55.830 --> 01:04:57.500
+Anthony Taylor: And some of these
+
+619
+01:04:57.580 --> 01:05:02.929
+Anthony Taylor: biases or decisions are unconscious. We don't even think about.
+
+620
+01:05:03.980 --> 01:05:08.039
+Anthony Taylor: I can give you the reason that why I have what I have breakfast.
+
+621
+01:05:08.100 --> 01:05:12.180
+Anthony Taylor: It's not a bias. It's it's it's a conscious decision. But
+
+622
+01:05:12.690 --> 01:05:15.850
+Anthony Taylor: I mean, there are many things we do that we just do
+
+623
+01:05:17.390 --> 01:05:22.539
+Anthony Taylor: okay because of practice because of preference because of
+
+624
+01:05:22.910 --> 01:05:26.720
+Anthony Taylor: it's what everybody else in the house is doing. whatever
+
+625
+01:05:27.790 --> 01:05:31.720
+Anthony Taylor: alright, and those are unconscious by it.
+
+626
+01:05:32.740 --> 01:05:35.620
+Anthony Taylor: This is the really dangerous stuff.
+
+627
+01:05:36.750 --> 01:05:39.190
+Anthony Taylor: because we do, and we'll know it
+
+628
+01:05:40.920 --> 01:05:47.010
+Anthony Taylor: as a teacher. This is something that you concern yourself with quite often.
+
+629
+01:05:47.280 --> 01:05:55.420
+Anthony Taylor: It's like, Am I giving too much attention? Am I not giving enough attention? Am I giving this topic more attention because it bugs me
+
+630
+01:05:56.470 --> 01:06:02.119
+Anthony Taylor: versus this topic, which maybe with, you know, doesn't bother me at all, but it bugs everybody else.
+
+631
+01:06:03.420 --> 01:06:08.300
+Anthony Taylor: Right? So this is one of those things where we really as a teacher, we try to pay attention.
+
+632
+01:06:08.600 --> 01:06:10.919
+Anthony Taylor: But as the technologies.
+
+633
+01:06:11.780 --> 01:06:15.129
+Anthony Taylor: It's the hardest thing to see, because well.
+
+634
+01:06:16.600 --> 01:06:19.850
+Anthony Taylor: it's unconscious. We don't even realize we're doing
+
+635
+01:06:21.220 --> 01:06:24.469
+Anthony Taylor: okay. Shhh.
+
+636
+01:06:26.670 --> 01:06:30.620
+Anthony Taylor: So it's good to think about your unconscious bias.
+
+637
+01:06:32.290 --> 01:06:37.319
+Anthony Taylor: Okay. we're not going to do this just yet. But
+
+638
+01:06:38.730 --> 01:06:42.090
+Anthony Taylor: so going back to our rhythmic about bias.
+
+639
+01:06:42.240 --> 01:06:45.530
+Anthony Taylor: how do we get these type situations?
+
+640
+01:06:45.970 --> 01:06:48.240
+Anthony Taylor: Okay, prioritization.
+
+641
+01:06:48.500 --> 01:06:52.960
+Anthony Taylor: We would love to say it is based just on you. But it's not.
+
+642
+01:06:53.440 --> 01:06:58.449
+Anthony Taylor: It's based on what we want to sell and what sells most.
+
+643
+01:06:59.230 --> 01:07:02.549
+Anthony Taylor: Now, what sells most is that contained bias.
+
+644
+01:07:06.070 --> 01:07:07.090
+Anthony Taylor: Probably.
+
+645
+01:07:08.330 --> 01:07:14.089
+Anthony Taylor: Would you agree if you're looking for a T-shirt that says AI champion.
+
+646
+01:07:14.430 --> 01:07:19.510
+Anthony Taylor: and the second or the and then there's 2 sponsored ads at the top of the list.
+
+647
+01:07:19.940 --> 01:07:21.659
+Anthony Taylor: and the sponsored ad
+
+648
+01:07:21.700 --> 01:07:25.959
+Anthony Taylor: says something completely unrelated. But it's sure.
+
+649
+01:07:26.640 --> 01:07:29.970
+Anthony Taylor: Okay. Is that a bad
+
+650
+01:07:30.030 --> 01:07:35.910
+Anthony Taylor: like recommendation engine? Or is it recommendation engine that is using bias based on
+
+651
+01:07:36.350 --> 01:07:48.770
+Anthony Taylor: previous people who bought that shirt? Probably previous people bought that shirt. Does that make it bad bias or not. it's still a preference. Okay, could it be unconscious by it?
+
+652
+01:07:48.870 --> 01:07:51.689
+Anthony Taylor: Maybe you could argue. who knows?
+
+653
+01:07:51.990 --> 01:08:00.429
+Anthony Taylor:  bias and classification? This is that we already mentioned the one the loan approvals. That's a big one. Any classification.
+
+654
+01:08:00.910 --> 01:08:02.860
+Anthony Taylor: any classification.
+
+655
+01:08:04.350 --> 01:08:08.210
+Anthony Taylor: could carry bites, and it could be all kinds of stuff.
+
+656
+01:08:08.700 --> 01:08:10.320
+Anthony Taylor: I have to argue that
+
+657
+01:08:11.180 --> 01:08:14.770
+Clayton Graves: that the criminal prediction stuff could be
+
+658
+01:08:15.310 --> 01:08:16.840
+Anthony Taylor: 100%.
+
+659
+01:08:17.550 --> 01:08:20.859
+Anthony Taylor: I mean, let's like, yeah, we can go down that path for sure.
+
+660
+01:08:21.100 --> 01:08:28.029
+Anthony Taylor: Okay? And and we've seen it. I mean, we have, will you? In in this field? We have seen it.
+
+661
+01:08:28.270 --> 01:08:30.440
+Anthony Taylor: We know that it's true.
+
+662
+01:08:31.330 --> 01:08:34.620
+Anthony Taylor: Statistically. Blah blah! Blah! Blah! Blah! Blah!
+
+663
+01:08:35.189 --> 01:08:39.530
+Anthony Taylor: How many times you hear that right for some horrible statement?
+
+664
+01:08:41.490 --> 01:08:43.069
+Anthony Taylor: Well, statistically.
+
+665
+01:08:46.090 --> 01:08:49.780
+Clayton Graves: statistics could be minus 2 depending on
+
+666
+01:08:50.930 --> 01:08:55.890
+Anthony Taylor: well, but they always I'm gonna take that a step further, Clayton.
+
+667
+01:08:57.029 --> 01:09:01.930
+Anthony Taylor: Statistics, if you leave the right numbers out to make a statistic, say anything
+
+668
+01:09:02.399 --> 01:09:09.320
+Anthony Taylor: and it'll and it'll add up. And even the statisticians can go. Well, yeah, that adds up. But you left out this whole thing.
+
+669
+01:09:09.790 --> 01:09:12.610
+Anthony Taylor: Well, yeah. But we weren't thinking about that. Oh.
+
+670
+01:09:12.770 --> 01:09:13.760
+Anthony Taylor: okay.
+
+671
+01:09:14.500 --> 01:09:16.890
+Anthony Taylor: you know. Does that make it right?
+
+672
+01:09:17.130 --> 01:09:19.210
+Anthony Taylor: But mathematically it's right.
+
+673
+01:09:20.520 --> 01:09:27.429
+Anthony Taylor: Alright. So any association again, just because
+
+674
+01:09:28.370 --> 01:09:32.780
+Anthony Taylor: whatever? Because you took a boot camp doesn't mean you're a freaking aig.
+
+675
+01:09:34.040 --> 01:09:38.390
+Anthony Taylor:  right there. I flipped it the other way.
+
+676
+01:09:39.390 --> 01:09:40.439
+Anthony Taylor: Okay?
+
+677
+01:09:40.670 --> 01:09:44.590
+Anthony Taylor: But just because you didn't, doesn't mean that you are in aig.
+
+678
+01:09:45.620 --> 01:09:50.090
+Anthony Taylor: Okay? Could be a bias is what I've seen when I'm first day I boot it.
+
+679
+01:09:50.990 --> 01:09:53.230
+Anthony Taylor: Okay. But
+
+680
+01:09:53.540 --> 01:09:58.180
+Anthony Taylor: yeah, I mean, it's all of these things can happen. And then filtering.
+
+681
+01:09:58.570 --> 01:10:12.240
+Anthony Taylor: you know, even with the spam thing I mean you can. You know, spam is a little harder, like, I said. You know, unless they have bad spelling, or they're just really bad at sending emails. Unlikely they'll get thrown in there. But it definitely can happen.
+
+682
+01:10:13.440 --> 01:10:22.919
+Anthony Taylor: Okay, I'm sure we can think of other other examples of that. Okay, how are we doing on time?
+
+683
+01:10:30.420 --> 01:10:33.100
+Anthony Taylor: okay. So we have
+
+684
+01:10:35.400 --> 01:10:42.690
+Anthony Taylor: quick activity. After the after break. we'll do it after break.
+
+685
+01:10:44.470 --> 01:10:45.360
+Anthony Taylor: Okay.
+
+686
+01:10:46.380 --> 01:10:54.150
+Anthony Taylor: Alright, yeah. So we'll do the activity after break. And that's that. So come back at a quarter after.
+
+687
+01:10:54.690 --> 01:11:04.979
+Anthony Taylor: and and then we'll send you a way to do the the break. Sound good are the the active. alright guys see you at core app.
+
+688
+01:11:08.610 --> 01:11:15.690
+Anthony Taylor: Okay? So for your next activity.  this one's actually pretty interesting.
+
+689
+01:11:15.810 --> 01:11:17.840
+Anthony Taylor: This is a real story.
+
+690
+01:11:18.230 --> 01:11:24.849
+Anthony Taylor: You guys can take a look at it. They're gonna have you read some articles about it? Then answer the following questions.
+
+691
+01:11:25.080 --> 01:11:31.730
+Anthony Taylor: come up with your own thoughts on it. It's an unfortunate story.
+
+692
+01:11:32.580 --> 01:11:34.880
+Anthony Taylor:  but yeah.
+
+693
+01:11:35.940 --> 01:11:36.850
+Anthony Taylor: okay.
+
+694
+01:11:37.020 --> 01:11:42.040
+Anthony Taylor: that's pretty much it. So it's the same deal. 15 min all by your loan. Zoom
+
+695
+01:11:42.410 --> 01:11:45.689
+Anthony Taylor: in a breakout room. Read through it.
+
+696
+01:11:45.700 --> 01:11:49.229
+Anthony Taylor: Tell me how. Tell me what you think. Come back, be prepared to talk
+
+697
+01:11:50.860 --> 01:12:00.829
+Anthony Taylor: sound good. No more yawning. I imagine I could. I just I kind of imagined you guys all sitting in these rooms by yourselves. It's going
+
+698
+01:12:00.940 --> 01:12:03.959
+Anthony Taylor: well, this is boring as hell.
+
+699
+01:12:04.340 --> 01:12:12.020
+Anthony Taylor: No, you don't mind being in the room by yourself.  alright. So
+
+700
+01:12:12.790 --> 01:12:20.900
+Anthony Taylor: let's let's just start with the first question you said, what led officials to disqualify the 3 markets from the snap
+
+701
+01:12:21.520 --> 01:12:24.120
+Anthony Taylor: program. Who wants to take that?
+
+702
+01:12:27.700 --> 01:12:36.850
+Mason, Natalie: It said they are cha exchanging snap for cash and charging
+
+703
+01:12:37.930 --> 01:12:45.590
+Mason, Natalie: like E, and even amount of money that was able to be detected as fraud and
+
+704
+01:12:46.450 --> 01:12:50.509
+Mason, Natalie: it was going on between multiple people.
+
+705
+01:12:50.740 --> 01:12:54.150
+Clayton Graves: That was the accusation. That's not what they were doing.
+
+706
+01:12:55.380 --> 01:12:59.809
+Anthony Taylor: Okay? Well, that is what it says. This is what what led them to do it
+
+707
+01:13:00.300 --> 01:13:07.060
+Anthony Taylor: so well, how about that? Well, then somebody tell me, what were they actually doing? Why did this? Why was this misinterpreted?
+
+708
+01:13:07.770 --> 01:13:15.359
+Clayton Graves: This was a cultural thing. You had groups of families that would order ahead of time for their specific
+
+709
+01:13:15.610 --> 01:13:19.410
+Clayton Graves: dietary requirements that would come in groups
+
+710
+01:13:19.510 --> 01:13:22.849
+Clayton Graves: and and 5. They do this like once a month.
+
+711
+01:13:23.110 --> 01:13:29.580
+Clayton Graves: and and so you'd end up with these large transactions, one right after the other, because that's what was happening.
+
+712
+01:13:29.950 --> 01:13:32.829
+Clayton Graves: And the the bottom line here is that
+
+713
+01:13:33.400 --> 01:13:38.340
+Clayton Graves: while the the the data may have shown anomalies. It was
+
+714
+01:13:38.350 --> 01:13:46.790
+Clayton Graves: blatant racism that prevented them from actually doing any further investigation and just shutting them down, based on that data alone
+
+715
+01:13:46.900 --> 01:13:51.390
+Clayton Graves: that had been any other kind of store they would have investigated.
+
+716
+01:13:54.230 --> 01:13:59.409
+Anthony Taylor: Okay, that's fair. All right. So and then the second question.
+
+717
+01:13:59.840 --> 01:14:05.179
+Anthony Taylor: you know, I covered some of that. But go ahead. Go ahead, Matt
+
+718
+01:14:05.190 --> 01:14:18.269
+Dipinto, Matt: Tiny, like. I think this is super erroneous and wrong, but I will also say that II think it might be a misstatement to say if it was any other store they would have investigated like the Us. Wasn't exactly on its game in April of 2,002,
+
+719
+01:14:18.350 --> 01:14:32.619
+Dipinto, Matt: and the government was pretty tied up in all sorts of new regulations and just bullshit across the board. I didn't say it was right. I did not say that today
+
+720
+01:14:32.900 --> 01:14:34.420
+Clayton Graves: and modern day.
+
+721
+01:14:35.130 --> 01:14:46.210
+Clayton Graves: So it it's it's it's a poor excuse not not saying you, Matt, but that that that's a common refrain. And it's it's poor. It's terrible.
+
+722
+01:14:48.480 --> 01:14:49.320
+Anthony Taylor: Okay.
+
+723
+01:14:49.420 --> 01:14:52.640
+Anthony Taylor: anybody. Oh, I see hands. Let's do hands, Mike.
+
+724
+01:14:53.960 --> 01:15:07.520
+michael mcpherson: I'm gonna go with. It was a Somali and Islamic own business, and it was instantaneously targeted, and they looked for any information or anything that they could do
+
+725
+01:15:07.530 --> 01:15:09.810
+michael mcpherson: to get to
+
+726
+01:15:09.860 --> 01:15:12.149
+michael mcpherson: interfere with it and hurt it
+
+727
+01:15:12.410 --> 01:15:17.179
+michael mcpherson: in in order to prevent, under the guise of the
+
+728
+01:15:17.930 --> 01:15:20.269
+michael mcpherson: preventing terrorist activity.
+
+729
+01:15:20.370 --> 01:15:21.780
+Clayton Graves: Thank you.
+
+730
+01:15:23.220 --> 01:15:25.940
+Anthony Taylor: Okay. Sonya.
+
+731
+01:15:27.770 --> 01:15:40.700
+sonja baro: I'm just wondering. Is it possible that it could have been just? They didn't take the time to think about all the different use cases that these little stores have, and the people who
+
+732
+01:15:40.850 --> 01:15:58.649
+sonja baro: the people who frequent those they have. You know, they do different buying processes. We are gonna talk about algorithmic bias, how it happens. And absolutely, it could just be, this is an outlier
+
+733
+01:15:58.910 --> 01:16:03.869
+Anthony Taylor: that got detected as fraud the fact that it's Somalia and Israel. Just
+
+734
+01:16:03.890 --> 01:16:07.079
+Anthony Taylor: it could be just because it was an outlier.
+
+735
+01:16:07.450 --> 01:16:10.630
+Anthony Taylor: or was it Somali Somali in Iraq. What was it, Clayton?
+
+736
+01:16:10.810 --> 01:16:12.920
+Anthony Taylor: I don't know one of those.
+
+737
+01:16:13.040 --> 01:16:22.349
+sonja baro: and I'm just highlighting that just because not that, you know, I'm I'm not disagreeing.
+
+738
+01:16:22.460 --> 01:16:45.490
+sonja baro: but I'm also thinking it could have just first off. This is 1 one newspaper right Seattle times. And so, you know, if if you wanted to know the bigger picture. We'd wanna understand everything that was happening, all of those those what was it like? 1,300 disqualifications? Or what have you from the snap program.
+
+739
+01:16:46.160 --> 01:16:52.490
+sonja baro: What were they? What types of stores? Cultural, that kind of thing? And then you could start to, I think.
+
+740
+01:16:52.820 --> 01:16:57.580
+sonja baro: show with data that there was some kind of.
+
+741
+01:16:57.810 --> 01:17:15.440
+sonja baro: you know, antagonism towards those folks or racism, I think. Honestly. It's just a simple burea bureaucratic problem that they're told. Go build a a system, an algorithm to check for
+
+742
+01:17:15.550 --> 01:17:34.529
+sonja baro: what could be fraud, and they just go and do it. And they don't consider that there's variations in how people buy. So anyway, I just, I just wanted to. I could just be an anomaly. I could just be an outlier. That. And this is the I mean, you guys have already seen this somewhat in your models
+
+743
+01:17:34.630 --> 01:17:40.540
+Anthony Taylor: that outliers, you know they fall outside the norm. If no one is monitoring
+
+744
+01:17:40.890 --> 01:17:46.470
+Anthony Taylor: the outlier. This is definitely something that can happen. And and
+
+745
+01:17:46.570 --> 01:17:57.070
+Anthony Taylor: the the reason this would fall under bias is because this was a cultural thing. right. And it was specific to these stores.
+
+746
+01:17:57.090 --> 01:18:02.509
+Anthony Taylor: So it became. It is classified as a bias because it appears to have been targeting.
+
+747
+01:18:02.810 --> 01:18:05.560
+Anthony Taylor: Yeah. let's let me back that up.
+
+748
+01:18:05.630 --> 01:18:12.370
+Anthony Taylor: It's easy to say it was targeting this outlier with
+
+749
+01:18:12.630 --> 01:18:17.700
+Anthony Taylor: it could have been, could have also just been an outlier. It could have been a lazy.
+
+750
+01:18:17.720 --> 01:18:20.639
+Anthony Taylor: you know, bureaucrat that wasn't paying attention
+
+751
+01:18:20.750 --> 01:18:23.810
+Anthony Taylor: could have been. Forget them. I don't have it there.
+
+752
+01:18:24.030 --> 01:18:29.250
+Anthony Taylor: you know, back to Lazy or just just indignant. And whatever
+
+753
+01:18:29.400 --> 01:18:34.630
+Anthony Taylor: yeah, we took their license out. There they were. They weren't doing what they were supposed to.
+
+754
+01:18:35.040 --> 01:18:51.680
+Anthony Taylor: That's it, you know. And how often does this happen? Maybe it happens a lot. Maybe it doesn't happen very much for this guy, and he's like, Oh, my God! I got this scandal. you know. Could be that. Could he just been overly zealous. Oh, my God! There's a scandal! Let's let's jump all over it.
+
+755
+01:18:51.720 --> 01:19:01.090
+Anthony Taylor: Then the news newspapers came back and said, Oh. you were wrong. Then that guy probably got fucked. AI replaced his job.
+
+756
+01:19:03.230 --> 01:19:15.289
+Clayton Graves: Yeah, people too much that are benefit of the doubt. I think people as as a general rule, or and maybe this bit. But I'll admit this is my bias, because people, as a general rule, are horrible.
+
+757
+01:19:15.490 --> 01:19:21.819
+Clayton Graves: and and if you leave them to their basic instincts. They will go with that every time.
+
+758
+01:19:26.810 --> 01:19:32.640
+Anthony Taylor: Right? So I will tell you that. Yeah, one of the things that's interesting about this. This happened what
+
+759
+01:19:33.500 --> 01:19:38.800
+Anthony Taylor: it says, 15 years, 2,002. It's a lot longer than 15 years. Do
+
+760
+01:19:41.480 --> 01:19:45.500
+Anthony Taylor: but tell you how long ago this was. So this happened a long time ago.
+
+761
+01:19:46.040 --> 01:19:48.019
+Anthony Taylor: right over 20 years ago now.
+
+762
+01:19:48.710 --> 01:19:52.239
+Anthony Taylor: and we're still talking about it today. Why do you think that is well.
+
+763
+01:19:52.500 --> 01:19:55.899
+Anthony Taylor: not that easy to come up with with reason, with with evidence of
+
+764
+01:19:56.630 --> 01:20:02.769
+Anthony Taylor: which happens all the time, which is hard to find evidence. But here's really crazy part
+
+765
+01:20:03.080 --> 01:20:07.540
+Anthony Taylor: back. Then we didn't do AI models with big giant in
+
+766
+01:20:07.570 --> 01:20:10.450
+Anthony Taylor: uninterpretable results.
+
+767
+01:20:11.510 --> 01:20:15.989
+Anthony Taylor: Okay, we have the same machine learning models that you guys have already ate
+
+768
+01:20:17.010 --> 01:20:24.070
+Clayton Graves: over the last couple of weeks. We do know how to interpret this. Is that right? Like this? Back? Then
+
+769
+01:20:24.800 --> 01:20:35.339
+Anthony Taylor: they they did, but not nobody was using it. The only people that so keeping my AI is actually been around for like 50 years. But AI is the parent
+
+770
+01:20:35.430 --> 01:20:37.430
+Anthony Taylor: classification of Ml.
+
+771
+01:20:37.660 --> 01:20:44.360
+Anthony Taylor: right? So everything we do in Ml. Is a subset of AI. Now, were there, Llllns? That won't do.
+
+772
+01:20:44.520 --> 01:20:48.169
+Anthony Taylor: No, it wasn't until we came up with attenuate attention.
+
+773
+01:20:48.250 --> 01:20:55.249
+Anthony Taylor: I started to say attenuation with attention. Did the Llms really, and that was only like like 4 years ago.
+
+774
+01:20:55.800 --> 01:21:06.779
+Anthony Taylor: where we really started seeing these big Llms come out. And again it was very limited, very few, only people with just tremendous amount of resources.
+
+775
+01:21:06.790 --> 01:21:09.889
+Anthony Taylor: We're even thinking of using this government. No
+
+776
+01:21:10.360 --> 01:21:14.230
+Anthony Taylor: government still uses stuff that's 15 years old. Most of the time.
+
+777
+01:21:14.410 --> 01:21:15.110
+Anthony Taylor: Well.
+
+778
+01:21:16.150 --> 01:21:18.870
+Anthony Taylor: the the government that would be handling this
+
+779
+01:21:19.440 --> 01:21:21.230
+Anthony Taylor: right?
+
+780
+01:21:21.400 --> 01:21:22.250
+Anthony Taylor: okay.
+
+781
+01:21:22.970 --> 01:21:26.849
+Anthony Taylor: So so anyway, the point of that was now
+
+782
+01:21:27.070 --> 01:21:29.240
+Anthony Taylor: we could do this better.
+
+783
+01:21:29.410 --> 01:21:33.390
+Anthony Taylor: probably maybe would've caught this differently.
+
+784
+01:21:34.140 --> 01:21:46.599
+Anthony Taylor: But here's the crazy part because of the new models it's harder to interpret. So while back then we were probably able to find what was wrong and fix it. Now, that would actually be kind of hard to do.
+
+785
+01:21:48.200 --> 01:21:51.500
+Anthony Taylor: I mean, would these things slip through? Less likely
+
+786
+01:21:51.610 --> 01:21:57.749
+Clayton Graves: say, Hey, the AI says there's a problem here. Let's go investigate.
+
+787
+01:21:58.050 --> 01:22:08.979
+Clayton Graves: and and and not take it as face value, but actually take it. Take it as an indication that there is a problem here, and we need to pay more attention to it.
+
+788
+01:22:09.510 --> 01:22:19.750
+Anthony Taylor: And that goes like to the medical diagnosing thing, right? That we talked about. Right? It's like, yeah, I mean, oh, it says, I have cancer. I'm gonna you know, I'm I'm just gonna start planning my feeling
+
+789
+01:22:19.960 --> 01:22:21.360
+Anthony Taylor: right? No.
+
+790
+01:22:21.780 --> 01:22:24.489
+Anthony Taylor: okay. It says, you have cancer. Go get more tests.
+
+791
+01:22:25.380 --> 01:22:34.280
+Anthony Taylor: That's the way this should have been hand. I mean, we could definitely say, that's the way this should have been hand, and as the discussion of bias becomes more
+
+792
+01:22:34.960 --> 01:22:47.180
+Anthony Taylor: open and easier to talk about when we cannot just talk about it without worrying about hurting each other's feelings. Okay, we just talk about it. Then we can
+
+793
+01:22:47.440 --> 01:22:49.780
+Anthony Taylor: get it out. So we know, hey, you know what?
+
+794
+01:22:50.100 --> 01:22:52.879
+Anthony Taylor: That doesn't seem right. Let's let's look at it
+
+795
+01:22:54.260 --> 01:22:58.170
+Anthony Taylor: and see if we can, and make sure it's right before we just go with it.
+
+796
+01:22:58.820 --> 01:23:08.270
+Anthony Taylor: and and not just assume that because it's a minority or a different culture, or whatever that it's biased.
+
+797
+01:23:08.810 --> 01:23:10.440
+Anthony Taylor: could be absolutely
+
+798
+01:23:11.140 --> 01:23:15.449
+Anthony Taylor: right. But it may not be so. Let's just investigate.
+
+799
+01:23:16.050 --> 01:23:21.659
+Anthony Taylor: And these days. The models are getting good enough that these exceptions are less like.
+
+800
+01:23:22.610 --> 01:23:26.499
+Anthony Taylor: So that means less people needed to do the investigation.
+
+801
+01:23:26.820 --> 01:23:28.510
+Anthony Taylor: Let's continue.
+
+802
+01:23:30.330 --> 01:23:34.659
+Anthony Taylor: Okay, so causes of algorithmic bias.
+
+803
+01:23:38.350 --> 01:23:39.220
+Anthony Taylor: Well.
+
+804
+01:23:40.220 --> 01:23:41.030
+Anthony Taylor: yeah.
+
+805
+01:23:41.920 --> 01:23:48.220
+Anthony Taylor: So they're developed by large teams company people making difficult for anyone to take personal responsibility. Absolutely.
+
+806
+01:23:48.280 --> 01:23:49.810
+Anthony Taylor: I said this at the beginning.
+
+807
+01:23:50.040 --> 01:23:54.390
+Anthony Taylor: Do I run into data, ethics, questions, ethics, questions. Yes.
+
+808
+01:23:55.160 --> 01:23:57.530
+Anthony Taylor: you will, too. Guarantee.
+
+809
+01:23:58.840 --> 01:24:04.159
+Anthony Taylor: Okay? Most of them are not going to be a big enough concern for you to quit your job.
+
+810
+01:24:04.770 --> 01:24:06.059
+Anthony Taylor: Some of them might be.
+
+811
+01:24:07.180 --> 01:24:10.970
+Anthony Taylor: some of them might be. You know what? This is. Legal's problem.
+
+812
+01:24:13.040 --> 01:24:15.940
+Anthony Taylor: right? Legal group has said, this is okay.
+
+813
+01:24:16.470 --> 01:24:29.700
+Anthony Taylor: These people are paying a paycheck. I'm not punching anybody in the face. I'm not killing people. I'm just gonna run the date monthly. I'm not saying, that's right. I'm not saying it's wrong. I'm saying
+
+814
+01:24:30.090 --> 01:24:31.750
+Anthony Taylor: a lot of times. That's what it is.
+
+815
+01:24:31.890 --> 01:24:40.469
+Anthony Taylor: Isn't that attitude been pretty common even before? AI. I don't know that. AI. Oh, God, yeah, oh, no, no, no, I hey! I haven't developed any
+
+816
+01:24:40.490 --> 01:24:52.970
+Anthony Taylor: other than like extending AI and and doing like an lp, stuff. I haven't developed any of these. L. Olives, but I can guarantee you that I have done machine learning models that were clearly biased.
+
+817
+01:24:53.050 --> 01:24:56.060
+Anthony Taylor: but they were biased. Because that's the data. We.
+
+818
+01:24:56.990 --> 01:25:01.370
+Anthony Taylor: It wasn't that we were intentionally leaving anybody out.
+
+819
+01:25:02.630 --> 01:25:06.439
+Anthony Taylor: Okay. It was, that's the data. We, I mean
+
+820
+01:25:06.490 --> 01:25:13.140
+Anthony Taylor: something as simple as doing machine learning models on people, you know, on, on
+
+821
+01:25:13.290 --> 01:25:15.350
+Anthony Taylor: how people will treat a rental problem.
+
+822
+01:25:16.910 --> 01:25:19.310
+Anthony Taylor: who rents most cars?
+
+823
+01:25:19.800 --> 01:25:27.410
+Clayton Graves: How do you find? How do you determine if the data is biased in that regard, or if it's just unbalanced, like we've seen
+
+824
+01:25:27.850 --> 01:25:45.910
+Anthony Taylor: well, but unbalanced means that you're missing data points, or you have more data points. You could say that this data is skewed towards, you know, white businessmen, and that's who the the primary renter of Hertz renta cars are white businessmen.
+
+825
+01:25:46.890 --> 01:25:50.250
+Anthony Taylor: It's not a racist statement. It's just the fact.
+
+826
+01:25:51.750 --> 01:25:55.190
+Anthony Taylor: right? And they're usually over a certain age.
+
+827
+01:25:55.660 --> 01:26:01.669
+Anthony Taylor: So who are we biased against anyone that's not 35 and older and Caucasian.
+
+828
+01:26:04.090 --> 01:26:06.530
+Anthony Taylor: Those people below that age
+
+829
+01:26:06.920 --> 01:26:12.099
+Anthony Taylor: and and not of that race, might get be a victim of
+
+830
+01:26:12.190 --> 01:26:13.450
+Anthony Taylor: data bytes.
+
+831
+01:26:15.010 --> 01:26:18.120
+Anthony Taylor: It's but it's it's not an intentional app
+
+832
+01:26:18.230 --> 01:26:22.450
+Anthony Taylor: as long as we take that into consideration as we develop.
+
+833
+01:26:22.550 --> 01:26:26.489
+Anthony Taylor: And this is for you guys as you move forward
+
+834
+01:26:26.580 --> 01:26:29.750
+Anthony Taylor: as long as you understand that.
+
+835
+01:26:29.830 --> 01:26:35.990
+Anthony Taylor: and keep that in mind as you come up with your conclusions and make sure that you check it.
+
+836
+01:26:36.670 --> 01:26:44.999
+Anthony Taylor: If you see a decision being made on biased model deal with it. raise it to the right people's attention.
+
+837
+01:26:45.910 --> 01:26:50.140
+Anthony Taylor: Because you know why you are the people that are gonna know how that model was picked.
+
+838
+01:26:51.240 --> 01:26:53.749
+Anthony Taylor: I guarantee you, Guy, in marketing
+
+839
+01:26:53.880 --> 01:26:55.499
+Anthony Taylor: has no freaking clue.
+
+840
+01:26:57.290 --> 01:26:59.919
+Anthony Taylor: He's like model, says this. We're doing this.
+
+841
+01:27:02.820 --> 01:27:05.050
+Anthony Taylor: Christine said. No, that's not true.
+
+842
+01:27:05.320 --> 01:27:06.919
+Anthony Taylor: Do they know, Christine?
+
+843
+01:27:08.510 --> 01:27:25.269
+Kanouff, Christine: No, they're asking what the budget is and what they can afford to do. And so, at least, I never worked in really big, hugely successful product company. So that may be different. But yeah.
+
+844
+01:27:25.350 --> 01:27:28.740
+Anthony Taylor: but in in the end it's it's
+
+845
+01:27:29.020 --> 01:27:33.149
+Anthony Taylor: we, we, the the the real challenge going forward
+
+846
+01:27:33.210 --> 01:27:36.470
+Anthony Taylor: is that the newer algorithms
+
+847
+01:27:36.710 --> 01:27:38.660
+Anthony Taylor: are fantastic
+
+848
+01:27:39.360 --> 01:27:41.420
+Anthony Taylor: and really hard to interpret.
+
+849
+01:27:43.200 --> 01:27:55.529
+Anthony Taylor: Okay, so it's really the analysis that we do ahead of time that we look at. But it's you know, we're gonna talk about trying to prevent this. And all of this kind of stuff. But I mean, the reality is
+
+850
+01:27:55.550 --> 01:27:58.249
+Anthony Taylor: is that the people who develop
+
+851
+01:27:58.460 --> 01:28:05.680
+Anthony Taylor: this stuff they develop it. thinking. you know, are basing it on their own background.
+
+852
+01:28:06.120 --> 01:28:10.320
+Anthony Taylor: And this doesn't even matter. This could be young people, old people.
+
+853
+01:28:10.440 --> 01:28:13.590
+Anthony Taylor: Caucasians, you know, a
+
+854
+01:28:13.900 --> 01:28:21.909
+Anthony Taylor: African-americans. It could be Hispanic or Latina. I don't even know the right word anymore. Latinx, right? It could be any of it.
+
+855
+01:28:22.830 --> 01:28:27.279
+Anthony Taylor: Okay. it could be young people or old people. That's a big difference.
+
+856
+01:28:28.190 --> 01:28:31.619
+Anthony Taylor: Alright. But when they do this kind of stuff
+
+857
+01:28:31.710 --> 01:28:35.969
+Anthony Taylor: they're basing it. I mean, they're looking at the results through their eyes.
+
+858
+01:28:37.040 --> 01:28:39.730
+Anthony Taylor: And how does it affect what they're doing?
+
+859
+01:28:39.950 --> 01:28:42.410
+Anthony Taylor: Does that bring bias? Absolutely.
+
+860
+01:28:43.610 --> 01:28:47.120
+Anthony Taylor: absolutely? It brings fires? Is it avoidable?
+
+861
+01:28:47.510 --> 01:28:51.000
+Anthony Taylor: Yeah. course, it is okay.
+
+862
+01:28:51.100 --> 01:28:56.870
+Anthony Taylor: And then, of course, train with bias treating data. This is the big problem with all of the big models. Right?
+
+863
+01:28:57.200 --> 01:29:05.349
+Anthony Taylor: Like, I said, the Internet doesn't have an equal amount of data for every gender, for every race.
+
+864
+01:29:05.520 --> 01:29:09.180
+Anthony Taylor: for every religion, every culture. It just doesn't
+
+865
+01:29:10.650 --> 01:29:24.349
+Anthony Taylor: not readily available. And because of that, there's some information that is definitely biased. maybe a lot. I don't have the way to measure it. There's like over a trillion
+
+866
+01:29:24.600 --> 01:29:28.930
+Anthony Taylor: data points in Chat TPT. 4, trillion.
+
+867
+01:29:31.830 --> 01:29:35.579
+Anthony Taylor: I don't know where it is. I don't know where it. I'm sure they don't know, either. That's
+
+868
+01:29:36.040 --> 01:29:41.779
+Anthony Taylor: right. Mess. Minority groups are less likely. Minority groups behave differently than majority
+
+869
+01:29:41.790 --> 01:29:44.400
+Anthony Taylor: different to what developers anticipated.
+
+870
+01:29:45.230 --> 01:29:50.139
+Anthony Taylor: Okay, and this kind of goes back to that snap thing. Alright.
+
+871
+01:29:50.270 --> 01:29:54.070
+Anthony Taylor: It might be highlighted. Is that normal or suspicious?
+
+872
+01:29:54.420 --> 01:30:00.859
+Anthony Taylor: But it's just because the algorithm didn't know it existed because it wasn't enough representation. It's an outlet.
+
+873
+01:30:03.580 --> 01:30:13.869
+Anthony Taylor: Unconscious bias. you know, hey? When I go shopping. or people I know who use these these snap things. They do it this way.
+
+874
+01:30:15.230 --> 01:30:17.570
+Anthony Taylor: Everybody I've known does it this way.
+
+875
+01:30:20.590 --> 01:30:29.189
+Anthony Taylor: That's a big one, right? Well, all the people I know I love that I love those 4. I get that every once. Well, everybody I know that does that. And I'm like.
+
+876
+01:30:30.710 --> 01:30:39.789
+Anthony Taylor: how many people you know do this? Well, my friend had a baby sister that did that what? That's not you knowing anybody.
+
+877
+01:30:40.920 --> 01:30:41.930
+Anthony Taylor: Okay?
+
+878
+01:30:42.700 --> 01:30:46.409
+Anthony Taylor: It's just hard. I mean, it's it's a real problem.
+
+879
+01:30:47.020 --> 01:30:50.849
+Anthony Taylor: a real problem. It's up to us to make the difference.
+
+880
+01:30:51.430 --> 01:30:57.260
+Anthony Taylor: Okay? So the bias training data, it refers to label data set, period.
+
+881
+01:30:57.290 --> 01:31:02.250
+Anthony Taylor: it's facing decisions and patterns and identified. And all this, it's skewed in some way.
+
+882
+01:31:02.340 --> 01:31:03.630
+Anthony Taylor: and this is the big one.
+
+883
+01:31:03.910 --> 01:31:10.810
+Anthony Taylor: Right? It over represents a particular group and underrepresents another. Again, this doesn't have to be race.
+
+884
+01:31:10.880 --> 01:31:21.869
+Anthony Taylor: This could be age. This could be financial. This could be education. Okay, this could be, how many kids you have or don't have could be. If you're married or single.
+
+885
+01:31:23.100 --> 01:31:28.560
+Anthony Taylor: All of these things can be used. Can't can cause bias.
+
+886
+01:31:30.280 --> 01:31:31.090
+Anthony Taylor: Okay.
+
+887
+01:31:31.360 --> 01:31:37.539
+Anthony Taylor: hiring date is actually a pre. Oh, go ahead. Another example might be
+
+888
+01:31:38.010 --> 01:31:41.330
+Clayton Graves: 25 year old males tend to get higher
+
+889
+01:31:41.370 --> 01:31:44.809
+Clayton Graves: insurance premiums than 40 year old males.
+
+890
+01:31:45.390 --> 01:31:46.890
+Anthony Taylor: That's a tough one, though.
+
+891
+01:31:46.920 --> 01:31:57.760
+Anthony Taylor: because that's the statistical problem. So and let's not okay. Let's just throw that up, and that's a great. I like that. You brought that up late. I don't want to spend a lot of time. But here's the bottom line, statistically speaking.
+
+892
+01:31:57.950 --> 01:32:02.190
+Anthony Taylor: males under, you know, between like 18 and 25,
+
+893
+01:32:02.620 --> 01:32:05.539
+Anthony Taylor: get into more car acts. This is why
+
+894
+01:32:06.460 --> 01:32:14.869
+Anthony Taylor: most males. If you're going back to the rental car, example can't rent a car until they're like 2122 years old.
+
+895
+01:32:15.290 --> 01:32:16.519
+Anthony Taylor: But a girl can't.
+
+896
+01:32:18.130 --> 01:32:29.150
+Anthony Taylor: My 19 year old, my 20 year old, daughter. She can go rent a car in second. No one even blinks. But my 20 year old son, her twin brother can't go rent the same pub.
+
+897
+01:32:33.020 --> 01:32:34.689
+Anthony Taylor: and I guarantee you.
+
+898
+01:32:35.040 --> 01:32:37.949
+Anthony Taylor: my daughter way crazier than her throat.
+
+899
+01:32:39.060 --> 01:32:42.280
+Anthony Taylor: Yeah, Matt, yeah.
+
+900
+01:32:42.380 --> 01:32:49.529
+Dipinto, Matt: though, like the impossible problem with that, though, is like, when do you call it a bias? And when do you call it statistics?
+
+901
+01:32:49.610 --> 01:32:55.630
+Anthony Taylor: I know I agree with. I agree with you. Are we being biased because they're between 18 and 25.
+
+902
+01:32:56.820 --> 01:33:03.979
+Anthony Taylor: The here's the you know what. Here's the way you could do it. And and and maybe this is the best definition. But I'm gonna throw it out there for this.
+
+903
+01:33:04.260 --> 01:33:06.560
+Anthony Taylor: Okay, we have the date.
+
+904
+01:33:06.800 --> 01:33:15.510
+Anthony Taylor: It's not overrepresenting or underrepresenting anybody. It's representing them equally. And when represented equally.
+
+905
+01:33:15.520 --> 01:33:27.740
+Anthony Taylor: We see a much higher rate of accidents in males between the ages of 18 and 25. So therefore, we're going to charge more to insure you, because you are probably going to cost more down the road.
+
+906
+01:33:28.310 --> 01:33:30.400
+Jennifer Dahlgren: If it was biased it would be
+
+907
+01:33:30.430 --> 01:33:32.710
+Anthony Taylor: oh, go ahead, Jennifer, she's gonna kill me on this.
+
+908
+01:33:32.840 --> 01:33:43.110
+Jennifer Dahlgren: Go ahead, Jennifer.
+
+909
+01:33:43.400 --> 01:33:56.070
+Jennifer Dahlgren: Maybe the reported accidents happen to have a larger proportion of males, but the unreported accidents that our maybe fender vendors happen to all be females, so we don't have the correct data set.
+
+910
+01:33:56.710 --> 01:33:59.159
+Anthony Taylor: Well, but then they could go by cost.
+
+911
+01:33:59.170 --> 01:34:15.270
+Anthony Taylor: Then say, if you have a big accident, or on the big accidents that cost us more money. Maybe that's what the data set says is that, hey? We spend more insurance benefits on males between 18 and 25 than we do in females in the same age group. Therefore we charge them more money.
+
+912
+01:34:15.400 --> 01:34:25.909
+Anthony Taylor: rental car companies. They get more males between 18 and 25, or whatever that age cutoff is, get into accidents and damage their rental cars
+
+913
+01:34:26.230 --> 01:34:38.429
+Anthony Taylor: right then. The girls of the same age, I mean. whether that's statistically. The you know what what level or what brain that is, whether it be cost or accidents, or
+
+914
+01:34:39.310 --> 01:34:43.999
+Anthony Taylor: I don't even know. Maybe the car stinks when the guys get out of it it costs more to clean it. I don't know.
+
+915
+01:34:44.380 --> 01:34:52.179
+Anthony Taylor: Okay. But the the point is is, there's there's some thing. So again. I'm gonna go back to bias is I'm missing date.
+
+916
+01:34:52.800 --> 01:34:56.789
+Anthony Taylor: Right? I'm I'm over over or under-representing somebody.
+
+917
+01:34:57.190 --> 01:35:00.559
+Anthony Taylor: It's not okay. Let me back that up. That's the wrong statement.
+
+918
+01:35:01.690 --> 01:35:06.150
+Anthony Taylor: The way we're defining how bias is introduced is we're underrepresented.
+
+919
+01:35:06.830 --> 01:35:10.960
+Anthony Taylor: This is still a bias. But is it an exciting? Isn't it a
+
+920
+01:35:11.320 --> 01:35:15.720
+Anthony Taylor: a reasonable bias. I would argue. Yes.
+
+921
+01:35:16.320 --> 01:35:20.290
+Anthony Taylor: I'm sure the you know the 19 year old that once rent a car to.
+
+922
+01:35:20.300 --> 01:35:23.720
+Anthony Taylor: you know. Go pick his mom up for the hospital would argue, no
+
+923
+01:35:26.050 --> 01:35:26.870
+Anthony Taylor: right.
+
+924
+01:35:27.640 --> 01:35:36.900
+Anthony Taylor: I don't know what to say about that. I mean there bias isn't always a negative thing, and it isn't always wrong. There are times when it's logical.
+
+925
+01:35:37.390 --> 01:35:41.530
+Anthony Taylor: It's it's maybe not fair. But it's logical. Okay.
+
+926
+01:35:43.050 --> 01:35:46.849
+Anthony Taylor: one more activity. We're doing pretty good, really.
+
+927
+01:35:46.910 --> 01:35:52.459
+Anthony Taylor:  in this one. We're going to talk about healthcare bias.
+
+928
+01:35:55.380 --> 01:35:56.850
+Anthony Taylor: Oh, you know what?
+
+929
+01:36:00.640 --> 01:36:15.889
+Anthony Taylor: So normally, I'd be like, no big deal. We'll just push this to next class. But since I'm not gonna be here. Let's just let's let go. No, go ahead. Well, let me just say this before you do. We're just gonna go. We're just gonna talk about healthcare box.
+
+930
+01:36:16.110 --> 01:36:19.089
+Clayton Graves: I'm gonna do a class a favor and set this one out.
+
+931
+01:36:20.810 --> 01:36:24.139
+Anthony Taylor: Wait a minute. Did you probably have some good examples?
+
+932
+01:36:25.350 --> 01:36:26.300
+Anthony Taylor: Right?
+
+933
+01:36:27.190 --> 01:36:29.689
+Anthony Taylor: So hold on. Let me just look through this.
+
+934
+01:36:32.690 --> 01:36:51.360
+Anthony Taylor: Consider following women impact algorithmic bias having a dress.  1 s guys.
+
+935
+01:36:52.360 --> 01:36:57.520
+Anthony Taylor: I just, I don't. I don't want to suspend it. II don't. I don't think we're gonna go read this article.
+
+936
+01:37:05.670 --> 01:37:08.210
+Anthony Taylor: Oh, but this is a pretty horrible one.
+
+937
+01:37:08.890 --> 01:37:20.949
+Anthony Taylor:  Hi! You know what? Here's not what everybody do.
+
+938
+01:37:21.370 --> 01:37:24.120
+Anthony Taylor: I'm gonna give you like
+
+939
+01:37:24.920 --> 01:37:27.630
+Anthony Taylor: 8 min. All I want you to do is go read the article.
+
+940
+01:37:28.340 --> 01:37:33.800
+Anthony Taylor: Okay, form your opinions as you come we'll come back. We'll ask the questions to the whole group. Sound fair.
+
+941
+01:37:34.870 --> 01:37:38.680
+Anthony Taylor: Okay, there's no reason to 15. I don't think you need 15 min to read this article.
+
+942
+01:37:39.150 --> 01:37:42.450
+Anthony Taylor: So that'd be your next class. So
+
+943
+01:37:43.530 --> 01:37:50.520
+Anthony Taylor: let's talk. What do you guys think? there was a couple of questions now.
+
+944
+01:37:53.110 --> 01:37:56.120
+Anthony Taylor: So what were the questions
+
+945
+01:37:57.820 --> 01:38:01.960
+Anthony Taylor: anybody want to answer? You want me to tell you the questions? 1 s.
+
+946
+01:38:03.410 --> 01:38:09.259
+Anthony Taylor: Yeah. Yeah. Here we go summarize article by entry. So what did the algorithm do?
+
+947
+01:38:11.110 --> 01:38:14.969
+Anthony Taylor: What did he do wrong? Actually, let's start there. What did it do?
+
+948
+01:38:17.120 --> 01:38:29.940
+sonja baro: Who's using? I was using costs incurred to predict to be the item that they were looking for, to assess, risk
+
+949
+01:38:30.180 --> 01:38:44.429
+sonja baro: and how much care somebody would need or not will would need prevent or more support based off of the they were using past data. But the data was cost related not necessarily
+
+950
+01:38:44.830 --> 01:38:55.389
+sonja baro: true healthcare data, ehr data. And using that data. They. the algorithm, ended up
+
+951
+01:38:55.760 --> 01:38:57.560
+sonja baro: incorrectly.
+
+952
+01:38:57.650 --> 01:39:11.030
+sonja baro: Saying that a group of people African Americans were as not not needing as much support as they would, or have as let more. Sorry. I'm all over the place.
+
+953
+01:39:11.130 --> 01:39:22.079
+sonja baro: They didn't have as many risks to their health  as they did in reality, and so they would go without the care that they needed.
+
+954
+01:39:24.180 --> 01:39:29.869
+Anthony Taylor: Okay, that's fair. Alright, is anybody? So that was a lot of it that covered most of it.
+
+955
+01:39:30.180 --> 01:39:36.740
+Anthony Taylor: What do you guys think about it? What was the primary cause? Exactly. Anybody get that from the article?
+
+956
+01:39:37.890 --> 01:39:39.530
+sonja baro: Was the primary, what
+
+957
+01:39:39.860 --> 01:39:41.880
+Anthony Taylor: the cause for the bias
+
+958
+01:39:42.110 --> 01:39:49.010
+Anthony Taylor: because they actually tried the the algorithm. The writers of it tried to send.
+
+959
+01:39:49.800 --> 01:39:56.709
+Anthony Taylor: even though there was a 6 to one ratio Caucasian to African American
+
+960
+01:39:56.930 --> 01:40:03.829
+Clayton Graves: defense was, that's the way it is. The data is accurate. This is the way things are
+
+961
+01:40:04.630 --> 01:40:10.590
+Anthony Taylor: okay. The other thing was is on the spending patterns. Even when
+
+962
+01:40:10.820 --> 01:40:15.459
+Anthony Taylor: everyone had the same income. they noticed that
+
+963
+01:40:15.700 --> 01:40:28.280
+Anthony Taylor: the the African American folks were less likely or spent less either way, but that was actually due to what was perceived, at least in this article, as a trust issue.
+
+964
+01:40:29.680 --> 01:40:31.130
+Anthony Taylor: They didn't trust
+
+965
+01:40:31.340 --> 01:40:38.260
+Anthony Taylor: the healthcare system, and so, therefore they didn't go through the same system as white
+
+966
+01:40:38.270 --> 01:40:39.389
+Anthony Taylor: folks work
+
+967
+01:40:39.770 --> 01:40:41.879
+sonja baro: their utilization to the art.
+
+968
+01:40:42.110 --> 01:40:52.870
+sonja baro: Yeah, their utilization is lower and and when they it is utilized according to the article, it is for higher, acute, acute
+
+969
+01:40:53.050 --> 01:40:56.120
+sonja baro: interventions versus
+
+970
+01:40:56.950 --> 01:40:57.790
+sonja baro: what?
+
+971
+01:40:58.100 --> 01:40:59.870
+Anthony Taylor: That's it all in big words.
+
+972
+01:41:00.760 --> 01:41:29.229
+sonja baro: Oh, so sorry! Yes.
+
+973
+01:41:29.490 --> 01:41:42.350
+sonja baro: the other thing I noticed, Anthony, though, is, I also think, the use of the cost data using costs isn't necessarily the right data point to be looking for.
+
+974
+01:41:43.080 --> 01:41:45.620
+Anthony Taylor: That's good. That's good.
+
+975
+01:41:46.390 --> 01:41:53.920
+Masarirambi, Rodney: I like it. I think one of the things that wasn't looked at was so it looked like they tried to accommodate, for
+
+976
+01:41:54.840 --> 01:42:16.739
+Masarirambi, Rodney: why the numbers like work the way that they did, but they didn't look at history and see why there was a reason for that might. Why, there might be a reason why African American people would not want to would not, would have no trust in the healthcare system. And that question would have probably.
+
+977
+01:42:16.940 --> 01:42:22.539
+Masarirambi, Rodney: you know, not a spotlight on that, and I'll be changed. What to use the data set.
+
+978
+01:42:23.720 --> 01:42:29.040
+Clayton Graves: Yeah, I agree with that. I think it would have been better served to
+
+979
+01:42:29.800 --> 01:42:39.619
+Clayton Graves: to say that this model uncovered a bias that should be addressed rather than addressing the model. To be more accurate, you know what I mean?
+
+980
+01:42:40.350 --> 01:42:47.040
+Anthony Taylor: Well, okay, so and and and again, I wanna get to the last thing before we're done. But I have to say this
+
+981
+01:42:47.410 --> 01:42:49.070
+Anthony Taylor: guys when we're working
+
+982
+01:42:49.400 --> 01:42:59.220
+Anthony Taylor: right and and and and we get this data. And we're like, okay, they wanna split this model. And it needs to say this and we do it. And then someone points out and we're like crap.
+
+983
+01:42:59.460 --> 01:43:04.039
+Anthony Taylor: So I mean, in this case, they tried defend it. Maybe they should've just went. You know what right
+
+984
+01:43:04.120 --> 01:43:06.050
+Anthony Taylor: wrong we need to revisit this.
+
+985
+01:43:06.280 --> 01:43:13.039
+Anthony Taylor: They're probably not gonna be people, you as the model creators that are going to be able to address
+
+986
+01:43:13.130 --> 01:43:14.440
+Anthony Taylor: the issues
+
+987
+01:43:14.680 --> 01:43:16.780
+of distrust of the medical system.
+
+988
+01:43:17.010 --> 01:43:20.910
+Anthony Taylor: Okay, the reality is that we just have to figure out?
+
+989
+01:43:20.960 --> 01:43:22.389
+Anthony Taylor: How can we
+
+990
+01:43:22.920 --> 01:43:28.149
+Anthony Taylor: tune our model to at least consider that and maybe can't.
+
+991
+01:43:28.540 --> 01:43:31.120
+Anthony Taylor: Maybe it's another. You know what
+
+992
+01:43:31.980 --> 01:43:41.319
+Anthony Taylor: you know it's it is. I mean, this, is it we need to adjust? You know, we need to be a again. The the key here is being aware and talking about.
+
+993
+01:43:42.270 --> 01:43:48.419
+Anthony Taylor: If you are the one that creates it, your and use this bike, or it's brought to your attention.
+
+994
+01:43:48.510 --> 01:43:56.270
+Anthony Taylor: you need to bring it to other people's attention. because when they interpret the model they need to be, they need to consider.
+
+995
+01:43:56.920 --> 01:43:58.510
+Anthony Taylor: Okay, which
+
+996
+01:43:58.800 --> 01:44:02.700
+Anthony Taylor: leads us to addressing algorithmic bias.
+
+997
+01:44:02.900 --> 01:44:04.879
+Anthony Taylor: Okay,
+
+998
+01:44:06.490 --> 01:44:19.769
+Anthony Taylor: the. The. The biggest problem here is that we only know algorithm bias exists when somebody is, in fact. basically prejudiced against because of our mom. All right hate. I hate to say that's reality, but that is often reality.
+
+999
+01:44:20.280 --> 01:44:31.789
+Anthony Taylor: Okay. Like the people who were defending that healthcare one they had. They probably had no free clue. They were like, Oh, my God! This is the greatest model ever they were probably all went out for drinks when that thing trained
+
+1000
+01:44:32.570 --> 01:44:34.349
+Anthony Taylor: and thought it was perfect.
+
+1001
+01:44:34.380 --> 01:44:47.600
+Anthony Taylor: And then, you know, 6 weeks later, or probably more realistically, years later. somebody came in and said, That's crap. What are you talking about? That dude that made that model. He's been promoted to freaking vice president.
+
+1002
+01:44:47.950 --> 01:44:50.610
+Anthony Taylor: Now it was crap. Look, it's all wrong.
+
+1003
+01:44:51.430 --> 01:44:58.929
+Anthony Taylor: Okay? So they immediately go into defensive mode again. It's one of those things where I mean, they could have went.
+
+1004
+01:44:59.530 --> 01:45:12.399
+Anthony Taylor: Damn! It's right. you're right. And they said, but I mean, you know, people been using this for years. Now. you know, let's let's see what how it negatively affected. And let's make adjustments.
+
+1005
+01:45:12.580 --> 01:45:13.890
+Anthony Taylor: That's the right answer.
+
+1006
+01:45:15.230 --> 01:45:27.250
+Anthony Taylor: Is it the realistic answer. Sometimes I'd love to say more often back to Clayton, saying, You know, people are people right. They're going to defend their work, especially if it got them promoted or got them money or got them faint.
+
+1007
+01:45:27.750 --> 01:45:29.550
+Anthony Taylor: They're going to defend it, right or wrong.
+
+1008
+01:45:30.330 --> 01:45:32.139
+Anthony Taylor: So what do we do?
+
+1009
+01:45:32.530 --> 01:45:36.930
+Anthony Taylor: Okay, as an industry, we need to audit
+
+1010
+01:45:37.120 --> 01:45:40.559
+Anthony Taylor: need to check now. Would that have helped the healthcare one?
+
+1011
+01:45:42.000 --> 01:45:47.550
+Anthony Taylor: Maybe if somebody was actually talking to the patients
+
+1012
+01:45:48.840 --> 01:45:50.439
+Anthony Taylor: and finding out
+
+1013
+01:45:50.520 --> 01:45:59.419
+Anthony Taylor: why their costs were similar or dissimilar to get it to go the way it went. But I'm gonna tell you something. Do you think you guys.
+
+1014
+01:46:00.220 --> 01:46:03.479
+Anthony Taylor: while working at a healthcare company are going to be talking to patients.
+
+1015
+01:46:05.460 --> 01:46:09.710
+Anthony Taylor: I can tell you the answer to that. You absolutely will not
+
+1016
+01:46:09.780 --> 01:46:15.070
+Anthony Taylor: be talking to patients. Most of you won't even be allowed to see the names of a patient
+
+1017
+01:46:16.850 --> 01:46:17.920
+Anthony Taylor: never happened.
+
+1018
+01:46:20.190 --> 01:46:21.750
+Anthony Taylor: Okay, but
+
+1019
+01:46:21.890 --> 01:46:24.250
+Anthony Taylor: we can generate audits. We can
+
+1020
+01:46:24.450 --> 01:46:26.800
+Anthony Taylor: see how often it's raw.
+
+1021
+01:46:26.960 --> 01:46:28.519
+Anthony Taylor: but that could take years
+
+1022
+01:46:29.780 --> 01:46:32.489
+Anthony Taylor: depending on what whit is worth looking right?
+
+1023
+01:46:32.740 --> 01:46:44.679
+Anthony Taylor: Transparency and documentation. So probably the most important thing is as we create our algorithms. We need to do our best to document them. You know what the data looks like.
+
+1024
+01:46:44.820 --> 01:46:51.269
+Anthony Taylor: you know, catalog that data, write definitions for the columns, understand it as much as possible.
+
+1025
+01:46:51.470 --> 01:46:55.900
+Anthony Taylor: and intentionally bring together a group of people
+
+1026
+01:46:56.360 --> 01:47:10.159
+Anthony Taylor: that represent as as much as you can, and it couldn't even be all of your developers. I mean, I can tell you right now, most development groups are pretty good. you know. Group culturally, different
+
+1027
+01:47:10.470 --> 01:47:11.270
+Anthony Taylor: people.
+
+1028
+01:47:12.450 --> 01:47:22.450
+Anthony Taylor: Okay, bring them together. Talk about the data. Talk about what you're trying to accomplish. Talk about what the model does. Maybe that's enough. Maybe you extend it to a larger group.
+
+1029
+01:47:22.620 --> 01:47:28.350
+Anthony Taylor: hard to say. okay. But again, being realistic.
+
+1030
+01:47:30.250 --> 01:47:31.150
+Anthony Taylor: okay.
+
+1031
+01:47:32.440 --> 01:47:34.510
+Anthony Taylor: not a lot of companies are going to do that.
+
+1032
+01:47:35.790 --> 01:47:38.340
+Anthony Taylor: That takes time. That takes money.
+
+1033
+01:47:39.030 --> 01:47:48.070
+Anthony Taylor: It. It could it lengthen the time of development. all of this stuff. So we just have to do our best to try and do it as a smaller group
+
+1034
+01:47:48.140 --> 01:47:57.329
+Anthony Taylor: and and then see what happens. Now. Companies that may do it are the ones that have stuff they're putting out there to sell, or that's going to be very public. Because, like, if you
+
+1035
+01:47:57.370 --> 01:47:59.980
+Anthony Taylor: you know a public model that totally blows it.
+
+1036
+01:48:00.450 --> 01:48:08.249
+Anthony Taylor: Okay? And gets, you know, reported in the news. That's bad for the company. Okay. You don't want to be the person that made that model.
+
+1037
+01:48:10.070 --> 01:48:13.570
+Anthony Taylor: or at the very least, you don't want to be the person that approved that mom.
+
+1038
+01:48:15.020 --> 01:48:18.930
+Anthony Taylor: even though you had no chance of finding that out based on what you were given.
+
+1039
+01:48:21.060 --> 01:48:27.989
+Anthony Taylor: should be open about the source of the data. You should definitely do some basic analysis. See what you can come up with.
+
+1040
+01:48:28.840 --> 01:48:39.129
+Anthony Taylor: You know that one of the things that's hard and and where the the healthcare one was going well, look in the area of that we were looking at. The ratio of of
+
+1041
+01:48:39.530 --> 01:48:42.350
+of white versus African American was 6 to one.
+
+1042
+01:48:43.650 --> 01:48:45.329
+Anthony Taylor: So doesn't that make this right?
+
+1043
+01:48:48.140 --> 01:48:50.029
+Anthony Taylor: I mean, it's a decent argument.
+
+1044
+01:48:50.330 --> 01:48:52.390
+Anthony Taylor: But it's not right.
+
+1045
+01:48:53.150 --> 01:48:58.440
+Anthony Taylor: It's a valid statement. And in some models that would be right. but not in healthcare.
+
+1046
+01:48:59.350 --> 01:49:01.589
+Anthony Taylor: Okay, everybody gets the same healthcare.
+
+1047
+01:49:01.870 --> 01:49:10.809
+Anthony Taylor: or they should. So that's one of those things that you know. You just have to think about it. And hopefully. the right person hears you say.
+
+1048
+01:49:11.420 --> 01:49:24.649
+Anthony Taylor:  So contestable outcomes. So if you can build in model or build in things, and and actually the thumbs up thund down thing. You guys see that chatty Pt. Every time you run it.
+
+1049
+01:49:24.760 --> 01:49:28.470
+Anthony Taylor: In fact, I believe you see it in bing Chat 2,
+
+1050
+01:49:32.250 --> 01:49:33.110
+Anthony Taylor: the
+
+1051
+01:49:33.210 --> 01:49:34.000
+not
+
+1052
+01:49:35.360 --> 01:49:36.159
+Anthony Taylor: I don't know.
+
+1053
+01:49:36.640 --> 01:49:37.730
+Ask anything
+
+1054
+01:49:37.820 --> 01:49:42.780
+Anthony Taylor: a I'll go with. I know I'm spelling a rocket.
+
+1055
+01:49:42.980 --> 01:49:44.670
+Anthony Taylor: but it's
+
+1056
+01:49:44.890 --> 01:49:46.459
+Anthony Taylor: I just wanted to ask me
+
+1057
+01:49:47.590 --> 01:49:48.580
+Anthony Taylor: something.
+
+1058
+01:49:51.940 --> 01:49:53.540
+Anthony Taylor: I love that. It figured that out.
+
+1059
+01:49:57.910 --> 01:50:00.230
+Anthony Taylor: Oh, you know why it says that cause
+
+1060
+01:50:01.320 --> 01:50:03.170
+Anthony Taylor: this is on my school account.
+
+1061
+01:50:04.500 --> 01:50:11.420
+Anthony Taylor: but when it's done I'm waiting to see if it gives me up the thumbs up, thumbs down. Sure, Pi, I'm pretty sure this one does. Yeah.
+
+1062
+01:50:11.580 --> 01:50:13.190
+Anthony Taylor: So this is what it's doing.
+
+1063
+01:50:14.740 --> 01:50:15.720
+Anthony Taylor: Okay.
+
+1064
+01:50:15.940 --> 01:50:23.189
+Anthony Taylor: this is what that's for. I mean, you guys might have thought that was like, it's good review. Now, this is actually a feedback system.
+
+1065
+01:50:23.610 --> 01:50:28.009
+Anthony Taylor: If you get an answer from any chat tbt any of them. They all have this.
+
+1066
+01:50:28.980 --> 01:50:34.379
+Anthony Taylor: If it's a bad answer, give it a thumbs down. That's the feedback to them. Hey? We need to go look at this.
+
+1067
+01:50:36.160 --> 01:50:39.070
+Anthony Taylor: Okay, you can build that into your stuff as well.
+
+1068
+01:50:40.240 --> 01:50:48.529
+Anthony Taylor: Okay. alright. Checklist. Investigate how the system works. Was it trained? Using historical data?
+
+1069
+01:50:48.960 --> 01:50:52.370
+Anthony Taylor: Okay, think about biases that the historical data might have.
+
+1070
+01:50:53.900 --> 01:50:58.490
+Anthony Taylor: I mean, depends on how far back it goes. I mean, think about that
+
+1071
+01:50:58.560 --> 01:51:03.040
+Anthony Taylor: goes back so far, we need to be entirely one.
+
+1072
+01:51:03.690 --> 01:51:14.649
+Anthony Taylor: a topic. If you will research similar systems, find out how they manage to do it. Try auditing. check the process for contesting the results. The system exists.
+
+1073
+01:51:14.840 --> 01:51:17.770
+Anthony Taylor:  while you're developing.
+
+1074
+01:51:18.170 --> 01:51:21.769
+Anthony Taylor: It's like, I said. look at the data.
+
+1075
+01:51:21.840 --> 01:51:25.060
+Anthony Taylor: Consider your audience. Considering who it's for.
+
+1076
+01:51:25.640 --> 01:51:26.760
+Anthony Taylor: Okay.
+
+1077
+01:51:27.000 --> 01:51:30.329
+Anthony Taylor:  talk about it
+
+1078
+01:51:30.430 --> 01:51:31.890
+Anthony Taylor: to some degree.
+
+1079
+01:51:32.260 --> 01:51:38.110
+Anthony Taylor: Don't make it like the only topic, because it can't be the only topic. You will
+
+1080
+01:51:38.170 --> 01:51:42.270
+Anthony Taylor: very quickly lose favor if it's the only topic.
+
+1081
+01:51:42.330 --> 01:51:44.969
+Anthony Taylor: but it does. But it should be looked at.
+
+1082
+01:51:45.870 --> 01:51:46.810
+Anthony Taylor: Okay.
+
+1083
+01:51:47.000 --> 01:51:56.680
+Anthony Taylor: carefully review your training and testing consistently. Document. This is probably the most important thing. As you guys build your models. Quite quote
+
+1084
+01:51:57.320 --> 01:51:59.179
+Anthony Taylor: document your data.
+
+1085
+01:52:00.890 --> 01:52:06.249
+Anthony Taylor: Okay, understand? What's in it. Understand the distribution of the data
+
+1086
+01:52:06.390 --> 01:52:09.249
+Anthony Taylor: and and be able be prepared to explain it.
+
+1087
+01:52:11.180 --> 01:52:18.579
+Anthony Taylor: I want to be honest. The health care one. When they said 6 to one. If that was population ratio.
+
+1088
+01:52:18.870 --> 01:52:21.110
+Anthony Taylor: it's actually a valid explanation.
+
+1089
+01:52:21.250 --> 01:52:26.870
+Anthony Taylor: The rest of their logic didn't fit. But as far as racial.
+
+1090
+01:52:29.140 --> 01:52:30.979
+Anthony Taylor: that's that's a valid argument.
+
+1091
+01:52:32.310 --> 01:52:40.540
+Anthony Taylor: you know. That is how our populations split up in the area that we were researching, or we were modeling. Okay? Well, then, the rest of it kind of fell apart.
+
+1092
+01:52:41.970 --> 01:52:45.590
+Anthony Taylor: Okay? And that'd be all I got.
+
+1093
+01:52:46.910 --> 01:52:54.779
+Anthony Taylor: So what do we do? Explained ethics, summarized ethical concerns, explained algorithmic bias, all of that
+
+1094
+01:52:55.100 --> 01:52:56.370
+Anthony Taylor: fun
+
+1095
+01:52:56.750 --> 01:52:57.770
+stuff.
+
+1096
+01:52:58.370 --> 01:53:00.050
+Anthony Taylor: So next class.
+
+1097
+01:53:03.940 --> 01:53:06.980
+Anthony Taylor: we're going to talk about data, privacy and consent.
+
+1098
+01:53:08.000 --> 01:53:09.270
+Anthony Taylor: Well, you guys will
+
+1099
+01:53:10.230 --> 01:53:13.020
+Anthony Taylor: again, I will not be here.
+
+1100
+01:53:13.680 --> 01:53:18.620
+Also some contracts and stuff like that. So you guys have a lot of fun stuff next class.
+
+1101
+01:53:18.800 --> 01:53:23.490
+Anthony Taylor: It's pretty much the same kind of thing. Get a lot of lecture, a lot of talking, a lot of discussion.
+
+1102
+01:53:24.420 --> 01:53:25.460
+Anthony Taylor: Okay.
+
+1103
+01:53:26.580 --> 01:53:27.600
+Anthony Taylor: alright, Gabe.
+
+1104
+01:53:27.660 --> 01:53:32.880
+Anthony Taylor: have a wonderful. I will see you Thursday when we wrap update ethics
+
+1105
+01:53:32.970 --> 01:53:35.970
+Anthony Taylor: and not even begin project 2
+
+1106
+01:53:38.180 --> 01:53:44.879
+Anthony Taylor: pretty exciting stuff hiking. Have a great night. I'll see you Thursday. You guys come back on Wednesday.
+

@@ -1,0 +1,88 @@
+##--CODE--##
+# Import the dependencies
+import numpy as np
+np.random.seed(0)
+import pandas as pd
+from sklearn import datasets
+
+### Build the Dataset
+
+##--CODE--##
+# Create a simulated dataset for illustration.
+X, y = datasets.make_moons(n_samples=(500), noise=0.05, random_state=1)
+X[0:10]
+
+### Fit and predict a K-Means Model
+
+##--CODE--##
+# Import the alternative algorithms for clustering.
+from sklearn.cluster import KMeans, AgglomerativeClustering, Birch
+# Use the Kmeans algorithm.
+k_model = KMeans(n_clusters=3, n_init='auto', random_state=0)
+k_model.fit(X)
+predictions = k_model.predict(X)
+
+### Fit and Predict Birch and Agglomerative models
+
+##--CODE--##
+# Use the Birch algorithm.
+birch_model = Birch(n_clusters=2)
+birch_model.fit(X)
+birch_predictions = birch_model.predict(X)
+
+##--CODE--##
+# Use the AgglomerativeClustering algorithm.
+agglo_model = AgglomerativeClustering(n_clusters=3)
+agglo_predictions = agglo_model.fit_predict(X)
+
+### Plot Model Predictions for Birch
+
+##--CODE--##
+# Make predictions for the Birch algorithm. 
+predictions_df = pd.DataFrame(X)
+predictions_df['birch-labels'] = birch_predictions
+predictions_df
+
+##--CODE--##
+#  Rename the non-string columns 0 and 1, "No" and "Yes" to avoid the Holoviews warning for future versions. 
+predictions_df.rename({0: 'feature_0', 1: 'feature_1'}, axis=1, inplace=True)
+predictions_df
+
+##--CODE--##
+# Plot the clusters
+predictions_df.plot.scatter(
+    x="feature_0",
+    y="feature_1",
+    c="birch-labels",
+    colormap="winter")
+
+### Estimate Scores for two Versions of the Birch Model
+
+##--CODE--##
+# Estimate scores for two clusters for the Birch model. 
+birch_model_two_clusters = Birch(n_clusters=2)
+birch_model_two_clusters.fit(X)
+birch_predictions_2 = birch_model_two_clusters.predict(X)
+
+##--CODE--##
+# Estimate scores for 3 clusters for the Birch model. 
+birch_model_three_clusters = Birch(n_clusters=3)
+birch_model_three_clusters.fit(X)
+birch_predictions_3 = birch_model_three_clusters.predict(X)
+
+##--CODE--##
+# Use the Calinski-Harabasz index or variance ratio criterion to define two clusters. 
+from sklearn import metrics
+labels = birch_model_two_clusters.labels_
+score = metrics.calinski_harabasz_score(X, labels)  
+score
+
+##--CODE--##
+# Use the Calinski-Harabasz index or variance ratio criterion to define three clusters. 
+labels = birch_model_three_clusters.labels_
+score = metrics.calinski_harabasz_score(X, labels)  
+score
+
+##--CODE--##
+
+

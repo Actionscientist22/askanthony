@@ -1,0 +1,264 @@
+##--CODE--##
+# Import dependencies
+import nltk
+import spacy
+import pandas as pd
+from collections import Counter
+from nltk.corpus import inaugural
+
+# Download NLTK's inaugural corpus
+nltk.download("inaugural")
+
+# Load the English language model for spaCy
+nlp = spacy.load("en_core_web_sm")
+
+##  Retrieve the documents IDs and text of the U.S. presidential inaugural addresses
+
+##--CODE--##
+# Retrieve the IDs of inaugural addresses
+ids = inaugural.fileids()
+
+# Retrieve the text of all the inaugural addresses
+texts = [inaugural.raw(id) for id in ids]
+
+# Get the length of the ids and text
+print(len(ids), len(texts))
+
+##--CODE--##
+# Display sample inaugural address
+print(ids[10])
+print(texts[10])
+
+## The Most Frequent Adjectives from each Inaugural Address
+
+##--CODE--##
+# Use the most_common_adjs function to tokenize the text, creates a list of with all the adjectives, 
+# and retrieve the most common adjectives and their frequency. 
+def most_common_adjs(text):
+    """
+    Finds and returns the most common adjective in the given text.
+
+    Args:
+        text (str): The input text from which adjectives will be extracted.
+
+    Returns:
+        tuple: A tuple containing the most common adjectives and their frequency.
+               The tuple has the format (adjective, frequency).
+
+    Example:
+    >>> text = "The quick brown fox jumps over the lazy dog. The fast fox is brown."
+    >>> most_common_adj(text)
+    ('brown', 2)
+    """
+    # Tokenizes text and parse each token
+    doc = nlp(text)
+    
+    # Creates a list with all the adjectives in the text
+    adjs = [token.text.lower() for token in doc if token.pos_ == 'ADJ']
+    
+    # Retrieves the most frequent adjective in the adjectives list using the Counter module
+    most_common_adj = Counter(adjs).most_common(1)[0]
+    
+    return most_common_adj
+
+
+##--CODE--##
+# Create a list of the most common adjective for each inaugural address
+common_adjs = [most_common_adjs(text) for text in texts]
+
+# Print the common adjectives.
+print(common_adjs)
+
+##--CODE--##
+# Use list comprehensions to retrieve each adjective and the number of occurrences for each text in separate lists.
+adjs = [common_adjs[i][0] for i, _ in enumerate(common_adjs)]
+frequency = [common_adjs[i][1] for i, _ in enumerate(common_adjs)]
+
+##--CODE--##
+# Save the year and president as 'inaugural_address' in the following format "1789-Washington"
+inaugural_address = [id.replace(".txt", "") for id in ids]
+
+##--CODE--##
+# Create a DataFrame called, adjs_df, that has columns to hold the
+# inaugural addresses, the common adjective, and the number of times each adjective appears.
+common_adjs_df = pd.DataFrame(
+    {
+        'inaugural address':inaugural_address,
+        'adjective':adjs,
+        'frequency':frequency
+    }
+)
+
+# Sort the DataFrame to display the top 10 adjectives.
+presidential_adjs = common_adjs_df.sort_values(by=['frequency'], ascending=False).reset_index(drop=True)
+
+# Display the first ten rows. 
+presidential_adjs.head(10)
+
+## Most Common Adjectives Used in Inaugural Addresses
+
+##--CODE--##
+# Use the all_adjs function to retrieve all the adjectives in a given text.
+def all_adjs(text):
+    """
+    This function retrieves all the adjectives in the given text.
+    
+    Args:
+        text (string): The text to analyze.
+        
+    Returns:
+        list: A list containing all the adjectives found in the text. Adjectives
+              are represented as lowercase strings.
+    Example:
+    >>> text = "The quick brown fox jumps over the lazy dog. The fast fox is brown."
+    >>> all_adjs(text)
+    ['quick', 'brown', 'lazy', 'fast', 'brown']
+    """
+    
+    # Tokenize the text and parse each token
+    doc = nlp(text)
+    
+    # Create a list with all the adjectives in the text
+    adjs = [token.text.lower() for token in doc if token.pos_ == 'ADJ']
+    
+    return adjs
+
+##--CODE--##
+# Create an empty list to store all the adjectives
+all_adjectives = []
+
+# Use a for loop that sends the "text" of the inaugural addresses to the all_adj() function 
+# and concatenates the returned adjectives to the all_adjectives list.
+for text in texts:
+    all_adjectives = all_adjectives + all_adjs(text)
+    
+# Print sample data
+all_adjectives[:10]
+
+##--CODE--##
+# Create a variable, most_freq_adjectives, that stores the three most frequent adjectives 
+# used in the inaugural addresses by using the most_common() function from the Counter module.
+most_freq_adjectives = Counter(all_adjectives).most_common(3)
+
+# Print the three most frequent adjectives
+print(most_freq_adjectives)
+
+##--CODE--##
+# Import the word_tokenize module from NLTK
+from nltk.tokenize import word_tokenize
+# Use the get_word_counts function to count the occurrences of a word in text.
+def get_word_counts(text, word):
+    """
+    This function counts the occurrences of a word in a text.
+    
+    Args:
+        text (string): The text where word counts will be analyzed.
+        word (string): The word to look into the text.
+        
+    Returns:
+        word_count (int): The counts of the word in the given text.
+        
+    Example:
+    >>> text = "The quick brown fox jumps over the lazy dog. The quick brown dog is happy."
+    >>> word = "quick"
+    >>> get_word_counts(text, word)
+    2
+    """
+    
+    # Use the word_tokenize module from NLTK to tokenize the text
+    tok = word_tokenize(text)
+    
+    # Create a list with all the tokens retrieved from the text
+    tok = [word.lower() for word in tok]
+    
+    # Count the occurrences of the word in the text
+    word_count = tok.count(word)
+    
+    return word_count
+
+##--CODE--##
+# Use list comprehensions to create a list with the counts of each top adjective in the inaugural addresses
+great_counts = [get_word_counts(text,'great') for text in texts]
+other_counts = [get_word_counts(text,'other') for text in texts]
+own_counts = [get_word_counts(text,'own') for text in texts]
+
+# Display sample data
+print(f"Great counts sample data: {great_counts[:5]}")
+print(f"Other counts sample data: {other_counts[:5]}")
+print(f"Own counts sample data: {own_counts[:5]}")
+
+## Analyze Adjectives Over Time
+
+##--CODE--##
+# Create a Python list dates to store the year when every inaugural address was delivered. 
+dates = [id.split('-')[0] for id in ids]
+
+# Print sample data
+print(dates[:5])
+
+##--CODE--##
+# Create a Python list called, presidents,  to store the last name of each U.S. President from each inaugural address.
+presidents = [id.split('-')[1].split('.')[0] for id in ids]
+
+# Print sample data
+print(presidents[:5])
+
+##--CODE--##
+# Create a DataFrame presidential_adjs_df, that contains columns that hold the President's last name 
+# and the number of times each adjective appears in the Presidents' inaugural address.
+presidential_adjs_df = {
+    'President': presidents,
+    'great':great_counts,
+    'other':other_counts,
+    'own': own_counts
+}
+
+# Set the index of the presidential_adjs_df DataFrame equal to the year in the dates list.
+presidential_adjs_df = pd.DataFrame(presidential_adjs_df, index=pd.to_datetime(dates).year)
+
+# Display same data
+presidential_adjs_df.head()
+
+##--CODE--##
+# Create a bar plot that displays the most common adjectives used throughout the U.S. presidential inaugural addresses.
+presidential_adjs_df.plot.bar(
+    title = "Most Common Adjectives Used in the U.S. Presidential Inaugural Addresses",
+    figsize = (15, 5))
+
+## The Most Common Adjectives Describing America
+
+##--CODE--##
+def describe_america(text):
+    """
+    This function retrieves the adjectives in the text that describe the word 'America'.
+    
+    Args:
+        text (string): The text to analyze.
+        
+    Returns:
+        adjs (list): A list of the adjectives that describe the word "America" in the text.
+    """
+    
+    # Use the spaCy English language model to tokenize the text and parse each token.
+    doc = nlp(text)
+    
+    # Create a list with all the adjectives in the text of each inaugural address that describe the word "America".
+    adjs = [token.text.lower() for token in doc if (token.pos_ == 'ADJ' and token.head.text == 'America')]
+    
+    return adjs
+
+##--CODE--##
+# Create an empty list to store the adjectives
+america_adjectives = []
+
+# Write a for loop that sends the "text" of the inaugural addresses to the describe_america() function 
+# and concatenates the returned adjectives to the america_adjectives list.  
+for text in texts:
+    america_adjectives = america_adjectives + describe_america(text)
+    
+# Print the list of the adjectives describing the word 'America'
+america_adjectives
+
+##--CODE--##
+
+

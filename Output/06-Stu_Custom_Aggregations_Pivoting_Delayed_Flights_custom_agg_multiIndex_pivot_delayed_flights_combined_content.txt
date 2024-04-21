@@ -1,0 +1,69 @@
+##--CODE--##
+# Import the necessary dependencies
+import pandas as pd
+
+##--CODE--##
+# Read in the data as a DataFrame
+# Provide the dataset URL from an AWS S3 bucket. It's ~100 MB.
+delayed_flights_url = "https://static.bc-edx.com/ai/ail-v-1-0/m5/lesson_2/delayed_flights.csv"
+delayed_flights_df = pd.read_csv(delayed_flights_url)
+delayed_flights_df.head()
+
+##--CODE--##
+# Get the columns
+
+
+##--CODE--##
+# Create a custom function that will calculate the average of DataFrame column
+
+
+# Use the custom_avg function to show the average arrival delay 
+# for each carrier, for the day of the month, and day of the week. Round to one decimal place. 
+
+
+
+# Rename the column to reflect the aggregation. 
+
+
+# Sort the pivot table to show the top 25 largest average arrival delay by carrier, day of the month, and day of the week.
+
+
+##--CODE--##
+# Use the custom_avg function to show the average delay of arrivals and departures
+# for each carrier, day of the months and day of the week. Round to one decimal place. 
+
+
+
+# Rename the columns to reflect the aggregation. 
+
+
+# Sort the pivot table to show the greatest average arrival and departures delays
+# by carrier, day of the months and day of the week. Show the top 25 results
+
+
+##--CODE--##
+# Show the bottom 25 results.
+
+
+##--CODE--##
+# Create a custom function that calculates the total of a DataFrame column.
+
+
+##--CODE--##
+# Show the total and average number of flights that were diverted for each carrier, the origin, and destination.
+# Use the custom functions you created above.
+
+
+
+# Rename the columns to reflect the results. 
+
+
+
+
+# Sort the pivot table to show the greatest average and number of diverted flights
+# for each carrier, the origin, and destination.. Show the top 25 results
+
+
+##--CODE--##
+
+

@@ -1,0 +1,97 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+
+##--CODE--##
+# Name of the CSV file
+file = '../Resources/donors2021_unclean.csv'
+
+##--CODE--##
+# The correct encoding must be used to read the CSV
+df = pd.read_csv(file, encoding="ISO-8859-1")
+
+##--CODE--##
+# Preview of the DataFrame
+# Note that Memo_CD is likely a meaningless column
+df.head()
+
+##--CODE--##
+# Delete extraneous column
+del df['Memo_CD']
+df.head()
+
+##--CODE--##
+# Identify incomplete rows
+df.count()
+
+##--CODE--##
+# Drop all rows with missing information
+df = df.dropna(how='any')
+
+##--CODE--##
+# Verify dropped rows
+df.count()
+
+##--CODE--##
+# The Zip column is the wrong data type. It should be a string (object).
+df.dtypes
+
+##--CODE--##
+# Use df.astype() method to convert the datatype of the Zip column
+df = df.astype({"Zip": str}, errors='raise')
+
+##--CODE--##
+# Verify that the Zip column datatype has been made an object
+df['Zip'].dtype
+
+##--CODE--##
+# We can view all the unique values in a column
+
+df['Employer'].unique()
+
+##--CODE--##
+# We can count the number of unique values
+df['Employer'].nunique()
+
+##--CODE--##
+# We can count the number of occurrences
+# for each unique value
+
+df['Employer'].value_counts().head(10)
+
+##--CODE--##
+# Clean up Employer category. Replace 'SELF' and 'SELF EMPLOYED' with 'SELF-EMPLOYED'
+df['Employer'] = df['Employer'].replace({'SELF': 'SELF-EMPLOYED', 'SELF EMPLOYED': 'SELF-EMPLOYED'})
+
+##--CODE--##
+# Verify clean-up.
+df['Employer'].value_counts().head(10)
+
+# Clean up Employer category. Replace 'NOT EMPLOYED' with 'UNEMPLOYED'
+df['Employer'] = df['Employer'].replace({'NOT EMPLOYED': 'UNEMPLOYED'})
+df['Employer'].value_counts()
+
+##--CODE--##
+# Display a statistical overview
+df.describe()
+
+##--CODE--##
+# We can calculate individual aggregate functions per column
+print("AMOUNT:")
+print(f"The count is {df['Amount'].count()}")
+print(f"The minimum is {df['Amount'].min()}")
+print(f"The maximum is {df['Amount'].max()}")
+print(f"The mean is {df['Amount'].mean()}")
+
+##--CODE--##
+# We can also calculate them for an entire DataFrame
+df.max()
+
+##--CODE--##
+# Save the DataFrame to a CSV file. 
+df.to_csv("../Resources/donors2021.csv", index=False, encoding="ISO-8859-1")
+
+##--CODE--##
+# More functions can be found at
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+

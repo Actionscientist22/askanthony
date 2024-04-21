@@ -1,0 +1,59 @@
+##--CODE--##
+# Uncomment the following code if you are using Google Colab.
+# ! pip install transformers
+# ! pip install gradio
+
+##--CODE--##
+# Import transformers pipeline
+from transformers import pipeline
+# Import Gradio
+import gradio as gr
+
+##--CODE--##
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+##--CODE--##
+# Create a summary function passing in the desired parameters. 
+def summarize(article, max_output):
+    return f'{summarizer(article, max_length=max_output, min_length=30, do_sample=False)[0]["summary_text"]}'
+
+##--CODE--##
+# Create an instance of the Gradio Interface application function with parameters. 
+app = gr.Interface(fn=summarize, 
+                   title="Text Summarizer using Transformers",
+                   inputs=["text", "number"], 
+                   outputs=gr.Textbox(lines=20, label="Summarized Text Output", show_copy_button=True))
+# Launch the app
+app.launch()
+
+##--CODE--##
+# Set the default maximum output length to 150 words.
+max_output = gr.Number(value=150)
+app = gr.Interface(fn=summarize, 
+                   title="Text Summarizer using Transformers",
+                   inputs=["text", max_output], 
+                   outputs=gr.Textbox(lines=20, label="Summarized Text Output", show_copy_button=True))
+
+# Launch the app
+app.launch()
+
+##--CODE--##
+# Create a summary function passing in the desired parameters.
+def summarize(article, min_length, max_length):
+    return f'{summarizer(article, max_length=max_length, min_length=min_length, do_sample=False)[0]["summary_text"]}'
+
+# Create an instance of the Gradio Interface application function with parameters. 
+app = gr.Interface(fn=summarize, title="Text Summarizer using Transformers",
+                   inputs=[
+                       gr.Textbox(lines=5, placeholder="Enter the original text to be summarized", label="Text Input Field", interactive=True),
+                       gr.Slider(10, 30, value=10, step=10, label="Minimum number of words in Summarized Article", info="Choose between 10 and 30"),
+                       gr.Slider(120, 150, value=120, step=10, label="Maximum number of words in Summarized Article", info="Choose between 120 and 150"),
+                     ],
+                     outputs=gr.Textbox(lines=10, label="Summarized Text Output", show_copy_button=True))
+
+# Launch the app.
+app.launch()
+
+##--CODE--##
+
+

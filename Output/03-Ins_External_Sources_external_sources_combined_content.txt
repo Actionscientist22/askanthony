@@ -1,0 +1,108 @@
+##--CODE--##
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+# Model and API Key
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Documents
+
+##--CODE--##
+# Additional imports for loading PDF documents and QA chain.
+
+
+##--CODE--##
+# Create the PDF loader and load the document.
+
+
+# Initialize the model.
+
+
+# Create the QA chain using the LLM.
+
+
+# Define a query as a string.
+
+
+# Pass the documents and the query to the chain, and print the result.
+
+
+# Built-in Integrations
+
+##--CODE--##
+# Additional imports for loading Wikipedia content and QA chain.
+
+
+##--CODE--##
+# Initialize the model.
+
+
+# Define the wikipedia topic as a string.
+
+
+# Load the wikipedia results as documents, using a max of 2.
+
+
+# Create the QA chain using the LLM.
+
+
+# Define a query as a string.
+
+
+# Pass the documents and the query to the chain, and print the result.
+
+
+# External APIs
+
+##--CODE--##
+# Additional imports for API chain.
+
+
+##--CODE--##
+# Text description of API spec.
+
+
+# Initialize the model.
+
+
+# Create the API chain from the spec, using the LLM.
+
+
+# Define a query as a dictionary.
+
+
+# Run the chain using the query, and print the response.
+
+
+##--CODE--##
+# Additional imports for API chain and processing json.
+
+
+##--CODE--##
+# Store the API key in a variable.
+
+
+# Load the spec from json file and store the API key.
+
+
+# Initialize the model.
+
+
+# Create the API chain from the spec, using the LLM.
+
+
+# Define a query as a string.
+
+
+# Run the chain using the query, and print the response.
+
+

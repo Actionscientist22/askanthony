@@ -1,0 +1,115 @@
+# Demo: Linear Regression
+
+##--CODE--##
+# Import required libraries
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+## Data Loading and Visualization
+
+##--CODE--##
+# Read salary data
+file_path = "https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_1/datasets/salary-data.csv"
+df_salary = pd.read_csv(file_path)
+
+# Display sample data
+df_salary.head()
+
+##--CODE--##
+# Create a scatter plot with the salary information
+salary_plot = df_salary.plot.scatter(
+    x="years_experience",
+    y="salary",
+    title="Expected Salary Based on Years of Experience"
+)
+salary_plot
+
+## Data Preparation
+
+##--CODE--##
+# Reformat data of the independent variable X as a single-column array
+
+
+# Display sample data
+
+
+##--CODE--##
+# The shape of X is 30 samples, with a single feature (column)
+
+
+##--CODE--##
+# Create an array for the dependent variable y
+
+
+## Building the Linear Regression Model
+
+##--CODE--##
+# Create a model with scikit-learn
+
+
+##--CODE--##
+# Fit the data into the model
+
+
+##--CODE--##
+# Display the slope
+
+
+##--CODE--##
+# Display the y-intercept
+
+
+##--CODE--##
+# Display the model's best fit line formula
+
+
+##--CODE--##
+# Display the formula to predict the salary for a person with 7 years of experience
+
+# Predict the salary for a person with 7 years of experience
+
+# Display the prediction
+
+
+##--CODE--##
+# Make predictions using the X set
+
+
+##--CODE--##
+# Create a copy of the original data
+
+# Add a column with the predicted salary values
+
+# Display sample data
+
+
+##--CODE--##
+# Create a line plot of the predicted salary values
+best_fit_line = df_salary_predicted.plot.line(
+    x = "years_experience",
+    y = "salary_predicted",
+    color = "red"
+)
+best_fit_line
+
+##--CODE--##
+# Plot salary scatter and best fit line together
+salary_plot = df_salary_predicted.plot.scatter(
+    x="years_experience",
+    y="salary",
+    title="Expected Salary Based on Years of Experience"
+)
+
+# Create a line plot of the predicted salary values
+best_fit_line = df_salary_predicted.plot.line(
+    x = "years_experience",
+    y = "salary_predicted",
+    color = "red",
+    ax=salary_plot
+)
+salary_plot
+
+##--CODE--##
+
+

@@ -1,0 +1,87 @@
+##--CODE--##
+%matplotlib inline
+from matplotlib import pyplot as plt
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Dataset:  covtype.csv
+
+Source: Remote Sensing and GIS Program, Department of Forest Sciences, College of Natural Resources, Colorado State University
+
+Description: Predicting forest cover type from cartographic variables only (no remotely sensed data). The actual forest cover type for a given observation (30 x 30 meter cell) was determined from US Forest Service (USFS) Region 2 Resource Information System (RIS) data. Independent variables were derived from data originally obtained from US Geological Survey (USGS) and USFS data. Data is in raw form (not scaled) and contains binary (0 or 1) columns of data for qualitative independent variables (wilderness areas and soil types).
+
+This study area includes four wilderness areas located in the Roosevelt National Forest of northern Colorado. These areas represent forests with minimal human-caused disturbances, so that existing forest cover types are more a result of ecological processes rather than forest management practices.
+
+Variables/Columns
+
+- Elevation: Elevation in meters
+- Aspect: Aspect in degrees azimuth
+- Slope: Slope in degrees
+- Horizontal_Distance_To_Hydrology: Horz Dist to nearest surface water features
+- Vertical_Distance_To_Hydrology: Vert Dist to nearest surface water features
+- Horizontal_Distance_To_Roadways: Horz Dist to nearest roadway
+- Hillshade_9am: Hillshade index at 9am, summer solstice
+- Hillshade_Noon: Hillshade index at noon, summer soltice
+- Hillshade_3pm: Hillshade index at 3pm, summer solstice
+- Horizontal_Distance_To_Fire_Points: Horz Dist to nearest wildfire ignition points
+- Wilderness_Area: 0 (absence) or 1 (presence)
+- Cover_Type: (2 types) Forest Cover Type designation
+    - 1: Spruce/Fir
+    - 2: Lodgepole Pine
+
+##--CODE--##
+# Import data
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m13/lesson_2/datasets/covtype.csv')
+df
+
+##--CODE--##
+# Split features and target
+X = df.drop('cover', axis=1)
+y = df['cover']
+
+##--CODE--##
+# Split into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+
+# Scale the data
+scaler = StandardScaler().fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+##--CODE--##
+# Train the Random Forest model
+clf = RandomForestClassifier(random_state=1, n_estimators=500).fit(X_train_scaled, y_train)
+
+# Evaluate the model
+print(f'Training Score: {clf.score(X_train_scaled, y_train)}')
+print(f'Testing Score: {clf.score(X_test_scaled, y_test)}')
+
+##--CODE--##
+# Get the feature importance array
+feature_importances = clf.feature_importances_
+
+##--CODE--##
+# List the top 10 most important features
+importances_sorted = sorted(zip(feature_importances, X.columns), reverse=True)
+importances_sorted[:10]
+
+##--CODE--##
+# Plot the feature importances
+features = sorted(zip(X.columns, feature_importances), key = lambda x: x[1])
+cols = [f[0] for f in features]
+width = [f[1] for f in features]
+
+fig, ax = plt.subplots()
+
+fig.set_size_inches(8,6)
+plt.margins(y=0.001)
+
+ax.barh(y=cols, width=width)
+
+plt.show()
+
+##--CODE--##
+
+

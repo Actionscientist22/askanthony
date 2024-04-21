@@ -1,0 +1,49 @@
+##--CODE--##
+# Uncomment the following code if you are using Colab.
+# !pip install gradio
+
+##--CODE--##
+# Import gradio 
+import gradio as gr
+
+##--CODE--##
+# Create a pizza order function that takes 
+# the size of the pizza and up to three toppings, and returns the price of the pizza with tax. 
+def pizza_order(size, topping_1, topping_2, topping_3): 
+     """
+    Calculate the total cost of a pizza order based on size and includes up to three toppings.
+
+    Parameters:
+    - size (str): Size of the pizza (options: "large", "medium", "small").
+    - topping_1 (bool): True if topping 1 field has been filled in, False otherwise.
+    - topping_2 (bool): True if topping 2 field has been filled in, False otherwise.
+    - topping_3 (bool): True if topping 3 field has been filled in, False otherwise.
+
+    Returns:
+    str: A formatted string indicating the total cost of the pizza order, including tax.
+    """
+    # Get the price for the size of pizza. 
+    
+        
+    # Set the price of the toppings to zero. 
+    
+    
+    # Use conditionals to add up the price for each topping if a topping has been added.
+    
+       
+    
+    # Add the size_price and topping_price and calculate the tax (7%) of the order.
+
+    
+    # Return the pizza price to two decimal places
+    
+        
+# Create an instance of the gradio Interface application function with parameters. 
+app = gr.Interface()
+
+# Launch the app
+app.launch()
+
+##--CODE--##
+
+

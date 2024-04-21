@@ -1,0 +1,195 @@
+##--CODE--##
+# Import the required modules
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+## Part 1: Create a Pandas DataFrame
+
+##--CODE--##
+# Read in the CSV file as a Pandas Dataframe
+ccinfo_df = pd.read_csv("Resources/cc_info_default.csv")
+
+# Review the first five rows of the DataFrame
+ccinfo_df.head()
+
+##--CODE--##
+# Check for null values
+
+
+## Part 2:  Preprocessing the Data
+---
+###  Transform "education" column with get_dummies
+
+##--CODE--##
+# Verify the categories of the "education" column
+
+
+##--CODE--##
+# Transform the education column using get_dummies
+
+
+# Display the transformed data
+
+
+##--CODE--##
+# Concatenate the df_shopping_transformed and the card_dummies DataFrames
+
+
+# Drop the original education column
+
+
+# Display the DataFrame
+
+
+### Transform "marriage" column with encoding function
+
+##--CODE--##
+# Encoding the marriage column using a custom function
+def encode_marriage(marriage):
+    """
+    This function encodes marital status by setting yes as 1 and no as 0.
+    """
+    if marriage == "yes":
+        return 1
+    else:
+        return 0
+
+# Call the encode_marriage function on the marriage column
+
+
+# Review the DataFrame 
+
+
+### Scale the Data
+---
+- Apply the Standard Scaler to "limit_bal", "bill_amt", "pay_amt"
+
+##--CODE--##
+# Scaling the numeric columns
+
+
+# Review the scaled data
+
+
+##--CODE--##
+# Create a DataFrame of the scaled data
+
+
+# Replace the original data with the columns of information from the scaled Data
+
+
+# Review the DataFrame
+
+
+## Part 3. Use the Elbow Method to determine the optimal number of clusters for KMeans.
+
+##--CODE--##
+# Import the KMeans, Birch, and AgglomerativeClustering modules from SKLearn
+from sklearn.cluster import KMeans, AgglomerativeClustering, Birch
+
+##--CODE--##
+# Create a a list to store inertia values and the values of k
+inertia = []
+k = list(range(1, 11))
+
+# Create a for-loop where each value of k is evaluated using the K-means algorithm
+# Fit the model using the service_ratings DataFrame
+# Append the value of the computed inertia from the `inertia_` attribute of the KMeans model instance
+
+
+# Define a DataFrame to hold the values for k and the corresponding inertia
+
+
+# Review the DataFrame
+df_elbow
+
+##--CODE--##
+# Plot the Elbow curve
+
+
+## Part 4: Segment the data with K-means using the optimal number of clusters
+
+##--CODE--##
+# Define the model with 3 clusters
+
+
+# Fit the model
+
+
+# Make predictions
+
+
+## Part 5. Cluster the data using AgglomerativeClustering and Birch
+
+Using your optimal number of clusters found above, additionally estimate clusters by using both `AgglomerativeClustering` and `Birch`. Save each of these models and their results for comparison.
+
+##--CODE--##
+# Fit a AgglomerativeClustering Model with three clusters
+
+
+# Make predictions with the AgglomerativeClustering model
+
+
+# Previewing the predicted customer classifications for AgglomerativeClustering
+
+
+##--CODE--##
+# Fit a Birch Model with three clusters.
+
+
+# Make predictions with the Birch model
+
+
+# Previewing the predicted customer classifications for BIRCH
+
+
+## Part 6. Compare the cluster results from using Kmeans, AgglomerativeClustering, Birch
+
+##--CODE--##
+# Create a copy of the preprocessed data
+
+# Add class columns with the labels to the new DataFrame
+
+
+##--CODE--##
+# Plot the kmeans clusters using the limit_bal and age columns. 
+
+
+##--CODE--##
+# Plot the agglomerative clusters using the limit_bal and age columns. 
+
+
+##--CODE--##
+# Plot the birch clusters using the limit_bal and age columns. 
+
+
+##--CODE--##
+# Create a list to store values and the values of k
+score_kmeans = []
+score_agglomerative = []
+score_birch = []
+
+# Create a list to set the range of k values to test
+
+
+##--CODE--##
+from sklearn import metrics
+# For each model, we iterate throught the different cluster count (`i`). 
+# Then, calculate the variance ratio for each algorithm, given that specified cluster count.
+for i in k:
+    # Kmeans variance and score
+
+    
+    # AgglomerativeClustering variance and score
+
+    
+    # Birch variance and score
+
+
+##--CODE--##
+# Display the scores. 
+
+
+##--CODE--##
+
+

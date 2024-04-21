@@ -1,0 +1,125 @@
+##--CODE--##
+import pandas as pd
+
+##--CODE--##
+# Import the data
+file = '../Resources/SFO_Airport_Utility_Consumption.csv'
+utilities_df = pd.read_csv(file)
+
+utilities_df.head()
+
+# Question: 
+### Which utility's usage changed the most from 2013 to 2018?
+
+##--CODE--##
+# Data Collection and Cleaning
+# Select only the needed columns
+utils_df_cleaning = utilities_df[['Year', 'Utility', 'Units', 'Usage']].copy()
+utils_df_cleaning.head()
+
+##--CODE--##
+# Scale the Usage column to be more readable
+# Rows with "Water" as the utility can be left as is
+def scale_to_millions(row):
+    if row['Utility'] == 'Water':
+        return row['Usage']
+    return row['Usage'] / 1000000
+
+utils_df_cleaning['Usage'] = utils_df_cleaning.apply(scale_to_millions, axis = 1)
+utils_df_cleaning.head()
+
+##--CODE--##
+# Alter the Units column to reflect the changes
+def millions_of_units(row):
+    if row['Utility'] == 'Water':
+        return row['Units']
+    return 'Million ' + row['Units']
+    
+utils_df_cleaning['Units'] = utils_df_cleaning.apply(millions_of_units, axis = 1)
+utils_df_cleaning.head()
+
+##--CODE--##
+# Combine the Utility and Units columns
+# by putting Units in parentheses
+def combine_utility_and_units(row):
+    return f"{row['Utility']} ({row['Units']})"
+
+utils_df_cleaning['Utility'] = utils_df_cleaning.apply(combine_utility_and_units, axis = 1)
+utils_df_cleaning.head()
+
+
+##--CODE--##
+# Create two new DataFrames with data from 2013
+# and 2018 that each contain only the Utility and 
+# Usage column. Reset the index  for each 
+# DataFrame to Utility
+utils_2013_df_cleaned = utils_df_cleaning\
+                .loc[utils_df_cleaning['Year'] == 2013, ['Utility', 'Usage']]\
+                .copy()\
+                .set_index('Utility')
+utils_2018_df_cleaned = utils_df_cleaning\
+                .loc[utils_df_cleaning['Year'] == 2018, ['Utility', 'Usage']]\
+                .copy()\
+                .set_index('Utility')
+
+utils_2018_df_cleaned.head()
+
+##--CODE--##
+# Analyze
+
+# Calculate the totals for each utility
+utilities = utils_2013_df_cleaned.index.unique()
+totals_2013 = {'Period': 2013}
+totals_2018 = {'Period': 2018}
+for utility in utilities:
+    totals_2013[utility] = utils_2013_df_cleaned.loc[utility, 'Usage'].sum()
+    totals_2018[utility] = utils_2018_df_cleaned.loc[utility, 'Usage'].sum()
+
+print(totals_2013)
+print(totals_2018)
+
+
+
+##--CODE--##
+# Calculate the change per utility as a percentage
+# of each utility's 2013 total.
+
+def get_percentage(original, final):
+    return round((final - original) / original, 3) * 100
+
+data = []
+for utility in totals_2013.keys():
+    if utility == 'Period':
+        continue
+    original = totals_2013[utility]
+    final = totals_2018[utility]
+    row = {
+        'Utility': utility,
+        '2013': round(original, 1),
+        '2018': round(final, 1),
+        'Difference': round(final - original, 1),
+        'Change %': get_percentage(original, final)
+    }
+    data.append(row)
+
+
+
+# Create a dataframe with the results
+summary_df = pd.DataFrame(data)
+summary_df
+
+
+##--CODE--##
+# Set the index to the utility column
+summary_df = summary_df.set_index('Utility')
+
+# Sort the rows based on Change %
+summary_df = summary_df.sort_values('Change %', ascending=False)
+summary_df
+
+# Summary
+The number of passengers using the airport grew 28% in just 5 short years! Water consumption rose slightly at 4.9%, but despite the increase in airport traffic, Electricity and Gas usage were both down in 2018 compared to 2013, with Gas leading the charge with a 6.8% decline. This is a major victory in terms of emissions, and it also helps the bottom line due to cost reduction. We didn't research how the data was collected, and it is possible that the data is incomplete or biased in some unknown way. We could improve our analysis by digging deeper into the source of the data to better understand where it comes from.
+
+##--CODE--##
+
+

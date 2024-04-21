@@ -1,0 +1,50 @@
+##--CODE--##
+# Uncomment the following code if you are using Google Colab.
+# ! pip install transformers
+# ! pip install gradio
+
+##--CODE--##
+# Import transformers pipeline
+from transformers import pipeline
+# Import Gradio
+import gradio as gr
+
+##--CODE--##
+# Instantiate the pipeline class for summarization using the facebook/bart-large-cnn model.
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+##--CODE--##
+# Read in the text file with the read_file function.
+# https://en.wikipedia.org/wiki/History_of_artificial_intelligence
+filepath = "Resources/AI_history.txt"
+with open(filepath) as f:
+    ai_text = f.read().replace('\n',' ')
+
+##--CODE--##
+# Print the AI history text. Copy and paste it into the Gradio app.
+print(ai_text)
+
+##--CODE--##
+# Create the summarize function passing in the desired parameter for the most likely summary of the article. 
+def summarize(article):
+    return f'{summarizer(article, min_length=30, max_length=200, do_sample=False)[0]["summary_text"]}'
+
+# Create an instance of the Gradio Interface application function with the appropriate parameters. 
+app = gr.Interface(fn=summarize, inputs="text", outputs="text")
+# Launch the app
+app.launch()
+
+##--CODE--##
+# Get a more diverse summary of the article using "True" for the `do_sample` parameter.
+# Create the summarize function passing in the desired parameter for a more diverse summary of the article. 
+def summarize(article):
+    return f'{summarizer(article, min_length=30, max_length=200, do_sample=True)[0]["summary_text"]}'
+
+# Create an instance of the Gradio Interface application function with the appropriate parameters. 
+app = gr.Interface(fn=summarize, inputs="text", outputs="text")
+# Launch the app
+app.launch()
+
+##--CODE--##
+
+

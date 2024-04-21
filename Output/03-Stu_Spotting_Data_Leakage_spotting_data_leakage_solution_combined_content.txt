@@ -1,0 +1,86 @@
+##--CODE--##
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
+# Part 1: Crowdfunding
+
+##--CODE--##
+# Import the data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m14/lesson_2/datasets/crowdfunding-data-leakage.csv")
+
+##--CODE--##
+# Create an X and y variable
+X = df.drop(columns=['outcome'])
+y = df['outcome']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state = 13)
+
+##--CODE--##
+# Create a Random Forest Model
+classifier = RandomForestClassifier(random_state=13)
+
+# Fit (train) or model using the training data
+classifier.fit(X_train, y_train)
+
+# Calculate the accuracy of the model with training data
+classifier.score(X_train, y_train)
+
+##--CODE--##
+# Calculate the accuracy of the model with testing data
+classifier.score(X_test, y_test)
+
+##--CODE--##
+# Identify any columns that could be leaking data
+df.head()
+
+##--CODE--##
+# Check correlation of columns to the outcome column
+df.corr()['outcome'].sort_values()
+
+##--CODE--##
+# Plot rewards_given and outcome in a scatter plot
+df.plot(kind='scatter', x='rewards_given', y='outcome')
+
+# Part 2: Start Up Success
+
+##--CODE--##
+# Import the data
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m14/lesson_2/datasets/start-up-success-leakage.csv')
+
+##--CODE--##
+# Create an X and y variable
+X = df.drop(columns=['Firm Category'])
+y = df['Firm Category']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state = 13)
+
+##--CODE--##
+# Create a Random Forest Model
+classifier = RandomForestClassifier(random_state=13)
+
+# Fit (train) or model using the training data
+classifier.fit(X_train, y_train)
+
+# Calculate the accuracy of the model with training data
+classifier.score(X_train, y_train)
+
+##--CODE--##
+# Calculate the accuracy of the model with testing data
+classifier.score(X_test, y_test)
+
+##--CODE--##
+# Identify any columns that could be leaking data
+df.head()
+
+##--CODE--##
+# Check correlation of columns to the Firm Category column
+df.corr()['Firm Category'].sort_values()
+
+##--CODE--##
+# Plot Firm ID and Firm Category in a scatter plot
+df.plot(kind='scatter', x='Firm ID', y='Firm Category')
+
+##--CODE--##
+
+

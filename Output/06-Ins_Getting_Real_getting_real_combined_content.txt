@@ -1,0 +1,111 @@
+##--CODE--##
+# Import our dependencies
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler,OneHotEncoder
+from pathlib import Path
+import pandas as pd
+import tensorflow as tf
+
+# Import our input dataset
+attrition_df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_2/datasets/HR-Employee-Attrition.csv')
+attrition_df
+
+##--CODE--##
+# Generate our categorical variable lists
+
+
+##--CODE--##
+# Check the number of unique values in each column
+
+
+##--CODE--##
+# Create a OneHotEncoder instance
+
+
+# Fit and transform the OneHotEncoder using the categorical variable list
+
+
+# Add the encoded variable names to the dataframe
+
+
+##--CODE--##
+# Merge one-hot encoded features and drop the originals
+
+
+##--CODE--##
+# Split our preprocessed data into our features and target arrays
+
+
+# Split the preprocessed data into a training and testing dataset
+
+
+##--CODE--##
+# Create a StandardScaler instances
+
+
+# Fit the StandardScaler
+
+
+# Scale the data
+
+
+##--CODE--##
+# Define the model - deep neural net
+
+
+# First hidden layer
+
+
+# Second hidden layer
+
+
+# Output layer
+
+
+# Check the structure of the model
+
+
+##--CODE--##
+# Compile the model
+
+
+##--CODE--##
+# Train the model
+
+
+##--CODE--##
+# Evaluate the model using the test data
+
+
+# Display evaluation results
+
+
+## Saving the Trained Model
+
+##--CODE--##
+# Set the model's file path
+
+
+# Export your model to a keras file
+
+
+## Loading a Trained Model
+
+##--CODE--##
+# Import the required libraries
+import tensorflow as tf
+
+##--CODE--##
+# Set the model's file path
+
+
+# Load the model to a new object
+
+
+##--CODE--##
+# Evaluate the model using the test data
+
+
+# Display evaluation results
+
+

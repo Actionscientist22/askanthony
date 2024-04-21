@@ -1,0 +1,70 @@
+# U.S. Census Retrieval
+
+##--CODE--##
+# Import dependencies
+import requests
+import pandas as pd
+from census import Census
+from dotenv import load_dotenv
+import os
+
+# Load environment variables and U.S. Census API key
+load_dotenv()
+api_key = os.getenv("CENSUS_API_KEY")
+
+##--CODE--##
+# Create an instance of the Census library
+c = Census(
+    api_key,
+    year = 2020
+)
+
+## Retrieve data from the U.S. Census using the Census library
+
+References:
+
+* Review the following page to review the Python library documentation: <https://github.com/CommerceDataService/census-wrapper>
+
+* Review the following page to learn more about the data labels: <https://gist.github.com/afhaque/60558290d6efd892351c4b64e5c01e9b>
+
+##--CODE--##
+# Run Census Search to retrieve data on all states (2020 ACS5 Census)
+census_data = c.acs5.get(
+    (
+        "NAME",
+        "B19013_001E",
+        "B01003_001E",
+        "B01002_001E",
+        "B23025_002E",
+        "B25077_001E"
+    ), 
+    {'for': 'state:*'}
+)
+
+# Convert to DataFrame
+census_pd = pd.DataFrame(census_data)
+
+# Column renaming
+census_pd = census_pd.rename(
+    columns = {
+        "B01003_001E": "Population",
+        "B01002_001E": "Median Age",
+        "B19013_001E": "Household Income",
+        "B23025_002E": "Employable People in the labor force",
+        "B25077_001E": "Median Home Value",
+        "NAME": "Name"
+    }
+)
+
+# Display DataFrame length and sample data
+print(f"Number of rows in the DataFrame: {len(census_pd)}")
+census_pd.head()
+
+##--CODE--##
+# Save the DataFrame as a CSV
+# Note: To avoid any issues later, use encoding="utf-8"
+census_pd.to_csv("census_data.csv", encoding="utf-8", index=False)
+
+##--CODE--##
+
+

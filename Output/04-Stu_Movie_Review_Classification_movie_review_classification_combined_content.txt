@@ -1,0 +1,172 @@
+##--CODE--##
+# Import pandas and numpy
+import pandas as pd
+import numpy as np
+# Import the required dependencies from sklearn
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.svm import LinearSVC
+from sklearn import metrics
+
+# Set the column width to view the text message data.
+pd.set_option('max_colwidth', 200)
+
+##--CODE--##
+# Load the movie review dataset.
+
+# Display the first five rows of the dataset. 
+
+
+##--CODE--##
+# Check for missing values. 
+
+
+##--CODE--##
+# Get a sample of a review.
+
+
+##--CODE--##
+#  Get the number of "pos" and "neg" from the "label" column:
+
+
+## Split the data into train & test sets:
+
+##--CODE--##
+# Set the features variable to the "review" column.
+
+# Set the target variable to the "label" column.
+
+
+# Split data into training and testing and use `test_size = 30%`.
+
+
+##--CODE--##
+#  Build a pipeline using`TfidfVectorizer()`, without `stopwords`, and `LinearSVC()`.
+
+
+# Fit the model to the transformed data.
+ 
+
+##--CODE--##
+# Validate the model by checking the model's training and testing accuracy.
+
+
+## Run predictions and analyze the results.
+
+##--CODE--##
+# Retrieve the first 30 predictions from the model.
+
+
+##--CODE--##
+# Create the confusion matrix on the test data and predictions
+
+
+# Print a classification report
+
+
+# Print the overall accuracy
+
+
+### Feed a review into the model's `predict()` method
+
+##--CODE--##
+# Add a review of a movie of at least 3 sentences or more. 
+movie_review = """<add your review here>"""
+
+##--CODE--##
+# Print the classification of the review.
+ 
+
+## Repeat the analysis with the `english` stopwords. 
+
+Now let's repeat the process above and see if the removal of stopwords improves or impairs our score.
+
+##--CODE--##
+# Build a LinearSVC pipeline using`TfidfVectorizer()`, with `stopwords`, and `LinearSVC()`.
+
+
+# Fit the data to the model.
+
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+
+
+##--CODE--##
+# Retrieve the first 30 predictions from the model.
+
+
+##--CODE--##
+# Create the confusion matrix on the test data and predictions
+
+
+# Print a classification report
+
+
+# Print the overall accuracy
+
+
+### Feed the previous review into the model's `predict()` method.
+
+##--CODE--##
+# Print the classification of the review.
+
+
+**Question:** Did the review change? 
+
+**Answer:**
+
+**Question:** If so, why do you think it changed? 
+
+## Repeat the analysis using the following custom stopwords. 
+
+##--CODE--##
+# Create custom stopwords.
+custom_stopwords = ['a', 'about', 'an', 'and', 'are', 'as', 'at', 'be', 'been', 'but', 'by', 'can', \
+             'even', 'ever', 'for', 'from', 'get', 'had', 'has', 'have', 'he', 'her', 'hers', 'his', \
+             'how', 'i', 'if', 'in', 'into', 'is', 'it', 'its', 'just', 'me', 'my', 'of', 'on', 'or', \
+             'see', 'seen', 'she', 'so', 'than', 'that', 'the', 'their', 'there', 'they', 'this', \
+             'to', 'was', 'we', 'were', 'what', 'when', 'which', 'who', 'will', 'with', 'you']
+
+##--CODE--##
+# # Build a LinearSVC pipeline using`TfidfVectorizer()`, with custom_stopwords, and `LinearSVC()`.
+
+
+# Fit the data to the model.
+
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+
+
+
+##--CODE--##
+# Get predictions
+
+
+##--CODE--##
+# Create the confusion matrix on the test data and predictions
+
+
+# Print a classification report
+
+
+# Print the overall accuracy
+
+
+##--CODE--##
+# Print the classification of the review.
+
+
+**Question:** Did the review change? 
+
+**Answer:** 
+
+**Question:** If so, why do you think it changed? 
+
+**Answer:** 
+
+##--CODE--##
+
+

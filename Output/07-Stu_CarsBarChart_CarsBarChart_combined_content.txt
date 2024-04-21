@@ -1,0 +1,36 @@
+##--CODE--##
+%matplotlib notebook
+
+##--CODE--##
+import matplotlib.pyplot as plt
+import numpy as np
+
+##--CODE--##
+cities = ["San Francisco", "Omaha", "New Orleans", "Cincinnati", "Pittsburgh"]
+cars_in_cities = [214.7, 564.4, 416.5, 466.7, 350.6]
+x_axis = np.arange(len(cars_in_cities))
+
+##--CODE--##
+# Create a bar chart based upon the above data
+
+
+##--CODE--##
+# Create the ticks for our bar chart's x axis
+
+
+##--CODE--##
+# Set the limits of the x axis
+
+
+##--CODE--##
+# Set the limits of the y axis
+
+
+##--CODE--##
+# Give the chart a title, x label, and y label
+
+
+##--CODE--##
+# Save an image of the chart and print it to the screen
+
+

@@ -1,0 +1,77 @@
+##--CODE--##
+# Import the data
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import balanced_accuracy_score
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
+
+from ml_utils import train_test_split_marketing,\
+    fill_missing,\
+    build_encoders,\
+    encode_categorical,\
+    build_target_encoder,\
+    encode_target
+
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m14/datasets/bank_marketing.csv')
+df.head()
+
+##--CODE--##
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split_marketing(df)
+X_train.describe()
+
+# Missing Values
+
+##--CODE--##
+# Fill the missing values using the imported function
+X_train_filled = fill_missing(X_train)
+X_test_filled = fill_missing(X_test)
+X_train_filled.head()
+
+##--CODE--##
+# Create the encoders for categorical variables (use X_train_filled)
+encoders = build_encoders(X_train_filled)
+encoders
+
+##--CODE--##
+# Encode X_train_filled and X_test_filled
+X_train_encoded = encode_categorical(X_train_filled, encoders)
+X_test_encoded = encode_categorical(X_test_filled, encoders)
+
+X_train_encoded.head()
+
+##--CODE--##
+# Encode y_train and y_test
+y_encoder = build_target_encoder(y_train)
+y_train_encoded = encode_target(y_train, y_encoder)
+y_test_encoded = encode_target(y_test, y_encoder)
+
+##--CODE--##
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier(n_estimators=100, max_depth=7, random_state=13)
+model.fit(X_train_encoded, y_train_encoded)
+y_pred = model.predict(X_test_encoded)
+print(balanced_accuracy_score(y_test_encoded, y_pred))
+
+##--CODE--##
+# Import new data and test with the model
+
+new_df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m14/lesson_3/datasets/bank_marketing_new_data.csv')
+
+##--CODE--##
+# Split the new data into X and y
+
+
+##--CODE--##
+# Apply preprocessing to the X and y data
+
+
+##--CODE--##
+# Make predictions and check the balanced accuracy score
+
+
+##--CODE--##
+
+

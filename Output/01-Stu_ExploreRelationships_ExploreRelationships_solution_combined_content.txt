@@ -1,0 +1,141 @@
+# Explore Relationships in Data
+
+##--CODE--##
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+## Load and Review Data
+
+##--CODE--##
+# Load the dataset into Pandas dataframe
+happiness = pd.read_csv("../Resources/2019_global_happiness.csv")
+
+# Load the dataset reference into a Pandas dataframe
+happiness_ref = pd.read_csv("../Resources/2019_global_happiness_reference.csv")
+
+# Review the first 5 rows
+happiness.head(5)
+
+##--CODE--##
+# Review the dataset reference
+happiness_ref.style.set_properties(subset=['Description'], **{'width': '350px'}, **{'text-align': 'left'})
+
+**After reviewing the dataset, what patterns and relationships are you interested in exploring? How might you use visualizations to gain insights on global happiness?**
+
+YOUR ANSWER HERE
+
+Answers will vary, but could include the following:
+
+* How happiness varies by country
+* How happiness varies by time
+* If happiness tends to be higher in wealthier countries
+* If countries with higher happiness levels are more likely to be generous
+
+## Explore Happiness by Country with Bar Charts
+
+##--CODE--##
+# Group dataset by country, drop year column, and calculate average values
+by_country = happiness.drop(columns=['year']).groupby('country').mean()
+
+##--CODE--##
+# Plot the distribution of happiness in the dataset
+happiness_dist = by_country.plot.hist(column=['happiness'],bins=200,xlim=(0,10), width=0.35, figsize=(6,4),
+                                         title='Global Happiness Distribution', xticks=range(0,11), 
+                                         yticks=[0,10,20], color='cadetblue')
+
+##--CODE--##
+# Bar chart that shows happiness for the 10 happiest countries
+top = by_country.sort_values(by=['happiness'], ascending=False).head(15)
+top_chart = top.plot.bar(y='happiness', rot=40, width=0.8, figsize=(10,3.5),ylim=(0,10),
+                         title='Countries with Highest Average Happiness, 2005-2018',
+                         yticks=[0,5,10], xlabel='',color='sandybrown')
+
+##--CODE--##
+# Bar chart that shows happiness for the 10 least happy countries
+bottom = by_country.sort_values(by=['happiness']).head(15)
+bottom_chart = bottom.plot.bar(y='happiness', rot=60, width=0.8, figsize=(10,3.5),ylim=(0,10),
+                         title='Countries with Lowest Average Happiness, 2005-2018',
+                         yticks=[0,5,10], xlabel='',color='lightsteelblue')
+
+**What do these charts tell you about global happiness?**
+
+YOUR ANSWER HERE
+
+Answers will vary, but could include the following observations:
+
+* The maximum average happiness rating for any country is around 8 on a scale from 0 to 10
+* Most of the countries in the dataset have a happiness rating in the middle of the scale
+* The 15 happiest countries are mostly highly-developed countries in Europe and North America
+* The 15 least happy countries are mostly less-developed, and several of the countries have had major conflicts or natural disasters
+
+## Explore Changes Over Time with Line Charts
+
+##--CODE--##
+# Group dataset by year, drop country column, and calculate average values
+by_year = happiness.drop(columns=['country']).groupby('year').mean()
+
+##--CODE--##
+# Average global happiness over time
+happiness_time_chart = by_year.happiness.plot(figsize=(10,5),ylim=(5,6.5),yticks=(5,6.5),
+                                              title='Average Global Happiness Over Time, 2005-2018',
+                                              xlabel='',color='orange')
+
+##--CODE--##
+# Average global wealth over time
+wealth_time_chart = by_year.wealth.plot(figsize=(10,5),ylim=(8.9,10.1),yticks=(9,10),
+                                        title='Average Global Wealth Over Time, 2005-2018',
+                                        xlabel='',color='green')
+
+**What do you notice about the line graphs of happiness over time and wealth over time?**
+
+YOUR ANSWER HERE
+
+Answers will vary, but may include the following observations:
+
+* The trends in the two plots look similar, which suggests there could be a correlation
+* Both average global wealth and average global happiness have a noticeable decline in 2006
+* Average global happiness has been about the same since 2008
+* After 2006, both happiness and wealth seem to be increasing over time
+
+## Explore Relationships with Scatter Plots
+
+##--CODE--##
+# Scatterplot of wealth and happiness
+wealth_happiness = by_country.plot.scatter(x="wealth",y="happiness",title="Relationship between Happiness and Wealth", figsize=(8,4),
+                                           xlabel="Wealth",ylabel="Happiness",color="lightcoral",
+                                          xlim=(6.5,12),ylim=(3,8),xticks=(),yticks=())
+
+**What do you notice about the relationship between happiness and wealth? How does this relate to what you learned about how happiness and wealth vary over time?**
+
+YOUR ANSWER HERE
+
+Answers may vary, but should include the observation that happiness seems to increase as wealth increases. This suggests that there may be a relationship between happiness and wealth. This was also suggested by the previous charts, which showed that happiness and wealth had similar trends over time.
+
+##--CODE--##
+# Scatterplot of happiness and generosity
+generosity_happiness = by_country.plot.scatter(x="generosity",y="happiness",title="Relationship between Happiness and Generosity", figsize=(8,4),
+                                           xlabel="Generosity",ylabel="Happiness",color="rosybrown",
+                                           xticks=(),yticks=())
+
+**What do you notice about the relationship between happiness and generosity?**
+
+YOUR ANSWER HERE
+
+Answers will vary, but may include the observation that there is no clear pattern or relationship. Interestingly, the most generous country does not have a high happiness rating. The countries with the highest happiness rating are only moderately happy.
+
+##--CODE--##
+# Scatterplot of happiness and generosity
+wealth_generosity = by_country.plot.scatter(x="wealth",y="generosity",title="Relationship between Wealth and Generosity", figsize=(8,4),
+                                           xlabel="Wealth",ylabel="Generosity",color="darkseagreen",
+                                           xticks=(),yticks=())
+
+**What do you notice about the relationship between wealth and generosity?**
+
+YOUR ANSWER HERE
+
+Answers may vary, but should note that there is no clear relationship between wealth and generosity. 
+
+##--CODE--##
+
+

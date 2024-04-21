@@ -1,0 +1,61 @@
+##--CODE--##
+# Import the necessary dependencies
+import pandas as pd
+
+##--CODE--##
+# Read in the data as a DataFrame
+# Provide the dataset over AWS S3 bucket. It's ~100 MB.
+delayed_flights_url = "https://static.bc-edx.com/ai/ail-v-1-0/m5/lesson_2/delayed_flights.csv"
+delayed_flights_df = pd.read_csv(delayed_flights_url)
+delayed_flights_df.head()
+
+##--CODE--##
+# Get the columns
+delayed_flights_df.columns
+
+##--CODE--##
+# Create a custom function that will calculate of a column from the DataFrame.
+
+
+##--CODE--##
+# Show the average time for delayed arrivals (ArrDelay) grouped by each airline carrier.
+# Pass the 'ArrDelay' column to the custom function.
+# Name the new column "Avg_ArrDelay".
+
+
+##--CODE--##
+# Use the custom function you created to calculate the average for a DataFrame colummn and
+# show the average time for delayed arrivals and departures for each carrier.
+
+
+##--CODE--##
+# Create a custom function that returns the total of the items.
+
+
+##--CODE--##
+# Use the two custom functions you created and show the total number of flights 
+# and the average number of flights that were diverted for each flight origin and destination.
+
+
+# Sort the results in descending order on the new columns, and display the top 25 results.
+
+
+##--CODE--##
+# Create two more custom functions.
+# The first one returns the number of items.
+
+
+# The second one calculates the percentage.
+
+
+##--CODE--##
+# Show the total number of diverted flights, the total flights, 
+# and the percentage of diverted flights for each carrier by day of the week.
+
+
+# Display the top 25 rows. 
+
+
+##--CODE--##
+
+

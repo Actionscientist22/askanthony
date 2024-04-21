@@ -1,0 +1,81 @@
+# Library Usage
+
+For this assignment, you will be taking Library Usage data from San Francisco and creating charts to determine which patron type checks out items from the library the most.
+
+* Import your dependencies and then import your data into a pandas data frame from the CSV within the 'Data' folder
+* Reduce the data to include only patrons who have checked out at least one item
+* Split up your data into groups based upon the 'Patron Type Definition' column
+* Chart your data using a bar graph, giving it both a title and labels for the axes
+
+##--CODE--##
+# Import Dependencies
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+##--CODE--##
+# Import our data into pandas from CSV
+file_path = '../Resources/library_usage.csv'
+library_usage_df = pd.read_csv(file_path, low_memory=False)
+
+library_usage_df.head()
+
+##--CODE--##
+# Filter data so it only includes patrons who checked out at least one item
+library_loans_df=library_usage_df.loc[library_usage_df['Total Checkouts']>0,:]
+library_loans_df
+
+##--CODE--##
+
+# Split up our data into groups based upon 'Patron Type Definition'
+patron_groups=library_loans_df.groupby('Patron Type Definition')
+
+# Find out how many of each patron type borrowed library items
+patron_borrowers=patron_groups['Total Checkouts'].count()
+patron_borrowers
+
+##--CODE--##
+
+# Chart our data, give it a title, and label the axes
+patron_chart=patron_borrowers.plot(kind="bar", title="Library Usage by Patron type")
+patron_chart.set_xlabel("Patron Type")
+patron_chart.set_ylabel("Number of Patrons Borrwowing Items")
+
+plt.show()
+plt.tight_layout
+
+## Individual Branch Charts
+You will now take the same base data frame before and create some code that will allow you to create individual bar charts for each library branch. For this part of the activity, we want you to chart the total 'Total Checkouts' of each library, sorted by patron type. If you are able to, try and come up with a method to do this without using loc or iloc to filter the original data frame! You can use loc to filter group data though.
+
+Since there are quite a lot of patron types with minimal checkouts, the pie charts could look messy with overlapping text. You may also like to include a filter to limit the minimum number of total checkouts by patron group.
+
+##--CODE--##
+# Split up our data into groups based upon 'Home Library Definition' and 'Patron Type Definition'
+library_groups=library_usage_df.groupby(['Home Library Definition','Patron Type Definition'])
+
+# Create a new variable that holds the sum of our groups
+sum_it_up=library_groups['Total Checkouts'].sum()
+sum_it_up.head(30)
+
+
+##--CODE--##
+# Make a variable called branch and store a 'Home Library Definition' in it
+branch='Anza'
+
+# Make a variable called min_checkouts that you can change depending on how busy the library branch you've chosen is
+min_checkouts=5000
+
+# Collect the loans of the branch above
+just_one_branch=sum_it_up.loc[branch]
+
+# filter the data to patron types with greater than the value set for min_checkouts
+# just_one_branch=just_one_branch.loc[just_one_branch['Total Checkouts']>min_checkouts,:]
+# just_one_branch
+# Create a bar chart based upon the total checkouts (or loans) of that single branch
+branch_bar=just_one_branch.plot(kind="bar", title=(f"Loans of {branch} Branch for Patron types over {min_checkouts} Loaned Items"))
+plt.show()
+plt.tight_layout
+
+##--CODE--##
+
+

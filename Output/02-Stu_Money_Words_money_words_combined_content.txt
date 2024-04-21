@@ -1,0 +1,121 @@
+##--CODE--##
+# Import nltk, numpy and pandas.
+import nltk
+import numpy as np
+import pandas as pd
+# Import Reuters
+from nltk.corpus import reuters
+# Import CountVectorizer, TfidfVectorizer from sklearn
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+
+# Download the Reuters dataset
+nltk.download("reuters")
+
+## Get all the Articles About Money
+
+##--CODE--##
+# Get the categories
+print(reuters.categories())
+
+##--CODE--##
+# Get all the "fileids" in the "money-fx" and "money-supply" categories.
+
+
+# Use a list comprehension or for loop to get the all the fieldids.
+
+
+# Print the total number of news articles about money.
+print(f"Total number of news articles about money: {len(money_news_ids)}")
+
+##--CODE--##
+# Use a list comprehension or for loop to retrieve the text from the corpus containing all the news articles about money.
+
+
+# Print a sample article
+
+
+## Calculate the TF-IDF Weights
+
+##--CODE--##
+# Create an instance of the TfidfVectorizer and define the English stopwords to be ignored.
+
+# Tokenize the articles about money into numerical features.
+
+
+##--CODE--##
+# Create a list to hold the words using the vectorizer.get_feature_names_out()
+
+# Create a list to hold the frequency using np.ravel(X.sum(axis=0))
+
+
+##--CODE--##
+# Create a DataFrame of the TF–IDF weights for each word in the working corpus.
+
+
+# Display the DataFrame
+
+##--CODE--##
+# Sort the DataFrame by word frequency in descending order and reset the index.
+
+
+# Print the top 10 words
+
+
+## How many documents contains a specific word or group of words?
+
+##--CODE--##
+# Use the `retrieve_docs(terms)` function that searches the "money_news_ids" list 
+# and retrieves the number of article ids for a given word or group of words.
+def retrieve_docs(terms):
+    """
+    Retrieve a list of document IDs that contain at least one of the specified terms.
+
+    This function searches through a collection of documents represented by 'money_news_ids'
+    to identify documents that contain at least one of the provided terms. It utilizes the
+    NLTK Reuters corpus and tokenizes each document to find matches based on the lowercase
+    representation of words.
+
+    Parameters:
+    terms (list of str): A list of terms to search for within the documents.
+
+    Returns:
+    list of str: A list of document IDs that contain at least one of the specified terms.
+
+    Example:
+    >>> retrieve_docs(['stock', 'market', 'invest'])
+    ['doc1', 'doc3', 'doc5']
+    """
+    # Create an empty list to hold the results.
+    
+    # Use a for loop to loop through the money_news_ids.
+    
+        # Use a list comprehension or a for loop to extract words from the document using reuters.words(doc_id)) 
+        # then populates list comprehension using a conditional statement that checks for any words in 
+        # lowercase matching the "terms" passed to the function.
+        
+        
+        
+        # Use a conditional statement that checks whether there are is at least one term from the input 
+        # list that was found in the document. If it is found, the append the article id to the list.  
+        
+        
+    return result_docs
+
+ ### Question 1: How many articles talk about Yen?
+
+##--CODE--##
+
+
+### Question 2: How many articles talk about Japan or Banks?
+
+##--CODE--##
+
+
+ ### Question 3: How many articles talk about England or Dealers?
+
+##--CODE--##
+
+
+##--CODE--##
+
+

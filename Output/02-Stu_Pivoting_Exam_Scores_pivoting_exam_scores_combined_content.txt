@@ -1,0 +1,43 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read file into DataFrame
+exam_scores_df = pd.read_csv('Resources/students_exam_scores.csv')
+exam_scores_df.head(10)
+
+##--CODE--##
+# Using the `pivot_table()` function show average exam score for each subject.
+# The subject should be the columns. Round to one decimal place.
+
+
+# Rename the index: "Avg_Subject_Score" and round to one decimal place. 
+
+
+##--CODE--##
+# Using the `pivot_table()` function show the minumum and maximum score for each subject. 
+
+
+##--CODE--##
+# Using the `pivot_table()` function show the average score for each student across all subjects. 
+# Round to one decimal place.
+
+
+# Rename the index "Avg. Student Score"
+
+
+##--CODE--##
+# Using the `pivot_table()` function show the minimum and maximum exam score for each student across all subjects. 
+
+
+
+
+##--CODE--##
+# Using the `pivot_table` or the `pivot` function show each students exam score for each subject.
+# The student names are the columns, the subject is the index, and the values are the exam scores.
+
+
+##--CODE--##
+
+

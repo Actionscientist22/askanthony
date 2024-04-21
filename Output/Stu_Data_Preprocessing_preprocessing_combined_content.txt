@@ -1,0 +1,177 @@
+##--CODE--##
+import pandas as pd
+
+##--CODE--##
+# Import the data with the following arguments:
+# delimiter=";", encoding="latin_1"
+rent_data = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_1/datasets/apartments-for-rent.csv", delimiter=";", encoding="latin_1")
+rent_data
+
+##--CODE--##
+# Check dtypes
+
+
+##--CODE--##
+# Drop columns: "id", "title", "body", "currency", "price_display", "address"
+columns_to_drop = ["id", "title", "body", "currency", "price_display", "address"]
+
+
+## Split the amenities into separate columns
+
+The amenities column may contain multiple amenities, separated by a comma. Each amenity should have its own column with binary values where 0 means the property does not have the amenity and 1 means that it does.
+
+##--CODE--##
+# Get a list of the amenities
+amenities = rent_data_cleaned["amenities"].dropna().drop_duplicates().to_list()
+amenities
+
+##--CODE--##
+# Join the amenities list items, separated by a comma
+amenities_joined = ','.join(amenities)
+amenities_joined
+
+##--CODE--##
+# Get single amenities in a list with no duplicates
+amenities_list = list(dict.fromkeys(amenities_joined.split(",")))
+amenities_list
+
+##--CODE--##
+# Add columns for each amenity
+rent_data_cleaned[amenities_list] = 0
+rent_data_cleaned[amenities_list]
+
+##--CODE--##
+# Update the amenities columns
+# Loop through the amenities list
+for amenity in amenities_list:
+    rent_data_cleaned.loc[rent_data_cleaned["amenities"].str.contains(amenity, na=False),amenity] = 1
+rent_data_cleaned
+
+##--CODE--##
+# Drop the (combined) amenities column
+rent_data_cleaned = rent_data_cleaned.drop(columns="amenities")
+rent_data_cleaned.head()
+
+##--CODE--##
+# Check the dtypes again
+rent_data_cleaned.dtypes
+
+## Remaining categorical features and their values
+
+```text
+category         'housing/rent/apartment', 'housing/rent/home',
+                 'housing/rent/short_term'
+fee              'No'
+has_photo        'Thumbnail', 'Yes', 'No'
+pets_allowed     'None', 'Cats,Dogs', 'Cats', 'Dogs'
+price_type       'Monthly', 'Weekly', 'Monthly|Weekly'
+cityname         1575 cities in dataset
+state            52 states in dataset
+source           'RentLingo', 'Listanza', 'ListedBuy', 'RentDigs.com', 'GoSection8',
+                 'RealRentals', 'RENTOCULAR', 'rentbits', 'Home Rentals',
+                 'Real Estate Agent', 'RENTCafé', 'tenantcloud'
+```
+
+##--CODE--##
+# Create a list of the columns to encode
+columns_to_encode = ["category", 
+                     "fee", 
+                     "has_photo", 
+                     "pets_allowed", 
+                     "price_type", 
+                     "cityname", 
+                     "state", 
+                     "source"]
+
+## Pandas encoding methods
+
+##--CODE--##
+# Encode using pd.get_dummies()
+
+
+##--CODE--##
+# Check column names
+
+
+##--CODE--##
+# Use Pandas .astype("category").cat.codes for single column category encoding
+# Copy rent_data_cleaned
+
+
+# Loop through columns_to_encode and convert the columns to category codes
+
+
+##--CODE--##
+# Check dtypes
+
+
+## Scikit-learn encoding methods
+
+##--CODE--##
+# OneHotEncoder
+# Documentation: https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html
+from sklearn.preprocessing import OneHotEncoder
+
+##--CODE--##
+# Set up the OneHotEncoder so it will transform to Pandas
+
+
+# Fit and transform the OneHotEncoder to the columns to encode
+
+
+##--CODE--##
+# LabelEncoder
+# Documentation: https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html
+from sklearn.preprocessing import LabelEncoder
+
+# Create an instance of the label encoder
+
+
+# Copy rent_data_cleaned
+
+
+# Fit and transform the label encoder for each column
+
+
+##--CODE--##
+# Check dtypes
+
+
+## Split into Training and Testing Data
+
+##--CODE--##
+# Import module
+from sklearn.model_selection import train_test_split
+
+##--CODE--##
+# Choose one of the encoded datasets to split into training and testing sets
+# Get the features data, dropping the target "price" and other features you don't want to include
+
+
+##--CODE--##
+# Get the target variable "price" and assign it to y
+
+
+##--CODE--##
+# Use the Sklearn `train_test_split()` function to split the data into training and testing data
+
+
+##--CODE--##
+# Display X_train
+
+
+##--CODE--##
+# Display X_test
+
+
+##--CODE--##
+# Display y_train
+
+
+##--CODE--##
+# Display y_test
+
+
+##--CODE--##
+
+

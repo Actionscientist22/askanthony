@@ -1,0 +1,99 @@
+##--CODE--##
+# Import our dependencies
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from pathlib import Path
+import pandas as pd
+import tensorflow as tf
+from sklearn.metrics import classification_report
+
+##--CODE--##
+# Import data
+file_path = "https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_2/datasets/sports-articles.csv"
+df = pd.read_csv(file_path)
+df.head()
+
+##--CODE--##
+# Drop the label to create the X data
+X = df.drop('Label', axis=1)
+# Create the y set from the "Label" column
+y = df["Label"]
+
+# Split training/test datasets
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+
+##--CODE--##
+# Encode the y data with the label encoder
+# Create an instance of the label encoder
+le = LabelEncoder()
+
+# Fit and transform the y training and testing data using the label encoder
+y_train_encoded = le.fit_transform(y_train)
+y_test_encoded = le.transform(y_test)
+
+##--CODE--##
+# Scale the X data by using StandardScaler()
+scaler = StandardScaler().fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+##--CODE--##
+# Define the deep learning model
+nn_model = tf.keras.models.Sequential()
+nn_model.add(tf.keras.layers.Dense(units=5, activation="tanh", input_dim=len(X_train.columns)))
+
+nn_model.add(tf.keras.layers.Dense(units=3, activation="tanh"))
+nn_model.add(tf.keras.layers.Dense(units=9, activation="tanh"))
+nn_model.add(tf.keras.layers.Dense(units=3, activation="relu"))
+nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid"))
+
+# Compile the Sequential model together and customize metrics
+nn_model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
+
+# Train the model
+fit_model = nn_model.fit(X_train_scaled, y_train_encoded, epochs=100)
+
+# Evaluate the model using the test data
+model_loss, model_accuracy = nn_model.evaluate(X_test_scaled,y_test_encoded,verbose=2)
+print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
+
+##--CODE--##
+# Make predictions with the test data
+predictions = nn_model.predict(X_test_scaled,verbose=2)
+predictions
+
+##--CODE--##
+# Save the predictions to a DataFrame and round the predictions to binary results
+predictions_df = pd.DataFrame(columns=["predictions"], data=predictions)
+predictions_df["predictions"] = round(predictions_df["predictions"],0)
+predictions_df
+
+##--CODE--##
+# Print the classification report with the y test data and predictions
+print(classification_report(y_test_encoded, predictions_df["predictions"].values))
+
+## Save the Model
+
+##--CODE--##
+# Set the model's file path
+file_path = Path("sports-articles.keras")
+
+# Export your model to a keras file
+nn_model.save(file_path)
+
+## Load the Model
+
+##--CODE--##
+# Set the model's file path
+file_path = Path("sports-articles.keras")
+
+# Load the model to a new object
+nn_imported = tf.keras.models.load_model(file_path)
+
+##--CODE--##
+# Evaluate the model using the test data
+model_loss, model_accuracy = nn_imported.evaluate(X_test_scaled, y_test_encoded, verbose=2)
+
+# Display evaluation results
+print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
+

@@ -1,0 +1,3026 @@
+WEBVTT
+
+1
+00:00:06.320 --> 00:00:09.860
+Anthony Taylor: Welcome everybody. Okay.
+
+2
+00:00:10.390 --> 00:00:12.369
+Anthony Taylor: before we even get going.
+
+3
+00:00:14.750 --> 00:00:21.579
+Anthony Taylor: Holy cow. 4 modules. You starting the fourth module today.
+
+4
+00:00:23.230 --> 00:00:26.919
+Anthony Taylor: Hot dog. That is very, very good
+
+5
+00:00:27.360 --> 00:00:31.859
+Anthony Taylor:  basic python is done. How you guys doing with that?
+
+6
+00:00:31.910 --> 00:00:34.269
+Anthony Taylor: The challenge is challenging or no.
+
+7
+00:00:36.100 --> 00:00:47.330
+Anthony Taylor: I see lots of study groups super proud of you guys for that. Okay, I do. I'm still at the at the point where I'm really watching, like everything you guys type.
+
+8
+00:00:47.380 --> 00:00:50.399
+Anthony Taylor: but trying not to say anything.
+
+9
+00:00:50.830 --> 00:00:57.660
+Anthony Taylor: just letting you guys do what you do. And it's working wonderfully makes me very happy.
+
+10
+00:00:58.200 --> 00:01:04.140
+Anthony Taylor:  yeah. So not all else to say other than
+
+11
+00:01:04.220 --> 00:01:11.420
+Anthony Taylor: today's gonna be great. I don't expect today to last real long. Hold on! Are there still people not here?
+
+12
+00:01:12.590 --> 00:01:14.410
+Anthony Taylor: Come on, Dude.
+
+13
+00:01:19.770 --> 00:01:20.580
+Anthony Taylor: No.
+
+14
+00:01:21.670 --> 00:01:24.200
+Anthony Taylor: stand by. We all have to wait 10 s now.
+
+15
+00:01:28.830 --> 00:01:29.750
+Mcpherson, Michael: Arthur.
+
+16
+00:01:31.270 --> 00:01:34.200
+Anthony Taylor: I agree. Kevin.
+
+17
+00:01:39.760 --> 00:01:45.490
+Anthony Taylor: Hello, Miss Sanya! You missed the whole intro class because your ta session went over.
+
+18
+00:01:46.090 --> 00:01:56.299
+Baro, Sonja: Oh, I'm sorry I missed something very important, I'm sure. Did. I was probably talking about the weather or something. Yeah. Well, good thing. You record everything.
+
+19
+00:01:56.410 --> 00:01:59.620
+Anthony Taylor: Umhm. I didn't, because y'all weren't back yet.
+
+20
+00:01:59.670 --> 00:02:11.929
+Anthony Taylor: Oh, darn I do! It's okay, anyway. I know I know what it was. I was congratulating everybody or whatever
+
+21
+00:02:12.000 --> 00:02:13.989
+Anthony Taylor: good work everybody.
+
+22
+00:02:15.060 --> 00:02:20.290
+Anthony Taylor: Let's get started on Module 4. So before we get really too heavy into it myself.
+
+23
+00:02:22.020 --> 00:02:27.389
+Anthony Taylor:  I heard somebody coming.
+
+24
+00:02:28.850 --> 00:02:30.330
+Anthony Taylor: Oh, it's Tanya again.
+
+25
+00:02:31.960 --> 00:02:32.900
+My seat now
+
+26
+00:02:38.100 --> 00:02:43.380
+Anthony Taylor: before we get too heavy into it. Let's talk about the role data plays in
+
+27
+00:02:43.470 --> 00:02:45.769
+Anthony Taylor: what we're doing. So
+
+28
+00:02:47.280 --> 00:02:49.940
+Anthony Taylor: we're all here for AI bye.
+
+29
+00:02:50.400 --> 00:02:57.680
+Anthony Taylor:  tell me. You know what? Let's let's let's start this way. Somebody tell me
+
+30
+00:02:57.850 --> 00:03:01.740
+Anthony Taylor: what role you feel. Data plays in AI
+
+31
+00:03:04.260 --> 00:03:06.120
+Anthony Taylor: who wants to tell me. Go ahead, Meredith.
+
+32
+00:03:07.430 --> 00:03:11.039
+Meredith McCanse (she/her): Sorry I couldn't get the reactions button fast enough.
+
+33
+00:03:11.520 --> 00:03:28.469
+Meredith McCanse (she/her): I feel like it's like hugely central and can make or break it like you can't. I don't think you can create AI without data. And I think if the quality of your data is bad, then your AI that comes from it is gonna be not helpful.
+
+34
+00:03:28.980 --> 00:03:34.319
+Meredith McCanse (she/her): so II think of it as kind of part and parcel, and like very key ingredient.
+
+35
+00:03:34.740 --> 00:03:39.179
+Anthony Taylor: excellent, excellent, and a hundred percent true, Rodney, did you want to add to that?
+
+36
+00:03:42.180 --> 00:03:49.210
+Masarirambi, Rodney: Yeah? Well, actually, not. Well, yes, it basically the same thing that I was gonna say, but I think
+
+37
+00:03:49.260 --> 00:03:57.399
+Masarirambi, Rodney: I think it's even more covered than that. Without data, you can't have AI because you have to train the models
+
+38
+00:03:57.460 --> 00:04:01.600
+Masarirambi, Rodney: they like. So essentially without data, you. you got nothing.
+
+39
+00:04:01.770 --> 00:04:03.730
+Anthony Taylor: Okay? Good. And that
+
+40
+00:04:04.330 --> 00:04:11.409
+Anthony Taylor: is exactly what I was looking for. I wanted to make sure it was clear that AI does not exist without data.
+
+41
+00:04:11.650 --> 00:04:16.999
+Anthony Taylor: And by data we mean structured, unstructured images.
+
+42
+00:04:17.380 --> 00:04:25.669
+Anthony Taylor: Images are technically unstructured. Really, everything falls under, structured and unstructured. But to be a little more generic or less generic.
+
+43
+00:04:25.690 --> 00:04:27.309
+Anthony Taylor: You know. I mean, we're talking
+
+44
+00:04:27.510 --> 00:04:45.490
+Anthony Taylor: business data. We're talking web data, you know, web scraping like off of people's Internet sites, Wikipedia's manuals, images images that were drawn images that were, you know, photos that were taken. All of these things are being used to train modern day. AI,
+
+45
+00:04:46.340 --> 00:04:47.340
+Anthony Taylor: okay.
+
+46
+00:04:47.470 --> 00:04:51.060
+Anthony Taylor:  and they all have one thing in common.
+
+47
+00:04:51.780 --> 00:04:54.710
+Anthony Taylor: Ml. And AI.
+
+48
+00:04:55.870 --> 00:05:00.870
+Anthony Taylor: Do not, cannot train on. Words
+
+49
+00:05:01.980 --> 00:05:05.229
+Anthony Taylor: cannot train on a picture
+
+50
+00:05:05.670 --> 00:05:13.179
+Anthony Taylor: and wait. Anthony, you just said we use it all to train these models. Accurate. Yes, but all of it has to be processed
+
+51
+00:05:13.910 --> 00:05:16.910
+Anthony Taylor: pre-processed and then processed again.
+
+52
+00:05:16.960 --> 00:05:24.499
+Anthony Taylor: It's just for the model to begin to understand what it is you want it to understand. So there is no
+
+53
+00:05:25.040 --> 00:05:26.200
+Anthony Taylor: words
+
+54
+00:05:26.240 --> 00:05:40.599
+Anthony Taylor: being passed in to an AI model. at least not at the point of where it's actually learning the words get passed in. At the beginning they get pre-processed and basically turned into numbers.
+
+55
+00:05:40.780 --> 00:05:42.319
+Anthony Taylor: Those numbers
+
+56
+00:05:42.630 --> 00:05:45.300
+Anthony Taylor: then get taught to
+
+57
+00:05:45.560 --> 00:05:51.389
+Anthony Taylor: the model, and then the model learns from those, and then learns to bring them back into words.
+
+58
+00:05:52.810 --> 00:05:55.980
+Anthony Taylor:  all of that being said
+
+59
+00:05:55.990 --> 00:06:03.640
+Anthony Taylor: one of the most important things. So one of the most important things that we are going to learn is how to handle data.
+
+60
+00:06:04.730 --> 00:06:18.449
+Anthony Taylor: So this is where we definitely cross over. Remember, I told you guys at the beginning there will be stuff where we cross into the data side of things.  and
+
+61
+00:06:20.290 --> 00:06:25.520
+Anthony Taylor: that will help you like when you're looking for work later, you can actually say, Yeah, I've had training
+
+62
+00:06:25.570 --> 00:06:30.630
+Anthony Taylor: in this as well. So pandas is the
+
+63
+00:06:31.770 --> 00:06:35.360
+Anthony Taylor: absolute python library
+
+64
+00:06:35.510 --> 00:06:40.420
+Anthony Taylor: that we use to deal with data. It is not the only one.
+
+65
+00:06:40.700 --> 00:06:43.799
+Anthony Taylor: it is by far the most popular.
+
+66
+00:06:44.410 --> 00:06:47.970
+Anthony Taylor: It is not the most powerful by any means.
+
+67
+00:06:48.900 --> 00:07:01.630
+Anthony Taylor: But it is the one that we will use throughout this course. I will probably show you guys some of the bigger ones the ones like I use. I don't use pandas every day. My data is far too big
+
+68
+00:07:01.690 --> 00:07:02.770
+Anthony Taylor: for pandas.
+
+69
+00:07:02.850 --> 00:07:10.720
+Anthony Taylor: Pandas requires you to have data small enough to fit on your computer, which can still be many millions of rows.
+
+70
+00:07:13.220 --> 00:07:20.929
+Anthony Taylor: The data I deal with is in the billions or trillions. So it doesn't fit on a computer. So I have to use one called pi spark.
+
+71
+00:07:22.230 --> 00:07:24.000
+Anthony Taylor: But I will show it to you at some point.
+
+72
+00:07:24.250 --> 00:07:37.700
+Anthony Taylor: anyway. So let's talk about pandas. So pandas. Well, actually, this is today's objectives. We're gonna describe a data frame, we're gonna import data. So for the first time, you guys are gonna actually be able to grab data
+
+73
+00:07:37.870 --> 00:07:45.240
+Anthony Taylor: from another source and pull it into python and then manipulate it. Okay.
+
+74
+00:07:45.390 --> 00:07:55.129
+Anthony Taylor: we're gonna also create files from our data. So we'll be able to pull it in, be able to mess with it and then put it back out there.
+
+75
+00:07:56.760 --> 00:08:07.219
+Anthony Taylor: Also gonna learn under you to create data frames which you don't know what they are yet. But with lists and dictionaries, and we're gonna learn to manipulate columns.
+
+76
+00:08:07.750 --> 00:08:10.280
+Anthony Taylor: Okay. so
+
+77
+00:08:12.030 --> 00:08:18.690
+Anthony Taylor: think big is, is everyone used to spreadsheet? Does anyone not use the spreadsheet? Let's ask that question
+
+78
+00:08:21.300 --> 00:08:24.380
+Anthony Taylor: never gave. Give me a break.
+
+79
+00:08:25.590 --> 00:08:30.670
+Anthony Taylor: You're being funny, right? I can't see your mouth, so I don't know if you're giggling. You've never used a spreadsheet, really.
+
+80
+00:08:32.230 --> 00:08:34.169
+Anthony Taylor: but you've messed with data before.
+
+81
+00:08:34.690 --> 00:08:40.710
+Vasquez, Gabriel: Yeah, I've I mean, I've messed with it through a Apis. But I haven't had like.
+
+82
+00:08:40.850 --> 00:08:43.789
+Vasquez, Gabriel: like through a spreadsheet or anything like that.
+
+83
+00:08:43.970 --> 00:08:45.469
+Anthony Taylor: Okay? So you weren't teasing.
+
+84
+00:08:45.620 --> 00:08:50.980
+Anthony Taylor: Yeah. Well, I mean, it's rows and columns. Okay, that's that's probably enough for right now.
+
+85
+00:08:51.030 --> 00:08:56.730
+Anthony Taylor: So you know. But spreadsheets are are how most laymen
+
+86
+00:08:57.280 --> 00:08:59.170
+Anthony Taylor: work with data.
+
+87
+00:08:59.950 --> 00:09:01.090
+Anthony Taylor: Okay.
+
+88
+00:09:01.500 --> 00:09:15.190
+Anthony Taylor:  that works. And if you have excel. If you already own excel, it's pretty good. It has a. It has limitations. It can't go on forever.
+
+89
+00:09:15.630 --> 00:09:22.180
+Anthony Taylor:  There are programmatic things that you would have to customize if you wanted it to do more.
+
+90
+00:09:22.600 --> 00:09:28.899
+Anthony Taylor: And it's just overall. It's just not great for manipulating large amounts of data.
+
+91
+00:09:29.370 --> 00:09:33.840
+Anthony Taylor: Google spreadsheets is basically the same thing as excel.
+
+92
+00:09:33.850 --> 00:09:41.620
+Anthony Taylor: They say it's not as advanced, that's true, but it's not. I mean, you can always programmatically affect these tools.
+
+93
+00:09:41.730 --> 00:09:50.320
+Anthony Taylor: But either way, I mean, it's still just a spreadsheet.  really, complex mathematics or
+
+94
+00:09:50.350 --> 00:09:57.089
+Anthony Taylor: or manipulation is painful in spreadsheets. They're very slow when you're dealing with large files.
+
+95
+00:09:57.820 --> 00:10:07.370
+Anthony Taylor: Any kind of automation requires macros and vba, which is just another programming language. Fortunately, we don't teach that one here anymore.
+
+96
+00:10:07.860 --> 00:10:13.499
+Anthony Taylor:  in spreadsheets. It's hard to like load them from external sources.
+
+97
+00:10:14.600 --> 00:10:20.879
+Anthony Taylor: and that's pretty much it. So I mean, you guys have all worked with spreadsheets before. Do you have any other thoughts on that
+
+98
+00:10:21.290 --> 00:10:27.910
+Anthony Taylor: hard coded. That's true, thank you, Meredith, that's a good one. Meredith probably works with spreadsheets more than anybody in
+
+99
+00:10:28.380 --> 00:10:29.540
+Anthony Taylor: my guess.
+
+100
+00:10:30.700 --> 00:10:34.820
+Anthony Taylor: Anybody else have, like horror stories about spreadsheets they want to share
+
+101
+00:10:36.600 --> 00:10:40.820
+Anthony Taylor: have to encourage. You guys are eating right? Carrie's on camera. Now.
+
+102
+00:10:42.350 --> 00:10:46.920
+Anthony Taylor: accountants love excel. Of course they do until they find something better.
+
+103
+00:10:47.220 --> 00:10:49.900
+Masarirambi, Rodney: I'm not a fan. not a fan.
+
+104
+00:10:50.190 --> 00:10:56.999
+Masarirambi, Rodney: sometimes I have to do like the bulk imports, like, you know, like edit like,
+
+105
+00:10:57.300 --> 00:11:25.019
+Masarirambi, Rodney: customers like, you know, like customers, user information. And that kind of stuff. And it becomes messy to use excel, and like once it gets too large. So I split between working numbers and that. But if I could find something else that was like better to to work with, II would. But it's like it's the the the fun one is like when you open up something that's just way too large couple of megabytes. And then you're just. And then your entire computer locks up in your like, yeah, it's it's yeah.
+
+106
+00:11:25.060 --> 00:11:33.760
+Anthony Taylor: Well, we're gonna teach you ways to get around all of that now. So they they like to compare pandas to excel. And and it's not entirely inaccurate
+
+107
+00:11:33.990 --> 00:11:44.380
+Anthony Taylor: there, you know Panda's works in rows and columns at a very general sense similar to a spreadsheet.
+
+108
+00:11:44.690 --> 00:11:57.630
+Anthony Taylor:  and it can consume, I mean, look at all these things that can consume right? You. Csv, excel Parkay, which you guys will learn about later. HTML, Hdfs, that's Duke File System
+
+109
+00:11:57.660 --> 00:12:03.370
+Anthony Taylor: Json, which looks like dictionaries, Google, Bigquery, SQL. And more.
+
+110
+00:12:03.740 --> 00:12:09.650
+Anthony Taylor: And it can write out to the same thing. A lot of people will use pandas for
+
+111
+00:12:09.720 --> 00:12:11.329
+Anthony Taylor: like data engineering
+
+112
+00:12:11.380 --> 00:12:13.769
+Anthony Taylor: and that kind of stuff. Again.
+
+113
+00:12:14.120 --> 00:12:22.239
+Anthony Taylor: I don't use pandas for data engineering. I use Pispart. But it's again a very similar type of design. Okay.
+
+114
+00:12:22.570 --> 00:12:25.410
+Anthony Taylor: a data frame
+
+115
+00:12:26.460 --> 00:12:38.420
+Anthony Taylor: is. And and II wanna, I'm gonna I might even send this into the curriculum team. a data frame. Our pandas works with 2 main data types. And they're new.
+
+116
+00:12:38.720 --> 00:12:44.810
+Anthony Taylor: Right? You guys haven't heard of these until today. It's important to understand. They work with a series.
+
+117
+00:12:45.260 --> 00:12:47.289
+Anthony Taylor: and they work with a data frame
+
+118
+00:12:48.180 --> 00:12:49.720
+effectively.
+
+119
+00:12:49.890 --> 00:12:52.910
+Anthony Taylor: A series is a single column.
+
+120
+00:12:54.760 --> 00:12:59.009
+Anthony Taylor: Alright. So if you think of an Excel spreadsheet. And it's got like 6 columns.
+
+121
+00:13:00.160 --> 00:13:03.710
+Anthony Taylor: Okay, it's really 6 series.
+
+122
+00:13:04.220 --> 00:13:06.840
+Anthony Taylor: all connected with a single index.
+
+123
+00:13:08.710 --> 00:13:16.019
+Anthony Taylor: A data frame is a series is a bunch of series connected with a single index.
+
+124
+00:13:17.650 --> 00:13:21.870
+Anthony Taylor: So if you'd like name, first name, last, name, address, phone number.
+
+125
+00:13:22.460 --> 00:13:32.380
+Anthony Taylor: you could individually print those out as a series. Or if a data frame, you would have a single index that would link all of those columns.
+
+126
+00:13:33.180 --> 00:13:35.760
+Anthony Taylor: That is a data frame.
+
+127
+00:13:37.360 --> 00:13:38.160
+Anthony Taylor: Okay.
+
+128
+00:13:38.580 --> 00:13:44.529
+Anthony Taylor: that's important. So let's go look at what this looks like in code.
+
+129
+00:13:55.730 --> 00:13:58.969
+Anthony Taylor: It's coming. I don't know what's going on. There it goes.
+
+130
+00:13:59.760 --> 00:14:02.220
+Anthony Taylor: Oh, you know what I think I was there that whole time? Okay.
+
+131
+00:14:03.300 --> 00:14:12.759
+Anthony Taylor: so everybody should have done this already. If you have not, let's make sure we do it now. So you're going to import pandas as Pd.
+
+132
+00:14:13.470 --> 00:14:18.470
+Anthony Taylor: okay, we just do as Pd, so we don't have to type pandas every time we use. Pd.
+
+133
+00:14:19.110 --> 00:14:23.430
+Anthony Taylor: so we're gonna run this. if this does not run.
+
+134
+00:14:25.430 --> 00:14:26.630
+Anthony Taylor: You need to let me know.
+
+135
+00:14:30.020 --> 00:14:31.650
+Anthony Taylor: Is this running for everybody?
+
+136
+00:14:33.030 --> 00:14:34.960
+Anthony Taylor: Has anyone not run it yet?
+
+137
+00:14:36.520 --> 00:14:50.240
+Anthony Taylor: Cindy, are you good, Clayton? Okay, you're good.
+
+138
+00:14:50.620 --> 00:14:52.490
+Anthony Taylor: How's it going for you, Buddy?
+
+139
+00:14:55.090 --> 00:14:56.729
+Anthony Taylor: That's all right. No rush
+
+140
+00:14:59.000 --> 00:15:02.230
+Clayton Graves: is Anthony.
+
+141
+00:15:03.390 --> 00:15:10.260
+Anthony Taylor: Oh, well, yeah, that's the normal, like any notebook. When you find, let me know when you get that. Clayton. Yeah, Meredith.
+
+142
+00:15:11.440 --> 00:15:22.789
+Meredith McCanse (she/her): Oh, I was just asking if is is Pd, basically, you're you're assigning it kind of a nickname or a shortcut. Okay.
+
+143
+00:15:28.080 --> 00:15:31.970
+Anthony Taylor: everybody else is good. Just waiting on you, Clayton, or no.
+
+144
+00:15:36.280 --> 00:15:44.559
+Kanouff, Christine: I thought I was. I thought I had everything. But I don't. So I'm just okay, that's alright. Alright, here's what I want you guys to look at my screen.
+
+145
+00:15:44.940 --> 00:15:47.870
+Anthony Taylor: Okay, I'm gonna click code.
+
+146
+00:15:48.420 --> 00:15:49.930
+Anthony Taylor: make a new cell.
+
+147
+00:15:50.670 --> 00:15:54.039
+Anthony Taylor: And I'm gonna type. PIP.
+
+148
+00:15:54.480 --> 00:16:01.040
+Anthony Taylor: Space install space pandas.
+
+149
+00:16:01.550 --> 00:16:04.120
+Kanouff, Christine: and then just run that cell.
+
+150
+00:16:05.770 --> 00:16:10.009
+Anthony Taylor: It might take a second or 2. Well, even 20 or 30 s.
+
+151
+00:16:10.410 --> 00:16:16.739
+Anthony Taylor: But when it's done. You can delete that cell, and you never have to do it again. at least not on this computer.
+
+152
+00:16:21.030 --> 00:16:32.449
+Anthony Taylor: Now, you could have done this through your terminal for those of you that are curious. Why, I didn't do it through the terminal is. if you have more than one python or anything like that on your computer.
+
+153
+00:16:32.520 --> 00:16:41.849
+Anthony Taylor: Doing it through your terminal can be a real can can lead you down the wrong path. So by doing it in the Jupiter Notebook. I know
+
+154
+00:16:42.050 --> 00:16:49.140
+Anthony Taylor: it's going to the python kernel that you're using. So now that it's done, I'm just gonna delete the cell, we don't need it anymore.
+
+155
+00:16:50.470 --> 00:16:53.020
+Anthony Taylor: and then try to run import pandas again.
+
+156
+00:16:57.580 --> 00:17:01.040
+Kanouff, Christine: So should this be in lesson. 4.
+
+157
+00:17:01.770 --> 00:17:04.939
+Anthony Taylor: Module for lesson or doing activity. One.
+
+158
+00:17:05.540 --> 00:17:09.160
+Kanouff, Christine: Yeah, I don't know. For some weird reason.
+
+159
+00:17:13.069 --> 00:17:14.730
+Kanouff, Christine: Let's see.
+
+160
+00:17:14.770 --> 00:17:26.449
+Kanouff, Christine: yeah, I've done my get pull several times. And did you do it since class started today? Because we only put it in like it. Yeah, I just did it again. Let me try it one more. Time
+
+161
+00:17:27.800 --> 00:17:29.749
+Kanouff, Christine: never had issues before.
+
+162
+00:17:29.980 --> 00:17:31.550
+Anthony Taylor: And sure it'll turn up.
+
+163
+00:17:38.010 --> 00:17:40.330
+Anthony Taylor: What's a list. Clayton.
+
+164
+00:17:48.260 --> 00:17:54.419
+Masarirambi, Rodney: Oh, that was from when he was when you were talking about the data,
+
+165
+00:17:54.580 --> 00:17:56.800
+Masarirambi, Rodney: the cells and the lists of the
+
+166
+00:17:58.100 --> 00:18:02.629
+Masarirambi, Rodney: yeah.
+
+167
+00:18:07.770 --> 00:18:09.200
+Anthony Taylor: How's it looking, Christine?
+
+168
+00:18:09.290 --> 00:18:13.499
+Kanouff, Christine: I'm getting just an error that says
+
+169
+00:18:13.710 --> 00:18:17.730
+Kanouff, Christine: your local changes to the following files would be over merge.
+
+170
+00:18:18.260 --> 00:18:23.240
+Kanouff, Christine: I've got that Ds so store thing again going on.
+
+171
+00:18:26.620 --> 00:18:28.290
+Anthony Taylor: and then you would get pull again.
+
+172
+00:18:32.230 --> 00:18:38.419
+Meredith McCanse (she/her): I had to do a get commit, and then I get stash before
+
+173
+00:18:39.600 --> 00:18:44.479
+Meredith McCanse (she/her): yeah, cause I know it won't push anything there. But that's true. Maybe you could do a commit locally.
+
+174
+00:18:44.660 --> 00:18:48.449
+Meredith McCanse (she/her): It wouldn't. I couldn't get past.
+
+175
+00:18:48.730 --> 00:18:51.799
+Meredith McCanse (she/her): I couldn't get I couldn't. I can't pull. If I don't do it.
+
+176
+00:18:51.970 --> 00:19:00.770
+Clayton Graves: Why, why, why are we doing a commit, or are are we trying to pull this? We stop. Is that what's going on? Okay.
+
+177
+00:19:04.920 --> 00:19:07.099
+Anthony Taylor: alright, are we? Good Christine?
+
+178
+00:19:07.610 --> 00:19:11.019
+Kanouff, Christine: Yeah, it's here. Now, thank you.
+
+179
+00:19:11.110 --> 00:19:12.460
+Anthony Taylor: Not a problem.
+
+180
+00:19:12.960 --> 00:19:15.500
+Anthony Taylor: Okay? So first thing we're gonna do
+
+181
+00:19:15.560 --> 00:19:17.469
+Anthony Taylor: import pandas.
+
+182
+00:19:19.040 --> 00:19:21.990
+Anthony Taylor: And then the next thing
+
+183
+00:19:22.150 --> 00:19:27.110
+Anthony Taylor: we're going to create a series.
+
+184
+00:19:27.610 --> 00:19:32.429
+Anthony Taylor: Now, the way we do that is we're gonna we have a variable. This could be anything
+
+185
+00:19:32.750 --> 00:19:36.869
+Anthony Taylor: we're gonna run. Pd, which is the alias, or
+
+186
+00:19:38.920 --> 00:19:41.460
+Anthony Taylor: my mouse is stop working.
+
+187
+00:19:42.130 --> 00:19:45.530
+Anthony Taylor: Pd, which is the alias for Pandas.
+
+188
+00:19:45.560 --> 00:19:53.729
+Anthony Taylor: Okay. And then the method is series and then to the series, we're going to pass a list
+
+189
+00:19:55.080 --> 00:20:05.279
+Anthony Taylor: now. I don't want you to stress on this too much right now, but a list in pandas is
+
+190
+00:20:05.680 --> 00:20:10.600
+Anthony Taylor: I'm sorry. A series in pandas is, in fact, a list.
+
+191
+00:20:11.810 --> 00:20:15.730
+Anthony Taylor: Okay. so we're gonna run this, and it will create
+
+192
+00:20:16.100 --> 00:20:19.269
+Anthony Taylor: a series and looks like this. Now I will tell you
+
+193
+00:20:19.970 --> 00:20:28.740
+Anthony Taylor: for the next few weeks. Every time you see something that looks like this there's an index and a single column of data.
+
+194
+00:20:31.590 --> 00:20:38.440
+Anthony Taylor: You can rest assured that this is a a series.
+
+195
+00:20:39.130 --> 00:20:40.929
+I apologize. Guys, I'm having
+
+196
+00:20:41.880 --> 00:20:43.350
+Anthony Taylor: mouse issues.
+
+197
+00:20:45.490 --> 00:20:47.929
+Anthony Taylor: not a problem. I got another one.
+
+198
+00:20:52.730 --> 00:20:54.500
+Anthony Taylor: Come on. Wait a minute.
+
+199
+00:21:06.240 --> 00:21:09.429
+Anthony Taylor: No, I don't want you on that one on this computer, please.
+
+200
+00:21:16.480 --> 00:21:17.150
+Anthony Taylor: I know
+
+201
+00:21:26.020 --> 00:21:28.370
+Anthony Taylor: almost. There we're done. Okay.
+
+202
+00:21:29.180 --> 00:21:30.440
+Anthony Taylor: anyway.
+
+203
+00:21:31.710 --> 00:21:32.659
+Anthony Taylor: Maybe not.
+
+204
+00:21:35.960 --> 00:21:44.729
+Anthony Taylor: There it goes. So we took this list, and we converted it into a series. If we take
+
+205
+00:21:45.450 --> 00:21:46.820
+Anthony Taylor: 2 lists.
+
+206
+00:21:46.870 --> 00:21:57.300
+Anthony Taylor: Oh, no, sorry! Oh, oh, that's kind of a weird jump. Okay? So that's the way we create a series to create a data frame which, remember, is
+
+207
+00:21:57.650 --> 00:21:59.259
+more than one series
+
+208
+00:21:59.810 --> 00:22:03.219
+Anthony Taylor: we're going to in this case. And and I love this
+
+209
+00:22:03.290 --> 00:22:06.730
+Anthony Taylor: this terminology. We're going to make a list
+
+210
+00:22:07.230 --> 00:22:09.030
+Anthony Taylor: of dictionaries.
+
+211
+00:22:10.590 --> 00:22:13.400
+Anthony Taylor: Okay, so the key
+
+212
+00:22:15.190 --> 00:22:18.640
+Anthony Taylor: will be the column name.
+
+213
+00:22:19.800 --> 00:22:22.070
+Anthony Taylor: And then the values
+
+214
+00:22:22.830 --> 00:22:28.200
+Anthony Taylor: will be the column data. So you can see here we have state that'll be a column.
+
+215
+00:22:28.400 --> 00:22:29.660
+Anthony Taylor: New Jersey
+
+216
+00:22:30.510 --> 00:22:35.720
+Anthony Taylor: abbreviation in J. State, new York abbreviation in Y.
+
+217
+00:22:35.740 --> 00:22:39.599
+Anthony Taylor: And then from that list of dictionaries.
+
+218
+00:22:39.770 --> 00:22:51.680
+Anthony Taylor: we're going to use the PD data frame method and have a data frame. We'll run that. And it looks like this. So again, I want you to notice how Jupiter displays this.
+
+219
+00:22:51.930 --> 00:22:56.570
+Anthony Taylor: If you see anything in this format, it is probably a data frame.
+
+220
+00:22:58.060 --> 00:23:00.760
+Anthony Taylor: What is this format? Well, you can see the column headers.
+
+221
+00:23:01.850 --> 00:23:05.650
+Anthony Taylor: You can see an index. And you can see data.
+
+222
+00:23:06.990 --> 00:23:07.990
+Anthony Taylor: Okay.
+
+223
+00:23:09.360 --> 00:23:18.750
+Anthony Taylor: so this is a data frame. Another way to create a data frame is a dictionary of lists.
+
+224
+00:23:20.250 --> 00:23:34.419
+Anthony Taylor: So I love it. So people say, oh, you have a list, a dictionary, or a dictionary of lists. In a way you can make a data frame. The only difference is is we call Pd data frame a dictionary of list. The key is the column name.
+
+225
+00:23:35.250 --> 00:23:40.950
+Anthony Taylor: and the value is a list of all of the data values under that column.
+
+226
+00:23:42.010 --> 00:23:49.130
+Anthony Taylor: So dynasty, early dynastic period, old Kingdom, Pharaoh, thinnest Farrow Memphis.
+
+227
+00:23:49.800 --> 00:23:51.280
+Anthony Taylor: Then when you run this.
+
+228
+00:23:52.180 --> 00:23:54.500
+Anthony Taylor: you'll see it makes a data frame
+
+229
+00:23:55.690 --> 00:24:00.929
+Anthony Taylor: alright. So it's only 3 things that to remember today are in this discussion.
+
+230
+00:24:01.050 --> 00:24:10.020
+Anthony Taylor: A series is a single column. Okay. I can make a data frame 2 ways. Right now.
+
+231
+00:24:10.150 --> 00:24:14.100
+Anthony Taylor: I can make one with a list of dictionary items.
+
+232
+00:24:14.220 --> 00:24:21.890
+Anthony Taylor: Where every key is A is a column header. and the value follows it immediately.
+
+233
+00:24:22.610 --> 00:24:26.590
+Anthony Taylor: Okay, or I can make a dictionary
+
+234
+00:24:28.060 --> 00:24:37.820
+Anthony Taylor: of lists which the key is the name of the column, and the list is all of the data values of that column. Now, one thing about this. What if I put another
+
+235
+00:24:40.560 --> 00:24:42.549
+Anthony Taylor: seeing right here. Click
+
+236
+00:24:44.330 --> 00:24:45.919
+Anthony Taylor: alright. Let's see what happens.
+
+237
+00:24:51.070 --> 00:24:54.320
+Anthony Taylor: So now we have 3 in this column, but 2 in that column.
+
+238
+00:24:56.180 --> 00:25:00.180
+Anthony Taylor: Oh. this is an important statement.
+
+239
+00:25:00.210 --> 00:25:04.159
+Anthony Taylor: All arrays or lists must be the same length.
+
+240
+00:25:04.780 --> 00:25:08.949
+Anthony Taylor: So each of these items have to be the same.
+
+241
+00:25:09.920 --> 00:25:12.800
+Anthony Taylor: Okay, you can't have an uneven number.
+
+242
+00:25:13.360 --> 00:25:16.609
+Anthony Taylor: and that goes for the dictionary list up above as well.
+
+243
+00:25:17.710 --> 00:25:21.780
+Anthony Taylor: Okay, there are ways around that. But we'll worry about that when the time comes.
+
+244
+00:25:22.830 --> 00:25:25.250
+Anthony Taylor: Okay. any questions.
+
+245
+00:25:26.700 --> 00:25:30.590
+Anthony Taylor: It seems like such a small amount of stuff to show you. That's why I'm kinda like.
+
+246
+00:25:31.370 --> 00:25:34.090
+Anthony Taylor: that's it. That's really it.
+
+247
+00:25:34.870 --> 00:25:40.399
+Baro, Sonja: Okay, so let's do an activity, hey, Anthony Anthony, I did have a question.
+
+248
+00:25:40.420 --> 00:25:48.609
+Baro, Sonja: So if you imported a data frame and it had no values in
+
+249
+00:25:48.740 --> 00:25:51.760
+Baro, Sonja: some of the data.
+
+250
+00:25:53.530 --> 00:26:01.480
+Baro, Sonja: what? How does that work. If what we just saw said, you can't have that happen.
+
+251
+00:26:01.560 --> 00:26:03.240
+Anthony Taylor: you would have to type a blank.
+
+252
+00:26:03.890 --> 00:26:14.450
+Anthony Taylor: You don't have to do that. You're never gonna import a data frame this way. This is just teaching. We're like starting you with, this is the data frame. Before we're done today, you'll import files.
+
+253
+00:26:14.500 --> 00:26:21.749
+Anthony Taylor: And then you'll that's a good question right now. I mean, if you really wanted to do that, you could do comma quote
+
+254
+00:26:22.070 --> 00:26:23.160
+Anthony Taylor: and
+
+255
+00:26:23.390 --> 00:26:28.459
+Anthony Taylor: like, if we wanted to put that king tut in there. But we didn't know what dynasty that was
+
+256
+00:26:29.120 --> 00:26:36.760
+Anthony Taylor: we could do. That's probably an actual barrel impact there. But we could do that. And because we put a blank there.
+
+257
+00:26:36.890 --> 00:26:38.599
+Anthony Taylor: we could get away with it.
+
+258
+00:26:39.160 --> 00:26:40.090
+Okay.
+
+259
+00:26:40.190 --> 00:26:45.100
+Anthony Taylor: but you just have to have the same number of values. That's all. Okay.
+
+260
+00:26:45.420 --> 00:26:47.960
+Anthony Taylor: So let's look at the activity.
+
+261
+00:26:48.000 --> 00:26:49.690
+Anthony Taylor: I think you're gonna be pleased.
+
+262
+00:26:51.190 --> 00:26:58.760
+Anthony Taylor: All you're gonna do is you're gonna create a data frame. The data frame should contain 3 columns and have 4 rows of data.
+
+263
+00:27:00.050 --> 00:27:07.369
+Anthony Taylor: Use an alternative method, create one for an archive. So basically wants you to do a list of dictionaries, data frame
+
+264
+00:27:07.440 --> 00:27:12.350
+Anthony Taylor: and a dictionary of list data frame one for each one of these.
+
+265
+00:27:13.810 --> 00:27:18.149
+Anthony Taylor: Okay, pretty straightforward. Just look at the instructor activity.
+
+266
+00:27:19.000 --> 00:27:20.850
+Anthony Taylor: Alright, let me get
+
+267
+00:27:22.110 --> 00:27:24.869
+Clayton Graves: guys go in. Stride with
+
+268
+00:27:27.690 --> 00:27:30.990
+Clayton Graves: was just starting to hit my stride in python and know this.
+
+269
+00:27:31.300 --> 00:27:33.800
+Anthony Taylor: You do understand? This is just python, right?
+
+270
+00:27:34.130 --> 00:27:37.950
+Clayton Graves: Yeah. But it it's it's different.
+
+271
+00:27:38.120 --> 00:27:42.140
+Anthony Taylor: It's not, it really is not. It's just the another step.
+
+272
+00:27:42.930 --> 00:27:50.320
+Anthony Taylor: It's it's exactly python. There's no difference. We are not going to do anything but python for the rest of the course.
+
+273
+00:27:50.830 --> 00:27:56.360
+Anthony Taylor: So you guys will be fine. Everything is just a continuation of the next thing.
+
+274
+00:27:56.860 --> 00:28:00.610
+Meredith McCanse (she/her): Hey, Anthony, can I ask your question.
+
+275
+00:28:01.070 --> 00:28:04.600
+Meredith McCanse (she/her): We were still on the last step. And just can I just
+
+276
+00:28:05.310 --> 00:28:17.259
+Meredith McCanse (she/her): get confirmation that we were sort of headed in the right direction? Why don't you share and show us what you did, and we'll finish up. Okay? Well, I'm gonna share. And this I was not the driver Rodney was. But I'm gonna
+
+277
+00:28:17.570 --> 00:28:33.569
+Meredith McCanse (she/her): we sort of we're just getting started on this one. I said, the cell here. I think that so for this one where we're creating a dictionary containing lists. I think what we have to do is like. So it's gonna be ornate. And then it's gonna be 15 and 100. So those are the
+
+278
+00:28:33.900 --> 00:28:36.339
+Meredith McCanse (she/her): to the 2.
+
+279
+00:28:36.660 --> 00:28:41.340
+Meredith McCanse (she/her): Am I doing that right? And then classical would be 1250, and 200
+
+280
+00:28:41.780 --> 00:28:44.589
+Anthony Taylor: correct? If you're only doing 2 columns. Yup.
+
+281
+00:28:45.530 --> 00:28:47.669
+Anthony Taylor: you can run that after you do that.
+
+282
+00:28:48.060 --> 00:28:54.209
+Meredith McCanse (she/her): because that is, that is my understanding is we're supposed to take this and create a dictionary containing the lists
+
+283
+00:28:54.360 --> 00:28:59.340
+Meredith McCanse (she/her): correct would be frame column price column sales call or
+
+284
+00:28:59.660 --> 00:29:01.270
+Anthony Taylor: frame price sales.
+
+285
+00:29:01.470 --> 00:29:10.129
+Meredith McCanse (she/her): Oh, so should that actually be here instead of the way they have it drawn there. That's what they
+
+286
+00:29:10.750 --> 00:29:13.090
+Meredith McCanse (she/her): okay, it's got it. Okay?
+
+287
+00:29:13.630 --> 00:29:16.050
+Meredith McCanse (she/her): So this would just be like column one.
+
+288
+00:29:16.190 --> 00:29:20.219
+Anthony Taylor: So then we would capture to do this really fast.
+
+289
+00:29:20.360 --> 00:29:22.589
+Anthony Taylor: you could write the name of the column.
+
+290
+00:29:23.080 --> 00:29:26.330
+Anthony Taylor: Okay? And then just copy that whole list
+
+291
+00:29:26.750 --> 00:29:32.219
+Anthony Taylor: and paste it as the value. or you could put the the variable itself
+
+292
+00:29:34.880 --> 00:29:37.170
+Anthony Taylor: since that list.
+
+293
+00:29:37.540 --> 00:29:41.130
+Anthony Taylor: So here, let me show you guys, let me show you, since you have it on your screen.
+
+294
+00:29:41.560 --> 00:29:46.209
+So right here, you're creating a dictionary, right? So you have your curly bracket.
+
+295
+00:29:46.680 --> 00:29:48.700
+Anthony Taylor: Now, I'd call this
+
+296
+00:29:48.760 --> 00:29:51.309
+Anthony Taylor: frame instead of one. Call it frame.
+
+297
+00:29:51.750 --> 00:29:52.570
+Okay?
+
+298
+00:29:54.480 --> 00:29:56.959
+Anthony Taylor: Okay? Because that's the name of this. Now.
+
+299
+00:29:57.080 --> 00:30:04.830
+Anthony Taylor: after this, after the Colon delete all of that, and put frame column a variable.
+
+300
+00:30:08.320 --> 00:30:12.099
+Meredith McCanse (she/her): So delete delete all of that. Yeah.
+
+301
+00:30:13.080 --> 00:30:15.640
+Anthony Taylor: And now put frame column tab
+
+302
+00:30:15.800 --> 00:30:19.980
+Anthony Taylor: comma. So now you have a key, and a list
+
+303
+00:30:20.680 --> 00:30:27.680
+Meredith McCanse (she/her): list got the square brackets and everything up above, so we don't have to.
+
+304
+00:30:28.240 --> 00:30:31.690
+Anthony Taylor: Exactly. Is everybody following what I'm saying.
+
+305
+00:30:32.620 --> 00:30:36.019
+Meredith McCanse (she/her): I would not have figured that out
+
+306
+00:30:36.700 --> 00:30:42.950
+Anthony Taylor: now. You could. Just so you understand. It put sales as the next one, and then actually copy the list this time.
+
+307
+00:30:44.910 --> 00:30:45.930
+Meredith McCanse (she/her): Okay
+
+308
+00:30:46.440 --> 00:30:49.149
+Anthony Taylor: to Colon, and then copy the actual list.
+
+309
+00:30:49.200 --> 00:30:53.690
+Anthony Taylor: Just so well with the brackets, or you can, unless you're gonna make your own brackets.
+
+310
+00:30:53.760 --> 00:30:55.360
+Meredith McCanse (she/her): got it okay?
+
+311
+00:30:58.590 --> 00:31:00.980
+Anthony Taylor: And then from there.
+
+312
+00:31:01.540 --> 00:31:05.329
+Anthony Taylor: do like, give it a data frame name.
+
+313
+00:31:06.040 --> 00:31:07.390
+Meredith McCanse (she/her): And
+
+314
+00:31:12.290 --> 00:31:13.630
+Meredith McCanse (she/her): and then it would.
+
+315
+00:31:13.900 --> 00:31:17.190
+Anthony Taylor: Pd, dot data for data frame oops.
+
+316
+00:31:19.850 --> 00:31:23.550
+Anthony Taylor: You're just gonna put that variable in there.
+
+317
+00:31:24.430 --> 00:31:25.580
+Meredith McCanse (she/her): This one.
+
+318
+00:31:25.740 --> 00:31:31.490
+Anthony Taylor: Yeah. And now run that well, oh, no way. And then show it. Dict to
+
+319
+00:31:31.680 --> 00:31:33.470
+Meredith McCanse (she/her): that's to.
+
+320
+00:31:37.940 --> 00:31:41.990
+Meredith McCanse (she/her): And private sales.
+
+321
+00:31:42.650 --> 00:31:52.309
+Anthony Taylor: Yeah, yeah, I was not quite. I don't think we just weren't quite there yet. So thank you. I think everybody learns something there, right? Anybody have any questions
+
+322
+00:31:53.050 --> 00:31:56.650
+Anthony Taylor: for Meredith, our shower of the moment.
+
+323
+00:31:58.300 --> 00:31:59.800
+Anthony Taylor: Everybody understood that.
+
+324
+00:32:02.190 --> 00:32:03.960
+Anthony Taylor: Okay, well, then, I will take over
+
+325
+00:32:04.090 --> 00:32:07.040
+Baro, Sonja: Anthony the question I have was
+
+326
+00:32:07.280 --> 00:32:15.889
+Baro, Sonja: so, the just referencing the fact that it was a list. What you were doing the last way was so much more
+
+327
+00:32:16.090 --> 00:32:20.150
+Baro, Sonja: smooth. Right? Cause I we just doing that way we went.
+
+328
+00:32:20.180 --> 00:32:23.200
+Baro, Sonja: the taking the data that was in a list
+
+329
+00:32:23.380 --> 00:32:31.429
+Baro, Sonja: and creating a dictionary, and then just using the definition of what was in that list, the variable itself.
+
+330
+00:32:31.690 --> 00:32:34.080
+Baro, Sonja: and then everything came with it.
+
+331
+00:32:34.390 --> 00:32:44.809
+Baro, Sonja: My question was, Why did you have Meredith on the last one with sales? You had her put in instead of the the sales
+
+332
+00:32:44.870 --> 00:32:52.460
+Anthony Taylor: I would have put the I mean normally you would have put the variable on all of them, but I wanted her to. I wanted her to have in her example.
+
+333
+00:32:52.530 --> 00:33:00.409
+Anthony Taylor: and she had the list, the variables in the first 2, and then the last one, just I mean just to show that you could've put the list there as well.
+
+334
+00:33:00.540 --> 00:33:08.369
+Baro, Sonja: Okay. demonstration. Really, you would put the variable if you yeah.
+
+335
+00:33:08.660 --> 00:33:10.999
+Anthony Taylor: So no, that's good stuff. Very good.
+
+336
+00:33:11.050 --> 00:33:14.959
+Anthony Taylor: Okay. So you guys have made a data frame couple of them. Now.
+
+337
+00:33:15.290 --> 00:33:22.209
+Anthony Taylor: So let's jump right into, let's find the way. We will normally get data using pandas.
+
+338
+00:33:22.540 --> 00:33:23.470
+Anthony Taylor: Okay?
+
+339
+00:33:24.310 --> 00:33:27.570
+Anthony Taylor: And that will be via a file.
+
+340
+00:33:29.770 --> 00:33:31.509
+Anthony Taylor: Close some of these other ones.
+
+341
+00:33:35.000 --> 00:33:37.820
+Anthony Taylor: Alright. the.
+
+342
+00:33:39.270 --> 00:33:41.650
+Anthony Taylor: So of course, we got to import pandas.
+
+343
+00:33:42.870 --> 00:33:44.569
+Anthony Taylor: And now we're gonna
+
+344
+00:33:45.080 --> 00:33:46.530
+Anthony Taylor: create a path
+
+345
+00:33:46.750 --> 00:33:57.000
+Anthony Taylor: to our directory. Now, I want to show you guys how this works. Okay, I'm going to create a variable file equals quote. And then I'm just gonna type.
+
+346
+00:33:57.540 --> 00:33:58.480
+Anthony Taylor: dot.
+
+347
+00:33:59.760 --> 00:34:02.170
+Anthony Taylor: okay. waiting
+
+348
+00:34:03.700 --> 00:34:04.640
+Anthony Taylor: dot
+
+349
+00:34:05.790 --> 00:34:10.170
+Anthony Taylor: there we go. So if I put in like dot slash
+
+350
+00:34:10.320 --> 00:34:17.700
+Anthony Taylor: or dot dot slash. what it's gonna do is on mine, anyway, it's going to.
+
+351
+00:34:18.090 --> 00:34:20.240
+Anthony Taylor: Show me
+
+352
+00:34:20.420 --> 00:34:29.710
+Anthony Taylor: the files that are at that level. So dot slash. That means I'm looking in the directory. I'm in right now. So dot slash.
+
+353
+00:34:29.730 --> 00:34:34.310
+Anthony Taylor: See? There's output and panda reading files. So I'm right here.
+
+354
+00:34:34.370 --> 00:34:37.270
+Anthony Taylor: You can see. Here's the file I'm in, and there's output.
+
+355
+00:34:37.900 --> 00:34:49.119
+Anthony Taylor: Okay? So I want to go to resources, which is up here and inside of resources. I want this file.
+
+356
+00:34:49.300 --> 00:34:52.489
+Anthony Taylor: So I know I have to go out one.
+
+357
+00:34:53.690 --> 00:34:59.189
+Anthony Taylor: Okay from cell. Do I need to go out and then over. So I'm going to do dot dot
+
+358
+00:34:59.780 --> 00:35:00.930
+Anthony Taylor: slash.
+
+359
+00:35:02.470 --> 00:35:07.520
+Anthony Taylor: and then it's going to show me. And I want to go to resources so I can type resources
+
+360
+00:35:08.450 --> 00:35:13.509
+Anthony Taylor: hit Tab, and then it'll show me the next thing, and that's my file. So I'll hit Tab again.
+
+361
+00:35:13.980 --> 00:35:20.049
+Anthony Taylor: Okay, and that's how I'm getting this now is that working for everybody else? Because I think it might be an extension
+
+362
+00:35:20.800 --> 00:35:24.110
+Anthony Taylor: when you type dot dot slash. Are you seeing the path or no
+
+363
+00:35:25.620 --> 00:35:27.749
+Anthony Taylor: hurry is sunny? Is not
+
+364
+00:35:29.250 --> 00:35:30.450
+Anthony Taylor: anybody else
+
+365
+00:35:31.750 --> 00:35:34.620
+Anthony Taylor: you are. I don't know why son is not
+
+366
+00:35:34.840 --> 00:35:39.440
+Dipinto, Matt: on your inside quotes while you're doing it. It doesn't. I tried it without.
+
+367
+00:35:39.590 --> 00:35:42.310
+Anthony Taylor: Okay, are you in? Quotes Sonia.
+
+368
+00:35:42.710 --> 00:35:44.500
+Anthony Taylor: And it's not doing it, or it is.
+
+369
+00:35:45.960 --> 00:35:48.289
+Baro, Sonja: Yeah, I'm close. It's not doing it.
+
+370
+00:35:49.080 --> 00:35:52.889
+Baro, Sonja: Let me see real quick. Sure. Yeah. 1 s.
+
+371
+00:36:02.880 --> 00:36:06.319
+Baro, Sonja: So right here, right, hey, let me come down.
+
+372
+00:36:06.400 --> 00:36:08.800
+Anthony Taylor: We gotta do dot dot slash.
+
+373
+00:36:09.820 --> 00:36:12.650
+Baro, Sonja: Now I will just do Nickel's quote.
+
+374
+00:36:13.350 --> 00:36:14.920
+Anthony Taylor: dot dot slash.
+
+375
+00:36:17.020 --> 00:36:18.720
+Derek Rikke: You gotta import pandas.
+
+376
+00:36:19.200 --> 00:36:23.700
+Anthony Taylor: Maybe you should arrive. Well.
+
+377
+00:36:23.750 --> 00:36:31.040
+Anthony Taylor: Kernel, yet. Okay, never mind. It was the kernel. It didn't. You didn't need to import bandwidth. You needed to add the kernel.
+
+378
+00:36:31.430 --> 00:36:34.690
+Anthony Taylor: No, you don't need to run it. but go try it again.
+
+379
+00:36:38.210 --> 00:36:39.659
+Anthony Taylor: Dot dot slash.
+
+380
+00:36:42.180 --> 00:36:45.559
+Anthony Taylor: Okay backspace again all the way past the quote
+
+381
+00:36:47.390 --> 00:36:48.990
+Anthony Taylor: now quotes
+
+382
+00:36:50.700 --> 00:36:52.100
+Anthony Taylor: Dot dot slash
+
+383
+00:36:54.220 --> 00:36:55.120
+Anthony Taylor: there.
+
+384
+00:36:55.530 --> 00:37:02.900
+Anthony Taylor: Okay, so you do have to have a kernel running. Otherwise it doesn't even know you're trying to do python.
+
+385
+00:37:06.450 --> 00:37:09.470
+Anthony Taylor:  alright.
+
+386
+00:37:09.920 --> 00:37:14.209
+Anthony Taylor: So that's how we that's one way we can find a path.
+
+387
+00:37:15.720 --> 00:37:17.930
+Anthony Taylor: Well, actually, let's see if there's anything.
+
+388
+00:37:19.670 --> 00:37:20.330
+Anthony Taylor: A
+
+389
+00:37:25.860 --> 00:37:26.560
+yeah.
+
+390
+00:37:27.200 --> 00:37:30.139
+Anthony Taylor: I think that's more confusing than what we're doing. So
+
+391
+00:37:31.200 --> 00:37:33.340
+Anthony Taylor: okay, so
+
+392
+00:37:34.890 --> 00:37:40.739
+Anthony Taylor: we have our file, and we're just gonna load that path into a variable.
+
+393
+00:37:41.890 --> 00:37:43.140
+Now
+
+394
+00:37:43.200 --> 00:37:46.980
+Anthony Taylor: for pandas to read this, and actually, before I even read it.
+
+395
+00:37:47.200 --> 00:37:55.019
+Anthony Taylor: let me jump in here. let's go look at it. You guys can look at it also. just click on it.
+
+396
+00:37:55.330 --> 00:37:58.300
+and you'll be able to see it in Vs code.
+
+397
+00:38:00.000 --> 00:38:04.349
+Anthony Taylor: I do like Rainbow Csv. By the way I use this at work all the time.
+
+398
+00:38:04.680 --> 00:38:09.709
+Anthony Taylor:  What it does you'll see when you look at the file now.
+
+399
+00:38:10.230 --> 00:38:17.140
+Anthony Taylor: when we re. When it's done, these will, each column will be a different color. So it's really easy to tell which column is which.
+
+400
+00:38:17.810 --> 00:38:21.550
+Anthony Taylor: Okay, so basically, we're going to
+
+401
+00:38:22.090 --> 00:38:24.710
+load all of this data into a data frame.
+
+402
+00:38:25.450 --> 00:38:32.219
+Anthony Taylor: Alright. So back to here. So this is the path to the file we were just looking at.
+
+403
+00:38:32.570 --> 00:38:38.319
+Anthony Taylor: Now we're going to say, Pd, pandus dot read. Csv.
+
+404
+00:38:39.260 --> 00:38:41.550
+Anthony Taylor: we're going to pass in the path.
+
+405
+00:38:41.670 --> 00:38:45.590
+Anthony Taylor: Now, this is going to be confusing, but bear with me
+
+406
+00:38:46.540 --> 00:38:49.620
+Anthony Taylor: because most of our
+
+407
+00:38:51.360 --> 00:38:53.050
+Anthony Taylor: curriculum writers.
+
+408
+00:38:54.060 --> 00:38:56.689
+Anthony Taylor: our very artsy fart scene.
+
+409
+00:38:57.310 --> 00:39:00.900
+Anthony Taylor: They use macintoshes. Okay?
+
+410
+00:39:01.010 --> 00:39:02.979
+Anthony Taylor: And because of that.
+
+411
+00:39:03.030 --> 00:39:07.540
+Anthony Taylor: we now have to do a special encoding for the rest of the world.
+
+412
+00:39:08.410 --> 00:39:10.899
+Anthony Taylor: Okay. So
+
+413
+00:39:11.470 --> 00:39:16.140
+Anthony Taylor: this encoding will make sure that the file is read
+
+414
+00:39:17.090 --> 00:39:28.030
+Anthony Taylor: that all letters look proper. Basically. Okay. you don't always need it. But if something goes wrong or it gives you an error. Usually, that means you need encoding.
+
+415
+00:39:28.450 --> 00:39:32.990
+Anthony Taylor: Okay, so we're going to run this. This will create a data frame.
+
+416
+00:39:34.950 --> 00:39:35.700
+Anthony Taylor: Okay?
+
+417
+00:39:35.800 --> 00:39:39.409
+Anthony Taylor: Well, unless there's an unless you forget to import pandas.
+
+418
+00:39:42.750 --> 00:39:48.869
+Anthony Taylor: So you don't need import pandas to get that dot dot. But you do have to have a kernel. I want to rewrite all this.
+
+419
+00:39:50.750 --> 00:39:53.290
+Anthony Taylor: Okay, so now we have a data frame.
+
+420
+00:39:53.720 --> 00:40:03.730
+Anthony Taylor: And if we wanted to see just the top, because, remember, that was a lot of data, right? I mean, we could put we could just come in here and say, Show me the whole thing
+
+421
+00:40:08.370 --> 00:40:09.730
+Anthony Taylor: and run this.
+
+422
+00:40:12.530 --> 00:40:17.749
+Anthony Taylor: And it's gonna show us there's a hundred rows. That's kind of a lot of mess on the screen.
+
+423
+00:40:17.780 --> 00:40:28.480
+Anthony Taylor: So if I only want to see a couple of rows. Let's say the first 5 I can do ahead right, and this will show me the first 5. You can actually put any number you want in here.
+
+424
+00:40:29.350 --> 00:40:32.530
+Anthony Taylor: and it'll show you that. But if you don't put anything
+
+425
+00:40:32.570 --> 00:40:34.540
+Anthony Taylor: it'll show you the first 5.
+
+426
+00:40:35.700 --> 00:40:46.010
+Anthony Taylor: Okay. if you just want to see one column you can put the name of your data frame in brackets. You can put the column name
+
+427
+00:40:47.900 --> 00:40:55.639
+Anthony Taylor: and then head, and it'll show you the first 500, pop, quiz, hot shot.
+
+428
+00:40:56.770 --> 00:40:59.210
+Anthony Taylor: What data type is this up here?
+
+429
+00:41:05.730 --> 00:41:06.820
+Anthony Taylor: Anybody?
+
+430
+00:41:06.830 --> 00:41:08.020
+Baro, Sonja: The string
+
+431
+00:41:08.270 --> 00:41:10.010
+Sihong Zhou: free? Hello!
+
+432
+00:41:10.090 --> 00:41:17.799
+Anthony Taylor: There's only 2 different frame or data types we've talked about. Okay? And then what's this one?
+
+433
+00:41:18.200 --> 00:41:19.519
+Baro, Sonja: I'm serious.
+
+434
+00:41:19.660 --> 00:41:21.190
+Anthony Taylor: Serialist.
+
+435
+00:41:21.310 --> 00:41:23.380
+Anthony Taylor: Why do you think it's a series
+
+436
+00:41:24.220 --> 00:41:32.100
+Baro, Sonja: cause? It's got an an index and only one value correct. But we are reading from our data frame
+
+437
+00:41:32.550 --> 00:41:39.560
+Anthony Taylor: what? Because we're only reading one column. It's a series returns a series.
+
+438
+00:41:39.670 --> 00:41:43.790
+Anthony Taylor: Okay, alright. So now in this one, I want to see 2 columns
+
+439
+00:41:44.270 --> 00:41:46.449
+Anthony Taylor: before I run it. What's it going to return?
+
+440
+00:41:50.200 --> 00:41:52.690
+Mcpherson, Michael: Full name, full full name and email
+
+441
+00:41:52.760 --> 00:41:55.709
+Anthony Taylor: perfect. But is it going to be a series or a data frame
+
+442
+00:41:55.830 --> 00:41:56.690
+Sihong Zhou: frame
+
+443
+00:41:56.870 --> 00:41:58.189
+Meredith McCanse (she/her): data framework
+
+444
+00:41:58.330 --> 00:42:01.690
+Anthony Taylor: data frame, because it's gonna add 2 columns.
+
+445
+00:42:01.870 --> 00:42:04.030
+and therefore it can't be a series.
+
+446
+00:42:05.190 --> 00:42:10.290
+Anthony Taylor: Okay. Now, if we want to see the last 5 rows of a data frame. We can do tail.
+
+447
+00:42:11.910 --> 00:42:20.420
+Anthony Taylor: That shows us the last 5 and then, if we want to write it out to a new file.
+
+448
+00:42:20.900 --> 00:42:26.420
+Anthony Taylor: We can do exactly the opposite of what we did above. We're going to say 2 Csv
+
+449
+00:42:26.770 --> 00:42:28.150
+Anthony Taylor: instead of
+
+450
+00:42:30.080 --> 00:42:35.519
+Anthony Taylor: read Csa here. Okay. we're going to actually do 2 Csv
+
+451
+00:42:36.680 --> 00:42:39.800
+Anthony Taylor: went too far. And then we're gonna put a path.
+
+452
+00:42:41.570 --> 00:42:49.519
+Anthony Taylor: And then we're going to say, index equals false. You don't have to say index equals false. But if you don't, you're going to get this number on the left.
+
+453
+00:42:49.570 --> 00:42:53.300
+Anthony Taylor: Notice, this number on the left does not have a column header.
+
+454
+00:42:54.450 --> 00:42:59.069
+Anthony Taylor: Okay, that is the index. Just like in a list.
+
+455
+00:42:59.430 --> 00:43:13.229
+Anthony Taylor: We don't usually want to print the index in a data frame. So in this case it does not have an item or a a a list. We don't want to include it. So we say index equals false. We do want to include our column headers.
+
+456
+00:43:13.750 --> 00:43:15.889
+Anthony Taylor: So we're gonna say, header equals true.
+
+457
+00:43:16.640 --> 00:43:18.070
+Anthony Taylor: So we run this.
+
+458
+00:43:19.270 --> 00:43:22.040
+Anthony Taylor: And now if we go to output.
+
+459
+00:43:23.670 --> 00:43:25.549
+Anthony Taylor: you will see the file was created.
+
+460
+00:43:27.150 --> 00:43:28.460
+Anthony Taylor: Pretty exciting.
+
+461
+00:43:30.740 --> 00:43:32.050
+Anthony Taylor: and that is all.
+
+462
+00:43:33.930 --> 00:43:36.670
+Sihong Zhou: I have one question go for it, Sandy.
+
+463
+00:43:36.710 --> 00:43:39.060
+Sihong Zhou: so like. Now
+
+464
+00:43:39.100 --> 00:43:43.400
+Sihong Zhou: it is under output. Right?
+
+465
+00:43:43.790 --> 00:43:55.190
+Anthony Taylor: So what if I want to put it somewhere else? Can I change it? Let's do it. Let's just let's just do it. Let's just do it. Where do you think we would change it? Looking at my screen right now.
+
+466
+00:43:55.810 --> 00:43:58.840
+Sihong Zhou: I think we change it to
+
+467
+00:43:59.030 --> 00:44:10.579
+Sihong Zhou:  to just under under third, like in rating writing like the big.
+
+468
+00:44:11.830 --> 00:44:13.500
+Sihong Zhou: this documentation.
+
+469
+00:44:14.700 --> 00:44:19.309
+Anthony Taylor: So like, right here, okay, this is where you tell it where to go.
+
+470
+00:44:19.410 --> 00:44:26.460
+Sihong Zhou: Oh, okay. So I'll so we can say, Look, if I get rid of output.
+
+471
+00:44:26.860 --> 00:44:27.570
+Huh!
+
+472
+00:44:28.660 --> 00:44:32.279
+Anthony Taylor: We will, and run it. It's going to put it in the same folder I'm in now.
+
+473
+00:44:32.590 --> 00:44:36.170
+Sihong Zhou: So now it's not an output. It's just sitting right here.
+
+474
+00:44:36.190 --> 00:44:39.820
+Sihong Zhou: Okay, got it? Well, it's also an output, cause we wrote it there, too. But
+
+475
+00:44:39.950 --> 00:44:42.430
+Anthony Taylor: but anyway, you can put any path you want here.
+
+476
+00:44:43.470 --> 00:44:45.450
+Anthony Taylor: Alright, and it'll create it.
+
+477
+00:44:47.500 --> 00:44:48.330
+Anthony Taylor: Okay.
+
+478
+00:44:50.000 --> 00:44:56.630
+Anthony Taylor: Alright. Now, I'm not going to send you off to an activity yet. I have something else to show you. So
+
+479
+00:44:58.400 --> 00:45:00.110
+Anthony Taylor: we can now
+
+480
+00:45:05.100 --> 00:45:08.030
+Anthony Taylor: read in a file which is awesome.
+
+481
+00:45:10.490 --> 00:45:16.669
+Anthony Taylor: Let's import pandas. We're gonna do that pretty much every single time we do anything going forward.
+
+482
+00:45:17.730 --> 00:45:21.460
+Anthony Taylor: We're gonna read in this file here. and it looks like
+
+483
+00:45:24.810 --> 00:45:26.300
+that. Oh, boy!
+
+484
+00:45:28.780 --> 00:45:32.400
+Anthony Taylor: And aren't you glad you don't have to make a dictionary, a list of that?
+
+485
+00:45:33.300 --> 00:45:37.029
+Anthony Taylor: Alright. So it's 500 rows of data.
+
+486
+00:45:38.030 --> 00:45:39.010
+Anthony Taylor: Okay?
+
+487
+00:45:39.500 --> 00:45:44.759
+Anthony Taylor: So we're gonna pull that in. Take a look at the first 5. There they are
+
+488
+00:45:45.450 --> 00:45:46.420
+Anthony Taylor: okay.
+
+489
+00:45:48.510 --> 00:45:50.689
+Anthony Taylor: So we have an idea of what we're looking at.
+
+490
+00:45:51.730 --> 00:45:59.720
+Anthony Taylor: And let's get a list of the columns, because there's a lot of columns there. Right? So let's grab a list of them by typing the data frame name
+
+491
+00:46:00.010 --> 00:46:05.540
+Anthony Taylor: dot columns. And actually let me show you guys something people underscore. Df, remember.
+
+492
+00:46:05.660 --> 00:46:06.930
+Anthony Taylor: you spell it right?
+
+493
+00:46:09.570 --> 00:46:15.189
+Anthony Taylor: And you hit the period. It'll show you all of the things you can do with a data frame.
+
+494
+00:46:16.840 --> 00:46:18.120
+Anthony Taylor: There's a lot
+
+495
+00:46:19.100 --> 00:46:23.529
+Anthony Taylor: okay in this case, I just want to see the columns
+
+496
+00:46:23.790 --> 00:46:27.440
+Anthony Taylor: that are available in this data frame. So
+
+497
+00:46:28.260 --> 00:46:31.139
+Anthony Taylor: question. what is this?
+
+498
+00:46:36.960 --> 00:46:40.599
+Meredith McCanse (she/her): It's a list. Thank you very much, Meredith, it is a list.
+
+499
+00:46:40.690 --> 00:46:45.799
+Anthony Taylor: So df column people. Df, columns, return me a list
+
+500
+00:46:46.250 --> 00:46:54.680
+Anthony Taylor: of the columns that are in this table. Alright. if I only wanted to see some of those problems.
+
+501
+00:46:55.260 --> 00:47:04.230
+Anthony Taylor: I can do well if I wanted to see one, we've already done that right when the last one we did. I only want to see one column. So I could people
+
+502
+00:47:04.690 --> 00:47:06.250
+Anthony Taylor: underscore. Yeah.
+
+503
+00:47:06.290 --> 00:47:08.340
+Anthony Taylor: bracket quote.
+
+504
+00:47:08.640 --> 00:47:09.580
+Anthony Taylor: first name.
+
+505
+00:47:10.210 --> 00:47:13.570
+Anthony Taylor: Okay, I hit enter. I see one column
+
+506
+00:47:13.810 --> 00:47:17.240
+Anthony Taylor: right? Well, if I wanted to see 2
+
+507
+00:47:18.670 --> 00:47:25.570
+Anthony Taylor: I have to pass into, and and I want to be clear. I have to pass into these brackets
+
+508
+00:47:26.150 --> 00:47:28.190
+Anthony Taylor: a list of columns.
+
+509
+00:47:29.260 --> 00:47:30.140
+Anthony Taylor: Now.
+
+510
+00:47:31.310 --> 00:47:34.029
+Anthony Taylor: looking at this, doesn't this look like a list?
+
+511
+00:47:37.450 --> 00:47:42.699
+Anthony Taylor: It does right? It's square brackets. But now I need to pass in a list
+
+512
+00:47:42.710 --> 00:47:45.920
+Anthony Taylor: which means I'm going to have
+
+513
+00:47:46.030 --> 00:47:48.580
+Anthony Taylor: 2 square brackets.
+
+514
+00:47:49.640 --> 00:47:55.199
+Anthony Taylor: the square brackets I need to pass in columns and a list of columns I want to see
+
+515
+00:47:55.570 --> 00:47:57.900
+Anthony Taylor: so bracket bracket.
+
+516
+00:47:58.430 --> 00:48:00.260
+Anthony Taylor: Now, when you look at this.
+
+517
+00:48:01.810 --> 00:48:04.499
+Anthony Taylor: you only get the columns that you requested.
+
+518
+00:48:05.850 --> 00:48:16.470
+Anthony Taylor: Does that make sense to everybody? That bracket bracket thing often confuses people that's and I find that that's the best way to explain it. You have to use the brackets to get one.
+
+519
+00:48:16.670 --> 00:48:22.630
+Anthony Taylor: but if you need to pass in more than one. You need a list. So you have to pass in another set of brackets.
+
+520
+00:48:23.410 --> 00:48:25.530
+Anthony Taylor: Okay. alright.
+
+521
+00:48:26.940 --> 00:48:28.940
+Anthony Taylor: Okay. So that gives you
+
+522
+00:48:30.240 --> 00:48:36.430
+Anthony Taylor: a subset of columns. The last thing we're going to learn about column manipulation is how to rename them.
+
+523
+00:48:37.740 --> 00:48:44.299
+Anthony Taylor: It's a little confusing. but once you understand how to do it, it'll be easy. It'll be
+
+524
+00:48:44.330 --> 00:48:48.040
+Anthony Taylor: second nature. So you have a data frame name
+
+525
+00:48:48.580 --> 00:48:52.929
+Anthony Taylor: which we, we rename this one up here. Organized data frame.
+
+526
+00:48:53.710 --> 00:48:58.269
+Anthony Taylor: Okay. so organized data frame dot rename.
+
+527
+00:48:58.680 --> 00:49:03.449
+Anthony Taylor: And then we're going to give a rename is a method is a function. So then we're going to say.
+
+528
+00:49:05.170 --> 00:49:07.300
+Anthony Taylor: what do we want to rename
+
+529
+00:49:08.910 --> 00:49:16.920
+Anthony Taylor: columns? We're going to rename the columns. What this is expecting is a dictionary
+
+530
+00:49:17.130 --> 00:49:29.719
+Anthony Taylor: with the old name as the key and the new name as the value you could pass in one you could pass in 10 passing 100
+
+531
+00:49:30.100 --> 00:49:33.650
+Anthony Taylor: doesn't matter. So we're going to say rename
+
+532
+00:49:33.930 --> 00:49:39.070
+Anthony Taylor: columns is what I want and rename, and it equals this dictionary of Items.
+
+533
+00:49:39.360 --> 00:49:45.969
+Anthony Taylor: where the key is last name. I want you to rename it. It's a last name like this
+
+534
+00:49:46.580 --> 00:49:50.329
+Anthony Taylor: company name. I want you to Rename Digest company.
+
+535
+00:49:50.850 --> 00:49:54.039
+Anthony Taylor: Okay, just like that. And then we can run this
+
+536
+00:49:54.150 --> 00:49:58.449
+Anthony Taylor: and take a peek, and then you'll see our data frame as
+
+537
+00:49:59.050 --> 00:50:00.230
+Anthony Taylor: new names.
+
+538
+00:50:02.360 --> 00:50:06.940
+Anthony Taylor: Okay. so let's just go over what we learned here. One.
+
+539
+00:50:09.170 --> 00:50:20.580
+Anthony Taylor: we already learned how to read a file list columns, dot coms, data frame dot coms. Whatever your data. Frame's name is dot columns. Okay.
+
+540
+00:50:22.070 --> 00:50:23.900
+Anthony Taylor: powder Pool. One column.
+
+541
+00:50:24.960 --> 00:50:33.649
+Anthony Taylor: You do it with brack, square brackets. More than one column. You do it with a list inside of square brackets
+
+542
+00:50:35.550 --> 00:50:39.689
+Anthony Taylor: to rename you do data frame, dot rename.
+
+543
+00:50:40.690 --> 00:50:46.750
+Anthony Taylor: tell it what you want to rename. And then a dictionary of key value pairs with old Column. New column.
+
+544
+00:50:48.230 --> 00:50:50.839
+Anthony Taylor: Okay, one more, pop, quiz.
+
+545
+00:51:03.850 --> 00:51:05.059
+Anthony Taylor: What will this do?
+
+546
+00:51:11.870 --> 00:51:15.009
+Anthony Taylor: So I'm gonna do something different. Here I'm going to.
+
+547
+00:51:17.190 --> 00:51:22.579
+Anthony Taylor: I want to rerun everything. I'm going to start at the top. And I want you guys to tell me what that last
+
+548
+00:51:22.850 --> 00:51:29.910
+Anthony Taylor: one will do. So let's do it. I imported pandas. I imported the file. We're looking at it. Okay.
+
+549
+00:51:30.290 --> 00:51:32.260
+Anthony Taylor: listed the columns.
+
+550
+00:51:33.900 --> 00:51:38.740
+Anthony Taylor: I created a new data frame with just these 4 columns.
+
+551
+00:51:40.930 --> 00:51:48.780
+Anthony Taylor: Okay, now, I'm going to skip this one and go to this one. So it's the name of the data frame dot rename
+
+552
+00:51:50.020 --> 00:51:52.300
+Anthony Taylor: columns equals this.
+
+553
+00:51:52.370 --> 00:51:55.210
+Anthony Taylor: Anybody want to guess what this is going to actually do.
+
+554
+00:51:56.710 --> 00:51:58.200
+Anthony Taylor: Yes, Brandon.
+
+555
+00:51:59.240 --> 00:52:04.389
+Mckimmy, Brandon: it renamed it renamed the top edges into
+
+556
+00:52:04.780 --> 00:52:05.860
+Mckimmy, Brandon: strings.
+
+557
+00:52:06.690 --> 00:52:09.260
+Anthony Taylor: Good! Is it permanent?
+
+558
+00:52:10.230 --> 00:52:16.929
+Mckimmy, Brandon:  let's find out. Everyone agrees. This has been re, these are renamed right?
+
+559
+00:52:19.400 --> 00:52:22.690
+Anthony Taylor: Let's type organized yet
+
+560
+00:52:22.810 --> 00:52:23.990
+Anthony Taylor: and run it. Kit
+
+561
+00:52:26.910 --> 00:52:31.310
+Anthony Taylor: home. Wait. didn't we just rename those?
+
+562
+00:52:36.420 --> 00:52:43.749
+Anthony Taylor: So this is an important point. I want you to rename the new data set that you created
+
+563
+00:52:44.020 --> 00:52:46.880
+Clayton Graves: with the 5 columns. That's what you renamed.
+
+564
+00:52:47.400 --> 00:52:54.119
+Anthony Taylor: Well, see it. That would be true in this cell. And this is what I wanted to point out. And actually, you're right like.
+
+565
+00:52:54.170 --> 00:52:55.679
+Anthony Taylor: And this one.
+
+566
+00:52:55.750 --> 00:53:00.330
+Anthony Taylor: we said, rename these and put it into this data frame.
+
+567
+00:53:01.140 --> 00:53:04.859
+Anthony Taylor: I skipped this and said, Well, what if I just run this by itself?
+
+568
+00:53:05.880 --> 00:53:14.300
+Anthony Taylor: So this is what you need to learn about pandas and data frames what I want you to take away. Oh, did you have an answer, Ramy? Sorry before I finish?
+
+569
+00:53:16.750 --> 00:53:23.189
+Masarirambi, Rodney: Well, cause sorry, I think, from what what you're looking over there. So the second one, because the
+
+570
+00:53:23.340 --> 00:53:34.420
+Masarirambi, Rodney: we were using with the capital L and capital and for lost name, it sees that as the value which is already present, and takes the other one as the over right.
+
+571
+00:53:35.220 --> 00:53:37.100
+Masarirambi, Rodney: and we'll make that adjustment.
+
+572
+00:53:37.550 --> 00:53:43.529
+Anthony Taylor: So I mean, I'm glad that you see that I'm glad you pointed out. My, but no, that's not actually the point on this one.
+
+573
+00:53:43.710 --> 00:53:46.559
+Masarirambi, Rodney: Okay, it actually did what I expected it.
+
+574
+00:53:46.830 --> 00:54:00.380
+Anthony Taylor: It did rename them, and it showed you them renamed. But and pandas anytime you do something to a data frame. It is not permanent unless you assign it.
+
+575
+00:54:00.670 --> 00:54:03.080
+Anthony Taylor: Now you can overwrite your data frame.
+
+576
+00:54:03.420 --> 00:54:12.610
+Anthony Taylor: That's okay. But because we didn't set this equal to anything when we go to run it again, it just reverts back to what it was before that.
+
+577
+00:54:13.740 --> 00:54:16.740
+Anthony Taylor: because it was never basically, it just wasn't saved.
+
+578
+00:54:18.010 --> 00:54:27.459
+Anthony Taylor: So that's why, in the in the example they gave you. they set it equal to a new data frame to a new variable.
+
+579
+00:54:28.400 --> 00:54:31.209
+Anthony Taylor: But for the record you could totally.
+
+580
+00:54:33.290 --> 00:54:35.179
+Anthony Taylor: That is perfectly acceptable.
+
+581
+00:54:37.120 --> 00:54:42.220
+Anthony Taylor: Now, the bad part about doing this is that means you no longer have the previous version.
+
+582
+00:54:43.690 --> 00:54:48.380
+Anthony Taylor: You're basically taking the version you have. You're renaming the columns and overwriting it.
+
+583
+00:54:48.550 --> 00:54:52.380
+Anthony Taylor: And now it'll stay that way that make sense to everybody?
+
+584
+00:54:54.010 --> 00:54:55.720
+Meredith McCanse (she/her): Does that mean that you?
+
+585
+00:54:56.760 --> 00:54:58.100
+Meredith McCanse (she/her): Does that mean that
+
+586
+00:54:58.210 --> 00:55:03.439
+Meredith McCanse (she/her): to make to manipulate the data like that or make changes? You're constantly having to rename it.
+
+587
+00:55:03.900 --> 00:55:07.669
+Anthony Taylor: Normally, I would just rewrite. I mean, I would just overwrite.
+
+588
+00:55:07.880 --> 00:55:10.140
+Anthony Taylor: So organized equals organized.
+
+589
+00:55:10.810 --> 00:55:14.450
+Meredith McCanse (she/her): Okay, there are times when you still wanna do that.
+
+590
+00:55:14.610 --> 00:55:17.819
+Anthony Taylor: The the times you don't want to do that are usually around
+
+591
+00:55:17.920 --> 00:55:22.440
+Anthony Taylor:  dealing with
+
+592
+00:55:23.620 --> 00:55:26.149
+Anthony Taylor: like like you, you you're not sure.
+
+593
+00:55:26.170 --> 00:55:32.689
+Anthony Taylor: like I need to do this change, but I don't. Wanna I don't wanna wreck it, because if you wreck it, you have to go back to getting and start over
+
+594
+00:55:32.940 --> 00:55:37.450
+Meredith McCanse (she/her): alright. Yeah. So like I did when I showed you the example, I went back and started the top.
+
+595
+00:55:37.570 --> 00:55:44.810
+Anthony Taylor: We ran everything which is fine with these little tiny data frames. But if you're dealing with large data frames, you don't wanna have to do that very often.
+
+596
+00:55:46.020 --> 00:55:47.430
+Anthony Taylor: Not more than you need to.
+
+597
+00:55:48.950 --> 00:55:51.629
+Anthony Taylor: Yeah. Good job. Everybody.
+
+598
+00:55:51.760 --> 00:55:54.469
+Anthony Taylor: Okay.
+
+599
+00:55:58.140 --> 00:56:00.750
+Anthony Taylor: okay. new activity.
+
+600
+00:56:07.190 --> 00:56:19.499
+Anthony Taylor: I tell you my little laptop is not as powerful as my one at home. So it's a loose. Okay? So you're gonna import a Csv file. You're gonna note that the column names are inconsistent and difficult to work with.
+
+601
+00:56:19.590 --> 00:56:22.060
+Anthony Taylor: so rename them to the following.
+
+602
+00:56:23.240 --> 00:56:25.269
+Anthony Taylor: And it doesn't tell you what the old ones are.
+
+603
+00:56:25.570 --> 00:56:32.929
+Anthony Taylor: Then you're gonna create a new table, which means a new data frame that contains these 3 columns in this order.
+
+604
+00:56:33.540 --> 00:56:36.280
+Anthony Taylor: So when you tell it, what columns you want.
+
+605
+00:56:36.290 --> 00:56:38.790
+Anthony Taylor: you can switch the order. No big deal.
+
+606
+00:56:39.130 --> 00:56:42.120
+Anthony Taylor: Okay, it's still gonna work. And that's it.
+
+607
+00:56:43.430 --> 00:56:48.880
+Anthony Taylor: Okay. pretty sure that's gonna be a 10 min activity. Let me confirm
+
+608
+00:56:53.550 --> 00:56:56.460
+Anthony Taylor: a.
+
+609
+00:57:01.150 --> 00:57:04.340
+Anthony Taylor: It's it's no 15 min nice
+
+610
+00:57:04.770 --> 00:57:05.790
+Anthony Taylor: parking.
+
+611
+00:57:06.280 --> 00:57:09.500
+Anthony Taylor: So knock this out and we will
+
+612
+00:57:11.020 --> 00:57:11.780
+Anthony Taylor: go.
+
+613
+00:57:13.450 --> 00:57:24.979
+Anthony Taylor: Okay for those of us watching the video we came back from break. We did not turn on the recording. So we're gonna quickly go through. What we did. After break
+
+614
+00:57:26.120 --> 00:57:33.170
+Anthony Taylor: first off we went through indexing. I do thank you. Kev.
+
+615
+00:57:33.420 --> 00:57:43.889
+Anthony Taylor: That's a good idea. Cause that would really stuck even more. You're just looking at my face. Okay. so here we have. It's coming and it's coming. It's coming.
+
+616
+00:57:46.140 --> 00:57:52.089
+Anthony Taylor: Oh, my God, this is so slow. Okay, so we're gonna import pandas.
+
+617
+00:57:53.100 --> 00:57:59.200
+Anthony Taylor: import a file that we're going to use to for our example here.
+
+618
+00:58:00.840 --> 00:58:06.560
+Anthony Taylor: See, it's really cool. Now remember, the index at this point is just 0 1, 2, 3, 4,
+
+619
+00:58:07.720 --> 00:58:11.580
+Anthony Taylor: eyelogue, and I like to call it index locate
+
+620
+00:58:11.810 --> 00:58:14.859
+Anthony Taylor: will allow us to select rows
+
+621
+00:58:14.920 --> 00:58:26.109
+Anthony Taylor: and or select rows and columns from our data frame, using a number. So number 0 is going to give us this first Alicia row
+
+622
+00:58:27.350 --> 00:58:29.860
+Anthony Taylor: and we'll pull that and we'll see it.
+
+623
+00:58:30.970 --> 00:58:35.829
+Anthony Taylor: And just a reminder this would be a series. It's one car. No, it wouldn't. This wouldn't be a series
+
+624
+00:58:35.890 --> 00:58:38.040
+Anthony Taylor: series is one column, not one.
+
+625
+00:58:38.540 --> 00:58:40.240
+Anthony Taylor: Here's
+
+626
+00:58:43.190 --> 00:58:45.900
+Anthony Taylor: second row using index one
+
+627
+00:58:46.340 --> 00:58:52.300
+Anthony Taylor: here we can say, Give me rows. 0 to 1010 is not inclusive. So it's gonna be
+
+628
+00:58:52.320 --> 00:58:53.880
+Anthony Taylor: 0 to 9
+
+629
+00:58:54.340 --> 00:58:56.540
+Anthony Taylor: to make sense. It's an index
+
+630
+00:58:59.240 --> 00:59:03.780
+Anthony Taylor: that return to Data Frame. If we want to see the last row we can do, make it one
+
+631
+00:59:06.190 --> 00:59:20.490
+Anthony Taylor: so truthfully. This bracket in Eyeloque and Loke, which you'll see in a few minutes holds the rows and the columns you want to see, but we put a colon in by itself. That means give me all rows.
+
+632
+00:59:21.110 --> 00:59:30.179
+Anthony Taylor: and then this would be the first column, because it's 0. So we're asking for all rows. We want the first column. But we only went the head.
+
+633
+00:59:31.680 --> 00:59:34.510
+Anthony Taylor: Okay. then this one.
+
+634
+00:59:34.720 --> 00:59:39.480
+Anthony Taylor: We want all rows, but the first go to the second column, which is index one.
+
+635
+00:59:42.810 --> 00:59:46.310
+Anthony Taylor: Here. We're going to get all rows, but the last column.
+
+636
+00:59:51.130 --> 00:59:56.090
+Anthony Taylor: and here we're going to get all rows, but we only want 0 to 2.
+
+637
+00:59:56.100 --> 00:59:59.500
+Anthony Taylor: The 2 is non-inclusive, so it's 0 one. First 2 columns
+
+638
+01:00:01.300 --> 01:00:10.970
+Anthony Taylor: pretty cool. Huh? We can even get so specific what we can call specific rows and specific columns. If we know their index.
+
+639
+01:00:15.070 --> 01:00:20.399
+Anthony Taylor: or we can do 0 to 5, 2 to 5, and get certain columns with certain rows.
+
+640
+01:00:21.240 --> 01:00:27.260
+Anthony Taylor: So all of these are possible with Ilo. We wanted to assign a value to a column using Ilo.
+
+641
+01:00:27.540 --> 01:00:31.630
+Anthony Taylor: we could say, Hey for row 0. I want you
+
+642
+01:00:31.780 --> 01:00:34.399
+Anthony Taylor: to get Loke, which
+
+643
+01:00:34.970 --> 01:00:37.790
+Anthony Taylor: this is not the way I would normally do this you'll see in a minute.
+
+644
+01:00:37.960 --> 01:00:43.570
+Anthony Taylor:  of the first name column equals and set it equal to aria.
+
+645
+01:00:43.900 --> 01:00:49.699
+Anthony Taylor: So we can run this. and we'll see now it's no longer Alicia. It's aria.
+
+646
+01:00:51.310 --> 01:01:00.640
+Anthony Taylor: Okay. Now. up till now the index of these rows have always been this number. We're going to now set the index
+
+647
+01:01:01.330 --> 01:01:08.629
+Anthony Taylor: to the first name column. Now, this first one didn't do anything. Well, why? Because it's not set. It's not.
+
+648
+01:01:08.760 --> 01:01:23.939
+Anthony Taylor: We didn't assign it to a variable. We're not saying do it in place. The second one, we're going to say, do it in place, and it'll actually overwrite the data frame setting the index. And now you can see it because it's slightly off set.
+
+649
+01:01:24.240 --> 01:01:26.550
+That tells me that this is the index
+
+650
+01:01:26.700 --> 01:01:28.960
+Anthony Taylor: which, using our second
+
+651
+01:01:28.980 --> 01:01:36.050
+Anthony Taylor: really cool feature. using Loc will allow us to select it based on that value.
+
+652
+01:01:36.240 --> 01:01:42.540
+Anthony Taylor: But before we do that, let's go ahead and sort our index, which is gonna sort everything by first name.
+
+653
+01:01:43.240 --> 01:01:52.850
+Anthony Taylor: and now we can say, Look no, I, and search for that first name there, and we will get the row. or the first name is, Evan.
+
+654
+01:01:54.200 --> 01:02:01.110
+Anthony Taylor: we can, since this is an alphabetical order, they could say, Give us everything between Alicia and Spetlina.
+
+655
+01:02:01.880 --> 01:02:03.290
+Anthony Taylor: and it'll do that.
+
+656
+01:02:05.570 --> 01:02:13.440
+Anthony Taylor: But the really cool thing about Loke is the fact that we can now filter. So we can take our data frame download
+
+657
+01:02:13.630 --> 01:02:19.730
+Anthony Taylor: and in brackets pass in the column the data frame with the column name
+
+658
+01:02:19.950 --> 01:02:21.050
+Anthony Taylor: and
+
+659
+01:02:22.340 --> 01:02:28.759
+Anthony Taylor: what we want, a condition that we want it to be equal to. and then return that. And that returns a data frame
+
+660
+01:02:29.070 --> 01:02:31.689
+Anthony Taylor: which we can then utilize.
+
+661
+01:02:33.690 --> 01:02:38.499
+Anthony Taylor: Okay, you can also use Loke to assign a value. Since you can say, Loke.
+
+662
+01:02:38.750 --> 01:02:46.530
+Anthony Taylor: the column, the row you're looking for the column you looking for, and then set it equal to of value.
+
+663
+01:02:47.850 --> 01:02:51.290
+Anthony Taylor: and that would rewrite it alright.
+
+664
+01:02:52.650 --> 01:02:59.419
+Anthony Taylor: So again, we're catching up because we've got to push the record. So here's the everyone do that. We did.
+
+665
+01:03:06.820 --> 01:03:09.800
+Anthony Taylor: So we started.
+
+666
+01:03:11.480 --> 01:03:14.929
+Anthony Taylor: We imported Pandas and Path Lib.
+
+667
+01:03:15.890 --> 01:03:21.729
+Anthony Taylor: We read our Csv file in. took a quick peek at it.
+
+668
+01:03:25.080 --> 01:03:28.900
+Anthony Taylor: and then we listed out the columns with Df. Columns.
+
+669
+01:03:30.480 --> 01:03:41.299
+Anthony Taylor: Requirements, said I only want IMDB. Columns. So we grab and film. So we grab film. And then all of the columns that hide had had IM. dB, in them.
+
+670
+01:03:43.340 --> 01:03:47.540
+Anthony Taylor: Notice, there's a really cool alternative way, using list comprehension.
+
+671
+01:03:48.990 --> 01:03:54.420
+Anthony Taylor: A great question was asked, why is film here? Because film doesn't have IM dB.
+
+672
+01:03:54.540 --> 01:04:01.740
+Anthony Taylor: So we grab that one explicitly and then use this comprehension to grab the ones that have IM. dB, in the name.
+
+673
+01:04:03.650 --> 01:04:07.410
+Anthony Taylor: Here we filtered the original data frame
+
+674
+01:04:07.790 --> 01:04:13.410
+Anthony Taylor: with only movies that had an Imdb score greater than 7,
+
+675
+01:04:13.620 --> 01:04:15.030
+Anthony Taylor: and showed those
+
+676
+01:04:18.020 --> 01:04:19.999
+Anthony Taylor: then from those
+
+677
+01:04:20.070 --> 01:04:22.699
+Anthony Taylor: we filtered again to get
+
+678
+01:04:22.710 --> 01:04:31.570
+Anthony Taylor: only Rose with less than 20,000 boats. and we only wanted these columns. and we took a peek at that.
+
+679
+01:04:33.660 --> 01:04:36.970
+Anthony Taylor: and lastly, we exported it to an Excel file.
+
+680
+01:04:40.940 --> 01:04:46.400
+Anthony Taylor: and that was that. And then I sent you off to do the activity that you did in class.
+
+681
+01:04:57.550 --> 01:05:00.970
+Anthony Taylor: I must confess to all of you we did something horrible.
+
+682
+01:05:03.190 --> 01:05:04.570
+Anthony Taylor: but we fixed it.
+
+683
+01:05:06.770 --> 01:05:09.680
+Anthony Taylor: We did not record the entire last segment.
+
+684
+01:05:12.400 --> 01:05:17.969
+Anthony Taylor: But while you guys were in there I went over everything we went over during the last.
+
+685
+01:05:20.190 --> 01:05:24.599
+Anthony Taylor: So anyway, the only thing we lost was, you guys asking questions?
+
+686
+01:05:25.740 --> 01:05:32.479
+Anthony Taylor: Did you do all voices whilst you're asking those questions? I could have totally done voices. I'm very good voices
+
+687
+01:05:33.360 --> 01:05:35.039
+Clayton Graves: that would have been awesome.
+
+688
+01:05:35.190 --> 01:05:42.629
+Anthony Taylor: But I would have done like Disney voices like Gorsh. Why would you do the names and rackets like that?
+
+689
+01:05:43.160 --> 01:05:45.949
+Clayton Graves: Is that what I sound like, Anthony?
+
+690
+01:05:45.970 --> 01:05:56.800
+Anthony Taylor: No. you would. You would be like my, my. probably like my Bronx, you know, like that. What are you talking about with that stuff
+
+691
+01:05:57.320 --> 01:06:01.679
+which I know is nothing like you, but that would be like.
+
+692
+01:06:02.120 --> 01:06:06.520
+Anthony Taylor: anyway. Okay. let's go through that real quick.
+
+693
+01:06:10.140 --> 01:06:11.480
+Anthony Taylor: Anybody finish
+
+694
+01:06:13.060 --> 01:06:15.879
+Clayton Graves: just out of curiosity. We got close.
+
+695
+01:06:17.580 --> 01:06:19.660
+Anthony Taylor: It was pretty exciting. That stuff.
+
+696
+01:06:30.030 --> 01:06:36.549
+Baro, Sonja: Anthony. I used your new, your your fancy little learning. Ex assistant. Real time
+
+697
+01:06:36.670 --> 01:06:37.770
+Anthony Taylor: they were.
+
+698
+01:06:38.090 --> 01:06:39.910
+Baro, Sonja: Yes, I did.
+
+699
+01:06:40.020 --> 01:06:43.490
+Anthony Taylor: and it didn't give you the answer. It made you work for the answer.
+
+700
+01:06:44.200 --> 01:06:52.350
+Baro, Sonja: Yes, I had to convince that I had. We had figured it out.
+
+701
+01:06:54.010 --> 01:06:56.220
+Baro, Sonja: Natalie was on it with me
+
+702
+01:06:56.440 --> 01:07:03.010
+Anthony Taylor: give it a name so that, you guys, when you talk to it, it'll give you it'll it'll be a person
+
+703
+01:07:03.040 --> 01:07:08.480
+Baro, Sonja: personality. What was ex machina's character, Eva, ava.
+
+704
+01:07:08.870 --> 01:07:14.529
+Anthony Taylor: Oh, there you go! That's not bad. That's I love that show. That was a good meeting.
+
+705
+01:07:15.320 --> 01:07:21.060
+Anthony Taylor: Okay? Okay? So first, we had to rebuild the file.
+
+706
+01:07:22.390 --> 01:07:30.060
+Anthony Taylor: then. what are we doing? Remove unnecessary columns. Did it give you the list? It told you to keep? It did right?
+
+707
+01:07:32.040 --> 01:07:35.009
+Anthony Taylor: Yeah. So we're going to keep those.
+
+708
+01:07:36.720 --> 01:07:39.219
+Anthony Taylor: So it's just the double bracket deal.
+
+709
+01:07:40.460 --> 01:07:43.380
+Anthony Taylor: Then we're gonna rename them.
+
+710
+01:07:46.760 --> 01:07:52.669
+Anthony Taylor: I mean, I assume you guys understand? Like the rename is just the key value pairs any questions on the renaming.
+
+711
+01:07:52.820 --> 01:07:54.520
+Anthony Taylor: We're pretty confident with that.
+
+712
+01:07:56.010 --> 01:08:03.519
+Anthony Taylor: Now, here's where we start getting into the new stuff. So it said. How many comics were published in the sixties. Now.
+
+713
+01:08:03.540 --> 01:08:15.589
+Anthony Taylor: I don't know how you guys did it in here. We used Loke. which I told you Luke would be your friend. Right? We stay publication year greater than equal to 60 or less than 70,
+
+714
+01:08:16.050 --> 01:08:17.839
+Anthony Taylor: and then we got the length
+
+715
+01:08:17.990 --> 01:08:20.470
+Anthony Taylor: of the output which gives us
+
+716
+01:08:21.740 --> 01:08:23.790
+Anthony Taylor: 18. Yes, Gabe
+
+717
+01:08:24.029 --> 01:08:29.789
+Vasquez, Gabriel: in ours this one was already completed when we when we were in it.
+
+718
+01:08:30.670 --> 01:08:34.939
+Anthony Taylor: Hot digging dog. Well, that makes it easy. Huh?
+
+719
+01:08:36.350 --> 01:08:40.360
+Anthony Taylor: So that works. And so for the batman ones.
+
+720
+01:08:40.609 --> 01:08:47.850
+Anthony Taylor: how many bad man comics are listed? So notice, they keep using this link. If you link to the data frame. It'll tell you how many rows are in it
+
+721
+01:08:48.660 --> 01:08:52.660
+Anthony Taylor: if I don't think we talked about that before this, so I don't know if anyone knew that.
+
+722
+01:08:52.870 --> 01:08:57.960
+Anthony Taylor:  So this one just says comic title string contains
+
+723
+01:08:57.990 --> 01:08:59.220
+Anthony Taylor: Batman
+
+724
+01:08:59.390 --> 01:09:04.059
+Anthony Taylor: and said, Ignore case. So how many people got that? Or was that included? Also
+
+725
+01:09:05.550 --> 01:09:11.310
+Meredith McCanse (she/her): it was not included. How did you guys get it? What? What kind of like? I'm pretty sure no one did it that way. Right?
+
+726
+01:09:11.560 --> 01:09:19.800
+Meredith McCanse (she/her): We just said, if the title is batman, because we weren't sure how to use contains in this setup
+
+727
+01:09:20.439 --> 01:09:26.740
+Anthony Taylor: anybody else? Or Sonia? Is this the one that the helper helped you with. Really. how cool!
+
+728
+01:09:30.000 --> 01:09:43.069
+Anthony Taylor: That makes me very happy that the helper works actually hope that you guys use it a lot. I would rather you use that and get your answer, even though it may be a little longer to get there.
+
+729
+01:09:43.100 --> 01:09:45.629
+Anthony Taylor: But I feel like you'll learn much more
+
+730
+01:09:46.160 --> 01:09:50.279
+Anthony Taylor: if you do it that route versus how do I do this? And then it just tells you
+
+731
+01:09:50.700 --> 01:09:57.670
+Anthony Taylor: right? So I'm glad that you guys did that. Here we got a function where we're just gonna pass in
+
+732
+01:09:58.080 --> 01:10:11.270
+Anthony Taylor: a search term and return the length. And then we're gonna say. give me all the batman's. That's kind of fun. 423. Well.
+
+733
+01:10:11.440 --> 01:10:14.970
+Anthony Taylor: technically, you could just run that same function for Superman
+
+734
+01:10:16.620 --> 01:10:23.610
+Anthony Taylor: 260 and say, there's more batman than Superman, that's it. That was the whole exercise
+
+735
+01:10:23.900 --> 01:10:33.130
+Clayton Graves: I ended up. Take us down a rabbit hole about comic books that were about batman that didn't have batman in the title. And yeah.
+
+736
+01:10:34.110 --> 01:10:34.920
+Anthony Taylor: okay.
+
+737
+01:10:35.640 --> 01:10:48.680
+Meredith McCanse (she/her): Anthony, I have a question in that last example on your screen where it says, Case equals false. Are you telling it that it's not case sensitive
+
+738
+01:10:49.500 --> 01:10:51.540
+Anthony Taylor: who is draw. I must be timing.
+
+739
+01:10:57.580 --> 01:11:01.609
+Anthony Taylor: But yeah. so that's pretty much it.
+
+740
+01:11:02.710 --> 01:11:14.129
+Anthony Taylor: What do you guys think about pandas today? That was pretty good class. They're pretty pretty light. not too hard. I want to point out how many, how many people think. Give me fist? 5. How are we doing today?
+
+741
+01:11:16.190 --> 01:11:18.549
+Anthony Taylor: I see I see some good numbers.
+
+742
+01:11:19.180 --> 01:11:27.310
+Anthony Taylor: Good, good, good. Good. Okay. So I want to throw this out there for you. We still did the same number of activities. We've been doing every single class
+
+743
+01:11:28.910 --> 01:11:33.380
+Anthony Taylor: with the same number of lectures. and it was all new material
+
+744
+01:11:35.020 --> 01:11:43.270
+Clayton Graves: it was. It's not that it was bad. I just I'm gonna need more time, that's all. Of course. I mean, it was the first day.
+
+745
+01:11:43.580 --> 01:11:50.390
+Anthony Taylor: But the point is the point I'm trying to make is is this is around the time when you guys are getting used to the pace
+
+746
+01:11:50.450 --> 01:11:52.310
+Anthony Taylor: and used to the work.
+
+747
+01:11:52.460 --> 01:11:57.589
+Anthony Taylor: And it's just gonna feel like it's not as much, but it truly is about the same.
+
+748
+01:11:59.000 --> 01:12:03.460
+traug: I think. Understanding. The paradigm of Python is is the big hurdle.
+
+749
+01:12:04.440 --> 01:12:13.470
+Anthony Taylor: That's it. Once you get the python figured out. It's all good. All the rest of it's just adding onto it. We're just gonna keep adding more and more into the python stuff.
+
+750
+01:12:14.360 --> 01:12:17.759
+Anthony Taylor: So it's gonna be great. You guys are gonna be awesome.
+
+751
+01:12:18.600 --> 01:12:23.980
+Anthony Taylor: anyway. That's all I have, for you have a wonderful Tuesday.
+
+752
+01:12:24.230 --> 01:12:29.800
+Anthony Taylor: I will see you same place same time on Wednesday, and we will do more pandas.
+
+753
+01:12:30.520 --> 01:12:31.420
+Thank you.
+
+754
+01:12:31.690 --> 01:12:33.379
+Anthony Taylor: Cool. Have a good night.
+
+755
+01:12:34.290 --> 01:12:36.020
+Anthony Taylor: Will be here for 30 min.
+
+756
+01:12:39.370 --> 01:12:40.060
+Meredith McCanse (she/her): Can I ask.
+

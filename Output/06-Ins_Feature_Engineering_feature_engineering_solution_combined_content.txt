@@ -1,0 +1,41 @@
+##--CODE--##
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
+##--CODE--##
+# Import the data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m14/datasets/crowdfunding-data.csv")
+df.head()
+
+##--CODE--##
+# Create a column "pledged_per_backer"
+df['pledged_per_backer'] = df['pledged'] / df['backers_count']
+
+df.head()
+
+##--CODE--##
+# Fill the missing values with zeros
+df['pledged_per_backer'] = df['pledged_per_backer'].fillna(0)
+df.head()
+
+##--CODE--##
+# Create a backers_per_day column
+df['backers_per_day'] = df['backers_count'] / df['days_active']
+
+df.head()
+
+##--CODE--##
+# Create a days_to_goal column
+def days_to_goal(row):
+    amount_remaining = row['goal'] - row['pledged']
+    pledged_per_day = row['pledged_per_backer'] * row['backers_per_day']
+    # Note that we can't divide by zero:
+    # return a large number if pledged_per_day is zero
+    if pledged_per_day == 0:
+        return 10000
+    return (amount_remaining)/(pledged_per_day)
+
+df['days_to_goal'] = df.apply(days_to_goal, axis=1)
+df.head()
+

@@ -1,0 +1,235 @@
+##--CODE--##
+# Import the required modules
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+## Part 1: Create a Pandas DataFrame
+
+##--CODE--##
+# Read in the CSV file as a Pandas Dataframe
+ccinfo_df = pd.read_csv("Resources/cc_info_default.csv")
+
+# Review the first five rows of the DataFrame
+ccinfo_df.head()
+
+##--CODE--##
+# Check for null values
+ccinfo_df.info()
+
+## Part 2:  Preprocessing the Data
+---
+###  Transform "education" column with get_dummies
+
+##--CODE--##
+# Verify the categories of the "education" column
+ccinfo_df["education"].value_counts()
+
+##--CODE--##
+# Transform the education column using get_dummies
+education_dummies = pd.get_dummies(ccinfo_df["education"])
+
+# Display the transformed data
+education_dummies.tail()
+
+##--CODE--##
+# Concatenate the df_shopping_transformed and the card_dummies DataFrames
+ccinfo_df = pd.concat([ccinfo_df, education_dummies], axis=1)
+
+# Drop the original education column
+ccinfo_df = ccinfo_df.drop(columns=["education"])
+
+# Display the DataFrame
+ccinfo_df.head()
+
+### Transform "marriage" column with encoding function
+
+##--CODE--##
+# Encoding the marriage column using a custom function
+def encode_marriage(marriage):
+    """
+    This function encodes marital status by setting yes as 1 and no as 0.
+    """
+    if marriage == "yes":
+        return 1
+    else:
+        return 0
+
+# Call the encode_marriage function on the marriage column
+ccinfo_df["marriage"] = ccinfo_df["marriage"].apply(encode_marriage)
+
+# Review the DataFrame 
+ccinfo_df.head()
+
+### Scale the Data
+---
+- Apply the Standard Scaler to "limit_bal", "bill_amt", "pay_amt"
+
+##--CODE--##
+# Scaling the numeric columns
+ccinfo_data_scaled = StandardScaler().fit_transform(ccinfo_df[["limit_bal", "bill_amt", "pay_amt"]])
+
+# Review the scaled data
+ccinfo_data_scaled
+
+##--CODE--##
+# Create a DataFrame of the scaled data
+ccinfo_data_scaled = pd.DataFrame(ccinfo_data_scaled, columns=["limit_bal", "bill_amt", "pay_amt"])
+
+# Replace the original data with the columns of information from the scaled Data
+ccinfo_df["limit_bal"] = ccinfo_data_scaled["limit_bal"]
+ccinfo_df["bill_amt"] = ccinfo_data_scaled["bill_amt"]
+ccinfo_df["pay_amt"] = ccinfo_data_scaled["pay_amt"]
+
+# Review the DataFrame
+ccinfo_df.head()
+
+## Part 3. Use the Elbow Method to determine the optimal number of clusters for KMeans.
+
+##--CODE--##
+# Import the KMeans, Birch, and AgglomerativeClustering modules from SKLearn
+from sklearn.cluster import KMeans, AgglomerativeClustering, Birch
+
+##--CODE--##
+# Create a a list to store inertia values and the values of k
+inertia = []
+k = list(range(1, 11))
+
+# Create a for-loop where each value of k is evaluated using the K-means algorithm
+# Fit the model using the service_ratings DataFrame
+# Append the value of the computed inertia from the `inertia_` attribute of the KMeans model instance
+for i in k:
+    k_model = KMeans(n_clusters=i, n_init='auto', random_state=0)
+    k_model.fit(ccinfo_df)
+    inertia.append(k_model.inertia_)
+
+# Define a DataFrame to hold the values for k and the corresponding inertia
+elbow_data = {"k": k, "inertia": inertia}
+df_elbow = pd.DataFrame(elbow_data)
+
+# Review the DataFrame
+df_elbow
+
+##--CODE--##
+# Plot the Elbow curve
+df_elbow.plot.line(x="k",
+                   y="inertia",
+                   title="Elbow Curve",
+                   xticks=k)
+
+## Part 4: Segment the data with K-means using the optimal number of clusters
+
+##--CODE--##
+# Define the model with 3 clusters
+model = KMeans(n_clusters=3, n_init='auto', random_state=3)
+
+# Fit the model
+model.fit(ccinfo_df)
+
+# Make predictions
+kmeans_predictions = model.predict(ccinfo_df)
+
+## Part 5. Cluster the data using AgglomerativeClustering and Birch
+
+Using your optimal number of clusters found above, additionally estimate clusters by using both `AgglomerativeClustering` and `Birch`. Save each of these models and their results for comparison.
+
+##--CODE--##
+# Fit a AgglomerativeClustering Model with three clusters
+agglo_model = AgglomerativeClustering(n_clusters=3)
+
+# Make predictions with the AgglomerativeClustering model
+agglo_predictions = agglo_model.fit_predict(ccinfo_df)
+
+# Previewing the predicted customer classifications for AgglomerativeClustering
+agglo_predictions[-10:]
+
+##--CODE--##
+# Fit a Birch Model with three clusters.
+birch_model = Birch(n_clusters=3)
+birch_model.fit(ccinfo_df)
+
+# Make predictions with the Birch model
+birch_predictions = birch_model.predict(ccinfo_df)
+
+# Previewing the predicted customer classifications for BIRCH
+birch_predictions[-10:]
+
+## Part 6. Compare the cluster results from using Kmeans, AgglomerativeClustering, Birch
+
+##--CODE--##
+# Create a copy of the preprocessed data
+ccinfo_predictions_df = ccinfo_df.copy()
+# Add class columns with the labels to the new DataFrame
+ccinfo_predictions_df["kmeans-segments"] = kmeans_predictions
+ccinfo_predictions_df["agglomerative-segments"] = agglo_predictions
+ccinfo_predictions_df["birch-segments"] = birch_predictions
+ccinfo_predictions_df[['kmeans-segments','agglomerative-segments', 'birch-segments']].head(3)
+
+##--CODE--##
+# Plot the kmeans clusters using the limit_bal and age columns. 
+ccinfo_predictions_df.plot.scatter(
+    x="limit_bal",
+    y="age",
+    c="kmeans-segments",
+    colormap="winter")
+
+##--CODE--##
+# Plot the agglomerative clusters using the limit_bal and age columns. 
+ccinfo_predictions_df.plot.scatter(
+    x="limit_bal",
+    y="age",
+    c="agglomerative-segments",
+    colormap="winter")
+
+##--CODE--##
+# Plot the birch clusters using the limit_bal and age columns. 
+ccinfo_predictions_df.plot.scatter(
+    x="limit_bal",
+    y="age",
+    c="birch-segments",
+    colormap="winter")
+
+##--CODE--##
+# Create a list to store values and the values of k
+score_kmeans = []
+score_agglomerative = []
+score_birch = []
+
+# Create a list to set the range of k values to test
+k = list(range(2, 11))
+
+##--CODE--##
+from sklearn import metrics
+# For each model, we iterate through the different cluster count (`i`). 
+# Then, calculate the variance ratio for each algorithm, given that specified cluster count.
+
+for i in k:
+    # Kmeans variance and score
+    k_model = KMeans(n_clusters=i, n_init='auto',random_state=0)
+    k_model.fit(ccinfo_df)
+    labels = k_model.labels_
+    score = metrics.calinski_harabasz_score(ccinfo_df, labels)    
+    score_kmeans.append(score)
+    
+    # AgglomerativeClustering variance and score
+    agglo_model = AgglomerativeClustering(n_clusters=i)
+    agglo_predictions = agglo_model.fit_predict(ccinfo_df)
+    labels = agglo_model.labels_
+    score = metrics.calinski_harabasz_score(ccinfo_df, labels)    
+    score_agglomerative.append(score)    
+    
+    # Birch variance and score
+    birch_model = Birch(n_clusters=i)
+    birch_model.fit(ccinfo_df)
+    labels = birch_model.labels_
+    score = metrics.calinski_harabasz_score(ccinfo_df, labels)    
+    score_birch.append(score)
+
+##--CODE--##
+# Display the scores. 
+display(score_kmeans)
+display(score_agglomerative)
+display(score_birch)
+
+##--CODE--##
+
+

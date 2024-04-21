@@ -1,0 +1,70 @@
+##--CODE--##
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import cross_val_score
+
+##--CODE--##
+# Read the CSV file into a Pandas DataFrame
+Lp100km = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_1/datasets/liters-per-100km.csv')
+Lp100km.head()
+
+##--CODE--##
+# Assign the "weight (kg)" feature to X1
+# Assign the "weight (kg)" and "cylinders" features to X2
+# Note: Scikit-learn requires a two-dimensional array of values
+# so we use reshape() to create this
+
+X1 = Lp100km["weight (kg)"].values.reshape(-1, 1)
+X2 = Lp100km[["weight (kg)", "cylinders"]].values.reshape(-1, 2)
+y = Lp100km["L/100km"].values.reshape(-1, 1)
+
+##--CODE--##
+# Use the Sklearn `train_test_split()` function to split the data into training and testing data
+from sklearn.model_selection import train_test_split
+X1_train, X1_test, X2_train, X2_test, y_train, y_test = train_test_split(X1, X2, y, random_state=42)
+
+##--CODE--##
+# Create the models
+
+
+##--CODE--##
+# Fit the first model to the training data with a single X feature. 
+
+
+# Fit the second model to the training data with two X features.
+
+
+##--CODE--##
+# Calculate the mean_squared_error and the r-squared value
+# for the testing data
+
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Use our model to make predictions
+
+
+# Score the predictions with mse and r2
+
+
+
+##--CODE--##
+# Provided code to create the adjusted r-squared function
+def r2_adj(x, y, model):
+    r2 = model.score(x,y)
+    n_cols = x.shape[1]
+    return 1 - (1 - r2) * (len(y) - 1) / (len(y) - n_cols - 1)
+
+##--CODE--##
+# Calculate the adjusted r-squared value of the model
+
+
+
+##--CODE--##
+# Examine linear regression on the single feature data using cross validation
+
+
+
+##--CODE--##
+
+

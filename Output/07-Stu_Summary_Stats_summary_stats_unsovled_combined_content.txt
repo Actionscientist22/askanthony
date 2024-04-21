@@ -1,0 +1,33 @@
+##--CODE--##
+# Import dependencies
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import scipy.stats as sts
+
+##--CODE--##
+# Create a DataFrame from the cups_of_coffee data
+cups_of_coffee = [1, 1, 0, 0, 3, 1, 3, 0, 2, 3, 2, 3, 0, 3, 2, 0, 3, 0, 2, 3, 2, 3, 0, 2, 0, 0, 1]
+coffee_consumed = pd.DataFrame(cups_of_coffee, columns=["cups"])
+
+##--CODE--##
+# Calculate the mean, median, and mode of cups of coffee consumed daily
+
+##--CODE--##
+# Create a histogram of cups of coffee consumed daily
+
+##--CODE--##
+# Read in the California housing data set from the Resources folder
+
+##--CODE--##
+# Determine the most appropriate measure of central tendency to describe the Population column
+
+##--CODE--##
+# Determine if there are any potential outliers in the AveOccup column
+
+##--CODE--##
+# Create a new DataFrame by filtering the original DataFrame to show only the outliers
+
+##--CODE--##
+# Find the lowest and highest median income in the potential outliers
+

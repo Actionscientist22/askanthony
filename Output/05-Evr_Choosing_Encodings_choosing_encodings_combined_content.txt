@@ -1,0 +1,80 @@
+##--CODE--##
+import pandas as pd
+import numpy as np
+import random
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
+from sklearn.model_selection import train_test_split
+
+##--CODE--##
+# Import the data
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m14/lesson_2/datasets/text-data.csv')
+df.head()
+
+##--CODE--##
+# Create X and y and split into training and testing sets
+X = df.drop(columns='arrived')
+y = df['arrived']
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=13)
+
+##--CODE--##
+# Decide how to encode the backpack_color column
+
+
+##--CODE--##
+# Create an encoder for the backpack_color column
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Decide how to encode the grade column
+
+
+
+
+##--CODE--##
+# Create an encoder for the backpack_color column
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Decide how to encode the favorite_creature column
+
+
+##--CODE--##
+# Create an encoder for the backpack_color column
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Create a function using the pretrained encoders to use on
+# any new data (including the testing data)
+
+def X_preprocess(X_data):
+    # Transform each column into numpy arrays
+    
+    
+    # Reorganize the numpy arrays into a DataFrame
+   
+
+
+    # Return the DataFrame
+    return 
+
+
+##--CODE--##
+# Preprocess the training data
+X_preprocess(X_train)
+
+##--CODE--##
+# Preprocess the testing data
+X_preprocess(X_test)
+

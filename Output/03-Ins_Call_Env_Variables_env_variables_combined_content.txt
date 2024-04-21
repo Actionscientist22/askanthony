@@ -1,0 +1,61 @@
+### Instructor Demo: Environment Variables
+
+##--CODE--##
+# Import dotenv package for setting environment variables 
+from dotenv import load_dotenv
+
+# Import os package
+import os
+
+##--CODE--##
+# Set environment variables from the .env in the local environment
+
+
+##--CODE--##
+# Retrieve API key and store as Python variable
+
+type(api_key)
+
+##--CODE--##
+# Test the API key with a request
+import requests
+import json
+
+##--CODE--##
+# Search The Movie Database for a movie title
+# Documentation: https://developer.themoviedb.org/docs/search-and-query-for-details
+query_url = "https://api.themoviedb.org/3/search/movie?query="
+
+title = "Everything Everywhere All at Once"
+
+# Execute "GET" request with url
+response_data = requests.get(query_url + title + "&api_key=" + api_key)
+
+##--CODE--##
+# Format data as JSON
+data = response_data.json()
+
+# Use json.dumps with argument indent=4 to format data
+print(json.dumps(data, indent=4))
+
+##--CODE--##
+# Collect the first movie id
+
+
+##--CODE--##
+# Make a request for a the full movie details
+query_url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}"
+
+# Execute "GET" request with url
+
+
+##--CODE--##
+# Format data as JSON
+
+
+# Use json.dumps with argument indent=4 to format data
+
+
+##--CODE--##
+
+

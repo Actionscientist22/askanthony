@@ -1,0 +1,267 @@
+## Prepare the Data
+
+##--CODE--##
+# Import modules
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
+from sklearn.preprocessing import StandardScaler
+
+##--CODE--##
+# Read the CSV file into a Pandas DataFrame
+bank_data_df = pd.read_csv('../Resources/bank.csv')
+
+# Review the DataFrame
+bank_data_df.head()
+
+##--CODE--##
+# Split the features and target data
+y = bank_data_df['y']
+X = bank_data_df.drop(columns='y')
+
+##--CODE--##
+# Encode the features dataset's categorical variables using get_dummies
+X = pd.get_dummies(X)
+
+# Review the features DataFrame
+X.head()
+
+##--CODE--##
+# Split data into training and testing datasets
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+
+##--CODE--##
+# Review the distinct values from y
+y_train.value_counts()
+
+##--CODE--##
+# Instantiate a StandardScaler instance
+scaler = StandardScaler()
+
+# Fit the training data to the standard scaler
+X_scaler = scaler.fit(X_train)
+
+# Transform the training data using the scaler
+X_train_scaled = X_scaler.transform(X_train)
+
+# Transform the testing data using the scaler
+X_test_scaled = X_scaler.transform(X_test)
+
+---
+
+## RandomForestClassifier
+
+### Create and fit a `RandomForestClassifier` to the **scaled** training data.
+
+##--CODE--##
+# Import the RandomForestClassifier from sklearn
+from sklearn.ensemble import RandomForestClassifier
+
+# Instantiate a RandomForestClassifier instance
+model = RandomForestClassifier()
+
+# Fit the traning data to the model
+model.fit(X_train_scaled, y_train)
+
+##--CODE--##
+# Predict labels for original scaled testing features
+y_pred = model.predict(X_test_scaled)
+
+---
+
+## Random Undersampler
+
+### Import `RandomUnderSampler` from `imblearn`.
+
+##--CODE--##
+# Import RandomUnderSampler from imblearn
+from imblearn.under_sampling import RandomUnderSampler
+
+# Instantiate a RandomUnderSampler instance
+
+
+##--CODE--##
+# Fit the training data to the random undersampler model
+
+
+##--CODE--##
+# Count distinct values for the resampled target data
+
+
+###  Create and fit a `RandomForestClassifier` to the **undersampled** training data.
+
+##--CODE--##
+# Instantiate a new RandomForestClassier model
+
+
+# Fit the undersampled data the new model
+
+
+##--CODE--##
+# Predict labels for oversampled testing features
+
+
+##--CODE--##
+# Print classification reports
+print(f"Classification Report - Original Data")
+print(classification_report(y_test, y_pred))
+print("---------")
+print(f"Classification Report - Undersampled Data")
+print(classification_report(y_test, y_pred_undersampled))
+
+---
+
+## Random Oversampler
+
+###  Import `RandomOverSampler` from `imblearn`.
+
+##--CODE--##
+# Import RandomOverSampler from imblearn
+from imblearn.over_sampling import RandomOverSampler
+
+# Instantiate a RandomOversampler instance
+
+
+##--CODE--##
+# Fit the training data to the `RandomOverSampler` model
+
+
+##--CODE--##
+# Count distinct values
+
+
+###  Create and fit a `RandomForestClassifier` to the **oversampled** training data.
+
+##--CODE--##
+# Instantiate a new RandomForestClassier model
+model_oversampled = RandomForestClassifier()
+
+# Fit the oversampled data the new model
+
+
+##--CODE--##
+# Predict labels for oversampled testing features
+
+
+##--CODE--##
+# Print classification reports
+print(f"Classification Report - Original Data")
+print(classification_report(y_test, y_pred))
+print("---------")
+print(f"Classification Report - Undersampled Data")
+print(classification_report(y_test, y_pred_undersampled))
+print("---------")
+print(f"Classification Report - Oversampled Data")
+print(classification_report(y_test, y_pred_oversampled))
+
+---
+
+## Cluster Centroids
+
+##--CODE--##
+# Import ClusterCentroids from imblearn
+from imblearn.under_sampling import ClusterCentroids
+
+# Instantiate a ClusterCentroids instance
+cc_sampler = ClusterCentroids(random_state=1)
+
+##--CODE--##
+# Fit the training data to the cluster centroids model
+
+
+##--CODE--##
+# Count distinct values for the resampled target data
+
+
+##--CODE--##
+# Instantiate a new RandomForestClassier model
+
+# Fit the resampled data the new model
+
+
+##--CODE--##
+# Predict labels for resampled testing features
+
+
+##--CODE--##
+# Print classification reports
+print(f"Classification Report - Original Data")
+print(classification_report(y_test, y_pred))
+print("---------")
+print(f"Classification Report - Resampled Data - CentroidClusters")
+print(classification_report(y_test, cc_y_pred))
+
+---
+
+## SMOTE
+
+##--CODE--##
+# Import SMOTE from imblearn
+from imblearn.over_sampling import SMOTE
+
+# Instantiate the SMOTE instance 
+# Set the sampling_strategy parameter equal to auto
+smote_sampler = SMOTE(random_state=1, sampling_strategy='auto')
+
+##--CODE--##
+# Fit the training data to the smote_sampler model
+
+
+##--CODE--##
+# Count distinct values for the resampled target data
+
+
+##--CODE--##
+# Instantiate a new RandomForestClassier model 
+
+
+# Fit the resampled data to the new model
+
+
+##--CODE--##
+# Predict labels for resampled testing features
+
+
+##--CODE--##
+# Print classification reports
+print(f"Classification Report - Original Data")
+print(classification_report(y_test, y_pred))
+print("---------")
+print(f"Classification Report - Resampled Data - SMOTE")
+print(classification_report(y_test, smote_y_pred))
+
+---
+
+## SMOTEENN
+
+##--CODE--##
+# Import SMOTEEN from imblearn
+from imblearn.combine import SMOTEENN
+
+# Instantiate the SMOTEENN instance
+smote_enn = SMOTEENN(random_state=1)
+
+##--CODE--##
+# Fit the model to the training data
+
+
+##--CODE--##
+# Instantiate a new RandomForestClassier model
+
+
+# Fit the resampled data the new model
+
+
+##--CODE--##
+# Predict labels for resampled testing features
+
+
+##--CODE--##
+# Print classification reports
+print(f"Classification Report - Original Data")
+print(classification_report(y_test, y_pred))
+print("---------")
+print(f"Classification Report - Resampled Data - SMOTEENN")
+print(classification_report(y_test, smoteenn_y_pred))
+

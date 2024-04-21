@@ -1,0 +1,53 @@
+##--CODE--##
+# Import dependencies
+import requests
+from PIL import Image
+
+##--CODE--##
+img_url = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_1/datasets/fungi_images/H1_100a_1.jpg"
+
+# Use the requests library to request the image
+response = requests.get(img_url, stream=True).raw
+
+# Use Image.open to open the image
+img = Image.open(response)
+
+# View the image
+img
+
+# NOTE: This dataset is of microscopic fungi samples
+# The images may not look recognizable but that is expected
+
+##--CODE--##
+# View the size of the img
+img.size
+
+##--CODE--##
+# View the format of the img
+img.format
+
+##--CODE--##
+# Resize the image to 128,128
+img.resize((128, 128))
+
+##--CODE--##
+# Rotate the image 45 degrees
+img.rotate(45)
+
+##--CODE--##
+# Research what other methods are available
+# https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image
+# Try a few other methods here
+
+img.crop((100, 50, 400, 400))
+
+##--CODE--##
+img.effect_spread(50)
+
+##--CODE--##
+from PIL import ImageFilter
+img.filter(ImageFilter.SHARPEN)
+
+##--CODE--##
+
+

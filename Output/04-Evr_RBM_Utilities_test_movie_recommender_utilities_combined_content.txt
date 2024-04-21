@@ -1,0 +1,48 @@
+##--CODE--##
+import pandas as pd
+import tensorflow as tf
+import numpy as np
+
+# Import our utilities functions
+import utils
+
+## Prepare the Data
+
+##--CODE--##
+# Get the original DataFrame
+df = utils.get_data()
+df.head()
+
+##--CODE--##
+# Get the normalized ratings
+normalized_ratings = utils.get_normalized_data()
+normalized_ratings.head()
+
+##--CODE--##
+# Get the weights and bias tensors
+W = utils.weights()
+hb = utils.hidden_bias()
+vb = utils.visible_bias()
+
+##--CODE--##
+# Test generating user recommendation
+test_user = 1024
+
+# Get user ratings
+user_ratings = normalized_ratings.loc[test_user]
+
+# Generate recommendations for user
+rec = utils.generate_recommendation(user_ratings, W, vb, hb)
+
+# Construct user recommendation DataFrame
+user_recommendation = pd.DataFrame({"movie_id": normalized_ratings.columns, "user_id": test_user})
+user_recommendation = user_recommendation.assign(RecommendationScore = rec[0].numpy())
+
+# View sorted user recommendation
+user_recommendation.sort_values(["RecommendationScore"], ascending=False).head(20)
+
+##--CODE--##
+# Merge user recommendation scores with original dataset ratings
+merged_df = user_recommendation.merge(df, on=['movie_id', 'user_id'], how='outer')
+merged_df.sort_values(["RecommendationScore"], ascending=False).head(20)
+

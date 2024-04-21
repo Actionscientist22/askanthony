@@ -1,0 +1,119 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install -U sentence-transformers
+
+##--CODE--##
+# Import the SentenceTransformer class and utility function class from the sentence_transformers module 
+from sentence_transformers import SentenceTransformer, util
+# Use the `all-MiniLM-L6-v2` model.
+model = SentenceTransformer('all-MiniLM-L6-v2')
+# Import pandas
+import pandas as pd
+pd.set_option('max_colwidth', 200)
+
+##--CODE--##
+# Create a DataFrame for the "SMS_Ham_Spam.csv" 
+
+
+##--CODE--##
+#  Get the number of "ham" and "spam" from the "label" column:
+
+
+##--CODE--##
+# Create a DataFrame for the unclassified_text_messages.csv file of text messages. 
+
+
+##--CODE--##
+#  Get the number of "ham" and "spam" from the "label" column:
+
+
+## Preprocess the Data and Get Vector Embeddings.
+
+##--CODE--##
+# Convert the "text_message" column from the classified text messages DataFrame to a list.
+
+
+##--CODE--##
+# Get the vector embeddings for the classified text messages.
+
+
+##--CODE--##
+# Convert the  "text_message" column from the unclassified text messages DataFrame to a list.
+
+
+##--CODE--##
+# Create embeddings for the unclassified text messages. 
+
+
+## Get the Top Five Cosine Similarities For Each Unclassified Text Message
+
+---
+
+1. Calculate the cosine similarities between each unclassified message and all classified messages.
+2. Sort the cosine similarities.
+3. Get the top 5 similarities for each unclassified message.
+
+##--CODE--##
+# Create a list to store tuples of (unclassified message, top 5 similarity scores)
+unclassified_similarities = []
+
+# Create a list to store tuples of (classified message, similarity score)
+classified_similarities = []
+
+# Loop through each unclassified message.
+# Use the `zip() function to pack the unclassified texts and their embeddings lists.
+
+
+    # Loop through the unclassified messages and compute cosine similarity.
+    # Use the `zip() function to pack the classified messages and their embeddings lists.
+    
+        # Compute cosine similarity between the unclassified and classified embeddings
+        # cosine_similarity_score = util.cos_sim(unclassified_message_embedding.reshape(1, -1),
+        #                                       classified_message_embedding.reshape(1, -1))[0, 0]
+
+        # Store the classified message and similarity score as a tuple to the s a tuple `classified_similarities` list.
+        
+
+    # Sort the list of tuples on the similarity score in descending order
+    # classified_similarities.sort(key=lambda x: x[1], reverse=True)
+
+    # Get the top 5 similarity scores
+
+
+    # Store the unclassified message and top 5 similarity scores as a tuple to the `unclassified_similarities` list.
+    
+
+## Determine the Classification of Each Unclassified Text Message.
+---
+
+- Print out each unclassified message and the top 5 similar unclassified messages along with their labels and similarity scores.
+
+##--CODE--##
+# Loop through the unclassified_similarities list and print the unclassified message.
+
+
+
+    # Loop through the top five similarities and get the classified text message and its similarity score.
+    
+        # Get the classification of the classified text message 
+        
+        # Print the rank, label, and classified text message.
+        
+        # Print the similarity score between the unclassified message and the classified message. 
+        
+        print()
+    print()
+
+### Answer the following questions.
+---
+**Question 1:** Did the similarity scores for the "unclassified" text messages agree with the label given in the CSV file? Why or why not? 
+
+**Answer 1:** 
+
+**Question 2:** What other method would you use to confirm the classification of the text messages?
+
+**Answer 2:** 
+
+##--CODE--##
+
+

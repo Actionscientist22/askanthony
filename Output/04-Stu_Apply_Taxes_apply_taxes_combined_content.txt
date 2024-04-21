@@ -1,0 +1,43 @@
+##--CODE--##
+import pandas as pd
+
+##--CODE--##
+# Import the data
+file = '../Resources/SFO_Airport_Utility_Consumption.csv'
+utilities_df = pd.read_csv(file)
+utilities_df.head()
+
+##--CODE--##
+# Add a column that tracks the tax rate
+# Assume every year and type of utility had 
+# a tax rate of 5%, except for 2019 when the 
+# tax was raised to 5.5%
+
+# Define a function
+
+# Apply the function to the Year column
+
+
+##--CODE--##
+# Recalculate the tax rate assuming that
+# commission owned units were taxed an
+# additional 1% on Electricity.
+
+# Define a function
+
+# Apply the function to the DataFrame
+
+
+
+
+##--CODE--##
+# Use apply with a lambda function to set
+# the existing Tax Rate column to 0 if
+# the utility was "Passengers"
+
+# Apply a lambda function
+
+
+##--CODE--##
+
+

@@ -1,0 +1,69 @@
+##--CODE--##
+# Dependencies
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+### Using MatplotLib to Chart a DataFrame
+Note that this is the same chart created in the previous activity.
+
+##--CODE--##
+# Load in csv
+rain_df = pd.read_csv("../Resources/avg_rain_state.csv")
+rain_df.head()
+
+##--CODE--##
+# Set x axis and tick locations
+x_axis = np.arange(len(rain_df))
+tick_locations = [value for value in x_axis]
+
+##--CODE--##
+# Create and customize a bar chart
+
+# Create a list indicating where to write x labels and set figure size to adjust for space
+plt.figure(figsize=(20,4))
+plt.bar(x_axis, rain_df["Inches"], color='r', alpha=0.5, align="center")
+plt.xticks(tick_locations, rain_df["State"], rotation="vertical")
+
+# Set x and y limits
+plt.xlim(-0.75, len(x_axis))
+plt.ylim(0, max(rain_df["Inches"])+10)
+
+# Set a Title and labels
+plt.title("Average Rain per State")
+plt.xlabel("State")
+plt.ylabel("Average Amount of Rainfall in Inches")
+plt.show()
+
+# Save our graph and show the grap
+plt.tight_layout()
+plt.savefig("../Images/avg_state_rain.png")
+plt.show()
+
+### Using Pandas to Chart a DataFrame
+
+##--CODE--##
+# Filter the DataFrame down only to those columns to chart
+
+
+# Set the index to be "State" so they will be used as labels
+
+
+
+
+##--CODE--##
+# Use DataFrame.plot() in order to create a bar chart of the data
+
+
+# Set a title for the chart
+
+
+
+##--CODE--##
+# Pandas can also plot multiple columns if the DataFrame includes them
+
+
+# PandasPlot.set_xticklabels() can be used to set the tick labels as well
+
+
+

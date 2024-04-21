@@ -1,0 +1,35 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+
+##--CODE--##
+# Create a DataFrame with given columns and value
+donors_df = pd.read_csv("../Resources/donors2021.csv")
+
+donors_df.head()
+
+##--CODE--##
+# Rename columns for readability
+donors_df_renamed = donors_df.rename(columns={"donorName": "Donor",
+                                                "employerName": "Employer",
+                                                "zipcode": "Zip Code",
+                                                "usd": "Donation Amount"
+                                                })
+donors_df_renamed.head()
+
+##--CODE--##
+# Organize the columns so that only the donor name,
+# amount, employer, and city are displayed. 
+# The name and donation amount should be first
+
+donors_df_organized = donors_df_renamed[['Donor', 
+                                         'Donation Amount', 
+                                         'Employer',
+                                         'City'
+                                         ]]
+
+donors_df_organized.head()
+
+##--CODE--##
+
+

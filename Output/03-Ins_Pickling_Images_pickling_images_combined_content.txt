@@ -1,0 +1,94 @@
+##--CODE--##
+# Import dependencies
+import requests
+from PIL import Image
+
+# Gathering URLs
+The image data can be stored in many different ways, but unfortunately it isn't really feasible to store a bunch of images in a CSV. This means that the steps to import a bunch of images will depend wholly on the way those images are stored, and where the metadata about those images resides. In our case, the image metadata IS stored conveniently in a CSV! Lets import it.
+
+##--CODE--##
+import pandas as pd
+
+path = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_1/datasets/csvs/files_list.csv"
+
+filenames_df = pd.read_csv(path)
+filenames_df.head()
+
+Note that the metadata contains only one column; the filename of each image. We can combine this with the base_url to build full urls for each image.
+
+##--CODE--##
+# Build a list of images using a for loop
+
+# Define the base_url
+base_url = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_1/datasets/faces_data/"
+
+# Create an empty list for the urls
+
+
+# Loop through the DataFrame and build and append the full image urls
+
+
+##--CODE--##
+# Check the number of urls
+
+
+##--CODE--##
+# Create and empty list for images
+
+# Loop through ONLY THE FIRST FIVE image_urls to open and append each image
+
+    # Print a statement to show progress
+
+    # Use requests.get along with the stream parameter and raw attribute
+
+    # Append each img to the imgs list
+    
+    
+# View the first image to confirm
+
+
+
+##--CODE--##
+# After confirming the code works, copy it to this cell and import all images
+# Create and empty list for images
+# Loop through ALL image_urls to open and append each image
+
+    # Print a statement to show progress
+
+    # Use requests.get along with the stream parameter and raw attribute
+
+    # Append each img to the imgs list
+
+# View the first image to confirm
+
+
+# Storing Pickles
+This process took a long time; it would be nice if we didn't have to RELOAD all the images every time we want to use them. The "pickle" module allows us to store Python objects as local files so that we can open them back up whenever we need them, even in other projects. In Google Colab, we'll also have to start by "mounting" Google Drive. Lets try this with the list of images we just made.
+
+##--CODE--##
+# Import the modules
+from google.colab import drive
+import pickle
+
+drive.mount('/content/drive')
+
+# Open a new file named 'img.pkl' with write permission
+
+    # Use pickle.dump to store the list of images
+
+
+##--CODE--##
+# Load the images from the pkl file
+
+
+##--CODE--##
+# You can use this code to open the pkl file in other colab notebooks
+from google.colab import drive
+import pickle
+drive.mount('/content/drive')
+
+with open('/content/drive/My Drive/img.pkl', 'rb') as file:
+    imgs = pickle.load(file)
+
+imgs[0]
+

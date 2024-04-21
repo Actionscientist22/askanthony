@@ -1,0 +1,48 @@
+##--CODE--##
+# Install the required libraries
+!pip install prophet
+
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+import datetime as dt
+from prophet import Prophet
+
+%matplotlib inline
+
+##--CODE--##
+# Load the data into the DataFrame
+hourly_prices = pd.read_csv(
+    "https://static.bc-edx.com/ai/ail-v-1-0/m8/lesson_2/datasets/hourly_grid_prices.csv",
+    index_col='day-hour',
+    parse_dates=True,
+    infer_datetime_format=True
+).dropna()
+
+# Display the first and last five rows of the DataFrame
+display(hourly_prices.head())
+display(hourly_prices.tail())
+
+##--CODE--##
+# Plot the DataFrame
+
+
+##--CODE--##
+# Reset the index of the DataFrame
+
+
+# Review the first and last five rows of the DataFrame
+
+
+##--CODE--##
+# Prepare the training data to be read into a prophet model
+# Rename the columns to names that Prophet recognizes
+
+
+##--CODE--##
+# Confirm that there are no NaN values
+
+
+##--CODE--##
+
+

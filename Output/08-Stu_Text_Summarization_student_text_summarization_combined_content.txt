@@ -1,0 +1,31 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install transformers
+
+##--CODE--##
+# Import the pipeline class from the transformers module. 
+from transformers import pipeline
+# Instantiate the pipeline class for summarization using the facebook/bart-large-cnn model.
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+##--CODE--##
+# Create a variable to contain the text from you want to summarize.
+
+##--CODE--##
+# Get the most likely summary of the article using "False" for the `do_sample` parameter.
+# Set the minimum output length to 50, and maximum output length to 150.
+
+# Display the summary
+
+
+##--CODE--##
+# Get a more diverse summary of the article using "True" for the `do_sample` parameter.
+# Set the minimum output length to 50, and maximum output length to 150.
+
+
+# Display the summary
+
+
+##--CODE--##
+
+

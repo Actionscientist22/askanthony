@@ -1,0 +1,43 @@
+##--CODE--##
+# Import dependencies
+import requests
+import pandas as pd
+from dotenv import load_dotenv
+import os
+
+# Load environment variables and OpenWeather API key
+load_dotenv()
+api_key = os.getenv("WEATHER_API_KEY")
+
+##--CODE--##
+# Save config information.
+url = "http://api.openweathermap.org/data/2.5/weather?"
+units = "metric"
+
+# Build partial query URL
+
+
+##--CODE--##
+# Get weather data
+
+
+# Get the temperature from the response
+
+
+##--CODE--##
+# List of cities
+
+
+# set up lists to hold response info
+
+
+# Loop through the list of cities and perform a request for data on each
+
+
+##--CODE--##
+# create a DataFrame from cities, lat, and temp
+
+
+##--CODE--##
+
+

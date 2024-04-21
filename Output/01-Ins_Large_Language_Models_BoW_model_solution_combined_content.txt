@@ -1,0 +1,97 @@
+##--CODE--##
+# Import the dependencies
+import nltk
+from nltk.corpus import stopwords
+nltk.download('punkt')
+# Initialize the stopwords
+stop_words = set(stopwords.words('english'))
+
+##--CODE--##
+# Define the sentences.
+sentence_1 = "I want to invest for retirement."
+sentence_2 = "Should I invest in mutual funds, or should I invest in stocks?"
+sentence_3 = "I should schedule an appointment with a financial planner."
+
+##--CODE--##
+# Import regex
+import re
+# Create a regex pattern to remove punctuation. 
+pattern = r'[^a-zA-Z\s ]'
+
+# Create an empty list to hold the tokens.
+tokens = []
+
+# Remove punctuation, tokenize sentence 1, and add the tokens to the tokens list.
+sentence_1_cleaned = re.sub(pattern, '', sentence_1)
+sentence_1_tokens = nltk.word_tokenize(sentence_1_cleaned.lower())
+tokens.append(sentence_1_tokens)
+
+# Remove punctuation, tokenize sentence 2, and add the tokens to the tokens list.
+sentence_2_cleaned = re.sub(pattern, '', sentence_2)
+sentence_2_tokens = nltk.word_tokenize(sentence_2_cleaned.lower())
+tokens.append(sentence_2_tokens)
+
+# Remove punctuation, tokenize sentence 3, and add the tokens to the tokens list.
+sentence_3_cleaned = re.sub(pattern, '', sentence_3)
+sentence_3_tokens = nltk.word_tokenize(sentence_3_cleaned.lower())
+tokens.append(sentence_3_tokens)
+
+# Display the tokens.
+tokens
+
+##--CODE--##
+# Remove stopwords
+filtered_tokens = []
+for token in tokens:
+    filtered_token = [word for word in token if not word in stop_words]
+    filtered_tokens.append(filtered_token)
+    
+# Diplay the filtered_tokens
+filtered_tokens
+
+##--CODE--##
+# Create the bag-of-words
+bag_of_words = {}
+for i in range(len(filtered_tokens)):
+    for word in filtered_tokens[i]:
+        if word not in bag_of_words:
+            bag_of_words[word] = 0
+        bag_of_words[word] += 1
+
+# Print the bag_of_words
+print(bag_of_words)
+
+### Using scikit-learn's `CountVectorizer` demonstrate how a BoW is created.
+
+##--CODE--##
+# Import the dependencies
+from sklearn.feature_extraction.text import CountVectorizer
+import pandas as pd
+
+##--CODE--##
+# Create a CountVectorizer object
+vectorizer = CountVectorizer(stop_words='english')
+
+# Fit the vectorizer to the input sentences and transform them into a bag of words
+bag_of_words = vectorizer.fit_transform([sentence_1,sentence_2, sentence_3])
+
+# Print the resulting bag of words
+print(bag_of_words.toarray())
+
+##--CODE--##
+# Create a DataFrame of the bag of words. 
+bow_df = pd.DataFrame(bag_of_words.toarray(),columns=vectorizer.get_feature_names_out())
+bow_df
+
+##--CODE--##
+# Print the vocabulary. 
+print(bow_df.columns.to_list())
+
+##--CODE--##
+# Get the number of times each word appears in the vocabulary.
+occurrence = bow_df.sum(axis=0)
+print(occurrence)
+
+##--CODE--##
+
+

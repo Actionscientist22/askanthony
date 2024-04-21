@@ -1,0 +1,58 @@
+##--CODE--##
+import pandas as pd
+
+##--CODE--##
+# Import the data
+file = '../Resources/donors2021.csv'
+donors_df = pd.read_csv(file)
+donors_df.head()
+
+##--CODE--##
+# If 10% of every donation was fully matched by an 
+# anonymous philanthropist, making a new column would be easy.
+
+donors_df['Match Amount'] = donors_df['Amount'] * 0.1
+donors_df.head()
+
+
+
+##--CODE--##
+# What if the match percentage changed based on the amount donated?
+# 10% on donations below $500, and 20% on donations of $500 or more.
+# We need a new solution! A perfect opportunity for 'apply'.
+
+# Define a function
+def match_amount(amount):
+    if amount < 500:
+        return amount * 0.1
+    return amount * 0.2
+
+# "Apply" the function to the amount column
+donors_df['Match Amount'] = donors_df['Amount'].apply(match_amount)
+donors_df.head()
+
+##--CODE--##
+# Apply can also use values from multiple columns by
+# setting the axis argument to 1. Suppose the donor 
+# was only matching donations from Delaware.
+
+def match_amount(row):
+    if (row['State'] != 'DE'):
+        return 0
+    if (row['Amount'] < 500):
+        return row['Amount'] * 0.1
+    return row['Amount'] * 0.2
+
+# "Apply" the function to the DataFrame
+donors_df['Match Amount'] = donors_df.apply(match_amount, axis = 1)
+donors_df.head()
+
+##--CODE--##
+# Finally, apply can also be used with lambda functions.
+
+donors_df['Match Amount'] = donors_df['Amount'].apply(lambda x: x * 0.1 if x < 500 else x * 0.2)
+donors_df.head()
+
+##--CODE--##
+
+

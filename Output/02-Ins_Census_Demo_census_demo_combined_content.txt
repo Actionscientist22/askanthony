@@ -1,0 +1,56 @@
+# U.S. Census Demo
+
+##--CODE--##
+# Dependencies
+import requests
+import pandas as pd
+from census import Census
+from dotenv import load_dotenv
+import os
+
+# Load environment variables and U.S. Census API key
+load_dotenv()
+api_key = os.getenv("CENSUS_API_KEY")
+
+##--CODE--##
+# Create an instance of the Census library
+c = Census(
+    api_key,
+    year = 2013
+)
+
+## Retrieve data from the U.S. Census using the Census library
+
+References:
+
+* Review the following page to review the Python library documentation: <https://github.com/CommerceDataService/census-wrapper>
+
+* Review the following page to learn more about the data labels: <https://gist.github.com/afhaque/60558290d6efd892351c4b64e5c01e9b>
+
+##--CODE--##
+# Run Census Search to retrieve data on all zip codes (2013 ACS5 Census)
+
+
+# Convert to DataFrame
+
+
+# Column renaming
+
+
+# Add a Poverty Rate column (Poverty Count / Population)
+
+
+# Configure the final DataFrame
+
+
+# Display DataFrame length and sample data
+
+
+##--CODE--##
+# Save the DataFrame as a CSV
+# Note: To avoid any issues later, use encoding="utf-8"
+
+
+##--CODE--##
+
+

@@ -1,0 +1,54 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install transformers
+
+##--CODE--##
+# Import the pipeline class from the transformers module. 
+from transformers import pipeline
+# Initialize the pipeline to generate questions and answers using the distilbert-base-cased-distilled-squad model. 
+question_answerer = pipeline("question-answering", model='distilbert-base-cased-distilled-squad')
+
+##--CODE--##
+# Provide text for the question and answering system.
+text = """<>"""
+
+
+##--CODE--##
+# Generate a list of questions.
+questions = []
+
+##--CODE--##
+# Check the output from one question.
+
+# Pass the first question and text to the question_answerer.
+
+# Show the results
+
+
+##--CODE--##
+# Import Pandas 
+import pandas as pd
+
+# Create a function to generate the answers based on an input text.
+def question_answer(questions, text):
+    # Create a list to hold the data that will be added to the DataFrame.
+    
+    # Use a for loop to iterate through the questions.
+    
+        # Pass the question and text to the initialized question_answerer. 
+        
+        # Retrieve the question, answer, the score, the starting 
+        # and ending of where the answer is located in the text.
+        
+    # Create a DataFrame from the data with appropriate columns. 
+    
+    # Return the DataFrame
+    
+
+##--CODE--##
+# Call the question_answer function with the questions and text.
+
+
+##--CODE--##
+
+

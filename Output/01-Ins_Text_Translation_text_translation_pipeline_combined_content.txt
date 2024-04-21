@@ -1,0 +1,19 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install transformers
+
+##--CODE--##
+# Import the pipeline class from the transformers module. 
+from transformers import pipeline
+
+##--CODE--##
+# Initialize the pipeline to translate using the t5-base model. 
+translator = pipeline("translation", model="t5-base")
+
+##--CODE--##
+# Define a English text and translate it to German. 
+
+
+##--CODE--##
+# Define a English text and translate it to French.  
+

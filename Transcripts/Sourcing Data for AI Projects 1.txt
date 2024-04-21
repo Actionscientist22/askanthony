@@ -1,0 +1,5422 @@
+WEBVTT
+
+1
+00:00:06.180 --> 00:00:12.750
+Anthony Taylor: Get one. Hi, Gamy Derek left, he said. I'm tired of this ice fall
+
+2
+00:00:13.540 --> 00:00:16.630
+Anthony Taylor: kidding. He's he's probably got something going on.
+
+3
+00:00:17.080 --> 00:00:25.200
+Anthony Taylor: Okay, what are we doing today? Well. we are starting an entirely new module. very excited about it.
+
+4
+00:00:25.610 --> 00:00:31.610
+Anthony Taylor: Give you an idea. We're going to be talking about Api's, which you know what those are minutes. If you don't.
+
+5
+00:00:34.000 --> 00:00:41.890
+Anthony Taylor: I'll give you an idea about Apis. II still, some people have been during office hours today. I spent 5 by 8 h
+
+6
+00:00:43.550 --> 00:00:48.840
+Anthony Taylor: doing Api codes do coding. Apis. Okay,
+
+7
+00:00:48.980 --> 00:00:53.299
+Anthony Taylor: it's just this is what I do working with Apis. Okay.
+
+8
+00:00:53.740 --> 00:00:55.209
+it happens a lot.
+
+9
+00:00:55.290 --> 00:01:06.920
+Anthony Taylor: It's a wonderful skill to have. And it opens a whole lot of data sources that otherwise you would not even be able to get to.
+
+10
+00:01:08.090 --> 00:01:11.150
+Anthony Taylor: Okay. is that exciting?
+
+11
+00:01:13.680 --> 00:01:16.820
+Anthony Taylor: Does somebody actually do? What is that? What?
+
+12
+00:01:17.490 --> 00:01:27.000
+michael mcpherson: What is that? Is that what that is? I chat, gpt, and ask why, it's the good ice. and it actually knew the answer. Of course it does.
+
+13
+00:01:27.470 --> 00:01:34.950
+Anthony Taylor: It does cool because of the the all of the surface area of the ice. It makes stuff like cold, fast, like.
+
+14
+00:01:36.580 --> 00:01:40.379
+Anthony Taylor: why would you not use chat? Tbd, but that's what it's good at. Is that kind of stuff?
+
+15
+00:01:40.560 --> 00:01:45.500
+Anthony Taylor: Okay, alright, alright, alright, alright, this is why we have AI, this is our future.
+
+16
+00:01:45.990 --> 00:01:58.419
+Anthony Taylor: Okay, alright. So what are we gonna do today? We're gonna read understand data source term. So this is actually new. It's interesting. I'm glad we cover it. It's gonna talk about licensing.
+
+17
+00:02:00.180 --> 00:02:01.730
+Anthony Taylor: It's not on the test.
+
+18
+00:02:01.890 --> 00:02:05.270
+Anthony Taylor: Okay, guys, but it's still good to understand.
+
+19
+00:02:05.390 --> 00:02:11.449
+Anthony Taylor: Okay, after that, we're gonna actually do some coding. We're going to learn how to scrape
+
+20
+00:02:12.530 --> 00:02:15.269
+sonja baro: at a website
+
+21
+00:02:15.620 --> 00:02:18.510
+Anthony Taylor: of its data. Okay, now.
+
+22
+00:02:18.850 --> 00:02:33.229
+Anthony Taylor: we're not gonna go deep into scraping, which is a bummer. Because scraping can be very interesting. Scraping is the only place where I tell you to do stuff, and then you get a little nervous that maybe I'm actually in your computer.
+
+23
+00:02:33.750 --> 00:02:36.080
+Anthony Taylor: Okay. but I'm not
+
+24
+00:02:36.720 --> 00:02:38.010
+michael mcpherson: to a
+
+25
+00:02:38.740 --> 00:02:53.429
+Anthony Taylor: well, no, I don't. II pretty sure we don't get deep into scraping, but this kind of scraping is pretty cool. You will be able to get data from websites that have tables on their website, you'll be able to just basically use pandas and read the data in
+
+26
+00:02:53.450 --> 00:03:09.490
+Anthony Taylor: then we're gonna do get request. So get is an Api or a way we access an Api. We'll know what Api is soon. Api's return. Json data. Json looks like a python dictionary
+
+27
+00:03:09.750 --> 00:03:14.980
+Anthony Taylor: incredibly similar. You're gonna barely be able to tell the difference. Okay.
+
+28
+00:03:15.120 --> 00:03:26.259
+Anthony Taylor: and then we're gonna learn to convert the Json that we get back from the Api into a data frame, because when it comes to data, everything we do we want in a data frame.
+
+29
+00:03:27.740 --> 00:03:30.810
+Anthony Taylor: Got it? That's pretty full day. Yeah.
+
+30
+00:03:31.520 --> 00:03:37.480
+Anthony Taylor: it's really going to be fine. So let's start with data set licensing. So
+
+31
+00:03:40.740 --> 00:03:44.960
+Anthony Taylor: every time you go out to a website
+
+32
+00:03:48.020 --> 00:03:50.040
+Anthony Taylor: and you look at
+
+33
+00:03:50.320 --> 00:03:54.610
+Anthony Taylor: a data set. So I just went to Kaggle. Kaggle is spectacular.
+
+34
+00:03:55.580 --> 00:04:05.340
+Anthony Taylor: You will learn to love it when you guys are doing projects.  but what you can look for is the license.
+
+35
+00:04:06.070 --> 00:04:13.260
+Anthony Taylor: Okay? This one's other specified in dictionary in the so contain separated.
+
+36
+00:04:13.850 --> 00:04:18.570
+Anthony Taylor: It's not, though. Where's the license that's so annoying.
+
+37
+00:04:19.000 --> 00:04:23.409
+Anthony Taylor: Oh, it's not there. This guy just didn't bother to put it in there. But normally
+
+38
+00:04:23.700 --> 00:04:25.089
+Anthony Taylor: you will see
+
+39
+00:04:25.240 --> 00:04:35.259
+Anthony Taylor: what the license is. So these are the kind of options we might see. Okay, CC, 0, CC, bye, CC, by SA. CC, by Nc.
+
+40
+00:04:36.970 --> 00:04:39.929
+these are just some. These are created common licenses.
+
+41
+00:04:40.200 --> 00:04:41.380
+Anthony Taylor: Okay, so
+
+42
+00:04:42.820 --> 00:04:48.369
+Anthony Taylor: there's there's open source. There's all of these different things don't get those mixed up with this.
+
+43
+00:04:48.560 --> 00:04:57.310
+Anthony Taylor: Okay, open source means that someone has written code and they have made it open to the world to manipulate
+
+44
+00:04:57.550 --> 00:05:02.760
+Anthony Taylor: copy. Whatever you want to do, the right thing to do is to cite that person. It's not required.
+
+45
+00:05:03.100 --> 00:05:04.739
+Anthony Taylor: Okay, because it's open source.
+
+46
+00:05:05.410 --> 00:05:07.739
+Anthony Taylor: Alright. But python
+
+47
+00:05:09.460 --> 00:05:10.870
+Anthony Taylor: is open source.
+
+48
+00:05:12.230 --> 00:05:19.469
+Anthony Taylor: Okay? Spark is open source. And these are like the 2 biggest data manipulation languages outside of sequel
+
+49
+00:05:19.480 --> 00:05:20.539
+Anthony Taylor: in existence.
+
+50
+00:05:21.250 --> 00:05:29.260
+Anthony Taylor: Okay, so licensing has to do with your ability to use the data that you are reading off the Internet.
+
+51
+00:05:30.030 --> 00:05:34.870
+Anthony Taylor: So let's just go through these real quick. CC, 0, there's no restrictions period. Do whatever you want.
+
+52
+00:05:36.330 --> 00:05:41.640
+Anthony Taylor: got it? Use it any way you want want to make money with the data, make money with the data.
+
+53
+00:05:42.760 --> 00:05:49.499
+Anthony Taylor: You wanna manipulate it, change it, make it look totally different. Feel free. resell it if you can go for it.
+
+54
+00:05:50.580 --> 00:05:53.569
+Anthony Taylor: Okay. cece bye.
+
+55
+00:05:53.640 --> 00:06:01.570
+Anthony Taylor:  As long as this just means that as long as the person who did create it gets cited.
+
+56
+00:06:01.810 --> 00:06:06.010
+Anthony Taylor: So if you use it for something, you have to give credit to the person that wrote.
+
+57
+00:06:07.790 --> 00:06:14.379
+Anthony Taylor: okay, how do they know? Well, if they see their data and you didn't do it? Then you violated the license agreement and you could Sue.
+
+58
+00:06:14.490 --> 00:06:19.439
+Anthony Taylor: If you're making money off. you're just using it in the classroom project. No one cares.
+
+59
+00:06:20.020 --> 00:06:21.600
+Anthony Taylor: Okay, but
+
+60
+00:06:22.360 --> 00:06:25.380
+Anthony Taylor: be aware. So this one
+
+61
+00:06:25.400 --> 00:06:28.909
+Anthony Taylor: is. CC, by SA. I've actually I don't see it.
+
+62
+00:06:29.380 --> 00:06:36.580
+Anthony Taylor: There are no restrictions on what user, what you can do as long as the original Creator is credited.
+
+63
+00:06:36.730 --> 00:06:44.470
+Anthony Taylor: and the new work is licensed the same way. So here you can do it, and then license it like this
+
+64
+00:06:44.900 --> 00:06:46.899
+Anthony Taylor: so you could take their stuff.
+
+65
+00:06:46.960 --> 00:06:53.739
+Anthony Taylor: give them credit. But then your stuff, you license like this, that person doesn't have to get that right, does it make sense?
+
+66
+00:06:55.050 --> 00:07:13.860
+Anthony Taylor: I can use names if you want. Curry makes some data. He goes. I'm gonna license it with CC, buy. And then Jennifer uses the data, says this was data generated by Curry. Then Matt comes along, copies Jennifer's data decides, and he doesn't care if he gets cited and licenses it to CC. 0.
+
+67
+00:07:14.260 --> 00:07:20.790
+Anthony Taylor: Anyone that uses Matt's copy of the data does not have to do anything for Jennifer or Kurt.
+
+68
+00:07:22.050 --> 00:07:26.199
+Anthony Taylor: Okay. we're getting into some gray area there, but that is the reality.
+
+69
+00:07:26.940 --> 00:07:30.450
+Anthony Taylor: Alright. The last one CC, by Nc.
+
+70
+00:07:30.630 --> 00:07:34.230
+Anthony Taylor: basically, this just says you cannot use it for Kurt Marshall.
+
+71
+00:07:34.350 --> 00:07:36.010
+Anthony Taylor: Period!
+
+72
+00:07:36.930 --> 00:07:47.339
+Anthony Taylor: And you have to do. You have to credit the owner. Okay. we don't use these at all. but if you see one when you're doing your projects
+
+73
+00:07:47.550 --> 00:07:58.180
+Anthony Taylor: again, it really doesn't matter. You're not making money off of this. Okay, that's the big criteria. If you're trying to make money off of it, and it says, Do not use for commercial use.
+
+74
+00:07:58.190 --> 00:08:02.779
+Anthony Taylor: You don't. Now. why did we specifically say this? Does anybody
+
+75
+00:08:04.240 --> 00:08:08.699
+Anthony Taylor: anybody understand why we are calling that out here at Edx?
+
+76
+00:08:09.430 --> 00:08:19.500
+Anthony Taylor: We're making money off this data? All of the data we share with you in class, we're making money.
+
+77
+00:08:20.570 --> 00:08:28.150
+Anthony Taylor: Okay? So if we did this kind. and and I'll tell you a little little secret before we were edx
+
+78
+00:08:28.800 --> 00:08:31.700
+Anthony Taylor: couple years ago we were using
+
+79
+00:08:32.679 --> 00:08:33.880
+Anthony Taylor: real data
+
+80
+00:08:34.010 --> 00:08:41.030
+Anthony Taylor: and and somebody got trouble for it. Then they had to go and redo all the curriculum to get rid of that real date.
+
+81
+00:08:41.580 --> 00:08:47.369
+Anthony Taylor: So, and it wasn't like anybody was trying to be vindictive about it. It was just it was out on Internet, why can't we use it? Well.
+
+82
+00:08:47.580 --> 00:08:49.120
+Anthony Taylor: they didn't check the license.
+
+83
+00:08:50.830 --> 00:08:52.220
+Anthony Taylor: So yeah.
+
+84
+00:08:52.580 --> 00:09:00.950
+Anthony Taylor: open data. This is another type of licensing. And it's basically the same idea. Open data, common database.
+
+85
+00:09:01.070 --> 00:09:03.609
+Anthony Taylor: You you must credit the author.
+
+86
+00:09:03.990 --> 00:09:08.280
+Anthony Taylor: And you must license it. So this is similar to CC, by.
+
+87
+00:09:08.430 --> 00:09:11.759
+Anthony Taylor: or sorry. This is like CC, by SA.
+
+88
+00:09:12.750 --> 00:09:18.150
+Anthony Taylor:  odc. By any words created must credit the original
+
+89
+00:09:18.460 --> 00:09:20.130
+Anthony Taylor: period
+
+90
+00:09:20.970 --> 00:09:30.040
+Anthony Taylor: and public dedication license. No restrictions on new work created using these, and they're considered to be in the public domain. So Pddl is similar to CC, 0,
+
+91
+00:09:32.680 --> 00:09:35.230
+Anthony Taylor: okay. pretty exciting.
+
+92
+00:09:36.190 --> 00:09:37.810
+Anthony Taylor: Alright. Now.
+
+93
+00:09:39.820 --> 00:09:48.919
+Anthony Taylor: it's funny. It says Instructor Demo. I'm trying to figure out what it is they want me to do in this demo. There's no material, there's no nothing let me check with.
+
+94
+00:09:49.560 --> 00:09:51.129
+Anthony Taylor: Maybe there's something over here.
+
+95
+00:09:52.940 --> 00:09:56.500
+Anthony Taylor: We do have an activity for this, believe it or not. but
+
+96
+00:09:57.460 --> 00:10:00.019
+every day one day is abundant.
+
+97
+00:10:00.200 --> 00:10:04.000
+Anthony Taylor: Here's some following points, everything we just talked about.
+
+98
+00:10:13.950 --> 00:10:22.269
+Anthony Taylor: That's it. Okay.  so finding data sets, I mean, this is something that during the projects, yeah, please.
+
+99
+00:10:23.590 --> 00:10:29.620
+Clayton Graves: And you show us, you know, of any websites that that you can show us
+
+100
+00:10:29.730 --> 00:10:36.189
+Clayton Graves: examples. Yes. Well, we're gonna we're gonna send you the stuff. So you're gonna get to do that. Yes.
+
+101
+00:10:36.640 --> 00:10:39.789
+Anthony Taylor: you will see, I promise. I'm looking to see if there's
+
+102
+00:10:40.540 --> 00:10:50.440
+Anthony Taylor: if they're gonna give me some to show you now, before you go to the activity. So one. Sec. So foundation. So anyway, yeah, during projects, first thing you have to do and
+
+103
+00:10:50.520 --> 00:11:01.360
+Anthony Taylor: good news is, I'll show you the best way to do this is find data. So you might say, well, wouldn't we want to find the topic first? Well, yeah. But
+
+104
+00:11:01.550 --> 00:11:06.840
+Anthony Taylor: what you're gonna find is there's not always data for every talk that you can freely get.
+
+105
+00:11:07.030 --> 00:11:11.579
+Anthony Taylor: So sometimes it's like, Well, let's go. Let's come up with like 3 topics and go find it.
+
+106
+00:11:11.840 --> 00:11:24.160
+Anthony Taylor: And then, you know, and that's do it. Now the good news is, I'm going to show you. I created a prompt in Chat Tpt. Where we put the requirements of the project into it. And it gives us, like, whole bunch of options for you guys.
+
+107
+00:11:24.480 --> 00:11:28.100
+Anthony Taylor: and I've been using that for since.
+
+108
+00:11:28.390 --> 00:11:41.750
+Anthony Taylor: So it'll help you find data. because to me. and I'm gonna tell you why. You know, sometimes people watch these videos and I'm glad they're gonna watch this one right to me finding the data.
+
+109
+00:11:41.820 --> 00:11:43.579
+Anthony Taylor: It's not what you're hearing about.
+
+110
+00:11:44.400 --> 00:11:50.909
+Anthony Taylor: Okay, that's ridiculous. It's like, Oh, well, they gotta spend an entire class trying to find the
+
+111
+00:11:51.050 --> 00:12:03.220
+Anthony Taylor: doesn't make any sense. When you are working on a job. right? The job has the data. not gonna go and hunt down new data. There are times when you need to hunt down like data to augment.
+
+112
+00:12:04.580 --> 00:12:07.009
+Anthony Taylor: But that's a different thing.
+
+113
+00:12:07.560 --> 00:12:09.730
+Anthony Taylor: Okay?
+
+114
+00:12:13.490 --> 00:12:14.320
+Anthony Taylor: okay.
+
+115
+00:12:15.900 --> 00:12:25.209
+Anthony Taylor: some institutions such as government agencies, they publish data typically that is like the best place to get data. It's usually fairly easy to get.
+
+116
+00:12:25.440 --> 00:12:29.540
+Anthony Taylor:  it's not always easy to work.
+
+117
+00:12:29.960 --> 00:12:33.610
+Anthony Taylor: And I'll give you an example. The
+
+118
+00:12:35.940 --> 00:12:37.730
+Anthony Taylor: insurance companies.
+
+119
+00:12:38.780 --> 00:12:42.359
+Anthony Taylor: Okay? And this will. This will surprise you when you hear this is out there, probably.
+
+120
+00:12:42.660 --> 00:12:45.610
+Anthony Taylor: but they are required by law
+
+121
+00:12:47.430 --> 00:12:53.349
+Anthony Taylor: to publish every negotiated rate they do with every doctor
+
+122
+00:12:53.590 --> 00:12:54.800
+Anthony Taylor: period.
+
+123
+00:12:55.040 --> 00:13:03.360
+Anthony Taylor: every ICD. 9, every Cpt. You don't know what those are. That's your diagnosis and your procedures. That's how they bill you.
+
+124
+00:13:04.080 --> 00:13:13.540
+Anthony Taylor: Okay? Well. the diagnosis is how they decide what procedures are allowed and the procedures is how they do you okay?
+
+125
+00:13:14.000 --> 00:13:20.740
+Anthony Taylor: And every negotiated rate has to be published
+
+126
+00:13:21.500 --> 00:13:23.790
+Anthony Taylor: freely and openly.
+
+127
+00:13:26.150 --> 00:13:28.500
+Anthony Taylor: The format to do that
+
+128
+00:13:29.110 --> 00:13:31.590
+Anthony Taylor: is incredibly complicated.
+
+129
+00:13:32.790 --> 00:13:34.500
+Anthony Taylor: Okay, aye.
+
+130
+00:13:35.520 --> 00:13:39.710
+Anthony Taylor: parse that data out once a year for my organization.
+
+131
+00:13:41.600 --> 00:13:44.540
+Anthony Taylor: united health ecbs, and
+
+132
+00:13:45.920 --> 00:13:47.099
+Anthony Taylor: and it is
+
+133
+00:13:47.180 --> 00:13:55.150
+Anthony Taylor: about 5 TB of data. But we can see every negotiated rate
+
+134
+00:13:55.370 --> 00:14:02.310
+Anthony Taylor: for every Npi code. Npi is the national physician identifier. Okay.
+
+135
+00:14:02.870 --> 00:14:07.770
+Anthony Taylor:  and feel free to correct me if I set that number.
+
+136
+00:14:08.180 --> 00:14:12.680
+Anthony Taylor: but it's it's basically the identifier used to identify a medical something.
+
+137
+00:14:13.370 --> 00:14:15.329
+Anthony Taylor: All right. Not necessarily just a doctor.
+
+138
+00:14:17.020 --> 00:14:23.980
+Anthony Taylor: And and what negotiator rate they have with that insurance company. So you go. You get your arm put in a cast.
+
+139
+00:14:24.500 --> 00:14:28.300
+Anthony Taylor: Okay, there's a negotiated rate. There is a a step
+
+140
+00:14:28.420 --> 00:14:34.070
+Anthony Taylor: price that the insurance company says they will pay that doctor. If he does that tax
+
+141
+00:14:34.690 --> 00:14:39.229
+Anthony Taylor: it's done. It's set. There's none of this crazy. Oh, well, that'll be yeah.
+
+142
+00:14:39.930 --> 00:14:45.899
+Anthony Taylor: $5,000. Nope. they could. Bill you any damn thing they want. This is what the insurance company.
+
+143
+00:14:47.230 --> 00:14:49.000
+Anthony Taylor: Okay? So anyway.
+
+144
+00:14:49.040 --> 00:14:55.770
+Anthony Taylor: that exists, it's very, very cool.  the process would be to build that to probably
+
+145
+00:14:55.780 --> 00:14:59.310
+Anthony Taylor: a good week or 2, and then it took like a month
+
+146
+00:14:59.440 --> 00:15:00.700
+Anthony Taylor: to run the data
+
+147
+00:15:00.940 --> 00:15:03.330
+Anthony Taylor: to get it all take you brought in.
+
+148
+00:15:03.740 --> 00:15:07.840
+Anthony Taylor: It's very helpful for us as an organization.
+
+149
+00:15:08.310 --> 00:15:12.139
+Anthony Taylor: But it's hard to get good news, is it? Only gets updated like once.
+
+150
+00:15:13.550 --> 00:15:15.590
+Anthony Taylor: Yeah. anyway.
+
+151
+00:15:16.800 --> 00:15:22.820
+Anthony Taylor: exciting stuff. What are some other ones? Data. Gov is a great here, let's go there.
+
+152
+00:15:25.490 --> 00:15:29.650
+Anthony Taylor: Data. Gov is a great website. Look at this, 260
+
+153
+00:15:29.850 --> 00:15:32.420
+Anthony Taylor: 1,000 data sets are available.
+
+154
+00:15:33.460 --> 00:15:47.070
+Anthony Taylor: Okay. what kind of stuff? Well, there's all kinds of stuff in here can see recently added data sets. coast-wide reference monitoring system. land change, monitoring, assessment and projection.
+
+155
+00:15:47.250 --> 00:15:51.100
+Anthony Taylor: These are fun. Let's see, let's find something. Human health
+
+156
+00:15:52.280 --> 00:15:55.509
+Anthony Taylor: EPA impaired waters with the of the elder.
+
+157
+00:15:55.810 --> 00:15:56.500
+Okay.
+
+158
+00:15:56.620 --> 00:15:59.130
+Anthony Taylor: Super Fund site information.
+
+159
+00:16:00.370 --> 00:16:07.729
+Anthony Taylor: concentrated animal feeding operations per county. This one's downloadable. You can just download the whole thing.
+
+160
+00:16:08.580 --> 00:16:13.940
+Anthony Taylor: I know these are not interesting. What do you want? Interesting for? Free from the government
+
+161
+00:16:14.080 --> 00:16:20.000
+Anthony Taylor: map of arsenic concentrations in groundwater? And this is, this sounds like a good
+
+162
+00:16:21.010 --> 00:16:26.540
+Anthony Taylor: okay. And here you can just download the data and learn how to process it. And you'll be fine.
+
+163
+00:16:27.720 --> 00:16:28.620
+Anthony Taylor: Okay?
+
+164
+00:16:28.860 --> 00:16:36.120
+Anthony Taylor:  that's that. So there's lots of stuff here. All of this
+
+165
+00:16:36.450 --> 00:16:38.350
+Anthony Taylor: is, look at that.
+
+166
+00:16:38.450 --> 00:16:39.770
+Anthony Taylor: No license.
+
+167
+00:16:41.490 --> 00:16:44.120
+Anthony Taylor: It's all data. It's government. We paid for it already.
+
+168
+00:16:45.580 --> 00:16:52.069
+Anthony Taylor: Okay, there are some data that they, some government data that you have to pay for. But it's fairly rare.
+
+169
+00:16:52.900 --> 00:16:57.609
+Anthony Taylor: You can also do. There's also you can do this for Australia. Singapore.
+
+170
+00:16:58.720 --> 00:17:01.690
+Anthony Taylor: Okay, then there's this one.
+
+171
+00:17:05.530 --> 00:17:09.320
+Anthony Taylor: So there is some stuff you have to be careful with.
+
+172
+00:17:09.609 --> 00:17:15.539
+Anthony Taylor:  so this is a whole article on what you have to pay attention to.
+
+173
+00:17:16.630 --> 00:17:33.369
+Anthony Taylor: You're in class, and we worry about it. If you're going to use it in an or in a company. Okay? Then you usually will have a legal department that will deal with this for you. Okay, this is never something I do. The only thing I need to know at my job when it comes to stuff like this is that, oh.
+
+174
+00:17:34.270 --> 00:17:36.939
+Anthony Taylor: I'm gonna send a note over to legal to make sure this is okay.
+
+175
+00:17:38.000 --> 00:17:41.520
+Anthony Taylor: Okay? And then you set it legal. And in a month or 2 you hear back.
+
+176
+00:17:42.480 --> 00:17:44.449
+Anthony Taylor: And usually it's, Oh, yeah, that's a
+
+177
+00:17:45.280 --> 00:17:48.979
+Anthony Taylor: okay, or don't you dare? That's the other one they love to give.
+
+178
+00:17:49.280 --> 00:17:49.970
+It's like.
+
+179
+00:17:50.890 --> 00:17:52.270
+Anthony Taylor: sorry I already be
+
+180
+00:17:52.490 --> 00:17:55.519
+Anthony Taylor:  We're gonna go to
+
+181
+00:17:55.690 --> 00:18:01.060
+Anthony Taylor: my my love, the school I've been teaching at data science for the last 4 or 5 years
+
+182
+00:18:02.340 --> 00:18:07.849
+Anthony Taylor: has one of the best data repositories period and a discussion.
+
+183
+00:18:08.690 --> 00:18:10.530
+Anthony Taylor: Okay,
+
+184
+00:18:10.600 --> 00:18:13.380
+Anthony Taylor: it was, we were one of the best machine learning
+
+185
+00:18:13.970 --> 00:18:17.749
+Anthony Taylor: teaching organizations in country and with lots
+
+186
+00:18:17.790 --> 00:18:20.680
+Anthony Taylor: of great data. Okay?
+
+187
+00:18:24.680 --> 00:18:30.329
+Anthony Taylor: And all of it. I mean, you can look at this. It even gives you like. Here's the code. Right? Bring it right into python.
+
+188
+00:18:31.810 --> 00:18:32.760
+Anthony Taylor: Okay?
+
+189
+00:18:34.330 --> 00:18:39.730
+Anthony Taylor: But this tells you the metadata. This tells you the tables. Everything you need to know
+
+190
+00:18:39.770 --> 00:18:40.999
+Anthony Taylor: to bring this in.
+
+191
+00:18:41.530 --> 00:18:43.690
+The licensing on this
+
+192
+00:18:45.830 --> 00:18:54.440
+Anthony Taylor: is there? It is DC. Bye. So this is the this is the one the CC buy.
+
+193
+00:18:55.510 --> 00:19:00.079
+Anthony Taylor: See if I can get back to the slide show. Where did the slide show? Go, man, there it is.
+
+194
+00:19:02.740 --> 00:19:03.719
+Anthony Taylor: Is this one.
+
+195
+00:19:05.240 --> 00:19:06.150
+Anthony Taylor: Okay?
+
+196
+00:19:10.330 --> 00:19:17.520
+What else we got here. That one you guys are gonna look with. There's another one. And I'm just kind of going through some of these. So you guys actually
+
+197
+00:19:17.530 --> 00:19:20.119
+Anthony Taylor: kind of to answer Clayton's question.
+
+198
+00:19:20.670 --> 00:19:26.590
+Anthony Taylor: But these are examples. I think these are in your activity. By the way. but like, here's some AI ready data.
+
+199
+00:19:27.570 --> 00:19:34.360
+Anthony Taylor:  this one's a little more complicated. But there's lots of data sets here to work on.
+
+200
+00:19:35.810 --> 00:19:39.370
+Anthony Taylor: Okay. And again, you always want to look for the
+
+201
+00:19:39.770 --> 00:19:52.020
+Anthony Taylor: you may now note this one, look at this. this, this one they properly cited. You see this. This is how they properly cite it. Well, look, that's exactly what we were just at
+
+202
+00:19:53.410 --> 00:19:54.950
+Anthony Taylor: the Uc Irvine step.
+
+203
+00:19:55.570 --> 00:20:01.209
+Anthony Taylor: Okay, so this data is just data. They pulled from there. But they may have made some changes to it
+
+204
+00:20:02.520 --> 00:20:05.729
+Anthony Taylor: long as they properly cite it. They're allowed to do that
+
+205
+00:20:08.210 --> 00:20:10.599
+Anthony Taylor: and see. And this is the licenses, public
+
+206
+00:20:11.250 --> 00:20:15.569
+and spelt wrong, which is kind of weird is how they spell it in other countries.
+
+207
+00:20:16.260 --> 00:20:18.250
+Anthony Taylor: LICE, and C.
+
+208
+00:20:19.490 --> 00:20:20.320
+I don't know.
+
+209
+00:20:21.760 --> 00:20:24.440
+Anthony Taylor: Are you guys, are you guys excited about all this stuff.
+
+210
+00:20:26.120 --> 00:20:26.790
+Okay? Good.
+
+211
+00:20:27.610 --> 00:20:36.600
+Anthony Taylor: Kaggle is spectacular. Do be aware that they, kaggle is not all public. There are data sets that are licensed there.
+
+212
+00:20:36.750 --> 00:20:46.330
+Anthony Taylor: So you have to be aware of that. Okay, alright. Any questions about why, seeing any of that stuff, we do have a short activity. By short, I'm really shoulder.
+
+213
+00:20:48.350 --> 00:20:50.400
+Let's see what the instructions are.
+
+214
+00:20:50.820 --> 00:20:55.149
+Anthony Taylor: So what they want you to do is just go to a couple of these that we just went to.
+
+215
+00:20:55.280 --> 00:20:59.830
+Anthony Taylor: or some of the other ones, check them out, try to little kite any
+
+216
+00:20:59.930 --> 00:21:07.790
+Anthony Taylor: licensing or terms of use information and answer the question, Is it a general license for the website?
+
+217
+00:21:08.340 --> 00:21:12.039
+Anthony Taylor: Or is a license associated to individual data sets
+
+218
+00:21:12.390 --> 00:21:17.039
+Anthony Taylor: all we want you to do. It's gonna take me longer to set up the breakout room.
+
+219
+00:21:18.740 --> 00:21:20.840
+Anthony Taylor: Okay? So
+
+220
+00:21:21.510 --> 00:21:28.979
+Anthony Taylor: who let's just let's just have a couple people tell me, raise your hand. Tell me about the site you went to, and what license you got.
+
+221
+00:21:32.180 --> 00:21:34.140
+Masarirambi, Rodney: So go for it, Clayton.
+
+222
+00:21:34.160 --> 00:21:36.310
+Anthony Taylor: You're first. God raise your hand right.
+
+223
+00:21:36.360 --> 00:21:51.650
+Clayton Graves: So I found all the possible combinations for tic tac toe to solve when for X, and it was cited by the Uci. Didn't find license, but it was specifically cited to
+
+224
+00:21:51.780 --> 00:21:55.310
+Clayton Graves: Uci, and it asks that you cite them
+
+225
+00:21:55.520 --> 00:22:05.530
+Clayton Graves: when dealing actually say that anywhere but but source was there.
+
+226
+00:22:05.540 --> 00:22:08.280
+Clayton Graves: Site was there? That's what you do.
+
+227
+00:22:08.760 --> 00:22:16.000
+Anthony Taylor: Odds are good. Uci's is probably a web-wide, like everything on their site. CC, by.
+
+228
+00:22:17.020 --> 00:22:20.020
+But yeah, if you went back to the Uci wind you would see
+
+229
+00:22:20.150 --> 00:22:23.669
+Anthony Taylor: that's good. That's good, Rodney. What'd you look at? What'd you find?
+
+230
+00:22:25.880 --> 00:22:38.950
+Masarirambi, Rodney: So we went to a couple of different like national ones. The New Zealand, the one was actually pretty interesting, cause there's a whole lot of like outdoor activity stuff that was like right there, like straight off the bat. It was like walking, hiking and that kind of stuff, and was just like kind of interesting.
+
+231
+00:22:39.020 --> 00:22:51.730
+Masarirambi, Rodney: We were fearful that we might become those people who start now using a database to find out where we're gonna go. You know, hiking.
+
+232
+00:22:52.330 --> 00:23:07.749
+Anthony Taylor: there is an app for that. There was one. Somebody made one so that you can use it. You don't need to do that, you? I'll teach you how to do that. That's just so. Brain dead simple. The fact that people are making money on it makes me feel bad for myself.
+
+233
+00:23:08.770 --> 00:23:11.829
+Anthony Taylor: because I'm like I could have done that.
+
+234
+00:23:12.340 --> 00:23:13.990
+Masarirambi, Rodney: Yeah.
+
+235
+00:23:14.620 --> 00:23:19.250
+Masarirambi, Rodney: But anyway, I'm gonna teach you guys how to do it. So maybe you guys will market right away.
+
+236
+00:23:19.870 --> 00:23:21.830
+Anthony Taylor: You'll be making the money.
+
+237
+00:23:22.120 --> 00:23:26.750
+Masarirambi, Rodney: we'll commons license and do that.
+
+238
+00:23:27.440 --> 00:23:31.610
+Anthony Taylor: I like it. Well, no, if you're gonna make it happen, is it? Then? No
+
+239
+00:23:31.870 --> 00:23:33.390
+Anthony Taylor: commercial license?
+
+240
+00:23:34.330 --> 00:23:37.020
+Anthony Taylor: Alright. One more.
+
+241
+00:23:38.280 --> 00:23:39.380
+Anthony Taylor: Anybody.
+
+242
+00:23:42.700 --> 00:23:45.319
+Anthony Taylor: Okay, Gabe, show us what you got.
+
+243
+00:23:45.890 --> 00:23:49.420
+Vasquez, Gabriel: We have found a tribe being data set.
+
+244
+00:23:50.340 --> 00:23:54.690
+Vasquez, Gabriel: Yeah, like BEAN
+
+245
+00:23:55.090 --> 00:24:04.240
+Vasquez, Gabriel: got it where they took a bunch of pictures of like a bunch. They took 13,000 different pictures of
+
+246
+00:24:04.390 --> 00:24:05.940
+Vasquez, Gabriel: grains of bean.
+
+247
+00:24:07.250 --> 00:24:08.080
+Anthony Taylor: Okay?
+
+248
+00:24:08.210 --> 00:24:11.589
+Vasquez, Gabriel: And it was a CC. By license.
+
+249
+00:24:12.140 --> 00:24:13.259
+Anthony Taylor: There you go.
+
+250
+00:24:13.510 --> 00:24:19.530
+Anthony Taylor: There you go. Some people might be going. Why would I need thousands of pictures of a theme?
+
+251
+00:24:20.290 --> 00:24:21.730
+Anthony Taylor: There's a good reason.
+
+252
+00:24:22.400 --> 00:24:27.199
+Anthony Taylor: Okay, you're probably looking for something, and they want to be able to identify them using
+
+253
+00:24:27.220 --> 00:24:30.540
+Anthony Taylor: machine learning. That's why you would do that.
+
+254
+00:24:32.840 --> 00:24:36.570
+Anthony Taylor: Okay. alright. Well, that's bad enough.
+
+255
+00:24:37.380 --> 00:24:46.100
+Anthony Taylor: I think I just closed my slideshow, I did not. Alright. Let's move all so licensing thing really cool. It's fun.
+
+256
+00:24:46.840 --> 00:24:54.179
+Anthony Taylor: I mean, if so, a lot of times, and this is one of the things I often say.  with our curriculum team.
+
+257
+00:24:54.240 --> 00:24:56.510
+Anthony Taylor: And if they're listening, I love you guys.
+
+258
+00:24:58.880 --> 00:25:10.309
+Anthony Taylor: They they tend to give do the lesson plans as if some of you might actually work like in a startup. Okay. I have never met a data student that left this class and worked in a startup.
+
+259
+00:25:10.620 --> 00:25:12.989
+Anthony Taylor: Not that you couldn't. You absolutely could.
+
+260
+00:25:13.440 --> 00:25:19.449
+Anthony Taylor: Okay, but typically your skill set is stronger and you don't need to work going to start
+
+261
+00:25:19.930 --> 00:25:23.090
+Anthony Taylor: so you'll you'll you'll be fine
+
+262
+00:25:23.410 --> 00:25:27.700
+Anthony Taylor: not. The startups are bad a lot of money to start up if you get in at the right time.
+
+263
+00:25:27.910 --> 00:25:30.690
+Anthony Taylor: and it's just usually you start off, not making it
+
+264
+00:25:31.970 --> 00:25:34.140
+Anthony Taylor: alright. That's the problem with startups.
+
+265
+00:25:34.360 --> 00:25:42.509
+Anthony Taylor:  but you know what if you got the time and guts go for it. Alright. So where I did this.
+
+266
+00:25:46.060 --> 00:25:46.920
+Anthony Taylor: Okay?
+
+267
+00:25:48.150 --> 00:25:50.300
+Anthony Taylor: Last chance. The questions on licensing
+
+268
+00:25:53.080 --> 00:25:58.049
+Anthony Taylor: the reason I mentioned the startup thing. Licensing is important. If you're in a startup
+
+269
+00:25:58.820 --> 00:26:10.370
+Anthony Taylor: and you don't have a legal department, and you're trying to sell something. If you start selling something, and you're using somebody's data and not following license. Your startup will be shut down with.
+
+270
+00:26:11.480 --> 00:26:20.849
+Anthony Taylor: probably by a lawsuit, and any money you make would be gone. Okay, so that's why this is important if you're working in an organization.
+
+271
+00:26:22.820 --> 00:26:24.510
+Anthony Taylor: probably not going to run into that, too.
+
+272
+00:26:25.770 --> 00:26:27.590
+Anthony Taylor: Okay. so
+
+273
+00:26:27.740 --> 00:26:36.240
+Anthony Taylor: we're going to pull data from an HTML table. So Panda's library includes a little web scraper. What is web scraping?
+
+274
+00:26:36.360 --> 00:26:45.369
+Anthony Taylor:  web scraping is basically programmatically taking information off of webpage.
+
+275
+00:26:47.790 --> 00:26:54.090
+sonja baro: Anthony, we used to call it. We used to call it poor man, or the cheater way of integrating.
+
+276
+00:26:55.320 --> 00:27:09.350
+Anthony Taylor: Well, it's like a poor man's Api, I suppose that's true. But  for some reason they like to use this one. So like this website. So say, you wanted to
+
+277
+00:27:09.770 --> 00:27:11.400
+Anthony Taylor: create an app that
+
+278
+00:27:11.680 --> 00:27:19.719
+Anthony Taylor: looked at hockey data. And you couldn't find hockey data anywhere. So you went to nhl.com. It's actually possible
+
+279
+00:27:21.000 --> 00:27:25.420
+Anthony Taylor: to come in here with a program with python.
+
+280
+00:27:25.960 --> 00:27:28.729
+Anthony Taylor: Open this web page in Python.
+
+281
+00:27:29.160 --> 00:27:32.420
+Anthony Taylor: Look at the code that's making this page work.
+
+282
+00:27:32.720 --> 00:27:37.040
+Anthony Taylor: and grab all of the information and off of it, and then present it
+
+283
+00:27:37.630 --> 00:27:43.839
+Anthony Taylor: any way you like by any way you like as table as another web page. Anything you want.
+
+284
+00:27:44.620 --> 00:27:49.360
+Anthony Taylor: The the most popular one is we used to actually teach it
+
+285
+00:27:49.380 --> 00:27:54.299
+Anthony Taylor: was was was scraping reddit. How many of you use? Reddit?
+
+286
+00:27:56.380 --> 00:28:00.050
+Anthony Taylor: Okay? But it's an interesting site. Okay?
+
+287
+00:28:00.170 --> 00:28:02.580
+Anthony Taylor:  it's free. Right?
+
+288
+00:28:03.670 --> 00:28:04.989
+Anthony Taylor: Why is it free?
+
+289
+00:28:05.720 --> 00:28:12.019
+Meredith McCanse (she/her): Because they get all your data. Well, not just that. There's a there's actually a better reason
+
+290
+00:28:12.080 --> 00:28:21.250
+Anthony Taylor: with ads all the time. Ad Matt hit it on the head. So if you were scraping their information to your website.
+
+291
+00:28:21.680 --> 00:28:23.450
+Anthony Taylor: Is anyone seeing the ads?
+
+292
+00:28:25.410 --> 00:28:29.210
+Anthony Taylor: No. So they sued.
+
+293
+00:28:30.610 --> 00:28:36.820
+Anthony Taylor: This went to the Supreme Court. No joke all the way up to the Supreme Court.
+
+294
+00:28:37.420 --> 00:28:40.730
+Anthony Taylor: And the Supreme Court ordered
+
+295
+00:28:41.070 --> 00:28:43.220
+Anthony Taylor: that, legally speaking.
+
+296
+00:28:43.360 --> 00:28:46.589
+Anthony Taylor: if your site is public, it is public.
+
+297
+00:28:49.390 --> 00:28:53.640
+Anthony Taylor: and therefore, if I want to scrape your sight. I can scrape.
+
+298
+00:28:55.220 --> 00:29:06.290
+Anthony Taylor: Okay. They even went as far as today that you have to do it. You have can't, because it's it's very easy. If you're a website owned to make it so it's impossible straight?
+
+299
+00:29:07.520 --> 00:29:12.810
+Anthony Taylor: But even that they ordered that you can't make it impossible
+
+300
+00:29:14.050 --> 00:29:15.630
+Anthony Taylor: you could make it difficult.
+
+301
+00:29:16.860 --> 00:29:20.090
+Anthony Taylor: and Reddit did is almost impossible
+
+302
+00:29:20.560 --> 00:29:22.660
+Anthony Taylor: unless you have certain tools to do it.
+
+303
+00:29:23.310 --> 00:29:25.040
+Anthony Taylor: Okay, but
+
+304
+00:29:25.210 --> 00:29:29.130
+Anthony Taylor: that's websites out there aren't smart enough or don't know how to stop.
+
+305
+00:29:29.190 --> 00:29:36.320
+Anthony Taylor: So you just could go scrape their stuff or they don't care. Maybe they wet their stuff up that. Why, some of these new sites are behind paywalls.
+
+306
+00:29:37.040 --> 00:29:43.340
+Anthony Taylor: Well, pay wells hurt. But guess what I can write. We can write a program that'll fire Matt Login and password
+
+307
+00:29:44.140 --> 00:29:50.879
+Anthony Taylor: won't necessarily hack it. But if you have a login, a password, you log in, you could scrape it. You're breaking licenses there. But
+
+308
+00:29:51.320 --> 00:29:52.750
+Anthony Taylor: anyway, yes, Meredith.
+
+309
+00:29:53.670 --> 00:29:56.070
+Meredith McCanse (she/her): if you scrape a website.
+
+310
+00:29:56.080 --> 00:30:11.650
+Meredith McCanse (she/her): is that. And so you pull that data into your own website, maybe, is that live meaning, if the original source website changes, do you lose it? Or is it? Just? You take it at 1 point in time, and then you have the data static.
+
+311
+00:30:11.870 --> 00:30:14.659
+Anthony Taylor: So it's yours. I mean, you could call. You could
+
+312
+00:30:14.710 --> 00:30:18.610
+Anthony Taylor: watch their web. You could ping their website every hour and stuff change.
+
+313
+00:30:18.900 --> 00:30:22.459
+Meredith McCanse (she/her): But you, I think the key there is. You have to do that.
+
+314
+00:30:22.840 --> 00:30:31.110
+sonja baro: otherwise it won't be reflected if it changes in an hour, and you don't ping it again. You'll not miss that update
+
+315
+00:30:31.360 --> 00:30:38.090
+Meredith McCanse (she/her): right, but you won't lose it if it if they take it off. Yeah, no.
+
+316
+00:30:38.300 --> 00:30:42.259
+Anthony Taylor: most people that do Scr, and let me give you a little tidbit.
+
+317
+00:30:43.830 --> 00:30:49.259
+Anthony Taylor: I told you guys who my last client for art. When I was consulted, my last client was right.
+
+318
+00:30:51.450 --> 00:30:54.360
+Anthony Taylor: These guys. okay.
+
+319
+00:30:54.660 --> 00:30:58.350
+Anthony Taylor: so guess what these guys hey?
+
+320
+00:30:58.540 --> 00:31:03.390
+Anthony Taylor: An organization to do about every 5 min of the day
+
+321
+00:31:08.590 --> 00:31:12.830
+Masarirambi, Rodney: to check their competitors. Prices
+
+322
+00:31:14.180 --> 00:31:20.630
+Anthony Taylor: absolutely like they they pay in the range of like 1.2 million dollars a year
+
+323
+00:31:21.430 --> 00:31:25.860
+Anthony Taylor: for a program that probably anyone in this room could write
+
+324
+00:31:26.340 --> 00:31:37.340
+Anthony Taylor: that goes to this website fills in these values, sends back how much they want for a midsize car. And this zip code, or this airport at this time.
+
+325
+00:31:39.890 --> 00:31:45.110
+Anthony Taylor: and that's I mean it, does it? 24, 7 all day long, hitting this site, hitting this site.
+
+326
+00:31:45.300 --> 00:31:49.219
+Anthony Taylor: Says the information to Herbs. Guess what they're doing the same thing to hers.
+
+327
+00:31:49.320 --> 00:31:56.519
+Anthony Taylor: pulling the information back, pulling the information back because they're not gonna openly share. Why would they do that? That'd be stupid.
+
+328
+00:31:58.310 --> 00:32:02.170
+Anthony Taylor: 1.2 million dollars a year.
+
+329
+00:32:03.920 --> 00:32:08.360
+Anthony Taylor: That's nuts. And it's a program. Guys. I guarantee you, the people running it.
+
+330
+00:32:09.050 --> 00:32:10.520
+Anthony Taylor: They're not. They're probably.
+
+331
+00:32:10.640 --> 00:32:12.910
+Anthony Taylor: How did you know at work or something?
+
+332
+00:32:13.220 --> 00:32:14.650
+Anthony Taylor: Just collect the money?
+
+333
+00:32:15.790 --> 00:32:17.050
+Anthony Taylor: Because it's that simple.
+
+334
+00:32:18.400 --> 00:32:19.719
+Anthony Taylor: Okay? Anyway.
+
+335
+00:32:19.930 --> 00:32:24.150
+Anthony Taylor: that's enough. That was way off to the side. But I thought, you guys get a kick out of that.
+
+336
+00:32:24.200 --> 00:32:25.640
+Anthony Taylor: Do you guys get a kick out of that
+
+337
+00:32:26.490 --> 00:32:37.200
+Anthony Taylor: good? So pandas has a very gentle way to scrape websites specifically sites. Well, all sites are HTML,
+
+338
+00:32:37.490 --> 00:32:40.780
+Anthony Taylor: but sites that have HTML cables.
+
+339
+00:32:41.390 --> 00:32:42.930
+Anthony Taylor: and we'll show you an example.
+
+340
+00:32:43.590 --> 00:32:48.339
+Anthony Taylor:  here, you know what? It's probably easier. Well, there you go.
+
+341
+00:32:48.350 --> 00:32:50.070
+Anthony Taylor: So this is the table
+
+342
+00:32:51.420 --> 00:32:56.300
+Anthony Taylor: you guys see in the background, in. we can tell
+
+343
+00:32:57.870 --> 00:33:03.290
+Anthony Taylor: pandas. Go to this. Yeah, URL, and just grab any table on that page.
+
+344
+00:33:04.870 --> 00:33:11.790
+Anthony Taylor: Okay? And it will, and it'll grab more than one if there's more than one. And then, when it's done, we can tell it which table we want and make a data frame out.
+
+345
+00:33:12.500 --> 00:33:21.590
+Anthony Taylor: Okay, once you get it, it almost always requires dropping unnecessary data, renaming column, splitting value.
+
+346
+00:33:21.900 --> 00:33:25.989
+Anthony Taylor: dropping a necessary column and then resetting index. Maybe
+
+347
+00:33:27.000 --> 00:33:29.360
+Anthony Taylor: I totally normal.
+
+348
+00:33:30.370 --> 00:33:32.540
+Anthony Taylor: Okay,
+
+349
+00:33:33.100 --> 00:33:38.129
+Anthony Taylor: so renaming columns. We've talked about this already. So that's cool.
+
+350
+00:33:39.550 --> 00:33:42.420
+Anthony Taylor: We'll we'll we'll do this in the code. It'll make more sense.
+
+351
+00:33:42.830 --> 00:33:52.459
+Anthony Taylor: So like these Site population 2 State Territory population 3. We could just say, hey, the index would be 0 1, 2.
+
+352
+00:33:52.480 --> 00:33:58.149
+Anthony Taylor: Name that city population 0 1, 3. Name, that state slash, third world population.
+
+353
+00:33:59.330 --> 00:34:00.770
+Anthony Taylor: and then boom! It's done?
+
+354
+00:34:02.640 --> 00:34:05.010
+Anthony Taylor: We can drop a column.
+
+355
+00:34:05.610 --> 00:34:09.119
+Anthony Taylor: That's that. So let's go look! And what this looks like.
+
+356
+00:34:10.110 --> 00:34:12.560
+Anthony Taylor: A
+
+357
+00:34:12.969 --> 00:34:13.819
+Anthony Taylor: here we go.
+
+358
+00:34:16.250 --> 00:34:19.520
+Anthony Taylor: So to do this, we need your pandas.
+
+359
+00:34:21.310 --> 00:34:24.320
+Anthony Taylor: and then we're gonna go here. So let's go look and see what this looks like.
+
+360
+00:34:24.600 --> 00:34:27.879
+Anthony Taylor: So here's go away. Here's
+
+361
+00:34:28.100 --> 00:34:31.489
+Anthony Taylor: the the webpage. We're going to go straight.
+
+362
+00:34:32.449 --> 00:34:43.020
+Anthony Taylor: Okay. right here. You can see a table. Now if you right click and do inspect. And and I don't know if we're gonna actually teach this in class.
+
+363
+00:34:43.080 --> 00:34:46.750
+Anthony Taylor: But if you click this little icon right here.
+
+364
+00:34:47.150 --> 00:34:48.330
+Anthony Taylor: and then
+
+365
+00:34:50.010 --> 00:34:53.639
+Anthony Taylor: I go in here. you will see
+
+366
+00:34:54.030 --> 00:34:57.440
+Anthony Taylor: that this is, in fact, a table tag.
+
+367
+00:34:58.810 --> 00:35:00.880
+Anthony Taylor: You guys see that right there.
+
+368
+00:35:02.070 --> 00:35:06.299
+Anthony Taylor: So what Panda is doing is looking for a table tag.
+
+369
+00:35:06.580 --> 00:35:12.820
+Anthony Taylor: and if it finds it it will parse everything in that table into rows.
+
+370
+00:35:15.260 --> 00:35:20.529
+Anthony Taylor: Okay, that's what it's gonna do. Now, there can be more than one table, this one.
+
+371
+00:35:21.190 --> 00:35:22.910
+Anthony Taylor: I don't think it has more than one table.
+
+372
+00:35:28.040 --> 00:35:30.700
+Anthony Taylor: See this? The only thing it might be a table is this one?
+
+373
+00:35:34.430 --> 00:35:36.379
+Anthony Taylor: Yeah, this is also a table.
+
+374
+00:35:36.480 --> 00:35:42.349
+Anthony Taylor: So when we pull this in, it's gonna pull this in. But it's also gonna pull these little things.
+
+375
+00:35:43.160 --> 00:35:46.229
+Anthony Taylor: Okay, anything that has a table tag.
+
+376
+00:35:47.730 --> 00:35:50.419
+Anthony Taylor: Alright. So let's go back to our code.
+
+377
+00:35:50.930 --> 00:35:56.580
+Anthony Taylor: So here, we're going to pass in that. Yeah. URL, and then we're going to read it in.
+
+378
+00:35:57.800 --> 00:36:02.539
+Anthony Taylor: So it went out to that website and it grabbed this data and looking here
+
+379
+00:36:05.550 --> 00:36:06.869
+Anthony Taylor: here to go there, it is
+
+380
+00:36:06.910 --> 00:36:15.519
+Anthony Taylor: that first table. New South Wales, Sydney. 5 million. Okay. New South Wales, Sydney, 5 million.
+
+381
+00:36:16.170 --> 00:36:22.829
+Anthony Taylor: Now this looks a little weird because this slash, remember, this works in python code. It also works in python output.
+
+382
+00:36:23.280 --> 00:36:25.540
+Anthony Taylor: So this slash is big. There's more
+
+383
+00:36:27.640 --> 00:36:30.729
+Anthony Taylor: alright to this one data frame.
+
+384
+00:36:32.230 --> 00:36:36.300
+Anthony Taylor: So there you go. You can see what it returned. Now the thing here.
+
+385
+00:36:36.510 --> 00:36:38.240
+Anthony Taylor: let's go to a text editor.
+
+386
+00:36:39.040 --> 00:36:42.850
+Anthony Taylor: Look at this. So here's the first table.
+
+387
+00:36:44.620 --> 00:36:51.380
+Anthony Taylor: But this has continued, and then look at this. What the heck are all these things?
+
+388
+00:36:53.040 --> 00:36:55.860
+Anthony Taylor: These are other tables that are on that web page.
+
+389
+00:36:56.050 --> 00:37:02.870
+Anthony Taylor: I'll tell you. In the old days. when I used to have to walk uphill both ways, as Clinton pointed out.
+
+390
+00:37:03.830 --> 00:37:08.830
+Anthony Taylor: we didn't have pool. HTML tags that allowed us to physician
+
+391
+00:37:09.260 --> 00:37:12.830
+Anthony Taylor: items anywhere we want on a web page. How did we do it?
+
+392
+00:37:13.360 --> 00:37:14.360
+Anthony Taylor: Tables?
+
+393
+00:37:15.430 --> 00:37:21.419
+Anthony Taylor: We would create a table on the webpage. And if we wanted something over here, we would put it in that cell.
+
+394
+00:37:23.350 --> 00:37:31.320
+Anthony Taylor: Okay, that's how we did it. We didn't have all the cool capabilities we have today. So old web pages tend to have a lot of tables.
+
+395
+00:37:31.790 --> 00:37:34.829
+Anthony Taylor: But we don't have to worry about that here.
+
+396
+00:37:35.320 --> 00:37:41.869
+Anthony Taylor: All right. So that's what the data is. So that was more than one table. So when it returns more than one table.
+
+397
+00:37:42.120 --> 00:37:46.640
+Anthony Taylor: you'll see that all of those tables are actually a list.
+
+398
+00:37:47.960 --> 00:37:51.629
+Anthony Taylor: so we can actually say, Hey, give me
+
+399
+00:37:52.900 --> 00:38:02.299
+Anthony Taylor: a table. So it turns out there must be one before this. There's like an empty one before this. I don't know why. Cause see? This? Says one, let's go to 0.
+
+400
+00:38:03.240 --> 00:38:09.059
+Anthony Taylor: Yeah. So 0 is just. And this is probably what I just said, somebody was positioning.
+
+401
+00:38:12.290 --> 00:38:13.390
+Anthony Taylor: Yeah, like
+
+402
+00:38:15.430 --> 00:38:21.769
+Clayton Graves: looking at that hot mess. How can you tell where one table ends and another begins?
+
+403
+00:38:22.030 --> 00:38:24.379
+Clayton Graves: It seems kind of confusing.
+
+404
+00:38:24.590 --> 00:38:38.479
+Anthony Taylor: Bring that eyeball in it. I mean, you could do a lot of things right? You could say like, since now that we know it's a list, everything we've learned about lists are now available, right? Which means we could do a link to find out how many are there.
+
+405
+00:38:38.610 --> 00:38:46.770
+Anthony Taylor: We could cycle through it, output one at a time, and see what each one looks like.  yeah.
+
+406
+00:38:47.350 --> 00:38:51.039
+Anthony Taylor: that's that's that's some of your options. In this case
+
+407
+00:38:51.230 --> 00:38:58.979
+Anthony Taylor: we saw there was one at the top which was not really obvious. But once we, you know, if we would have cycled through it, we would've saw. Oh, well, there's the one I want.
+
+408
+00:39:00.190 --> 00:39:02.150
+Anthony Taylor: Okay. Why don't you have it? You got it.
+
+409
+00:39:02.170 --> 00:39:04.710
+Anthony Taylor: It's good. I mean, again, we're dealing with
+
+410
+00:39:05.130 --> 00:39:07.890
+Anthony Taylor: somebody didn't write this code for us to do.
+
+411
+00:39:08.870 --> 00:39:14.619
+Anthony Taylor: We're kind of taking advantage of understanding how the code was written
+
+412
+00:39:15.300 --> 00:39:17.989
+Anthony Taylor: to do this. So yes, I'm
+
+413
+00:39:18.380 --> 00:39:25.990
+sonja baro: I just wanna clarify Clayton. When you said hot mess. I thought you were talking about the
+
+414
+00:39:26.090 --> 00:39:33.900
+sonja baro: no, the the the website with where you went it almost looked like the HTML with the tags on it.
+
+415
+00:39:33.960 --> 00:39:36.190
+sonja baro: Is that what you this one.
+
+416
+00:39:36.370 --> 00:40:00.829
+Anthony Taylor: Yeah, like, in now, over to the right, like, where? How do you know where one ends? And one begins? Yeah. And it's not easy, like I said, all you could do is either cycle through it, you can, you know, go to the text, editor, and I mean, this is not obvious that this is a table, and
+
+417
+00:40:00.980 --> 00:40:03.490
+Anthony Taylor: this is a table, and
+
+418
+00:40:03.870 --> 00:40:10.249
+Anthony Taylor: you know I mean it totally is not I agree with like, it's not simple thing, but good news is
+
+419
+00:40:10.480 --> 00:40:12.669
+Anthony Taylor: because we know how to handle a lift.
+
+420
+00:40:13.220 --> 00:40:19.459
+Anthony Taylor: We can like, do a link, find out how there are. We could just cycle through each one. We can do whatever we need to do.
+
+421
+00:40:20.100 --> 00:40:26.389
+Anthony Taylor: Okay, alright. So, looking at this, you can see we've got some column names that are weird.
+
+422
+00:40:26.980 --> 00:40:32.009
+Anthony Taylor:  and we have. Here's a column, that's all noles.
+
+423
+00:40:32.580 --> 00:40:41.149
+Anthony Taylor: Okay. So there's some cleanup here. So here we're gonna list the columns. We're gonna this is what I was showing you. In fact, let's let's do this.
+
+424
+00:40:42.880 --> 00:40:44.400
+Anthony Taylor: I'm going to
+
+425
+00:40:45.470 --> 00:40:47.140
+Anthony Taylor: comment that out.
+
+426
+00:40:48.100 --> 00:40:51.180
+Anthony Taylor: So you guys can see. So here's the list of columns.
+
+427
+00:40:51.930 --> 00:40:56.339
+Anthony Taylor: Okay, we've never done renaming in this manner. But you can't.
+
+428
+00:40:56.550 --> 00:41:02.219
+Anthony Taylor: So what we're gonna do is we're gonna take the index, 2 column 0 1, 2
+
+429
+00:41:02.850 --> 00:41:12.810
+Anthony Taylor: and rename and just set it equal to city population. And then 0 1, 2, 3, we're gonna set it equal to State Territory population.
+
+430
+00:41:12.980 --> 00:41:15.979
+Anthony Taylor: Then we're going to assign
+
+431
+00:41:16.110 --> 00:41:18.690
+Anthony Taylor: this list. This corrected list
+
+432
+00:41:19.050 --> 00:41:23.140
+Anthony Taylor: to our columns, and that will rename our columns. Okay.
+
+433
+00:41:24.700 --> 00:41:26.930
+Anthony Taylor: that's a little easier than rename up.
+
+434
+00:41:28.380 --> 00:41:30.900
+Anthony Taylor: And then now you can see they've been renamed.
+
+435
+00:41:32.530 --> 00:41:33.410
+Anthony Taylor: Okay.
+
+436
+00:41:34.140 --> 00:41:42.150
+Raugewitz, Tania: can you? Okay? Sorry to be up to. So when you said you, you set it equal to.
+
+437
+00:41:42.270 --> 00:41:45.589
+Raugewitz, Tania: I know you probably can't go back. But there. So there's a listed name right here.
+
+438
+00:41:45.790 --> 00:41:46.510
+Raugewitz, Tania: Yeah.
+
+439
+00:41:47.060 --> 00:41:49.949
+Anthony Taylor: Oh, oh, oh, yeah, yeah, yeah, we can.
+
+440
+00:41:50.160 --> 00:41:51.780
+Anthony Taylor: Here, let me comment this back out
+
+441
+00:41:53.560 --> 00:41:54.320
+Anthony Taylor: there you go.
+
+442
+00:41:55.850 --> 00:41:59.259
+Raugewitz, Tania: And oh, okay. So the equal to is already done.
+
+443
+00:41:59.990 --> 00:42:07.860
+Anthony Taylor: Well, now it is. Yeah, because we already, I mean, we could re pull it in and it'll but but yeah, so you found the index?
+
+444
+00:42:07.940 --> 00:42:10.720
+Raugewitz, Tania: And then. okay, oh.
+
+445
+00:42:10.850 --> 00:42:18.370
+Anthony Taylor: so we just found which which column we wanted to be made. And then we set that index in this list
+
+446
+00:42:18.570 --> 00:42:25.969
+Anthony Taylor: to that name, and then we just assign the list to Dfc columns and boom. It's renamed.
+
+447
+00:42:26.140 --> 00:42:27.760
+Raugewitz, Tania: Okay, I got thanks
+
+448
+00:42:28.680 --> 00:42:29.380
+to cool.
+
+449
+00:42:29.550 --> 00:42:33.120
+Anthony Taylor: It's you could also do the rename method that we learned before.
+
+450
+00:42:33.390 --> 00:42:45.220
+Anthony Taylor: Right? We do data frame and then dot rename, and then columns equals and then do it in a dictionary. You guys remember that? But yeah, this way, I like this way, I,
+
+451
+00:42:45.330 --> 00:42:46.070
+Anthony Taylor: so
+
+452
+00:42:46.520 --> 00:42:50.840
+Anthony Taylor: okay, to drop a column. Can I ask you another question.
+
+453
+00:42:51.300 --> 00:43:01.380
+Meredith McCanse (she/her): What was the you did? Some kind of shortcut you? You selected all of those rows, and you did one sort of shortcut to put comment. The hashtags in front. How? What was? How did you do that?
+
+454
+00:43:04.520 --> 00:43:07.739
+Anthony Taylor:  that see that slash?
+
+455
+00:43:07.970 --> 00:43:14.740
+Anthony Taylor: So what I'm doing is I'm hitting control. I highlight, and you actually don't have to highlight the whole column
+
+456
+00:43:15.050 --> 00:43:21.139
+Anthony Taylor: or the whole thing and then hit control, slash, and that'll comment everything that it's highlighted
+
+457
+00:43:21.680 --> 00:43:24.770
+Anthony Taylor: control. Slash, slash again into an hire
+
+458
+00:43:24.820 --> 00:43:26.790
+Anthony Taylor: or command slash, I think, on a map.
+
+459
+00:43:29.160 --> 00:43:30.590
+Meredith McCanse (she/her): Cool. Thank you.
+
+460
+00:43:30.960 --> 00:43:32.100
+Anthony Taylor: Isn't that fun?
+
+461
+00:43:32.970 --> 00:43:37.680
+Anthony Taylor: Alright? So that's been renamed now we're gonna drop the image column.
+
+462
+00:43:37.920 --> 00:43:44.740
+Anthony Taylor: Okay, this. We've done this before. Okay. we can reset the index.
+
+463
+00:43:46.030 --> 00:43:48.210
+Anthony Taylor: I'm not sure. Why
+
+464
+00:43:48.460 --> 00:43:49.890
+Anthony Taylor: did we delete anything?
+
+465
+00:43:51.350 --> 00:43:54.980
+Anthony Taylor: I'm not sure why, we're resetting index. But okay, we set the index for 5
+
+466
+00:43:55.680 --> 00:44:04.449
+Anthony Taylor:  and then here we're gonna get only records where the State and Territory is New South Wales.
+
+467
+00:44:05.000 --> 00:44:09.820
+Anthony Taylor: So it's just one record. And then we're gonna output it. So this is just a little work flow
+
+468
+00:44:09.850 --> 00:44:11.120
+Anthony Taylor: that you could do.
+
+469
+00:44:11.290 --> 00:44:16.270
+Anthony Taylor: Okay, you can go. You find the date of the line, you pull it in, you clean it up.
+
+470
+00:44:18.180 --> 00:44:22.260
+Anthony Taylor: If you need it for something, you can put it in a database. Put it in the file, do it.
+
+471
+00:44:23.450 --> 00:44:25.660
+Anthony Taylor: It's a pretty cool thing to do.
+
+472
+00:44:27.540 --> 00:44:32.199
+Anthony Taylor: so most important cause everything after we pulled the data
+
+473
+00:44:32.240 --> 00:44:36.340
+Anthony Taylor: was just panda stuff that we've been doing for for a week or so. Okay.
+
+474
+00:44:36.600 --> 00:44:39.150
+Anthony Taylor: this is the new stuff right here.
+
+475
+00:44:39.930 --> 00:44:41.280
+Anthony Taylor: Okay, yeah. Kate.
+
+476
+00:44:42.810 --> 00:44:53.800
+Vasquez, Gabriel: for the images column. Why didn't the pandas do like a links to the pictures just in case you wanted to go to them?
+
+477
+00:44:54.540 --> 00:45:01.859
+Anthony Taylor: If you we were doing like regular scraping with beautiful soup. We could totally do it. Did you guys do scraping in yours? Game?
+
+478
+00:45:01.910 --> 00:45:06.130
+Vasquez, Gabriel: No, sadly. Yeah. The data one we do like
+
+479
+00:45:06.480 --> 00:45:09.000
+Anthony Taylor: a full week of nothing. That's great.
+
+480
+00:45:10.480 --> 00:45:14.900
+Anthony Taylor: But yeah. So the library, by the way, if anyone's interested, it's called beautiful soup.
+
+481
+00:45:15.620 --> 00:45:17.990
+Anthony Taylor: and that's how most people
+
+482
+00:45:18.360 --> 00:45:25.780
+Anthony Taylor: scrape websites. And yeah, if you were using that, you could totally say, you know what. Give me the link for the image
+
+483
+00:45:26.310 --> 00:45:32.320
+Anthony Taylor: instead of it, just nulling it out. you could get the link. But pandas! Isn't that clever?
+
+484
+00:45:32.750 --> 00:45:34.729
+Pulling? It's good for getting the data.
+
+485
+00:45:35.270 --> 00:45:40.310
+Anthony Taylor:  By the way, I do think data camp as a scraping
+
+486
+00:45:41.250 --> 00:45:45.519
+Anthony Taylor: course as well. So there, you guys are interested in going deeper. Let me.
+
+487
+00:45:45.930 --> 00:45:51.269
+Clayton Graves: There are some great books out there about it about scraping with python
+
+488
+00:45:51.650 --> 00:45:53.269
+Anthony Taylor: if you like paper.
+
+489
+00:45:55.460 --> 00:45:57.380
+Clayton Graves: I do like paper. Gotcha.
+
+490
+00:45:57.390 --> 00:45:59.400
+Anthony Taylor: I know you do, sir. It's awesome.
+
+491
+00:45:59.780 --> 00:46:01.989
+michael mcpherson: Alright, I like
+
+492
+00:46:02.840 --> 00:46:03.690
+Anthony Taylor: I
+
+493
+00:46:07.800 --> 00:46:11.710
+Anthony Taylor: okay, alright. Let's see how you guys do. Let's give you a little exercise with this.
+
+494
+00:46:11.910 --> 00:46:15.309
+Anthony Taylor: So you're going to use the read HDMI to do that same thing.
+
+495
+00:46:15.430 --> 00:46:19.429
+Anthony Taylor:  you have a new website somewhere in there.
+
+496
+00:46:20.140 --> 00:46:26.900
+Anthony Taylor: Okay, you're gonna pull it in. drop in a check. The data types. How do we check data types?
+
+497
+00:46:30.130 --> 00:46:31.220
+Meredith McCanse (she/her): D type?
+
+498
+00:46:31.620 --> 00:46:36.040
+Anthony Taylor: Very good. The Gd column requires some cleaning.
+
+499
+00:46:36.360 --> 00:46:45.279
+Anthony Taylor: Okay? So take a look at that. See what it needs. Remove plus sign. Replace the hyphen. So
+
+500
+00:46:46.110 --> 00:46:48.239
+Anthony Taylor: this request what? I'll
+
+501
+00:46:48.550 --> 00:46:52.049
+Anthony Taylor: I'm looking to everybody for this. How would we replace
+
+502
+00:46:52.350 --> 00:46:54.930
+Anthony Taylor: a character in a column? We have done.
+
+503
+00:47:01.150 --> 00:47:07.540
+Dipinto, Matt: isn't it? You do the column that you treat it as a string with a dot str, and then run a dot replace on it.
+
+504
+00:47:07.990 --> 00:47:09.969
+Anthony Taylor: Perfect! There you go!
+
+505
+00:47:10.140 --> 00:47:17.139
+Anthony Taylor: That was we did do that, believe it or not. We didn't do very much of it, but we did, too.
+
+506
+00:47:17.330 --> 00:47:29.529
+Anthony Taylor: Okay. And then it asks you to do the loop to convert the following columns to this data type. So basically, it wants you to convert all of these numeric ones to an integer.
+
+507
+00:47:29.680 --> 00:47:30.430
+Anthony Taylor: But
+
+508
+00:47:30.760 --> 00:47:37.009
+Anthony Taylor: the reason you have to get rid of this plus minus is because you can't convert that to an integer when there's a plus.
+
+509
+00:47:37.840 --> 00:47:40.609
+Anthony Taylor: and then you can export Csv. If you want.
+
+510
+00:47:40.820 --> 00:47:44.399
+Anthony Taylor: Alright. So this is a good exercise.
+
+511
+00:47:44.960 --> 00:47:51.540
+Anthony Taylor: You guys excited about this one a little bit. Maybe there are some things that you may not remember, but I promise you.
+
+512
+00:47:52.600 --> 00:47:55.400
+Anthony Taylor: They're totally googable. And you have done
+
+513
+00:47:56.240 --> 00:47:58.350
+Anthony Taylor: okay. Alright.
+
+514
+00:47:58.550 --> 00:48:02.839
+Clayton Graves: So through every single one. and could not find it
+
+515
+00:48:03.200 --> 00:48:17.909
+Anthony Taylor: alright. So let me see. 77, II follow. Okay. So let me explain what I did, because once I realized that this was done, that just what this means is they've changed the website since we did this active.
+
+516
+00:48:18.070 --> 00:48:23.150
+Anthony Taylor: Okay? Because I can tell you in the solution you're gonna get it says, Use table 74.
+
+517
+00:48:23.510 --> 00:48:35.979
+Dipinto, Matt: I'm telling you I'm mildly agitated about this. I pulled the way back machine up and pulled up this thing from 2021, and it's still the same missing file. So this is such an antiquated. They've just been running this thing
+
+518
+00:48:36.080 --> 00:48:40.460
+Dipinto, Matt: not functionally for years. I would like to participate.
+
+519
+00:48:41.240 --> 00:48:43.600
+Anthony Taylor:  So
+
+520
+00:48:43.630 --> 00:48:53.770
+Anthony Taylor: what you need to learn because this could happen on any website. Okay, is, how could I find it? What's the easiest way to find
+
+521
+00:48:54.070 --> 00:48:58.550
+Anthony Taylor: alright? Well, we know basically what it looks like. So what I did is, I said, you know what
+
+522
+00:48:59.560 --> 00:49:04.029
+Anthony Taylor: I mean, and I didn't. I could have got a I could have said I could have got a link of the
+
+523
+00:49:05.300 --> 00:49:10.270
+Anthony Taylor: the tables list. I probably should. I knew it was somewhere between one and 79.
+
+524
+00:49:10.510 --> 00:49:13.240
+Anthony Taylor: So what I said is, I said, Loop through
+
+525
+00:49:13.320 --> 00:49:16.149
+Anthony Taylor: print which one we're on.
+
+526
+00:49:16.230 --> 00:49:18.270
+Anthony Taylor: and then show me the table.
+
+527
+00:49:18.980 --> 00:49:29.710
+Anthony Taylor: Okay. Now, Vs code is not going to show you that automatically you'll have to go to the text editor. But then you can scroll through. looking more or less for the format you're looking for.
+
+528
+00:49:30.960 --> 00:49:45.280
+Anthony Taylor: Okay? And say, Well, which one is this? Well, this is table 11. But look at all this other junk here. So maybe I want this. Maybe I don't right. But almost all of these have junk like that is 1718 looks pretty good.
+
+529
+00:49:46.470 --> 00:49:55.600
+Raugewitz, Tania: Let's go down to the one they said, original. okay, so what you're telling us that the actual table that we were looking for isn't really in
+
+530
+00:49:55.860 --> 00:49:59.880
+Anthony Taylor: here. No, that's it. I mean, it's just. It's just difficult to find
+
+531
+00:50:00.070 --> 00:50:04.619
+sonja baro: right? It's really difficult to find. And it's not between 70 and 80.
+
+532
+00:50:05.020 --> 00:50:13.970
+Meredith McCanse (she/her): I don't think the exact one is in there. I think there's one that's close to it, but it's not the exact. It's not. The exact is the screenshot that shown in the readney file.
+
+533
+00:50:14.780 --> 00:50:15.940
+Anthony Taylor: That's possible.
+
+534
+00:50:16.240 --> 00:50:22.960
+Raugewitz, Tania: And so that's like it's it's just such a futile exercise. I mean, it's a set up to fail. Kind of exercise.
+
+535
+00:50:23.510 --> 00:50:29.080
+Clayton Graves: We're not really understanding, sister. Yes, exactly.
+
+536
+00:50:29.380 --> 00:50:31.010
+Anthony Taylor: I think, Michael.
+
+537
+00:50:31.220 --> 00:50:34.420
+Gebrekristos, Hafton: I think index number 12 is closer to that
+
+538
+00:50:34.500 --> 00:50:36.030
+Gebrekristos, Hafton: to what you have.
+
+539
+00:50:38.330 --> 00:50:44.500
+Raugewitz, Tania: I mean, if it's going to be similar to this table, put similar to this table versus, this is the table you're looking for.
+
+540
+00:50:44.730 --> 00:50:52.510
+Anthony Taylor: you, you guys are are, I am 100% on board with you on this. What I want to make this into
+
+541
+00:50:52.760 --> 00:50:56.189
+Anthony Taylor: is, here's what you would do, because this could happen
+
+542
+00:50:56.660 --> 00:50:57.820
+Anthony Taylor: on the job
+
+543
+00:50:58.200 --> 00:51:06.030
+Anthony Taylor: right where you're like looking for something, and you can't find it because there's too many. So this is how we would address this.
+
+544
+00:51:06.330 --> 00:51:08.200
+Anthony Taylor: Okay?
+
+545
+00:51:09.390 --> 00:51:13.680
+Anthony Taylor: so well, my table 12 is ugly dude.
+
+546
+00:51:15.640 --> 00:51:18.490
+Anthony Taylor: Afton, is that you don't mean this one
+
+547
+00:51:19.360 --> 00:51:24.000
+Gebrekristos, Hafton: now? If you go back to your list. the tales list
+
+548
+00:51:25.200 --> 00:51:27.560
+Anthony Taylor: over here.
+
+549
+00:51:27.920 --> 00:51:32.169
+Gebrekristos, Hafton: Yeah, if you look at 1, 2, and then it's 12.
+
+550
+00:51:32.430 --> 00:51:36.779
+Anthony Taylor: Well, that's what I was looking at on on here. This is index 12
+
+551
+00:51:37.200 --> 00:51:38.650
+Anthony Taylor: wherever I just have.
+
+552
+00:51:38.800 --> 00:51:41.269
+Anthony Taylor: But I doing
+
+553
+00:51:41.470 --> 00:51:43.269
+Gebrekristos, Hafton: that's ugly.
+
+554
+00:51:43.960 --> 00:51:49.719
+Anthony Taylor: Yeah. Well, that's insane. So I mean, we could do 12 here if you wanna look at it. That's what I did
+
+555
+00:51:50.920 --> 00:51:53.119
+Gebrekristos, Hafton: looks closer to.
+
+556
+00:51:54.160 --> 00:51:58.910
+Anthony Taylor: I can see the details. Yeah. yeah, see? That's that's weird, too.
+
+557
+00:51:58.960 --> 00:52:06.650
+Anthony Taylor: So okay, so let's go back to what would we do? Okay, if you run into this situation, you have to know how to find the table
+
+558
+00:52:06.780 --> 00:52:15.050
+Anthony Taylor: and trying to just manually go through this and find it. You can find stuff that's similar like this.
+
+559
+00:52:15.750 --> 00:52:16.720
+Anthony Taylor: right?
+
+560
+00:52:16.840 --> 00:52:19.819
+Anthony Taylor: That looks similar. That looks right. But
+
+561
+00:52:19.850 --> 00:52:34.150
+Anthony Taylor: you have to know which table this is. Why are you gonna figure that out looking? That's why we or that's why I did this little loop here. says I'm gonna loop through the tables. I'm gonna say which index I'm on.
+
+562
+00:52:34.360 --> 00:52:35.740
+Anthony Taylor: and then
+
+563
+00:52:36.000 --> 00:52:40.000
+Anthony Taylor: I'm going to print the table so that I can go and attempt
+
+564
+00:52:40.110 --> 00:52:41.470
+Anthony Taylor: defined
+
+565
+00:52:41.520 --> 00:52:45.090
+Anthony Taylor: the best table. Now I will tell you, even though that one looks good.
+
+566
+00:52:45.310 --> 00:52:49.900
+Anthony Taylor:  problem with this table. Is this right? Here? This is Jump.
+
+567
+00:52:50.190 --> 00:52:51.829
+Anthony Taylor: So we all want to deal with that.
+
+568
+00:52:53.620 --> 00:52:55.729
+This one looks pretty good. 18
+
+569
+00:52:56.840 --> 00:53:01.560
+Anthony Taylor: 18 looks pretty good. Let's try 18. Yeah, Ron.
+
+570
+00:53:03.330 --> 00:53:06.499
+Masarirambi, Rodney: so just make sure I understand this correctly
+
+571
+00:53:06.790 --> 00:53:16.360
+Masarirambi, Rodney: with the way the list was, and say, Try to find the correct table. What we should have done was after we didn't find it was go further down, and
+
+572
+00:53:16.600 --> 00:53:25.860
+Masarirambi, Rodney: there will be instructions for for doing this or no. No, I'm giving you those instructions. They, this activity is broken. There is no question. This activity is broken.
+
+573
+00:53:25.910 --> 00:53:33.100
+Anthony Taylor: not gonna lie. And if I would have known of a sooner I would have, I would have corrected this before again. But
+
+574
+00:53:33.240 --> 00:53:41.720
+Anthony Taylor: yeah, I got called in Meredith, and then showed me as like so I left them, came out here and tried to come up way. Make this into a learning experience
+
+575
+00:53:42.240 --> 00:53:49.270
+Anthony Taylor: alright cause it sucks, and it was broken. But check it out. So, using the method I just showed you.
+
+576
+00:53:49.310 --> 00:53:50.980
+Anthony Taylor: we found a table
+
+577
+00:53:51.790 --> 00:53:55.959
+Anthony Taylor: that looks mostly well is that the one in the readme
+
+578
+00:53:56.570 --> 00:54:03.570
+Anthony Taylor: hold on similar similar.
+
+579
+00:54:04.160 --> 00:54:07.160
+Anthony Taylor: Yeah, that's well, the data doesn't matter. The data changes.
+
+580
+00:54:07.320 --> 00:54:16.870
+Anthony Taylor: Yeah. So I just ran a query through all of them to find one. That's the final result. And I, there were none that had that. So
+
+581
+00:54:17.090 --> 00:54:18.100
+Anthony Taylor: yeah.
+
+582
+00:54:18.370 --> 00:54:22.070
+Derek Rikke: so just go to the website and look for the table.
+
+583
+00:54:24.030 --> 00:54:30.760
+Anthony Taylor: Well, yeah, that's what I would try that. They're all like this. They're all little tables like this.
+
+584
+00:54:30.800 --> 00:54:34.420
+Anthony Taylor: right? That the problem with it is on the website. They're all little bitty tables.
+
+585
+00:54:35.040 --> 00:54:48.700
+Anthony Taylor: So I mean, and honestly, I I'm not gonna show you this. But I could show you how you could take all those little bitty tables. Make them into one big tape. Okay, but you can't do that with just scraping. You have to do other things.
+
+586
+00:54:48.960 --> 00:54:54.309
+Anthony Taylor: So now that we have that able to run. Yeah, see? Now, we're able
+
+587
+00:54:54.360 --> 00:54:55.470
+Anthony Taylor: buses.
+
+588
+00:54:55.740 --> 00:55:00.420
+Anthony Taylor:  should. Yep, you can now clean this up.
+
+589
+00:55:00.600 --> 00:55:04.529
+Anthony Taylor: So once we found the table, 18 will work.
+
+590
+00:55:05.020 --> 00:55:09.189
+Anthony Taylor: Okay? Then you're able to run the rest or do the rest of that.
+
+591
+00:55:10.080 --> 00:55:25.140
+Meredith McCanse (she/her): I have a question. Yes, Meredith Anthony, on the step, were your saving the table to a data frame. What's the difference between? So the syntax that you use here to do? It is different than the class exercise. We just did. What's the difference?
+
+592
+00:55:25.770 --> 00:55:41.659
+Meredith McCanse (she/her): Yeah, the class exercise just said, Df equals tables and then in square brackets, put the index of the table. It didn't use like Pd dot data frame or anything.  or maybe I'm looking at the wrong step. But
+
+593
+00:55:42.050 --> 00:55:49.150
+Anthony Taylor: yeah, that I was probably just having you look at the table first. Oh. yeah, I don't see where it did that. But
+
+594
+00:55:49.630 --> 00:55:58.459
+Anthony Taylor: yeah, no, this is the only way you could do it, cause you want to pass one of those tables into a data frame. And we're only passing 18.
+
+595
+00:55:58.760 --> 00:56:01.590
+Anthony Taylor: In this case. Index 18.
+
+596
+00:56:02.110 --> 00:56:11.629
+Anthony Taylor: You have to do Pd dot data frame. because each one of these is just an object that we need to put in there.
+
+597
+00:56:12.730 --> 00:56:14.640
+Anthony Taylor: So yeah.
+
+598
+00:56:16.770 --> 00:56:21.470
+Anthony Taylor: yeah.
+
+599
+00:56:21.570 --> 00:56:30.530
+Anthony Taylor: oh, okay, let's go back and look, hold on. Hold.
+
+600
+00:56:31.460 --> 00:56:33.630
+Meredith McCanse (she/her): It's in self. 5, I think.
+
+601
+00:56:34.070 --> 00:56:38.810
+Anthony Taylor: Yeah. So here we read this into.
+
+602
+00:56:38.850 --> 00:56:44.050
+Anthony Taylor: No, it's we can slice it.
+
+603
+00:56:44.140 --> 00:56:48.860
+Anthony Taylor:  Well, alright, let's go back and look and see
+
+604
+00:56:50.010 --> 00:56:52.110
+Anthony Taylor: if we can do no
+
+605
+00:56:54.360 --> 00:57:01.759
+Anthony Taylor: Df equals tables. One, I guess each object is a data frame in that, and the one that I just did.
+
+606
+00:57:01.790 --> 00:57:08.339
+Anthony Taylor: Let's see if that's the case here. Yeah, that worked. I would do. Pd, dot data frame.
+
+607
+00:57:08.800 --> 00:57:12.539
+Anthony Taylor: Okay, don't not do that, because this is confusing.
+
+608
+00:57:13.290 --> 00:57:16.280
+Anthony Taylor: In my opinion. Do? Pd, dot data?
+
+609
+00:57:16.630 --> 00:57:22.090
+Anthony Taylor: Yeah, you can do it that way. But it's not always good to take a shortcut.
+
+610
+00:57:23.370 --> 00:57:26.339
+Anthony Taylor: Prefer you do that all right. Well, Clayton, what's up?
+
+611
+00:57:28.440 --> 00:57:36.719
+Clayton Graves: So in this exercise we were kind of just looking for anything that sort of fit what the instruction said, but
+
+612
+00:57:47.380 --> 00:57:53.859
+Clayton Graves: it might make going through that loop like you did. Easier, wouldn't it?
+
+613
+00:57:54.070 --> 00:57:58.479
+Anthony Taylor: A 100%? So if you were to go
+
+614
+00:57:58.620 --> 00:58:03.349
+Anthony Taylor: let's talk about what you just said, because you're right. So if you were to go to this website
+
+615
+00:58:03.830 --> 00:58:14.349
+Anthony Taylor: and you were looking at it. And  you're like looking through this. And you're going okay. I want this table.
+
+616
+00:58:15.500 --> 00:58:19.200
+Anthony Taylor: Okay, which is the one that was in the picture. Basically, right?
+
+617
+00:58:19.270 --> 00:58:22.700
+Anthony Taylor: So I want this table. So this would be fairly easy to find.
+
+618
+00:58:23.430 --> 00:58:33.939
+Anthony Taylor: Okay? And that's basically what we did. We look for. We found a table that looked like this when moved on the the table in the instructions look like it was a combination of all of this
+
+619
+00:58:35.320 --> 00:58:43.250
+Anthony Taylor: right? And that's a lot more effort. Then we need to go through for this particular demo.
+
+620
+00:58:43.370 --> 00:58:46.720
+Anthony Taylor:  yeah.
+
+621
+00:58:48.250 --> 00:58:54.750
+Anthony Taylor: So so yeah, so normally you would. You wouldn't start at the code. You would start at the webpage.
+
+622
+00:58:54.860 --> 00:58:57.509
+Anthony Taylor: find what you want to, what you want to get
+
+623
+00:58:57.550 --> 00:58:58.810
+Anthony Taylor: and then go get it.
+
+624
+00:59:00.240 --> 00:59:06.339
+Anthony Taylor: I'm gonna be honest with you guys. If I had to scrape this particular web page, I would not use pandas to do it.
+
+625
+00:59:07.970 --> 00:59:15.260
+Anthony Taylor: This would be much better with a more intelligence framework that would just combine all of these tables into a single paper.
+
+626
+00:59:18.100 --> 00:59:19.590
+Anthony Taylor: But that's okay.
+
+627
+00:59:20.170 --> 00:59:25.440
+Anthony Taylor: the good news. We made it into a learning experience the bad news I have to write up a ticket.
+
+628
+00:59:26.090 --> 00:59:29.720
+Anthony Taylor:  but the good news is we made it into.
+
+629
+00:59:29.880 --> 00:59:31.620
+Anthony Taylor: If you use this.
+
+630
+00:59:32.020 --> 00:59:37.770
+Anthony Taylor: and with your knowledge of the web page. you can go and get
+
+631
+00:59:37.930 --> 00:59:41.550
+Anthony Taylor: the you'll find your tapes. I mean, how else would you do it?
+
+632
+00:59:41.610 --> 00:59:47.149
+Clayton Graves: Will this be corrected in time for us? Forward to be useful to us for the challenge?
+
+633
+00:59:48.650 --> 00:59:54.529
+Anthony Taylor: Well, I mean the bottom line is, is it? Is? It is corrected. Now.
+
+634
+00:59:54.770 --> 01:00:02.520
+Anthony Taylor: here's how to do it. Here's the table. All the code works exactly the way it was. It's just not a big giant team. It's a little small table.
+
+635
+01:00:03.550 --> 01:00:11.650
+Anthony Taylor: right? So you can. Everything is as good as it can get right now. The the instructions is what needs to be correct.
+
+636
+01:00:12.820 --> 01:00:19.949
+Anthony Taylor: Okay, but but this solution is is, if you want, I can save, in fact, I'll do it. Now.
+
+637
+01:00:20.280 --> 01:00:26.439
+Anthony Taylor: I will save this solution, so that when I push the solutions up later you'll get this solution
+
+638
+01:00:26.770 --> 01:00:28.980
+sonja baro: perfect instead of the one that's wrong.
+
+639
+01:00:29.020 --> 01:00:34.820
+Clayton Graves: I want that data frame.
+
+640
+01:00:35.190 --> 01:00:37.730
+Clayton Graves: Got it, Luke?
+
+641
+01:00:37.870 --> 01:00:47.840
+sonja baro: Yeah, you got it because we use that to come back re and reinforce what we hear tonight. And then also, when we're working with challenge
+
+642
+01:00:48.030 --> 01:00:50.610
+sonja baro: 100%. Thank you. My.
+
+643
+01:00:51.280 --> 01:00:54.630
+Anthony Taylor: you know what like, I said, trying to make it into learning things. So
+
+644
+01:00:54.700 --> 01:01:00.770
+Anthony Taylor: since we kind of got all caught up and picked the right table. Here's the replace to get rid of that plus and minus.
+
+645
+01:01:01.310 --> 01:01:06.670
+Anthony Taylor: Okay. So we have the column name dot string dot replace. Just like, Matt said.
+
+646
+01:01:06.750 --> 01:01:09.010
+Anthony Taylor: We're replacing the plus sign
+
+647
+01:01:09.140 --> 01:01:11.289
+Anthony Taylor: with nothing. And the
+
+648
+01:01:12.850 --> 01:01:15.030
+Anthony Taylor: this one with the dash.
+
+649
+01:01:15.720 --> 01:01:17.600
+Anthony Taylor: Okay? Not sure what.
+
+650
+01:01:17.790 --> 01:01:30.800
+Anthony Taylor: Oh, that's that's not a dash. That's something else that's like a special character. So we're replacing that with this. And then that gives us this nice clean. all the numbers are integers.
+
+651
+01:01:31.230 --> 01:01:33.830
+Anthony Taylor: Then we have our columns
+
+652
+01:01:33.940 --> 01:01:43.650
+Anthony Taylor: list, and we're going to go through and make sure. All of these columns are, in fact, integers. Notice some of them, aren't there? Oh, no, they're all there. Buzz.
+
+653
+01:01:44.020 --> 01:01:49.940
+Anthony Taylor: Well, index doesn't count. DLDW DLTF GAGD. Points.
+
+654
+01:01:50.480 --> 01:02:01.769
+Anthony Taylor: So the one we found was a good representative example. It was definitely not the full giant table that they showed. but it looks like that full giant paper doesn't even exist.
+
+655
+01:02:02.190 --> 01:02:05.160
+Anthony Taylor: So that's that.
+
+656
+01:02:07.730 --> 01:02:08.640
+Anthony Taylor: And
+
+657
+01:02:09.060 --> 01:02:13.659
+Anthony Taylor: to you, Mr. Matt, with the Wayback machine, it might not have been this. Yeah, URL.
+
+658
+01:02:15.010 --> 01:02:20.219
+Anthony Taylor: When they wrote this code they went and they went. Oh, there it is. We do it this yeah, URL instead.
+
+659
+01:02:20.340 --> 01:02:21.030
+Anthony Taylor: So
+
+660
+01:02:21.410 --> 01:02:26.109
+Anthony Taylor: unless we go back and look at the git repository to see what the oil used to be.
+
+661
+01:02:26.950 --> 01:02:28.439
+Anthony Taylor: We don't know what they were doing.
+
+662
+01:02:28.720 --> 01:02:31.560
+Dipinto, Matt: So I try not to be too hard on those guys.
+
+663
+01:02:31.640 --> 01:02:36.939
+Anthony Taylor: They are doing a lot. But yeah, that one's almost that one's really tucky.
+
+664
+01:02:39.730 --> 01:02:43.759
+Anthony Taylor: The good news is, we made it into a burning thing
+
+665
+01:02:43.940 --> 01:02:45.469
+Anthony Taylor: that I'm happy about.
+
+666
+01:02:47.530 --> 01:02:49.540
+Anthony Taylor: So
+
+667
+01:02:50.680 --> 01:02:54.290
+Anthony Taylor: we're done with Panda Scrapy. Alright.
+
+668
+01:02:56.270 --> 01:02:59.300
+Anthony Taylor: I'll make a deal with you guys, cause I feel bad about that.
+
+669
+01:03:00.430 --> 01:03:03.290
+Anthony Taylor: I will do our first extra review.
+
+670
+01:03:06.570 --> 01:03:10.280
+Anthony Taylor: Let's say Thursday.
+
+671
+01:03:10.630 --> 01:03:13.570
+Anthony Taylor: and I will teach you how to scrape properly.
+
+672
+01:03:15.220 --> 01:03:21.000
+Anthony Taylor: Okay, so it is extra material that we do not normally teach you. But I will run you through it
+
+673
+01:03:21.140 --> 01:03:25.079
+Anthony Taylor:  and and it'll be fast, but it will be recorded.
+
+674
+01:03:26.160 --> 01:03:30.960
+Anthony Taylor: Okay, so you'll you'll be able to participate. See how we would scrape
+
+675
+01:03:31.350 --> 01:03:33.550
+Anthony Taylor: other ways that you can scrape
+
+676
+01:03:33.690 --> 01:03:35.950
+Anthony Taylor: alright just an intro.
+
+677
+01:03:36.440 --> 01:03:41.840
+Anthony Taylor: If you guys are interested, you can come. If you're not, don't worry about you can watch the video.
+
+678
+01:03:42.670 --> 01:03:43.360
+But
+
+679
+01:03:46.200 --> 01:03:51.640
+Anthony Taylor: is anyone interested in that before I even bother putting it together.
+
+680
+01:03:51.670 --> 01:03:58.160
+Anthony Taylor: Alright, alright! Good. Okay. Apis. So
+
+681
+01:04:01.300 --> 01:04:14.880
+Anthony Taylor: that's a great which I love that the response and content of live data cannot be censored or predicted. So if you hit an Api, and it says something that offends you
+
+682
+01:04:15.040 --> 01:04:16.289
+Anthony Taylor: deal with it.
+
+683
+01:04:16.610 --> 01:04:24.729
+Anthony Taylor: It's not. It's just. That's just the way the Internet works. Okay, we have no control over the Apis. You call
+
+684
+01:04:25.960 --> 01:04:30.229
+Clayton Graves: if you're surprised and welcome to your first day on the Internet, that's
+
+685
+01:04:32.250 --> 01:04:37.169
+Anthony Taylor: it's entirely possible. And there is a lot of stuff out there that could return
+
+686
+01:04:37.730 --> 01:04:39.279
+Anthony Taylor: stuff that may all fit.
+
+687
+01:04:39.550 --> 01:04:45.590
+Anthony Taylor: Not are anyone's intentions here? Okay, so what is an Api.
+
+688
+01:04:46.220 --> 01:04:47.929
+Anthony Taylor: what is an Api? Anybody know
+
+689
+01:04:51.260 --> 01:04:53.539
+Dipinto, Matt: application program interface?
+
+690
+01:04:54.240 --> 01:05:01.330
+Anthony Taylor: That is what it is. So I have an application. I have data that you what
+
+691
+01:05:02.080 --> 01:05:11.099
+Anthony Taylor: okay, you want to use my data, you like my data, you like my data, right? So I don't want you directly accessing my data.
+
+692
+01:05:11.430 --> 01:05:15.030
+Anthony Taylor: I want to control how you access my data.
+
+693
+01:05:15.360 --> 01:05:20.379
+Anthony Taylor: And on top of that I probably want to charge you for accessing my data.
+
+694
+01:05:21.120 --> 01:05:26.749
+Anthony Taylor: So what do I do? Well, I build an Api. An application interface
+
+695
+01:05:27.020 --> 01:05:34.239
+Anthony Taylor: to get is so that I can give you the definition. saying, This is how you're going to do it.
+
+696
+01:05:34.510 --> 01:05:37.990
+Anthony Taylor: Here's a security token, if necessary.
+
+697
+01:05:38.260 --> 01:05:42.819
+Anthony Taylor: And here's what's available. That'll be
+
+698
+01:05:43.900 --> 01:05:46.010
+Anthony Taylor: $20 every time you make the call.
+
+699
+01:05:46.930 --> 01:05:48.959
+Anthony Taylor: Okay? Happens all the time
+
+700
+01:05:49.280 --> 01:05:50.759
+Anthony Taylor: all over the world.
+
+701
+01:05:51.310 --> 01:05:57.550
+Anthony Taylor: Alright. So that's basically how Api's work good news is. There's lots of free Api
+
+702
+01:05:58.100 --> 01:06:10.920
+Anthony Taylor:  so application programming interface set of functions. Packets together provide developers. It means communicate with a server and integrating third party stuff. That's way complicated, more complicated than what I just said.
+
+703
+01:06:11.290 --> 01:06:13.020
+Anthony Taylor: So think of it this way.
+
+704
+01:06:14.080 --> 01:06:17.869
+Anthony Taylor: Business has data. You want the data.
+
+705
+01:06:19.000 --> 01:06:25.049
+Anthony Taylor: You either a go through whatever rigamarole they ask you to go through to get a token
+
+706
+01:06:25.650 --> 01:06:28.799
+Anthony Taylor: or B pay them for a token.
+
+707
+01:06:30.190 --> 01:06:34.760
+Anthony Taylor: or if you're really lucky, it costs nothing, and maybe you don't even need to.
+
+708
+01:06:35.550 --> 01:06:39.120
+Anthony Taylor: The token is how you identify yourself to
+
+709
+01:06:39.350 --> 01:06:41.569
+Anthony Taylor: the the person that owns the date.
+
+710
+01:06:42.350 --> 01:06:46.269
+Anthony Taylor: You ask for it. It comes back to you. That's an Api.
+
+711
+01:06:49.100 --> 01:07:04.469
+Anthony Taylor: I hope, like I have to look. If you learn how to make them, we're gonna learn how to call them. I know in the data class, we learn how to make them.  it's another thing I could do in an extra review. If we don't, it'll and that lecture takes like 10.
+
+712
+01:07:05.500 --> 01:07:10.399
+Anthony Taylor: No kidding. Not only will I tell you how to make it. I'll tell you how to make it and host
+
+713
+01:07:10.800 --> 01:07:13.820
+Anthony Taylor: in 10 to 15 min. It's that easy.
+
+714
+01:07:14.700 --> 01:07:16.130
+Anthony Taylor: But
+
+715
+01:07:16.480 --> 01:07:19.289
+Anthony Taylor: right now we're gonna call them. That's not always easy.
+
+716
+01:07:19.930 --> 01:07:24.990
+Anthony Taylor: So Apis are developed by companies looking to offer programmatic services and functions to the development community.
+
+717
+01:07:25.070 --> 01:07:29.810
+Anthony Taylor: I have data. You want my data. I'm going to sell you the data I created Api
+
+718
+01:07:30.570 --> 01:07:31.280
+Anthony Taylor: easy.
+
+719
+01:07:31.500 --> 01:07:35.999
+Anthony Taylor: They're used to extract data, play games, connect programs. Absolutely.
+
+720
+01:07:36.310 --> 01:07:40.230
+Anthony Taylor: Almost everything you do on this device
+
+721
+01:07:41.570 --> 01:07:43.090
+Anthony Taylor: is calling an Api.
+
+722
+01:07:44.190 --> 01:07:46.130
+Anthony Taylor: Practically everything you do
+
+723
+01:07:47.390 --> 01:07:52.689
+Anthony Taylor: is calling an Api. Okay, you do a search calling an Api.
+
+724
+01:07:54.470 --> 01:07:58.150
+Anthony Taylor: What's it? What's it passing? What's passing? What you put in the search bar
+
+725
+01:07:58.340 --> 01:08:09.280
+Anthony Taylor: passes it up to Google, Google, right? It looks at it as an Api interface does. The search sends back the results. Your application on your phone parses the results, shows it to you in a pretty
+
+726
+01:08:10.240 --> 01:08:11.120
+Anthony Taylor: Api.
+
+727
+01:08:12.190 --> 01:08:13.970
+Anthony Taylor: Okay?
+
+728
+01:08:14.550 --> 01:08:18.000
+Anthony Taylor: they work like old school telephone operators.
+
+729
+01:08:18.130 --> 01:08:24.599
+Anthony Taylor: You asked. It sends back the response hopefully. That response is the one you're hoping for.
+
+730
+01:08:25.939 --> 01:08:27.189
+Anthony Taylor: That's pretty much it
+
+731
+01:08:27.450 --> 01:08:30.259
+Anthony Taylor: you can't ask, and nobody's home. That's possible, too.
+
+732
+01:08:31.080 --> 01:08:34.799
+Anthony Taylor: So you have web apps. They go to an Api gateway.
+
+733
+01:08:35.130 --> 01:08:39.769
+Anthony Taylor: mobile partners. All of these people can access, not just data.
+
+734
+01:08:40.290 --> 01:08:50.279
+Anthony Taylor: application services, videos. products. any. Okay. they're pretty amazing.
+
+735
+01:08:50.890 --> 01:08:56.649
+Anthony Taylor:  the probably
+
+736
+01:08:57.479 --> 01:09:07.049
+Anthony Taylor: the most important thing to understand about Apis. And this is this is from data, from a data perspective. The most important thing to understand about Apis is that
+
+737
+01:09:07.770 --> 01:09:19.859
+Anthony Taylor: there are a lot of companies that charge for date. Okay? And Api's the best way to get from a application or an AI perspective. We're gonna use the the whole open. AI.
+
+738
+01:09:20.090 --> 01:09:31.169
+Anthony Taylor: The reason you are here is because Openai opened an Api so that you could call their Llllm.
+
+739
+01:09:32.189 --> 01:09:33.310
+Anthony Taylor: And that's it.
+
+740
+01:09:34.010 --> 01:09:40.459
+Anthony Taylor: If that didn't happen last year. None of you would care about AI.
+
+741
+01:09:43.100 --> 01:09:47.909
+Anthony Taylor: How many of you cared about AI before you heard about Chat T. Vt. Or any of those? Nope.
+
+742
+01:09:48.430 --> 01:09:50.050
+Anthony Taylor: Oh, okay, Curry.
+
+743
+01:09:51.859 --> 01:09:59.030
+Anthony Taylor: But right? I mean, nobody really cared. And there certainly weren't any classes right? So
+
+744
+01:09:59.850 --> 01:10:07.190
+Anthony Taylor: it was because they created an Api that Api allows you to take a tool like Python
+
+745
+01:10:07.240 --> 01:10:15.380
+Anthony Taylor: or Javascript. and send in some information, and thousands of servers
+
+746
+01:10:15.480 --> 01:10:18.360
+Anthony Taylor: execute and send you back a response.
+
+747
+01:10:19.960 --> 01:10:22.170
+Anthony Taylor: Api. Okay.
+
+748
+01:10:22.410 --> 01:10:35.150
+Anthony Taylor:  So the client server model you make a request. It sends a response. With the response comes a a number, a 200, good, 404. At 500.
+
+749
+01:10:35.700 --> 01:10:37.119
+Anthony Taylor: We're gonna talk about all
+
+750
+01:10:37.960 --> 01:10:47.529
+Anthony Taylor: client server model web browsers are clients. The Internet is serving mobile devices are clients.
+
+751
+01:10:49.310 --> 01:10:56.439
+Anthony Taylor: Some of the newer phones like Pixel 8 knows they have servers in them. but most of it is client.
+
+752
+01:10:57.490 --> 01:10:59.789
+Anthony Taylor: Okay, command line. And
+
+753
+01:10:59.840 --> 01:11:04.940
+Anthony Taylor: yes, it can be so. All these clients go through the Internet, they go to a server.
+
+754
+01:11:05.250 --> 01:11:08.000
+Anthony Taylor: Data gets passed back and forth. Whether that be
+
+755
+01:11:08.060 --> 01:11:11.670
+Anthony Taylor: web pages, Tiktok videos, it doesn't matter
+
+756
+01:11:12.210 --> 01:11:21.149
+Anthony Taylor: for Apis. We send a request, typically with Json, which looks like a little dictionary that tells the server what it is I want.
+
+757
+01:11:21.300 --> 01:11:30.200
+Anthony Taylor: The response comes back also in Json like a dictionary and get, and then you have to parse it and make it useful.
+
+758
+01:11:31.410 --> 01:11:32.320
+Anthony Taylor: Okay.
+
+759
+01:11:33.510 --> 01:11:43.400
+Anthony Taylor: alright. So what is an Api? I thought we already talked.  yeah, we did. So we're going to make a request. Gonna go to a server. Server is going to respond, Json.
+
+760
+01:11:43.480 --> 01:11:45.020
+Anthony Taylor: and you get it in your client.
+
+761
+01:11:45.400 --> 01:11:48.739
+Anthony Taylor: This is what the response will look like
+
+762
+01:11:49.430 --> 01:11:54.530
+Anthony Taylor: could look like they could look like anything but a notice. Curly bracket
+
+763
+01:11:55.050 --> 01:11:56.730
+Anthony Taylor: key value
+
+764
+01:11:58.060 --> 01:11:58.980
+Anthony Taylor: got it.
+
+765
+01:11:59.100 --> 01:12:00.809
+Anthony Taylor: It's just dictionary
+
+766
+01:12:01.000 --> 01:12:04.629
+Anthony Taylor: test a dictionary. treat it like a dictionary.
+
+767
+01:12:05.980 --> 01:12:08.330
+Anthony Taylor: Okay. Hi.
+
+768
+01:12:09.070 --> 01:12:15.060
+Anthony Taylor: I know we're like going over. Break a little bit, but we'll I'll now send you guys a break.
+
+769
+01:12:16.140 --> 01:12:17.020
+Anthony Taylor: zoom.
+
+770
+01:12:18.450 --> 01:12:19.600
+Anthony Taylor: Okay.
+
+771
+01:12:22.540 --> 01:12:28.449
+Anthony Taylor: So we're going to import requests. If you get module not found, just create a new cell type.
+
+772
+01:12:29.210 --> 01:12:31.460
+Anthony Taylor: Install requests.
+
+773
+01:12:32.080 --> 01:12:33.239
+Anthony Taylor: run, that's up.
+
+774
+01:12:33.970 --> 01:12:38.039
+Anthony Taylor: Okay? And then you can delete it. You don't need to ever do it again.
+
+775
+01:12:38.910 --> 01:12:48.610
+Anthony Taylor: Alright! So we're going to run this. Here's this, this is our first Api. Now, before I actually do anything with this.
+
+776
+01:12:50.970 --> 01:12:52.060
+Anthony Taylor: let's
+
+777
+01:12:55.130 --> 01:13:00.650
+Anthony Taylor: let's take a look at what this does. So this is just a normal website. Okay.
+
+778
+01:13:01.090 --> 01:13:04.700
+Anthony Taylor: and it's going to create this link.
+
+779
+01:13:05.390 --> 01:13:09.190
+Anthony Taylor: Let's go to that link. So I want you guys to notice
+
+780
+01:13:10.720 --> 01:13:14.870
+Anthony Taylor: what this is. So I click that link. Look, it's just a regular website.
+
+781
+01:13:15.970 --> 01:13:16.820
+Anthony Taylor: Okay?
+
+782
+01:13:16.940 --> 01:13:19.150
+Anthony Taylor: And I'm getting
+
+783
+01:13:19.460 --> 01:13:25.840
+Anthony Taylor: dictionaries. First, I'm getting brackets. So technically, it's a Json object is like a list. But
+
+784
+01:13:25.980 --> 01:13:34.080
+Anthony Taylor: usually there's just one in. So we have a dictionary. Here. then, we have an array. another dictionary.
+
+785
+01:13:34.460 --> 01:13:37.829
+Anthony Taylor: This key has a dictionary, as it's
+
+786
+01:13:38.590 --> 01:13:42.329
+Anthony Taylor: value. which is in fact. And so you could do
+
+787
+01:13:42.430 --> 01:13:46.760
+Anthony Taylor: this key, you'd have to do vindicator bracket Id
+
+788
+01:13:47.210 --> 01:13:48.829
+Anthony Taylor: to get this value.
+
+789
+01:13:49.270 --> 01:13:56.010
+Anthony Taylor: Okay, don't worry. We're gonna go through all this. But this is what is sent back to our program.
+
+790
+01:13:57.580 --> 01:13:59.999
+Anthony Taylor: Okay? So we're building this. Yeah. URL,
+
+791
+01:14:00.040 --> 01:14:09.029
+Anthony Taylor: we're going to do a request. Get so request get is the equivalent of opening your browser and clicking on this. Yeah. URL,
+
+792
+01:14:09.910 --> 01:14:15.830
+Anthony Taylor: okay, so we run that we got a 200, a response, 200 means
+
+793
+01:14:16.640 --> 01:14:20.420
+Anthony Taylor: thumbs up green light. Okay.
+
+794
+01:14:20.880 --> 01:14:31.370
+Anthony Taylor: if we wanted to see if you wanted to see what a 400 or 404 looks like. This is a really weird website. All it does is give you a 404. Response.
+
+795
+01:14:31.950 --> 01:14:35.280
+Anthony Taylor: If you want to see the text of the 4
+
+796
+01:14:36.180 --> 01:14:39.819
+Anthony Taylor: 404, not found? Has everyone seen a 404 before.
+
+797
+01:14:40.110 --> 01:14:45.560
+Anthony Taylor: That's when you accidentally back finger your yeah, URL, and you go to a place that doesn't exist.
+
+798
+01:14:46.640 --> 01:14:50.959
+Anthony Taylor: Okay, you either get a 404, or the. Would you like to buy this domain?
+
+799
+01:14:52.110 --> 01:14:54.310
+Anthony Taylor: I sure you've all seen that
+
+800
+01:14:55.060 --> 01:15:01.740
+Anthony Taylor: a 500 is a server error. This typically means that the Apo broke their Api.
+
+801
+01:15:02.230 --> 01:15:04.310
+Anthony Taylor: Don't worry. They're not going to be mad.
+
+802
+01:15:04.460 --> 01:15:12.400
+Anthony Taylor: Just means you asked it to do something that it doesn't know what to do so. It returns a 500 and says, and I don't know what you do.
+
+803
+01:15:12.770 --> 01:15:18.999
+Anthony Taylor: Usually this is a problem either with your request or with the Api itself.
+
+804
+01:15:19.660 --> 01:15:22.330
+Anthony Taylor: But so those are the different responses.
+
+805
+01:15:22.840 --> 01:15:27.070
+Anthony Taylor: Go back up here. We're going to redid this request. Let's save the response
+
+806
+01:15:27.650 --> 01:15:30.369
+Anthony Taylor: to a variable response. Data.
+
+807
+01:15:31.320 --> 01:15:34.820
+Anthony Taylor: Alright. Now, if we looked at response data.
+
+808
+01:15:37.320 --> 01:15:40.749
+Anthony Taylor: we would see all it gave us was the code.
+
+809
+01:15:41.210 --> 01:15:42.120
+Anthony Taylor: However.
+
+810
+01:15:42.600 --> 01:15:46.780
+Anthony Taylor: if we say, Give us response data, dot content.
+
+811
+01:15:48.090 --> 01:15:53.919
+Anthony Taylor: We'll see the actual data that's being returned. Now, notice, it's really huge.
+
+812
+01:15:54.310 --> 01:15:56.550
+Anthony Taylor: Okay, but if you call.
+
+813
+01:15:58.290 --> 01:15:59.800
+Anthony Taylor: it's justice
+
+814
+01:16:02.100 --> 01:16:06.260
+Anthony Taylor: all flattened out. Now, many of you might have went to this webpage. It didn't look pretty like this, did it?
+
+815
+01:16:08.670 --> 01:16:11.800
+Anthony Taylor: Did anybody go to this web page? It didn't look pretty, I forgot to tell you.
+
+816
+01:16:12.060 --> 01:16:13.519
+Anthony Taylor: Well, yeah, that's it.
+
+817
+01:16:13.770 --> 01:16:21.120
+Anthony Taylor: There is an extension that I use called Json format. It's just a chrome extension.
+
+818
+01:16:22.490 --> 01:16:24.770
+Anthony Taylor: Okay, if you don't use it.
+
+819
+01:16:27.230 --> 01:16:28.270
+It's really a
+
+820
+01:16:29.110 --> 01:16:38.909
+Anthony Taylor: that's gonna disable it. But anyway, you got a big blob of text. If you didn't use it. If you go and download that extension and install it. It'll look pretty like this
+
+821
+01:16:39.300 --> 01:16:48.049
+Anthony Taylor: if we're only doing Apis for a week. But I would recommend getting alright. Anyone needs help, install extension. Let me know.
+
+822
+01:16:48.200 --> 01:16:57.170
+Anthony Taylor: Not now, but later. Okay, where'd my mouse go? There it is.  hi!
+
+823
+01:16:57.370 --> 01:17:00.470
+Anthony Taylor: So now we can see we have our data. So now.
+
+824
+01:17:00.800 --> 01:17:04.080
+Anthony Taylor: let's clean this up a little bit and
+
+825
+01:17:04.110 --> 01:17:10.690
+Anthony Taylor: ask for it in Json format again. If you get the module not found, do a pip install Json.
+
+826
+01:17:11.940 --> 01:17:16.299
+Anthony Taylor: Once we have that once we have the Json Module installed.
+
+827
+01:17:16.670 --> 01:17:18.850
+Anthony Taylor: we can ask Python
+
+828
+01:17:18.890 --> 01:17:23.100
+Anthony Taylor: to dump this Json data that we called it data
+
+829
+01:17:23.500 --> 01:17:29.609
+Anthony Taylor: and do indents of 4. And what it'll do is effectively
+
+830
+01:17:29.830 --> 01:17:37.200
+Anthony Taylor: critify our Json. which now, magically, it looks like that.
+
+831
+01:17:38.500 --> 01:17:39.750
+Anthony Taylor: See how that works.
+
+832
+01:17:40.950 --> 01:17:46.710
+Anthony Taylor: So this allows us to parse, because we all know we're gonna have to parse this right? So if I wanted
+
+833
+01:17:47.340 --> 01:17:51.280
+Anthony Taylor:  the country value.
+
+834
+01:17:51.320 --> 01:17:53.159
+Anthony Taylor: So let's go through this real quick
+
+835
+01:17:53.670 --> 01:17:56.699
+Anthony Taylor: data. That's the name of this whole block
+
+836
+01:17:57.430 --> 01:18:03.350
+Anthony Taylor: index one. So we can see this is an index in an array.
+
+837
+01:18:03.390 --> 01:18:07.490
+Anthony Taylor: So this is 0. This is one.
+
+838
+01:18:08.600 --> 01:18:15.490
+Anthony Taylor: Okay, because there's the comma. So in next one in that list, we want number one.
+
+839
+01:18:15.590 --> 01:18:21.250
+Anthony Taylor: So we have. we're gonna have to go to a text center here. So we have
+
+840
+01:18:22.450 --> 01:18:24.610
+Anthony Taylor: one. Or here's 0.
+
+841
+01:18:25.640 --> 01:18:31.170
+Anthony Taylor: Okay? And here's one alright. So we're somewhere in here.
+
+842
+01:18:32.740 --> 01:18:35.870
+Anthony Taylor: And we want country and then value.
+
+843
+01:18:36.470 --> 01:18:42.030
+Anthony Taylor: So here's country and value. So we're look, we should get United States
+
+844
+01:18:42.520 --> 01:18:43.799
+Anthony Taylor: alright for that.
+
+845
+01:18:44.060 --> 01:18:46.940
+Anthony Taylor: And this one we just want value.
+
+846
+01:18:47.600 --> 01:18:49.540
+Anthony Taylor: And out of the same block.
+
+847
+01:18:50.960 --> 01:18:55.290
+Anthony Taylor: Which is this big ol number right there. So let's see if that worked
+
+848
+01:18:56.360 --> 01:18:57.950
+Anthony Taylor: poop. Look at that
+
+849
+01:18:59.450 --> 01:19:00.400
+Anthony Taylor: alright.
+
+850
+01:19:01.260 --> 01:19:09.490
+Anthony Taylor: Now, we've done a little bit of this. When we looked at dictionaries, everyone should have some familiarity with this. I know it's a lot more intimidating when it looks like
+
+851
+01:19:09.590 --> 01:19:10.770
+Anthony Taylor: there is
+
+852
+01:19:11.230 --> 01:19:15.520
+Anthony Taylor: okay. But how would you like yet another cool tool?
+
+853
+01:19:16.320 --> 01:19:24.209
+Anthony Taylor: This is why I love Mr. Mr. Dude. Go to extensions
+
+854
+01:19:24.990 --> 01:19:28.140
+Anthony Taylor: and type. Json.
+
+855
+01:19:29.700 --> 01:19:30.540
+Anthony Taylor: Okay.
+
+856
+01:19:31.900 --> 01:19:37.229
+Anthony Taylor: there you go. Actually, it says, I have it. Oh, I know what's wrong.
+
+857
+01:19:37.420 --> 01:19:43.850
+Anthony Taylor: Okay? So what you would need to do to use Json path you could use Json path status, part or path
+
+858
+01:19:43.920 --> 01:19:56.249
+Anthony Taylor: is you take the Json that we just looked at. There's that. So go to a text editor. See? This doesn't know it's Json yet. So if I copy this
+
+859
+01:19:56.300 --> 01:19:58.230
+Anthony Taylor: and throw it into a file
+
+860
+01:20:05.820 --> 01:20:14.010
+Anthony Taylor: and call it Json text. Jason. and then paste it. Okay. So now let me show you a cool thing with this Json path.
+
+861
+01:20:14.370 --> 01:20:17.239
+Anthony Taylor: Let's say, I want this
+
+862
+01:20:17.300 --> 01:20:20.949
+Anthony Taylor: if I click right here. look at what it just did down here
+
+863
+01:20:24.290 --> 01:20:28.889
+Anthony Taylor: gave me the exact path to that specific key.
+
+864
+01:20:30.540 --> 01:20:41.660
+Anthony Taylor: Fantastic. I installed this on my work computer, the second I saw it. Because if you work with a lot of Json oh, my God. it's amazing.
+
+865
+01:20:42.920 --> 01:20:45.420
+Anthony Taylor: Okay. alright.
+
+866
+01:20:47.150 --> 01:20:48.610
+Anthony Taylor: that exciting stuff.
+
+867
+01:20:50.070 --> 01:20:55.570
+Anthony Taylor: Sorry! What was that? Tell you what? Again? No, go ahead. There's a couple of them. There's Json at
+
+868
+01:20:55.870 --> 01:20:59.580
+Anthony Taylor: that one, I think, is Json path status bar or something like that.
+
+869
+01:21:01.190 --> 01:21:03.320
+Anthony Taylor: it's fairly straightforward.
+
+870
+01:21:04.650 --> 01:21:13.320
+Anthony Taylor: Okay, so here's what we're gonna do. because I want to make duck done sure the instructions are right on the next exercise, since that was such a ugly disaster.
+
+871
+01:21:13.480 --> 01:21:16.850
+Anthony Taylor:  We'll take our break now
+
+872
+01:21:17.140 --> 01:21:25.069
+Anthony Taylor: when you come back we'll do yet. Alright. So come back in day 30.
+
+873
+01:21:26.890 --> 01:21:27.930
+Anthony Taylor: Thank you.
+
+874
+01:21:32.660 --> 01:21:38.950
+Anthony Taylor: Welcome back. But he. Hi. so how do we do?
+
+875
+01:21:40.450 --> 01:21:41.700
+Anthony Taylor: Pretty? Okay.
+
+876
+01:21:42.590 --> 01:21:47.630
+Anthony Taylor: III did anybody see the value of having like Json Path tools there.
+
+877
+01:21:49.140 --> 01:21:54.969
+Anthony Taylor: if you've got a lot of experience doing this, you don't need it, but if you don't, they sure are, Andy.
+
+878
+01:21:55.000 --> 01:21:57.319
+Clayton Graves: I am having trouble interpreting it.
+
+879
+01:21:57.910 --> 01:22:03.400
+Anthony Taylor: II totally understand. And and we'll talk about that while we go through this. So
+
+880
+01:22:03.420 --> 01:22:10.210
+Anthony Taylor: I gotta import libraries. Here's all these cool. Anybody get a chance to do anything other than Star Wars.
+
+881
+01:22:11.970 --> 01:22:17.039
+Anthony Taylor: Star Wars. One always keeps people's attention for quite a while. It's pretty cool.
+
+882
+01:22:17.380 --> 01:22:24.669
+Anthony Taylor: Alright, so here. We're just going to do a get from the URL. We're looking at the people one.
+
+883
+01:22:25.640 --> 01:22:27.669
+Anthony Taylor: and it pulled in a bunch of data
+
+884
+01:22:27.720 --> 01:22:33.519
+Anthony Taylor: here. We're gonna see what it looks like. Oh, we got a response. 200. Yay, look at the content.
+
+885
+01:22:35.280 --> 01:22:37.300
+And turn it to Json.
+
+886
+01:22:38.310 --> 01:22:39.950
+Anthony Taylor: Now let's just data.
+
+887
+01:22:40.270 --> 01:22:47.300
+Anthony Taylor: Remember when you're in Vs code. If you wanted to. Just look at that without having to type it, you could go to variables.
+
+888
+01:22:47.480 --> 01:22:50.950
+Anthony Taylor: and then you can see what it is. Alright.
+
+889
+01:22:52.420 --> 01:22:56.269
+Anthony Taylor: Just remember you can always do that if you choose, that you want to.
+
+890
+01:22:56.700 --> 01:23:03.860
+Anthony Taylor:  So here we're going to format it. Make it a little easier to read. So we can see there's 82
+
+891
+01:23:04.200 --> 01:23:05.680
+Anthony Taylor: people in here.
+
+892
+01:23:05.790 --> 01:23:07.920
+Anthony Taylor: Okay,
+
+893
+01:23:08.120 --> 01:23:12.230
+Anthony Taylor: this is interesting. If I wanted to get more
+
+894
+01:23:12.510 --> 01:23:23.219
+Anthony Taylor: right like cause. There's not 82 in this return. So I could actually come in here and pass this. Yeah. URL in and get the next page of results. That's kind of cool
+
+895
+01:23:23.750 --> 01:23:26.099
+Anthony Taylor: something I have to deal with a lot.
+
+896
+01:23:26.370 --> 01:23:32.399
+Anthony Taylor: Okay. But if you do the Json file.
+
+897
+01:23:32.460 --> 01:23:39.790
+Anthony Taylor: so I'm going to create a file gonna call it SW. Dot Json. Okay?
+
+898
+01:23:42.140 --> 01:23:50.690
+Anthony Taylor: And then I'm going to copy this Json data into it. Wonder if I could? Just you know what hold on.
+
+899
+01:23:53.790 --> 01:24:01.840
+Anthony Taylor: think I might just be able to tell it. It's Json. Save us a second. huh? Did it work? It did. Okay?
+
+900
+01:24:01.950 --> 01:24:06.400
+Anthony Taylor: So I wanna do you guys see what I did there at the bottom
+
+901
+01:24:06.980 --> 01:24:15.570
+Anthony Taylor: before it just said text, and then I clicked it, and then went and found Json and try to lose Json. Now my
+
+902
+01:24:15.630 --> 01:24:17.090
+Anthony Taylor: Pathfinder will work.
+
+903
+01:24:17.600 --> 01:24:24.980
+Anthony Taylor: So I wanted the name. So I click here and it says, results 0 name. So let's look at this for a second.
+
+904
+01:24:26.440 --> 01:24:29.509
+Anthony Taylor: This one does not start with a square bracket.
+
+905
+01:24:31.280 --> 01:24:38.899
+Anthony Taylor: Okay, it's a dictionary object, pure and simple. So we come in here. If we wanted count we could just count
+
+906
+01:24:40.040 --> 01:24:44.829
+Anthony Taylor: right. But we don't. We want this name. So we go down to results.
+
+907
+01:24:44.850 --> 01:24:47.169
+Anthony Taylor: Now, this is a square bracket.
+
+908
+01:24:48.180 --> 01:24:55.920
+Anthony Taylor: so we want the first result and we want name results. There you go. Click
+
+909
+01:24:56.280 --> 01:24:58.809
+Anthony Taylor: results 0 name.
+
+910
+01:24:59.530 --> 01:25:01.750
+Anthony Taylor: So when we come back over here.
+
+911
+01:25:01.790 --> 01:25:08.870
+Anthony Taylor: you can see we have to call the object we call data right here. We called it data, okay.
+
+912
+01:25:09.390 --> 01:25:12.409
+Anthony Taylor: and then the first key.
+
+913
+01:25:12.650 --> 01:25:15.770
+Anthony Taylor: the array index and the second key.
+
+914
+01:25:16.140 --> 01:25:22.820
+Anthony Taylor: And then we could do the same for the birth year. which is right there. So results
+
+915
+01:25:22.940 --> 01:25:24.890
+Anthony Taylor: 0 birth year.
+
+916
+01:25:26.130 --> 01:25:27.310
+Anthony Taylor: And there you go.
+
+917
+01:25:28.400 --> 01:25:29.930
+Anthony Taylor: Yes, Sonia.
+
+918
+01:25:30.580 --> 01:25:33.640
+sonja baro: So I just wanna check because
+
+919
+01:25:33.890 --> 01:25:47.810
+sonja baro: when we looked at that, we thought that that the first bracket was was actually the list that would. And so we dropped down and we use index 0. And it worked as well.
+
+920
+01:25:48.510 --> 01:25:57.850
+Anthony Taylor: You mean, without the results. Or also, we told results.
+
+921
+01:25:58.070 --> 01:26:00.539
+Anthony Taylor: Yeah, cause it's, oh, are you sure?
+
+922
+01:26:00.850 --> 01:26:06.689
+Anthony Taylor: Name equals data results. 0 name
+
+923
+01:26:07.260 --> 01:26:09.180
+Anthony Taylor: right here. Yeah.
+
+924
+01:26:09.790 --> 01:26:14.430
+Anthony Taylor: Yeah. Oh, no. That's what I showed you. And that's what's in the
+
+925
+01:26:14.530 --> 01:26:18.390
+Anthony Taylor: yeah. If you go down here, you'll I didn't have to use that. So
+
+926
+01:26:18.590 --> 01:26:25.720
+sonja baro: if you go down here, that's you'll see. That's what's there along the top.
+
+927
+01:26:25.780 --> 01:26:33.559
+Anthony Taylor: It's not as easy to read is this, I definitely prefer this. You can just copy it and then away you go.
+
+928
+01:26:33.880 --> 01:26:47.749
+Anthony Taylor: But it is there, in the in. It's in the top. If you look at, I don't have it installed, but if you, if you have that one, it has, like little Cookie Cookie Trail, and still say results in 0 the name.
+
+929
+01:26:47.830 --> 01:26:50.030
+sonja baro: Okay, thank you.
+
+930
+01:26:50.360 --> 01:26:53.040
+Meredith McCanse (she/her): Anthony, will you show again how you
+
+931
+01:26:53.870 --> 01:27:03.779
+Anthony Taylor: you put this into the and then you yeah, let's do that. So here you can see the result, and it says it doesn't show you those things. So I went to text editor.
+
+932
+01:27:03.990 --> 01:27:10.509
+Anthony Taylor: So when I go here down here at the bottom. It says, plain text. you guys see that at the bottom here?
+
+933
+01:27:11.100 --> 01:27:12.030
+Meredith McCanse (she/her): Yeah.
+
+934
+01:27:12.640 --> 01:27:16.360
+Anthony Taylor: So when you click that you can go to Json
+
+935
+01:27:17.330 --> 01:27:20.730
+Anthony Taylor: and select it. And now it's a Json form.
+
+936
+01:27:21.460 --> 01:27:27.960
+Anthony Taylor: You clicked on the plain text word, and then right where it said and yes, so now you can use the
+
+937
+01:27:28.410 --> 01:27:31.109
+Anthony Taylor: that your, your, your cool little Ada.
+
+938
+01:27:32.590 --> 01:27:33.460
+Meredith McCanse (she/her): Okay.
+
+939
+01:27:34.690 --> 01:27:37.639
+Anthony Taylor: cool. Did you guys have any other question again.
+
+940
+01:27:37.780 --> 01:27:38.790
+michael mcpherson: do it again.
+
+941
+01:27:39.150 --> 01:27:40.359
+Anthony Taylor: Sure. Okay.
+
+942
+01:27:40.550 --> 01:27:43.240
+Anthony Taylor: Who's this?
+
+943
+01:27:43.520 --> 01:27:50.509
+Anthony Taylor: So we we we pulled out the data. Go to text editor. See? Right here in the bottom, it says plain text.
+
+944
+01:27:51.880 --> 01:27:55.749
+Anthony Taylor: Right? If you click that, you can either type Json
+
+945
+01:27:56.150 --> 01:28:04.069
+Anthony Taylor: or scroll down to Json and select it, and now that it knows it's Json, it'll let you use your
+
+946
+01:28:04.680 --> 01:28:08.370
+Anthony Taylor: your extension. So when I click, you can see down here. There's the path.
+
+947
+01:28:11.270 --> 01:28:12.490
+michael mcpherson: Got it? Thanks.
+
+948
+01:28:12.770 --> 01:28:18.209
+Sihong Zhou: I do not have the pass. I did. You install the extension.
+
+949
+01:28:18.960 --> 01:28:20.560
+Sihong Zhou: What extension?
+
+950
+01:28:20.770 --> 01:28:25.719
+Anthony Taylor: Go to extensions and type. Json path. That is bar.
+
+951
+01:28:25.820 --> 01:28:31.090
+Sihong Zhou: Okay, thank you. And that that's the one you want. I don't like this one.
+
+952
+01:28:31.400 --> 01:28:38.520
+Anthony Taylor: You can use either one. But I think that this one's better. But that's personal preference
+
+953
+01:28:41.510 --> 01:28:43.019
+Anthony Taylor: that one's so bad, right?
+
+954
+01:28:43.960 --> 01:28:47.120
+Anthony Taylor: Not really. I mean the dictionary thing.
+
+955
+01:28:47.230 --> 01:28:55.170
+Anthony Taylor: Honestly, we've all done that before. So it's just refreshing and getting better at it. But that cool little add on will help a lot.
+
+956
+01:28:55.600 --> 01:29:03.360
+Anthony Taylor: Alright. So another. So it's cool that we can call an Api right? We've learned it. We just did it.
+
+957
+01:29:03.460 --> 01:29:07.930
+Anthony Taylor: The Star Wars is a database online. Did anybody actually go to the website?
+
+958
+01:29:10.220 --> 01:29:12.789
+Anthony Taylor: Anybody? Nobody went there.
+
+959
+01:29:12.860 --> 01:29:14.839
+Anthony Taylor: If you just click it.
+
+960
+01:29:17.610 --> 01:29:31.010
+Anthony Taylor: it's actually a website. This is what it returns. But you can go to the homepage here. and and it talks about what it is. how it works and what the guy did. It's just a database.
+
+961
+01:29:31.170 --> 01:29:37.349
+Anthony Taylor: And it's got a cool thing. Okay? And you can even like type. Some requests here play with it
+
+962
+01:29:38.100 --> 01:29:39.940
+Anthony Taylor: starships request.
+
+963
+01:29:40.070 --> 01:29:49.299
+Anthony Taylor: There you go. pretty cool. Right? Well. you could have done that with any one of these. But let's go look at
+
+964
+01:29:51.080 --> 01:29:52.520
+Anthony Taylor: in the next one.
+
+965
+01:29:56.520 --> 01:29:59.269
+Anthony Taylor: I'll just go here. Okay, so
+
+966
+01:29:59.410 --> 01:30:00.160
+Anthony Taylor: we're
+
+967
+01:30:01.410 --> 01:30:04.010
+Anthony Taylor: that's the stupid one. Hold on.
+
+968
+01:30:04.360 --> 01:30:07.010
+Anthony Taylor: you know what. Let me just close all these way easier.
+
+969
+01:30:10.090 --> 01:30:20.310
+Anthony Taylor: too many open. I can't find where we are. All right. So we're going to do yeah, URL parameters. Alright. So let's just go to this website. Let's see what it looks like.
+
+970
+01:30:22.450 --> 01:30:30.920
+Anthony Taylor: Well, this was us actually calling, yeah, URL, so let's get rid of that run that. And here we are. So this is actually a really fun. Api.
+
+971
+01:30:31.040 --> 01:30:39.819
+Anthony Taylor:  basically, you pass numbers api.com. If you just pass in a number, you will get trivia about that number.
+
+972
+01:30:41.970 --> 01:30:43.479
+Anthony Taylor: whatever number you pass it.
+
+973
+01:30:43.950 --> 01:30:49.889
+Anthony Taylor: but you can also pass in a number and the the slash map.
+
+974
+01:30:50.580 --> 01:30:52.179
+Anthony Taylor: and it'll give you
+
+975
+01:30:52.710 --> 01:30:54.669
+information about that.
+
+976
+01:30:54.690 --> 01:30:59.730
+Anthony Taylor: Mathematic information about the number. You can pass in a date in this format
+
+977
+01:30:59.850 --> 01:31:04.069
+Anthony Taylor: month day, and then the word date.
+
+978
+01:31:04.150 --> 01:31:06.980
+Anthony Taylor: and it'll give you something that happened on that day.
+
+979
+01:31:07.980 --> 01:31:09.209
+Anthony Taylor: Pretty cool, right?
+
+980
+01:31:09.790 --> 01:31:17.579
+Anthony Taylor: And it, basically, it just looks like that. Okay, that's actually, I think they even have it in python.
+
+981
+01:31:21.910 --> 01:31:27.560
+Anthony Taylor: Not really. But that's okay, because we have it. So here, you can see
+
+982
+01:31:27.750 --> 01:31:37.820
+Anthony Taylor: we're passing in this. So let's let me take this off for a second show you what it looks like. So we just did this. This is what we get.
+
+983
+01:31:39.650 --> 01:31:41.559
+Anthony Taylor: Okay. Now.
+
+984
+01:31:42.160 --> 01:31:46.739
+Anthony Taylor: this is perfectly fine for our uses, because it's basically still a Json. O
+
+985
+01:31:47.920 --> 01:31:51.590
+Anthony Taylor: I oh, how did that happen? I thought I took that off.
+
+986
+01:31:52.050 --> 01:31:53.580
+Anthony Taylor: So let's not put that on.
+
+987
+01:31:56.700 --> 01:32:06.470
+Anthony Taylor: There we go. That's what I expected to see. So this is just text, there's no brackets, there's no formatting. So this we could use. But it would be difficult.
+
+988
+01:32:07.170 --> 01:32:12.369
+Anthony Taylor: The numbers website gives us the ability to add
+
+989
+01:32:12.860 --> 01:32:18.100
+Anthony Taylor: another parameter with this question mark.
+
+990
+01:32:18.570 --> 01:32:26.730
+Anthony Taylor: And when we run that, it actually returns the data so that instructs the Api return the data as adjacent.
+
+991
+01:32:28.600 --> 01:32:32.340
+Anthony Taylor: Okay? And that's called a query parameter.
+
+992
+01:32:32.490 --> 01:32:35.079
+Anthony Taylor: They're calling it a yeah URL brand. Okay.
+
+993
+01:32:35.810 --> 01:32:38.460
+Anthony Taylor: alright. So to put that back.
+
+994
+01:32:39.700 --> 01:32:48.709
+Anthony Taylor: And we call this, the result comes back in Json format. And we can actually go in.
+
+995
+01:32:48.930 --> 01:32:53.750
+Anthony Taylor: call the response and say, I just want the text.
+
+996
+01:32:54.250 --> 01:32:56.620
+Anthony Taylor: And that's what you see right there.
+
+997
+01:32:58.520 --> 01:32:59.350
+Anthony Taylor: Okay?
+
+998
+01:33:00.820 --> 01:33:07.409
+Anthony Taylor: So if we want to do it for number 8, same thing, we're just going to pass in a new number. Everything is exactly the same
+
+999
+01:33:07.640 --> 01:33:10.440
+Anthony Taylor: 8 is the number of furlongs in a mile.
+
+1000
+01:33:12.710 --> 01:33:21.219
+Anthony Taylor: That's it. Now, if you wanted to do one of the other ones say you wanted to do math per 8, right? Based on what we just saw.
+
+1001
+01:33:21.690 --> 01:33:23.250
+Anthony Taylor: Whoops. Don't do that.
+
+1002
+01:33:23.710 --> 01:33:28.240
+Anthony Taylor: Run this cell. And now you get the math
+
+1003
+01:33:29.270 --> 01:33:32.289
+Anthony Taylor: object. If you wanted to do date.
+
+1004
+01:33:32.760 --> 01:33:35.770
+Anthony Taylor: So say, you wanted to do 6,
+
+1005
+01:33:36.580 --> 01:33:38.199
+Anthony Taylor: 27
+
+1006
+01:33:39.650 --> 01:33:42.329
+Anthony Taylor: date. You could do that also.
+
+1007
+01:33:46.630 --> 01:33:47.640
+Anthony Taylor: Yes, I
+
+1008
+01:33:48.410 --> 01:33:56.549
+sonja baro: is this because of the makeup of that particular website or.
+
+1009
+01:33:56.730 --> 01:34:03.409
+sonja baro: okay. So just because they've allowed in their Api send us parameters.
+
+1010
+01:34:04.340 --> 01:34:19.589
+Anthony Taylor: and we'll respond that way. But somebody another, a Api, may not be set that way will likely will not, unless it specifically states that most Apis will have some kind of documentation. And on that site you saw it was all there at the bottom.
+
+1011
+01:34:19.630 --> 01:34:31.420
+Anthony Taylor:  but yeah, so so you know the question work. The URL parameters. Sometimes there'll be stuff like format equals Json. Sometimes it'll be actual parameters
+
+1012
+01:34:32.000 --> 01:34:44.519
+Anthony Taylor: like it could be month equals 6. Day equals 27, and then you wouldn't have them on this side. It would be after that question. But if you guys, I mean, if you look at your web pages
+
+1013
+01:34:44.900 --> 01:34:50.830
+Anthony Taylor: right like this, one's not a good example. But let's go. let's go here.
+
+1014
+01:34:52.480 --> 01:34:54.519
+Anthony Taylor: I want you to look at this. Yeah, URL,
+
+1015
+01:34:56.010 --> 01:34:59.529
+Anthony Taylor: look at that. Look at the question, Mark. You see it.
+
+1016
+01:34:59.710 --> 01:35:01.509
+Anthony Taylor: Here's the question mark
+
+1017
+01:35:01.540 --> 01:35:04.840
+Anthony Taylor: in front of it. And then all this stuff
+
+1018
+01:35:06.310 --> 01:35:09.379
+Anthony Taylor: are considered. Yeah, URL, parameters. There's lots of them
+
+1019
+01:35:17.580 --> 01:35:18.960
+Anthony Taylor: think there's a few.
+
+1020
+01:35:20.980 --> 01:35:29.260
+Anthony Taylor: Okay? So it's a very common thing to see that. As as as a way to pass parameters into your Api.
+
+1021
+01:35:29.800 --> 01:35:36.400
+Anthony Taylor: Okay, if we get to the point where we learn how to make them, you'll understand a little better. But think of it this way
+
+1022
+01:35:37.160 --> 01:35:39.799
+Anthony Taylor: again. They just have a big giant database.
+
+1023
+01:35:40.120 --> 01:35:43.969
+Anthony Taylor: What they're saying is, okay. Whatever they passed here, we're gonna filter by month
+
+1024
+01:35:43.980 --> 01:35:47.400
+Anthony Taylor: and by day, and they want dates. So we'll send them a date back.
+
+1025
+01:35:48.410 --> 01:35:53.460
+Anthony Taylor: And because they added this, we'll send it in a Json format done.
+
+1026
+01:35:54.730 --> 01:35:58.260
+Anthony Taylor: Okay? It's a very fun one to play with.
+
+1027
+01:35:58.680 --> 01:36:01.670
+Anthony Taylor: Any questions about that bottom line?
+
+1028
+01:36:01.730 --> 01:36:08.049
+Anthony Taylor: You put a question mark. You can put either a key value pair like value equals something.
+
+1029
+01:36:08.340 --> 01:36:13.490
+Anthony Taylor: Or it could just be a word. By the way, if you need more than one.
+
+1030
+01:36:13.980 --> 01:36:15.730
+Anthony Taylor: you do an ampersand.
+
+1031
+01:36:17.450 --> 01:36:24.820
+Anthony Taylor: Okay? And then you can type the next one. Don't put a space or an underscore that doesn't work. Okay?
+
+1032
+01:36:26.340 --> 01:36:28.600
+Anthony Taylor: Alright. So let's look at
+
+1033
+01:36:30.030 --> 01:36:31.820
+Anthony Taylor: yeah, there's
+
+1034
+01:36:33.100 --> 01:36:33.910
+Anthony Taylor: well.
+
+1035
+01:36:34.150 --> 01:36:39.490
+Anthony Taylor: you know, let's make this and everyone do. Maybe we can get through everything today without killing ourselves.
+
+1036
+01:36:40.050 --> 01:36:42.420
+Anthony Taylor: So let's just make this into an everyone dude
+
+1037
+01:36:44.010 --> 01:36:44.830
+I
+
+1038
+01:36:48.780 --> 01:36:50.710
+Anthony Taylor: everybody open this up
+
+1039
+01:36:51.430 --> 01:36:54.250
+Anthony Taylor: and let's plow food. It'll be fun.
+
+1040
+01:36:56.680 --> 01:37:07.359
+Anthony Taylor: So house of requests use the Deka cards Api, to play a game of blackjack with Parker parameterize the deck cards. Api request you arrows order to create deck cards. That sounds like fun. Actually.
+
+1041
+01:37:08.190 --> 01:37:12.449
+Anthony Taylor: So we're gonna prep for the game. So we got a 6 count.
+
+1042
+01:37:13.170 --> 01:37:16.439
+Anthony Taylor: Thanks. So let's just let's open this up. See what it looks like.
+
+1043
+01:37:17.760 --> 01:37:19.660
+Anthony Taylor: So we got a deck, Id.
+
+1044
+01:37:20.570 --> 01:37:23.500
+Anthony Taylor: and is it shuffled. Yeah, hey, that's interesting.
+
+1045
+01:37:23.670 --> 01:37:33.970
+Anthony Taylor: So execute to create a deck part. So we're going to just do our response. So we need our response data. We'll keep the names similar.
+
+1046
+01:37:34.310 --> 01:37:37.569
+Anthony Taylor: Okay, equals request
+
+1047
+01:37:39.440 --> 01:37:43.579
+Anthony Taylor: dock. Yet we're going to path them to create that. Yeah. URL,
+
+1048
+01:37:44.690 --> 01:37:50.479
+Anthony Taylor: okay? And then we can take a look at our response, and all we want to see is if it's a 200,
+
+1049
+01:37:50.790 --> 01:37:53.020
+Anthony Taylor: and it is so we're good. There
+
+1050
+01:37:53.310 --> 01:38:00.950
+Anthony Taylor: now, what we need out of this is the deck. Id. I assume this is in the instruction. But so the deck id
+
+1051
+01:38:09.880 --> 01:38:18.680
+Anthony Taylor: is this value right here? Okay, so this is all. Just one layer. So all we gotta do is say, get id.
+
+1052
+01:38:18.690 --> 01:38:20.109
+Anthony Taylor: and we're going to get.
+
+1053
+01:38:23.510 --> 01:38:24.350
+Anthony Taylor: oh.
+
+1054
+01:38:24.740 --> 01:38:29.720
+Anthony Taylor: okay. So we have to assign it something first. So deck id
+
+1055
+01:38:31.350 --> 01:38:34.599
+Anthony Taylor: equals response data.
+
+1056
+01:38:38.520 --> 01:38:40.749
+Anthony Taylor: bracket, tech id.
+
+1057
+01:38:43.660 --> 01:38:47.010
+Anthony Taylor: And now we can print it out and we still can't print it out. What did I, Miss
+
+1058
+01:38:47.080 --> 01:38:55.450
+Anthony Taylor: Deck? Id tech id response data. Chris, that gets. oh.
+
+1059
+01:38:55.710 --> 01:39:07.580
+Anthony Taylor: okay, why is that not working? What? What did I say? Response data was, we just printed it out a minute ago. It was just 200, right? So we got to convert this to Json. The good news is we can actually do this all in one line.
+
+1060
+01:39:08.150 --> 01:39:13.389
+Anthony Taylor: We don't have to. Do. You know, we have to do another line to do this. Let's rerun this.
+
+1061
+01:39:13.450 --> 01:39:17.810
+Anthony Taylor: Now, when we run this, we'll get our deck. Icon. Okay?
+
+1062
+01:39:18.040 --> 01:39:20.540
+Anthony Taylor: So the interesting thing here
+
+1063
+01:39:20.570 --> 01:39:32.469
+Anthony Taylor: is the way this works is, you call the De cards Api. You give it the deck id, and you say. draw and tell it how many cards you want.
+
+1064
+01:39:33.060 --> 01:39:37.669
+Anthony Taylor: Okay, so we can run these. This is just going to show us the rl, let's go take a peek.
+
+1065
+01:39:37.920 --> 01:39:40.779
+Anthony Taylor: And this is what the output will look like.
+
+1066
+01:39:41.510 --> 01:39:48.120
+Anthony Taylor: So you'll see 9 of hearts. There's an image, 8 of clubs. There's an image, and there you go.
+
+1067
+01:39:48.400 --> 01:39:54.769
+Anthony Taylor: Okay? So we have that. So, player, one is going to draw 2 cards.
+
+1068
+01:39:54.840 --> 01:39:56.450
+Anthony Taylor: So we're gonna do
+
+1069
+01:39:56.520 --> 01:39:59.689
+Anthony Taylor: drawn cards. We'll just call it drawn cards
+
+1070
+01:40:01.740 --> 01:40:05.690
+Anthony Taylor: equals. And then we're going to call this. Yeah. URL,
+
+1071
+01:40:06.520 --> 01:40:09.930
+Anthony Taylor: okay, so we're going to say, Request
+
+1072
+01:40:10.960 --> 01:40:20.610
+Anthony Taylor: die. Yes. And we call this drawcard's URL solution draw cards. Yeah, URL, okay.
+
+1073
+01:40:20.970 --> 01:40:25.029
+Anthony Taylor:  and then we're going to say.
+
+1074
+01:40:25.940 --> 01:40:32.240
+Anthony Taylor: select the cards value. So remember. we looked at it. Let's go back and look at it again.
+
+1075
+01:40:34.600 --> 01:40:37.260
+Anthony Taylor: So to get the value of the car
+
+1076
+01:40:39.150 --> 01:40:42.490
+Anthony Taylor: right? We're gonna have to go cards.
+
+1077
+01:40:44.040 --> 01:40:48.849
+Anthony Taylor: And we have and a list here. And there's 2 items in it.
+
+1078
+01:40:49.330 --> 01:40:53.370
+Anthony Taylor: Okay, so we're going to say cards 0.
+
+1079
+01:40:53.480 --> 01:40:57.100
+Anthony Taylor: And this will give us the first one. I guess we'll just do.
+
+1080
+01:40:59.450 --> 01:41:02.409
+Anthony Taylor: We can do either code
+
+1081
+01:41:02.590 --> 01:41:06.469
+Anthony Taylor: or you could do value and suit. You want to separate.
+
+1082
+01:41:07.390 --> 01:41:10.319
+Anthony Taylor: Okay? And then the second card value would suit.
+
+1083
+01:41:11.070 --> 01:41:15.760
+Anthony Taylor: Okay, so I'm just going to minimize this for now, actually what I would recommend for you guys
+
+1084
+01:41:16.600 --> 01:41:19.980
+Anthony Taylor: if you do something like this, since they didn't actually add it in, you
+
+1085
+01:41:20.240 --> 01:41:28.750
+Anthony Taylor: just like throw it in like that. So you can have it to refer to. Okay? So we're gonna say, player one.
+
+1086
+01:41:28.910 --> 01:41:44.349
+Meredith McCanse (she/her): do you have to when you pull? When you did the get command, alert in the cell before this. Do you have to change it to Json before we do this stuff?
+
+1087
+01:41:44.650 --> 01:41:52.319
+Anthony Taylor: Love that? Yes, you do. Very, very good. I was waiting for it to fail again. For you guys thought you'd like that.
+
+1088
+01:41:52.920 --> 01:42:03.779
+Anthony Taylor: Okay, so now we convert Json, this would be the basic output, realize we're running it separately. And the way this Api works it has a deck of car.
+
+1089
+01:42:04.090 --> 01:42:06.859
+Anthony Taylor: So once you use that card, you can't get it to get.
+
+1090
+01:42:07.150 --> 01:42:16.139
+Anthony Taylor: Well, that's not true. It's got 6 decks of funds. But it's unlike. Okay. So player, one card one, we're gonna say, equals.
+
+1091
+01:42:16.400 --> 01:42:20.500
+Anthony Taylor: is that what we call it drawn cards. drawn cards.
+
+1092
+01:42:24.790 --> 01:42:26.050
+brackets.
+
+1093
+01:42:26.390 --> 01:42:27.650
+Anthony Taylor: cards.
+
+1094
+01:42:29.270 --> 01:42:36.209
+Anthony Taylor: bracket 0. That's the first card  and then value.
+
+1095
+01:42:38.450 --> 01:42:42.970
+Anthony Taylor: Okay, now we're gonna make this into like a string. So let's do F,
+
+1096
+01:42:47.340 --> 01:42:49.789
+and then in here we'll do.
+
+1097
+01:42:49.880 --> 01:42:54.219
+Anthony Taylor: But I'm just gonna copy this. There's no reason to retype it all that silly.
+
+1098
+01:42:55.070 --> 01:42:58.899
+Anthony Taylor: So paste it in here and change it to
+
+1099
+01:42:59.960 --> 01:43:00.790
+Anthony Taylor: suit
+
+1100
+01:43:01.740 --> 01:43:08.450
+Anthony Taylor: right? That's what it says right there. Okay, so that's their first card. Let's just copy the whole thing
+
+1101
+01:43:10.120 --> 01:43:12.830
+Anthony Taylor: and paste and get their second card.
+
+1102
+01:43:14.210 --> 01:43:17.250
+Anthony Taylor: and we just gotta change the index to one.
+
+1103
+01:43:19.480 --> 01:43:23.159
+Anthony Taylor: And there you go. And now, when we run this look.
+
+1104
+01:43:23.400 --> 01:43:24.490
+Anthony Taylor: I missed something
+
+1105
+01:43:25.470 --> 01:43:31.159
+Anthony Taylor:  Oh, gotta put a quote at the end.
+
+1106
+01:43:31.750 --> 01:43:32.800
+Anthony Taylor: Silly.
+
+1107
+01:43:35.910 --> 01:43:41.899
+Anthony Taylor: Okay. And there you go. 9 of space. We can put a little space in here. Make this a little nicer.
+
+1108
+01:43:43.910 --> 01:43:47.979
+Anthony Taylor: Funny thing is, they even have an image in here. So technically, you can even pull the image. But
+
+1109
+01:43:48.360 --> 01:43:51.299
+Anthony Taylor: so there we go. We got 9 space, Jack. Art, that's pretty good.
+
+1110
+01:43:52.260 --> 01:44:03.200
+Anthony Taylor: So now, since we're playing blackjack, right, we need to decide if we're going to draw another card or not.  so to do that.
+
+1111
+01:44:04.640 --> 01:44:06.380
+Anthony Taylor: we're gonna take
+
+1112
+01:44:08.760 --> 01:44:10.219
+Anthony Taylor: this guy.
+
+1113
+01:44:11.720 --> 01:44:14.380
+Anthony Taylor: copy that, bring it down here
+
+1114
+01:44:15.860 --> 01:44:17.190
+Anthony Taylor: and
+
+1115
+01:44:17.890 --> 01:44:21.410
+change the count to one, because we only want one at a time. Right?
+
+1116
+01:44:21.650 --> 01:44:28.450
+Anthony Taylor: So same deck. Id, but we're only going to pull one car. Okay? And then
+
+1117
+01:44:28.680 --> 01:44:31.769
+Anthony Taylor: we're gonna do the same thing we did
+
+1118
+01:44:32.140 --> 01:44:33.360
+Anthony Taylor: here.
+
+1119
+01:44:34.410 --> 01:44:36.469
+Anthony Taylor: except we're only going to draw one card.
+
+1120
+01:44:38.920 --> 01:44:39.950
+Anthony Taylor: Okay?
+
+1121
+01:44:40.370 --> 01:44:43.630
+Anthony Taylor:  and that's it.
+
+1122
+01:44:43.710 --> 01:44:48.590
+Anthony Taylor: Okay? So that's drawing a third part. which would be really stupid if you have a jack and a duck.
+
+1123
+01:44:49.950 --> 01:44:51.189
+Anthony Taylor: Okay, don't do that.
+
+1124
+01:44:52.160 --> 01:44:59.569
+Anthony Taylor:  Oh, and then it wants us to do basically the same thing again.
+
+1125
+01:44:59.900 --> 01:45:02.820
+Anthony Taylor: except for this time. We'll just grab this guy
+
+1126
+01:45:03.920 --> 01:45:05.640
+Anthony Taylor: pace. Now.
+
+1127
+01:45:05.680 --> 01:45:08.899
+Anthony Taylor: what value? Which one is it going to be? 0? One or 2
+
+1128
+01:45:12.650 --> 01:45:13.600
+Clayton Graves: 0
+
+1129
+01:45:14.230 --> 01:45:22.649
+Anthony Taylor: 0? Why, click? Because it's the only thing that's being returned. It's just one card we're just doing. We're doing a whole new call
+
+1130
+01:45:23.190 --> 01:45:34.409
+Anthony Taylor: right? And you're right. We're only returning one card, so it has to be the only one that's there which would be a 0. Okay, so this will be player one card 3,
+
+1131
+01:45:34.710 --> 01:45:39.369
+Clayton Graves: and we can run this. Now you need to put that 0. And then bracket.
+
+1132
+01:45:40.430 --> 01:45:42.679
+Anthony Taylor: I'm just surprised growing up.
+
+1133
+01:45:43.070 --> 01:45:45.110
+Anthony Taylor: sure. Did. Thank you very much.
+
+1134
+01:45:46.270 --> 01:45:49.840
+Anthony Taylor: Okay. There. Oh, this guy totally busted. Yes.
+
+1135
+01:45:49.910 --> 01:45:53.720
+Meredith McCanse (she/her): Anthony, where did you define drawn cards.
+
+1136
+01:45:56.290 --> 01:45:57.280
+Meredith McCanse (she/her): Okay?
+
+1137
+01:45:59.700 --> 01:46:03.479
+Anthony Taylor: Because we could've called to something else. But I mean, yeah, it's just a variable. So.
+
+1138
+01:46:04.020 --> 01:46:10.920
+Anthony Taylor: but mostly I just reused everything we did up above, because it's all so which wouldn't make this a great candidate for a function.
+
+1139
+01:46:11.110 --> 01:46:12.880
+Anthony Taylor: But we won't get into that.
+
+1140
+01:46:13.170 --> 01:46:16.010
+Anthony Taylor: Okay. So now it says.
+
+1141
+01:46:17.090 --> 01:46:22.530
+Anthony Taylor:  let's do, player. 2
+
+1142
+01:46:23.200 --> 01:46:33.540
+Anthony Taylor: player. One points is he busted? Is what he did. We could. We could play with this. We could say, if they did more than 21 they busted. Otherwise they have. you know.
+
+1143
+01:46:34.060 --> 01:46:34.990
+Whatever.
+
+1144
+01:46:35.180 --> 01:46:36.060
+Anthony Taylor: Okay.
+
+1145
+01:46:36.200 --> 01:46:40.539
+Anthony Taylor: But let's do. Player 2. Let's do this. This is more interesting to me.
+
+1146
+01:46:40.820 --> 01:46:47.910
+Anthony Taylor: So let's go here. It's going to be exactly the same thing. except
+
+1147
+01:46:52.880 --> 01:46:54.309
+Anthony Taylor: don't need that.
+
+1148
+01:46:55.260 --> 01:46:58.070
+Oh, we need to draw 2 cards, so we need
+
+1149
+01:46:59.920 --> 01:47:01.620
+Anthony Taylor: this one. Also
+
+1150
+01:47:04.980 --> 01:47:12.259
+Anthony Taylor: make sure you change that to player 2 card one, I sure will. Thank you, sir. And okay. So first we got making it 2,
+
+1151
+01:47:12.780 --> 01:47:15.690
+Anthony Taylor: and then here, we're gonna change this to player 2
+
+1152
+01:47:16.870 --> 01:47:22.429
+Anthony Taylor: player, 2 card, one card 2. That's pretty much all we need right.
+
+1153
+01:47:24.100 --> 01:47:27.890
+Anthony Taylor: unless we wanna do a third card which we could take this entire block.
+
+1154
+01:47:29.600 --> 01:47:31.030
+Anthony Taylor: But here.
+
+1155
+01:47:31.760 --> 01:47:34.999
+Anthony Taylor: because this is already there, the only change is the variable
+
+1156
+01:47:36.140 --> 01:47:42.430
+Anthony Taylor: to player 2, and this variable is already there, so we'll get rid of that. and there you go.
+
+1157
+01:47:43.070 --> 01:47:49.519
+Anthony Taylor: So there might follow what I did there. I mostly just recopied everything we did, but we're doing the same thing. We're just changing it to a second player.
+
+1158
+01:47:50.130 --> 01:47:54.600
+Anthony Taylor: Okay? So they got 6, 8, 4, hey? They got 21,
+
+1159
+01:47:56.070 --> 01:47:56.959
+only one.
+
+1160
+01:47:58.140 --> 01:48:05.519
+Anthony Taylor: Okay. Now, if we wanted to like, do it, it's manually means they want you just to say it.
+
+1161
+01:48:05.700 --> 01:48:09.160
+Anthony Taylor: Okay, because this would be complicated
+
+1162
+01:48:10.330 --> 01:48:19.350
+Anthony Taylor: to come up with, because we'd have to come up with what aces are and what jacks are. So, unless the return actually had
+
+1163
+01:48:19.890 --> 01:48:21.210
+Anthony Taylor: the value
+
+1164
+01:48:21.540 --> 01:48:27.350
+Anthony Taylor: the the numeric value. it would be pretty hard to to do that.
+
+1165
+01:48:27.390 --> 01:48:35.540
+Anthony Taylor: But that's why they're saying manually do it. So this guy is that a used case for using the input
+
+1166
+01:48:37.380 --> 01:48:39.849
+Anthony Taylor: you could use the input. But again.
+
+1167
+01:48:40.060 --> 01:48:43.030
+Anthony Taylor: you wouldn't make it this way. But you could.
+
+1168
+01:48:43.040 --> 01:48:46.830
+Anthony Taylor: You could totally use an input and say, Hey, if they want another card.
+
+1169
+01:48:47.140 --> 01:49:08.860
+sonja baro: What you know. Are you using the jack as a one, or sorry the ace is a one, or do maybe use it as an 11. Yeah. But but what I'm saying is, you could build it function or a query to the user to say, Hey, tell me how you want to play this
+
+1170
+01:49:09.040 --> 01:49:16.639
+sonja baro: right? I could, I could make a function just to say by default, I'm gonna give you the best option. But
+
+1171
+01:49:17.320 --> 01:49:27.639
+Anthony Taylor: so cause like a really crazy blackjack player might go. You know what? I want that to be a one, and I want to double down.
+
+1172
+01:49:27.660 --> 01:49:35.230
+Anthony Taylor: hey? Double down every. The next part is always a 10. That's the way you win. Yes, sir, Ron.
+
+1173
+01:49:36.390 --> 01:49:48.130
+Masarirambi, Rodney: sorry. A little bit earlier up above you said that you could have called the image and put that in there. Do you mind just doing that real quick? I'm really we'd have to
+
+1174
+01:49:48.170 --> 01:50:01.839
+Anthony Taylor: install like different libraries to show you. But if you had an application. If you had an application, that would be something you definitely want to do. Yeah. And there are. There are libraries in python that will let you do that.
+
+1175
+01:50:02.040 --> 01:50:12.400
+Anthony Taylor: Outside of visual things like map platform live, you can show an image but like there's there's it's I think it's called inter tk, I
+
+1176
+01:50:12.830 --> 01:50:13.710
+Anthony Taylor: and
+
+1177
+01:50:13.890 --> 01:50:18.149
+Anthony Taylor: ktr, I think that one as a ui, there's a couple of them that do
+
+1178
+01:50:19.080 --> 01:50:24.580
+Anthony Taylor: but yeah, we could bring in the URL. We just can't really visualize it without another library.
+
+1179
+01:50:24.890 --> 01:50:29.910
+Anthony Taylor: But good question. So anyway, that's it. That was the whole thing. Any questions.
+
+1180
+01:50:32.870 --> 01:50:33.920
+Anthony Taylor: Alright.
+
+1181
+01:50:35.460 --> 01:50:38.930
+Anthony Taylor:  okay.
+
+1182
+01:50:40.570 --> 01:50:45.209
+Anthony Taylor: So now I'm feeling a little better because we're still a little behind, but not horrible.
+
+1183
+01:50:46.060 --> 01:50:50.550
+Anthony Taylor: Alright. So here, all we're gonna do this time we're gonna go and call
+
+1184
+01:50:50.700 --> 01:50:53.290
+Anthony Taylor:  another.
+
+1185
+01:50:54.090 --> 01:50:57.790
+Anthony Taylor: Yeah, URL, and it's going to give us some data.
+
+1186
+01:50:58.190 --> 01:51:03.370
+Anthony Taylor: Let's go. Let's just take a quick look. There you go pretty cool.
+
+1187
+01:51:04.540 --> 01:51:09.730
+Anthony Taylor: Okay, so it's got links. It's got description.
+
+1188
+01:51:10.250 --> 01:51:13.260
+Anthony Taylor: Size covers.
+
+1189
+01:51:14.180 --> 01:51:16.439
+Anthony Taylor: It's book information. Okay?
+
+1190
+01:51:17.170 --> 01:51:24.910
+Anthony Taylor:  so here we have an empty list to store responses.
+
+1191
+01:51:24.960 --> 01:51:29.830
+Anthony Taylor: Now, that may not make a lot of sense right now we'll bear with. So
+
+1192
+01:51:31.130 --> 01:51:37.710
+Anthony Taylor: we have passed into this print response for for X and range 3
+
+1193
+01:51:37.950 --> 01:51:39.030
+Anthony Taylor: offset.
+
+1194
+01:51:42.550 --> 01:51:46.170
+Anthony Taylor: Oh, so when we put a question mark at the end of this.
+
+1195
+01:51:46.380 --> 01:51:56.829
+Anthony Taylor: It's gonna give us a different. You are out. So let's run this real quick. So it's gonna make 3 requests.
+
+1196
+01:51:57.330 --> 01:52:01.099
+Anthony Taylor: All right. Let's see how many books we got, 150 books.
+
+1197
+01:52:02.050 --> 01:52:04.060
+Anthony Taylor: and if we dump this out.
+
+1198
+01:52:04.630 --> 01:52:12.389
+Anthony Taylor: this is what they look like. So we have joy of fiction, joy of imagination. Blah! Blah! Blah! Right? Let's go to our text. Editor.
+
+1199
+01:52:12.590 --> 01:52:14.369
+Anthony Taylor: Change it to Json.
+
+1200
+01:52:18.450 --> 01:52:25.370
+Anthony Taylor:  and we can kind of see, one of the other cool things that you can do with these tools
+
+1201
+01:52:25.480 --> 01:52:32.069
+Anthony Taylor: is if we want to see. see, we can minimize like the areas.
+
+1202
+01:52:32.600 --> 01:52:34.990
+Anthony Taylor: So here's the authors
+
+1203
+01:52:35.510 --> 01:52:37.140
+Anthony Taylor: subject type.
+
+1204
+01:52:37.880 --> 01:52:43.100
+Anthony Taylor: There we go. Here's where it breaks. So subject. So subjects is where it's gonna break.
+
+1205
+01:52:43.540 --> 01:52:51.740
+Anthony Taylor: And we can go through and get more and more stuff. Once you have these authors, we can make more calls because you saw how the first one
+
+1206
+01:52:52.340 --> 01:52:56.350
+Anthony Taylor:  first one has this crazy number.
+
+1207
+01:52:57.030 --> 01:53:02.070
+Anthony Taylor: Okay. we'll look at how the authors are. So if we want to call this author
+
+1208
+01:53:02.260 --> 01:53:05.460
+Anthony Taylor: or this author, we could call with that number.
+
+1209
+01:53:05.640 --> 01:53:07.369
+Anthony Taylor: And this, by the way, Guy.
+
+1210
+01:53:07.990 --> 01:53:11.579
+Anthony Taylor: II have to deal with this all the time, and I'll explain it. We have time.
+
+1211
+01:53:11.820 --> 01:53:15.469
+Anthony Taylor: So we we got this. We have 150 books. This is what it looks like.
+
+1212
+01:53:15.930 --> 01:53:19.870
+Anthony Taylor:  So now that we have this
+
+1213
+01:53:22.190 --> 01:53:23.240
+Anthony Taylor: list.
+
+1214
+01:53:24.730 --> 01:53:27.619
+Anthony Taylor: and in that list we put
+
+1215
+01:53:28.970 --> 01:53:33.590
+Anthony Taylor: dictionaries right? Cause. Jason's like a dictionary.
+
+1216
+01:53:33.890 --> 01:53:37.739
+Anthony Taylor: Okay, we now have what a list of
+
+1217
+01:53:38.650 --> 01:53:43.970
+Anthony Taylor: dictionary. which means we can use Pd dot data frame
+
+1218
+01:53:44.120 --> 01:53:50.890
+Anthony Taylor: pass in that list. And we should get a nice data frame. Now, it's not perfect.
+
+1219
+01:53:51.600 --> 01:53:52.510
+Anthony Taylor: but
+
+1220
+01:53:52.670 --> 01:53:56.269
+Anthony Taylor: you can see like covers as a whole list of stuff.
+
+1221
+01:53:56.580 --> 01:53:59.020
+Anthony Taylor: Authors has a list of stuff.
+
+1222
+01:53:59.230 --> 01:54:06.580
+Anthony Taylor: but it is, in fact, a data frame that you can use, and a zone very, very convenient.
+
+1223
+01:54:06.910 --> 01:54:08.389
+Anthony Taylor: We could
+
+1224
+01:54:08.630 --> 01:54:16.690
+Anthony Taylor: go another step and do Json dot normalize. And by doing this, this will get rid of a lot of the junk, but not all.
+
+1225
+01:54:18.120 --> 01:54:26.150
+Anthony Taylor: Okay. It's supposed to like kind of flatten it out a bit. In fact. yeah, we have 19 columns here.
+
+1226
+01:54:27.190 --> 01:54:43.879
+Anthony Taylor: And here we have 23. Okay, so it flattened out like 4 of them. which is okay. And then if you wanted to save it to a file, you okay? Or you could. If this, if you had a database, you could write it to a database or something like that.
+
+1227
+01:54:44.740 --> 01:54:48.430
+Anthony Taylor: So the moral of that story is
+
+1228
+01:54:48.900 --> 01:54:58.870
+Anthony Taylor:  you can, if you have an Api that has like a new rick thing or something like that so that you could like Page
+
+1229
+01:54:59.060 --> 01:55:01.620
+Anthony Taylor: or look for stuff.
+
+1230
+01:55:01.730 --> 01:55:07.360
+Anthony Taylor: Okay, with numbers, you can do something like this and just cycle through, make multiple calls.
+
+1231
+01:55:08.390 --> 01:55:09.230
+Anthony Taylor: So
+
+1232
+01:55:16.850 --> 01:55:24.519
+Anthony Taylor: alright. Let's do this one, too, as an everyone do just real quick. I do have an example. I wanted to explain to you, but I don't want to
+
+1233
+01:55:24.560 --> 01:55:30.070
+Anthony Taylor: go way over. So let's let's do this one.
+
+1234
+01:55:31.270 --> 01:55:33.820
+Anthony Taylor: And if we have time after.
+
+1235
+01:55:34.360 --> 01:55:38.069
+Anthony Taylor: we'll talk about examples, I have.
+
+1236
+01:55:40.030 --> 01:55:40.920
+Anthony Taylor: Okay.
+
+1237
+01:55:41.050 --> 01:55:43.770
+Anthony Taylor: So we're gonna start with this guy here.
+
+1238
+01:55:48.540 --> 01:55:54.399
+Anthony Taylor: and it's gonna re import pandas and all of that, it's cool. They gave us this nice list.
+
+1239
+01:55:54.470 --> 01:55:59.819
+Anthony Taylor: So in this particular case. the URL to call.
+
+1240
+01:56:00.010 --> 01:56:06.449
+Anthony Taylor: Is this one here? But then it has this question. Mark, remember how I told you. Sometimes they have, like a
+
+1241
+01:56:06.470 --> 01:56:08.139
+Anthony Taylor: Q equals, or
+
+1242
+01:56:08.330 --> 01:56:13.730
+Anthony Taylor: you know, whatever equals. Well, this is an example of that. Q equals
+
+1243
+01:56:14.490 --> 01:56:17.390
+Anthony Taylor: requires the name of a TV show.
+
+1244
+01:56:19.110 --> 01:56:20.709
+Anthony Taylor: So if we put
+
+1245
+01:56:20.770 --> 01:56:25.480
+Anthony Taylor: altered carbon, this URL. Will return.
+
+1246
+01:56:26.560 --> 01:56:27.460
+Anthony Taylor: Jason.
+
+1247
+01:56:28.090 --> 01:56:30.940
+Anthony Taylor: Okay, so
+
+1248
+01:56:31.200 --> 01:56:36.490
+Anthony Taylor: let's create a couple lists for titles.
+
+1249
+01:56:36.830 --> 01:56:41.959
+Anthony Taylor: Will it return the Json automatically, or will you have to specify that?
+
+1250
+01:56:42.520 --> 01:56:49.999
+Anthony Taylor: Well, the way we would find that out is, that's a and that's a fantastic question. And it is appropriate.
+
+1251
+01:56:50.120 --> 01:56:57.510
+Anthony Taylor: Would be to go to this. Yeah, URL or to the Api itself.
+
+1252
+01:56:57.690 --> 01:57:04.239
+Anthony Taylor: and we would have to look at the documentation to find out what it turns. But see here, you can see
+
+1253
+01:57:04.420 --> 01:57:10.310
+Anthony Taylor: pretty straightforward. It gives you an example. Cool thing is that examples return in Json.
+
+1254
+01:57:10.420 --> 01:57:16.619
+Anthony Taylor: We could read the documentation or safely assume it's going to return. Json, because it did.
+
+1255
+01:57:16.950 --> 01:57:17.790
+Anthony Taylor: Okay.
+
+1256
+01:57:18.010 --> 01:57:21.149
+Anthony Taylor: But yeah, all all Api Pip document.
+
+1257
+01:57:21.200 --> 01:57:25.970
+Anthony Taylor: if they don't. you probably don't want to use them anymore. Okay.
+
+1258
+01:57:26.280 --> 01:57:34.639
+Anthony Taylor: so since we're going to, obviously what we're going to do here is we're going to go through each one of these, call them and save it to a data frame.
+
+1259
+01:57:35.330 --> 01:57:41.030
+Anthony Taylor: Okay? So we need these lists to hold the results.
+
+1260
+01:57:45.270 --> 01:57:53.400
+Anthony Taylor: And now we're gonna loop through it. So we're gonna say for show in TV shows. we've all done this.
+
+1261
+01:57:53.610 --> 01:58:07.380
+Anthony Taylor: And then we're gonna say, target, yeah. URL, so this will be, we're gonna we're gonna format the yeah. URL, okay? So we can say, f curly brackets, base. URL.
+
+1262
+01:58:07.420 --> 01:58:12.039
+Anthony Taylor: And what we want to do is basically just add to the end of it whatever show is
+
+1263
+01:58:14.340 --> 01:58:27.369
+Anthony Taylor: okay. So the first one will be this URL plus altered cardboard. Okay, so once we have that we can do our requests. Should that be show or TV shows.
+
+1264
+01:58:28.070 --> 01:58:34.240
+Anthony Taylor: remember, TV shows is the name of the list show will be each item in the list
+
+1265
+01:58:34.270 --> 01:58:35.670
+Anthony Taylor: as we loop through.
+
+1266
+01:58:36.100 --> 01:58:40.449
+Anthony Taylor: Okay? So response, we're gonna do our get so requests
+
+1267
+01:58:40.610 --> 01:58:45.719
+Anthony Taylor: not yet. And we're going to pass in our URL
+
+1268
+01:58:46.080 --> 01:58:52.670
+Anthony Taylor: target, URL. And then remember, we need to tell it. It's Json.
+
+1269
+01:58:53.520 --> 01:58:58.389
+Anthony Taylor: okay, so that we can parse now that we have that we can do
+
+1270
+01:58:58.540 --> 01:59:03.489
+Anthony Taylor: titles append. Let's go back and look at that. That example.
+
+1271
+01:59:07.310 --> 01:59:09.530
+Anthony Taylor: So where is title?
+
+1272
+01:59:10.630 --> 01:59:15.010
+Anthony Taylor: It's name. So we're gonna come in. It's 0
+
+1273
+01:59:15.050 --> 01:59:19.690
+Anthony Taylor: brackets. So 0 bracket show name.
+
+1274
+01:59:20.430 --> 01:59:22.409
+Anthony Taylor: Okay, I'm good with that.
+
+1275
+01:59:22.600 --> 01:59:32.130
+Anthony Taylor: So we're going to do titles. Append response. because that's what we called our response bracket, 0
+
+1276
+01:59:32.650 --> 01:59:34.730
+Anthony Taylor: bracket show
+
+1277
+01:59:37.670 --> 01:59:39.359
+Anthony Taylor: bracket name.
+
+1278
+01:59:40.710 --> 01:59:44.800
+Anthony Taylor: Okay? So that gave us our title. And we're gonna put that in that list.
+
+1279
+01:59:44.960 --> 01:59:48.199
+Anthony Taylor: Next, we want the
+
+1280
+01:59:48.630 --> 01:59:51.790
+Anthony Taylor: rating. Let's go look at our example.
+
+1281
+01:59:53.330 --> 01:59:59.130
+Anthony Taylor: Rating is way down there. That right? Or is there another one?
+
+1282
+02:00:00.250 --> 02:00:03.340
+Anthony Taylor: So rating?
+
+1283
+02:00:04.220 --> 02:00:08.790
+Anthony Taylor: Okay, so to get there, we need to do 0
+
+1284
+02:00:09.120 --> 02:00:15.749
+Anthony Taylor: show rating average. Everybody see that?
+
+1285
+02:00:18.000 --> 02:00:18.800
+Anthony Taylor: Okay.
+
+1286
+02:00:19.230 --> 02:00:26.359
+Anthony Taylor: okay, okay, okay. so to get there, we're gonna say, ratings of pen, because we want to put it in our list
+
+1287
+02:00:26.990 --> 02:00:35.600
+Anthony Taylor: response brackets, 0 bracket show in quotes.
+
+1288
+02:00:37.560 --> 02:00:40.470
+Anthony Taylor:  bracket ratings
+
+1289
+02:00:42.460 --> 02:00:43.630
+Anthony Taylor: and
+
+1290
+02:00:43.780 --> 02:00:45.660
+Anthony Taylor: bracket average.
+
+1291
+02:00:46.790 --> 02:00:50.440
+Anthony Taylor: Okay? And so that'll append it to there.
+
+1292
+02:00:51.500 --> 02:00:59.069
+Anthony Taylor: Okay? And then, last, but not least, we're gonna put in all results. We're just gonna put the whole thing in. So we're gonna say, all results
+
+1293
+02:00:59.920 --> 02:01:03.880
+Anthony Taylor: data pans response 0.
+
+1294
+02:01:05.410 --> 02:01:08.390
+Anthony Taylor: And that's it. Well, we'll put show. Just
+
+1295
+02:01:08.600 --> 02:01:13.900
+Anthony Taylor: so. It's not totally messy. Okay? So now we can loop through this.
+
+1296
+02:01:15.180 --> 02:01:18.819
+Anthony Taylor: And if it, why is it ratings?
+
+1297
+02:01:19.150 --> 02:01:30.289
+Anthony Taylor: I think ratings doesn't have an S on it. I think it's just the word rating. I'm guessing you're right. Let's do a quick peek. Make sure. Yep, look at that ratings, not ratings
+
+1298
+02:01:30.600 --> 02:01:34.310
+Anthony Taylor: that makes sense. Let's fix that. So that's what you're gonna get.
+
+1299
+02:01:35.440 --> 02:01:37.640
+Anthony Taylor: If you put a key in that doesn't exist.
+
+1300
+02:01:39.800 --> 02:01:43.510
+Anthony Taylor: And there we go. So now, what? It's literally
+
+1301
+02:01:44.210 --> 02:01:53.240
+Anthony Taylor: making an Api call for every one of those names. Okay? So now we can create a data frame because we have all those lists.
+
+1302
+02:01:53.570 --> 02:01:57.390
+Anthony Taylor: So we can say, shows
+
+1303
+02:01:57.590 --> 02:02:01.349
+Anthony Taylor: df, equals. And here we'll just do Pd, dot data frame.
+
+1304
+02:02:02.330 --> 02:02:05.979
+Anthony Taylor: Okay? And in here we're just gonna pass in
+
+1305
+02:02:06.150 --> 02:02:07.520
+Anthony Taylor: this time
+
+1306
+02:02:08.650 --> 02:02:16.560
+Anthony Taylor: dictionary of lists. right? Because we just made a bunch of lists.
+
+1307
+02:02:16.570 --> 02:02:20.139
+Anthony Taylor: So now we can pass in here the title
+
+1308
+02:02:20.700 --> 02:02:24.229
+Anthony Taylor: Colon and our titles
+
+1309
+02:02:24.670 --> 02:02:29.830
+Anthony Taylor: lists that we made. and here we can pass some rating
+
+1310
+02:02:31.000 --> 02:02:33.640
+Anthony Taylor: and pass in our ratings
+
+1311
+02:02:34.420 --> 02:02:38.899
+Anthony Taylor: list that we made. and then that will give us
+
+1312
+02:02:43.370 --> 02:02:44.940
+Anthony Taylor: chose. Df.
+
+1313
+02:02:46.150 --> 02:02:47.569
+Anthony Taylor: that will give us that.
+
+1314
+02:02:47.980 --> 02:02:53.960
+Anthony Taylor: That's pretty cool. This didn't exist a few seconds ago. We pulled this down from an Api.
+
+1315
+02:02:54.820 --> 02:03:06.629
+Anthony Taylor: Okay? And then the last thing it wants us to do is try to use Json normalize on the all results to see what that will look like. So we'll do all results.
+
+1316
+02:03:07.520 --> 02:03:09.970
+Anthony Taylor: Underscore df.
+
+1317
+02:03:11.120 --> 02:03:15.759
+Anthony Taylor: equals. And then we're just going to Pd, dot Json, normalize
+
+1318
+02:03:16.320 --> 02:03:18.840
+Anthony Taylor: all underscore results
+
+1319
+02:03:20.720 --> 02:03:22.980
+Anthony Taylor: and we'll show what it looks like
+
+1320
+02:03:24.910 --> 02:03:26.170
+Anthony Taylor: and
+
+1321
+02:03:27.200 --> 02:03:28.480
+Anthony Taylor: what's up.
+
+1322
+02:03:28.910 --> 02:03:32.640
+Anthony Taylor: That's pretty cool that it flattened it all out. That is.
+
+1323
+02:03:33.090 --> 02:03:44.469
+Anthony Taylor: have to tell you guys, that's way cool cause flattening it out like that really stinks when you have to do that, and you will have to do that if you work with this stuff very much
+
+1324
+02:03:44.750 --> 02:03:51.550
+Anthony Taylor: and then if we just want to send this to do a Csv file. We can just do all that you have to.
+
+1325
+02:03:51.670 --> 02:03:55.200
+Anthony Taylor: Csv. Now that the name
+
+1326
+02:03:56.270 --> 02:03:58.040
+Anthony Taylor: of the Csv file
+
+1327
+02:04:02.770 --> 02:04:06.410
+Anthony Taylor: and if you want the index or not. You can put that in there, too.
+
+1328
+02:04:10.230 --> 02:04:12.400
+Anthony Taylor: and there you go, and then, voila!
+
+1329
+02:04:12.580 --> 02:04:13.719
+Anthony Taylor: You have the file.
+
+1330
+02:04:16.110 --> 02:04:19.889
+Meredith McCanse (she/her): You show the step that you normalize one more time.
+
+1331
+02:04:20.070 --> 02:04:22.060
+Anthony Taylor: Yes'm right there.
+
+1332
+02:04:25.420 --> 02:04:26.739
+Meredith McCanse (she/her): Okay, thank you.
+
+1333
+02:04:27.140 --> 02:04:28.229
+Anthony Taylor: Not a problem.
+
+1334
+02:04:29.070 --> 02:04:33.779
+Anthony Taylor: Alright ken. So real quick. Just a quick note on
+
+1335
+02:04:36.000 --> 02:04:40.750
+Anthony Taylor: the card. One hard one actually had a really cool
+
+1336
+02:04:41.450 --> 02:04:45.299
+Anthony Taylor:  example in it
+
+1337
+02:04:46.480 --> 02:04:50.110
+Anthony Taylor: that I wanted to talk about very quickly. I know it's time to go, but
+
+1338
+02:04:50.190 --> 02:04:52.319
+Anthony Taylor: wherever the cardin I don't know.
+
+1339
+02:04:52.770 --> 02:05:00.330
+Anthony Taylor: It's in here somewhere there. It is so very often these Apis require you to get authenticated.
+
+1340
+02:05:01.230 --> 02:05:10.149
+Anthony Taylor: Okay? And the way they do that is, you'll get a token or a client, id, basically a login and a password. You will make a call
+
+1341
+02:05:10.600 --> 02:05:16.980
+Anthony Taylor: to a specific Api with that credential information.
+
+1342
+02:05:17.130 --> 02:05:21.310
+Anthony Taylor: and it will return a value
+
+1343
+02:05:21.330 --> 02:05:25.890
+Anthony Taylor: that you then have to include in every call you want to make.
+
+1344
+02:05:27.730 --> 02:05:30.799
+Anthony Taylor: And that value is basically your session key.
+
+1345
+02:05:31.030 --> 02:05:37.879
+Anthony Taylor: So you make the call. You get credentials. Get this value, and then you're going to call it out just like we did here.
+
+1346
+02:05:38.530 --> 02:05:39.430
+Anthony Taylor: right?
+
+1347
+02:05:39.610 --> 02:05:42.720
+Anthony Taylor: And then we used it in our stuff later.
+
+1348
+02:05:43.550 --> 02:05:49.610
+Anthony Taylor: So this is how authentication in more advanced Apis actually work.
+
+1349
+02:05:51.000 --> 02:05:56.549
+Anthony Taylor: You'll have this way and I'll I'll you know what. Maybe I'll log into my work system. And I'll show you guys.
+
+1350
+02:05:57.130 --> 02:05:57.930
+Anthony Taylor: bye.
+
+1351
+02:05:58.270 --> 02:06:05.129
+Anthony Taylor: you know, in another class, I also realize before you go. Thursday is tomorrow. I'm not going to show you scraping tomorrow.
+
+1352
+02:06:05.540 --> 02:06:07.629
+Anthony Taylor: So let's like, maybe plan.
+
+1353
+02:06:07.840 --> 02:06:10.539
+Anthony Taylor: I don't know. Wednesday next week, or something.
+
+1354
+02:06:10.980 --> 02:06:11.920
+Anthony Taylor: Alright
+
+1355
+02:06:12.050 --> 02:06:18.380
+Anthony Taylor: sound. Good. Okay. guys, that's all I have for you today have a great day. We'll be here for 30.
+

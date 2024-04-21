@@ -1,0 +1,67 @@
+##--CODE--##
+# Import our dependencies
+import pandas as pd
+import sklearn as skl
+import tensorflow as tf
+
+# Import the nonlinear dummy data
+df_circles = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_2/datasets/circles-data.csv")
+
+# Split data into X and y
+X = df_circles.drop("Target", axis=1)
+y = df_circles["Target"]
+
+# Use sklearn to split dataset
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=78)
+
+# Create scaler instance
+X_scaler = skl.preprocessing.StandardScaler()
+
+# Fit the scaler
+X_scaler.fit(X_train)
+
+# Scale the data
+X_train_scaled = X_scaler.transform(X_train)
+X_test_scaled = X_scaler.transform(X_test)
+
+##--CODE--##
+# Plot the nonlinear dummy data
+
+
+##--CODE--##
+# Create a method that creates a new Sequential model with hyperparameter options
+
+
+    # Allow kerastuner to decide which activation function to use in hidden layers
+
+
+    # Allow kerastuner to decide number of neurons in first layer
+
+
+    # Allow kerastuner to decide number of hidden layers and neurons in hidden layers
+
+
+    # Compile the model
+
+    
+
+##--CODE--##
+# Import the kerastuner library
+
+
+##--CODE--##
+# Run the kerastuner search for best hyperparameters
+
+
+##--CODE--##
+# Get top 3 model hyperparameters and print the values
+
+
+##--CODE--##
+# Evaluate the top 3 models against the test dataset
+
+
+##--CODE--##
+
+

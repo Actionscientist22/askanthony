@@ -1,0 +1,43 @@
+# Temperature Outliers
+
+##--CODE--##
+# Dependencies
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+##--CODE--##
+# Read the LAX temperature dataset into a dataframe
+temperature_df = pd.read_csv('../Resources/lax_temperature.csv')
+
+##--CODE--##
+# Filter the dataset to only include the `HourlyDryBulbTemperature` column
+temperatures = temperature_df['HourlyDryBulbTemperature']
+
+##--CODE--##
+# Create a boxplot to visualize the filtered dataset
+fig1, ax1 = plt.subplots()
+ax1.set_title('Temperatures at LAX')
+ax1.set_ylabel('Temperature (°F)')
+ax1.boxplot(temperatures)
+plt.show()
+
+##--CODE--##
+# Use Pandas to calculate the quartiles, IQR, and median, and print the results
+quartiles = temperatures.quantile([.25,.5,.75])
+lowerq = quartiles[0.25]
+upperq = quartiles[0.75]
+iqr = upperq-lowerq
+
+print(f"The lower quartile of temperatures is: {lowerq}")
+print(f"The upper quartile of temperatures is: {upperq}")
+print(f"The interquartile range of temperatures is: {iqr}")
+print(f"The the median of temperatures is: {quartiles[0.5]} ")
+
+##--CODE--##
+# Use the IQR to determine an upper and lower bound for outliers, then print the results
+lower_bound = lowerq - (1.5*iqr)
+upper_bound = upperq + (1.5*iqr)
+print(f"Values below {lower_bound} could be outliers.")
+print(f"Values above {upper_bound} could be outliers.")
+

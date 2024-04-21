@@ -1,0 +1,128 @@
+# Demo: Interpreting Prophet Forecasts for Decision Making
+
+## Notebook Set Up
+
+##--CODE--##
+# Install the required libraries
+!pip install prophet
+
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+import datetime as dt
+from prophet import Prophet
+
+%matplotlib inline
+
+##--CODE--##
+# Import the `files` library to allow files upload
+from google.colab import files
+
+## Plot the Data
+
+##--CODE--##
+# Upload "hourly_grid_prices.csv" into Colab, then store in a DataFrame
+uploaded = files.upload()
+
+##--CODE--##
+hourly_prices = pd.read_csv(
+    "hourly_grid_prices.csv",
+    index_col='day-hour',
+    parse_dates=True,
+    infer_datetime_format=True
+).dropna()
+
+# Display the first and last five rows of the DataFrame
+display(hourly_prices.head())
+display(hourly_prices.tail())
+
+##--CODE--##
+# Plot the DataFrame
+
+
+## Prepare the Data
+
+##--CODE--##
+# Reset the index of the DataFrame
+
+# Review the first and last five rows of the DataFrame
+
+
+##--CODE--##
+# Prepare the training data to be read into a prophet model
+# Rename the columns to names that Prophet recognizes
+
+
+##--CODE--##
+# Confirm that there are no NaN values
+
+
+## Create a Prophet Model
+
+##--CODE--##
+# Call the Prophet function and store as an object
+
+
+## Fit the Prophet Model
+
+##--CODE--##
+# Fit the time series Prophet model
+
+
+## Set Up for Predictions
+
+##--CODE--##
+# Create a future DataFrame to hold predictions
+# Make the prediction go out as far as 720 hours (30 days)
+
+
+# Review the first and last 10 rows of the DataFrame
+
+
+## Build a Table of Predictions
+
+##--CODE--##
+# Make a forecast based on the future DataFrame
+
+
+# Review the first five rows of the forecast DataFrame
+
+
+## Plot the Forecast
+
+##--CODE--##
+# Plot the forecast using the model’s plot function
+
+
+## Read the Forecast Results
+
+##--CODE--##
+# Display the underlying forecast dataframe (tail)
+
+
+## Plot the Upper and Lower Bounds of the Forecast
+
+##--CODE--##
+# Reset the index to this datetime column so that our plot looks nice
+
+
+# Display the DataFrame
+
+
+##--CODE--##
+# Plot predictions for our forecast period
+
+
+## Break Down the Forecast
+
+##--CODE--##
+# Reset "ds" from the datetime index back to a column
+
+
+##--CODE--##
+# Plot the individual time series components of the model
+
+
+##--CODE--##
+
+

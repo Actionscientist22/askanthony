@@ -1,0 +1,26 @@
+##--CODE--##
+import pandas as pd
+
+# Import the data
+rent_tx_df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_3/datasets/rent_data_tx.csv")
+rent_ca_df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_3/datasets/rent_data_ca.csv")
+
+##--CODE--##
+# Look at the first few rows of the california data
+rent_ca_df.head()
+
+##--CODE--##
+# Import the pipeline_utilities module
+
+
+##--CODE--##
+# Train a model for Texas using the rent_model_generator function
+
+
+##--CODE--##
+# Train a model for California using the rent_model_generator function
+
+
+##--CODE--##
+
+

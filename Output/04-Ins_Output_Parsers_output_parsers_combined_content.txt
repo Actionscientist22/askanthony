@@ -1,0 +1,125 @@
+##--CODE--##
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+# Model and API Key
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# List Parser
+
+##--CODE--##
+# Additional imports for list parser.
+
+
+##--CODE--##
+# Initialize the model.
+
+
+# Initialize the output parser.
+
+
+# Get the output format instructions.
+
+
+print()
+
+# Define a query as a string, combining with the instructions.
+
+
+# Pass the query to the invoke method, and print the result.
+
+
+print()
+
+# Parse the result, store it, and print it.
+
+
+# Structured Parser
+
+##--CODE--##
+# Additional imports for structured parser.
+
+
+##--CODE--##
+# Initialize the model.
+
+
+# Define the schemas for our parser.
+
+
+# Initialize the output parser using the schema.
+
+
+# Get the output format instructions and print them.
+
+
+print()
+
+# Define a query as a string, combining with the instructions.
+
+
+# Pass the query to the invoke method, and print the result.
+
+
+print()
+
+# Parse the result, store it, and print it.
+
+
+print()
+
+# Define a new query using the parsed output.
+
+
+# Pass the query to the invoke method, and print the result.
+
+
+# Class-based Parser
+
+##--CODE--##
+# Additional imports for Pydantic parser.
+
+
+##--CODE--##
+# Initialize the model.
+
+
+# Define the class for our parsed responses.
+
+
+# Initialize the output parser using the schema.
+
+
+# Get the output format instructions and print them.
+
+
+print()
+
+# Define a query as a string, combining with the instructions.
+
+
+# Pass the query to the invoke method, and print the result.
+
+
+print()
+
+# Parse the result, store it, and print it.
+
+
+print()
+
+# Define a new query using the parsed output.
+
+
+# Pass the query to the invoke method, and print the result.
+
+

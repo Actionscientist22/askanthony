@@ -1,0 +1,56 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+from pathlib import Path
+
+##--CODE--##
+# Save path to the data set as a variable.
+data_file = Path("Resources/car_purchases.csv")
+
+##--CODE--##
+# Use Pandas to the read data.
+data_file_df = pd.read_csv(data_file)
+data_file_df.head()
+
+##--CODE--##
+# Display a statistical overview of the DataFrame.
+data_file_df.describe()
+
+##--CODE--##
+# Reference a single column within a DataFrame.
+data_file_df["Amount"].head()
+
+##--CODE--##
+# Reference multiple columns within a DataFrame.
+data_file_df[["Amount", "Gender"]].head()
+
+##--CODE--##
+# The mean method averages the series
+average = data_file_df["Amount"].mean()
+average
+
+##--CODE--##
+# The sum method adds every entry in the series
+total = data_file_df["Amount"].sum()
+total
+
+##--CODE--##
+# The unique method shows every element only once
+unique = data_file_df["Car"].unique()
+unique
+
+##--CODE--##
+# The value_counts method counts unique values in a column
+count = data_file_df["Gender"].value_counts()
+count
+
+##--CODE--##
+# Calculations can also be performed on Series and added into DataFrames as new columns
+thousands_of_dollars = data_file_df["Amount"]/1000
+data_file_df["Thousands of Dollars"] = thousands_of_dollars
+
+data_file_df.head()
+
+##--CODE--##
+
+

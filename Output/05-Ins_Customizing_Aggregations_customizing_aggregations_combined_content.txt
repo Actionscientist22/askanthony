@@ -1,0 +1,61 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read the CSV into a Pandas DataFrame
+ufo_df = pd.read_csv('Resources/ufoSightings.csv', low_memory=False)
+
+# Remove the rows with missing data
+clean_ufo_df = ufo_df.dropna(how="any")
+
+# Converting the "duration (seconds)" column's values to numeric
+converted_ufo_df = clean_ufo_df.copy()
+converted_ufo_df["duration (seconds)"] = converted_ufo_df.loc[:, "duration (seconds)"].astype(float)
+
+# Display the DataFrame
+converted_ufo_df.head()
+
+##--CODE--##
+# Create a DataFrame with the average time in seconds for each UFO shape.
+grouped_ufo_duration_shape = converted_ufo_df.groupby("shape")[["duration (seconds)"]].mean()
+grouped_ufo_duration_shape
+
+##--CODE--##
+# Create a custom function that will calculate the average of DataFrame column.
+
+
+##--CODE--##
+# Show the average time in seconds for each UFO shape.
+# Pass the '"duration (seconds)' column to the custom function.
+# Name the new column "Avg_Duration(seconds)".
+
+# Display the DataFrame
+
+
+##--CODE--##
+# Use the custom_avg function to calculate the average duration in seconds for the country and state columns. 
+
+
+# Display the DataFrame
+
+
+##--CODE--##
+# Create two custom functions. 
+# 1) One to calculate the total count of items for a DataFrame column.
+
+
+# 2) The second will add up the values for DataFrame column.
+
+
+##--CODE--##
+# Get the number of UFO sightings, the average and total duration in seconds for each country and state.
+# Use the custom functions to determine the total sightings, average and total duration in seconds. 
+
+
+# Display the DataFrame
+
+
+##--CODE--##
+
+

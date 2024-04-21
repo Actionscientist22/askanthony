@@ -1,0 +1,54 @@
+##--CODE--##
+# Imports for loading environment variables.
+from dotenv import load_dotenv
+import os
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+##--CODE--##
+# Additional imports for specific chains we'll use.
+from langchain_openai import ChatOpenAI
+from langchain.chains import LLMChain
+from langchain.chains.constitutional_ai.base import ConstitutionalChain
+from langchain.chains.constitutional_ai.models import ConstitutionalPrinciple
+from langchain.prompts import ChatPromptTemplate
+
+##--CODE--##
+# Ask the user for a main ingredient for each day.
+
+
+##--CODE--##
+# Ask the user for a dietary restriction.
+
+
+##--CODE--##
+# Initialize the model.
+
+
+##--CODE--##
+# Create a chat chain for creating the recipes.
+
+
+##--CODE--##
+# Create the principle for our constitutional chain.
+
+
+##--CODE--##
+# Create a constitutional chain for ensuring the requested type of recipes.
+
+
+##--CODE--##
+# Set the input query for the first chain in the sequence.
+
+
+##--CODE--##
+# Run the constitutional chain using the query as the first input.
+
+

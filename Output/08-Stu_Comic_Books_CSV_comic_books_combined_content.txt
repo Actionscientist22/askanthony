@@ -1,0 +1,39 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+from pathlib import Path
+
+##--CODE--##
+# Import the comic_books_expanded.csv file as a DataFrame
+
+
+##--CODE--##
+# Remove unnecessary columns from the DataFrame and save the new DataFrame
+# Only keep: "ISBN", "Title", "Other titles", "Name", "All names", 
+# "Country of publication", "Place of publication", "Publisher", "Date of publication"
+
+
+##--CODE--##
+# Rename the columns
+
+
+##--CODE--##
+# How many comics were published in the 1960s?
+comics_1960s_df = comics_df.loc[(comics_df['Publication Year'] >= 1960) & (comics_df['Publication Year'] < 1970)]
+len(comics_1960s_df)
+
+##--CODE--##
+# Are there more batman comics or superman comics?
+# To start, how many batman comics are listed?
+
+
+
+##--CODE--##
+# How many superman comics are listed?
+
+
+## Summary
+There are more Batman comics than Superman comics in the dataset.
+
+
+

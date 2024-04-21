@@ -1,0 +1,39 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install transformers
+
+##--CODE--##
+# Import the pipeline class from the transformers module. 
+from transformers import pipeline
+
+##--CODE--##
+# Use the text-generation parameter for the pipeline and EleutherAI/gpt-neo-1.3B model. 
+generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B')
+
+##--CODE--##
+# Give the model a prompt. 
+prompt = "I like gardening because"
+# Pass the prompt to the generator
+results = generator(prompt, max_length=125, pad_token_id=50256)
+# Get the text based on the prompt. 
+generated_text = results[0]['generated_text']
+# Print the generated text.
+print(generated_text)
+
+##--CODE--##
+# Use the text-generation parameter for the pipeline and EleutherAI/gpt-neo-125m model. 
+small_generator = pipeline('text-generation', model='EleutherAI/gpt-neo-125m')
+
+##--CODE--##
+# Give the model a prompt. 
+prompt = "My favorite animal is the cat because "
+# Pass the prompt to the generator. Use `max_length=25`.
+new_results = small_generator(prompt, max_length=25, pad_token_id=50256)
+# Get the text based on the prompt. 
+generated_text = new_results[0]['generated_text']
+# Print the generated text.
+print(generated_text)
+
+##--CODE--##
+
+

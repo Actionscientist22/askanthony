@@ -1,0 +1,65 @@
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+##--CODE--##
+# Import the data
+import numpy as np
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m14/lesson_2/datasets/crowdfunding-missing-data.csv")
+df.head()
+
+##--CODE--##
+# Split into training and testing sets
+X = df.drop(columns = 'outcome')
+y = df['outcome'].values.reshape(-1, 1)
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=13)
+
+##--CODE--##
+# Find the percentage of rows missing values in each column
+
+
+##--CODE--##
+# Describe the other columns in the rows with missing values
+
+
+##--CODE--##
+# Describe the whole dataset
+
+
+##--CODE--##
+# Perform other exploratory analysis here
+# For this specific example, try making histograms
+# of days_active for the whole dataset and then
+# again only when backers_count is missing.
+
+
+
+##--CODE--##
+# Since backers_count seems to be missing in the first week
+# of a campaign, removing the data would be detrimental.
+# A good choice might be to fill the data using the backers
+# counts from campaigns in week 2.
+
+
+
+
+##--CODE--##
+# Create a function to fill missing values with half of the mean of week 2
+
+
+
+##--CODE--##
+# Preprocess the training and testing data
+
+
+
+
+##--CODE--##
+# Check for missing values
+
+
+
+##--CODE--##
+
+

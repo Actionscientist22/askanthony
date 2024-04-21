@@ -1,0 +1,76 @@
+##--CODE--##
+# Import the necessary dependencies
+import pandas as pd
+
+##--CODE--##
+# Read in the data as a DataFrame
+# Provide the dataset over AWS S3 bucket. It's ~100 MB.
+delayed_flights_url = "https://static.bc-edx.com/ai/ail-v-1-0/m5/lesson_2/delayed_flights.csv"
+delayed_flights_df = pd.read_csv(delayed_flights_url)
+delayed_flights_df.head()
+
+##--CODE--##
+# Get the columns
+delayed_flights_df.columns
+
+##--CODE--##
+# 1. Show the average time for delayed arrivals (ArrDelay) for each carrier.
+
+
+##--CODE--##
+# 2. Show the average time for delayed arrivals and delayed departures for each carrier.
+
+
+### Grouping and aggregating wiht multiple columns and functions.
+
+##--CODE--##
+# 3. Show the total number of flights that were diverted for each carrier by day of the week.
+
+
+# Display the top 25 rows
+
+
+##--CODE--##
+# Display the last 25 rows.
+
+
+##--CODE--##
+# 4. Show the total and average number flights that were diverted and cancelled for each carrier by day of the week.
+
+
+# Display the top 25 rows
+
+
+##--CODE--##
+# 5.Show the total and average number flights that were diverted and cancelled 
+# for each flight origin and destination.
+
+
+
+# Display the top 25 rows
+
+
+##--CODE--##
+# 6. Show the total number flights that were diverted for each airline carrier, flight origin,
+# and destination by day of the week.
+
+
+# Display the top 10 rows
+
+
+##--CODE--##
+# 7.Remove the multi-index from the previous DataFrame so the "Diverted" and "sum" are a column name. 
+# Retrieve the first level 
+
+
+# Retrieve the second level 
+
+
+
+##--CODE--##
+# Combine the levels and display the DataFrame.
+
+
+##--CODE--##
+
+

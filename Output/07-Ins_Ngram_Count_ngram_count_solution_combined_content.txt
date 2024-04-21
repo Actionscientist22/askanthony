@@ -1,0 +1,97 @@
+# N-Gram Counter
+
+##--CODE--##
+# Import reuters and stopwords 
+from nltk.corpus import reuters, stopwords
+# Import ngrams
+from nltk.util import ngrams
+# Import the WordNetLemmatizer class 
+from nltk.stem import WordNetLemmatizer 
+# Import the word tokenizer
+from nltk.tokenize import word_tokenize
+# Import regular expressions
+import re
+# Download "punkt" sentence tokenizer and "wordnet" that the lemmatizer uses.
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+
+##--CODE--##
+# Instantiate the lemmatizer
+lemmatizer = WordNetLemmatizer()
+
+##--CODE--##
+# Get the categories
+print(reuters.categories())
+
+##--CODE--##
+# Get a random article from the consumer price index (cpi) category
+cpi_article = reuters.raw(reuters.fileids(categories='cpi')[2])
+print(cpi_article)
+
+##--CODE--##
+# Write a function that processes the words for the article and and lemmatizes the words to their root words.
+def process_text(article):
+    """
+    Preprocesses a given text article by performing the following steps:
+    
+    1. Removes stopwords (common words in English language).
+    2. Uses regular expressions to remove non-alphabet characters (e.g., punctuation).
+    3. Tokenizes the cleaned text into words.
+    4. Lemmatizes the words to their base form.
+    5. Filters out words that are not stopwords.
+    
+    Parameters:
+        article (str): The input text article to be processed.
+
+    Returns:
+        list of str: A list of preprocessed words from the input article.
+    """
+    # Get the stopwords
+    sw = set(stopwords.words('english'))
+    # Use regex to substitute everything that is not a letter with an empty string.
+    regex = re.compile("[^a-zA-Z ]")
+    re_clean = regex.sub('', article)
+    # Tokenize the words 
+    words = word_tokenize(re_clean)
+    # Lemmatize the words
+    lem = [lemmatizer.lemmatize(word) for word in words]
+    # Retrieve only the words that aren't in the stopwords
+    output = [word.lower() for word in lem if word.lower() not in sw]
+    return output
+
+##--CODE--##
+# Pass the article to function and print the processed text.
+processed_article = process_text(cpi_article)
+print(processed_article)
+
+## Frequency Analysis: Word Counts
+
+##--CODE--##
+# Import the Counter class from the collections library.
+from collections import Counter
+
+##--CODE--##
+# Get the word counts by passing in the processed article to the Counter class.
+word_counts = Counter(processed_article)
+# Print the dictionary of the word counts.
+print(dict(word_counts))
+
+##--CODE--##
+# Print the top 10 most common words.
+print(dict(word_counts.most_common(10)))
+
+## Frequency Analysis: N-gram Counts
+
+##--CODE--##
+# Get the number of bigrams.
+bigram_counts = Counter(ngrams(processed_article, n=2))
+print(dict(bigram_counts))
+
+##--CODE--##
+# Print the top 5 most common bigrams
+print(dict(bigram_counts.most_common(5)))
+
+##--CODE--##
+
+

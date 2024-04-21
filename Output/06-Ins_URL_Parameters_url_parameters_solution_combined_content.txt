@@ -1,0 +1,32 @@
+### Execute the Numbers API for the number 42
+
+##--CODE--##
+import requests
+import json
+
+# Create parameterized url
+request_url = "http://numbersapi.com/42?json"
+
+# Submit request and format output
+response_data = requests.get(request_url).json()
+print(json.dumps(response_data, indent=4))
+
+# Select fact 
+response_data['text']
+
+### Execute the Numbers API for the number 8
+
+##--CODE--##
+# Create parameterized url
+request_url = "http://numbersapi.com/8?json"
+
+# Submit request and format output
+response_data = requests.get(request_url).json()
+print(json.dumps(response_data, indent=4))
+
+# Select fact
+response_data['text']
+
+##--CODE--##
+
+

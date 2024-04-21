@@ -1,0 +1,42 @@
+##--CODE--##
+# Import dependencies
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+
+##--CODE--##
+# Import the generated dataset
+data = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_1/datasets/sample-data.csv")
+data
+
+##--CODE--##
+# Plot the data
+data.plot.scatter("X1", "X2", c="y", colormap="winter")
+
+##--CODE--##
+# Separate the X and y data
+X = data.drop(columns="y")
+y = data["y"]
+
+##--CODE--##
+# Use sklearn to split dataset
+
+
+##--CODE--##
+# Create a logistic regression model
+
+
+# Train the model
+
+
+##--CODE--##
+# Generate the predictions from the test data
+
+
+# Print the accuracy score
+
+
+##--CODE--##
+
+

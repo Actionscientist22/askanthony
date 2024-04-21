@@ -1,0 +1,57 @@
+##--CODE--##
+# Uncomment the following code if you are using Colab.
+# !pip install gradio
+
+##--CODE--##
+# Import gradio 
+import gradio as gr
+
+##--CODE--##
+# Create a pizza order function that takes 
+# the size of the pizza and up to three toppings, and returns the price of the pizza with tax. 
+def pizza_order(size, topping_1, topping_2, topping_3): 
+    """
+    Calculate the total cost of a pizza order based on size and includes up to three toppings.
+
+    Parameters:
+    - size (str): Size of the pizza (options: "large", "medium", "small").
+    - topping_1 (bool): True if topping 1 field has been filled in, False otherwise.
+    - topping_2 (bool): True if topping 2 field has been filled in, False otherwise.
+    - topping_3 (bool): True if topping 3 field has been filled in, False otherwise.
+
+    Returns:
+    str: A formatted string indicating the total cost of the pizza order, including tax.
+    """
+    # Get the price for the size of pizza. 
+    if size.lower() == "large":
+        size_price = 19.99
+    elif size.lower() == "medium":
+        size_price = 14.99
+    elif size.lower() == "small":
+        size_price = 9.99
+        
+    # Set the price of the toppings to zero. 
+    topping_price = 0
+    # Use a conditional to add up the price for each topping if a topping has been added.
+    if topping_1:
+        topping_price += 1.99
+    if topping_2:
+        topping_price += 1.99
+    if topping_3:
+        topping_price += 1.99
+    
+    # Add the size_price and topping_price and calculate the tax of the order.
+    pizza_price = size_price + topping_price + (size_price + topping_price)*0.07
+    
+    # Return the pizza price to two decimal places
+    return f"Your pizza costs ${pizza_price:.2f}, including tax."
+        
+# Create an instance of the Gradio Interface application function with the following parameters. 
+app = gr.Interface(fn=pizza_order, 
+                   inputs=["text", "text", "text", "text"], outputs="text")
+# Launch the app
+app.launch()
+
+##--CODE--##
+
+

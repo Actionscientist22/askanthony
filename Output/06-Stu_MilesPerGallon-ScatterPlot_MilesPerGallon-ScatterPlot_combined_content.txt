@@ -1,0 +1,35 @@
+##--CODE--##
+%matplotlib notebook
+
+##--CODE--##
+# Dependencies and Setup
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+##--CODE--##
+car_data = pd.read_csv('../Resources/mpg.csv')
+car_data.head()
+
+##--CODE--##
+# Remove the rows with missing values in horsepower
+
+
+##--CODE--##
+# Set the 'car name' as our index
+
+# Remove the 'origin' column
+
+
+##--CODE--##
+# Convert the "horsepower" column to numeric so the data can be used
+
+
+##--CODE--##
+# Create a scatter plot which compares MPG to horsepower
+
+
+
+##--CODE--##
+
+

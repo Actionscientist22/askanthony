@@ -1,0 +1,90 @@
+##--CODE--##
+from tensorflow.keras import layers, models, Model
+import numpy as np
+import pandas as pd
+
+##--CODE--##
+# Import the data
+path = 'https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_3/datasets/wine_quality.csv'
+df = pd.read_csv(path)
+df.head()
+
+We have two choices; should the y columns of quality and color all be predicted in a single layer? It might be easier to separate these into two layers, both having the sigmoid activation function. To start, lets preprocess these layers using labelencoder and onehotencoder.
+
+##--CODE--##
+# Preprocess y
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+
+# Preprocess "quality" column (one-hot encoding)
+
+
+# Preprocess "color" column (label encoding for binary; one-hot encoding for multiple categories)
+
+
+# Concatenate the encoded columns to the original DataFrame
+
+
+# Drop the original "quality" and "color" columns
+
+
+
+##--CODE--##
+# Split data into X and two separate y variables
+
+
+
+# Split data into training and testing sets
+from sklearn.model_selection import train_test_split
+
+
+
+Now that the data is processed, start by creating the shared portion of the model. We start with the input layer, but note that because we are note using the "sequential" model from keras, we must specify where each new layer attaches to the model. We do this by placing the name of the preceding layer in parentheses at the end of the line creating the new layer.
+
+Note how shared_layer1 is created as a Dense layer, and then (input_layer) specifies that shared_layer1 will come directly after the input_layer. In the following line, shared_layer2 is created to follow shared_layer1.
+
+##--CODE--##
+# Create the shared layers of the model
+
+# Input layer
+
+# Shared hidden layers
+
+
+So far, we've created a sequential set on layers, one following the other. Now we will create two branches for our two output layers. To do this, we create two layers and specify the same "preceding layer" for each. Note how both the quality_output layer and the color_output layer connect to the model via shared_layer2.
+
+When creating these layers, we determine that sigmoid is best for quality and for color. That said, there are arguments to be made for either!
+
+##--CODE--##
+# Branch for quality prediction
+
+# Branch for color prediction
+
+
+Now we can pull the model together. We only need to specify the input and output layers and Keras will infer the rest. To compile the model, we can specify unique metrics and loss functions for each output layer, but for this dataset we have chosen 'binary_crossentropy' as the loss function and 'accuracy' as the metric for both output layers.
+
+##--CODE--##
+# Create the model
+
+# Compile the model
+
+
+# Display the model summary
+
+
+To fit the model to the data, we specify X_train as normal, but pass a dictionary for the y_data.
+
+##--CODE--##
+# Fit the model
+
+
+##--CODE--##
+# Evaluate the model with the testing data
+
+
+##--CODE--##
+# Print quality and color accuracy
+
+
+##--CODE--##
+
+

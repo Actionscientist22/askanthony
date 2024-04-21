@@ -1,0 +1,67 @@
+##--CODE--##
+import pandas as pd
+import tensorflow as tf
+import numpy as np
+
+# Import our utilities functions
+import utils
+
+## Prepare the Data
+
+##--CODE--##
+# Get the original DataFrame
+df = utils.get_data()
+df.head()
+
+##--CODE--##
+# Get the normalized ratings
+normalized_ratings = utils.get_normalized_data()
+normalized_ratings.head()
+
+##--CODE--##
+# Get the weights and bias tensors
+W = utils.weights()
+hb = utils.hidden_bias()
+vb = utils.visible_bias()
+
+##--CODE--##
+# Get the users so we can send the users back into the model
+
+
+##--CODE--##
+# Create an empty DataFrame to store the recommendations
+
+
+##--CODE--##
+# Get recommendations for every user
+
+    # Get user's ratings
+
+
+    # Generate the recommendations
+
+
+    # Construct user DataFrame
+
+
+    # Add recommendation to DataFrame
+
+
+
+
+##--CODE--##
+# Merge all recommendation scores with original dataset ratings
+# Inner merge because we cannot perform calculations on NaN values to evaluate the model
+
+
+##--CODE--##
+# normalize rating column
+
+
+##--CODE--##
+# Calculate RMSE
+from sklearn.metrics import mean_squared_error
+
+##--CODE--##
+
+

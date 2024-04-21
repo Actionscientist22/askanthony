@@ -1,0 +1,144 @@
+##--CODE--##
+# Import the WordNetLemmatizer class 
+from nltk.stem import WordNetLemmatizer 
+# Import the SnowballStemmer class
+from nltk.stem.snowball import SnowballStemmer
+# Import the word tokenizer
+from nltk.tokenize import word_tokenize
+# Import gutenberg and stopwords 
+from nltk.corpus import gutenberg, stopwords
+# Import regular expressions
+import re
+
+# Download "punkt" sentence tokenizer and "wordnet" that the lemmatizer uses.
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+
+##--CODE--##
+# Instantiate the lemmatizer
+
+# Instantiate the Snowball Stemmer and pass in the "english" language parameter.
+
+
+##--CODE--##
+# Read in the entire novel
+book = gutenberg.raw(fileids=('melville-moby_dick.txt'))
+
+# Use regular expression to get all the text after "CHATPER 1".
+import re
+
+match = re.search(r'CHAPTER 1.*', book, re.DOTALL)
+if match:
+    # Print the matched text and everything that follows
+    moby_dick = match.group(0)
+print(moby_dick)
+
+##--CODE--##
+# Write a function that processes the words in Moby Dick and gets the stem of the words.
+def process_text_stemming(book):
+    """
+    Preprocesses a given text article by performing the following steps:
+    
+    1. Removes stopwords (common words in English language).
+    2. Uses regular expressions to remove non-alphabet characters (e.g., punctuation).
+    3. Tokenizes the cleaned text into words.
+    4. Gets the stem of the word.
+    5. Filters out words that are not stopwords..
+    
+    Parameters:
+        article (str): The input text article to be processed.
+
+    Returns:
+        list of str: A list of preprocessed words from the input article.
+    """
+    # Get the stopwords
+    
+    # Use regex to substitute everything that is not a letter with an empty string.
+    
+    
+    # Tokenize the words 
+    
+    # Get the stem of the words
+    
+    # Retrieve only the words that aren't in the stopwords.
+    
+    
+
+##--CODE--##
+# Print the processed book as a set. 
+
+
+##--CODE--##
+# Write a function that processes the words in Moby Dick and lemmatizes the words to their root words.
+def process_text_lemmatizaton(book):
+    """
+    Preprocesses a given text article by performing the following steps:
+    
+    1. Removes stopwords (common words in English language).
+    2. Uses regular expressions to remove non-alphabet characters (e.g., punctuation).
+    3. Tokenizes the cleaned text into words.
+    4. Lemmatizes the words to their base form.
+    5. Filters out words that are not stopwords.
+    
+    Parameters:
+        article (str): The input text article to be processed.
+
+    Returns:
+        list of str: A list of preprocessed words from the input article.
+    """
+    # Get the stopwords
+    
+    # Use regex to substitute everything that is not a letter with an empty string.
+    
+    
+    # Tokenize the words 
+    
+    # Lemmatize the words
+    
+    # Retrieve only the words that aren't in the stopwords.
+    
+    
+
+##--CODE--##
+# Print the processed book as a set. 
+
+
+##--CODE--##
+# Write a function that processes the words in Moby Dick and lemmatizes the verbs to their root words.
+def process_text_lemmatizaton(book):
+    """
+    Preprocesses a given text article by performing the following steps:
+    
+    1. Removes stopwords (common words in English language).
+    2. Uses regular expressions to remove non-alphabet characters (e.g., punctuation).
+    3. Tokenizes the cleaned text into words.
+    4. Lemmatizes the words to their noun, verb, adjective or adverb form.
+    5. Filters out words that are not stopwords..
+    
+    Parameters:
+        article (str): The input text article to be processed.
+
+    Returns:
+        list of str: A list of preprocessed words from the input article.
+    """
+    # Get the stopwords
+    
+    # Use regex to substitute everything that is not a letter with an empty string.
+    
+    
+    # Tokenize the words 
+    
+    # Lemmatize the verbs
+    
+    # Retrieve only the words that aren't in the stopwords.
+    
+    
+
+##--CODE--##
+# Print the processed book as a set. 
+
+
+##--CODE--##
+
+

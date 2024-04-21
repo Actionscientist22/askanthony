@@ -1,0 +1,92 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read the CSV into a Pandas DataFrame
+ufo_df = pd.read_csv('Resources/ufoSightings.csv', low_memory=False)
+
+# Remove the rows with missing data
+clean_ufo_df = ufo_df.dropna(how="any")
+
+# Converting the "duration (seconds)" column's values to numeric
+converted_ufo_df = clean_ufo_df.copy()
+converted_ufo_df["duration (seconds)"] = converted_ufo_df.loc[:, "duration (seconds)"].astype(float)
+
+# Display the DataFrame
+converted_ufo_df.head()
+
+##--CODE--##
+# Add double brackets around the column to for the aggregation to create a DataFrame.
+grouped_ufo_duration_shape = converted_ufo_df.groupby("shape")[["duration (seconds)"]].mean()
+grouped_ufo_duration_shape.head(10)
+
+##--CODE--##
+# The agg() function can be used for aggregation. 
+
+
+### Multiple Aggregations
+
+##--CODE--##
+# The agg() function can be used to pass more than one aggregation.
+
+
+### Grouping on Multiple Columns with Multiple Aggregations
+
+##--CODE--##
+# It is also possible to group a DataFrame by multiple columns
+# This returns an object with multiple indices, however, which can be harder to deal with.
+# Get the average duration in seconds of UFOs by Country and State.
+
+
+# Display the DataFrame.
+
+
+##--CODE--##
+# The agg() function can be used to pass more than one aggregation.
+
+
+### Flattening Multi-Indexed Columns to Single Columns
+
+##--CODE--##
+# One method of flattening the MultiIndex columns to a single column: use the to_flat_index() on the columns.
+
+
+
+# Get the columns after apply the to_flat_index()
+
+
+# Display the columns
+
+
+##--CODE--##
+# Use a list comprehension to join the each tuple for each column. 
+
+
+# Display the flattened DataFrame
+
+
+##--CODE--##
+# The second method for flattening the multiIndex to one column.
+# Get the first level of the multi-index
+
+
+# Get the second level of the multi-index
+
+
+##--CODE--##
+# Combine the levels and display the DataFrame. 
+
+
+##--CODE--##
+# Get the new column names to rename the columns
+
+
+##--CODE--##
+# Rename the columns in a multi-index DataFrame
+
+
+
+##--CODE--##
+
+

@@ -1,0 +1,69 @@
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+##--CODE--##
+# Import the data
+car_data = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_1/datasets/car-data-encoded.csv")
+car_data.head()
+
+##--CODE--##
+# Drop rows with null values
+car_data = car_data.dropna()
+
+##--CODE--##
+# Get the features (everything except the "price" column)
+X = car_data.copy().drop(columns="price")
+X.head()
+
+##--CODE--##
+# Get the target column
+y = car_data["price"].values.reshape(-1,1)
+y[0:5]
+
+##--CODE--##
+# Use the Sklearn `train_test_split()` function to split the data into training and testing data
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+##--CODE--##
+import statsmodels.api as sm
+
+# Use the statsmodels package to create and fit a linear regression
+
+
+
+##--CODE--##
+# Show the p-values of all columns sorted in ascending order
+
+
+##--CODE--##
+# Create an X variable with all features and another with
+# only features that meet the 0.05 threshold.
+
+
+
+##--CODE--##
+# Split the data into training and testing sets
+
+
+##--CODE--##
+# Train two models using the different X variables
+
+# Create the models
+
+
+# Fit the models
+
+
+##--CODE--##
+# Provided code to create the adjusted r-squared function
+def r2_adj(x, y, model):
+    r2 = model.score(x,y)
+    n_cols = x.shape[1]
+    return 1 - (1 - r2) * (len(y) - 1) / (len(y) - n_cols - 1)
+
+##--CODE--##
+# Compare the adjusted r-squared of the two models
+
+

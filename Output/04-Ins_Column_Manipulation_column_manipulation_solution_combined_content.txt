@@ -1,0 +1,26 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# A DataFrame of individuals' contact information
+people_df = pd.read_csv('../Resources/people.csv')
+people_df.head()
+
+##--CODE--##
+# Collect a list of all columns within the DataFrame
+people_df.columns
+
+##--CODE--##
+# Reorganize the columns using double brackets
+organized_df = people_df[["last_name","company_name","city","email"]]
+organized_df.head()
+
+##--CODE--##
+# Use .rename(columns={}) to rename columns
+renamed_df = organized_df.rename(columns={"last_name":"Last Name", "company_name":"Company", "city": "City", "email": "Email"})
+renamed_df.head()
+
+##--CODE--##
+
+

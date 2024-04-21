@@ -1,0 +1,4862 @@
+WEBVTT
+
+1
+00:00:38.820 --> 00:00:47.119
+Anthony Taylor:  Today's a good day. I really, I really, honestly.
+
+2
+00:00:48.650 --> 00:00:54.129
+Anthony Taylor: I've been looking forward today. I look forward to a lot of the sections that we're gonna do.
+
+3
+00:00:54.400 --> 00:01:02.159
+Anthony Taylor: But again, today is I mean, I said, last class, many of you came here because of things like chat
+
+4
+00:01:02.390 --> 00:01:06.689
+Anthony Taylor: and some of the Llm excitement, you know, especially when you guys first started.
+
+5
+00:01:07.120 --> 00:01:09.790
+Anthony Taylor: That was like all the rage
+
+6
+00:01:10.330 --> 00:01:15.030
+Anthony Taylor: and it kind of still is. In fact, I'd say it might even be more now.
+
+7
+00:01:15.580 --> 00:01:28.500
+Anthony Taylor:  This is how that all started. and how we are going to morph ourselves into a better understanding of how these things work.
+
+8
+00:01:28.660 --> 00:01:32.480
+Anthony Taylor: and and then what we can do with them. and
+
+9
+00:01:32.660 --> 00:01:37.380
+Anthony Taylor: all of that, because right now I would assume it's mostly a mystery to most of you
+
+10
+00:01:37.830 --> 00:01:41.370
+Anthony Taylor: right. How long have we been able to do these cool things?
+
+11
+00:01:41.920 --> 00:01:43.969
+Anthony Taylor: How long you think ll limbs have been around.
+
+12
+00:01:47.920 --> 00:01:50.169
+Anthony Taylor: you might be surprised to know it's been a long.
+
+13
+00:01:52.060 --> 00:01:54.030
+Anthony Taylor: that's what she was.
+
+14
+00:01:54.620 --> 00:02:04.990
+Anthony Taylor: Yeah. Well, 50. I don't know. The exact timeline became common, but fiftys was when the perceptron was created.
+
+15
+00:02:05.610 --> 00:02:16.490
+Anthony Taylor: So so I mean, you need the neural networks and things like that. The the Lms. Themselves, the capability to do what they do really
+
+16
+00:02:16.790 --> 00:02:18.630
+Anthony Taylor: didn't come to
+
+17
+00:02:18.870 --> 00:02:23.960
+Anthony Taylor: a major turning point until a couple of like 4 years ago.
+
+18
+00:02:24.110 --> 00:02:30.159
+Anthony Taylor: I'd have to look up the exact date until a fellow post created an article about attention.
+
+19
+00:02:30.820 --> 00:02:38.949
+Anthony Taylor: And what attention allowed it to do is understand context better. What we're gonna do today, I'm gonna show you we have.
+
+20
+00:02:39.680 --> 00:02:55.710
+Anthony Taylor: We're what you're going to see is us how we initially started n, lp. and how we still use it for a lot of things this way. But you're going to understand as we get through it, how it really doesn't do well with context.
+
+21
+00:02:55.980 --> 00:02:57.440
+Anthony Taylor: But it does great
+
+22
+00:02:57.790 --> 00:03:02.630
+Anthony Taylor: with individual words. Okay, so
+
+23
+00:03:04.220 --> 00:03:05.140
+Anthony Taylor: let's go.
+
+24
+00:03:07.010 --> 00:03:19.830
+Anthony Taylor: We're going to define Nlp and implement its workflow today. That's the goal. Today, though, we're only going to get through the preprocessing steps. We're gonna demonstrate how to tokenize text.
+
+25
+00:03:20.010 --> 00:03:27.980
+Anthony Taylor: We're going to proficiently preprocessed text, including tokenization and punctuation, handling for analysis.
+
+26
+00:03:30.600 --> 00:03:43.419
+Anthony Taylor: manage and process, punctuation marks and other non alpha alphabetic characters. So there we just simply restated this differentiate between stemming and lemmatization.
+
+27
+00:03:46.100 --> 00:03:47.120
+Anthony Taylor: Yeah.
+
+28
+00:03:47.700 --> 00:03:55.339
+Anthony Taylor: understand the importance of removing stop words. These are out of order. It's kind of funny. I understand the demonstrate on how to count
+
+29
+00:03:55.360 --> 00:03:59.930
+Anthony Taylor: tokens and Ingrams. So there's a few words there. You probably are going. Yeah.
+
+30
+00:04:00.400 --> 00:04:03.730
+Anthony Taylor: yeah, don't worry about it. They'll understand them before today is over
+
+31
+00:04:04.620 --> 00:04:06.430
+Anthony Taylor: welcome.
+
+32
+00:04:08.640 --> 00:04:15.870
+Anthony Taylor: So natural language processing. What is it? What the heck are we talking about
+
+33
+00:04:16.490 --> 00:04:19.600
+Anthony Taylor: when we talk about natural language processing?
+
+34
+00:04:19.890 --> 00:04:23.129
+Anthony Taylor:  and this is it
+
+35
+00:04:23.370 --> 00:04:29.340
+Anthony Taylor: are everything. Think about everything we've done so far, especially in the Ml. Space. What
+
+36
+00:04:29.500 --> 00:04:34.920
+Anthony Taylor: is one of the most important steps for, like 99% of our models.
+
+37
+00:04:36.570 --> 00:04:38.229
+Anthony Taylor: and when we have words
+
+38
+00:04:40.960 --> 00:04:42.499
+Clayton Graves: like, ask that again
+
+39
+00:04:42.790 --> 00:04:51.909
+Anthony Taylor: encoding words in your encoding Meredith got it. If you have words, you have to encode them. Why do we have to encode them? They have to be numerate.
+
+40
+00:04:52.320 --> 00:04:53.939
+Anthony Taylor: have to be numbers.
+
+41
+00:04:54.960 --> 00:04:56.960
+Anthony Taylor: okay, computers
+
+42
+00:04:56.970 --> 00:05:03.890
+Anthony Taylor: and all they're making. This have no concept heck of even the alpha.
+
+43
+00:05:04.990 --> 00:05:10.609
+Clayton Graves: Are there in the English language? Are you assigning a numeric value to each one
+
+44
+00:05:11.690 --> 00:05:25.430
+Anthony Taylor: here, or or in those other ones in the code. No, no. In in machine learning. When we encode it's using some algorithm to encode the letters. Sometimes
+
+45
+00:05:25.550 --> 00:05:28.699
+Anthony Taylor: it can be, I mean, some encoding can be letter for letter.
+
+46
+00:05:28.950 --> 00:05:35.660
+Anthony Taylor: I can tell you. That's not how we're going to do it in the end. But that is one of the methods of code.
+
+47
+00:05:36.300 --> 00:05:39.110
+Anthony Taylor:  okay. So
+
+48
+00:05:41.610 --> 00:05:46.049
+Anthony Taylor: we encode these. And we do all this and and and computers just don't get it.
+
+49
+00:05:46.170 --> 00:05:49.079
+Anthony Taylor: They don't understand. When you put, you know
+
+50
+00:05:50.500 --> 00:05:53.109
+Anthony Taylor: SONJ. A.
+
+51
+00:05:54.740 --> 00:06:03.459
+Anthony Taylor: You're spelling a word. They see numbers, they don't care. Oh, those numbers represent that picture. Okay, that they can understand.
+
+52
+00:06:04.270 --> 00:06:09.850
+Anthony Taylor: Okay, but they don't understand that that's a name they don't understand. If that's a label they don't, they don't understand
+
+53
+00:06:10.690 --> 00:06:15.110
+Anthony Taylor: alright and our. And and while we're going to do within lp
+
+54
+00:06:15.220 --> 00:06:20.140
+Anthony Taylor: is is technically just gonna have it learn patterns.
+
+55
+00:06:22.260 --> 00:06:25.090
+Anthony Taylor: But those patterns are going to be actual words.
+
+56
+00:06:25.320 --> 00:06:32.190
+Anthony Taylor: Even when we get into the heavier, deeper stuff. Technically, it's still just identifying patterns. It just gets much more complex.
+
+57
+00:06:32.410 --> 00:06:33.160
+Anthony Taylor: But
+
+58
+00:06:33.410 --> 00:06:41.360
+Anthony Taylor: so what is it used for? Well, you guys tell me, what are some things that lps used for that you use every day.
+
+59
+00:06:42.990 --> 00:06:45.079
+Clayton Graves: Jack, GPT.
+
+60
+00:06:46.260 --> 00:06:50.149
+Anthony Taylor: Well, if you're using words. Yes, if you're speaking to it.
+
+61
+00:06:51.490 --> 00:07:02.450
+Baro, Sonja: auto correct. Any of those auto correct? Is an lp, yeah. Alexa or Alexa and Echo, and all of them
+
+62
+00:07:02.550 --> 00:07:04.640
+Anthony Taylor: sash quiet, cancel.
+
+63
+00:07:04.980 --> 00:07:11.099
+Anthony Taylor: Correct those, for sure. All of your assistants that you have around your house on your phone.
+
+64
+00:07:11.710 --> 00:07:17.410
+Anthony Taylor: All of that is in lp. okay, it's listening to words.
+
+65
+00:07:17.720 --> 00:07:24.330
+Anthony Taylor: It's breaking those words apart, trying to come up with what the heck you're trying, what you're requesting.
+
+66
+00:07:24.500 --> 00:07:29.670
+Anthony Taylor: and then it's answering. So let's talk about. I've done a lot of coding on the Alexa devices.
+
+67
+00:07:29.950 --> 00:07:32.249
+Anthony Taylor: and I can tell you so
+
+68
+00:07:32.450 --> 00:07:34.870
+Anthony Taylor: it it. You say.
+
+69
+00:07:35.010 --> 00:07:40.250
+Anthony Taylor: Alexa, what's the weather like in Denver, Colorado? Okay.
+
+70
+00:07:40.550 --> 00:07:46.959
+Anthony Taylor: What it hears once it triggers it hears Denver, Colorado weather.
+
+71
+00:07:47.370 --> 00:07:51.679
+Anthony Taylor: That's what it ends up taking out of that, and then it and that triggers
+
+72
+00:07:51.700 --> 00:07:57.779
+Anthony Taylor: a response. And that response is done through all kinds of craziness. But the response comes back, and that's about.
+
+73
+00:07:57.870 --> 00:08:05.890
+Anthony Taylor: So that's in lp. again. does it understand what Denver Colorado weather means? Now.
+
+74
+00:08:05.990 --> 00:08:09.419
+Anthony Taylor: all we've done is given it a trigger
+
+75
+00:08:09.530 --> 00:08:13.679
+Anthony Taylor: that these 3 things, when put together, will trigger this response.
+
+76
+00:08:14.680 --> 00:08:15.940
+Anthony Taylor: Okay, all right.
+
+77
+00:08:17.490 --> 00:08:19.760
+Anthony Taylor: Virtual assistant. This is a big one.
+
+78
+00:08:19.840 --> 00:08:23.230
+Anthony Taylor: you guys, I mean, how many of you do not have a virtual assistant?
+
+79
+00:08:26.010 --> 00:08:26.840
+Anthony Taylor: Okay.
+
+80
+00:08:27.910 --> 00:08:30.519
+Anthony Taylor: is that a choice? And I guess there is that a choice?
+
+81
+00:08:31.640 --> 00:08:33.449
+Meredith McCanse (she/her): I, Omini, very excited.
+
+82
+00:08:33.730 --> 00:08:36.169
+Derek Rikke: Never thought about it.
+
+83
+00:08:36.390 --> 00:08:50.749
+Anthony Taylor: Oh, okay, that's good, Meredith. I guess our phones have it. But, like yes, it is a choice. I do not have an Alexa or a Google home, or anything like that, and I don't want one.
+
+84
+00:08:50.780 --> 00:08:55.939
+Baro, Sonja: I don't use any siri, any of that stuff, even though Serie always pops up on me.
+
+85
+00:08:56.070 --> 00:09:09.089
+Baro, Sonja: which my phone just flashed right? So cause I haven't turned it off. But I need to. But no, II just. I'm not quite comfortable there, like even my TV, like the voice assistants and the Tvs and all that. I'm like.
+
+86
+00:09:09.670 --> 00:09:10.430
+Baro, Sonja: yeah.
+
+87
+00:09:11.280 --> 00:09:17.860
+Clayton Graves: I even have an echo in my bathroom. If you really want to listen into what goes on in there. That's on view.
+
+88
+00:09:17.970 --> 00:09:30.059
+Anthony Taylor: I think I'm close. I'm not quite that far, like I do have one in every room that works as an intercom system as well, and every pretty much every light in the house is controlled.
+
+89
+00:09:30.160 --> 00:09:35.689
+Baro, Sonja: You need to be able to say, bring me more toilet toilet paper.
+
+90
+00:09:50.540 --> 00:09:52.859
+Baro, Sonja: There's a good use case.
+
+91
+00:09:53.050 --> 00:10:00.629
+Anthony Taylor: There you go. Spam filters. Yeah. So when it's looking through your email.
+
+92
+00:10:00.840 --> 00:10:14.830
+Anthony Taylor: it's looking at the words that come in the email. And and it's not really looking at the context. It's looking at the words, looking at combinations of words. Misspelled words is a big indicator. For some reason.
+
+93
+00:10:15.190 --> 00:10:19.849
+Anthony Taylor: Okay, you would think that people doing spam would use a spell check.
+
+94
+00:10:20.940 --> 00:10:22.219
+Anthony Taylor: But they do not.
+
+95
+00:10:22.640 --> 00:10:30.520
+Anthony Taylor: So yeah, it's looking for specific types of words and stuff like that. Translators. This one's big right now
+
+96
+00:10:30.650 --> 00:10:33.190
+Anthony Taylor: cause the translators are getting fast
+
+97
+00:10:33.820 --> 00:10:40.389
+Anthony Taylor: fast enough that when you see those claims it can translate in real time. You can start to believe it.
+
+98
+00:10:41.380 --> 00:10:47.020
+Anthony Taylor: Anybody fell for those claims before it translates in real time, and then you buy and it's like.
+
+99
+00:10:48.330 --> 00:10:50.009
+Anthony Taylor: No, I'm never going to use.
+
+100
+00:10:50.730 --> 00:11:00.840
+Anthony Taylor: Okay? Well, they're getting the point now where they can do it built especially like the newer phones, I mean, I was gonna say, pixel phones, but I didn't want to upset all my apple people.
+
+101
+00:11:01.000 --> 00:11:08.579
+Anthony Taylor: But the newer pixel phones with the built in AI chips and all that stuff. Those things, I mean are just stupid, quick with stuff like this.
+
+102
+00:11:09.100 --> 00:11:10.390
+Anthony Taylor: Yes, Meredith.
+
+103
+00:11:11.020 --> 00:11:21.250
+Meredith McCanse (she/her): what about function on Zoom? Is there any aspect of that that uses cause it often like it gives the first draft, and then it'll sort of correct itself.
+
+104
+00:11:21.270 --> 00:11:25.229
+Meredith McCanse (she/her): and it identifies when a sentence ends again. Yes.
+
+105
+00:11:25.650 --> 00:11:28.030
+Anthony Taylor:  yes.
+
+106
+00:11:28.100 --> 00:11:38.139
+Anthony Taylor: The the initial so closed captioning itself is not in. L, okay, that's just it. This, it's just audio to work.
+
+107
+00:11:38.280 --> 00:11:49.399
+Anthony Taylor: Okay? But like the corrections and stuff like that might be, I mean, it might be looking at like as it comes out and kind of like auto correct when you're typing a text message.
+
+108
+00:11:49.900 --> 00:11:54.539
+Anthony Taylor: Okay? And and it corrects you there that that could be absolutely.
+
+109
+00:11:56.220 --> 00:11:58.300
+Anthony Taylor: so absolutely
+
+110
+00:12:00.790 --> 00:12:01.480
+Anthony Taylor: okay.
+
+111
+00:12:04.360 --> 00:12:07.519
+Anthony Taylor: most industries have large quantities. So this is why
+
+112
+00:12:07.640 --> 00:12:17.370
+Anthony Taylor: it's so important to do Nlp industries that have large quantities of text. And this goes for I don't even know if it really doesn't have a lot of text.
+
+113
+00:12:17.540 --> 00:12:23.559
+Anthony Taylor: Okay? But I mean, law, obvious medical research again. Pretty obvious
+
+114
+00:12:23.710 --> 00:12:29.030
+Anthony Taylor: stock market analysis. Yeah, if you're like trying to read news reports.
+
+115
+00:12:29.100 --> 00:12:35.689
+Anthony Taylor: tweets. And you're trying to get some information from those words.
+
+116
+00:12:35.700 --> 00:12:39.559
+Anthony Taylor: This is the place that this is the tool you're going to use. Now.
+
+117
+00:12:40.160 --> 00:12:43.869
+Anthony Taylor: have we gotten tremendously better at this
+
+118
+00:12:44.210 --> 00:12:48.929
+Anthony Taylor: with like Chat Tpr, the answer is a hundred percent, yes. But
+
+119
+00:12:49.120 --> 00:12:51.900
+Anthony Taylor: going to go through this method now.
+
+120
+00:12:52.240 --> 00:12:56.630
+Anthony Taylor: because this is kind of how we got into Jeff Bots and stuff like that.
+
+121
+00:12:56.810 --> 00:13:02.750
+Anthony Taylor: Okay, these days you can pretty much go on a chat Tpt, or a beam chat, or
+
+122
+00:13:03.480 --> 00:13:09.280
+Anthony Taylor: any of like 20 of them. and just say, Tell me. or you can upload
+
+123
+00:13:09.350 --> 00:13:15.039
+Anthony Taylor: law. You can upload a legal document and say, explain this in English.
+
+124
+00:13:16.000 --> 00:13:16.730
+Anthony Taylor: done
+
+125
+00:13:17.970 --> 00:13:29.180
+Clayton Graves: as an aside. I know we keep. When when I got the the biopsy results back. That's exactly what I did. Plugged it into jet gpg, and said, Dumb this down for me.
+
+126
+00:13:29.200 --> 00:13:32.869
+Clayton Graves: and it told me and said, you need to go see a doctor
+
+127
+00:13:33.410 --> 00:13:51.959
+Anthony Taylor: that I got MRI last Friday, and I got the results, and I put mine in because I haven't heard of it. and and I and and again the same thing like I got well, I mean, it starts off with. I'm not a doctor I don't diagnose, but this is what this says
+
+128
+00:13:52.210 --> 00:13:55.689
+Anthony Taylor: right? And then I said, You know, dumb it down for a fifth grader.
+
+129
+00:13:55.710 --> 00:14:02.529
+Anthony Taylor: And and it did, and it was perfect. And so it was. It was really cool. It was really cool.
+
+130
+00:14:02.790 --> 00:14:07.610
+Anthony Taylor: So law medical research stock market to anything where there's a lot of
+
+131
+00:14:08.120 --> 00:14:13.610
+Anthony Taylor: education can use this 100%, right? Lots of text and education.
+
+132
+00:14:14.160 --> 00:14:15.010
+Anthony Taylor: Alright.
+
+133
+00:14:15.340 --> 00:14:18.870
+Anthony Taylor: so a few Nlp applications.
+
+134
+00:14:19.270 --> 00:14:29.199
+Anthony Taylor:  so basically, if we have text, we can classify it. And then we can output what that text is. Okay.
+
+135
+00:14:29.270 --> 00:14:33.350
+Anthony Taylor: one of the things like, you know, information extraction.
+
+136
+00:14:33.480 --> 00:14:35.040
+Anthony Taylor: So this is a big one.
+
+137
+00:14:35.240 --> 00:14:40.189
+Anthony Taylor: and this is kind of like what Clayton I were just talking about. We put in a bunch of jargon.
+
+138
+00:14:40.980 --> 00:14:46.330
+Anthony Taylor: and we asked it to simplify it. extract what's important and simplify
+
+139
+00:14:47.730 --> 00:14:48.969
+Anthony Taylor: the way it goes.
+
+140
+00:14:49.100 --> 00:14:53.899
+Clayton Graves: Interesting exercise would be to like, take the the the
+
+141
+00:14:54.190 --> 00:15:00.850
+Clayton Graves: user agreement from Facebook or whatever, and plug that in and set and see what it says.
+
+142
+00:15:01.230 --> 00:15:11.300
+Anthony Taylor: Oh, I guarantee you it was summarized right, I mean, and you know, as far as the system shouldn't have an opinion they should be based on fact.
+
+143
+00:15:11.720 --> 00:15:19.259
+Anthony Taylor:  though you can tell your AI to be snarky. I've done that. I will tell you that becomes annoying quickly.
+
+144
+00:15:19.680 --> 00:15:27.320
+Anthony Taylor: Don't do that very often. It's like, respond with a snorky comment every time. And you're like, Oh, my God, just tell me the answer.
+
+145
+00:15:28.920 --> 00:15:29.880
+Anthony Taylor: yeah, don't do
+
+146
+00:15:30.100 --> 00:15:37.510
+Anthony Taylor:  document summarization. Now, this is something we're doing a lot of these days, right? The new bing chat stuff.
+
+147
+00:15:38.250 --> 00:15:48.019
+Anthony Taylor: I mean, it's so amazing for this, because you can just come in here and just say, Give me a summary. You go to an article like, Oh, that's an 8 min read.
+
+148
+00:15:48.550 --> 00:15:53.610
+Anthony Taylor: I want it to be a 1 min read I'm and from the Tiktok generation. right?
+
+149
+00:15:54.160 --> 00:15:56.220
+Anthony Taylor: So there's that.
+
+150
+00:15:57.010 --> 00:16:04.109
+Anthony Taylor: Complex questions. So this is a big one, too, and we're doing this more with Llm again.
+
+151
+00:16:04.280 --> 00:16:12.340
+Anthony Taylor: You can do this with just the base and lp, but it's not gonna be as good at it. But this is like I'm going to upload.
+
+152
+00:16:12.460 --> 00:16:19.830
+Anthony Taylor: you know, a bunch of reports like medical reports or research papers, and then I'm going to chat with them.
+
+153
+00:16:21.250 --> 00:16:24.099
+Anthony Taylor: Okay, all of that is done with, you know people.
+
+154
+00:16:25.600 --> 00:16:26.650
+Anthony Taylor: Alright.
+
+155
+00:16:27.950 --> 00:16:34.470
+Anthony Taylor: I love this line. and Nlp is hard. Okay.
+
+156
+00:16:34.710 --> 00:16:38.379
+Anthony Taylor:  it is. It's just hard.
+
+157
+00:16:39.530 --> 00:16:52.969
+Anthony Taylor: Alright! Why is it hard? Because we are freaking, weird man, English teachers and the people who came up with the rules of English of every language, but English more so than most languages.
+
+158
+00:16:53.130 --> 00:16:55.159
+Anthony Taylor: We're like high or something.
+
+159
+00:16:56.220 --> 00:17:00.309
+Anthony Taylor: Okay. They had. No, I mean, it was like, well, let's just
+
+160
+00:17:00.520 --> 00:17:03.489
+Anthony Taylor: make this word being that word. Okay?
+
+161
+00:17:03.790 --> 00:17:07.009
+Anthony Taylor: Right? Like bark on a tree.
+
+162
+00:17:08.550 --> 00:17:12.459
+Anthony Taylor: We all know what that means. We can even visualize it when we say it.
+
+163
+00:17:12.500 --> 00:17:14.399
+Clayton Graves: So what about a dog bark.
+
+164
+00:17:14.740 --> 00:17:16.220
+Clayton Graves: Let me ask you this.
+
+165
+00:17:16.319 --> 00:17:20.609
+Clayton Graves: are there other languages that are easier
+
+166
+00:17:21.540 --> 00:17:22.829
+Clayton Graves: to interpret
+
+167
+00:17:23.190 --> 00:17:33.540
+Anthony Taylor: from a computer standpoint? Yes, yes, there would be words that you know, languages that don't have reuse of words or homonyms, or, you know, but
+
+168
+00:17:33.630 --> 00:17:45.829
+Anthony Taylor: but almost all languages have slain and state like like I was doing like bark up a tree or bark of a tree, a dog spark? Or how about barking up the wrong?
+
+169
+00:17:46.550 --> 00:17:48.769
+Anthony Taylor: Whatever? However, that saying goes
+
+170
+00:17:49.330 --> 00:17:58.909
+Anthony Taylor: right. that that's, you know, all of those things mean something totally different. But they all using the same word, and we expect. But we.
+
+171
+00:17:59.060 --> 00:18:05.859
+Anthony Taylor: as humans. our minds very quickly associate those with where they go.
+
+172
+00:18:05.870 --> 00:18:12.410
+Anthony Taylor: Oh, barking up the wrong truth! That's what it was. Barking up. The wrong tree has nothing to do with a tree or a dog.
+
+173
+00:18:13.000 --> 00:18:15.590
+Anthony Taylor: And yet it has both those words in it.
+
+174
+00:18:16.920 --> 00:18:18.930
+Anthony Taylor: Okay, so
+
+175
+00:18:19.360 --> 00:18:20.460
+Anthony Taylor: it's just hard.
+
+176
+00:18:20.920 --> 00:18:25.379
+Anthony Taylor: Alright, and and that's the challenge. Yeah.
+
+177
+00:18:25.530 --> 00:18:27.330
+Baro, Sonja: before you move on
+
+178
+00:18:27.550 --> 00:18:32.330
+Baro, Sonja: hand disappears in your background. That's the problem.
+
+179
+00:18:32.500 --> 00:18:49.509
+Baro, Sonja: Oh, I'll change. Yeah, no, no. I'm asking about is Nlp, what is used in large language, Ma language models so large language model is like a big
+
+180
+00:18:49.610 --> 00:18:56.410
+Baro, Sonja: encompassing model. It utilizes Nlp within it. Is that the way to think about it
+
+181
+00:18:58.310 --> 00:19:16.420
+Anthony Taylor: and lp this and lp, that you're learning today is the beginning of how the large language models became what they are to day. So we're going to work through this one. And I mean, people still use this one, because computationally, this is way easier and cheaper than the Llms. Llms. Cost
+
+182
+00:19:16.450 --> 00:19:18.919
+Anthony Taylor: millions of dollars just to train.
+
+183
+00:19:19.670 --> 00:19:27.630
+Anthony Taylor: Okay? But yeah, so this is a really this. And this works great for a lot of use cases
+
+184
+00:19:27.820 --> 00:19:35.670
+Baro, Sonja: that's important. It's not equivalent. They're not the same Llm is like uses, you know.
+
+185
+00:19:35.710 --> 00:19:36.930
+Baro, Sonja: Right? Okay.
+
+186
+00:19:37.000 --> 00:19:47.370
+Anthony Taylor: okay. But it it has some more advanced concepts that we'll talk about later. Okay? But right now we're yeah. Right now, we're we're kind of like.
+
+187
+00:19:47.420 --> 00:19:48.920
+Anthony Taylor: you know, probably
+
+188
+00:19:49.050 --> 00:19:56.899
+Anthony Taylor: 30, 40 years ago. And we're like, okay, how can we get our computer to understand what the heck is being said here.
+
+189
+00:19:57.600 --> 00:19:58.500
+Anthony Taylor: Okay.
+
+190
+00:19:58.660 --> 00:20:05.220
+Anthony Taylor: as opposed to where we really are today, where our computer completely and totally understands what we're saying.
+
+191
+00:20:06.060 --> 00:20:13.380
+Anthony Taylor: Even when we say something really lame, like my my ex-wife, she used to drive me crazy.
+
+192
+00:20:13.560 --> 00:20:23.970
+Anthony Taylor: There was this shopping center in Irvine. and there was this nail salon. It was between a Thai restaurant and a donut shop.
+
+193
+00:20:24.340 --> 00:20:28.420
+Anthony Taylor: Okay, very nice shopping center. And
+
+194
+00:20:29.290 --> 00:20:40.349
+Anthony Taylor: she asked me, she goes, do you remember the name of that mail. I said, no, I have no idea. And she goes Google. What's the name of that mail place between the ice car, the doughnut shop and the Thai restaurant. That's all, she said.
+
+195
+00:20:41.300 --> 00:20:55.120
+Anthony Taylor: and it figured it out what the heck she was talking about. And I'm like these things are freaking amazing sometimes. But then there's other times. And you ask, like the most simple thing. And it's like. Did you want fries with that? It has no idea, just no idea.
+
+196
+00:20:55.280 --> 00:20:56.740
+Anthony Taylor: Right? So
+
+197
+00:20:57.030 --> 00:20:59.849
+Anthony Taylor: it's interesting. Okay,
+
+198
+00:21:04.090 --> 00:21:07.299
+Anthony Taylor: yeah. I don't understand why they want to say that. So we're not gonna worry about that one.
+
+199
+00:21:08.490 --> 00:21:23.220
+Masarirambi, Rodney: I wonder if I wonder if the complexity, like like Esperance, is it Esperanto? The universal language? I wonder whether that would actually be like a better one? For.
+
+200
+00:21:26.110 --> 00:21:28.300
+Masarirambi, Rodney: Yeah, it's the one which they
+
+201
+00:21:31.860 --> 00:21:32.720
+Anthony Taylor: go ahead.
+
+202
+00:21:33.410 --> 00:21:50.390
+Masarirambi, Rodney: Oh, it's the one which they like developed somebody developed it. Get the guy's name in order to be able to like, have a new universal language that people communicate without like getting each other confusing. What's gonna be like, easier for everybody to learn, and there'll just be like one language that as humanity we can use
+
+203
+00:21:53.120 --> 00:21:55.900
+Anthony Taylor: it is the world's most widely spoken language.
+
+204
+00:21:57.460 --> 00:21:59.370
+Anthony Taylor: I'm gonna be honest, I never.
+
+205
+00:22:01.250 --> 00:22:03.449
+Anthony Taylor: It's been around since 1887.
+
+206
+00:22:06.640 --> 00:22:10.200
+Anthony Taylor: Interesting? No, I haven't heard of that. That's pretty cool, though.
+
+207
+00:22:10.270 --> 00:22:15.479
+Anthony Taylor: And I would say, Yeah, any language that is less ambiguous, less slain.
+
+208
+00:22:15.970 --> 00:22:18.579
+Anthony Taylor: right? Less hominids, less.
+
+209
+00:22:18.670 --> 00:22:31.679
+Anthony Taylor:  just just all of these, all of these things that make our language difficult to understand will absolutely be easier, but they still are gonna go through the same steps. We're gonna go through today.
+
+210
+00:22:32.030 --> 00:22:34.980
+Anthony Taylor: Okay? And we solved this problem.
+
+211
+00:22:35.450 --> 00:22:36.800
+Anthony Taylor: We solved it already.
+
+212
+00:22:36.890 --> 00:22:40.600
+Anthony Taylor: right? We're just not going to solve it in this. So this week?
+
+213
+00:22:41.130 --> 00:22:50.840
+Anthony Taylor:  yeah. So bottom line is to solve all these problems, we need to really
+
+214
+00:22:51.010 --> 00:23:05.239
+Anthony Taylor: organize and prepare our data for the model that we're going to send it into. So what do we do? Well, we're going to preprocess. Okay, then we're going to extract, get interesting features of the text. That sounds
+
+215
+00:23:05.830 --> 00:23:12.250
+Anthony Taylor: like something you guys like, maybe an objective thing. It is not okay.
+
+216
+00:23:12.510 --> 00:23:19.700
+Anthony Taylor: it you'll understand as we see it. I'm going to summarize these. Sorry you find interesting, exactly
+
+217
+00:23:19.780 --> 00:23:23.040
+Anthony Taylor: interesting, as in interesting to the computer.
+
+218
+00:23:23.340 --> 00:23:30.180
+Anthony Taylor: Okay, not interesting, as in Wow. That speech by Curry Gardner was excellent.
+
+219
+00:23:30.460 --> 00:23:31.320
+Anthony Taylor: No.
+
+220
+00:23:31.940 --> 00:23:36.019
+Anthony Taylor: okay, not that. Why is it interesting to the computer?
+
+221
+00:23:36.160 --> 00:23:44.589
+Anthony Taylor: And then we're going to visualize the analyses. In other words, we're not going to get charts. We're simply going to look and see what the heck it came up with.
+
+222
+00:23:45.030 --> 00:23:47.230
+Anthony Taylor: So the first step
+
+223
+00:23:48.220 --> 00:23:50.190
+Anthony Taylor: take that first step.
+
+224
+00:23:51.530 --> 00:23:53.010
+Anthony Taylor: This is not the first step.
+
+225
+00:23:53.530 --> 00:24:00.120
+Anthony Taylor: first step is tokenization. But before we do dopantization, what is a corpus? I know we got people know what this is.
+
+226
+00:24:00.620 --> 00:24:03.040
+Anthony Taylor: what is a Corpus
+
+227
+00:24:05.920 --> 00:24:07.240
+michael mcpherson: Christy's big brother
+
+228
+00:24:09.360 --> 00:24:10.750
+Anthony Taylor: Meredith.
+
+229
+00:24:11.280 --> 00:24:13.160
+Meredith McCanse (she/her): Doesn't it mean body?
+
+230
+00:24:14.110 --> 00:24:19.009
+Anthony Taylor: Who probably. But in this particular case
+
+231
+00:24:19.490 --> 00:24:21.209
+Anthony Taylor: we're looking for
+
+232
+00:24:23.610 --> 00:24:27.110
+Anthony Taylor: a large, structured and organized collection of text documents.
+
+233
+00:24:27.960 --> 00:24:34.610
+Anthony Taylor: See, that's why I'm like
+
+234
+00:24:34.620 --> 00:24:36.750
+Anthony Taylor: I. That's why I was kind of like.
+
+235
+00:24:37.480 --> 00:24:39.830
+Anthony Taylor: maybe.
+
+236
+00:24:40.590 --> 00:24:49.069
+Anthony Taylor: But in this particular case it specifically means a body of work. of text documents, organized collection of text documents.
+
+237
+00:24:49.560 --> 00:24:53.190
+Anthony Taylor:  and it could be multilingual. It doesn't matter.
+
+238
+00:24:53.250 --> 00:24:54.320
+Anthony Taylor: Okay.
+
+239
+00:24:56.630 --> 00:24:58.380
+Anthony Taylor: so let's keep going.
+
+240
+00:25:01.420 --> 00:25:11.170
+Anthony Taylor: The process of saying running into words. That is tokenization. What does that mean? So if I have a book filled with sentences, and I want tokenize it by sentence.
+
+241
+00:25:11.610 --> 00:25:13.309
+Anthony Taylor: I would basically break
+
+242
+00:25:13.450 --> 00:25:15.759
+Anthony Taylor: or split my data
+
+243
+00:25:16.060 --> 00:25:22.810
+Anthony Taylor: by sentence. Everybody know how to do that. How do you do that with Python?
+
+244
+00:25:24.330 --> 00:25:26.130
+Anthony Taylor: I practically gave it away of it.
+
+245
+00:25:26.770 --> 00:25:28.769
+Anthony Taylor: Derek knows I can feel it.
+
+246
+00:25:29.190 --> 00:25:35.789
+Anthony Taylor: You make lists, maybe. How would you split an entire book by sentence?
+
+247
+00:25:40.570 --> 00:25:43.180
+michael mcpherson: There it is, split, split on the periods.
+
+248
+00:25:43.470 --> 00:25:47.100
+Anthony Taylor: There we go. Derek got it split.
+
+249
+00:25:47.210 --> 00:25:49.949
+Anthony Taylor: What if there was a question mark or an exclamation?
+
+250
+00:25:51.370 --> 00:26:06.100
+Anthony Taylor: That's okay. I still, that was the answer. I was looking for Derek.  so. But we don't always. We don't actually stop at sentences. We often go down to words, and occasionally, when possible, we'll try to get phrases.
+
+251
+00:26:06.540 --> 00:26:12.889
+Anthony Taylor: Okay. Now, punctuations often got rid of usually don't want punctuation.
+
+252
+00:26:13.360 --> 00:26:16.699
+Anthony Taylor: Okay, computer doesn't understand it, anyway.
+
+253
+00:26:17.420 --> 00:26:22.390
+Anthony Taylor: Sentence and segmentation tokenization are usually the first step.
+
+254
+00:26:22.730 --> 00:26:27.310
+Anthony Taylor: So let's eat grandpa. There it is. Let's eat, grandpa. Let's eat grandpa
+
+255
+00:26:28.350 --> 00:26:31.470
+Anthony Taylor: alright, for those of us that are grandpa's.
+
+256
+00:26:32.430 --> 00:26:33.620
+Anthony Taylor: That's disturbing.
+
+257
+00:26:35.290 --> 00:26:37.469
+Anthony Taylor: Okay, I am not a good.
+
+258
+00:26:37.670 --> 00:26:38.559
+Anthony Taylor: so I don't care.
+
+259
+00:26:39.170 --> 00:26:41.940
+Anthony Taylor: Alright.
+
+260
+00:26:43.240 --> 00:26:48.580
+Anthony Taylor: it's a process splitting up text document. Most often sentences are worth. Okay.
+
+261
+00:26:50.360 --> 00:26:51.510
+Anthony Taylor: let's
+
+262
+00:26:51.970 --> 00:26:53.829
+Anthony Taylor: do some coding.
+
+263
+00:26:56.130 --> 00:27:06.209
+Anthony Taylor: One of these is broken, but it's really easy to fix, so don't worry, I can tell you, when we get to it, or when you get. I already fixed it, and I can't remember which one it was. So would you guys find it?
+
+264
+00:27:06.420 --> 00:27:07.290
+Anthony Taylor: We'll fix
+
+265
+00:27:07.580 --> 00:27:09.260
+Anthony Taylor: alright. So
+
+266
+00:27:09.570 --> 00:27:11.380
+Anthony Taylor: this first little part here
+
+267
+00:27:11.630 --> 00:27:22.210
+Anthony Taylor: we're we're using a corpus from Reuters. The important thing here really is this and Nltka. This stands for national natural language, Kit.
+
+268
+00:27:22.540 --> 00:27:31.120
+Anthony Taylor: And it'll be what we're going to use to process the preprocess our data. We're gonna import this Reuters
+
+269
+00:27:31.340 --> 00:27:35.400
+Anthony Taylor: corpus. It's got lots of cool articles from Reuters.
+
+270
+00:27:37.160 --> 00:27:44.629
+Anthony Taylor: and we're going to bring from the tokenize package. We're going to bring in sentence tokenizer and word tokenize.
+
+271
+00:27:45.010 --> 00:27:48.579
+Anthony Taylor: Okay, these are methods we're going to use to tokenize
+
+272
+00:27:48.600 --> 00:27:54.920
+Anthony Taylor: our article. So let's run that. And it'll bring in the data. And it's amazing.
+
+273
+00:27:55.390 --> 00:28:01.289
+Anthony Taylor: We can actually look at all the categories in our corpus. There's a lot of
+
+274
+00:28:05.500 --> 00:28:07.410
+Anthony Taylor: lot of stuff to choose from.
+
+275
+00:28:08.130 --> 00:28:24.120
+Anthony Taylor: Okay, we're going to keep it simple. We're going to get coco, and we're going to grab the first article. So in the if we just grab coco by itself, we would have a list of articles. We just want the first article. So let's let's take a look.
+
+276
+00:28:24.980 --> 00:28:31.369
+Anthony Taylor: and we got the name of it. It is test slash 1 5 0 9 5
+
+277
+00:28:32.010 --> 00:28:38.980
+Anthony Taylor: to grab the content of the article we're going to use Reuters raw method and pass in the name of the article.
+
+278
+00:28:39.340 --> 00:28:40.710
+Anthony Taylor: And there, Anthony.
+
+279
+00:28:41.140 --> 00:28:49.800
+Baro, Sonja: is there like a master key to the categories like, how do you know what? Some of these simply, the.
+
+280
+00:28:50.220 --> 00:28:54.160
+Baro, Sonja: I would say, could be in the read me or
+
+281
+00:28:55.500 --> 00:29:00.949
+Anthony Taylor: no. No, no, I think that's a great I I'm sure there probably is.
+
+282
+00:29:01.060 --> 00:29:02.099
+Anthony Taylor: Let's go look
+
+283
+00:29:02.120 --> 00:29:08.879
+Baro, Sonja: like copra, Kate. I don't know what that is what kind of category.
+
+284
+00:29:09.240 --> 00:29:11.840
+Anthony Taylor: Look at all the ones they have, too. It's like.
+
+285
+00:29:11.990 --> 00:29:21.290
+Baro, Sonja: and is it defined by the method or the library that we are importing.
+
+286
+00:29:22.740 --> 00:29:27.150
+Anthony Taylor: No, that that? Well, yeah. By the one that we're bringing in.
+
+287
+00:29:27.810 --> 00:29:29.789
+Anthony Taylor: Hold on. I'm looking for the Reuters. One
+
+288
+00:29:31.950 --> 00:29:33.840
+Anthony Taylor: twoters Brown.
+
+289
+00:29:45.490 --> 00:29:50.600
+Masarirambi, Rodney: I gotta say, I've always. Everybody who I know is always pronounced in Reuters.
+
+290
+00:29:51.010 --> 00:29:54.130
+Masarirambi, Rodney: It's probably Reuters, but I like
+
+291
+00:29:59.300 --> 00:30:04.680
+Anthony Taylor: it's probably right now. I'm gonna feel bad about it. So
+
+292
+00:30:04.900 --> 00:30:06.129
+Anthony Taylor: thank you for that.
+
+293
+00:30:06.290 --> 00:30:08.670
+Clayton Graves: I've always said rudders, too. So
+
+294
+00:30:09.140 --> 00:30:13.940
+Anthony Taylor: II think I think when you said it, I'm like.
+
+295
+00:30:14.180 --> 00:30:14.960
+Okay.
+
+296
+00:30:15.560 --> 00:30:30.509
+Anthony Taylor:  there's got to be. I can look and see we don't have to. No, no, no, I'm actually interested, and I think it's I think it's worth looking at, or I wouldn't stop to do it. I just wanted to see. Everything's going back to
+
+297
+00:30:34.650 --> 00:30:38.409
+everything's going back to because it's used in in Ltk.
+
+298
+00:30:38.940 --> 00:30:46.110
+Anthony Taylor: Everything's kind of going back to there. see, everything's like national English processing. Oh, you want to talk about national. Okay.
+
+299
+00:30:52.420 --> 00:31:03.680
+Anthony Taylor: yeah. You know what? Maybe I'll try to hunt it down for you. Cause. Now, I don't know all of that info, or where to get the info on that, but I'm sure it's out. would make sense, because there is a lot of categories there.
+
+300
+00:31:04.730 --> 00:31:10.570
+Anthony Taylor: Okay, so let's continue. So here's that article quite long. Okay.
+
+301
+00:31:11.760 --> 00:31:12.990
+Anthony Taylor: pretty exciting.
+
+302
+00:31:13.680 --> 00:31:23.990
+Anthony Taylor: First, we're going to just mimic tokenization. So note, we're not using our word tokenizer or our sentence tokenizer. We're just going to split it.
+
+303
+00:31:24.120 --> 00:31:25.460
+Anthony Taylor: It's all we're gonna do.
+
+304
+00:31:25.760 --> 00:31:29.869
+Anthony Taylor: Bam, and look at that. We have a list in the list
+
+305
+00:31:30.050 --> 00:31:32.530
+Anthony Taylor: is one sentence at a time.
+
+306
+00:31:33.550 --> 00:31:38.130
+Anthony Taylor: That's pretty easy. Yeah. I think so.
+
+307
+00:31:39.230 --> 00:31:43.709
+Clayton Graves:  is it doing the slash cause? It's a new line
+
+308
+00:31:44.250 --> 00:31:50.720
+Anthony Taylor: that indicates a new line in our text. Okay, as in someone hit the enter key
+
+309
+00:31:51.390 --> 00:31:53.710
+Anthony Taylor: on a Linux box or a Mac
+
+310
+00:31:54.280 --> 00:32:04.130
+Anthony Taylor: on windows box, it'd be slash, R. Slash. Don't let that bother. Okay. Alright. Now, if you just want to. Let's just look at. Let's just look at one sip.
+
+311
+00:32:04.310 --> 00:32:17.619
+Anthony Taylor: Oh, actually, we're going to go a step further. We're going to take the first sentence, and then we're going to split it by word into words by using the split on the space. So now we have a list of all the words
+
+312
+00:32:18.270 --> 00:32:20.210
+Anthony Taylor: in the first sentence.
+
+313
+00:32:20.350 --> 00:32:23.749
+Anthony Taylor: Technically, this is tokenized.
+
+314
+00:32:25.760 --> 00:32:31.270
+Anthony Taylor: Okay, very rudimentary lots of little issues here that we're gonna go through.
+
+315
+00:32:31.350 --> 00:32:37.169
+Anthony Taylor: But one of them is and Clayton pointed it out, pointed it out, look at these slash ins in here.
+
+316
+00:32:38.180 --> 00:32:48.370
+Anthony Taylor: Okay, these are not helpful at all.  we've got empty space. Got a lot of stuff that's
+
+317
+00:32:48.720 --> 00:32:52.300
+Anthony Taylor: questionable. Okay? So
+
+318
+00:32:53.300 --> 00:32:59.059
+Anthony Taylor: here comes hence tokenize, which is basically short for sentence tokenization.
+
+319
+00:32:59.180 --> 00:33:06.249
+Anthony Taylor: We're going to take the same article and run it. Now. What did it do? Well, it looks like it did the same thing.
+
+320
+00:33:06.650 --> 00:33:09.110
+Anthony Taylor: However, it's kind of weird
+
+321
+00:33:09.290 --> 00:33:13.600
+Anthony Taylor: and did do a better job with the new lines. Wouldn't you agree?
+
+322
+00:33:15.220 --> 00:33:16.350
+Anthony Taylor: Maybe
+
+323
+00:33:16.370 --> 00:33:20.360
+Anthony Taylor: it did. They're not at the end. But notice, there's still, some in the middle
+
+324
+00:33:21.380 --> 00:33:25.890
+Anthony Taylor: that's going to turn out to be a problem eventually. But we'll take care of it. Yeah, it's not
+
+325
+00:33:26.880 --> 00:33:37.639
+Baro, Sonja: I don't know if anyone else is having this. But the file I downloaded doesn't have this next section that you're in in the salt.
+
+326
+00:33:40.330 --> 00:33:41.510
+Anthony Taylor: am I? Here?
+
+327
+00:33:41.920 --> 00:33:44.050
+Baro, Sonja: Yeah, it stops at.
+
+328
+00:33:45.860 --> 00:33:53.459
+Baro, Sonja: We can tokenize the first sentence with word tokenize, and then it goes into questions.
+
+329
+00:33:53.880 --> 00:34:03.669
+Baro, Sonja: yeah, oh, sorry. I'm sorry. That's okay. So here, here we got the sense. So we did the sentences
+
+330
+00:34:03.690 --> 00:34:12.090
+Anthony Taylor: and then. Now we're just going to take the first sentence and cut it into a word Tokenizer. Let's take a look at what we got out of that.
+
+331
+00:34:13.300 --> 00:34:14.640
+Anthony Taylor: Oh, but look!
+
+332
+00:34:16.179 --> 00:34:19.100
+Anthony Taylor: All those new lines are gone. Now
+
+333
+00:34:19.179 --> 00:34:20.850
+Anthony Taylor: here's another weird problem.
+
+334
+00:34:22.020 --> 00:34:23.520
+Anthony Taylor: See what happened there.
+
+335
+00:34:24.710 --> 00:34:28.460
+Anthony Taylor: It isolated those symbols, because it's like, I don't know what you want me to do with that.
+
+336
+00:34:29.330 --> 00:34:33.139
+Anthony Taylor: Okay, what about the capitals? What about all these caps?
+
+337
+00:34:35.659 --> 00:34:43.610
+Anthony Taylor: Now, if we were to look at the Ascii code, for each of these are, Is this a the same as this? A.
+
+338
+00:34:45.480 --> 00:34:46.620
+Anthony Taylor: Not at all.
+
+339
+00:34:46.719 --> 00:34:51.780
+Anthony Taylor: So eventually we may want to address the the capitalization in all of these as well. Yeah.
+
+340
+00:34:53.070 --> 00:34:54.070
+Anthony Taylor: alright.
+
+341
+00:34:55.080 --> 00:35:01.760
+Anthony Taylor: aye. tokenization. Right now, all we're worried about sentences and words.
+
+342
+00:35:02.140 --> 00:35:05.539
+Anthony Taylor: You guys get to do it. Now I'm going to warn you.
+
+343
+00:35:08.340 --> 00:35:10.380
+Anthony Taylor: They're gonna make you do a for loop
+
+344
+00:35:11.170 --> 00:35:18.699
+Anthony Taylor: to get all the words for each story and add the words to a list. So remember, you got to create an empty list. You're in a pen, the blah blah blah.
+
+345
+00:35:19.080 --> 00:35:22.489
+Anthony Taylor: Okay? And then.
+
+346
+00:35:25.480 --> 00:35:34.560
+Anthony Taylor: yeah, this is, it's we'll see how you guys do with it. If you get. Don't get too hung up on this. Just make sure you could do what I showed you.
+
+347
+00:35:34.670 --> 00:35:39.729
+Anthony Taylor:  there is some extra steps in here that we did not cover.
+
+348
+00:35:40.130 --> 00:35:45.440
+Anthony Taylor: Okay, but it is stuff you've done before. So you should be okay.
+
+349
+00:35:46.060 --> 00:35:49.250
+Anthony Taylor: And it's okay. If you're not, don't feel bad.
+
+350
+00:35:49.660 --> 00:35:50.939
+Anthony Taylor: We're going to get through it.
+
+351
+00:35:52.290 --> 00:35:59.740
+Anthony Taylor:  just looking for the timer. Okay, 15 min.
+
+352
+00:36:00.370 --> 00:36:04.010
+Anthony Taylor: Let me set you guys up. Was it easy for everybody? Everyone was like
+
+353
+00:36:04.240 --> 00:36:05.450
+Anthony Taylor: cakewalk
+
+354
+00:36:07.210 --> 00:36:09.719
+Mason, Natalie: was a challenge, but we were tackling it.
+
+355
+00:36:12.090 --> 00:36:13.710
+Anthony Taylor: Guys are amazing.
+
+356
+00:36:14.290 --> 00:36:16.409
+Anthony Taylor: I saw freaking Maisie.
+
+357
+00:36:18.370 --> 00:36:22.090
+Anthony Taylor:  thank you for informing us
+
+358
+00:36:22.680 --> 00:36:24.049
+Anthony Taylor: we're going to move on.
+
+359
+00:36:24.440 --> 00:36:25.280
+Anthony Taylor: Okay.
+
+360
+00:36:26.900 --> 00:36:27.570
+Anthony Taylor: so
+
+361
+00:36:30.080 --> 00:36:42.150
+Anthony Taylor: let's do it. I don't think that's true. Okay, so here we go. Bringing all the same stuff we did in the an instructor example. Gonna look at the categories.
+
+362
+00:36:42.220 --> 00:36:48.720
+Anthony Taylor: Yeah, instructor example. the file id, this time it said, do income. So it's a little different.
+
+363
+00:36:49.450 --> 00:36:54.590
+Anthony Taylor: Okay. Now, this one has a whole bunch of different articles, not just one.
+
+364
+00:36:55.660 --> 00:36:57.380
+Anthony Taylor: Alright. So
+
+365
+00:36:57.810 --> 00:37:05.750
+Anthony Taylor: it says, get all raw stories and id meetings in a separate list. You didn't have to list comprehension if you did, that's great.
+
+366
+00:37:06.050 --> 00:37:20.019
+Anthony Taylor: Okay? But basically for every id in the list. I want to grab it and put it in a list for the stories. Then I'm gonna get rid of this test. Portion of it says, remove the text
+
+367
+00:37:20.050 --> 00:37:29.950
+Anthony Taylor: we're going to use replace for that. We're going to end up with a really cool list of just ideas. Okay?
+
+368
+00:37:30.900 --> 00:37:42.549
+Anthony Taylor:  then we're going to do our sentence tokenizer for each one. So we're going to say, Hey, for every story in raw stories.
+
+369
+00:37:42.710 --> 00:37:46.169
+Anthony Taylor: do sentence. Tokenizer put it in a list.
+
+370
+00:37:46.290 --> 00:37:47.380
+Anthony Taylor: bam.
+
+371
+00:37:48.840 --> 00:37:53.369
+Anthony Taylor: Now I don't know why they didn't show you that you think they could have done that. Okay, don't do that.
+
+372
+00:37:53.480 --> 00:37:55.180
+Anthony Taylor: Let's just do it right here.
+
+373
+00:37:57.500 --> 00:38:00.650
+Anthony Taylor: That's not it. D. There we go?
+
+374
+00:38:02.510 --> 00:38:05.039
+Anthony Taylor: Did I not just do this? Said
+
+375
+00:38:05.260 --> 00:38:15.250
+Anthony Taylor: hike sentence tokenized? Thank you. There we go. So you can see them all. They look really great. Okay.
+
+376
+00:38:15.350 --> 00:38:18.720
+Anthony Taylor: Now we're going to take each one of those
+
+377
+00:38:19.340 --> 00:38:24.880
+Anthony Taylor: and get the words out of it. Okay, so we have word tokenized list.
+
+378
+00:38:25.460 --> 00:38:33.130
+Anthony Taylor: We're going to create a loop. We're gonna go for sentence and story words equals
+
+379
+00:38:33.180 --> 00:38:41.419
+Anthony Taylor: words, and I'll explain that, plus the tokenized words and then append that to here. So
+
+380
+00:38:41.680 --> 00:38:44.550
+Anthony Taylor: every sentence. So the first sentence goes, does everybody.
+
+381
+00:38:45.840 --> 00:38:49.040
+Anthony Taylor: does anybody want me to explain this, or is this clear?
+
+382
+00:38:49.690 --> 00:38:52.899
+Anthony Taylor: Let me ask that I don't want to explain it? If it. If everybody gets it.
+
+383
+00:38:54.100 --> 00:39:03.849
+Anthony Taylor: what you guys think I would, I would appreciate an explanation. I think that's a wonderful okay, good. Okay. So words in the first loop
+
+384
+00:39:04.770 --> 00:39:10.110
+Anthony Taylor: is basically empty. Right? Well, technically, it's an empty list.
+
+385
+00:39:10.320 --> 00:39:11.320
+Anthony Taylor: Okay.
+
+386
+00:39:12.360 --> 00:39:21.049
+Anthony Taylor: it's gonna do. Words is empty equals this empty list, plus, it's going to tokenize the first sentence.
+
+387
+00:39:22.150 --> 00:39:25.470
+Anthony Taylor: And it's gonna put all those into here.
+
+388
+00:39:26.920 --> 00:39:37.960
+Anthony Taylor: Okay? So first sentence, whatever that was Yugoslav economy worsened in 1986 bank data shows blah, blah, blah, blah blah all be word, word, word, word, word, word, word. Okay.
+
+389
+00:39:38.190 --> 00:39:39.730
+Anthony Taylor: Second sentence.
+
+390
+00:39:39.830 --> 00:39:50.250
+Anthony Taylor: So to come through here again. This has all of the words from the first sentence right here, plus all the words from the second sentence
+
+391
+00:39:51.100 --> 00:39:56.010
+Anthony Taylor: that gets put in there. Got it? Next sentence
+
+392
+00:39:56.320 --> 00:40:03.490
+Anthony Taylor: comes to here. This has all the words from the first sentence, and the second. let's add all the words from the third.
+
+393
+00:40:04.320 --> 00:40:07.410
+Anthony Taylor: and so on until we get through the entire thing.
+
+394
+00:40:08.410 --> 00:40:12.979
+Anthony Taylor: ultimately ending with a list of all the works.
+
+395
+00:40:15.150 --> 00:40:17.579
+Anthony Taylor: Okay, that will get appended.
+
+396
+00:40:17.810 --> 00:40:20.869
+Clayton Graves: That certainly. Right.
+
+397
+00:40:21.530 --> 00:40:32.389
+Anthony Taylor: That's every word of the entire article at that point and all. Yes, and everything that we just did the sentence Tokenizer on. We're now going to do
+
+398
+00:40:32.420 --> 00:40:38.590
+Anthony Taylor: the word tokenizer on. So let's run that. And you can see. Now look at what you end up
+
+399
+00:40:39.090 --> 00:40:42.529
+Anthony Taylor: right. Every word is its own thing.
+
+400
+00:40:43.310 --> 00:40:44.140
+Anthony Taylor: Okay.
+
+401
+00:40:44.660 --> 00:40:52.780
+Mason, Natalie: Anthony, can you? Can you please scroll up to the cell above that one. I missed the last part
+
+402
+00:40:52.890 --> 00:40:56.060
+Mason, Natalie: for I and Ross. Okay, thank you so much.
+
+403
+00:40:56.720 --> 00:40:57.979
+Anthony Taylor: Oh, that one. Okay, good.
+
+404
+00:40:58.230 --> 00:41:09.610
+Anthony Taylor: Okay. So then it says, and this is what we didn't do for sure. Put the raw stories to tokenized sentences and the words into a data frame. So raw stories was a list we created up here
+
+405
+00:41:10.650 --> 00:41:13.310
+Anthony Taylor: right here because we did list comprehension.
+
+406
+00:41:13.320 --> 00:41:16.730
+Anthony Taylor: then, for sentence tokenized, we did list comprehension.
+
+407
+00:41:16.920 --> 00:41:25.219
+Anthony Taylor: and then for word tokenize. We created a list and appended all of our words. So we have 3 lists
+
+408
+00:41:26.550 --> 00:41:27.700
+Anthony Taylor: and
+
+409
+00:41:28.230 --> 00:41:31.070
+Anthony Taylor:  3 column headers.
+
+410
+00:41:31.230 --> 00:41:37.120
+Anthony Taylor: Okay. make the index story ids and run it.
+
+411
+00:41:37.990 --> 00:41:44.089
+Anthony Taylor: Then there you go. Now. The interesting thing is, there's obviously there's more words.
+
+412
+00:41:44.240 --> 00:41:48.600
+Anthony Taylor: There's more sentences in raw stories is like, there's one story
+
+413
+00:41:48.870 --> 00:41:58.289
+Anthony Taylor: right in that one story. There might be a hundred sentences in that 100 sentences there might be a thousand words. Okay, that's extreme. No, that's not extreme.
+
+414
+00:41:58.380 --> 00:42:05.659
+Anthony Taylor: But so these are in this column. This is a list of all the sentences, and this is a list of all the words
+
+415
+00:42:06.340 --> 00:42:07.270
+Anthony Taylor: alright.
+
+416
+00:42:08.470 --> 00:42:09.340
+Anthony Taylor: So
+
+417
+00:42:09.950 --> 00:42:16.070
+Anthony Taylor: this is the first step in and N lp, to get us to to get us to a point where we can.
+
+418
+00:42:16.480 --> 00:42:22.739
+Anthony Taylor: We're getting closer. We're we're now breaking it down. So the computer is going to receive these words individually.
+
+419
+00:42:24.460 --> 00:42:35.320
+Anthony Taylor: Alright, they it doesn't, it does not. We're gonna talk a little bit about in grams later, where it looks at more than one word, but for the most part it's looking at one word at the top.
+
+420
+00:42:36.240 --> 00:42:40.610
+Anthony Taylor: Okay. let's see if we got any slides to show for this next part.
+
+421
+00:42:41.460 --> 00:42:54.169
+Anthony Taylor: Don't think we do any questions about that before I move on feeling okay with tokenizing. It's basically just splitting the words up for you the reason we use a tokenizer instead of split
+
+422
+00:42:54.190 --> 00:42:59.740
+Anthony Taylor: because we can. It does a little better job at taking care of like carriage returns and stuff like that.
+
+423
+00:42:59.840 --> 00:43:05.889
+Anthony Taylor: plus sentence. Tokenizer understands question marks, exclamation points.
+
+424
+00:43:06.320 --> 00:43:18.880
+Anthony Taylor: stuff like that. Well, if we did it with split we'd have to take into account all those possibilities. Anthony, and can you go back to the code? Will you show the part where you did the
+
+425
+00:43:19.160 --> 00:43:23.690
+Meredith McCanse (she/her): a little higher where you did the sentence, tokenize the stories.
+
+426
+00:43:26.150 --> 00:43:28.429
+Meredith McCanse (she/her): This one? Yeah.
+
+427
+00:43:29.020 --> 00:43:33.159
+Anthony Taylor: So remember, this is just a for loop. So you write the for loop first, I want
+
+428
+00:43:33.310 --> 00:43:35.510
+Anthony Taylor: every raw story.
+
+429
+00:43:35.600 --> 00:43:41.099
+Anthony Taylor: and then I want to apply the sentence tokenizer method to each story.
+
+430
+00:43:43.200 --> 00:43:44.270
+Meredith McCanse (she/her): Okay.
+
+431
+00:43:44.920 --> 00:43:53.839
+Anthony Taylor: got it. I mean, if if this is easier, guys write it out in variables that you'd like for story and raw stories. Sentence tokenized
+
+432
+00:43:54.140 --> 00:43:55.090
+Anthony Taylor: the story.
+
+433
+00:43:56.170 --> 00:43:57.770
+Anthony Taylor: It'll work exactly the same.
+
+434
+00:44:00.730 --> 00:44:07.780
+Anthony Taylor: And then, if down here instead of well, no, this is pretty clear. We're talking nice sentence.
+
+435
+00:44:08.290 --> 00:44:09.260
+Anthony Taylor: and there you go
+
+436
+00:44:12.090 --> 00:44:13.139
+Anthony Taylor: pretty cool.
+
+437
+00:44:16.480 --> 00:44:17.620
+Meredith McCanse (she/her): Thank you.
+
+438
+00:44:18.290 --> 00:44:19.340
+Anthony Taylor: Yeah. Derek.
+
+439
+00:44:20.430 --> 00:44:27.179
+Derek Rikke: I think maybe you just said this. But do you have to do the sentence one before the word one.
+
+440
+00:44:27.340 --> 00:44:32.710
+Anthony Taylor: Can. You just skip straight to the word one. They are intentionally.
+
+441
+00:44:33.640 --> 00:44:37.329
+Anthony Taylor: I would say. The answer is, probably
+
+442
+00:44:37.610 --> 00:44:44.969
+Anthony Taylor: you would be okay doing the word one by itself, cause it just creates one list for the entire story.
+
+443
+00:44:45.200 --> 00:44:55.630
+Anthony Taylor: We are at the moment, and and I will tell you don't need to do this. but we are at the moment breaking it down by sentence first, just to be intentional about it.
+
+444
+00:44:55.730 --> 00:45:03.789
+Anthony Taylor: But no, I'm pretty sure you can just do the words without. In fact. Here, let's just do this. Let's try it.
+
+445
+00:45:05.670 --> 00:45:09.480
+We're took for story and raw stories.
+
+446
+00:45:13.710 --> 00:45:16.129
+Anthony Taylor: word, sentence and story. Let's try.
+
+447
+00:45:17.600 --> 00:45:20.370
+Anthony Taylor: Oh. interesting!
+
+448
+00:45:21.750 --> 00:45:27.689
+Anthony Taylor: II would say I I'm gonna stick to my guns on this one, though I don't know the syntax off top my head.
+
+449
+00:45:27.970 --> 00:45:29.969
+Anthony Taylor: I'm pretty sure you can do that.
+
+450
+00:45:30.110 --> 00:45:33.209
+Anthony Taylor: I see what it's doing.
+
+451
+00:45:34.460 --> 00:45:36.639
+Anthony Taylor: but what you could probably do.
+
+452
+00:45:38.590 --> 00:45:44.200
+Anthony Taylor: Here, let's try one more thing. Now, now I'm now I'm determine to try this.
+
+453
+00:45:46.420 --> 00:45:51.589
+Anthony Taylor: I said. I'm pretty fairly certain we could figure this out if we wanted to mess with it.
+
+454
+00:45:54.270 --> 00:45:57.030
+Anthony Taylor: It doesn't like that. Oh, but one more thing
+
+455
+00:46:05.130 --> 00:46:06.500
+Anthony Taylor: we could
+
+456
+00:46:15.110 --> 00:46:16.330
+Anthony Taylor: see here.
+
+457
+00:46:20.460 --> 00:46:26.530
+Anthony Taylor: this might work. But basically we're still breaking it down, since I still think there's a way to do what? What? You're asking defects?
+
+458
+00:46:27.300 --> 00:46:29.320
+Anthony Taylor: Yeah. So that would work.
+
+459
+00:46:29.440 --> 00:46:31.169
+Anthony Taylor: So you don't have to do it twice.
+
+460
+00:46:31.890 --> 00:46:36.240
+Anthony Taylor:  but I kind of think there's a way to do it directly.
+
+461
+00:46:36.710 --> 00:46:37.950
+Anthony Taylor: trying to remember.
+
+462
+00:46:39.860 --> 00:46:42.959
+Anthony Taylor: Anyway, it's not that big a deal, cause you can't do it this way.
+
+463
+00:46:43.600 --> 00:46:44.480
+Derek Rikke: Alright, thanks.
+
+464
+00:46:45.120 --> 00:46:46.349
+Anthony Taylor: No, not a problem.
+
+465
+00:46:47.320 --> 00:46:51.969
+Anthony Taylor: Hi. Any other questions. Before we move on to the next coolness.
+
+466
+00:46:52.650 --> 00:46:55.379
+Anthony Taylor: We're gonna do some more coolness. Bye.
+
+467
+00:46:56.650 --> 00:46:58.080
+Anthony Taylor: what I just did here.
+
+468
+00:46:58.190 --> 00:46:59.050
+michael mcpherson: Yes.
+
+469
+00:47:00.050 --> 00:47:01.160
+Anthony Taylor: certainly.
+
+470
+00:47:03.350 --> 00:47:04.250
+michael mcpherson: Thank you.
+
+471
+00:47:05.900 --> 00:47:08.050
+Anthony Taylor: Absolutely, sir.
+
+472
+00:47:15.980 --> 00:47:16.860
+Anthony Taylor: Done.
+
+473
+00:47:19.210 --> 00:47:20.190
+Anthony Taylor: Okay.
+
+474
+00:47:22.160 --> 00:47:27.369
+Anthony Taylor: Stop words. Did I? Did. I find stop words. Okay. So
+
+475
+00:47:27.930 --> 00:47:31.450
+Anthony Taylor: stopword sounds ominous, I know.
+
+476
+00:47:31.550 --> 00:47:34.109
+Anthony Taylor: Okay, but it's not
+
+477
+00:47:34.280 --> 00:47:37.360
+Anthony Taylor: a word you use to stop something you don't like.
+
+478
+00:47:38.300 --> 00:47:42.869
+Anthony Taylor: Okay, I think those are called safe words. I don't know one of those, but I don't think we do that in lp.
+
+479
+00:47:42.950 --> 00:47:45.270
+Anthony Taylor: stop words. Okay.
+
+480
+00:47:45.650 --> 00:47:51.659
+Anthony Taylor: so stop. Words are words that that the computer just could care less about.
+
+481
+00:47:52.740 --> 00:48:03.739
+Anthony Taylor: Alright. They should be like non-words. But they're real words. So what does that mean? So for analysis purposes, they have no information. They're not adding anything.
+
+482
+00:48:04.950 --> 00:48:12.480
+Anthony Taylor: Okay, things like the there in a
+
+483
+00:48:14.340 --> 00:48:15.410
+Anthony Taylor: alright.
+
+484
+00:48:15.770 --> 00:48:18.460
+Anthony Taylor: Those are all words
+
+485
+00:48:19.780 --> 00:48:21.630
+Anthony Taylor: at all words.
+
+486
+00:48:22.120 --> 00:48:27.589
+Clayton Graves: These are words that you would skip when you're in a speed reading class.
+
+487
+00:48:28.370 --> 00:48:31.890
+Anthony Taylor: Probably. Yeah, I would say, that makes sense.
+
+488
+00:48:32.780 --> 00:48:39.990
+Anthony Taylor:  why is this new?
+
+489
+00:48:40.380 --> 00:48:41.230
+Anthony Taylor: Sorry?
+
+490
+00:48:42.330 --> 00:48:53.899
+Anthony Taylor: Okay, absolutely. And we just like get rid of them. Because from a computing standpoint, they're just noise. They don't add anything, and they're very, very, very pumped
+
+491
+00:48:53.910 --> 00:49:00.219
+Anthony Taylor: this to the A there, and to be surprised at how common these are.
+
+492
+00:49:00.790 --> 00:49:07.380
+Anthony Taylor: Okay. And in our situation, at least at Nlp. At this point
+
+493
+00:49:07.420 --> 00:49:15.379
+Anthony Taylor: these very common words, since they don't help. they they don't have context. They don't add anything. We're not looking for context right now.
+
+494
+00:49:16.150 --> 00:49:22.029
+Anthony Taylor: And that's an important distinction between what we're doing now and what we're going to do in a couple or next week. Pretty much.
+
+495
+00:49:22.310 --> 00:49:26.580
+Anthony Taylor: Okay? In a week or 2 we're gonna be looking for context.
+
+496
+00:49:27.170 --> 00:49:33.330
+Anthony Taylor: That's the big. And that's the big advancement that happened, you know, recently. relatively
+
+497
+00:49:33.580 --> 00:49:37.460
+Anthony Taylor: in in lp, is it figured out? They figured out
+
+498
+00:49:38.000 --> 00:49:39.780
+Anthony Taylor: how to get context.
+
+499
+00:49:40.580 --> 00:49:49.180
+Anthony Taylor: But right now, that's not what we're doing, literally just trying to look at the individual words.  yeah.
+
+500
+00:49:49.440 --> 00:50:02.800
+Anthony Taylor: alright. And then we jump into a demo. So how do we do this? Well, the good news is this is not hard at all. Okay? Oh, look! I figured out which one is messed up.
+
+501
+00:50:03.680 --> 00:50:07.470
+Anthony Taylor:  do I have it still messed up?
+
+502
+00:50:08.590 --> 00:50:10.249
+Anthony Taylor: The one you guys have?
+
+503
+00:50:11.390 --> 00:50:13.370
+Anthony Taylor: Yeah,
+
+504
+00:50:14.840 --> 00:50:18.510
+Anthony Taylor: so yours says phoned right here, right? Or something
+
+505
+00:50:19.980 --> 00:50:22.789
+Anthony Taylor: that's wrong. Change it to Gutenberg.
+
+506
+00:50:23.550 --> 00:50:26.550
+Anthony Taylor: Otherwise it's Gonna break when you get to the second cell.
+
+507
+00:50:27.870 --> 00:50:28.850
+Anthony Taylor: Okay.
+
+508
+00:50:28.990 --> 00:50:32.669
+Clayton Graves: there's another one further down.
+
+509
+00:50:33.800 --> 00:50:43.779
+Clayton Graves: Hold on a second. That also, says Gutenberg, or is it another doubt? So there's there's there's Pump T. There's Gutenberg, and there's stop words.
+
+510
+00:50:44.970 --> 00:50:49.169
+Anthony Taylor: Right? So you want this one in the download? You don't need post.
+
+511
+00:50:50.370 --> 00:50:57.090
+Clayton Graves: Is there a download later? That does. I had to do a download on stop words.
+
+512
+00:50:58.330 --> 00:51:00.360
+Anthony Taylor: Okay. interesting?
+
+513
+00:51:00.780 --> 00:51:07.059
+Anthony Taylor: So anyway, we're we're not using the punk one. And I'll tell you this happens a lot throughout the
+
+514
+00:51:07.580 --> 00:51:13.349
+Anthony Taylor: the thing. Oh, look now this one has. This one has a read me the Gutenberg.
+
+515
+00:51:15.830 --> 00:51:22.119
+Anthony Taylor: which tells me that the Reuters see, now I want to talk with the New York accent. When I say reuters.
+
+516
+00:51:23.020 --> 00:51:25.280
+Anthony Taylor: Reuters Rodney Reuters.
+
+517
+00:51:26.560 --> 00:51:28.310
+Anthony Taylor: I don't know. Anyway.
+
+518
+00:51:28.600 --> 00:51:30.179
+Anthony Taylor: that's a bad Newark accent.
+
+519
+00:51:30.760 --> 00:51:40.439
+Anthony Taylor: All right. So we're gonna bring this in. Yay. we're going to look at the feel of the file Ids that are in here. This one has a lot of different text files.
+
+520
+00:51:40.900 --> 00:51:49.629
+Anthony Taylor: Pretty cool. Look, Moby, Dick is in here. This is like books. This is pretty cool. Shakespeare's Caesar, Hamlet.
+
+521
+00:51:50.070 --> 00:51:51.340
+Anthony Taylor: Macbeth.
+
+522
+00:51:52.380 --> 00:51:54.660
+Anthony Taylor: This is cool. Okay.
+
+523
+00:51:55.040 --> 00:51:58.370
+Anthony Taylor:  Then we're gonna grab
+
+524
+00:51:58.390 --> 00:52:00.730
+Anthony Taylor: one of the books.
+
+525
+00:52:03.200 --> 00:52:05.659
+Anthony Taylor: Okay, pretty cool again.
+
+526
+00:52:06.680 --> 00:52:08.299
+Anthony Taylor: And then we're going to tokenize
+
+527
+00:52:08.580 --> 00:52:17.280
+Anthony Taylor: nothing special. We're just going to tokenize it. Sentence Tokenizer. Print one sentence here it is. He had been remarkably handsome in his shoe.
+
+528
+00:52:17.440 --> 00:52:20.389
+Anthony Taylor: and at 54 let's do it. Wow!
+
+529
+00:52:23.620 --> 00:52:31.739
+Anthony Taylor: They're just talking about me in this book. That's nice. You ain't No. 54
+
+530
+00:52:31.880 --> 00:52:34.769
+Clayton Graves: 50 close enough.
+
+531
+00:52:35.660 --> 00:52:37.030
+Anthony Taylor: anyway.
+
+532
+00:52:37.270 --> 00:52:44.489
+Anthony Taylor: Okay, so so that's a good sentence. So after we get that, we're gonna take the sentence, we're gonna
+
+533
+00:52:44.730 --> 00:52:49.639
+Anthony Taylor: break it into words. So this is what we just did. No big deal. Okay. Next
+
+534
+00:52:49.880 --> 00:52:50.770
+Anthony Taylor: stop.
+
+535
+00:52:52.170 --> 00:53:04.639
+Anthony Taylor: we imported stop words up top. We're going to bring in the English, stop words and take a look at them. And you're going to see. These are the words you guys can scroll through. There's lot of them.
+
+536
+00:53:05.740 --> 00:53:06.500
+A,
+
+537
+00:53:06.710 --> 00:53:07.660
+Anthony Taylor: yeah.
+
+538
+00:53:09.380 --> 00:53:10.870
+Anthony Taylor: okay, there's a lot.
+
+539
+00:53:12.450 --> 00:53:16.329
+Clayton Graves: Now, one of the things that I noticed is that when you tokenize the words
+
+540
+00:53:17.030 --> 00:53:19.689
+Clayton Graves: it did tokenize the punctuation too
+
+541
+00:53:20.240 --> 00:53:24.630
+Anthony Taylor: correct, we're gonna take care of that also before this is over, I promise.
+
+542
+00:53:25.070 --> 00:53:27.650
+Anthony Taylor: So there you go.
+
+543
+00:53:27.900 --> 00:53:29.230
+Mason, Natalie: That's seldom
+
+544
+00:53:29.550 --> 00:53:36.000
+Mason, Natalie: that cell isn't working for me. It says resource. Stop word it's not found.
+
+545
+00:53:36.460 --> 00:53:39.680
+Anthony Taylor: Did you? Did you run this first one up here?
+
+546
+00:53:40.790 --> 00:53:42.160
+Mason, Natalie: I did.
+
+547
+00:53:42.330 --> 00:53:48.029
+Clayton Graves: I had. I had to actually plug in an N. Ltk dot download.
+
+548
+00:53:48.140 --> 00:53:51.250
+Clayton Graves: Stop words in my import cell
+
+549
+00:53:51.630 --> 00:53:56.049
+Clayton Graves: underneath the download. And then it worked
+
+550
+00:53:56.320 --> 00:53:58.699
+Anthony Taylor: interesting. Try it.
+
+551
+00:53:59.890 --> 00:54:04.869
+Anthony Taylor: I don't know. Maybe maybe because I've already downloaded it once. I don't have. Did anybody else have to do that?
+
+552
+00:54:04.890 --> 00:54:06.420
+Baro, Sonja: Yeah, I did.
+
+553
+00:54:06.860 --> 00:54:07.820
+Anthony Taylor: Oh.
+
+554
+00:54:09.100 --> 00:54:14.209
+Anthony Taylor: well, I love that, that. All of you figure that out so easy. I don't. I don't remember. Maybe I did it.
+
+555
+00:54:15.910 --> 00:54:17.369
+Mason, Natalie: Okay. Good job. Team.
+
+556
+00:54:17.890 --> 00:54:20.139
+Anthony Taylor: Yeah. Oh, no, that's print
+
+557
+00:54:21.810 --> 00:54:24.539
+Anthony Taylor: English stopword. Stop words. Yeah, I don't know why.
+
+558
+00:54:24.760 --> 00:54:26.990
+Anthony Taylor: Okay, well, I'm glad that worked alright.
+
+559
+00:54:27.060 --> 00:54:32.730
+Anthony Taylor: So this is stop words that we get built in. Okay.
+
+560
+00:54:32.980 --> 00:54:46.310
+Anthony Taylor: so what we're gonna do is gonna filter out all the stopwords. So basically, we're going to for word in all words. So what's all words? All words is all these words that were in this sentence.
+
+561
+00:54:46.480 --> 00:54:48.970
+Anthony Taylor: we're gonna go through each one of those words.
+
+562
+00:54:49.390 --> 00:54:52.960
+Anthony Taylor: And we're gonna we're going to filter
+
+563
+00:54:53.470 --> 00:54:56.549
+Anthony Taylor: and say, if word not lower
+
+564
+00:54:56.680 --> 00:55:01.450
+Anthony Taylor: is not in SW, this this set.
+
+565
+00:55:01.850 --> 00:55:02.890
+Anthony Taylor: Okay?
+
+566
+00:55:03.470 --> 00:55:07.119
+Anthony Taylor: Then print it out and put it in this list.
+
+567
+00:55:07.150 --> 00:55:10.479
+Clayton Graves: That's what this says. Remind me what the dot lower is.
+
+568
+00:55:10.850 --> 00:55:14.379
+Clayton Graves: Oh, it's gonna make it lower case, we're gonna get to lowercase. Got it?
+
+569
+00:55:14.730 --> 00:55:15.630
+Anthony Taylor: Yes.
+
+570
+00:55:15.860 --> 00:55:22.269
+Anthony Taylor: okay. So we run that. And then we have just these words, we're left in that sense.
+
+571
+00:55:23.050 --> 00:55:26.309
+Anthony Taylor: Okay. So they took out the pronouns
+
+572
+00:55:26.440 --> 00:55:33.180
+Anthony Taylor: they took out had been they left remarkably handsome. Group 54. Still fine man.
+
+573
+00:55:34.260 --> 00:55:37.630
+Anthony Taylor: Alright. Well, that's a problem, anyway.
+
+574
+00:55:38.430 --> 00:55:42.160
+Anthony Taylor: so there you go. And that's what stopboards does.
+
+575
+00:55:42.980 --> 00:55:47.850
+Anthony Taylor: Okay, that's all it does. It's main point is to try to get any
+
+576
+00:55:48.100 --> 00:55:50.390
+Anthony Taylor: junk out.
+
+577
+00:55:51.040 --> 00:56:02.530
+Anthony Taylor: It's just reducing the noise like, that's what it's trying to do. It's trying to get. So basically, if we read this entire sentence, you'd been a remarkably handsome man, too.
+
+578
+00:56:02.630 --> 00:56:05.659
+Anthony Taylor: and at 54 was still a very fine man.
+
+579
+00:56:05.830 --> 00:56:07.529
+Anthony Taylor: Does this say the same thing?
+
+580
+00:56:07.600 --> 00:56:12.070
+Anthony Taylor: Yeah. The meeting is still there. 54 still find that
+
+581
+00:56:12.230 --> 00:56:26.640
+Anthony Taylor: it sounds like a caveman saying it right? It's still meaningful. You still understand what the sentence is saying. I know I'm still feeling like it's describing me 2 years ago. Okay, so
+
+582
+00:56:27.620 --> 00:56:34.550
+Anthony Taylor: let's take a look. We can define our own list of stop words to add the default. So we can actually add more
+
+583
+00:56:35.760 --> 00:56:41.649
+Anthony Taylor: alright. So we can actually do a stopwrit. Add on. Now, by the way, what is this
+
+584
+00:56:44.330 --> 00:56:46.030
+Clayton Graves: dictionary dictionary?
+
+585
+00:56:46.720 --> 00:56:53.620
+Clayton Graves: Why? Why? Is it? No, because in between there's no, there's no label value.
+
+586
+00:56:54.150 --> 00:57:00.070
+Anthony Taylor: no key value. I love that. No key value pairs. No, this is actually a set.
+
+587
+00:57:01.780 --> 00:57:04.790
+Anthony Taylor: Okay, no matter what a set is. So you have a list.
+
+588
+00:57:05.260 --> 00:57:11.760
+Anthony Taylor: and then you have a set which is effectively a immutable list that removes duplicates.
+
+589
+00:57:12.510 --> 00:57:21.929
+Anthony Taylor: So it's really. And it runs really fast by the I just thought I'd throw that out there. That's like trivia. We probably mentioned that once before. But
+
+590
+00:57:23.180 --> 00:57:30.699
+Anthony Taylor: why not? Right? Okay. So we have this new add on. So how do we do this? Well, we're still going to do for word and all words.
+
+591
+00:57:31.120 --> 00:57:37.609
+Anthony Taylor: We're gonna say, if we're lower little lower, not in. And we're just gonna union
+
+592
+00:57:38.210 --> 00:57:42.829
+Anthony Taylor: the original stop words with our add-on words.
+
+593
+00:57:44.000 --> 00:57:47.400
+Anthony Taylor: Okay? And then return it. And when we end up with
+
+594
+00:57:48.360 --> 00:57:50.580
+Anthony Taylor: remarkably handsome youth. Fine man!
+
+595
+00:57:52.580 --> 00:57:59.929
+Clayton Graves: See? I think the 54 yeah. See? That could be anybody. I think the 54 was important.
+
+596
+00:58:00.270 --> 00:58:03.899
+Clayton Graves: I accept that. I don't know that it's that important.
+
+597
+00:58:03.950 --> 00:58:08.689
+Clayton Graves: I just think it goes from describing someone like you to describing me.
+
+598
+00:58:10.190 --> 00:58:11.110
+Anthony Taylor: That's true.
+
+599
+00:58:11.510 --> 00:58:14.630
+Anthony Taylor: You know what, Clayton. I'm gonna give that to you, man, that's good work.
+
+600
+00:58:14.930 --> 00:58:15.990
+Anthony Taylor: Alright.
+
+601
+00:58:18.360 --> 00:58:33.019
+Anthony Taylor: Okay. So that was really cool. Right? That's the eliminated the words and believe it or not, this could come up in a lot of places. We used to have one. We had all these virgin Atlantic tweets right, and every tweet had
+
+602
+00:58:33.070 --> 00:58:35.540
+Anthony Taylor: at Urgentlet nothing to do with you. Naval
+
+603
+00:58:35.610 --> 00:58:37.400
+Anthony Taylor: head at virginal it
+
+604
+00:58:37.820 --> 00:58:47.079
+Mason, Natalie: right? Cause you do. You don't work for virgin Atlantic, though you work for Virginia. Probably my fault. I'm probably programming your algorithm. These are years ago, years ago.
+
+605
+00:58:48.000 --> 00:58:51.060
+Anthony Taylor: anyway. So every Tweet said at Virgin Atlantic
+
+606
+00:58:51.250 --> 00:59:01.119
+Anthony Taylor: right? Well, that didn't mean anything to the Tweet. We all we knew they were all virgin planted tweets. So what did we do? We added at Virgin planted to the stop words.
+
+607
+00:59:01.860 --> 00:59:02.829
+Anthony Taylor: They all went away.
+
+608
+00:59:03.610 --> 00:59:08.860
+Anthony Taylor: Okay, so there's a lot of ways you can use. Stop words in that sense. Okay.
+
+609
+00:59:09.710 --> 00:59:13.849
+Anthony Taylor: I wish we spent a lot of time on this.
+
+610
+00:59:14.240 --> 00:59:15.250
+Anthony Taylor: Yes, I'm
+
+611
+00:59:15.280 --> 00:59:33.919
+Baro, Sonja: yeah. Before you move on the what we just did, though, when we removed the stop words. Was it just from the one sentence that we picked? Or
+
+612
+00:59:33.970 --> 00:59:37.319
+Anthony Taylor: that would be my guess? Okay, alright
+
+613
+00:59:38.290 --> 00:59:54.560
+Anthony Taylor: projects. So there, I'm gonna tell you a second on Udemy. And and it's funny I don't know why I told you guys this story years ago you, Demi, reached out to me and said, Hey, do you wanna like Qa, our
+
+614
+00:59:54.820 --> 00:59:56.140
+Anthony Taylor: new classes?
+
+615
+00:59:56.730 --> 01:00:09.910
+Anthony Taylor: Basically, they would send me classes that they hadn't published yet and say, Hey, can you look through this? Tell us what you think? Yeah, sure it was great, because and and and they paid me. But they also, I got all those classes. It was super cool.
+
+616
+01:00:10.050 --> 01:00:15.020
+Anthony Taylor:  there was a regular expressions class. It was the coolest and classic.
+
+617
+01:00:16.410 --> 01:00:20.240
+Anthony Taylor: It was 42 h long.
+
+618
+01:00:21.580 --> 01:00:29.020
+Anthony Taylor: Okay, regular expressions is a big thing. There are entire books dedicated to regular expressions.
+
+619
+01:00:29.090 --> 01:00:31.369
+Anthony Taylor: Now we've talked about them before or no.
+
+620
+01:00:32.480 --> 01:00:34.459
+Anthony Taylor: Want to say, yeah, but no.
+
+621
+01:00:34.650 --> 01:00:50.369
+Anthony Taylor: maybe a little bit alright. So the good news is we're not gonna get too deep in them right now. Just know if you want to do really fancy, like pattern matching and stuff regular expressions is a very cool thing to dig deeper into. There is a great course of it in
+
+622
+01:00:51.630 --> 01:00:57.419
+Anthony Taylor: data. Can't. If you really want to. Okay, so we're going to import regular expressions library.
+
+623
+01:00:57.750 --> 01:01:01.510
+Anthony Taylor: We're going to create. So this is a regular expression.
+
+624
+01:01:01.570 --> 01:01:14.409
+Anthony Taylor: What this basically says is substitute anything that? Well, this is a pattern that says anything that's not a to Z lowercase a to z uppercase or a space.
+
+625
+01:01:16.410 --> 01:01:21.110
+Anthony Taylor: That's what this expression says. This, this carrot is a not
+
+626
+01:01:22.540 --> 01:01:23.610
+Anthony Taylor: okay.
+
+627
+01:01:23.900 --> 01:01:30.479
+Anthony Taylor: And then we're going to do Regex sub. So we're basically saying.
+
+628
+01:01:32.190 --> 01:01:38.820
+Anthony Taylor: Get rid of anything that is not these things. And we're going to pass in.
+
+629
+01:01:39.120 --> 01:01:44.860
+Anthony Taylor: The sentence. okay, so we have red Jacks compile
+
+630
+01:01:45.240 --> 01:01:48.020
+Anthony Taylor: regex dot substitute.
+
+631
+01:01:48.780 --> 01:01:53.700
+Anthony Taylor: And then what we want to look okay. and we're gonna print
+
+632
+01:01:55.270 --> 01:01:59.040
+Anthony Taylor: alright exciting. We didn't show the sentence before.
+
+633
+01:01:59.380 --> 01:02:03.429
+Anthony Taylor:  me do something here.
+
+634
+01:02:08.740 --> 01:02:12.440
+Anthony Taylor: Actually, I'm gonna restart and clear everything
+
+635
+01:02:14.340 --> 01:02:17.739
+Anthony Taylor: because I'm gonna bring it back to here and just show you the sentence beforehand.
+
+636
+01:02:22.380 --> 01:02:23.769
+Anthony Taylor: just to remind you.
+
+637
+01:02:30.920 --> 01:02:36.039
+Anthony Taylor: So there's the whole sentence right? Yeah. And remarkably, there's an under, there's a
+
+638
+01:02:36.850 --> 01:02:40.790
+Anthony Taylor: a new line. Semi-colon, weird
+
+639
+01:02:40.830 --> 01:02:45.340
+Anthony Taylor: comma, another comma. Okay, this
+
+640
+01:02:46.460 --> 01:02:47.340
+Anthony Taylor: Augusta.
+
+641
+01:02:48.840 --> 01:02:52.989
+Anthony Taylor: So we didn't have to know every possible non printable character.
+
+642
+01:02:53.780 --> 01:03:03.640
+Anthony Taylor: That's the key here, otherwise we would have to know. Look for new lines, look for commas, look for semicolons, look for periods, look for I mean, we'd have to come up with a list of like every possible
+
+643
+01:03:04.150 --> 01:03:06.299
+Anthony Taylor: anything. That's not a letter.
+
+644
+01:03:06.520 --> 01:03:08.610
+Anthony Taylor: Well, that's crazy. Just do this
+
+645
+01:03:09.000 --> 01:03:13.690
+Anthony Taylor: super easy. Okay. alright.
+
+646
+01:03:13.780 --> 01:03:26.049
+Anthony Taylor:  we can also grab everything. So if you wanted. So in this case, instead of saying sub, we said, Fine.
+
+647
+01:03:27.280 --> 01:03:33.680
+Anthony Taylor: okay, so we're basically saying, Give me everything in one sentence that is, not
+
+648
+01:03:33.720 --> 01:03:38.920
+Anthony Taylor: a to ZA to Z or space. And it gave us this. This is what we got rid of, basically
+
+649
+01:03:40.560 --> 01:03:46.370
+Anthony Taylor: pretty cool. You don't need. This is just it's just showing what it got rid of. Okay?
+
+650
+01:03:47.440 --> 01:03:49.480
+Anthony Taylor: Oh.
+
+651
+01:03:50.410 --> 01:04:02.259
+Anthony Taylor: so we can do it for a whole thing. We can do word tokenize. We're gonna word tokenize our re clean and then what are we doing
+
+652
+01:04:03.460 --> 01:04:06.069
+Anthony Taylor: where we're tokenizing the new one?
+
+653
+01:04:06.590 --> 01:04:16.840
+Anthony Taylor: And then for words in re words, oh, okay. And then we're just gonna go through and do our stop words.  And then that's what we end up.
+
+654
+01:04:19.920 --> 01:04:22.949
+Anthony Taylor: Now, this is interesting. Look at what it did there.
+
+655
+01:04:24.480 --> 01:04:25.820
+Anthony Taylor: Why did it do that?
+
+656
+01:04:28.330 --> 01:04:35.770
+Anthony Taylor: Well, you guys see it, it's back to my age again. 54 in there, and it we took it out earlier. Right?
+
+657
+01:04:36.180 --> 01:04:42.580
+Clayton Graves: Well, we did. But remember, we use the original sentence, so why.
+
+658
+01:04:42.730 --> 01:04:46.620
+Clayton Graves: 2 separate words? We just remove the dash
+
+659
+01:04:46.890 --> 01:04:50.589
+Anthony Taylor: right? And in the add on. We were actually looking
+
+660
+01:04:51.230 --> 01:04:54.400
+Anthony Taylor: for 54 put together.
+
+661
+01:04:54.460 --> 01:04:55.600
+Anthony Taylor: See? Right here.
+
+662
+01:04:56.150 --> 01:05:05.190
+Anthony Taylor: Oh, okay. So is to be honest with, if I was coding this, I would look at that and go if I needed to take it out there, why would I leave it here?
+
+663
+01:05:05.640 --> 01:05:08.890
+Anthony Taylor: Because now it means it makes less sense to.
+
+664
+01:05:09.750 --> 01:05:14.549
+Anthony Taylor: And then the age of 4
+
+665
+01:05:14.660 --> 01:05:16.619
+Anthony Taylor: exactly. It could be 50,
+
+666
+01:05:16.690 --> 01:05:20.499
+Anthony Taylor: 4, 5 min, 4 year old. They, kevin.
+
+667
+01:05:20.800 --> 01:05:32.600
+Baro, Sonja: which none of us alright. Well, maybe teasing curry, cause I.
+
+668
+01:05:33.010 --> 01:05:38.349
+Anthony Taylor: But no, what's important here is, look, this is youth 50 and 4 find
+
+669
+01:05:38.440 --> 01:05:41.660
+Anthony Taylor: man. But I mean this could be
+
+670
+01:05:41.840 --> 01:05:43.920
+Anthony Taylor: the number 50 and
+
+671
+01:05:44.010 --> 01:05:52.960
+Anthony Taylor: 4 year old fine man for different. Find them so you'd have to add 50 and 4
+
+672
+01:05:53.000 --> 01:06:06.139
+Clayton Graves: rather than the 50 dashboard. You'd add 54 up there and then down here. It would remove the dash when you strip out all of the punctuation and stuff.
+
+673
+01:06:06.550 --> 01:06:17.459
+Anthony Taylor: I think basic. Yes, I still think, get rid of. 54 was a bad idea. So yeah, it makes it wrong. Cause I mean, if you are now 100,
+
+674
+01:06:18.200 --> 01:06:22.090
+Anthony Taylor: this doesn't make sense anymore. It made more sense without the 54.
+
+675
+01:06:22.580 --> 01:06:28.129
+Anthony Taylor: I think it makes, I think if you put it back in with dash, it makes the most
+
+676
+01:06:28.560 --> 01:06:35.830
+Clayton Graves: that makes the most sense. But if if we were to to build up what we did, the decision to remove it. To begin with.
+
+677
+01:06:36.100 --> 01:06:38.709
+Clayton Graves: we would have 50 and 4
+
+678
+01:06:39.110 --> 01:06:46.669
+Clayton Graves: into our our list rather than 50 dash for. and then, when we remove the punctuation, it'll remove the dash.
+
+679
+01:06:50.140 --> 01:06:52.570
+Baro, Sonja: So how do you handle that.
+
+680
+01:06:53.230 --> 01:06:56.299
+Anthony Taylor: Anthony? Use, Kate?
+
+681
+01:06:56.540 --> 01:06:58.089
+Baro, Sonja: Well, we my question
+
+682
+01:06:58.130 --> 01:07:09.510
+Baro, Sonja: like, if you have only specific types of of combinations, a word where you need to keep that hyphen.
+
+683
+01:07:09.970 --> 01:07:15.919
+Baro, Sonja: you would take it out of your out of your, you would add it to your rejects, so that you did not remove it
+
+684
+01:07:16.350 --> 01:07:21.110
+Anthony Taylor: right. And I mean there are ways to do it. You can, you could.
+
+685
+01:07:21.310 --> 01:07:25.109
+Anthony Taylor: And I'm I'm gonna you know what? Actually, I'll show you a better way to do this.
+
+686
+01:07:25.130 --> 01:07:30.960
+Anthony Taylor: you could say, provide me a red X
+
+687
+01:07:31.330 --> 01:07:33.580
+Anthony Taylor: to keep.
+
+688
+01:07:34.670 --> 01:07:36.229
+Hyphenated
+
+689
+01:07:37.610 --> 01:07:44.810
+Anthony Taylor: words! There are websites where you can like do this and test it. But I honestly, I use Redgex enough that I found
+
+690
+01:07:44.930 --> 01:07:46.830
+Anthony Taylor: that this works freaking. Amazing.
+
+691
+01:07:47.850 --> 01:07:51.210
+Anthony Taylor: Okay? And I mean, there it is. And then it explains.
+
+692
+01:07:55.660 --> 01:07:59.349
+Anthony Taylor: okay, in great detail. like a lot of freaking detail.
+
+693
+01:08:00.760 --> 01:08:07.819
+Anthony Taylor: But yeah, it. So this is a word boundary. then any word hyphen, any word word bound.
+
+694
+01:08:08.170 --> 01:08:13.379
+Anthony Taylor: So basically that will identify a word with a hyphen and a motherboard.
+
+695
+01:08:14.110 --> 01:08:19.380
+Anthony Taylor: and and so you could add that item. and then it wouldn't get rid of hyphenated works.
+
+696
+01:08:19.680 --> 01:08:28.100
+Anthony Taylor: But if there was like a dash somewhere else, you can give it at that. Now, that may or may not be what you want. But this is a way you can find.
+
+697
+01:08:28.580 --> 01:08:29.450
+Anthony Taylor: Okay.
+
+698
+01:08:30.060 --> 01:08:33.709
+Anthony Taylor: that that there's like 3 or 4 things that I
+
+699
+01:08:34.149 --> 01:08:37.060
+Anthony Taylor: door chat GPT. 4,
+
+700
+01:08:37.069 --> 01:08:40.840
+Anthony Taylor: Reg. X. Is one of them. Json Schema.
+
+701
+01:08:41.029 --> 01:08:48.700
+Anthony Taylor: getting the Json schema of something. Oh, my God, it's the greatest. You just put in a sample, Json, and say, Give it, Jimmy, and
+
+702
+01:08:50.920 --> 01:08:52.190
+Anthony Taylor: be still, my heart.
+
+703
+01:08:52.600 --> 01:08:57.200
+Anthony Taylor: because that's so much work it just is have to do. Am I right after study?
+
+704
+01:08:58.580 --> 01:09:01.680
+Anthony Taylor: Are you there? Hefa! Is there?
+
+705
+01:09:03.950 --> 01:09:06.929
+Anthony Taylor: Do you ever have to do that? Get the schema of a Json?
+
+706
+01:09:08.279 --> 01:09:09.410
+Gebrekristos, Haftom: No.
+
+707
+01:09:09.920 --> 01:09:11.629
+Anthony Taylor: Oh, well.
+
+708
+01:09:11.930 --> 01:09:13.279
+Anthony Taylor: trust me, it's hard.
+
+709
+01:09:13.680 --> 01:09:22.230
+Anthony Taylor: Okay, it's not. It's not hard. And and the the the assistance are like, done.
+
+710
+01:09:22.460 --> 01:09:24.790
+Anthony Taylor: Okay. activity time.
+
+711
+01:09:24.819 --> 01:09:31.209
+Anthony Taylor: Right? You're basically gonna do the same kind of stuff. Now, here's the interesting thing. You're gonna start building a function.
+
+712
+01:09:31.660 --> 01:09:34.010
+Anthony Taylor: Okay, now, if you look.
+
+713
+01:09:34.270 --> 01:09:44.039
+Anthony Taylor: this first one is just clean text. So it's going to remove the stop words. We're going to remove the punctuation. You're going to tokenize after
+
+714
+01:09:44.319 --> 01:09:46.000
+Anthony Taylor: you've cleaned your text.
+
+715
+01:09:46.550 --> 01:09:51.039
+Anthony Taylor: Okay, and then filter out words that are in stopwords lists. What's
+
+716
+01:09:51.370 --> 01:09:52.830
+Anthony Taylor: move? Stop words
+
+717
+01:09:53.000 --> 01:10:02.960
+Anthony Taylor: and then filter out more words. Okay, whatever  And then then you're gonna call that function, and there's another one.
+
+718
+01:10:04.980 --> 01:10:12.270
+Anthony Taylor: Oh, and this one, you're just gonna do same thing. But you're gonna add some of your custom. Stop words. Okay? And then call the function. That's it.
+
+719
+01:10:14.420 --> 01:10:20.789
+Anthony Taylor: which this is very cool. And this is how you would do it. You would create a function that does like 9% of this stuff.
+
+720
+01:10:21.690 --> 01:10:25.530
+Anthony Taylor: And this is another 15 min job. Alright gang.
+
+721
+01:10:27.360 --> 01:10:28.750
+Anthony Taylor: Okay.
+
+722
+01:10:32.610 --> 01:10:34.260
+Anthony Taylor: I apologize. Now.
+
+723
+01:10:34.310 --> 01:10:38.989
+Anthony Taylor: my, my boxer sitting behind me chewing on something sounds
+
+724
+01:10:39.520 --> 01:10:40.869
+Anthony Taylor: so if you hear it.
+
+725
+01:10:42.340 --> 01:10:45.180
+Anthony Taylor: Sorry. Alright.
+
+726
+01:10:48.020 --> 01:10:50.750
+Anthony Taylor: let's go
+
+727
+01:10:53.920 --> 01:10:59.730
+Anthony Taylor: so, anyway. So this one we're bringing in waters. Ruters.
+
+728
+01:11:00.930 --> 01:11:08.200
+Anthony Taylor: Reuters. we're going to bring in Reuters for Rodney alright Reuters and Reuters
+
+729
+01:11:08.420 --> 01:11:15.089
+Anthony Taylor: stop words. We're gonna bring in tokenized. And our E read a brand download
+
+730
+01:11:15.140 --> 01:11:16.340
+Anthony Taylor: berg.
+
+731
+01:11:17.370 --> 01:11:18.460
+Anthony Taylor: We're looking good.
+
+732
+01:11:18.670 --> 01:11:25.849
+Anthony Taylor: Okay? So first, we're going to give file ids for the categories of crude print out some crude articles.
+
+733
+01:11:26.330 --> 01:11:27.910
+Anthony Taylor: A.
+
+734
+01:11:30.220 --> 01:11:33.510
+Anthony Taylor: Oh, oh, they meant oil. Oh.
+
+735
+01:11:33.750 --> 01:11:34.570
+that's good.
+
+736
+01:11:37.170 --> 01:11:40.679
+Clayton Graves: Okay, that's not the second article, though that's the third.
+
+737
+01:11:40.930 --> 01:11:44.799
+Anthony Taylor: Is that the third article? Yeah, cause 0 1, 2,
+
+738
+01:11:45.660 --> 01:11:46.939
+Anthony Taylor: right, Buddy.
+
+739
+01:11:50.110 --> 01:11:54.340
+Anthony Taylor: Boo. even see, this one makes way more sense for oil.
+
+740
+01:11:55.550 --> 01:11:57.960
+Anthony Taylor: I thought they were just talking about my humor.
+
+741
+01:11:59.240 --> 01:12:00.719
+Anthony Taylor: that it was crude.
+
+742
+01:12:01.610 --> 01:12:06.519
+Clayton Graves: We're not there. Let's just leave that alone.
+
+743
+01:12:06.990 --> 01:12:17.549
+Anthony Taylor: Okay, so we're gonna create the function. Now, this function, this is one of those really good functions that you guys could potentially use for other things
+
+744
+01:12:17.760 --> 01:12:20.019
+Anthony Taylor: like even homework
+
+745
+01:12:20.450 --> 01:12:21.530
+Anthony Taylor: or something.
+
+746
+01:12:22.050 --> 01:12:30.379
+Anthony Taylor: Alright. So we have a cool little doc. This is good. By the way, I love that they put a docstring in here tells what we're gonna do.
+
+747
+01:12:30.740 --> 01:12:34.249
+Anthony Taylor: We're going to grab the stop words from English.
+
+748
+01:12:34.640 --> 01:12:39.630
+Anthony Taylor: We've already seen those. We don't really need to output those again. We're gonna create a
+
+749
+01:12:40.160 --> 01:12:42.879
+Anthony Taylor: pretty much. Only letters and spaces.
+
+750
+01:12:43.540 --> 01:12:46.910
+Anthony Taylor: And then we're going to sub it in.
+
+751
+01:12:48.010 --> 01:12:52.200
+Anthony Taylor: And then we're going to word tokenize
+
+752
+01:12:52.710 --> 01:12:54.230
+Anthony Taylor: all of our words.
+
+753
+01:12:54.760 --> 01:12:58.379
+Anthony Taylor: And then we're going to do a list comprehension
+
+754
+01:12:58.520 --> 01:13:03.949
+Anthony Taylor: again, we're going to do for every word in our words, our token words.
+
+755
+01:13:04.110 --> 01:13:14.159
+Anthony Taylor: if you know, lowercase it, and if it's not in our stop words. We're going to output the lowercase version of it to there
+
+756
+01:13:14.670 --> 01:13:16.229
+Anthony Taylor: and then we're going to return it.
+
+757
+01:13:16.560 --> 01:13:25.149
+Clayton Graves: I absolutely mauled this whole thing. So it was unrecognizable and unworkable. But does it make sense as I described it?
+
+758
+01:13:25.680 --> 01:13:34.749
+Anthony Taylor: This does. Yes, okay, good. Alright. So because we did a return, you're gonna want to create a variable.
+
+759
+01:13:35.020 --> 01:13:42.540
+Anthony Taylor: And you're gonna call your cool, new function, and you're gonna pass in your article. And then why are we doing set here?
+
+760
+01:13:48.490 --> 01:13:53.570
+Derek Rikke: Get rid of duplicate words. Get rid of duplicates. Now I will tell you.
+
+761
+01:13:54.360 --> 01:14:05.290
+Anthony Taylor: This is going to give us unique words. This isn't really what you always want in Nlp, but for what we're doing, we just wanted to see it. So we didn't get like a billion words.
+
+762
+01:14:05.620 --> 01:14:10.699
+Anthony Taylor: Okay. but because we told it to become a set. It removed all the Duke
+
+763
+01:14:11.660 --> 01:14:14.020
+Anthony Taylor: you could have just printed out
+
+764
+01:14:14.220 --> 01:14:16.110
+Anthony Taylor: the whole thing if you really wanted to.
+
+765
+01:14:16.270 --> 01:14:21.329
+Anthony Taylor: and I will tell you that word count becomes important before this day is over.
+
+766
+01:14:22.680 --> 01:14:23.670
+Anthony Taylor: Alright.
+
+767
+01:14:24.790 --> 01:14:25.670
+Anthony Taylor: Okay.
+
+768
+01:14:26.250 --> 01:14:34.120
+Anthony Taylor: here we're gonna do it again. But this time we're gonna add our own custom words. It's not a whole lot. What? Here's one thing I would change in this, though.
+
+769
+01:14:34.240 --> 01:14:39.930
+Anthony Taylor: if if you wanted to do this for any article.
+
+770
+01:14:41.770 --> 01:14:44.650
+Anthony Taylor: I would actually make this
+
+771
+01:14:44.770 --> 01:14:46.949
+Anthony Taylor: an argument to the function
+
+772
+01:14:48.860 --> 01:15:01.669
+Anthony Taylor: right? And then you would do it outside the function. Because then you could pass in any article with specific extra, you know, using my example before all those tweets with that virgin America in it.
+
+773
+01:15:01.900 --> 01:15:10.390
+Anthony Taylor: or Virgin Atlantic, or whatever the heck. It was right you could pass in all those tweets as an article comma, and then say, add.
+
+774
+01:15:10.630 --> 01:15:26.389
+Anthony Taylor: you know, or put in a set that includes that virgin planet, and then it would automatically remove it, and you wouldn't have to hard-coded in function any opportunity. So, guys, when you're writing functions, I know this goes way back. But I do this. I mean, I write.
+
+775
+01:15:26.750 --> 01:15:31.779
+Anthony Taylor: I don't know. I write functions 3, 4, 5, 6 times a day, most days. Okay.
+
+776
+01:15:32.090 --> 01:15:40.330
+Anthony Taylor: when you write a function, and as you get more senior. So you guys can start right now and be senior. Ish.
+
+777
+01:15:40.820 --> 01:15:42.650
+Anthony Taylor: okay?
+
+778
+01:15:42.840 --> 01:15:54.259
+Anthony Taylor: anything that is specific to one thing you want to see if you can take it out of the function, otherwise that function is only good for one thing.
+
+779
+01:15:55.020 --> 01:16:01.110
+Anthony Taylor: Now, why do we write functions so we can reuse the logic on many things.
+
+780
+01:16:01.350 --> 01:16:02.330
+Anthony Taylor: So
+
+781
+01:16:02.960 --> 01:16:05.809
+Anthony Taylor: if if something like this is doesn't make sense
+
+782
+01:16:07.490 --> 01:16:16.990
+Anthony Taylor: right, it just doesn't make sense. To put inside of this function would be much better to put it outside and make it an argument. And now you have something you can reuse.
+
+783
+01:16:18.280 --> 01:16:23.660
+Anthony Taylor: Okay, but that's alright. It's still showing you how to do it. So let's run that.
+
+784
+01:16:24.010 --> 01:16:29.489
+Anthony Taylor: and then let's run and see the result. Pretty much the same result, except we removed
+
+785
+01:16:29.790 --> 01:16:31.550
+Anthony Taylor: these additional words
+
+786
+01:16:33.080 --> 01:16:35.109
+Anthony Taylor: exciting questions.
+
+787
+01:16:36.440 --> 01:16:37.810
+Anthony Taylor: nay.
+
+788
+01:16:39.950 --> 01:16:44.300
+Anthony Taylor: alright! Break time. Come back 40 min after. Please
+
+789
+01:16:45.070 --> 01:16:47.940
+Anthony Taylor: wait yeah, 40 min. right.
+
+790
+01:16:49.570 --> 01:16:50.680
+Anthony Taylor: I'll see you there.
+
+791
+01:16:54.920 --> 01:17:00.930
+Anthony Taylor: I'm all back. The golly! All were just sitting there behind your empty camera.
+
+792
+01:17:02.700 --> 01:17:05.589
+Anthony Taylor: because it's like, but everybody appears
+
+793
+01:17:07.330 --> 01:17:11.869
+Anthony Taylor: okay. We're gonna jump right back in and actually looking at it.
+
+794
+01:17:12.360 --> 01:17:15.280
+Anthony Taylor: running a little by. So I'll pick it up a little bit
+
+795
+01:17:16.690 --> 01:17:21.090
+Anthony Taylor: alright. So the next part of our Nlp processing
+
+796
+01:17:21.450 --> 01:17:22.950
+Anthony Taylor: will be
+
+797
+01:17:22.990 --> 01:17:35.599
+Anthony Taylor:  well, primarily focused on getting our root work. Okay? So there's 2 things that we do, we do stemming.
+
+798
+01:17:35.660 --> 01:17:44.360
+Anthony Taylor: So this is going to get the root where the the the stem or the root form. So if you look at the example jumps, jumping, a jump will all be stemmed
+
+799
+01:17:44.640 --> 01:17:45.580
+Anthony Taylor: to jump
+
+800
+01:17:46.320 --> 01:17:48.419
+Masarirambi, Rodney: pretty easy. Supposed to be sharing the screen.
+
+801
+01:17:49.590 --> 01:17:50.610
+Anthony Taylor: I'm sorry.
+
+802
+01:17:50.650 --> 01:17:52.300
+Masarirambi, Rodney: Sharing screen
+
+803
+01:17:53.580 --> 01:17:57.729
+Anthony Taylor: am I sharing? Am I not sharing it?
+
+804
+01:17:57.870 --> 01:18:04.450
+Anthony Taylor: Will die. I was so excited because I thought I was. So I need to fix my sound, too.
+
+805
+01:18:09.430 --> 01:18:10.370
+Anthony Taylor: There we go.
+
+806
+01:18:10.610 --> 01:18:15.559
+Anthony Taylor: Okay. So so here you go, for example, jumps, jumping and jump. We'll all be spend
+
+807
+01:18:15.850 --> 01:18:18.560
+Anthony Taylor: to jump. Okay.
+
+808
+01:18:18.710 --> 01:18:26.099
+Anthony Taylor:  other examples. Boats voting voter. We're looking for that route
+
+809
+01:18:26.300 --> 01:18:37.340
+Anthony Taylor: word. Now, I'm gonna show you another situation. Oh, well, here's some rules. Okay. So if you have a plural that's and like kisses
+
+810
+01:18:38.450 --> 01:18:40.170
+Anthony Taylor: would become just kissed.
+
+811
+01:18:41.410 --> 01:18:43.520
+Anthony Taylor: Movies.
+
+812
+01:18:43.570 --> 01:18:45.169
+Anthony Taylor: No, that's not a good example.
+
+813
+01:18:45.700 --> 01:18:51.500
+Anthony Taylor:  well, maybe because it's just that. And you're silent. So
+
+814
+01:18:53.650 --> 01:18:54.970
+so just be, maybe.
+
+815
+01:18:55.410 --> 01:19:02.769
+Anthony Taylor: And then ss, is still ss, and then a single S is just singular. So it doesn't worry about okay. So stemming.
+
+816
+01:19:02.880 --> 01:19:05.270
+Anthony Taylor: it's one way we get to the root word.
+
+817
+01:19:05.280 --> 01:19:08.740
+Anthony Taylor: The other one is lemmatization.
+
+818
+01:19:09.590 --> 01:19:23.880
+Anthony Taylor: Now. stemming is. it's really hard. And and they're examples of terror. Okay. reducing words to their base or root form, for example, base form of walking walked and walks walk
+
+819
+01:19:24.270 --> 01:19:27.500
+Anthony Taylor: well, you could say the same thing about jumping jumps and jumped
+
+820
+01:19:28.100 --> 01:19:35.950
+Anthony Taylor: right. What we're usually looking for in lemmatization is more like words that have
+
+821
+01:19:36.060 --> 01:19:38.180
+Anthony Taylor: a different plural.
+
+822
+01:19:38.580 --> 01:19:40.719
+Anthony Taylor: For instance, goose and geese.
+
+823
+01:19:42.330 --> 01:19:47.119
+Anthony Taylor: Okay. for that to get the base word, the base word is still goose.
+
+824
+01:19:49.090 --> 01:19:57.719
+Anthony Taylor: but because it's not it. Stemming isn't sophisticated enough to figure that out while lemmatization is, which, of course, means
+
+825
+01:19:57.770 --> 01:19:59.029
+Anthony Taylor: that what
+
+826
+01:20:01.140 --> 01:20:06.820
+Anthony Taylor: it's going to take more computational power. not the end of the world. Alright.
+
+827
+01:20:07.120 --> 01:20:10.180
+So let's go see how this done.
+
+828
+01:20:11.040 --> 01:20:18.000
+Anthony Taylor: The good news is is it's pretty similar to everything else we've done.
+
+829
+01:20:20.040 --> 01:20:28.029
+Anthony Taylor: Oh, here's our stemming example. First. So for this, we're gonna use porter, Stemmer from the natural language toolkit.
+
+830
+01:20:28.420 --> 01:20:31.900
+Anthony Taylor: Okay. we're going to create an instance of it.
+
+831
+01:20:32.510 --> 01:20:36.930
+Anthony Taylor: Let's just create 11. A bunch of words in different tenses.
+
+832
+01:20:37.570 --> 01:20:42.590
+Anthony Taylor: Okay? And what it should do is
+
+833
+01:20:42.930 --> 01:20:47.330
+Anthony Taylor: output all of those words, their actual. Now.
+
+834
+01:20:48.480 --> 01:20:53.369
+Anthony Taylor: this is actually really good. Right? It did drive. It. Did. Driver. Oh, wait.
+
+835
+01:20:53.790 --> 01:20:57.459
+Anthony Taylor: Yeah. Okay. Now, the snowball Stemmer.
+
+836
+01:21:00.990 --> 01:21:04.280
+Anthony Taylor: did we not use? We didn't we? Yeah, just use that hold on one sec
+
+837
+01:21:05.110 --> 01:21:11.380
+Anthony Taylor: package and other fantasies. Following code shown. good
+
+838
+01:21:15.520 --> 01:21:17.360
+Anthony Taylor: driving is a noun.
+
+839
+01:21:18.410 --> 01:21:26.830
+Anthony Taylor: which is an interesting thing. But it could also be other things. So we're Gonna do the same process with Snowball Stemmer.
+
+840
+01:21:27.080 --> 01:21:38.279
+Anthony Taylor: But it's more aggressive. Okay, so this is just another Stemmer. The difference between this one is, it can do other languages. Maybe you can do that one you mentioned, Brad.
+
+841
+01:21:39.040 --> 01:21:45.040
+Anthony Taylor: So we can run this guy and run, it might see
+
+842
+01:21:45.320 --> 01:21:47.450
+Anthony Taylor: some differences.
+
+843
+01:21:48.330 --> 01:21:53.509
+Clayton Graves: I'm confused. Why didn't it reduce? Driven to drive as well? Because
+
+844
+01:21:54.360 --> 01:22:02.929
+Anthony Taylor: that's a good question. And that could just be because, as a step, and the Stemmer itself may not be doing that. But the and we'll check that out.
+
+845
+01:22:03.520 --> 01:22:06.179
+Anthony Taylor: See? Because this one didn't do it either.
+
+846
+01:22:07.090 --> 01:22:09.649
+Anthony Taylor: Okay? And didn't I mean it
+
+847
+01:22:10.120 --> 01:22:17.490
+Anthony Taylor: again? The idea behind one thing, one thing I do want to point out. Look at what it did was easily.
+
+848
+01:22:21.830 --> 01:22:24.089
+Anthony Taylor: You guys see what it did with easily there.
+
+849
+01:22:25.110 --> 01:22:28.209
+Anthony Taylor: it actually changed it
+
+850
+01:22:28.830 --> 01:22:32.250
+Anthony Taylor: to like using a vowel instead of the Y
+
+851
+01:22:32.520 --> 01:22:38.820
+Anthony Taylor: alright. Now, we all know that that's not the proper spelling, but fanatically the computer likes this better.
+
+852
+01:22:39.560 --> 01:22:40.570
+Anthony Taylor: Okay.
+
+853
+01:22:40.630 --> 01:22:48.130
+Anthony Taylor: so here's a sentence. The foxes walked into the boxes. We're going to tokenize it, and then do a Stemmer.
+
+854
+01:22:48.180 --> 01:22:49.880
+Anthony Taylor: and what do we end up with?
+
+855
+01:22:49.900 --> 01:22:59.739
+Anthony Taylor: The fox walked into the box. It got rid of Fox says, and Box says. Okay, now, before we get back to this, let's look at limitation.
+
+856
+01:23:00.070 --> 01:23:07.569
+Anthony Taylor: So this one word net lemmatizer. Bring in a couple of things here.
+
+857
+01:23:11.050 --> 01:23:13.030
+Anthony Taylor: We're going to initialize.
+
+858
+01:23:14.130 --> 01:23:17.439
+Anthony Taylor: and then we're going to do boxes and geese.
+
+859
+01:23:17.800 --> 01:23:23.380
+Anthony Taylor: and you can see that it figures out that box, and you know we should put driven in there.
+
+860
+01:23:23.570 --> 01:23:25.610
+Anthony Taylor: Let's see what driven if driven works.
+
+861
+01:23:28.090 --> 01:23:30.810
+Anthony Taylor: Nope, driven still comes up that way. Darn it!
+
+862
+01:23:31.290 --> 01:23:36.969
+Anthony Taylor:  We can also do past tense with limitives.
+
+863
+01:23:37.240 --> 01:23:40.649
+Anthony Taylor: so we can do greater and boxed.
+
+864
+01:23:46.670 --> 01:23:48.969
+Anthony Taylor: I'm not sure why that didn't go where it should have gone.
+
+865
+01:23:51.330 --> 01:23:52.960
+Anthony Taylor: Going to reinitialize it.
+
+866
+01:23:54.960 --> 01:23:58.399
+Anthony Taylor: I actually expect that to come up with fox and grate.
+
+867
+01:24:00.320 --> 01:24:01.620
+Anthony Taylor: A
+
+868
+01:24:07.860 --> 01:24:08.920
+Anthony Taylor: interesting
+
+869
+01:24:10.130 --> 01:24:11.180
+Anthony Taylor: okay?
+
+870
+01:24:11.430 --> 01:24:24.169
+Anthony Taylor:  oh. interesting. Okay. So the past ends of a word indicates part of speech as a verb. and this one as an adjective
+
+871
+01:24:24.570 --> 01:24:27.860
+Anthony Taylor: if we tell it, that's what it is.
+
+872
+01:24:28.470 --> 01:24:30.980
+Anthony Taylor: I got it now. Okay.
+
+873
+01:24:31.360 --> 01:24:32.980
+boxed itself
+
+874
+01:24:33.270 --> 01:24:34.570
+Anthony Taylor: can be
+
+875
+01:24:34.940 --> 01:24:44.679
+Anthony Taylor:  something else. Right? So this is the the lambetization of the past tense of the adjective of a word.
+
+876
+01:24:44.990 --> 01:24:46.589
+Anthony Taylor: If we tell it.
+
+877
+01:24:47.000 --> 01:24:49.099
+Anthony Taylor: we want the verb
+
+878
+01:24:49.150 --> 01:24:55.110
+Anthony Taylor: lemmatize, it'll come up as fox, and in this case. Just the
+
+879
+01:24:55.330 --> 01:25:01.080
+Anthony Taylor: adjective of a word indicates part of speech is an adjective. It comes up with rate.
+
+880
+01:25:01.650 --> 01:25:03.250
+Clayton Graves: Okay.
+
+881
+01:25:03.820 --> 01:25:08.320
+Anthony Taylor: I'm not sure why Great didn't come up here, but for sure we can force it.
+
+882
+01:25:08.460 --> 01:25:09.640
+Clayton Graves: English.
+
+883
+01:25:10.750 --> 01:25:11.870
+Anthony Taylor: English.
+
+884
+01:25:14.300 --> 01:25:18.450
+Anthony Taylor: Yes, sir, hey, Anthony? Yes. So
+
+885
+01:25:19.350 --> 01:25:24.409
+Baro, Sonja: I guess where I'm struggling with this on on this particular example is.
+
+886
+01:25:24.680 --> 01:25:46.160
+Baro, Sonja: are W. Do you have to do this and specify for every scenario whether it's a verb and additive and adverb all of that I mean, that that seems a lot ideally work it it absolutely. So you would do this when the result doesn't come up the way you expect
+
+887
+01:25:46.760 --> 01:25:51.929
+Anthony Taylor: right? For the most part, you would probably your pro for the most part not. Probably
+
+888
+01:25:51.970 --> 01:25:58.049
+Anthony Taylor: we would either. We would stem so in the past I just used stimming.
+
+889
+01:25:58.080 --> 01:26:03.319
+Anthony Taylor: but you would use stemming and limit station or limitization, because limitation
+
+890
+01:26:03.330 --> 01:26:06.590
+Anthony Taylor: does pretty much the same thing as stemming a little better.
+
+891
+01:26:06.700 --> 01:26:09.950
+Anthony Taylor: Okay? And you would
+
+892
+01:26:11.930 --> 01:26:16.890
+Anthony Taylor: if if you have a weird output. Then you would have to go get a little more specific.
+
+893
+01:26:18.130 --> 01:26:23.040
+Anthony Taylor: Alright, but for the most part you're gonna be fine just using it as
+
+894
+01:26:23.500 --> 01:26:26.559
+Anthony Taylor: alright. So using it with an actual sentence.
+
+895
+01:26:27.020 --> 01:26:34.359
+Anthony Taylor: we're going to loop through it, levitize each one. The fox walked into the box. See again, you could argue. Well, is that right?
+
+896
+01:26:36.340 --> 01:26:41.709
+Anthony Taylor: Okay. okay, might be it might not. I would try it. I would. Probably.
+
+897
+01:26:43.350 --> 01:26:46.290
+Anthony Taylor: Okay. because that's a tense.
+
+898
+01:26:47.740 --> 01:26:52.820
+Anthony Taylor: I don't have a problem with that alright. alright!
+
+899
+01:26:56.890 --> 01:27:01.960
+Anthony Taylor: I don't want us to run out of time, so we're going to do this next one as an everyone do real quick!
+
+900
+01:27:03.490 --> 01:27:06.580
+Anthony Taylor: And then we will.
+
+901
+01:27:09.950 --> 01:27:10.780
+Crap!
+
+902
+01:27:10.910 --> 01:27:15.930
+Anthony Taylor:  We'll do this next one as and everyone do, and then we'll get back into another lecture
+
+903
+01:27:16.710 --> 01:27:18.480
+Anthony Taylor: just to keep moving.
+
+904
+01:27:20.410 --> 01:27:22.700
+Anthony Taylor: Oh, goodness! 1 s!
+
+905
+01:27:26.040 --> 01:27:29.459
+Anthony Taylor: Wanna make sure I got everything for you
+
+906
+01:27:30.630 --> 01:27:32.490
+Anthony Taylor: that took forever.
+
+907
+01:27:33.990 --> 01:27:34.900
+Anthony Taylor: Alright.
+
+908
+01:27:39.580 --> 01:27:41.480
+Anthony Taylor: So we're gonna bring in
+
+909
+01:27:42.530 --> 01:27:43.670
+Anthony Taylor: moving it.
+
+910
+01:27:44.730 --> 01:27:50.300
+Anthony Taylor: Don't be fun. We're net. Lemmatize the punch sentence toolbar. Okay?
+
+911
+01:27:51.890 --> 01:28:03.459
+Anthony Taylor: So with. got all that good stuff. So here we're simply going to use our wordnet lemmatizer. So we're going to do. Lemmatizer
+
+912
+01:28:04.370 --> 01:28:08.550
+Anthony Taylor: equals wordnet, lemmatizer, and it's an empty.
+
+913
+01:28:08.580 --> 01:28:10.180
+Anthony Taylor: We'll instantiate it.
+
+914
+01:28:10.280 --> 01:28:15.069
+Anthony Taylor: Then we're gonna do S. Stemmer. We're gonna have both of them in here
+
+915
+01:28:15.140 --> 01:28:30.280
+Anthony Taylor: equals Snowball Stemmer. And inside of there we need to make sure we tell it, language equals English. Okay. so that will give us our initial stuff. Oh, look at this.
+
+916
+01:28:30.580 --> 01:28:31.769
+Anthony Taylor: Well, that's handy.
+
+917
+01:28:31.820 --> 01:28:34.689
+Anthony Taylor: So here we're gonna grab Melville's Mogadish.
+
+918
+01:28:35.060 --> 01:28:36.960
+Anthony Taylor: We're going to
+
+919
+01:28:37.030 --> 01:28:45.000
+Anthony Taylor: look for Chapter one of this book. and if it's there we're going to print it.
+
+920
+01:28:47.260 --> 01:28:49.910
+Anthony Taylor: Look at that! The whole first chapter
+
+921
+01:28:50.430 --> 01:28:55.800
+Anthony Taylor: call me Ishmael some years ago. Never mind.
+
+922
+01:28:58.390 --> 01:28:59.220
+Anthony Taylor: Okay.
+
+923
+01:28:59.410 --> 01:29:03.319
+Anthony Taylor: that would have hurt me reading that to my children, because that little bit hurt my throat.
+
+924
+01:29:03.660 --> 01:29:06.450
+Anthony Taylor: All right, anyway. Yes, very.
+
+925
+01:29:06.790 --> 01:29:10.570
+Mason, Natalie: When's your audio book coming out of that?
+
+926
+01:29:10.990 --> 01:29:15.099
+I did not read it in that voice when I had to.
+
+927
+01:29:15.590 --> 01:29:20.009
+Anthony Taylor: Would it have been that voice? I would think it would be that I think it should be, for sure.
+
+928
+01:29:20.590 --> 01:29:23.829
+Anthony Taylor: But it's it's fiction. I don't read fiction. Mine would be
+
+929
+01:29:23.940 --> 01:29:27.460
+Anthony Taylor: today. Regard those vegetation.
+
+930
+01:29:30.010 --> 01:29:35.700
+Anthony Taylor: anyway. Okay, so here we're gonna write a little function
+
+931
+01:29:35.710 --> 01:29:38.210
+Anthony Taylor: to do all of our fun
+
+932
+01:29:38.470 --> 01:29:39.530
+Anthony Taylor: stuff!
+
+933
+01:29:39.740 --> 01:29:42.790
+Anthony Taylor: Holy, Moly! That chapter is actually pretty long.
+
+934
+01:29:45.480 --> 01:29:47.049
+Anthony Taylor: You know how you could tell right
+
+935
+01:29:48.590 --> 01:29:49.660
+Anthony Taylor: click on that.
+
+936
+01:29:51.130 --> 01:29:54.009
+Anthony Taylor: Look at that! That's long chapter.
+
+937
+01:29:56.190 --> 01:29:58.170
+Anthony Taylor: Oh, wait! That's the whole flipping thing.
+
+938
+01:29:59.570 --> 01:30:04.310
+Anthony Taylor: That's the whole book. By the way, if anybody's curious or wants it
+
+939
+01:30:04.460 --> 01:30:10.680
+Anthony Taylor: cause I know I thought it was the coolest thing ever I do have the entire script
+
+940
+01:30:11.500 --> 01:30:15.370
+Anthony Taylor: a Princess bride available for an lp, if
+
+941
+01:30:15.610 --> 01:30:16.410
+you know.
+
+942
+01:30:16.960 --> 01:30:18.640
+Clayton Graves: Inconceivable.
+
+943
+01:30:19.230 --> 01:30:21.689
+Anthony Taylor: That is one of the stop words
+
+944
+01:30:22.180 --> 01:30:27.110
+Anthony Taylor: that you should use when doing an lp, or that one.
+
+945
+01:30:27.570 --> 01:30:34.379
+Meredith McCanse (she/her): So, Anthony, does that mean that the filter to match Chapter one didn't work?
+
+946
+01:30:36.490 --> 01:30:39.999
+Anthony Taylor: It just gave us more than that, that's all.
+
+947
+01:30:40.740 --> 01:30:42.649
+Anthony Taylor: It just it just gave us more.
+
+948
+01:30:42.900 --> 01:30:49.920
+Dipinto, Matt: It is searching for chapter.
+
+949
+01:30:51.190 --> 01:30:52.240
+Meredith McCanse (she/her): Okay.
+
+950
+01:30:54.650 --> 01:30:56.660
+Anthony Taylor: what the heck is going on here. Hold on.
+
+951
+01:31:00.890 --> 01:31:03.940
+Anthony Taylor: Oh, oh, hmm, okay.
+
+952
+01:31:05.360 --> 01:31:07.040
+Anthony Taylor: there we go.
+
+953
+01:31:10.090 --> 01:31:23.830
+Anthony Taylor: I think I went too far. Process text stemming. All right. Okay. So first thing we're gonna do is grab our stop port. So we're gonna do SW equals. And then again, we're going to do set
+
+954
+01:31:24.800 --> 01:31:26.090
+Anthony Taylor: and
+
+955
+01:31:26.530 --> 01:31:31.890
+Anthony Taylor: pass in our stop words dot words and tell it. We want English.
+
+956
+01:31:33.670 --> 01:31:36.610
+Anthony Taylor: And then we're going to do our Reg X.
+
+957
+01:31:37.540 --> 01:31:40.890
+Anthony Taylor: Let's just create our pattern. We're gonna compile.
+
+958
+01:31:41.950 --> 01:31:50.210
+Anthony Taylor: And there's the same pattern we've been using all day. It's gonna be square brackets. not
+
+959
+01:31:51.660 --> 01:31:56.000
+Anthony Taylor: little a to little Z big a to big Z
+
+960
+01:31:56.920 --> 01:31:58.050
+Anthony Taylor: space
+
+961
+01:32:00.260 --> 01:32:02.050
+Anthony Taylor: and
+
+962
+01:32:04.110 --> 01:32:09.799
+Anthony Taylor: very clean equals Regex dot sub. But
+
+963
+01:32:10.350 --> 01:32:13.320
+Anthony Taylor: and we're going to take out.
+
+964
+01:32:13.360 --> 01:32:15.449
+Anthony Taylor: press it with a space.
+
+965
+01:32:16.860 --> 01:32:18.529
+Anthony Taylor: And we're gonna use
+
+966
+01:32:20.480 --> 01:32:22.420
+Anthony Taylor: the book that we're gonna pass it.
+
+967
+01:32:23.570 --> 01:32:24.390
+Anthony Taylor: Okay.
+
+968
+01:32:25.700 --> 01:32:28.200
+Next, we're gonna do words
+
+969
+01:32:28.460 --> 01:32:32.809
+Anthony Taylor: equals. we're tokenize
+
+970
+01:32:33.220 --> 01:32:37.170
+Anthony Taylor: re clean. So we're going to pass this into that.
+
+971
+01:32:38.200 --> 01:32:45.580
+Anthony Taylor: Now we're going to stem our words. So we're gonna do, Ed. And then here we're gonna do
+
+972
+01:32:47.590 --> 01:32:50.449
+Anthony Taylor: for word in.
+
+973
+01:32:55.070 --> 01:32:57.760
+Anthony Taylor: Oh, wait! Where am I? Forward? And words.
+
+974
+01:32:59.640 --> 01:33:02.460
+Anthony Taylor: okay, so that's going to take it from those words.
+
+975
+01:33:02.630 --> 01:33:08.180
+Anthony Taylor: And all we wanna do is stem each of those words. So we're gonna say, S
+
+976
+01:33:08.480 --> 01:33:12.420
+Anthony Taylor: underscore stemmer dot stem
+
+977
+01:33:14.130 --> 01:33:15.350
+Anthony Taylor: parentheses work.
+
+978
+01:33:17.220 --> 01:33:26.889
+Anthony Taylor: Okay? Nope. alright. So let's make sure that's what we call our oh, I'm not going way up there hopefully. That's what I call it.
+
+979
+01:33:27.080 --> 01:33:33.820
+Anthony Taylor: Okay. And then the last part of this, we're going to output the lower case of all the words that are left
+
+980
+01:33:33.940 --> 01:33:41.680
+Anthony Taylor: that aren't in our stop words thing. So to do that. Remember, we're going to do list comprehension.
+
+981
+01:33:41.860 --> 01:33:45.680
+Anthony Taylor: Our for loop is going to be for word in
+
+982
+01:33:46.210 --> 01:33:47.200
+scam.
+
+983
+01:33:47.830 --> 01:33:50.630
+Anthony Taylor: We're gonna filter. If we're
+
+984
+01:33:50.880 --> 01:33:52.360
+Anthony Taylor: dot lower.
+
+985
+01:33:53.620 --> 01:33:56.269
+Anthony Taylor: Not in
+
+986
+01:33:56.320 --> 01:33:57.920
+Anthony Taylor: our stop words.
+
+987
+01:33:59.890 --> 01:34:02.580
+Anthony Taylor: We want to get the lower version of that work.
+
+988
+01:34:04.640 --> 01:34:05.470
+Anthony Taylor: Okay?
+
+989
+01:34:06.510 --> 01:34:08.160
+Anthony Taylor: And then we'll return out.
+
+990
+01:34:11.960 --> 01:34:13.140
+Anthony Taylor: There you go.
+
+991
+01:34:13.490 --> 01:34:18.309
+Anthony Taylor: So there's our first function. So all we added to our old function. Is that
+
+992
+01:34:20.350 --> 01:34:21.570
+Anthony Taylor: pretty much? Huh?
+
+993
+01:34:22.440 --> 01:34:26.709
+Anthony Taylor: Okay, so here, let's print this out print set.
+
+994
+01:34:27.560 --> 01:34:29.700
+Anthony Taylor: and we'll do process
+
+995
+01:34:29.960 --> 01:34:31.830
+Anthony Taylor: text stemming
+
+996
+01:34:31.940 --> 01:34:34.760
+Anthony Taylor: and pass in Moby Dick.
+
+997
+01:34:37.820 --> 01:34:41.839
+Anthony Taylor: And there you go? Oh, gravy air drops
+
+998
+01:34:45.700 --> 01:34:49.650
+Anthony Taylor: that sounded weird sounded like Ren and Stimpy or something.
+
+999
+01:34:49.760 --> 01:34:52.560
+Anthony Taylor: Okay. So now we're gonna do the same thing
+
+1000
+01:34:54.350 --> 01:34:55.470
+Anthony Taylor: except
+
+1001
+01:34:56.070 --> 01:35:00.209
+Anthony Taylor: and and and guys, I'm I'm just gonna grab this
+
+1002
+01:35:03.250 --> 01:35:06.090
+Anthony Taylor: and replace to there
+
+1003
+01:35:08.050 --> 01:35:09.800
+Anthony Taylor: a.
+
+1004
+01:35:09.950 --> 01:35:12.550
+yeah. Yeah.
+
+1005
+01:35:13.090 --> 01:35:22.970
+Anthony Taylor: Okay. So this way, all we have to do is come up with, there is a lot of words there, guys.
+
+1006
+01:35:23.370 --> 01:35:24.390
+Anthony Taylor: Okay.
+
+1007
+01:35:24.440 --> 01:35:27.630
+Anthony Taylor: all we gotta do is the lamentation
+
+1008
+01:35:29.040 --> 01:35:32.230
+Anthony Taylor: I want to say, Lemmings. what is that from?
+
+1009
+01:35:33.530 --> 01:35:40.630
+michael mcpherson: I know it's from something that's an animal that likes to run off a live all together. Think Shakespeare
+
+1010
+01:35:40.740 --> 01:35:42.560
+Clayton Graves: was also a video game.
+
+1011
+01:35:43.150 --> 01:35:45.210
+Masarirambi, Rodney: I know it was a video game.
+
+1012
+01:35:46.780 --> 01:35:51.390
+Masarirambi, Rodney: And nobody's actually seen the lemmings jumping off of a cliff. It's
+
+1013
+01:35:51.840 --> 01:35:52.880
+Masarirambi, Rodney: she's not
+
+1014
+01:35:53.210 --> 01:36:02.960
+Masarirambi, Rodney: mandala effect. Yeah, it's it's basically somebody like startup expression. And nobody's actually seen it actually happen, which is fun.
+
+1015
+01:36:04.980 --> 01:36:06.260
+Anthony Taylor: You guys are killing me.
+
+1016
+01:36:07.170 --> 01:36:19.120
+Anthony Taylor: Okay? So to use our lemmatizer that when we we set up at the beginning of all this we're just going to do. Len equals lemmatizer dot lemmatize word for every word in our words.
+
+1017
+01:36:20.070 --> 01:36:26.349
+Anthony Taylor: Tokens. Okay? And then last, it's the same thing that we did before we're going to do output
+
+1018
+01:36:26.550 --> 01:36:32.460
+Anthony Taylor: equals this comprehension pretty forward in Lamb this time.
+
+1019
+01:36:34.080 --> 01:36:36.340
+Anthony Taylor: cause that's the one right above this.
+
+1020
+01:36:36.430 --> 01:36:42.730
+Anthony Taylor: and if word lower. not
+
+1021
+01:36:44.870 --> 01:36:52.940
+Anthony Taylor: in SW. It's if that is true. then we want to take that work
+
+1022
+01:36:55.380 --> 01:36:58.450
+Anthony Taylor: and then return output.
+
+1023
+01:37:00.110 --> 01:37:03.410
+Anthony Taylor: And last, but not least. we're going to print it
+
+1024
+01:37:13.840 --> 01:37:17.439
+Anthony Taylor: sadly. There's going to be so many words here. It's going to be
+
+1025
+01:37:17.510 --> 01:37:21.779
+Anthony Taylor: very painful to try. Wait. Can we just do that?
+
+1026
+01:37:28.730 --> 01:37:31.360
+Anthony Taylor: Oh, there's one for verbs. Too
+
+1027
+01:37:33.760 --> 01:37:35.050
+Anthony Taylor: interesting
+
+1028
+01:37:35.160 --> 01:37:39.429
+Baro, Sonja: nightmares
+
+1029
+01:37:40.280 --> 01:37:44.870
+Baro, Sonja: cause it was not noun verb adjective or adverb
+
+1030
+01:37:45.940 --> 01:37:47.800
+Baro, Sonja: you have to spell.
+
+1031
+01:37:48.280 --> 01:37:49.620
+Anthony Taylor: Yeah.
+
+1032
+01:37:49.650 --> 01:37:54.010
+Anthony Taylor: okay, so you can kind of see right away. There's some, I mean. Look at these right here at the beginning.
+
+1033
+01:37:54.760 --> 01:37:59.640
+Anthony Taylor: right? We can see there's some non root words there. So let's run that.
+
+1034
+01:38:02.650 --> 01:38:11.589
+Anthony Taylor: and you can't see them as well now. So let's grab pretty much all of this.
+
+1035
+01:38:12.910 --> 01:38:17.100
+Anthony Taylor: and we're gonna take it and make it a little bit different.
+
+1036
+01:38:17.590 --> 01:38:19.240
+Meredith McCanse (she/her): Okay? So I'm gonna
+
+1037
+01:38:19.580 --> 01:38:22.010
+Meredith McCanse (she/her): yes, something like this.
+
+1038
+01:38:22.090 --> 01:38:23.550
+Meredith McCanse (she/her): Do you expect
+
+1039
+01:38:23.730 --> 01:38:25.170
+Meredith McCanse (she/her): that like
+
+1040
+01:38:25.450 --> 01:38:31.449
+Meredith McCanse (she/her): I do it on my computer with the exact same code that you have? I would expect the outcome would be the same
+
+1041
+01:38:31.680 --> 01:38:37.809
+Meredith McCanse (she/her): right cause. The words are they might not be in the same order. Well, they should be more or less.
+
+1042
+01:38:38.640 --> 01:38:41.949
+Anthony Taylor: I would think I don't know. I don't know if the
+
+1043
+01:38:42.420 --> 01:38:53.399
+Anthony Taylor: totally in both of these functions, when we printed the set, I have different words than you do completely, but I would be interested if they're the same like as long as they're the same number of words. We're fine.
+
+1044
+01:38:53.880 --> 01:38:57.660
+Anthony Taylor: alright. So if we do something like
+
+1045
+01:38:58.540 --> 01:38:59.480
+Anthony Taylor: length.
+
+1046
+01:39:01.900 --> 01:39:06.659
+Anthony Taylor: and then this. So we didn't save it to a variable.
+
+1047
+01:39:13.280 --> 01:39:15.160
+Anthony Taylor: So type that.
+
+1048
+01:39:16.430 --> 01:39:20.080
+Anthony Taylor: and see if you get 14,775.
+
+1049
+01:39:21.090 --> 01:39:23.829
+Meredith McCanse (she/her): No, I have like 10,009.
+
+1050
+01:39:26.200 --> 01:39:27.350
+Anthony Taylor: Well.
+
+1051
+01:39:27.650 --> 01:39:30.760
+Anthony Taylor:  Try to think of where that would happen.
+
+1052
+01:39:32.550 --> 01:39:34.879
+Anthony Taylor: And you did use the Moby, Dick one right.
+
+1053
+01:39:34.910 --> 01:39:42.580
+Anthony Taylor: I don't want to scroll all the way back to top. But let's look at that. We could look at that. If you guys what you can check the book at a different section.
+
+1054
+01:39:43.280 --> 01:39:48.899
+Raugewitz, Tania: Oh, well, no, no, no, because I, too, got 10,009.
+
+1055
+01:39:49.400 --> 01:39:51.289
+Anthony Taylor: Okay? Well, maybe I have
+
+1056
+01:39:51.390 --> 01:39:57.370
+Baro, Sonja: 14,000. 14,775.
+
+1057
+01:39:57.480 --> 01:39:58.670
+Baro, Sonja: Yeah, same
+
+1058
+01:39:59.420 --> 01:40:00.380
+Anthony Taylor: interesting.
+
+1059
+01:40:00.680 --> 01:40:10.740
+Anthony Taylor: I I'm not too worried about that, because it's still as long as it's the right book, and it's outputting the words somewhere in there, there's probably something slightly different.
+
+1060
+01:40:10.790 --> 01:40:18.540
+Anthony Taylor:  I'm more worried about the procedure right now. You're good.
+
+1061
+01:40:18.610 --> 01:40:27.530
+Anthony Taylor: Okay. So only difference between the one up above and this one. Okay. is, we're going to add.
+
+1062
+01:40:29.640 --> 01:40:33.880
+Anthony Taylor: Comma DOS equals. R,
+
+1063
+01:40:35.600 --> 01:40:38.380
+Anthony Taylor: that's it. Okay?
+
+1064
+01:40:38.440 --> 01:40:41.169
+Anthony Taylor: And that, you know.
+
+1065
+01:40:43.700 --> 01:40:49.040
+Anthony Taylor: Tell it to also lemmatize the adverbs to their root words.
+
+1066
+01:40:49.540 --> 01:40:51.679
+Anthony Taylor: Okay, so we can run that.
+
+1067
+01:40:52.260 --> 01:40:59.389
+Anthony Taylor: And then here it's pretty much the same one as up above here. It's branch set.
+
+1068
+01:40:59.820 --> 01:41:02.210
+Anthony Taylor: What we call this one
+
+1069
+01:41:03.430 --> 01:41:05.220
+Anthony Taylor: tax limitization.
+
+1070
+01:41:05.910 --> 01:41:08.950
+Anthony Taylor: No process. Did I run that cell?
+
+1071
+01:41:12.030 --> 01:41:15.820
+Anthony Taylor: That's funny. They called it the same thing. Oh, well. okay.
+
+1072
+01:41:18.090 --> 01:41:22.029
+Anthony Taylor:  right to see.
+
+1073
+01:41:25.770 --> 01:41:31.540
+Anthony Taylor: Okay? And then. Now there's all of the adverbs should also be done.
+
+1074
+01:41:31.770 --> 01:41:36.059
+Anthony Taylor: So you don't have to identify all of them. You could just say, I want all adverbs also. Good.
+
+1075
+01:41:37.480 --> 01:41:39.619
+Clayton Graves: II still don't understand.
+
+1076
+01:41:40.610 --> 01:41:52.330
+Clayton Graves: Why. Why is it wailing and not real? Why is it confidentially, confidentially, and not confidential? Well, our privileges not privilege extract. It is not cracked.
+
+1077
+01:41:53.300 --> 01:41:58.680
+Anthony Taylor: II I'm not gonna argue with you. There, not gonna lie. We. I have always
+
+1078
+01:41:58.840 --> 01:42:01.479
+Anthony Taylor: take an issue with this, but it
+
+1079
+01:42:01.920 --> 01:42:08.510
+Anthony Taylor: for the most part it does enough that we're okay with it. Okay,
+
+1080
+01:42:09.380 --> 01:42:16.240
+Anthony Taylor: this is another thing. They've gotten better these days, that. But this, these models that were these toolkits that were using.
+
+1081
+01:42:16.620 --> 01:42:20.349
+Anthony Taylor: it's doing, I mean, if we compare Trustee, it's different.
+
+1082
+01:42:20.570 --> 01:42:21.440
+Anthony Taylor: But
+
+1083
+01:42:21.910 --> 01:42:31.359
+Anthony Taylor: clearly there are some that don't make a lot of sense. And that's okay, too. Okay, as long as it's long as we go through the step, we know we've done
+
+1084
+01:42:31.450 --> 01:42:32.619
+Anthony Taylor: what we can do.
+
+1085
+01:42:33.170 --> 01:42:34.740
+Anthony Taylor: Okay? So
+
+1086
+01:42:34.790 --> 01:42:36.119
+Anthony Taylor: we're going to go with that
+
+1087
+01:42:36.780 --> 01:42:40.200
+Anthony Taylor: alright grams.
+
+1088
+01:42:42.070 --> 01:42:44.120
+Anthony Taylor: So the Latin?
+
+1089
+01:42:44.610 --> 01:42:49.500
+Anthony Taylor: Well, not really the last part. But now we're gonna start talking about frequency.
+
+1090
+01:42:49.620 --> 01:43:05.150
+Anthony Taylor: Okay? So when we look at a document. So so we're doing natural language processing. And we have the book. Okay, and we want to put, we want to basically, what we're going to end up doing is assigning weights.
+
+1091
+01:43:06.390 --> 01:43:08.240
+Anthony Taylor: Alright. Now
+
+1092
+01:43:08.600 --> 01:43:10.110
+Anthony Taylor: in Moby Dick
+
+1093
+01:43:12.840 --> 01:43:15.420
+Anthony Taylor: does the term fish
+
+1094
+01:43:16.790 --> 01:43:18.150
+Anthony Taylor: or whale
+
+1095
+01:43:18.240 --> 01:43:20.640
+Anthony Taylor: hold a lot of
+
+1096
+01:43:20.900 --> 01:43:25.250
+Anthony Taylor: carry a lot of weight in the book. The overall book, yes.
+
+1097
+01:43:25.450 --> 01:43:27.350
+Anthony Taylor: but in a single
+
+1098
+01:43:27.470 --> 01:43:37.750
+Anthony Taylor: paragraph or a single chapter it said so many times across so many paragraphs, that the weight of it's gonna draw
+
+1099
+01:43:39.020 --> 01:43:45.590
+Anthony Taylor: right? Because it doesn't doesn't mean anything anymore. It gives me no, we. It's like, alright. I know it's about a fish move on.
+
+1100
+01:43:46.540 --> 01:43:56.149
+Anthony Taylor: Okay, so and Nlp is going to actually lower that weight. So to do all of this, to determine all of this, it's actually going to count every single word.
+
+1101
+01:43:57.580 --> 01:44:02.730
+Anthony Taylor: and then give us a count that the that the model will end up using
+
+1102
+01:44:02.820 --> 01:44:14.240
+Anthony Taylor: so words and phrases to uncover patterns and themes within the text or corpus by prioritizing frequently occurring terms while excluding stop words. You'll have a good idea of what the document's about.
+
+1103
+01:44:14.580 --> 01:44:18.390
+Anthony Taylor: Okay, we'll see fish or whatever fishing are high up there.
+
+1104
+01:44:18.570 --> 01:44:30.569
+Anthony Taylor: But we're then going to go back like I said, we're going to go back and look okay. It's there a lot. So it must be important. But then we're going to go back and look at the whole corpus and go. Oh, but it's literally everywhere.
+
+1105
+01:44:31.170 --> 01:44:34.639
+Anthony Taylor: So maybe it's not that important. It's literally an inverse relationship.
+
+1106
+01:44:36.380 --> 01:44:39.739
+Anthony Taylor: An Ingram is basically a phrase.
+
+1107
+01:44:40.870 --> 01:44:48.150
+Anthony Taylor: Now. here's the problem with that in Nlp in the original. In lp. it was just a number.
+
+1108
+01:44:49.060 --> 01:44:57.149
+Anthony Taylor: so we can say 2 words, a diagram. but it would just pair up. 2 words didn't mean it didn't matter if they meant anything together.
+
+1109
+01:44:58.500 --> 01:44:59.640
+Anthony Taylor: Okay.
+
+1110
+01:45:00.700 --> 01:45:03.579
+but it would pick. But every 2 words would come in
+
+1111
+01:45:03.660 --> 01:45:10.920
+Anthony Taylor: a trigram. You know, all of these different things. Just try different things. And here you can be an example. Okay.
+
+1112
+01:45:11.380 --> 01:45:14.829
+Anthony Taylor: it basically, instead of splitting on
+
+1113
+01:45:14.920 --> 01:45:21.649
+Anthony Taylor: well, single words it would use like for a by grip. This is is a a sentence.
+
+1114
+01:45:24.010 --> 01:45:28.200
+Anthony Taylor: Okay? And the trigrams, even this is they invite.
+
+1115
+01:45:30.630 --> 01:45:34.350
+Anthony Taylor: Does that help, or does it hurt? I don't know. Okay.
+
+1116
+01:45:34.660 --> 01:45:43.200
+Anthony Taylor:  so don't get this confused, because later, you guys are going to learn that whole attention thing where it looks at
+
+1117
+01:45:43.470 --> 01:45:46.000
+Anthony Taylor: things in front of it and things behind it
+
+1118
+01:45:46.060 --> 01:45:52.059
+Anthony Taylor: and comes up with a context. This is not context. This is simply
+
+1119
+01:45:52.520 --> 01:45:53.700
+Anthony Taylor: location.
+
+1120
+01:45:53.890 --> 01:45:55.550
+Anthony Taylor: It's it's
+
+1121
+01:45:56.660 --> 01:45:59.420
+Anthony Taylor: it's it's geography.
+
+1122
+01:45:59.440 --> 01:46:02.590
+Anthony Taylor: Right? It's just these are the words around me.
+
+1123
+01:46:03.720 --> 01:46:06.510
+Anthony Taylor: but it has no idea if those words help it or permit.
+
+1124
+01:46:07.420 --> 01:46:10.710
+Anthony Taylor: Okay, so let's learn how to do
+
+1125
+01:46:10.990 --> 01:46:12.110
+Anthony Taylor: that.
+
+1126
+01:46:15.580 --> 01:46:25.380
+Anthony Taylor:  okay. So for Ingram, we got a new util, a new tool
+
+1127
+01:46:25.620 --> 01:46:26.870
+Anthony Taylor: in grams.
+
+1128
+01:46:27.840 --> 01:46:30.840
+Anthony Taylor: Now, notice, we keep. Just add, okay.
+
+1129
+01:46:31.020 --> 01:46:36.380
+Anthony Taylor:  the very last one is just going to do. Oh, no, this is, we're almost the last one. Good.
+
+1130
+01:46:36.560 --> 01:46:38.620
+Anthony Taylor: Okay. So
+
+1131
+01:46:38.660 --> 01:46:47.609
+Anthony Taylor: we got our Lametizer. We're going to return all the categories we're going to get. Cpi.
+
+1132
+01:46:48.960 --> 01:46:54.180
+Anthony Taylor: There they go again with second right? Oh, no, they didn't say they said, get a random okay, that works
+
+1133
+01:46:54.490 --> 01:46:57.810
+Anthony Taylor: Hungary raises prices and effort to curb deficit. Okay.
+
+1134
+01:46:58.360 --> 01:47:02.150
+Anthony Taylor: alright. So now our process text function.
+
+1135
+01:47:03.010 --> 01:47:07.210
+Anthony Taylor: we have our stop words. We have our redjacks to get rid of punctuation.
+
+1136
+01:47:07.370 --> 01:47:14.429
+Anthony Taylor: We've got our token ice. Okay on the Red X, we're going to lametize the words
+
+1137
+01:47:15.090 --> 01:47:19.410
+Anthony Taylor: and then we're going to output them. So this is the one you guys made.
+
+1138
+01:47:19.870 --> 01:47:27.320
+Anthony Taylor: We made together. Okay, we're gonna run that yay and it fail. But I miss it. Process text.
+
+1139
+01:47:28.970 --> 01:47:30.450
+Anthony Taylor: Did I not run something?
+
+1140
+01:47:31.620 --> 01:47:37.290
+Anthony Taylor: Hey? Do you want to do that? 1, 2, 3 for 7.
+
+1141
+01:47:38.550 --> 01:47:39.790
+Anthony Taylor: I think I didn't run it.
+
+1142
+01:47:41.920 --> 01:47:42.890
+Anthony Taylor: 6.
+
+1143
+01:47:43.420 --> 01:47:45.430
+Anthony Taylor: That's what it was. Okay.
+
+1144
+01:47:45.550 --> 01:47:51.080
+Anthony Taylor: Alright. So now we're gonna add counts. So we got to import and a counter.
+
+1145
+01:47:52.360 --> 01:48:04.409
+Anthony Taylor: and then we're going to say word counts counter and processed article. This is after we ran our cool little function on it. Alright. And then we're gonna print out a dictionary of the word count.
+
+1146
+01:48:07.310 --> 01:48:13.760
+Anthony Taylor: Okay? So you see, every word, count, let's get the most. Let's get like the 10 of the most common.
+
+1147
+01:48:13.780 --> 01:48:15.010
+Anthony Taylor: So said
+
+1148
+01:48:15.160 --> 01:48:21.269
+Anthony Taylor: price deficit. Also effort consumer. Mti state percent 1 billion.
+
+1149
+01:48:22.490 --> 01:48:29.750
+Anthony Taylor: That's the count, for each one of them said, is the most price being the second most. Okay?
+
+1150
+01:48:30.140 --> 01:48:35.959
+Anthony Taylor:  So now, okay, and that's it. I mean, that's all there is to it for count words.
+
+1151
+01:48:36.930 --> 01:48:41.849
+Anthony Taylor: It's not real complicated. But we're gonna need this information when we build out our model
+
+1152
+01:48:42.910 --> 01:48:43.750
+Anthony Taylor: tomorrow.
+
+1153
+01:48:44.750 --> 01:48:56.040
+Anthony Taylor: Okay, we can also do by grams and by grams, no big deal. Okay, we're simply going to say counter, then we're going to do in grams and tell it
+
+1154
+01:48:56.090 --> 01:48:59.750
+Anthony Taylor: N equals 2 that makes it a vibrant
+
+1155
+01:48:59.970 --> 01:49:04.429
+Anthony Taylor: alright. And all this is going to do is what I showed you before. It's going to put
+
+1156
+01:49:04.670 --> 01:49:08.599
+Anthony Taylor: it's gonna take this word and this word down this word and this word down.
+
+1157
+01:49:09.110 --> 01:49:14.899
+Anthony Taylor: Okay. And it does overlap. So like, if you have 4 words, it's going to be the first word and second word.
+
+1158
+01:49:15.110 --> 01:49:20.289
+Anthony Taylor: The next one's gonna be the second word and third word. Well, I guess for vigrams. It's just
+
+1159
+01:49:21.360 --> 01:49:24.029
+Anthony Taylor: okay. All right.
+
+1160
+01:49:24.340 --> 01:49:32.760
+Anthony Taylor: and you can see the most common diagrams, effort curve, sharp price budget deficit state spending Mti set.
+
+1161
+01:49:34.370 --> 01:49:40.049
+Anthony Taylor: I can say that might be helpful in some of these right? And that's it.
+
+1162
+01:49:40.820 --> 01:49:42.520
+Anthony Taylor: Okay, so
+
+1163
+01:49:42.810 --> 01:49:52.019
+Anthony Taylor: last, exercise the day 15 min. A, they basically just want you to add counter
+
+1164
+01:49:52.600 --> 01:49:56.940
+Anthony Taylor: and diagram counter to that function which is right there.
+
+1165
+01:49:57.150 --> 01:49:58.340
+Anthony Taylor: So copy
+
+1166
+01:49:59.450 --> 01:50:00.160
+and below.
+
+1167
+01:50:00.630 --> 01:50:14.040
+Anthony Taylor: Okay. is that what they want one more string. Oh, not exactly. Oh, no! They just want you to do the stuff I showed you at the end. Not come, not added to this. All right, you guys got it.
+
+1168
+01:50:14.330 --> 01:50:20.639
+Anthony Taylor: I said it wrong. First time you're going to use this function. and then you're going to add that stuff. I just showed you
+
+1169
+01:50:20.990 --> 01:50:25.469
+Anthony Taylor: to this one without the Ingram. And then this one with the Ingram
+
+1170
+01:50:26.770 --> 01:50:27.740
+Anthony Taylor: got it.
+
+1171
+01:50:30.770 --> 01:50:31.480
+Anthony Taylor: Thank you.
+
+1172
+01:50:35.990 --> 01:50:37.320
+Welcome back.
+
+1173
+01:50:38.420 --> 01:50:40.450
+Anthony Taylor: Okay, I have 1 min to get through. This
+
+1174
+01:50:41.650 --> 01:50:49.189
+Anthony Taylor: might be a couple of minutes over alright. So what we have, we added in grams and calendar
+
+1175
+01:50:49.890 --> 01:51:00.609
+Anthony Taylor: do our stuff. We're gonna initialize our. We're gonna use grain this time. How exciting is that?
+
+1176
+01:51:01.800 --> 01:51:07.029
+Anthony Taylor: This is our same preprocessor from earlier should be good there.
+
+1177
+01:51:07.650 --> 01:51:09.389
+Anthony Taylor: So for a word, count
+
+1178
+01:51:10.170 --> 01:51:12.789
+Anthony Taylor: we're taking.
+
+1179
+01:51:13.130 --> 01:51:21.289
+Anthony Taylor: we're gonna create a variable called big string. And basically put the entire corpus into that string, all of all of it.
+
+1180
+01:51:21.400 --> 01:51:22.420
+Anthony Taylor: all of it.
+
+1181
+01:51:23.220 --> 01:51:27.599
+Anthony Taylor: Then we're going to, or the corpus that was at in.
+
+1182
+01:51:27.880 --> 01:51:30.430
+Anthony Taylor: So yeah.
+
+1183
+01:51:30.780 --> 01:51:34.899
+Anthony Taylor: okay? And then we're going to process text. So that's using
+
+1184
+01:51:35.150 --> 01:51:40.880
+Anthony Taylor: this guy. we're going to process it and return it to process.
+
+1185
+01:51:40.900 --> 01:51:51.289
+Anthony Taylor: And then we're simply going to do a counter of the process get. So we're basically doing all those steps that we did in the instructor example in one line.
+
+1186
+01:51:52.270 --> 01:51:56.759
+Anthony Taylor: So counter process, most common 10 dictionary.
+
+1187
+01:51:58.030 --> 01:52:06.690
+Anthony Taylor: And then we're going to return a data frame of the items in that dictionary. It's gonna be awesome.
+
+1188
+01:52:09.030 --> 01:52:10.519
+Anthony Taylor: And that's what we get.
+
+1189
+01:52:12.940 --> 01:52:20.719
+Anthony Taylor: That's a really cool thing. So again. this particular one actually is a good function because we could use this with anything.
+
+1190
+01:52:21.910 --> 01:52:22.950
+Anthony Taylor: Okay.
+
+1191
+01:52:23.090 --> 01:52:28.750
+Anthony Taylor: now, II and then, for by Gram, it's same thing except you're going to run
+
+1192
+01:52:29.360 --> 01:52:35.619
+Anthony Taylor: this. You're gonna initialize this by grams with N grams and then N equals 2
+
+1193
+01:52:36.500 --> 01:52:43.390
+Anthony Taylor: on your process data and then do the same thing we did before we'll make it by Graham instead of words.
+
+1194
+01:52:44.410 --> 01:52:48.610
+Anthony Taylor: And you get this. So
+
+1195
+01:52:49.440 --> 01:52:52.910
+Anthony Taylor: I'll take questions on. This is a second. I was talking to you about
+
+1196
+01:52:52.930 --> 01:52:58.730
+Anthony Taylor: the the whole document frequency thing. That is the first lesson tomorrow.
+
+1197
+01:52:58.940 --> 01:53:07.180
+Anthony Taylor: So I jumped ahead. I like to do that. This one just counts doesn't assign weights, doesn't do anything. All this is doing is count.
+
+1198
+01:53:07.200 --> 01:53:12.830
+Anthony Taylor: But that's important in the process to where we're leading towards.
+
+1199
+01:53:12.890 --> 01:53:23.269
+Anthony Taylor: Hey? Ultimately, our model is, gonna take all of this information and use that to come up with whatever it is we tell it to predict.
+
+1200
+01:53:24.200 --> 01:53:27.840
+Anthony Taylor: Alright. And it's not that tough to tell it to predict something. You'll see?
+
+1201
+01:53:28.140 --> 01:53:32.070
+Anthony Taylor: Okay, it's it's basically just a supervised mall.
+
+1202
+01:53:32.880 --> 01:53:38.580
+Anthony Taylor: But it just has a lot of parameters yet. Fill it. Okay, in the preprocess.
+
+1203
+01:53:41.080 --> 01:53:47.400
+Anthony Taylor: So how you guys like this so far, you know, it's it's kind of crazy only doing processing up.
+
+1204
+01:53:47.480 --> 01:53:53.990
+Anthony Taylor: But it's kind of fun to take it all apart and see how it's all gonna look. So by the time we're done
+
+1205
+01:53:54.060 --> 01:54:06.330
+Anthony Taylor: you'll be able to take these books in our you'll be able to do sentiment analysis pretty much any. and that if you can label it. it'll it'll it'll it'll learn it.
+
+1206
+01:54:07.470 --> 01:54:14.399
+Clayton Graves: You underestimate the depth of my ability to just forget all of this.
+
+1207
+01:54:15.010 --> 01:54:18.429
+Anthony Taylor: Well, don't forget it until at least
+
+1208
+01:54:18.960 --> 01:54:26.510
+Clayton Graves: Tuesday of next week. Knowledge has been chasing me this entire time, but I am insanely fast.
+
+1209
+01:54:26.760 --> 01:54:31.070
+Anthony Taylor: Well, that reminds me. on Thursday you guys have
+
+1210
+01:54:33.560 --> 01:54:40.080
+Anthony Taylor: of next week, not tomorrow thumbs me out. You have a sub next Thursday
+
+1211
+01:54:41.520 --> 01:54:44.220
+Anthony Taylor: because it's transformers. It's one of the areas I like
+
+1212
+01:54:45.660 --> 01:54:48.119
+Anthony Taylor: I have to go out for Easter.
+
+1213
+01:54:48.910 --> 01:54:49.660
+Anthony Taylor: so
+
+1214
+01:54:50.860 --> 01:55:01.320
+Anthony Taylor: had to take the day off. I don't know why they're working on that. They don't make it so. Okay, I think that's all I got for you. Thank you so much for hanging in. There will be your 30 min if needed.
+
+1215
+01:55:01.370 --> 01:55:04.730
+Anthony Taylor: Have a great Wednesday night. See you tomorrow.
+

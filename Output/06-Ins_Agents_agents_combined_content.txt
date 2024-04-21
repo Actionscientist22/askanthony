@@ -1,0 +1,97 @@
+##--CODE--##
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+# Model and API Key
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Agents & Tools
+
+##--CODE--##
+# Additional imports for agent with built-in tools.
+
+
+##--CODE--##
+# Initialize the model.
+
+
+# Set up the built-in wikipedia tool.
+
+
+# Initialize the agent.
+
+
+# Define a query as a string inside a dictionary.
+
+
+# Run the agent using the query.
+
+
+# Agent with Multiple Tools
+
+##--CODE--##
+# Additional imports for agent with built-in tools.
+
+
+##--CODE--##
+# Initialize the model.
+
+
+# Set up the built-in wikipedia and open weather tools.
+
+
+# Initialize the agent.
+
+
+# Define a query as a string inside a dictionary.
+
+
+# Run the agent using the query.
+
+
+# Creating Custom Tools
+
+##--CODE--##
+# Additional imports for creating tools.
+
+
+##--CODE--##
+# Initialize the model.
+
+
+# Text description of API spec.
+
+
+# Create the API chain from the spec, using the LLM.
+
+
+# Define a tool for querying the Numbers API.
+
+
+# Initialize the math chain using the LLM.
+
+
+# Define a tool for doing math.
+
+
+# Store the tools in a list.
+
+
+# Initialize the agent.
+
+
+# Define a query as a string inside a dictionary.
+
+
+# Run the agent using the query.
+
+

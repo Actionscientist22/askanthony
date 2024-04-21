@@ -1,0 +1,199 @@
+##--CODE--##
+import pandas as pd
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+## Prepare the Data
+
+##--CODE--##
+# Read the data
+ratings_df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_3/datasets/ratings.txt",
+                         sep=" ",
+                         header=None,
+                         names=["user_id", "movie_id", "rating"])
+ratings_df
+
+##--CODE--##
+# Remove duplicates on user_id and movie_id, keeping the last row
+ratings_df = ratings_df.drop_duplicates(subset=["user_id", "movie_id"], keep="last")
+ratings_df
+
+##--CODE--##
+# Pivot the DataFrame and fill NAs
+ratings_matrix = ratings_df.pivot(index="user_id", columns="movie_id", values="rating").fillna(0)
+ratings_matrix
+
+##--CODE--##
+# Create variable for normalization
+# Ratings are between 0-5
+normalization_factor = 5
+
+# Normalize the ratings
+normalized_ratings = ratings_matrix / normalization_factor
+normalized_ratings
+
+##--CODE--##
+X_train = normalized_ratings.values
+X_train
+
+## Train the Model
+
+##--CODE--##
+# Set the number of neurons for the layers
+
+
+# Set the bias of the visible layer to 0. This should use the number of unique movies.
+
+
+# Set the bias of the hidden layer to 0. This will use hiddenUnits, which is
+# the number of features we're going to learn
+
+
+# Set the Weights to 0
+
+
+##--CODE--##
+v0 = tf.zeros([visibleUnits], tf.float32)
+# testing to see if the matrix product works
+tf.matmul([v0], W)
+
+##--CODE--##
+# Phase 1: Input Processing
+# Define a function to return only the generated hidden states
+def hidden_layer(v0_state, W, hb):
+    # probabilities of the hidden units
+    h0_prob = tf.nn.sigmoid(tf.matmul([v0_state], W) + hb)
+    # sample_h_given_X
+    h0_state = tf.nn.relu(tf.sign(h0_prob - tf.random.uniform(tf.shape(h0_prob))))
+    return h0_state
+
+# Print output of zeros input
+h0 = hidden_layer(v0, W, hidden_layer_bias)
+print("first 15 hidden states: ", h0[0][0:15])
+
+# Define a function to return the reconstructed output
+def reconstructed_output(h0_state, W, vb):
+    v1_prob = tf.nn.sigmoid(tf.matmul(h0_state, tf.transpose(W)) + vb)
+    # sample_v_given_h
+    v1_state = tf.nn.relu(tf.sign(v1_prob - tf.random.uniform(tf.shape(v1_prob))))
+    return v1_state[0]
+
+# Get reconstructed output from zeros input
+v1 = reconstructed_output(h0, W, visible_layer_bias)
+print("hidden state shape: ", h0.shape)
+print("v0 state shape:  ", v0.shape)
+print("v1 state shape:  ", v1.shape)
+
+##--CODE--##
+# Set the error function, which in this case will be the Mean Absolute Error Function.
+def error(v0_state, v1_state):
+    return tf.reduce_mean(tf.square(v0_state - v1_state))
+
+err = tf.reduce_mean(tf.square(v0 - v1))
+print("error" , err.numpy())
+
+##--CODE--##
+# Set the training variables
+
+
+# Create dataset batches
+
+
+
+
+v0_state=v0
+
+# Train the model
+for epoch in range(epochs):
+    batch_number = 0
+    for batch_x in train_ds:
+
+        for i_sample in range(len(batch_x)):
+            for k in range(K):
+                v0_state = batch_x[i_sample]
+                h0_state = hidden_layer(v0_state, W, hidden_layer_bias)
+                v1_state = reconstructed_output(h0_state, W, visible_layer_bias)
+                h1_state = hidden_layer(v1_state, W, hidden_layer_bias)
+
+                delta_W = tf.matmul(tf.transpose([v0_state]), h0_state) - tf.matmul(tf.transpose([v1_state]), h1_state)
+
+                # Update weights
+                W = W + alpha * delta_W
+
+                # Update biases
+                visible_layer_bias = visible_layer_bias + alpha * tf.reduce_mean(v0_state - v1_state, 0)
+                hidden_layer_bias = hidden_layer_bias + alpha * tf.reduce_mean(h0_state - h1_state, 0)
+
+                v0_state = v1_state
+
+            if i_sample == len(batch_x)-1:
+                err = error(batch_x[i_sample], v1_state)
+                errors.append(err)
+                weights.append(W)
+                print ( 'Epoch: %d' % (epoch + 1),
+                       "batch #: %i " % batch_number, "of %i" % (len(X_train)/batchsize),
+                       "sample #: %i" % i_sample,
+                       'reconstruction error: %f' % err)
+        batch_number += 1
+
+# Plot the errors
+plt.plot(errors)
+plt.ylabel('Error')
+plt.xlabel('Epoch')
+plt.show()
+
+## Save Model
+
+##--CODE--##
+# Collect the weights and biases so we can rebuild the model without re-training
+
+
+##--CODE--##
+# Convert the weights into a Pandas DataFrame
+
+
+# Save weights to CSV
+
+
+##--CODE--##
+# Convert the biases to Pandas DataFrame and export to CSVs
+
+
+## Retrieve Model
+
+##--CODE--##
+# Read weights and convert back to Tensor
+
+
+##--CODE--##
+# Read hidden layer biases and convert back to Tensor
+
+
+##--CODE--##
+# Read visible layer biases and convert back to Tensor
+
+
+## Test Model Recommendations
+
+##--CODE--##
+# Create a function to reconstruct ratings data
+
+
+##--CODE--##
+# Test recommendation
+
+
+##--CODE--##
+# Convert recommendation to DataFrame
+
+
+
+# Sort recommendations
+
+
+##--CODE--##
+# Merge recommendation scores with original dataset ratings
+
+

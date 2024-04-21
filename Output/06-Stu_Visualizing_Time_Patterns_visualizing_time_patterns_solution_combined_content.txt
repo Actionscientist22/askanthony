@@ -1,0 +1,39 @@
+##--CODE--##
+# Import necessary libraries and dependencies
+import numpy as np
+import pandas as pd
+
+##--CODE--##
+# Import data
+sp500_path = '../Resources/sp500_stock_volume.csv'
+
+# Read the S&P 500 volume into a DataFrame. (Make sure to declare the datetime index)
+
+# Display sample data
+
+
+##--CODE--##
+# Slice the dataframe so that it just includes the volume data.
+
+
+##--CODE--##
+# Declare the group level to be the day of the week (e.g., Mon, Tues,...)
+
+
+# Plot average daily volume according to day of the week
+
+
+##--CODE--##
+# Declare the group level to be hour of the day
+
+
+# Plot average hourly volume
+
+
+##--CODE--##
+# Group the data by the calendar week in the year (week of year). 
+
+
+##--CODE--##
+
+

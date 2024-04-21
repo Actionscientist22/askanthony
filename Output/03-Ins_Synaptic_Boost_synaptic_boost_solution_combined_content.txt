@@ -1,0 +1,23 @@
+##--CODE--##
+# Dependencies
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Example outlier plot of reaction times
+times = [96,98,100,105,85,88,95,100,101,102,97,98,5]
+fig1, ax1 = plt.subplots()
+ax1.set_title('Reaction Times in Tennis')
+ax1.set_ylabel('Reaction Time (ms)')
+ax1.boxplot(times)
+plt.show()
+
+##--CODE--##
+# Determine which data points are outside of the 1.5*IQR range
+quartiles = np.quantile(times,[.25,.75])
+iqr = quartiles[1]-quartiles[0]
+lower_bound = quartiles[0]-(1.5*iqr)
+upper_bound = quartiles[1]+(1.5*iqr)
+
+potential_outliers = [time for time in times if time < lower_bound or time > upper_bound]
+potential_outliers
+

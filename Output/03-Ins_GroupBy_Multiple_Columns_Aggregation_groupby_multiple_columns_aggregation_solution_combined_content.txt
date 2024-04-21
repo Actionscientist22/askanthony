@@ -1,0 +1,97 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read the CSV into a Pandas DataFrame
+ufo_df = pd.read_csv('Resources/ufoSightings.csv', low_memory=False)
+
+# Remove the rows with missing data
+clean_ufo_df = ufo_df.dropna(how="any")
+
+# Converting the "duration (seconds)" column's values to numeric
+converted_ufo_df = clean_ufo_df.copy()
+converted_ufo_df["duration (seconds)"] = converted_ufo_df.loc[:, "duration (seconds)"].astype(float)
+
+# Display the DataFrame
+converted_ufo_df.head()
+
+##--CODE--##
+# Add double brackets around the column to for the aggregation to create a DataFrame.
+grouped_ufo_duration_shape = converted_ufo_df.groupby("shape")[["duration (seconds)"]].mean()
+grouped_ufo_duration_shape.head(10)
+
+##--CODE--##
+# The agg() function can be used for aggregation. 
+grouped_ufo_duration_shape = converted_ufo_df.groupby("shape").agg({"duration (seconds)":'mean'})
+grouped_ufo_duration_shape.head(10)
+
+### Multiple Aggregations
+
+##--CODE--##
+# The agg() function can be used to pass more than one aggregation.
+ufo_shape_avg_sum = converted_ufo_df.groupby("shape")[["duration (seconds)"]].agg(['mean','sum'])
+ufo_shape_avg_sum.head(10)
+
+### Grouping on Multiple Columns with Multiple Aggregations
+
+##--CODE--##
+# It is also possible to group a DataFrame by multiple columns
+# This returns an object with multiple indices, however, which can be harder to deal with.
+# Get the average duration in seconds of UFOs by Country and State.
+country_state_avg_duration = converted_ufo_df.groupby(['country', 'state'])[["duration (seconds)"]].mean()
+
+# Display the DataFrame.
+country_state_avg_duration.head(10)
+
+##--CODE--##
+# The agg() function can be used to pass more than one aggregation.
+country_state_duration_metrics = converted_ufo_df.groupby(['country', 'state'])[["duration (seconds)"]].agg(['count','mean','sum'])
+country_state_duration_metrics.head(10)
+
+### Flattening Multi-Indexed Columns to Single Columns
+
+##--CODE--##
+# One method of flattening the MultiIndex columns to a single column: use the to_flat_index() on the columns.
+country_state_duration_flatten = country_state_duration_metrics.copy()
+
+# Get the columns after apply the to_flat_index()
+country_state_duration_flatten.columns = country_state_duration_flatten.columns.to_flat_index()
+
+# Display the columns
+country_state_duration_flatten.columns
+
+##--CODE--##
+# Use a list comprehension to join the each tuple for each column. 
+country_state_duration_flatten.columns = ['_'.join(column) for column in country_state_duration_metrics.columns]
+# Display the flattened DataFrame
+country_state_duration_flatten
+
+##--CODE--##
+# The second method for flattening the multiIndex to one column.
+# Get the first level of the multi-index
+level_0 = country_state_duration_metrics.columns.get_level_values(0)
+print(level_0)
+# Get the second level of the multi-index
+level_1 = country_state_duration_metrics.columns.get_level_values(1)
+print(level_1)
+
+##--CODE--##
+# Combine the levels and display the DataFrame. 
+country_state_duration_metrics.columns = level_0 +"_"+ level_1
+country_state_duration_metrics
+
+##--CODE--##
+# Get the new column names to rename the columns
+country_state_duration_metrics.columns
+
+##--CODE--##
+# Rename the columns in a multi-index DataFrame
+country_state_duration_metrics = country_state_duration_metrics.rename(columns={"duration (seconds)_count": "Number of Sightings",
+                                                                     "duration (seconds)_mean": "Avg Duration(seconds)",
+                                                                     "duration (seconds)_sum": "Total Duration(seconds)"}, level=0)
+country_state_duration_metrics.head(10)
+
+##--CODE--##
+
+

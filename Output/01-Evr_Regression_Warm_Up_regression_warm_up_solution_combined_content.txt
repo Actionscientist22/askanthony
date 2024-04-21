@@ -1,0 +1,102 @@
+##--CODE--##
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
+##--CODE--##
+# Import the data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_3/datasets/rent-data-label-encoded.csv")
+df.head()
+
+##--CODE--##
+# Drop rows with missing values
+df = df.dropna()
+
+## Split into training and testing sets
+
+##--CODE--##
+# Make an X variable with all columns except price
+X_full = df.drop(columns = ['price'])
+X_full.columns
+
+##--CODE--##
+select_features = ["square_feet", "Gated", "bathrooms", "bedrooms", "has_photo", "Pool", "AC"]
+
+# Create another variable X_sel with only the columns
+# in the "select_features" list
+
+X_sel = df[select_features]
+X_sel.head()
+
+##--CODE--##
+# Set the target variable y
+y = df["price"].values.reshape(-1, 1)
+
+##--CODE--##
+# Now split the data into training and testing sets
+X_full_train, X_full_test, X_sel_train, X_sel_test, y_train, y_test = train_test_split(X_full, X_sel, y, random_state=42)
+
+## Train the models
+
+##--CODE--##
+# Create the models
+lr1 = LinearRegression()
+lr2 = LinearRegression()
+
+# Fit the first model to the full training data. 
+lr1.fit(X_full_train, y_train)
+
+# Fit the second model to the select training data.
+lr2.fit(X_sel_train, y_train)
+
+## Evaluate the model
+
+##--CODE--##
+# Calculate the mean_squared_error and the r-squared value
+# for the testing data
+
+# Use our models to make predictions
+predicted1 = lr1.predict(X_full_test)
+predicted2 = lr2.predict(X_sel_test)
+
+# Score the predictions with mse and r2
+mse1 = mean_squared_error(y_test, predicted1)
+r21 = r2_score(y_test, predicted1)
+mse2 = mean_squared_error(y_test, predicted2)
+r22 = r2_score(y_test, predicted2)
+
+print(f"All Features:")
+print(f"mean squared error (MSE): {mse1}")
+print(f"R-squared (R2): {r21}")
+print("---------------------")
+print(f"Select Features:")
+print(f"mean squared error (MSE): {mse2}")
+print(f"R-squared (R2): {r22}")
+
+##--CODE--##
+# Provided code to create the adjusted r-squared function
+def r2_adj(x, y, model):
+    r2 = model.score(x,y)
+    n_cols = x.shape[1]
+    return 1 - (1 - r2) * (len(y) - 1) / (len(y) - n_cols - 1)
+
+##--CODE--##
+# Calculate the adjusted r-squared value of the model
+adj_score1 = r2_adj(X_full_test, y_test, lr1)
+adj_score2 = r2_adj(X_sel_test, y_test, lr2)
+print(f"All Features Adjusted R2: {adj_score1}")
+print(f"Select Features Adjusted R2: {adj_score2}")
+
+##--CODE--##
+# Examine linear regression on the better training data using cross validation
+from sklearn.model_selection import cross_val_score
+cv_scores = cross_val_score(LinearRegression(), X_full_train, y_train, scoring = "r2")
+print(f"All scores: {cv_scores}")
+print(f"Mean score: {cv_scores.mean()}")
+print(f"Standard Deviation: {cv_scores.std()}")
+
+##--CODE--##
+
+

@@ -1,0 +1,115 @@
+##--CODE--##
+# Install the required libraries
+!pip install prophet
+
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+import datetime as dt
+from prophet import Prophet
+
+%matplotlib inline
+
+##--CODE--##
+# Upload the bitcoin_hourly.csv file
+from google.colab import files
+uploaded = files.upload()
+
+##--CODE--##
+# Read csv file as DataFrame, with the first column as row index
+df = pd.read_csv("bitcoin_hourly.csv",
+                 index_col="date",
+                 infer_datetime_format=True,
+                 parse_dates=True
+                )
+
+# Drop columns that won't be used
+df = df.drop("volume", axis=1)
+
+# Preview the dataset
+df.head()
+
+##--CODE--##
+# Visually inspect the price data
+
+
+##--CODE--##
+# Reset the index so that we recode the columns for Prophet
+
+
+##--CODE--##
+# Label the columns ds and y so that the syntax is recognized by Prophet
+
+
+##--CODE--##
+# View dataframe shape, and the first and last five rows of the mercado_prophet_df DataFrame
+
+
+##--CODE--##
+# Sort the DataFrame by `ds` in ascending order
+
+
+# Display sample data from head and tail
+
+
+##--CODE--##
+# Plot the data
+
+
+##--CODE--##
+# Call the Prophet function, store as an object
+
+
+##--CODE--##
+# Fit the Prophet model.
+
+
+##--CODE--##
+# Create a future dataframe to hold predictions
+# Make the prediction go out as far as 1000 hours (approx 40 days)
+
+# View the last five rows of the predictions
+
+
+##--CODE--##
+# Make the predictions for the trend data using the future_trends DataFrame
+
+
+# Display the first five rows of the forecast DataFrame
+
+
+##--CODE--##
+# Plot the Prophet predictions for the Mercado trends data
+
+
+##--CODE--##
+# Use the plot_components function to visualize the forecast results 
+
+
+##--CODE--##
+# At this point, it's useful to set the `datetime` index of the forecast data.
+
+
+##--CODE--##
+# From the `forecast_trends` DataFrame, plot to visualize
+#  the yhat, yhat_lower, and yhat_upper columns over the last 10 days (24*10 = 240) 
+
+
+##--CODE--##
+# Create a `forecast_march_2021` Dataframe, which contains just forecasts for that month
+# The DataFrame should include the columns yhat_upper, yhat_lower, and yhat
+
+
+# Replace the column names to something less technical sounding
+
+
+# Review the last five rows of the DataFrame
+
+
+##--CODE--##
+# Display the average forecasted price for March 2021
+
+
+##--CODE--##
+
+

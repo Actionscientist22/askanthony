@@ -1,0 +1,240 @@
+##--CODE--##
+# Pandas for reading and preparing the data
+import pandas as pd
+# TensorFlow library. Used to implement machine learning models
+import tensorflow as tf
+# Numpy contains helpful functions for efficient mathematical calculations
+import numpy as np
+# Graph plotting library
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+##--CODE--##
+# Read the data
+ratings_df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_3/datasets/review-ratings.csv")
+ratings_df
+
+##--CODE--##
+# Drop irrelevant column
+ratings_df = ratings_df.drop("Unnamed: 25", axis=1)
+# Check the data types
+ratings_df.dtypes
+
+##--CODE--##
+# Set "User" as the index
+ratings_df = ratings_df.set_index("User")
+ratings_df
+
+##--CODE--##
+# Find problems for converting "Category 11" to float
+try:
+  ratings_df["Category 11"] = ratings_df["Category 11"].astype("float64")
+except Exception as e:
+  print(e)
+
+
+##--CODE--##
+# Find row with problem string
+ratings_df.loc[ratings_df["Category 11"] == "2\t2.",:]
+
+
+##--CODE--##
+# Remove User 2713
+ratings_df = ratings_df.drop("User 2713")
+
+##--CODE--##
+# Convert Category 11 to float
+ratings_df["Category 11"] = ratings_df["Category 11"].astype("float64")
+
+##--CODE--##
+# Update the column names
+travel_categories = ["churches",
+                     "resorts",
+                     "beaches",
+                     "parks",
+                     "theatres",
+                     "museums",
+                     "malls",
+                     "zoo",
+                     "restaurants",
+                     "pubs/bars",
+                     "local services",
+                     "burger/pizza shops",
+                     "hotels/other lodgings",
+                     "juice bars",
+                     "art galleries",
+                     "dance clubs",
+                     "swimming pools",
+                     "gyms",
+                     "bakeries",
+                     "beauty & spas",
+                     "cafes",
+                     "view points",
+                     "monuments",
+                     "gardens"]
+ratings_df.columns = travel_categories
+ratings_df.head()
+
+##--CODE--##
+# Create variable for normalization
+# Ratings are between 0-5
+normalization_factor = 5
+
+# Normalize the ratings
+normalized_ratings = ratings_df / normalization_factor
+normalized_ratings
+
+##--CODE--##
+# Create the training data
+X_train = normalized_ratings.values
+X_train
+
+##--CODE--##
+# Set values for our hidden nodes and visible nodes
+
+
+# Set the bias of the visible layer to 0. This should use the number of unique travel categories.
+
+
+# Set the bias of the hidden layer to 0. This will use hiddenUnits, which is
+# the number of features we're going to learn
+
+
+# Set the Weights to 0
+
+
+##--CODE--##
+v0 = tf.zeros([visibleUnits], tf.float32)
+# testing to see if the matrix product works
+tf.matmul([v0], W)
+
+##--CODE--##
+# Phase 1: Input Processing
+# Define a function to return only the generated hidden states
+
+    # probabilities of the hidden units
+
+    # sample_h_given_X
+
+
+# Print output of zeros input
+h0 = hidden_layer(v0, W, hidden_layer_bias)
+print("first 15 hidden states: ", h0[0][0:15])
+
+# Define a function to return the reconstructed output
+
+    # sample_v_given_h
+
+
+
+# Get reconstructed output from zeros input
+v1 = reconstructed_output(h0, W, visible_layer_bias)
+print("hidden state shape: ", h0.shape)
+print("v0 state shape:  ", v0.shape)
+print("v1 state shape:  ", v1.shape)
+
+##--CODE--##
+# Set the error function, which in this case will be the Mean Absolute Error Function.
+
+
+##--CODE--##
+# Set the training variables
+
+
+# Create dataset batches
+
+
+
+v0_state=v0
+
+# Train the model
+for epoch in range(epochs):
+    batch_number = 0
+    for batch_x in train_ds:
+
+        for i_sample in range(len(batch_x)):
+            for k in range(K):
+                v0_state = batch_x[i_sample]
+                h0_state = hidden_layer(v0_state, W, hidden_layer_bias)
+                v1_state = reconstructed_output(h0_state, W, visible_layer_bias)
+                h1_state = hidden_layer(v1_state, W, hidden_layer_bias)
+
+                delta_W = tf.matmul(tf.transpose([v0_state]), h0_state) - tf.matmul(tf.transpose([v1_state]), h1_state)
+
+                # Update weights
+                W = W + alpha * delta_W
+
+                # Update biases
+                visible_layer_bias = visible_layer_bias + alpha * tf.reduce_mean(v0_state - v1_state, 0)
+                hidden_layer_bias = hidden_layer_bias + alpha * tf.reduce_mean(h0_state - h1_state, 0)
+
+                v0_state = v1_state
+
+            if i_sample == len(batch_x)-1:
+                err = error(batch_x[i_sample], v1_state)
+                errors.append(err)
+                weights.append(W)
+                print ( 'Epoch: %d' % (epoch + 1),
+                       "batch #: %i " % batch_number, "of %i" % (len(X_train)/batchsize),
+                       "sample #: %i" % i_sample,
+                       'reconstruction error: %f' % err)
+        batch_number += 1
+
+
+
+
+plt.plot(errors)
+plt.ylabel('Error')
+plt.xlabel('Batch')
+plt.show()
+
+##--CODE--##
+# Create a test user ID to generate recommendations
+mock_user_id = 24
+
+# Select the input user
+inputUser = X_train[mock_user_id-1].reshape(1, -1)
+
+inputUser = tf.convert_to_tensor(X_train[mock_user_id-1],"float32")
+v0 = inputUser
+
+print(v0)
+v0.shape
+
+##--CODE--##
+# Create a test tensor
+v0test = tf.zeros([visibleUnits], tf.float32)
+v0test.shape
+
+##--CODE--##
+# Feed in the user and reconstruct the input
+
+hh0 = tf.nn.sigmoid(tf.matmul([v0], W) + hidden_layer_bias)
+
+vv1 = tf.nn.sigmoid(tf.matmul(hh0, tf.transpose(W)) + visible_layer_bias)
+
+rec = vv1
+
+tf.maximum(rec,1)
+for i in vv1:
+    print(i)
+
+##--CODE--##
+# Create a DataFrame of recommendations
+scored_travel_df_mock = pd.DataFrame({"category": ratings_df.columns})
+scored_travel_df_mock = scored_travel_df_mock.assign(RecommendationScore = rec[0])
+scored_travel_df_mock.sort_values(["RecommendationScore"], ascending=False).head(20)
+
+##--CODE--##
+# Create a DataFrame for our mock user
+# Note that 0 scores indicate the user has not rated anything in that category
+travel_df_mock = pd.DataFrame(ratings_df.loc["User " + str(mock_user_id),:]).reset_index().rename(columns={"index": "category"})
+travel_df_mock
+
+##--CODE--##
+# Merge travel_df_mock with scored_travel_df_mock by category
+merged_df_mock = scored_travel_df_mock.merge(travel_df_mock, on='category', how='outer')
+merged_df_mock["Normalized User score"] = merged_df_mock["User " + str(mock_user_id)] / normalization_factor
+merged_df_mock = merged_df_mock.drop(columns=["User " + str(mock_user_id)])
+merged_df_mock.sort_values(["RecommendationScore"], ascending=False).head(20)
+

@@ -1,0 +1,41 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read in the LAX temperatures dataset and create a box plot
+temperature_df = pd.read_csv('../Resources/lax_temperature.csv')
+temperatures = temperature_df['HourlyDryBulbTemperature']
+
+temperatures.head()
+
+##--CODE--##
+# Use pandas to find potential outliers by calculating the interquartile range (IQR)
+Q1 = temperatures.quantile(0.25)
+median = temperatures.quantile(0.5)
+Q3 = temperatures.quantile(0.75)
+IQR = Q3 - Q1
+
+print(f"The lower quartile of temperatures is: {Q1}")
+print(f"The upper quartile of temperatures is: {Q3}")
+print(f"The interquartile range of temperatures is: {IQR}")
+print(f"The the median of temperatures is: {median} ")
+
+lower_bound = Q1 - (1.5 * IQR)
+upper_bound = Q3 + (1.5 * IQR)
+print(f"Values below {lower_bound} could be outliers.")
+print(f"Values above {upper_bound} could be outliers.")
+
+##--CODE--##
+# Create a DataFrame of rows that could be outliers
+outlier_df = temperature_df.loc[(temperature_df['HourlyDryBulbTemperature'] < 45) |
+                                (temperature_df['HourlyDryBulbTemperature'] > 69)]
+outlier_df.head()
+
+##--CODE--##
+# How many potential outliers are there in the dataset?
+len(outlier_df)
+
+##--CODE--##
+
+

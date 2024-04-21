@@ -1,0 +1,63 @@
+##--CODE--##
+# Imports for loading environment variables.
+from dotenv import load_dotenv
+import os
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+##--CODE--##
+# Additional imports for list parser.
+from langchain_openai import ChatOpenAI
+from langchain.output_parsers import CommaSeparatedListOutputParser
+
+##--CODE--##
+# Initialize the model.
+
+
+##--CODE--##
+# Initialize the output parser.
+
+
+##--CODE--##
+# Get the output format instructions.
+
+
+##--CODE--##
+# Define a query as a string, combining with the instructions.
+
+
+##--CODE--##
+# Pass the query to the invoke method.
+
+
+##--CODE--##
+# Parse the result.
+
+
+##--CODE--##
+# Display the recipe names for the user.
+
+
+##--CODE--##
+# Prompt the user for a recipe number.
+
+
+##--CODE--##
+# Get the matching recipe name.
+
+
+##--CODE--##
+# Define a query as a string, combining with the recipe name.
+
+
+##--CODE--##
+# Pass the query to the invoke method, and print the result.
+
+

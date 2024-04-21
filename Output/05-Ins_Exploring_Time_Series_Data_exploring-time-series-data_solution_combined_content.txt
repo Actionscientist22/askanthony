@@ -1,0 +1,66 @@
+##--CODE--##
+# Initial imports
+import pandas as pd
+import numpy as np
+
+##--CODE--##
+# Set the file path
+file_path = "../Resources/national-home-sales.csv"
+
+##--CODE--##
+# Load time series data into Pandas
+df_home_sales = pd.read_csv(file_path, index_col="period_end_date", parse_dates=True)
+
+##--CODE--##
+# Display sample data
+df_home_sales.head(10)
+
+##--CODE--##
+# Sort the DataFrame index in ascending order
+df_home_sales = df_home_sales.sort_index()
+
+# Display sample data
+df_home_sales.head(10)
+
+##--CODE--##
+# Plot the inventory and homes_sold series
+df_home_sales[["inventory", "homes_sold"]].plot()
+
+##--CODE--##
+# Select homes sold in 2014 using the year
+sales_2014 = df_home_sales["homes_sold"].loc["2014"]
+
+# Display 2014 home sales data
+print(sales_2014)
+
+##--CODE--##
+# Plot 2014 home sales data
+sales_2014.plot(title="Homes Sold in 2014")
+
+##--CODE--##
+# Compute the total home sales per quarter
+quarterly_sales = df_home_sales["homes_sold"].groupby(by=[df_home_sales.index.quarter]).sum()
+
+##--CODE--##
+# Display total home sales per quarter
+quarterly_sales
+
+##--CODE--##
+# Plot total home sales per quarter
+quarterly_sales.plot()
+
+##--CODE--##
+# Compute total quarterly home sales per year
+quarterly_sales_per_year = df_home_sales["homes_sold"].groupby(by=[df_home_sales.index.year, df_home_sales.index.quarter]).sum()
+
+##--CODE--##
+# Display total quarterly home sales per year
+quarterly_sales_per_year
+
+##--CODE--##
+# Plot total quarterly home sales per year
+quarterly_sales_per_year.plot()
+
+##--CODE--##
+quarterly_sales_per_year.index
+

@@ -1,0 +1,42 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Create a DataFrame from dictionary of lists. 
+class_data = {
+    'Class': ['Oct', 'Oct', 'Jan', 'Jan', 'Oct', 'Jan'], 
+    'Name': ["Cyndy", "Logan", "Laci", "Elmer", "Crystle", "Emmie"], 
+    'Test Score': [90, 59, 72, 88, 98, 60]}
+
+test_scores_df = pd.DataFrame(class_data)
+test_scores_df
+
+##--CODE--##
+# Create the bins in which Data will be held
+# Bins are 0, 59.9, 69.9, 79.9, 89.9, 100.   
+bins = [0, 59.9, 69.9, 79.9, 89.9, 100]
+
+# Create the names for the five bins
+group_names = ["F", "D", "C", "B", "A"]
+
+##--CODE--##
+# Slice the data and place it into bins
+test_scores_df["Test Score Summary"] = pd.cut(test_scores_df["Test Score"], 
+                                              bins, labels=group_names, 
+                                              include_lowest=True)
+test_scores_df
+
+##--CODE--##
+# Creating a group based off of the bins
+test_scores_df = test_scores_df.groupby("Test Score Summary").max()
+test_scores_df
+
+##--CODE--##
+# Sorting a groupby object.
+test_scores_df = test_scores_df.groupby("Test Score Summary").max().sort_values(by="Test Score Summary", ascending=False)
+test_scores_df
+
+##--CODE--##
+
+

@@ -1,0 +1,60 @@
+### Import `requests` and `json` libraries
+
+##--CODE--##
+import requests
+import json
+
+### Declare `request_urls`
+
+##--CODE--##
+# Declare "url" variables
+star_wars_url = "https://swapi.dev/api/people/"
+who_url = "https://ghoapi.azureedge.net/api/HWF_0004"
+library_url = "https://openlibrary.org/authors/OL2864471A/works.json"
+exchange_rate_url = "https://open.er-api.com/v6/latest/CAD"
+us_treasury_url = "https://api.usaspending.gov//api/v2/references/agency/456/"
+us_gdp_data_url = "http://api.worldbank.org/v2/country/us?format=json"
+
+### Execute `GET` request using `requests` library
+
+##--CODE--##
+# Execute "GET" request with url
+
+
+### Get response `status code`
+
+##--CODE--##
+# Print "response_data" variable
+
+
+### Extract response `content`
+
+##--CODE--##
+# Store response using "content" attribute
+
+
+### Convert output to JSON
+
+##--CODE--##
+# Format data as JSON
+
+
+### Format data with `json.dumps`
+
+##--CODE--##
+# Use json.dumps with argument indent=4 to format data
+
+
+### Select value and store as variable
+
+##--CODE--##
+# Select two values
+
+
+##--CODE--##
+# Print selected values
+
+
+##--CODE--##
+
+

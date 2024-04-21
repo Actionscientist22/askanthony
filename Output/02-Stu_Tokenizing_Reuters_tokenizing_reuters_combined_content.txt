@@ -1,0 +1,53 @@
+##--CODE--##
+# Import the Reuters database from the nltk corpus 
+from nltk.corpus import reuters
+# Import tokenizers and pandas
+from nltk.tokenize import sent_tokenize, word_tokenize
+import pandas as pd
+
+# Import nltk and download the Reuters corpora and the "punkt" sentence tokenizer.
+import nltk
+nltk.download('reuters')
+nltk.download('punkt')
+
+##--CODE--##
+# Search through all categories
+
+
+##--CODE--##
+# Get all fileids associated with income.
+
+
+##--CODE--##
+# Get all raw stories and the ids in separate lists.
+# Remove the "test/" from the ids so only the id number is retained.
+
+
+##--CODE--##
+# Sentence tokenize the stories.
+
+
+##--CODE--##
+# Word tokenize all sentences using for loops. 
+# Create an empty list for the tokenized words
+
+# Write a for loop to get each story from the tokenized sentences.
+
+    # Write a for loop to get all words for each story and add the words to a list.
+
+    
+    # Append all words for each article to the word_tokenized list
+
+
+##--CODE--##
+# Put the raw stories, tokenized sentences, and words into a DataFrame.
+
+
+# Make the index the story ids.
+
+# Display the DataFrame
+
+
+##--CODE--##
+
+

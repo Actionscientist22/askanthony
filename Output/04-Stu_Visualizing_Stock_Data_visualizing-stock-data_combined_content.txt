@@ -1,0 +1,73 @@
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+from path import Path
+
+##--CODE--##
+# Read the data from the tsla_historical.csv file into a Pandas DataFrame
+df_tsla = pd.read_csv(
+    Path("../Resources/tsla_historical.csv")
+)
+
+##--CODE--##
+# Display the first five rows of the DataFrame
+df_tsla.head()
+
+##--CODE--##
+# Inspect the DataFrame's data types using the info function
+df_tsla.info()
+
+##--CODE--##
+# Transform the time column to a datetime data type
+df_tsla["time"] = pd.to_datetime(
+    df_tsla["time"],
+    infer_datetime_format = True,
+    utc = True    
+)
+
+##--CODE--##
+# Display the first five rows of the DataFrame to confirm
+# changes to the time column
+df_tsla.head()
+
+##--CODE--##
+# Use the info function to confirm the change in data type 
+# for the time column
+df_tsla.info()
+
+##--CODE--##
+# Set the time column as DataFrame index
+df_tsla = # YOUR CODE HERE
+
+# Display the first five rows of the DataFrame
+# YOUR CODE HERE
+
+
+##--CODE--##
+# Plot the closing price of TSLA
+# YOUR CODE HERE
+
+
+##--CODE--##
+# Select and plot the TSLA closing prices from 2020
+# YOUR CODE HERE
+
+
+##--CODE--##
+# Select and plot the TSLA closing prices from 2020 using DatetimeIndex attributes
+# YOUR CODE HERE
+
+
+##--CODE--##
+# Select and plot the TSLA closing prices from August and September 2020
+# YOUR CODE HERE
+
+
+##--CODE--##
+# Select and plot the TSLA closing prices from August 22 to September 5, 2020
+# YOUR CODE HERE
+
+
+##--CODE--##
+
+

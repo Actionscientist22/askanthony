@@ -1,0 +1,70 @@
+##--CODE--##
+import pandas as pd
+
+##--CODE--##
+# Import the data
+file = '../Resources/SFO_Airport_Utility_Consumption.csv'
+utilities_df = pd.read_csv(file)
+
+utilities_df.head()
+
+# Question: 
+### Which utility's usage changed the most from 2013 to 2018?
+
+##--CODE--##
+# Data Collection and Cleaning
+# Select only the needed columns
+
+
+##--CODE--##
+# Scale the Usage column to be more readable
+# Rows with "Water" as the utility can be left as is
+
+
+##--CODE--##
+# Alter the Units column to reflect the changes
+
+
+##--CODE--##
+# Combine the Utility and Units columns
+# by putting Units in parentheses
+
+
+##--CODE--##
+# Create two new DataFrames with data from 2013
+# and 2018 that each contain only the Utility and 
+# Usage column. Reset the index  for each 
+# DataFrame to Utility
+
+
+##--CODE--##
+# Analyze
+
+# Calculate the totals for each utility
+
+
+
+##--CODE--##
+# Calculate the change per utility as a percentage
+# of each utility's 2013 total.
+
+
+
+
+
+# Create a dataframe with the results
+
+
+
+##--CODE--##
+# Set the index to the utility column
+
+# Sort the rows based on Change %
+
+
+# Summary
+The number of passengers using the airport grew 28% in just 5 short years! Water consumption rose slightly at 4.9%, but despite the increase in airport traffic, Electricity and Gas usage were both down in 2018 compared to 2013, with Gas leading the charge with a 6.8% decline. 
+
+##--CODE--##
+
+

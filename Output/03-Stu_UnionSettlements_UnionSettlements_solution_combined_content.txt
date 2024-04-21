@@ -1,0 +1,44 @@
+##--CODE--##
+%matplotlib notebook
+
+##--CODE--##
+# Dependencies
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+##--CODE--##
+# Read CSV
+settlement_data = pd.read_csv("Resources/union_settlements_1995.csv")
+settlement_data.head()
+
+##--CODE--##
+# List columns
+settlement_data.columns
+
+##--CODE--##
+# Get total settlements by union
+union_data = settlement_data["UNION"].value_counts()
+
+##--CODE--##
+# Configure plot, figsize, title, and axis labels
+figure1 = union_data.plot(kind="bar", facecolor="red", figsize=(8,6),
+                                title="Major Collective Bargaining Settlements (1995)",
+                                xlabel="Union",
+                                ylabel="Settlements")
+
+# Configure x-tick rotation
+xticklabels = union_data.index
+figure1.set_xticklabels(xticklabels, rotation=45, rotation_mode="anchor", ha="right", wrap=True)
+
+# Show plot
+plt.show()
+
+##--CODE--##
+# Resize plot to display labels
+plt.tight_layout()
+plt.show()
+
+##--CODE--##
+
+

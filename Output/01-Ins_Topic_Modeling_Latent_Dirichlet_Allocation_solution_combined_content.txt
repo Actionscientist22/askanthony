@@ -1,0 +1,212 @@
+##--CODE--##
+# Import dependencies 
+import pandas as pd
+import numpy as np
+import random
+import re
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.decomposition import LatentDirichletAllocation
+# Set the column width
+pd.set_option('max_colwidth', 200)
+
+##--CODE--##
+# Load the news_articles.csv into a DataFrame.
+news_articles_df = pd.read_csv('Resources/news_articles.csv')
+# Display the first 20 headlines 
+news_articles_df.head(10)
+
+## Preprocess the Text
+
+##--CODE--##
+# Get the info on the DataFrame
+news_articles_df.info()
+
+##--CODE--##
+# Remove digits and non-alphabetic characters
+news_articles_df['headline'] = news_articles_df['headline'].apply(lambda x: re.sub(r'[^a-zA-Z\s ]', '', str(x)))
+news_articles_df.head(10)
+
+## Process the Text to Tokens and Counts.
+
+##--CODE--##
+# Create an instance of the CountVectorizer and set the max_df to 0.95 and min_df to 10, and use the "english" stopwords.
+cv = CountVectorizer(max_df=0.95,min_df=10, stop_words='english')
+cv
+
+##--CODE--##
+# Get the headlines.
+headlines= news_articles_df['headline']
+print(headlines)
+
+##--CODE--##
+# Transform each row from the headlines Series to a DTM.
+dtm = cv.fit_transform(headlines)
+# Get the shape of the DTM.
+print(dtm.shape)
+
+##--CODE--##
+# Get the length of the vocabulary 
+len(cv.get_feature_names_out())
+
+##--CODE--##
+# Look at 100 random words in the vocabulary
+print(cv.get_feature_names_out()[:100])
+
+##--CODE--##
+# Print the first 500 elements (transformed words)from the 1st row, i.e., document. 
+print(dtm.toarray()[0][:500])
+
+##--CODE--##
+# Get the feature names (words) from the CountVectorizer
+feature_names = cv.get_feature_names_out()
+
+# Get all the non-zero elements from the first row.
+non_zero_elements = dtm.toarray()[0]
+
+# Get the indices for each non-zero element.
+non_zero_indices = non_zero_elements.nonzero()[0]
+
+# Print out the word and the number of times the word is in the row. 
+for idx in non_zero_indices:
+    print(f"Word: {feature_names[idx]} | Word index {idx} | Count = {non_zero_elements[idx]}")
+
+##--CODE--##
+# Convert the DTM to a DataFrame
+dtm_df = pd.DataFrame(dtm.toarray(), columns=cv.get_feature_names_out())
+
+# Display some random columns and the first 20 rows of the DataFrame.
+dtm_df.iloc[:,180:195:].head(10)
+
+## LDA
+
+##--CODE--##
+# Pick 7 topics to start with `n_components=7`
+LDA = LatentDirichletAllocation(n_components=7,random_state=42)
+# Fit the model with our DTM data. This may take awhile if you have a large amount of documents.
+LDA_data = LDA.fit(dtm)
+
+##--CODE--##
+# Get the values of each topic-word distribution.
+topic_word_distributions = LDA.components_
+print(topic_word_distributions)
+
+##--CODE--##
+# Get the length of the array of each topic. It should be the same as the vocabulary.
+for index,topic in enumerate(LDA.components_):
+    print(len(LDA.components_[index]))
+
+##--CODE--##
+# Get the array of the first topic 
+first_topic = LDA.components_[0]
+# This is the ranking of each word in the array. Lower values have less impact than higher values.
+print(first_topic)
+
+##--CODE--##
+# Get the indices for the first topic in descending order.
+sorted_first_topic_indices = np.argsort(-first_topic)
+
+# Use the sorted indices to the values from greatest to least.
+sorted_first_topic_values = first_topic[sorted_first_topic_indices]
+for value in sorted_first_topic_values:
+    print(value)
+
+## Using `argsort()`
+---
+- `argsort()` returns index positions from least to greatest.
+
+##--CODE--##
+# Define an array of values index 0 = 10, index 1 = 200, index 2 = 1.
+arr = np.array([10, 200, 1])
+# Print out the indices after sorting the array from least to greatest, i.e., 1, 10, 200:
+print(f"The indices the the array, '10, 200, 1' from least to greatest: {np.argsort(arr)}")
+# Reverse the sort from greatest to least. 
+print(f"The indices the the array, '10, 200, 1' from greatest to least: {np.argsort(-arr)}")
+
+##--CODE--##
+# Sort the array of the first topic
+first_topic.argsort()
+
+##--CODE--##
+# Get the value of the word that is least representative of this topic
+print(f"The value of the word that is least representative of this topic is: {first_topic[1716]}")
+# Get the value of the word that is most representative of this topic
+print(f"The value of the word that is most representative of this topic is: {first_topic[1688]}")
+
+##--CODE--##
+# Get the indices of the top ten words for the first topic (e.g., top 10 words for topic 0):
+top_word_indices = first_topic.argsort()[-10:][::-1]
+print(top_word_indices)
+
+##--CODE--##
+# Get the top ten words from the indices. 
+for index in top_word_indices:
+    print(cv.get_feature_names_out()[index])
+
+##--CODE--##
+# Get the bottom ten words from the indices.
+bottom_word_indices = first_topic.argsort()[:10][::-1]
+for index in bottom_word_indices:
+    print(cv.get_feature_names_out()[index])
+
+##--CODE--##
+# Print the top 20 words for each topic
+for index,topic in enumerate(LDA.components_):
+    print(f"The Top 20 Words For Topic #{index+1}")
+    print([cv.get_feature_names_out()[i] for i in topic.argsort()[-20:][::-1]])
+    print('\n')
+
+### Taking our best guess at the topics.
+---
+- TOPIC 1: **Travel**
+- TOPIC 2: **Sports**
+- TOPIC 3: **Food**
+- TOPIC 4: **Politics**
+- TOPIC 5: **Business**
+- TOPIC 6: **Entertainment**
+- TOPIC 7: **Technology**
+
+### Assigning the Topic to the Headline
+
+##--CODE--##
+# Transform our DTM so we get an array with the (number_of_documents, number_of_topics).
+topic_results = LDA.transform(dtm)
+
+# Get the shape of the topic results
+topic_results.shape
+
+##--CODE--##
+# Get the first headline's topic probability distribution rounded to 6 decimal places. 
+print(topic_results[0].round(6))
+
+##--CODE--##
+# Get the sorted indices for each topic in the first headline.
+sorted_indices = np.argsort(-topic_results[0])
+# Print the ranking of topics for the headline
+print("Ranking of topics for the first headline:")
+for rank, topic_index in enumerate(sorted_indices):
+    print(f"   Rank {rank+1}: Topic {topic_index+1}, Probability: {topic_results[0, topic_index]:.6f}")
+
+##--CODE--##
+# Get the topic with the highest probability. 
+topic_results[0].argmax()+1
+
+This means that our model thinks that the first article belongs to topic "2".
+
+##--CODE--##
+# Read in our original news headlines. 
+news_articles_df_2 = pd.read_csv('Resources/news_articles.csv')
+# Display the first 20 headlines 
+news_articles_df_2.head(20)
+# Combine the original data with the topic label. 
+news_articles_df_2['topic'] = (topic_results.argmax(axis=1)+1)
+
+##--CODE--##
+# Get the first 20 rows. 
+news_articles_df_2.head(10)
+
+##--CODE--##
+news_articles_df_2.tail(10)
+
+##--CODE--##
+
+

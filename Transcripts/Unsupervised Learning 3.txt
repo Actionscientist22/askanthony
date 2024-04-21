@@ -1,0 +1,3570 @@
+WEBVTT
+
+1
+00:00:05.480 --> 00:00:06.430
+Anthony Taylor: On.
+
+2
+00:00:06.680 --> 00:00:09.729
+Anthony Taylor: and I will record the extra review anyway.
+
+3
+00:00:09.960 --> 00:00:16.279
+Anthony Taylor:  but try to stay. If you can usually make your life easier. If you're here.
+
+4
+00:00:16.420 --> 00:00:21.329
+Anthony Taylor: you can see I'm actually working on 2. This is the one we're gonna do today. We're gonna do lang chain
+
+5
+00:00:22.020 --> 00:00:31.890
+Anthony Taylor: coming up in the near future. which, like that stuff that Natalie put in general slack for the agents. We'll get to that as well
+
+6
+00:00:32.950 --> 00:00:35.600
+Anthony Taylor: at some point, because I don't think they'll cover that
+
+7
+00:00:35.880 --> 00:00:39.630
+Anthony Taylor: we're gonna the stuff we're gonna cover is a lot deeper.
+
+8
+00:00:39.950 --> 00:00:42.579
+Anthony Taylor: Then Openai and link chain.
+
+9
+00:00:43.260 --> 00:00:47.900
+Anthony Taylor: It's like how to get your data into the Llm. It's we're gonna get to that
+
+10
+00:00:48.630 --> 00:00:50.500
+Anthony Taylor: later, like towards the end.
+
+11
+00:00:51.140 --> 00:00:57.310
+Anthony Taylor: anyway. hiking today. principal component analysis.
+
+12
+00:00:59.680 --> 00:01:02.459
+Anthony Taylor: everybody ready. super exciting.
+
+13
+00:01:03.760 --> 00:01:19.040
+Anthony Taylor: We're gonna explain it. We're going to explain how to use it. For to reduce density dimensionality in data very important. we're gonna conceptualize how it works with a means.
+
+14
+00:01:19.730 --> 00:01:21.940
+Anthony Taylor: And we're going to use it to actually
+
+15
+00:01:22.050 --> 00:01:24.100
+Anthony Taylor: reduce features.
+
+16
+00:01:24.370 --> 00:01:25.210
+Anthony Taylor: Okay.
+
+17
+00:01:25.620 --> 00:01:30.129
+Anthony Taylor: everybody know. Okay. So II said a couple of words there. And and
+
+18
+00:01:30.750 --> 00:01:38.980
+Anthony Taylor: I had such a wonderful conversation before prior to beginning a class of office hours today. I want to make sure everybody understands these words.
+
+19
+00:01:40.130 --> 00:01:44.189
+Anthony Taylor: dimensionality. Anybody wanna define that for me
+
+20
+00:01:46.640 --> 00:01:49.209
+michael mcpherson: it is the number of versus the height.
+
+21
+00:01:50.040 --> 00:02:02.720
+Anthony Taylor: No, sir, but thank you, Mike, go ahead, Matt. It's the number of variables associated with every data point. So essentially, if every row is an item or a data point. It's the number of columns in your array.
+
+22
+00:02:03.010 --> 00:02:07.719
+Anthony Taylor: There you go. right. So if you're trying to do, if you're trying to cluster.
+
+23
+00:02:07.970 --> 00:02:13.539
+Anthony Taylor: I don't know a bunch of shopping data, and you have 50 columns. You have 50 dimensions.
+
+24
+00:02:13.850 --> 00:02:16.070
+Anthony Taylor: Now, here's where it's gonna get weird
+
+25
+00:02:17.390 --> 00:02:19.240
+Anthony Taylor: number of features.
+
+26
+00:02:20.480 --> 00:02:25.049
+Anthony Taylor: Go ahead, Matt. I only have a Matt. Do it again. Because guess what?
+
+27
+00:02:26.600 --> 00:02:27.740
+Anthony Taylor: Same answer.
+
+28
+00:02:27.770 --> 00:02:30.990
+Dipinto, Matt: Okay, I was. Gonna say, I don't know if I can differentiate this.
+
+29
+00:02:31.710 --> 00:02:35.380
+Anthony Taylor: You can't. It's just same way as another way of saying the same thing.
+
+30
+00:02:35.530 --> 00:02:38.009
+Anthony Taylor: Okay, the number of features is the number of
+
+31
+00:02:38.320 --> 00:02:43.059
+Anthony Taylor: in this case. Columns that are contributing to the output.
+
+32
+00:02:43.690 --> 00:02:47.960
+Anthony Taylor: Okay, so a dimension feature interchangeable.
+
+33
+00:02:48.130 --> 00:02:57.170
+Anthony Taylor: Don't worry about why they use the same thing. Probably the people who wrote it didn't realize they were interchangeable. I don't. But they are okay.
+
+34
+00:02:57.450 --> 00:03:00.700
+Anthony Taylor: So yeah. So we'll get through that. Hmm.
+
+35
+00:03:01.410 --> 00:03:04.139
+Anthony Taylor: okay, well, we're gonna start with
+
+36
+00:03:04.620 --> 00:03:07.280
+Anthony Taylor: just a plain old activity.
+
+37
+00:03:10.280 --> 00:03:13.070
+Oh, it's a student activity, a piggy dog.
+
+38
+00:03:13.920 --> 00:03:15.240
+Anthony Taylor: Let's see what it is.
+
+39
+00:03:16.080 --> 00:03:20.740
+Anthony Taylor: Standardizing cholesterol. Okay, yeah. So alright. So basically.
+
+40
+00:03:21.150 --> 00:03:35.419
+Anthony Taylor: you gotta read instant data. You gotta do standard scalar. create a new data frame. do get dummies. All the things we just did yesterday. Okay, this is just review. Let's look and see what they give you.
+
+41
+00:03:36.390 --> 00:03:43.040
+Anthony Taylor: They give you the data frame. They tell you exactly what to do.
+
+42
+00:03:43.310 --> 00:03:47.369
+Anthony Taylor: They're not gonna make you do the elbow. You just gotta do 3
+
+43
+00:03:48.140 --> 00:03:54.210
+Anthony Taylor: I do believe they're gonna have you do birch, though? Yep.
+
+44
+00:03:54.620 --> 00:03:58.279
+Anthony Taylor: So you're gonna do one in birch, one in K-means.
+
+45
+00:03:59.710 --> 00:04:02.040
+Anthony Taylor: And that's it. Okay?
+
+46
+00:04:02.380 --> 00:04:06.629
+Anthony Taylor: So not simple. I don't expect you guys to to fly through it.
+
+47
+00:04:06.730 --> 00:04:09.689
+Anthony Taylor: but I don't expect it should take too long.
+
+48
+00:04:10.940 --> 00:04:14.480
+Anthony Taylor: They're gonna give you 20 min to do it. So here's what we'll do.
+
+49
+00:04:15.010 --> 00:04:19.579
+Anthony Taylor: I'm gonna give you the full 20 min. and if you guys keep done early. Come on back.
+
+50
+00:04:19.850 --> 00:04:23.060
+Anthony Taylor: Okay. If everybody comes back early we'll just keep going.
+
+51
+00:04:23.650 --> 00:04:26.530
+Anthony Taylor: Otherwise, full 20 min deal.
+
+52
+00:04:27.780 --> 00:04:28.460
+Anthony Taylor: Okay.
+
+53
+00:04:28.790 --> 00:04:35.740
+Anthony Taylor: that doesn't mean rush through it. Try to understand it. Welcome back like.
+
+54
+00:04:36.270 --> 00:04:47.400
+Anthony Taylor: maybe that was harder than I expected. It's long, it's still long. It was really long, I know. And that's a lot of the activities today are just that. really. Oh.
+
+55
+00:04:48.170 --> 00:05:05.089
+Raugewitz, Tania:  And it's did something change in the I think it was Antonio was. I'm telling us that. So I'm sorry, Alberto. Please forgive me, but when we run it we get true and false versus zeros and ones
+
+56
+00:05:05.510 --> 00:05:22.899
+Anthony Taylor: we never got zeros and ones. Did you guys get zeros and ones this time. No. But in the out in the output table it's either via via studio or Jupiter change. But yeah, okay, okay, yeah, we remember I was seeing it yesterday, too. I'm used to seeing zeros ones. They're not
+
+57
+00:05:23.200 --> 00:05:25.400
+Raugewitz, Tania: true and false. But remember.
+
+58
+00:05:25.750 --> 00:05:31.179
+Anthony Taylor: still the same thing. It's it's it is still 0, and one, even though it says true, false. Yes.
+
+59
+00:05:31.480 --> 00:05:36.040
+Gebrekristos, Hafton: if you convert it to, you can get zeros in once.
+
+60
+00:05:36.190 --> 00:05:37.460
+Gebrekristos, Hafton: That's how we did it
+
+61
+00:05:37.920 --> 00:05:46.380
+Anthony Taylor: well, but you don't need to do that. You really don't, don't, don't. I mean, it's cool that you did, or you're right. There's nothing wrong with that.
+
+62
+00:05:47.120 --> 00:05:54.240
+Anthony Taylor: Okay. so I want you guys to know that was a fine solution. But you don't need to do
+
+63
+00:05:55.010 --> 00:05:56.700
+Anthony Taylor: alright.
+
+64
+00:05:59.280 --> 00:06:05.599
+Anthony Taylor: I don't know how much they gave you. So we're just gonna go through it. So we're gonna import everything and create a data file.
+
+65
+00:06:06.070 --> 00:06:06.890
+Anthony Taylor: Okay.
+
+66
+00:06:07.180 --> 00:06:15.920
+Anthony Taylor: so we're gonna start with a standard scalar. Now, when we look at our data, it's really clear what 2 columns we're gonna scale, right?
+
+67
+00:06:16.520 --> 00:06:28.530
+Anthony Taylor: There's 3 columns there. One of them is letters. So pretty much. It's going to be these 2 guys alright. So we're gonna pass them in and get our scaled data
+
+68
+00:06:28.910 --> 00:06:41.450
+Anthony Taylor: and standardized very nice. Now, we're going to put that back into the data frame or into a data frame. Okay?
+
+69
+00:06:41.620 --> 00:06:45.849
+Anthony Taylor: And then we're gonna get our dummies
+
+70
+00:06:46.100 --> 00:06:50.100
+Anthony Taylor: for these values. Okay.
+
+71
+00:06:50.240 --> 00:06:56.209
+Anthony Taylor: so we'll do that and see what that looks like. Pretty exciting. It's a lot of fields right
+
+72
+00:06:56.590 --> 00:07:00.329
+Anthony Taylor: now. We're gonna put those 2 together. We'll end up with
+
+73
+00:07:00.560 --> 00:07:04.599
+Anthony Taylor: scaled scaled zeros and what's pros and false.
+
+74
+00:07:05.400 --> 00:07:07.519
+Anthony Taylor: perfect, ready to go.
+
+75
+00:07:08.260 --> 00:07:11.510
+Anthony Taylor: Everybody agree that that is prepped data.
+
+76
+00:07:17.550 --> 00:07:19.709
+Anthony Taylor: Okay, moving forward?
+
+77
+00:07:20.420 --> 00:07:25.360
+Anthony Taylor: So when it says, Do it came in with 3. That should be easy.
+
+78
+00:07:25.540 --> 00:07:30.150
+Anthony Taylor: Alright, we've done that for quite a while now. So we'll do that
+
+79
+00:07:30.750 --> 00:07:34.269
+Anthony Taylor: great. I'm not sure the point of printing all of that
+
+80
+00:07:35.560 --> 00:07:36.400
+Anthony Taylor: question.
+
+81
+00:07:36.580 --> 00:07:41.070
+Baro, Sonja: Yeah, can you go back up just real quick? I wanna right there.
+
+82
+00:07:41.330 --> 00:07:44.630
+Baro, Sonja: I'm good. I we have time. I will take time.
+
+83
+00:07:44.780 --> 00:07:53.759
+Raugewitz, Tania: I am getting an error, and I gone over this. I don't know how many end clusters. Well, then, let's see it. Let's see, I'm excited. I want to see an error.
+
+84
+00:07:54.070 --> 00:07:56.549
+Raugewitz, Tania: Oh. stick with me, kid.
+
+85
+00:07:57.140 --> 00:07:58.350
+Anthony Taylor: Ha, ha!
+
+86
+00:08:00.860 --> 00:08:02.610
+Raugewitz, Tania: Okay, I'm sharing now.
+
+87
+00:08:07.920 --> 00:08:10.239
+Raugewitz, Tania: This is where I'm getting an error.
+
+88
+00:08:10.940 --> 00:08:16.930
+Anthony Taylor: Feature names are only supported. If all input, features have string names. Go up
+
+89
+00:08:21.150 --> 00:08:25.700
+Anthony Taylor: so on this interest. Differential. And next month
+
+90
+00:08:26.000 --> 00:08:28.329
+Anthony Taylor: something's wrong. Scroll up
+
+91
+00:08:32.020 --> 00:08:33.650
+Anthony Taylor: a
+
+92
+00:08:35.860 --> 00:08:39.599
+Anthony Taylor: yeah. So no
+
+93
+00:08:42.640 --> 00:08:48.169
+Anthony Taylor: looks no what is wrong there because it didn't do it. There
+
+94
+00:08:50.820 --> 00:08:52.370
+Anthony Taylor: didn't do it there
+
+95
+00:08:53.540 --> 00:08:54.480
+Anthony Taylor: concat
+
+96
+00:08:55.570 --> 00:09:02.619
+Anthony Taylor: great Df scale countries encoded. But it did do it here.
+
+97
+00:09:03.910 --> 00:09:06.189
+Anthony Taylor: That's just weird. I wonder what that is.
+
+98
+00:09:06.510 --> 00:09:12.810
+Raugewitz, Tania: And are these supposed to be in parentheses with the yeah, no, they should be. They should just be normal columns. That's what it's struggling with.
+
+99
+00:09:13.340 --> 00:09:14.120
+Anthony Taylor: but
+
+100
+00:09:14.530 --> 00:09:19.760
+Anthony Taylor: I don't see off the top. Let's go all the way back, you know what? Let's do this.
+
+101
+00:09:19.990 --> 00:09:20.839
+Anthony Taylor: Oh, wait!
+
+102
+00:09:22.070 --> 00:09:23.320
+Anthony Taylor: Let's go back down real quick
+
+103
+00:09:24.340 --> 00:09:25.310
+Anthony Taylor: stuff there.
+
+104
+00:09:29.230 --> 00:09:32.339
+Anthony Taylor: No, I mean, you don't need to do that. That's fine.
+
+105
+00:09:32.820 --> 00:09:40.430
+Anthony Taylor: So you did. Standard scalar, fit, transform. See? Everything's perfect, you know what? Let's go up and restart your colonel and let's run
+
+106
+00:09:40.680 --> 00:09:42.049
+Anthony Taylor: back down to there.
+
+107
+00:09:42.290 --> 00:09:45.590
+Raugewitz, Tania: Okay. like that. Is that how I start my kernel?
+
+108
+00:09:45.780 --> 00:09:49.040
+Anthony Taylor: Yes, ma'am, just restart that, and then run each cell.
+
+109
+00:09:50.170 --> 00:09:51.580
+Raugewitz, Tania: Okay, it's thinking
+
+110
+00:09:53.290 --> 00:09:54.410
+Anthony Taylor: it's good. Now
+
+111
+00:10:06.350 --> 00:10:08.430
+Anthony Taylor: I see they're still perfect. There.
+
+112
+00:10:08.850 --> 00:10:12.529
+Anthony Taylor: this is perfect. Now run that one, and that's wrong.
+
+113
+00:10:13.040 --> 00:10:16.140
+Anthony Taylor: That is so weird. Why is that wrong?
+
+114
+00:10:16.670 --> 00:10:18.870
+Anthony Taylor: No, that's wrong, there's no doubt.
+
+115
+00:10:21.290 --> 00:10:30.719
+Anthony Taylor: Oh, wait, wait, wait, wait, axis, go down where it says access. You have. No, this is equals. Huh! My sorry my eyes aren't good.
+
+116
+00:10:35.100 --> 00:10:38.469
+Anthony Taylor: Alright! Those guys can tell me what's wrong.
+
+117
+00:10:39.040 --> 00:10:40.689
+Anthony Taylor: as I sure don't see it.
+
+118
+00:10:41.490 --> 00:10:48.190
+Meredith McCanse (she/her): If you scroll back up. Does it have to do with it? Looks like you like sort of renamed the data frame
+
+119
+00:10:49.620 --> 00:10:53.629
+Meredith McCanse (she/her): a couple of times. Or I might be wrong.
+
+120
+00:10:54.590 --> 00:11:03.590
+Raugewitz, Tania: This is our initial. This is our scale standard scale. And II use
+
+121
+00:11:03.990 --> 00:11:06.169
+Raugewitz, Tania: well, cause that's what it said to do in the read, me
+
+122
+00:11:07.610 --> 00:11:08.700
+Anthony Taylor: hit it now.
+
+123
+00:11:09.070 --> 00:11:14.540
+Anthony Taylor: okay, so that's what we need to get rid of. Yeah. Comment out one of those comment out that.
+
+124
+00:11:23.920 --> 00:11:25.560
+Raugewitz, Tania: So that's why they're still in there.
+
+125
+00:11:26.040 --> 00:11:31.790
+Anthony Taylor: Okay? Well doing it twice means you effectively standardized it twice.
+
+126
+00:11:33.140 --> 00:11:34.670
+Anthony Taylor: That's nothing.
+
+127
+00:11:35.840 --> 00:11:39.760
+Anthony Taylor: Probably not, but something weird going on there. Let's figure it out.
+
+128
+00:11:40.990 --> 00:11:45.499
+Raugewitz, Tania: You probably had start over, but that's okay. Try it.
+
+129
+00:11:45.540 --> 00:11:53.160
+Anthony Taylor: Go up and then and then restart your kernel, and then run each one and see if that fixed it. If not, we'll take a look at it after
+
+130
+00:11:53.700 --> 00:11:56.410
+Anthony Taylor: yeah. Cause there's something weird. I'm sure it's just something simple.
+
+131
+00:11:56.970 --> 00:12:04.810
+Anthony Taylor: Okay. it's just one of those things that's not jumping out at alright. So
+
+132
+00:12:06.710 --> 00:12:10.400
+Anthony Taylor: I'm just quickly looking at what you just did or what what you had in there.
+
+133
+00:12:10.510 --> 00:12:11.600
+See? That's not working.
+
+134
+00:12:13.000 --> 00:12:18.770
+Anthony Taylor: I'm just super interested in. Why, that's failing like that. So there's the fit transform. Then move it to a table.
+
+135
+00:12:19.790 --> 00:12:20.460
+Anthony Taylor: Huh?
+
+136
+00:12:20.780 --> 00:12:26.339
+Anthony Taylor: Alright, we'll figure it out alright, continuing. So we have our 3 cluster K-means.
+
+137
+00:12:26.890 --> 00:12:29.540
+Anthony Taylor: Then we're gonna make a copy of it.
+
+138
+00:12:29.690 --> 00:12:37.719
+Anthony Taylor: Put the predictions in and show that. So now we have our same data, but it has which cluster was assigned to
+
+139
+00:12:37.850 --> 00:12:43.589
+Anthony Taylor: at the end over here. Okay. we're gonna plot it out. See what it looks like.
+
+140
+00:12:45.240 --> 00:12:48.819
+Anthony Taylor: That's the data we're going to use to plot. Here's the plot.
+
+141
+00:12:49.750 --> 00:12:50.960
+Anthony Taylor: and there you go.
+
+142
+00:12:51.010 --> 00:12:55.889
+Anthony Taylor: Pretty nice. Okay. 3 clusters. Yay.
+
+143
+00:12:56.730 --> 00:12:59.489
+Anthony Taylor: now let's use birch.
+
+144
+00:12:59.860 --> 00:13:10.259
+Anthony Taylor: except this time we're gonna do 5 clusters. So exactly the same code as K-meanscept are going to change it to purch.
+
+145
+00:13:11.530 --> 00:13:12.910
+Anthony Taylor: That is all.
+
+146
+00:13:14.470 --> 00:13:17.089
+Anthony Taylor: Okay. Now, it's a birch
+
+147
+00:13:17.560 --> 00:13:21.759
+Anthony Taylor: we're gonna do the exact same thing here to add the column.
+
+148
+00:13:24.040 --> 00:13:27.490
+Anthony Taylor: and then we're going to do the exact same thing here.
+
+149
+00:13:27.570 --> 00:13:30.820
+Anthony Taylor: But now we've printed it out with 5
+
+150
+00:13:30.980 --> 00:13:31.740
+Anthony Taylor: Lesters.
+
+151
+00:13:33.460 --> 00:13:35.969
+Anthony Taylor: Okay. any questions to hear.
+
+152
+00:13:37.790 --> 00:13:42.620
+Anthony Taylor: Models are simple switching models is actually really. Oh, that's the end.
+
+153
+00:13:44.350 --> 00:13:49.890
+Anthony Taylor: That's the end. So any questions on any of that. Yes, Merrick.
+
+154
+00:13:50.340 --> 00:14:01.280
+Meredith McCanse (she/her): So that last question at the very bottom, it says, based on this plot, which cluster of country appears to provide both the highest interest spread and currency return.
+
+155
+00:14:01.350 --> 00:14:04.240
+Meredith McCanse (she/her): How do you know that from here like?
+
+156
+00:14:04.540 --> 00:14:09.450
+Meredith McCanse (she/her): Is it asking, or go ahead? No, you're you're good.
+
+157
+00:14:09.700 --> 00:14:14.149
+Anthony Taylor: No, no. So it's really asking you which one looks like it's clustered the best.
+
+158
+00:14:15.830 --> 00:14:20.150
+Anthony Taylor: And when you look at it this way, it's pretty obvious, right? You can see
+
+159
+00:14:20.270 --> 00:14:24.049
+Anthony Taylor: 3 very clear Busters.
+
+160
+00:14:24.540 --> 00:14:27.550
+Anthony Taylor: Okay. not much overlap
+
+161
+00:14:28.490 --> 00:14:40.310
+Anthony Taylor: right? Because that would make it. That would make a cluster less clear. Does everybody agree with that? If there was overlap so like, if some of these green dots were all mixed into this blue or this.
+
+162
+00:14:40.470 --> 00:14:46.840
+Anthony Taylor: whatever this color is. Okay. I mean, I think that's blue also. but it's less blue.
+
+163
+00:14:48.380 --> 00:14:54.110
+Anthony Taylor: anyway. That would make it less of a clear cluster. When we look at the birch one
+
+164
+00:14:56.290 --> 00:14:58.929
+Anthony Taylor: that looks like someone dripped a bunch of paint.
+
+165
+00:15:00.510 --> 00:15:02.740
+Anthony Taylor: This is clearly not
+
+166
+00:15:02.830 --> 00:15:05.580
+Anthony Taylor: a good breakdown of the cluster.
+
+167
+00:15:06.070 --> 00:15:12.420
+Anthony Taylor: Okay, so we would need to tune this one quite a bit. It's possible maybe Birch should have been 3 also
+
+168
+00:15:13.600 --> 00:15:17.439
+Anthony Taylor: right, which is easy enough to test right. Come up here.
+
+169
+00:15:18.990 --> 00:15:25.610
+Anthony Taylor: change it to a 3, run it. run it running.
+
+170
+00:15:27.600 --> 00:15:30.060
+Anthony Taylor: Even with that. I don't like the Birchout.
+
+171
+00:15:31.490 --> 00:15:36.670
+Anthony Taylor: You guys see why, see all this overlap here. then, this is just crazy.
+
+172
+00:15:37.300 --> 00:15:41.539
+Anthony Taylor: and this is just bad. So the birch one. I don't like it in this, in this particular situation?
+
+173
+00:15:43.840 --> 00:15:54.930
+Anthony Taylor: Pretty cool. Answer your question. Feel good about that. Everybody feel mostly warm and fuzzy. Tanya. Did we fix your problem. Dang it, we are going to figure it out
+
+174
+00:15:55.140 --> 00:16:02.609
+Anthony Taylor: one way or another. Okay. but let's move forward. and we'll come back to that one if it still happens.
+
+175
+00:16:03.010 --> 00:16:07.100
+Anthony Taylor:  Pca.
+
+176
+00:16:11.520 --> 00:16:14.110
+Anthony Taylor: okay. So here.
+
+177
+00:16:14.960 --> 00:16:20.439
+Anthony Taylor:  we're we're bringing in the same stuff. Nothing new.
+
+178
+00:16:20.670 --> 00:16:26.880
+Anthony Taylor: Okay. we're gonna bring in the credit card info. We've been working a lot with. Alright
+
+179
+00:16:27.150 --> 00:16:32.560
+Anthony Taylor: notice, they've already done the one hot coating on a lot of this.
+
+180
+00:16:33.140 --> 00:16:34.419
+Anthony Taylor: Everybody see that?
+
+181
+00:16:35.510 --> 00:16:45.500
+Anthony Taylor: Okay? Secondary default, other post-grad primary. So they've already done that. They've already actually looks like they've already clustered it to be honest with you.
+
+182
+00:16:45.890 --> 00:16:52.270
+Anthony Taylor: But so they have all this. It's standardized good to go. Okay, so we're gonna plot it out.
+
+183
+00:16:52.780 --> 00:16:56.680
+Anthony Taylor: This is what they gave us. Yes, Mayor.
+
+184
+00:16:57.870 --> 00:17:01.330
+Meredith McCanse (she/her): did you call it one hot key coding.
+
+185
+00:17:01.430 --> 00:17:03.160
+Anthony Taylor: one hot end. Cody.
+
+186
+00:17:03.340 --> 00:17:05.140
+Meredith McCanse (she/her): One hot end coding.
+
+187
+00:17:05.310 --> 00:17:09.929
+Anthony Taylor: Yes, that's what this this technique will do. That's what dummy is doing.
+
+188
+00:17:10.050 --> 00:17:10.869
+Meredith McCanse (she/her): Okay.
+
+189
+00:17:11.140 --> 00:17:15.419
+Baro, Sonja: H, right HOT. Not NOT.
+
+190
+00:17:15.849 --> 00:17:18.410
+Anthony Taylor: One hot like.
+
+191
+00:17:18.710 --> 00:17:19.690
+Baro, Sonja: thank you.
+
+192
+00:17:19.930 --> 00:17:24.890
+Anthony Taylor: Yeah. You don't say no. Ask.
+
+193
+00:17:29.840 --> 00:17:39.449
+Anthony Taylor: Alright. So then, now notice, we're so we're doing the scatterplot on limit balance age, and these look very nicely
+
+194
+00:17:39.650 --> 00:17:44.180
+Anthony Taylor: split. But what if we did the scanner plot on Bill amount and pay amount?
+
+195
+00:17:45.540 --> 00:17:47.159
+Anthony Taylor: Let's see what they look like.
+
+196
+00:17:48.170 --> 00:17:49.140
+Anthony Taylor: One
+
+197
+00:17:53.120 --> 00:18:01.729
+Anthony Taylor: same clustering. totally different. Okay. Now, the the idea behind that
+
+198
+00:18:03.140 --> 00:18:05.190
+Anthony Taylor: get that up on the screen.
+
+199
+00:18:05.820 --> 00:18:11.619
+Anthony Taylor:  the idea behind this
+
+200
+00:18:11.730 --> 00:18:12.810
+Anthony Taylor: different
+
+201
+00:18:12.950 --> 00:18:17.229
+Anthony Taylor: I is is, it's clear that these clusters are not
+
+202
+00:18:17.630 --> 00:18:20.049
+Anthony Taylor: as clean when you look at these
+
+203
+00:18:20.080 --> 00:18:21.699
+Anthony Taylor: flats here.
+
+204
+00:18:21.870 --> 00:18:25.569
+Anthony Taylor: Okay. it's much more difficult
+
+205
+00:18:25.680 --> 00:18:34.780
+Anthony Taylor: to to segment the data in this situation. So it doesn't mean that circa means is wrong. But that means that there's too many factors.
+
+206
+00:18:35.200 --> 00:18:38.150
+Anthony Taylor: So even though we only have a few here.
+
+207
+00:18:38.760 --> 00:18:43.670
+Anthony Taylor: okay. the factors that we have are muddling up the output.
+
+208
+00:18:43.960 --> 00:18:48.090
+Anthony Taylor: and while we can see, we have nice clean clusters.
+
+209
+00:18:48.890 --> 00:18:50.789
+Anthony Taylor: maybe we need to adjust it.
+
+210
+00:18:51.860 --> 00:18:54.659
+Anthony Taylor: and Pca is a way to do it
+
+211
+00:18:54.880 --> 00:18:58.570
+Anthony Taylor: the the most common. Well, we'll get to. So first
+
+212
+00:18:58.670 --> 00:19:01.680
+Anthony Taylor: let's back up. Let's get rid of our segments.
+
+213
+00:19:01.710 --> 00:19:03.940
+Anthony Taylor: We've already done the segment. Let's get rid of.
+
+214
+00:19:04.350 --> 00:19:07.130
+Anthony Taylor: Okay, so we'll just drop them. They're gone.
+
+215
+00:19:08.470 --> 00:19:16.240
+Anthony Taylor: We're going to import Pca. Now, Pca is not a model. Pca is similar to standard scalar.
+
+216
+00:19:17.280 --> 00:19:23.639
+Anthony Taylor: It's a algorithm that we're going to train and apply to our data both
+
+217
+00:19:23.690 --> 00:19:27.380
+Anthony Taylor: when we train it. And for incoming new data.
+
+218
+00:19:28.360 --> 00:19:29.350
+Anthony Taylor: Okay?
+
+219
+00:19:29.650 --> 00:19:37.980
+Anthony Taylor: So we're going to import it. We're going to create a model of it or not a model, an instance of it
+
+220
+00:19:38.420 --> 00:19:46.310
+Anthony Taylor: with calling Pca and tell it we want. In this case, we're going to say 2 components. Okay.
+
+221
+00:19:48.210 --> 00:19:52.370
+Anthony Taylor:  Now, this didn't actually do anything but create the model.
+
+222
+00:19:52.640 --> 00:19:53.700
+The algorithm
+
+223
+00:19:53.710 --> 00:19:54.939
+Anthony Taylor: got to be careful with that.
+
+224
+00:19:55.620 --> 00:20:02.050
+Anthony Taylor: Now we're going to do a fit transform. So this is now going to look at all of the data in here
+
+225
+00:20:03.270 --> 00:20:07.800
+Anthony Taylor: in the data frame and bring it down
+
+226
+00:20:08.090 --> 00:20:09.880
+Anthony Taylor: to 2 columns.
+
+227
+00:20:11.040 --> 00:20:16.140
+Anthony Taylor: because that's what we told. So let's run that now you can see we have 2 columns.
+
+228
+00:20:17.710 --> 00:20:19.600
+Anthony Taylor: Well, that's easy to read, isn't it.
+
+229
+00:20:21.770 --> 00:20:23.600
+Anthony Taylor: Okay. Now.
+
+230
+00:20:24.600 --> 00:20:27.520
+Anthony Taylor: how do we know what the these 2 columns are useful at all?
+
+231
+00:20:29.200 --> 00:20:30.989
+Anthony Taylor: Well, not yet.
+
+232
+00:20:31.550 --> 00:20:37.469
+Anthony Taylor: But that's why we're going to look at the explain variance
+
+233
+00:20:37.500 --> 00:20:38.690
+Anthony Taylor: ratio.
+
+234
+00:20:38.840 --> 00:20:45.690
+Anthony Taylor: So this is a property of the Ppa algorithm instance that we created.
+
+235
+00:20:45.950 --> 00:20:59.820
+Anthony Taylor: And it is going to give us. you could basically read these as percentages. Okay. 95.6% of the data
+
+236
+00:21:00.100 --> 00:21:03.720
+Anthony Taylor: is properly represented in this first column
+
+237
+00:21:07.010 --> 00:21:10.949
+Anthony Taylor: point 2% is represented in this second column.
+
+238
+00:21:11.290 --> 00:21:14.409
+Anthony Taylor: The way you would read, this is, you would add these up.
+
+239
+00:21:15.380 --> 00:21:18.819
+Anthony Taylor: and what and and and that's it. It can't go over a hundred.
+
+240
+00:21:19.550 --> 00:21:22.320
+Anthony Taylor: So this would be approximately
+
+241
+00:21:23.170 --> 00:21:27.159
+Anthony Taylor: 98, so 96, 98%.
+
+242
+00:21:27.880 --> 00:21:36.489
+Anthony Taylor: So with these 2 columns. we were, we are able to cover 98% of the cases
+
+243
+00:21:36.660 --> 00:21:38.750
+Anthony Taylor: in this data.
+
+244
+00:21:39.140 --> 00:21:46.119
+Anthony Taylor: So what did we just do? Why is that important? Well, now, instead of the clustering algorithm having to look at all of that.
+
+245
+00:21:47.010 --> 00:21:49.780
+Anthony Taylor: it only has to look at these 2 columns
+
+246
+00:21:52.690 --> 00:21:53.730
+Anthony Taylor: way simply
+
+247
+00:21:54.300 --> 00:21:57.780
+Anthony Taylor: like exponentially simpler.
+
+248
+00:21:59.290 --> 00:22:02.459
+Anthony Taylor: Okay? And this is even more. Yes.
+
+249
+00:22:02.500 --> 00:22:08.929
+Meredith McCanse (she/her): it didn't decide 2 columns. We said, do we? We did.
+
+250
+00:22:09.010 --> 00:22:10.370
+Anthony Taylor: Let's see if it shows it. Hold up.
+
+251
+00:22:10.980 --> 00:22:16.859
+Anthony Taylor:  let's try to get it to show me the
+
+252
+00:22:18.450 --> 00:22:29.189
+Anthony Taylor: the documentation, just not wanting to do it. But yeah, there, there's other arguments you could do here, which, like I can tell it, I want you to give me a variance of 98
+
+253
+00:22:30.350 --> 00:22:32.169
+Anthony Taylor: right? And then it'll give me
+
+254
+00:22:32.250 --> 00:22:35.070
+Anthony Taylor: as few columns as it can
+
+255
+00:22:35.220 --> 00:22:37.929
+Anthony Taylor: to give me a variance ratio of 98%.
+
+256
+00:22:39.150 --> 00:22:50.830
+Anthony Taylor: Okay, which is important, like, if we have like 50 columns. right? Maybe it's just not possible to do it, too. So we could say, Give me a variance ratio of whatever your acceptable value is 95,
+
+257
+00:22:51.040 --> 00:22:53.130
+Anthony Taylor: and it'll go.
+
+258
+00:22:53.260 --> 00:22:58.819
+Anthony Taylor: and it'll bring it down as low as you can, but no lower than 95 variants reach it
+
+259
+00:22:59.380 --> 00:23:02.560
+Anthony Taylor: so it could be 5 could be 10. It'll be fine.
+
+260
+00:23:02.850 --> 00:23:10.910
+Meredith McCanse (she/her): And when you tell it something like 2, does it just choose 2 existing columns, or does it like consolidate everything?
+
+261
+00:23:11.200 --> 00:23:12.170
+Meredith McCanse (she/her): Okay.
+
+262
+00:23:12.490 --> 00:23:16.189
+Anthony Taylor: yeah. So it looks at this full row and says.
+
+263
+00:23:16.200 --> 00:23:22.030
+Anthony Taylor: Can I fit this data trained to get all of this information into 2 columns?
+
+264
+00:23:22.180 --> 00:23:32.580
+Anthony Taylor: And and it did. And then we look at how well it did. And we see that we actually in this case, the data is really simple. So 98%, that's
+
+265
+00:23:32.940 --> 00:23:43.619
+Anthony Taylor: that's unheard of. You wouldn't usually use Pca for data, this small. Usually you'd be using it for these really wide tables. And if you get 90%, you're like.
+
+266
+00:23:43.640 --> 00:23:47.600
+Anthony Taylor: Oh, thank God. okay, you're you're overjoyed.
+
+267
+00:23:47.990 --> 00:23:50.499
+Anthony Taylor: Okay, but you have to.
+
+268
+00:23:50.660 --> 00:23:52.979
+Anthony Taylor: Your model has to be okay with that.
+
+269
+00:23:54.250 --> 00:23:59.599
+Anthony Taylor: Okay, so think about that, you know back to you mentioned this earlier today, back to
+
+270
+00:23:59.650 --> 00:24:10.510
+Anthony Taylor: the the whole discussion of banking and marketing. Remember that discussion alright. Back in a little while back banking. We can never make a mistake ever.
+
+271
+00:24:12.260 --> 00:24:13.760
+Anthony Taylor: Okay? Cause
+
+272
+00:24:13.990 --> 00:24:23.089
+Anthony Taylor: I mean, even in healthcare, we can argue well, you know, if we write a hundred percent because we're just gonna use the model to decide if we're gonna do further testing
+
+273
+00:24:24.160 --> 00:24:27.660
+Anthony Taylor: right? But banking? Oh, my God, money's your money.
+
+274
+00:24:28.900 --> 00:24:35.760
+Anthony Taylor: and the the world will stop because you got your ATM account. That handed off to the wrong person.
+
+275
+00:24:36.860 --> 00:24:39.979
+Anthony Taylor: Okay, marketing. Nobody cares.
+
+276
+00:24:40.220 --> 00:24:42.059
+Anthony Taylor: Mail out more stuff. I don't
+
+277
+00:24:42.980 --> 00:24:46.180
+Anthony Taylor: send Spam to the wrong people. That's okay.
+
+278
+00:24:46.790 --> 00:24:47.480
+Anthony Taylor: Okay.
+
+279
+00:24:48.310 --> 00:24:56.690
+Anthony Taylor: Okay? So so sometimes a variance ratio like this would be probably an acceptable.
+
+280
+00:24:57.460 --> 00:25:02.600
+Anthony Taylor: maybe not banking, but closer to the banking side. Then, like an 80
+
+281
+00:25:02.840 --> 00:25:07.379
+Anthony Taylor: and 80, we might be, that's fine. Just run fast. Yeah. Hi, go ahead. If you're unmarked.
+
+282
+00:25:07.730 --> 00:25:08.520
+Anthony Taylor: Okay.
+
+283
+00:25:10.500 --> 00:25:12.890
+Anthony Taylor: okay, 50. That's so good.
+
+284
+00:25:13.950 --> 00:25:18.009
+Anthony Taylor: Alright. So where we looked at our variance ratio.
+
+285
+00:25:18.440 --> 00:25:21.040
+Anthony Taylor: And we're like. we're good with this.
+
+286
+00:25:21.600 --> 00:25:26.339
+Anthony Taylor: Okay? So now we're gonna all we're really gonna do is take
+
+287
+00:25:26.460 --> 00:25:31.240
+Anthony Taylor: this this Pca data, because notice, it's an array.
+
+288
+00:25:31.890 --> 00:25:35.770
+Anthony Taylor: And we're going to put it into a data frame. And we're going to name the columns.
+
+289
+00:25:36.330 --> 00:25:39.770
+Anthony Taylor: Now, you really can't name them anything meaningful.
+
+290
+00:25:40.540 --> 00:25:45.110
+Anthony Taylor: because Pca's not telling us yet what's meaningful here.
+
+291
+00:25:45.670 --> 00:25:49.180
+Anthony Taylor: So we're just gonna call it Pca, Pca, 2. Alright
+
+292
+00:25:49.370 --> 00:25:51.009
+Anthony Taylor: run that there's a data form.
+
+293
+00:25:54.500 --> 00:26:03.130
+Anthony Taylor: So now we could do the whole K-means thing again. So we're going to run this. and we're gonna finish with an
+
+294
+00:26:03.490 --> 00:26:11.880
+Anthony Taylor: potato frame and an elbow elbows between 3 and 4. So we're good with that.
+
+295
+00:26:12.150 --> 00:26:19.650
+Anthony Taylor:  we're gonna this is that quantitative method. We're gonna look at the difference in percentage change.
+
+296
+00:26:20.060 --> 00:26:23.309
+Anthony Taylor: Right, I would hold onto this case. You need it later.
+
+297
+00:26:23.940 --> 00:26:26.090
+Anthony Taylor: So you can see from.
+
+298
+00:26:26.140 --> 00:26:31.939
+Anthony Taylor: you know, we had a 67% change, 49, 32, 2821. It starts to level out
+
+299
+00:26:32.400 --> 00:26:33.660
+Anthony Taylor: right in there.
+
+300
+00:26:33.810 --> 00:26:36.319
+Anthony Taylor: So we're probably gonna go with 3 or 4.
+
+301
+00:26:36.830 --> 00:26:37.740
+Anthony Taylor: Okay.
+
+302
+00:26:38.390 --> 00:26:41.169
+Anthony Taylor:  we're gonna do 3.
+
+303
+00:26:41.480 --> 00:26:43.980
+Anthony Taylor: Now, notice, we're doing the Pca data.
+
+304
+00:26:45.690 --> 00:26:46.749
+Anthony Taylor: We run it.
+
+305
+00:26:47.950 --> 00:26:49.470
+Anthony Taylor: We do a scatter
+
+306
+00:26:49.840 --> 00:26:55.909
+Anthony Taylor: to get a very clean. Now the interesting thing is, can I run this scatter any other way?
+
+307
+00:26:57.520 --> 00:27:02.700
+Anthony Taylor: No. there's only 2 values. So this is, there's no confusion here.
+
+308
+00:27:03.890 --> 00:27:11.089
+Anthony Taylor: Alright, this is this clean, and we can see what we want to see is that it matches this more or less
+
+309
+00:27:11.550 --> 00:27:15.369
+Anthony Taylor: and other than it being transposed. It does
+
+310
+00:27:16.180 --> 00:27:19.450
+Anthony Taylor: okay. because that was all about.
+
+311
+00:27:19.580 --> 00:27:24.589
+Anthony Taylor: So this is the reduced values, and it still matches. So we did good.
+
+312
+00:27:24.910 --> 00:27:28.029
+Anthony Taylor: which we knew of what? Okay, now.
+
+313
+00:27:28.290 --> 00:27:33.109
+Anthony Taylor:  there's that value again. Now, we can. Actually.
+
+314
+00:27:33.360 --> 00:27:35.920
+Anthony Taylor: this is one of my favorite parts about Pca.
+
+315
+00:27:37.120 --> 00:27:42.670
+Anthony Taylor: And you guys are going to like this. This is going to go into interpretability.
+
+316
+00:27:44.230 --> 00:27:48.389
+Anthony Taylor: And before I run this looking at our original data.
+
+317
+00:27:49.540 --> 00:27:52.369
+Anthony Taylor: Well, because we're clustering, it's kind of hard to tell.
+
+318
+00:27:52.680 --> 00:27:58.219
+Anthony Taylor: right? We want to look at this. Want to figure out, what is it basing. It's clustering on well
+
+319
+00:27:58.320 --> 00:28:01.070
+Anthony Taylor: again, because for clustering it's a little harder to tell.
+
+320
+00:28:01.760 --> 00:28:09.389
+Anthony Taylor: But but some of these values carry more weight than the others. Pca. Is going to tell us which ones?
+
+321
+00:28:14.120 --> 00:28:15.580
+Anthony Taylor: There we go.
+
+322
+00:28:16.090 --> 00:28:18.019
+Anthony Taylor: So let's look and see
+
+323
+00:28:18.920 --> 00:28:21.109
+Anthony Taylor: how that works. So
+
+324
+00:28:21.170 --> 00:28:24.449
+Anthony Taylor: I do want you guys to note this the syntax. Here
+
+325
+00:28:24.740 --> 00:28:27.739
+Anthony Taylor: we took the Pca components.
+
+326
+00:28:28.530 --> 00:28:32.200
+Anthony Taylor: Oh, Pca components, T,
+
+327
+00:28:33.310 --> 00:28:41.760
+Anthony Taylor: this is a property of Pca model or algorithm. And then we said, these columns from our current data frame.
+
+328
+00:28:43.060 --> 00:28:46.529
+Anthony Taylor: And then we said, I want you to use the columns
+
+329
+00:28:47.030 --> 00:28:50.960
+Anthony Taylor: from the original data frame as an index
+
+330
+00:28:52.700 --> 00:28:54.070
+Anthony Taylor: by follow.
+
+331
+00:28:55.210 --> 00:29:01.569
+Anthony Taylor: okay, that's going to create this table note. These are the columns from the original data frame.
+
+332
+00:29:03.270 --> 00:29:04.940
+Anthony Taylor: And next to them
+
+333
+00:29:06.010 --> 00:29:09.880
+Anthony Taylor: you're going to see weights. one being the highest
+
+334
+00:29:11.470 --> 00:29:16.909
+Anthony Taylor: of what each of these columns contributed to the final result.
+
+335
+00:29:19.340 --> 00:29:23.110
+Anthony Taylor: Really, really this final result? But
+
+336
+00:29:23.250 --> 00:29:26.239
+Anthony Taylor: this all translates into how it clustered.
+
+337
+00:29:27.820 --> 00:29:30.060
+Anthony Taylor: So what was the number one
+
+338
+00:29:31.620 --> 00:29:34.440
+Anthony Taylor: feature that it considered.
+
+339
+00:29:35.130 --> 00:29:36.550
+Meredith McCanse (she/her): Yeah, and above
+
+340
+00:29:38.140 --> 00:29:39.260
+Meredith McCanse (she/her): page
+
+341
+00:29:39.500 --> 00:29:40.859
+Meredith McCanse (she/her): age age.
+
+342
+00:29:41.320 --> 00:29:49.550
+Anthony Taylor: it basically clustered on age 99 point 9. That's nuts.
+
+343
+00:29:49.560 --> 00:29:51.790
+Anthony Taylor: All the rest of these are fraction.
+
+344
+00:29:52.520 --> 00:29:55.039
+Anthony Taylor: So basically, age and marriage.
+
+345
+00:29:58.680 --> 00:30:03.310
+Anthony Taylor: Okay, can you tell me what the T was? Again?
+
+346
+00:30:03.810 --> 00:30:07.040
+Anthony Taylor: It's just the name of the property that gives us this weight.
+
+347
+00:30:07.700 --> 00:30:11.909
+Anthony Taylor: So Pca components, underscore dot, T,
+
+348
+00:30:12.180 --> 00:30:14.010
+Anthony Taylor: this is the name
+
+349
+00:30:14.070 --> 00:30:18.910
+Anthony Taylor: that that's gonna give us these weights.
+
+350
+00:30:18.950 --> 00:30:21.379
+Anthony Taylor: This, it's yeah, just a propable.
+
+351
+00:30:21.880 --> 00:30:30.540
+Anthony Taylor: Okay. So the interesting thing is that, of course, PCA. 2. The second value actually took away a little bit of this weight.
+
+352
+00:30:31.000 --> 00:30:32.689
+Anthony Taylor: which is understandable.
+
+353
+00:30:33.450 --> 00:30:45.500
+Anthony Taylor: Okay? Otherwise, there's no point doing anything just cluster the ages. You're done. Okay. But because of all this other stuff to do it. So
+
+354
+00:30:47.570 --> 00:30:55.650
+Meredith McCanse (she/her): yeah, go for it in the in the syntax where you have it, telling it which columns to use.
+
+355
+00:30:55.880 --> 00:31:02.540
+Meredith McCanse (she/her): We never told it. No, so not there. But to the left, where you're telling it columns equals Pca one and Pca 2,
+
+356
+00:31:02.920 --> 00:31:06.200
+Meredith McCanse (she/her): we never exposed it. Yeah, we never.
+
+357
+00:31:06.330 --> 00:31:16.190
+Meredith McCanse (she/her): Okay. So you're not saying, pull the data from that previous data frame that used those labels. You're just saying, name the columns this.
+
+358
+00:31:16.580 --> 00:31:26.680
+Anthony Taylor: where did we do it right here? See how we named them here. But you didn't refer to that data frame anywhere. How does it know that's the data frame to get it from? Did I?
+
+359
+00:31:27.100 --> 00:31:28.560
+Anthony Taylor: Did I? Now?
+
+360
+00:31:30.530 --> 00:31:34.180
+Anthony Taylor: Pd data frame? Oh, because we ran Pca. Against.
+
+361
+00:31:34.440 --> 00:31:39.139
+Anthony Taylor: So it's using the model. Give us that. So in the model
+
+362
+00:31:39.540 --> 00:31:41.390
+Anthony Taylor: we passed in
+
+363
+00:31:42.710 --> 00:31:44.399
+Anthony Taylor: for our variance.
+
+364
+00:31:46.870 --> 00:31:50.930
+Anthony Taylor: Getting back up to where we did it. Here we go. So
+
+365
+00:31:51.180 --> 00:31:54.770
+Anthony Taylor: we ran Pca on
+
+366
+00:31:54.890 --> 00:31:57.100
+Anthony Taylor: this model or this model.
+
+367
+00:31:57.660 --> 00:32:02.009
+Anthony Taylor: Okay, so Pca, now, has those 2 columns in it?
+
+368
+00:32:02.500 --> 00:32:04.650
+Meredith McCanse (she/her): Alright, yeah.
+
+369
+00:32:04.840 --> 00:32:07.709
+Anthony Taylor: So. And we're just, you're right. We're basically just naming it.
+
+370
+00:32:08.160 --> 00:32:09.070
+Meredith McCanse (she/her): Okay.
+
+371
+00:32:09.280 --> 00:32:13.949
+Anthony Taylor: does that make sense here? If you don't put this here, I don't think it would actually fail.
+
+372
+00:32:14.110 --> 00:32:15.009
+Anthony Taylor: Let's find out
+
+373
+00:32:16.320 --> 00:32:18.670
+Anthony Taylor: pretty sure this would still work. Yeah.
+
+374
+00:32:19.200 --> 00:32:22.289
+Meredith McCanse (she/her): So all we're doing is just making it easier to read.
+
+375
+00:32:22.680 --> 00:32:25.079
+Dipinto, Matt: You actually nailed it on your first suggestion
+
+376
+00:32:25.280 --> 00:32:38.439
+Dipinto, Matt: thing I want to point out so that dot t, so I think the the actual thing so Pca dot components is what gives you those numbers. The dot T just transforms them from essentially row type to column type.
+
+377
+00:32:39.160 --> 00:32:41.130
+Anthony Taylor: Well, that would be transpose, yeah.
+
+378
+00:32:41.880 --> 00:32:43.349
+Dipinto, Matt: or, yeah, yeah, yeah. Sorry
+
+379
+00:32:43.510 --> 00:32:50.639
+Dipinto, Matt: so the shape's gonna be wrong. But if you just pull the Pca components, throw them in another cell, you should get 2 rows of the data.
+
+380
+00:32:50.680 --> 00:32:55.030
+Anthony Taylor: That's good. That's good, great, great observation.
+
+381
+00:32:55.490 --> 00:32:57.829
+Anthony Taylor: But to do this, you have to put that deep.
+
+382
+00:32:59.430 --> 00:33:00.450
+Anthony Taylor: Okay.
+
+383
+00:33:02.560 --> 00:33:08.449
+Anthony Taylor: so this is really cool. This shows us how our cluster cluster.
+
+384
+00:33:09.740 --> 00:33:14.339
+Anthony Taylor: Okay. Because remember why I told you just yesterday I told you really hard to do. Now.
+
+385
+00:33:14.400 --> 00:33:17.630
+Anthony Taylor: it's still really hard to do unless you do. Pca.
+
+386
+00:33:19.490 --> 00:33:20.400
+Anthony Taylor: Alright.
+
+387
+00:33:20.650 --> 00:33:25.929
+Anthony Taylor: Pca adds an extra layer that you can use to do some interpretability.
+
+388
+00:33:27.380 --> 00:33:31.159
+Anthony Taylor: Okay? So which features age by last.
+
+389
+00:33:31.850 --> 00:33:36.830
+Anthony Taylor: okay, limit, balance, limit, balance bill amount and pay amount
+
+390
+00:33:37.110 --> 00:33:40.879
+Anthony Taylor: for the second one had a lot to do with it.
+
+391
+00:33:42.030 --> 00:33:43.310
+Anthony Taylor: Okay, yeah. Time
+
+392
+00:33:48.850 --> 00:33:49.730
+Anthony Taylor: muted.
+
+393
+00:33:52.380 --> 00:33:54.240
+Raugewitz, Tania: Oh, I thought you were gonna unmute me.
+
+394
+00:33:54.890 --> 00:34:00.419
+Anthony Taylor: I can't unmute you. That's one thing I can't do. I can use you, but I can't unmute you.
+
+395
+00:34:01.090 --> 00:34:12.109
+Raugewitz, Tania: Okay, so my bad for the the 3 models. So is it one of those things where it's K-means is used often, but more often than not
+
+396
+00:34:12.659 --> 00:34:27.829
+Anthony Taylor: the Pca is going to be the default that is used because of.
+
+397
+00:34:28.719 --> 00:34:35.769
+Raugewitz, Tania: but it's used with or birch, or it is used in tandem, in tandem with them.
+
+398
+00:34:36.050 --> 00:34:37.210
+Anthony Taylor: Perfect.
+
+399
+00:34:37.480 --> 00:34:41.519
+Anthony Taylor: That's right. And and others, by the way, we'll use this again
+
+400
+00:34:41.550 --> 00:34:44.220
+Anthony Taylor: in classification and supervised.
+
+401
+00:34:44.900 --> 00:34:58.969
+Anthony Taylor: Okay, you'll also use this in in deep learning alright, which is still coming in the future. Okay, deep learning sounds hard, doesn't it? We're gonna learn deep learning.
+
+402
+00:34:59.360 --> 00:35:01.950
+Anthony Taylor: It does cool thing
+
+403
+00:35:05.660 --> 00:35:08.240
+Anthony Taylor: model bid predict.
+
+404
+00:35:09.780 --> 00:35:13.310
+Anthony Taylor: The model takes one extra step, but not bad.
+
+405
+00:35:14.060 --> 00:35:16.579
+Anthony Taylor: Okay, any other questions.
+
+406
+00:35:17.660 --> 00:35:24.420
+Anthony Taylor: So let's just go back to the beginning, real quick and kind of walk through it all without all the blubber in the middle.
+
+407
+00:35:24.640 --> 00:35:27.139
+Anthony Taylor: Okay. we have our data.
+
+408
+00:35:27.160 --> 00:35:32.869
+Anthony Taylor: The State has already standardized. clustered. We're just looking at it.
+
+409
+00:35:33.030 --> 00:35:42.100
+Anthony Taylor: This is the only one we care about. This was just showing you. It's not always perfect. Now let's go back to what you're going to do in the next exercise. Yeah, there
+
+410
+00:35:43.250 --> 00:35:47.059
+Derek Rikke: is there ever any reason you wouldn't use Pca
+
+411
+00:35:48.990 --> 00:35:58.279
+Anthony Taylor: because it'll lower the quality of your model. Now, in this case really doesn't cause we got 98% coverage
+
+412
+00:35:59.290 --> 00:36:04.200
+Anthony Taylor: right? But there will be times you go use Pca. And you can't get better. 70
+
+413
+00:36:05.550 --> 00:36:08.470
+Anthony Taylor: alright. And in that case you don't wanna use.
+
+414
+00:36:09.340 --> 00:36:10.430
+Anthony Taylor: or.
+
+415
+00:36:10.630 --> 00:36:17.099
+Anthony Taylor: you know, back to my like, 50 columns, example or 50 features example, if it only lowers it by one or 2,
+
+416
+00:36:17.230 --> 00:36:18.990
+Anthony Taylor: and you lose any
+
+417
+00:36:19.800 --> 00:36:25.200
+Anthony Taylor: Co. quality, then there's no point cause you're not gaining anything at it.
+
+418
+00:36:25.790 --> 00:36:34.030
+Anthony Taylor: Right? So the idea is is through the most important. So but let me ask you, let me let me present it to you guys this way.
+
+419
+00:36:36.330 --> 00:36:39.359
+Anthony Taylor: what is the most expensive part of machine learning.
+
+420
+00:36:40.550 --> 00:36:41.440
+Raugewitz, Tania: training.
+
+421
+00:36:42.420 --> 00:36:44.479
+Anthony Taylor: training? But why
+
+422
+00:36:44.740 --> 00:36:47.329
+Baro, Sonja: time, time? Hi.
+
+423
+00:36:47.670 --> 00:36:54.620
+Anthony Taylor: CPU time. right? Matt wrote a thing earlier, and he said he was looking at cloud servers to see when they were available.
+
+424
+00:36:54.830 --> 00:36:59.050
+Anthony Taylor: Okay, so those servers are
+
+425
+00:36:59.180 --> 00:37:03.560
+Anthony Taylor: not cheap. and they'd usually charge by the minute.
+
+426
+00:37:04.370 --> 00:37:09.050
+Anthony Taylor: Okay? And it's not always a lot of money. It might be only 3 bucks an hour.
+
+427
+00:37:10.460 --> 00:37:13.989
+Anthony Taylor: Okay, 3 bucks an hour is no big deal. Oh, but wait.
+
+428
+00:37:14.490 --> 00:37:17.730
+Anthony Taylor: We need 20 of them to train this law.
+
+429
+00:37:18.640 --> 00:37:23.740
+Anthony Taylor: Oh, now we're at 60 bucks now. Oh, and it takes 24 h to do it.
+
+430
+00:37:25.510 --> 00:37:34.889
+Anthony Taylor: Okay? So that is where the majority of the money and the time is spent in machine learning. Besides us, we all get paid.
+
+431
+00:37:37.030 --> 00:37:48.400
+Anthony Taylor: Okay. But so so a lot of what we do in machine learning. Besides, the tuning and twisting the knobs is to trying to lower that cost.
+
+432
+00:37:50.380 --> 00:37:58.409
+Anthony Taylor: Because every time we train that model, if it costs $12,000, it better have one hell of a return of investment.
+
+433
+00:38:00.510 --> 00:38:02.520
+Anthony Taylor: because I might have to run it once a month.
+
+434
+00:38:05.130 --> 00:38:13.469
+Anthony Taylor: Alright. Well, I think we were at $1,200, but either way. however much it costs, I have a model that cost several $1,000 to train
+
+435
+00:38:14.710 --> 00:38:19.649
+Anthony Taylor: alright, but we try to lower that down. And Pca is one of those methods.
+
+436
+00:38:19.910 --> 00:38:28.520
+Anthony Taylor: So Pca, we say, Hey, if we can reduce the number of features from 50 to 20 and keep 95%
+
+437
+00:38:28.620 --> 00:38:32.180
+Anthony Taylor: of our. you know, possibilities
+
+438
+00:38:32.930 --> 00:38:37.310
+Anthony Taylor: that could speed up our training time by 12 h.
+
+439
+00:38:38.020 --> 00:38:40.390
+Anthony Taylor: 10 h fiber.
+
+440
+00:38:41.870 --> 00:38:47.250
+Anthony Taylor: Now we're saving a bunch of money? Alright. So maybe we're willing to deal with that.
+
+441
+00:38:47.820 --> 00:38:50.349
+Anthony Taylor: So anyway, is that clear? Everybody got that?
+
+442
+00:38:51.970 --> 00:38:56.059
+Anthony Taylor: Alright? okay. So
+
+443
+00:38:56.190 --> 00:39:02.460
+Anthony Taylor: this is basically from the exercise forward. So you're just going to have this data without the cluster
+
+444
+00:39:02.700 --> 00:39:07.009
+Anthony Taylor: you're going to call Pca. You're going to give it. Let's let's do this real quick.
+
+445
+00:39:12.620 --> 00:39:15.420
+Anthony Taylor: I want to grab it. So you guys can see the documentation.
+
+446
+00:39:16.730 --> 00:39:32.710
+Anthony Taylor:  so note, you can do in components, which is what we're doing
+
+447
+00:39:33.280 --> 00:39:34.380
+Anthony Taylor: okay?
+
+448
+00:39:35.140 --> 00:39:44.070
+Anthony Taylor:  you can do. There's a couple other ones in here. Don't worry too much. I mean, you could read up on those if you want tolerance. So
+
+449
+00:39:44.870 --> 00:39:50.219
+Anthony Taylor: oh, that's not it. Or say that over sample random statement.
+
+450
+00:39:52.570 --> 00:39:54.039
+Anthony Taylor: is it? Tolerance
+
+451
+00:40:02.800 --> 00:40:04.429
+Anthony Taylor: could be tolerance
+
+452
+00:40:08.190 --> 00:40:10.839
+Anthony Taylor: PIN samples in features.
+
+453
+00:40:13.190 --> 00:40:16.439
+Anthony Taylor: Okay, so this is, you can't go lower than that.
+
+454
+00:40:19.270 --> 00:40:20.940
+Anthony Taylor: I think it's tolerance.
+
+455
+00:40:26.330 --> 00:40:28.730
+Anthony Taylor: Let's try it. Let's just try it.
+
+456
+00:40:30.370 --> 00:40:33.350
+Anthony Taylor:  let's kind of get out.
+
+457
+00:40:45.210 --> 00:40:46.319
+Anthony Taylor: Thank you. Yang.
+
+458
+00:40:47.820 --> 00:40:48.730
+Anthony Taylor: okay.
+
+459
+00:40:52.320 --> 00:40:53.979
+Anthony Taylor: so look at what it did. There.
+
+460
+00:40:55.460 --> 00:40:56.910
+Anthony Taylor: you guys see what happened
+
+461
+00:40:58.270 --> 00:41:02.110
+Anthony Taylor: like, how many, how many values are in a row. Now.
+
+462
+00:41:04.260 --> 00:41:07.909
+Anthony Taylor: okay, so let's lower this. Let's just lower this down to like 95
+
+463
+00:41:10.780 --> 00:41:12.849
+Anthony Taylor: didn't fix it, darn it
+
+464
+00:41:13.350 --> 00:41:15.750
+Anthony Taylor: was hoping it would fix that. Let's see.
+
+465
+00:41:17.230 --> 00:41:21.009
+Anthony Taylor: Oh, my, that's a mess. Yeah. Tolerance is not what I'm thinking it is.
+
+466
+00:41:21.440 --> 00:41:26.300
+Anthony Taylor:  I need to remember it. You know what? I'll look it up while you guys are your next tech team.
+
+467
+00:41:26.620 --> 00:41:28.870
+Anthony Taylor: That's it, maybe because we definitely do that
+
+468
+00:41:29.010 --> 00:41:33.569
+Dipinto, Matt: cause. It's at that. You know what it could be point 9 5. Thank you. That's a good thought.
+
+469
+00:41:33.910 --> 00:41:37.280
+Anthony Taylor: Let's try that that that that that
+
+470
+00:41:42.350 --> 00:41:45.369
+Anthony Taylor: I was trying to be clever with that? Yeah.
+
+471
+00:41:47.310 --> 00:41:58.899
+Anthony Taylor: I'll figure it out. Don't worry about. We'll get there.  So let's just stick within components for the moment, and then I will get you the answer to that other one. I know it can be done.
+
+472
+00:41:59.260 --> 00:42:05.309
+Anthony Taylor: I'm just wondering if maybe thinking of a different model. But anyway, so here
+
+473
+00:42:05.400 --> 00:42:14.490
+Anthony Taylor: we've done in clusters 2. We fit transformed it to our data. Now we can look at our variance ratio. See how we did? We did good.
+
+474
+00:42:14.890 --> 00:42:15.750
+Anthony Taylor: Okay.
+
+475
+00:42:15.950 --> 00:42:26.049
+Anthony Taylor: now, we're gonna take this array of arrays of lists alright and create a data frame with 2 new columns.
+
+476
+00:42:26.620 --> 00:42:34.779
+Anthony Taylor: Now that we have that, we just do our normal K-means stuff. Nothing new here. Okay, nothing new here.
+
+477
+00:42:37.520 --> 00:42:43.580
+Anthony Taylor: We're doing it now we're gonna run it with a specific number of clusters on our Pca data
+
+478
+00:42:44.330 --> 00:42:52.199
+Anthony Taylor: and take a look at it. Yay, it looks like the original. Then last. you're going to look at the weights.
+
+479
+00:42:52.570 --> 00:42:59.439
+Anthony Taylor: So this is gonna be one of those activities. We're gonna want to have them side by side unless they give you these, this, these cells sounds
+
+480
+00:43:00.270 --> 00:43:01.200
+Anthony Taylor: okay.
+
+481
+00:43:03.880 --> 00:43:05.580
+Anthony Taylor: pretty straightforward.
+
+482
+00:43:05.600 --> 00:43:08.509
+Anthony Taylor: other than my aside there, which I will solve.
+
+483
+00:43:09.450 --> 00:43:11.939
+Anthony Taylor: Hi, Hi, cool.
+
+484
+00:43:12.830 --> 00:43:17.330
+Anthony Taylor: Let's give you guys an exercise to work with. So
+
+485
+00:43:19.690 --> 00:43:23.969
+Anthony Taylor: you gotta pull in a bunch of data. This data is already standardized.
+
+486
+00:43:24.240 --> 00:43:26.170
+Anthony Taylor: Gonna bring in Pca.
+
+487
+00:43:26.470 --> 00:43:30.669
+Anthony Taylor: you're going to declare the number of Pca variables is that in the
+
+488
+00:43:34.140 --> 00:43:34.890
+Anthony Taylor: 2?
+
+489
+00:43:36.090 --> 00:43:41.590
+Anthony Taylor: Alright. declare it to 2. Well, you can see them there. Okay.
+
+490
+00:43:41.750 --> 00:43:46.390
+Anthony Taylor: use the explain variance ratio. See? Now, like, here's a good example.
+
+491
+00:43:46.430 --> 00:43:48.400
+Anthony Taylor: If this is the correct one.
+
+492
+00:43:48.790 --> 00:43:51.269
+Anthony Taylor: what does this total come out to?
+
+493
+00:43:57.200 --> 00:43:58.150
+Derek Rikke: 85,
+
+494
+00:43:58.880 --> 00:44:00.060
+Anthony Taylor: 85,
+
+495
+00:44:00.370 --> 00:44:04.399
+Anthony Taylor: absolutely. So we're only getting 85%
+
+496
+00:44:05.330 --> 00:44:10.669
+Anthony Taylor: of the feature set using just 2. Does that make sense to everybody?
+
+497
+00:44:12.050 --> 00:44:17.989
+Anthony Taylor: This is a naked? So this is probably, I mean, maybe this is fine, certainly fine for class.
+
+498
+00:44:18.160 --> 00:44:20.980
+Anthony Taylor: We're doing customer segmentation. So probably.
+
+499
+00:44:21.310 --> 00:44:29.040
+Anthony Taylor: But maybe you jump it up to 3 and see if it gets better, it will. Okay, I don't know. Yeah, there's there's a lot of features there.
+
+500
+00:44:29.350 --> 00:44:35.420
+Anthony Taylor:  and then you're gonna use it and create the data frame like we did in the other one
+
+501
+00:44:35.810 --> 00:44:42.339
+Anthony Taylor: same here. Oh, and then you're gonna do your your for loop. Copy it from the other exercise, please.
+
+502
+00:44:43.680 --> 00:44:47.999
+Anthony Taylor: and then you're gonna do with whatever you think is best bought. It
+
+503
+00:44:50.490 --> 00:44:52.739
+Anthony Taylor: looks like we're going to do it again with 3.
+
+504
+00:44:53.730 --> 00:44:57.400
+Anthony Taylor: And there you go and determine. And then you're gonna do the weights
+
+505
+00:44:58.350 --> 00:45:00.520
+Anthony Taylor: with the dot transpose.
+
+506
+00:45:02.070 --> 00:45:03.050
+Anthony Taylor: Okay.
+
+507
+00:45:04.210 --> 00:45:06.570
+Anthony Taylor: I should be doable.
+
+508
+00:45:06.950 --> 00:45:08.620
+Anthony Taylor: We are giving you.
+
+509
+00:45:18.260 --> 00:45:30.510
+Anthony Taylor: Maybe we won't have a lot of extra time. 20 min. 20 min. Alright! Welcome back. How'd you guys do? Did you good? Did you? Good?
+
+510
+00:45:32.030 --> 00:45:34.010
+Clayton Graves: I got to see. I see that
+
+511
+00:45:34.120 --> 00:45:37.079
+Clayton Graves: I got the same when I tried it plotting.
+
+512
+00:45:37.260 --> 00:45:42.279
+Clayton Graves: but I got on the first activity, and I can't figure it out.
+
+513
+00:45:42.590 --> 00:45:44.520
+Clayton Graves: Well, we'll take a look.
+
+514
+00:45:45.280 --> 00:45:53.900
+Anthony Taylor: Let's let's go through it, and then let's see where. Maybe you'll see the answer when we go through it. and if not, we'll take a look. You know I won't leave you hanging.
+
+515
+00:45:55.220 --> 00:45:56.850
+Anthony Taylor: I won't leave you hanging
+
+516
+00:45:59.320 --> 00:46:04.869
+Anthony Taylor: all right. So anybody see my broadcast, I sent the broadcast to tell you how to get
+
+517
+00:46:04.920 --> 00:46:09.790
+Anthony Taylor: the percentage. Did anybody see it? Nobody saw it.
+
+518
+00:46:10.860 --> 00:46:12.160
+Anthony Taylor: Your guys?
+
+519
+00:46:13.000 --> 00:46:17.179
+Anthony Taylor: Well, the funny part is, what's the broadcast.
+
+520
+00:46:17.760 --> 00:46:18.790
+Anthony Taylor: yeah.
+
+521
+00:46:19.250 --> 00:46:21.630
+Mason, Natalie: where? Where we supposed to see it?
+
+522
+00:46:23.220 --> 00:46:29.360
+Anthony Taylor: I was playing with chat, dpt. I was asking it. What if it believed in God. It was kind of funny.
+
+523
+00:46:30.020 --> 00:46:37.600
+Anthony Taylor:  it's basically still in components. You just have to change it to a percentage. Anyway, we'll get to it
+
+524
+00:46:37.650 --> 00:46:39.040
+Anthony Taylor: alright. So
+
+525
+00:46:40.350 --> 00:46:44.499
+Anthony Taylor: go through this. We're going to bring in the data.
+
+526
+00:46:44.970 --> 00:46:51.019
+Anthony Taylor: So this one's already standard scale. So we'd like to do that. So we're going to do? Pca.
+
+527
+00:46:51.950 --> 00:46:58.530
+Anthony Taylor: okay? And then it told us to do 2. So we do. 2. Alright,
+
+528
+00:46:58.730 --> 00:46:59.879
+Anthony Taylor: We'll come back to
+
+529
+00:47:00.340 --> 00:47:04.150
+Anthony Taylor: and then we're going to fit transform.
+
+530
+00:47:04.710 --> 00:47:06.650
+Anthony Taylor: Okay, the
+
+531
+00:47:10.040 --> 00:47:16.639
+Anthony Taylor: one. If you wanted to be a specific thighs, you would do.
+
+532
+00:47:18.310 --> 00:47:21.359
+Anthony Taylor: Let's do point 80, because we know this one's low.
+
+533
+00:47:24.790 --> 00:47:27.139
+Anthony Taylor: Okay? See, I did that.
+
+534
+00:47:27.190 --> 00:47:34.509
+Anthony Taylor: So this is gonna make it a specific variance. So if I say, if 85 wasn't enough and I wanted it to be 95 or 90,
+
+535
+00:47:35.060 --> 00:47:40.369
+Anthony Taylor: right? We know that this was, gonna give us 80. So see now, we ended up with a third.
+
+536
+00:47:41.460 --> 00:47:45.160
+Anthony Taylor: See how that works. But let's go back to our instructions.
+
+537
+00:47:45.630 --> 00:47:47.769
+Anthony Taylor: It said 2. So we'll do 2.
+
+538
+00:47:48.900 --> 00:47:49.690
+Anthony Taylor: Okay.
+
+539
+00:47:50.030 --> 00:47:55.610
+Meredith McCanse (she/her): so did you use if you put it in as a percent, it'll give you that percentage
+
+540
+00:47:55.880 --> 00:47:59.349
+Anthony Taylor: right here, I'll show you. So right now, we could see 2
+
+541
+00:47:59.360 --> 00:48:02.650
+Anthony Taylor: is the 85%. Right? Everybody agree.
+
+542
+00:48:03.370 --> 00:48:07.510
+Anthony Taylor: Alright. So let's go back up here and change this to 90
+
+543
+00:48:07.660 --> 00:48:08.719
+point 9,
+
+544
+00:48:11.750 --> 00:48:13.640
+Anthony Taylor: and then run this again.
+
+545
+00:48:13.700 --> 00:48:19.200
+Anthony Taylor: And now, when we run this, we'll see that it's 55, 85
+
+546
+00:48:19.400 --> 00:48:23.879
+Anthony Taylor: plus another 6. So now it's like 91. But
+
+547
+00:48:24.200 --> 00:48:29.349
+Anthony Taylor: so it was able to give us 90 in 3 instead of the original 10.
+
+548
+00:48:31.290 --> 00:48:36.109
+Anthony Taylor: Okay, so that's the other way. You can use Pca, so you can go either direction.
+
+549
+00:48:36.660 --> 00:48:40.170
+Anthony Taylor: But we'll go back to the directions, for now
+
+550
+00:48:43.490 --> 00:48:48.600
+Anthony Taylor: that was the thing I was trying to find earlier. And it's funny. It's the same. The same argument.
+
+551
+00:48:48.860 --> 00:48:55.169
+Anthony Taylor: which is why I was having trouble finding. It's the same damn market. Okay, so about 85%.
+
+552
+00:48:55.180 --> 00:49:00.700
+Anthony Taylor: So let's we're going to create the same data frame we did in the instructor example. a
+
+553
+00:49:01.110 --> 00:49:04.820
+Anthony Taylor: we're going to do our elbow
+
+554
+00:49:04.930 --> 00:49:05.870
+Anthony Taylor: with
+
+555
+00:49:06.870 --> 00:49:08.720
+Anthony Taylor: Rpca data.
+
+556
+00:49:10.700 --> 00:49:20.249
+Anthony Taylor: This is gonna just populate all of that. Give us our inertia and then we'll plot it out. Okay, this one's a pretty clear 3
+
+557
+00:49:21.310 --> 00:49:26.170
+Anthony Taylor: right. But all right, let's see what it has us to. Oh, look as it's 3.
+
+558
+00:49:27.480 --> 00:49:30.750
+Anthony Taylor: Hi! So let's run it with 3.
+
+559
+00:49:31.090 --> 00:49:34.760
+Anthony Taylor: Let's look at the the plot. That's so pretty.
+
+560
+00:49:36.080 --> 00:49:37.109
+Anthony Taylor: It looks like
+
+561
+00:49:38.890 --> 00:49:51.359
+Anthony Taylor: the middle finger. It's the burk. Okay, thank you for saving me on that, Mike. We were all there with you, Anthony, I was like I was, gonna say, a clover.
+
+562
+00:49:51.620 --> 00:49:57.010
+Dipinto, Matt: Okay, that was my original thought. Upside down. 2 leaf clover.
+
+563
+00:49:57.040 --> 00:49:58.100
+Raugewitz, Tania: Yeah.
+
+564
+00:49:58.250 --> 00:50:02.640
+Anthony Taylor: it's a hammer. It's four's hammer. It's the genre.
+
+565
+00:50:03.330 --> 00:50:04.979
+Yeah, that's what it is.
+
+566
+00:50:05.890 --> 00:50:08.720
+Masarirambi, Rodney: Oh, yeah. neonatal.
+
+567
+00:50:09.050 --> 00:50:10.519
+Anthony Taylor: we on your
+
+568
+00:50:11.260 --> 00:50:12.490
+Masarirambi, Rodney: yeah. We saw that
+
+569
+00:50:12.890 --> 00:50:14.660
+Baro, Sonja: got it. So
+
+570
+00:50:15.610 --> 00:50:22.830
+Anthony Taylor: so here we got our kb's with 3. And then we're gonna plot it out.
+
+571
+00:50:23.010 --> 00:50:28.700
+Anthony Taylor: Look at that. That looks a little. What would we go differently here? Oh, so this is just the original data.
+
+572
+00:50:29.080 --> 00:50:31.190
+Anthony Taylor: Okay, without Pta.
+
+573
+00:50:31.260 --> 00:50:34.290
+Anthony Taylor: And you can see it's okay.
+
+574
+00:50:34.460 --> 00:50:38.579
+Anthony Taylor: right? It's not bad. But it's definitely not as clear a cluster.
+
+575
+00:50:38.770 --> 00:50:42.349
+Anthony Taylor: We have some overlap. We have some. you know, quite a bit of overlap.
+
+576
+00:50:42.940 --> 00:50:48.630
+Anthony Taylor: It doesn't mean that the other one's wrong. But remember, this is only 85% correct.
+
+577
+00:50:49.440 --> 00:50:57.620
+Anthony Taylor: So while this looks great. You can clearly see that we lost whatever's inside of you.
+
+578
+00:50:59.580 --> 00:51:03.790
+Anthony Taylor: All right, that's probably the 15% we lost. Aye.
+
+579
+00:51:06.220 --> 00:51:12.069
+Anthony Taylor: okay. So here we're going to look at the weights be which feature was the most important.
+
+580
+00:51:12.800 --> 00:51:16.739
+Anthony Taylor: Alright, this one has the pretty obvious one
+
+581
+00:51:18.490 --> 00:51:19.540
+Anthony Taylor: feature night.
+
+582
+00:51:21.980 --> 00:51:24.810
+Anthony Taylor: That is the most obvious one. Right? Yeah.
+
+583
+00:51:25.600 --> 00:51:27.749
+Okay, feature nine's B,
+
+584
+00:51:28.020 --> 00:51:34.750
+Anthony Taylor: like 86% of the weight is all on feature 9. We don't know why you have no clue.
+
+585
+00:51:36.500 --> 00:51:37.390
+Anthony Taylor: Okay?
+
+586
+00:51:37.670 --> 00:51:41.369
+Feature 7 and feature 10 were bigger on
+
+587
+00:51:41.570 --> 00:51:43.490
+Anthony Taylor: this on the second value.
+
+588
+00:51:46.380 --> 00:51:47.300
+Anthony Taylor: So yeah.
+
+589
+00:51:47.540 --> 00:51:55.700
+Anthony Taylor: okay, so now, if we plot just on those main features. we should get a much more similar
+
+590
+00:51:56.250 --> 00:51:59.720
+plot to what we ended up with after we just did the cluster.
+
+591
+00:51:59.970 --> 00:52:01.390
+Anthony Taylor: Okay? And then the other one.
+
+592
+00:52:02.630 --> 00:52:06.320
+Anthony Taylor: There you go. There's your major and all again.
+
+593
+00:52:09.550 --> 00:52:10.380
+Anthony Taylor: Alright
+
+594
+00:52:11.930 --> 00:52:17.729
+Anthony Taylor: feature 910 yield similar results to Pca analysis which makes sense because they have a huge amount of weight.
+
+595
+00:52:19.060 --> 00:52:24.399
+Anthony Taylor: Alright cool questions. Wait a minute.
+
+596
+00:52:30.950 --> 00:52:32.269
+Anthony Taylor: Okay, now it's breakdown.
+
+597
+00:52:32.530 --> 00:52:33.930
+Mason, Natalie: Yeah.
+
+598
+00:52:35.950 --> 00:52:38.580
+Anthony Taylor: Well, we're only 10 min past break.
+
+599
+00:52:39.860 --> 00:52:40.730
+Anthony Taylor: Oh.
+
+600
+00:52:41.270 --> 00:52:46.259
+Anthony Taylor: okay. Whoo! I thought I was on the last exercise I'm already I'm like, what if? Alright?
+
+601
+00:52:46.300 --> 00:52:47.829
+Anthony Taylor: So yes, Ronnie.
+
+602
+00:52:48.950 --> 00:52:56.130
+Masarirambi, Rodney: So going back to where we where we saw the weight of feature. 9.
+
+603
+00:52:56.270 --> 00:52:57.499
+Anthony Taylor: So yes, this one
+
+604
+00:52:58.740 --> 00:53:06.719
+Masarirambi, Rodney: in a work environment. the idea would be like, somebody would be like, Oh, we have this data. Take a look at this when it and analyze it.
+
+605
+00:53:06.960 --> 00:53:11.850
+Masarirambi, Rodney: we'd see this waited in Fiji. 9, and then we'd say to them, Look there.
+
+606
+00:53:12.030 --> 00:53:21.160
+Masarirambi, Rodney: and we don't necessarily we won't necessarily go in and look into that. We'll just give it somebody to who the person who provides us to the data and say, that's what you need to look into
+
+607
+00:53:21.770 --> 00:53:40.449
+Anthony Taylor: what we could do. So okay, first off, you'll never data with column names like feature. Not but let's just pretend these are legitimate column. What you would do is, you would say, Hey, I clustered your data. And I did further analysis and came up with, these are the main factors, causing your clusters to be separate
+
+608
+00:53:41.750 --> 00:53:43.810
+Anthony Taylor: in this case, feature 9 and 10.
+
+609
+00:53:44.650 --> 00:53:48.670
+Anthony Taylor: Okay, so that gives the analyst a place to start.
+
+610
+00:53:51.120 --> 00:53:51.980
+Alright.
+
+611
+00:53:52.230 --> 00:54:03.390
+Anthony Taylor: and so they're gonna go start there and look at the difference in feature, 9 and 10 in each cluster. and that should give them a pretty good idea of. And and again.
+
+612
+00:54:03.630 --> 00:54:07.890
+Anthony Taylor: this is very student-friendly data.
+
+613
+00:54:08.390 --> 00:54:12.710
+Anthony Taylor: Okay, typically in your work environment, you're not going to see
+
+614
+00:54:13.280 --> 00:54:18.880
+Anthony Taylor: this obvious of a weight like this. Okay?
+
+615
+00:54:19.000 --> 00:54:23.890
+Anthony Taylor: It's gonna be like 5 or 6 columns that are making up, or, more
+
+616
+00:54:23.920 --> 00:54:29.040
+Anthony Taylor: just depends. This data is very simple.
+
+617
+00:54:30.940 --> 00:54:35.420
+Anthony Taylor: So so it's pretty easy to point to them and say, Hey, go look at this
+
+618
+00:54:35.480 --> 00:54:47.830
+Anthony Taylor: and this 6 and 9, and on this side, you know, and 9 and 10 on this right, and that'll help you figure out the clusters. And then your data analyst. that's their analyst thing.
+
+619
+00:54:48.670 --> 00:55:01.649
+Anthony Taylor: Okay? Really, it's not even the data analyst in this case needs to be a domain expert. Right? So you're not just talking about like some like, if you guys get a job, a data analyst at a in a domain never worked in.
+
+620
+00:55:01.860 --> 00:55:06.820
+Anthony Taylor: you know, like you get one in healthcare. And you've never done healthcare before.
+
+621
+00:55:06.920 --> 00:55:12.849
+Anthony Taylor: Okay, that wouldn't be you doing that. It would be the person that works with this data every day.
+
+622
+00:55:13.290 --> 00:55:16.989
+Anthony Taylor: looking at the differences based on the columns you've given
+
+623
+00:55:17.570 --> 00:55:19.370
+Anthony Taylor: as data scientists.
+
+624
+00:55:20.410 --> 00:55:21.450
+Masarirambi, Rodney: Okay? Great
+
+625
+00:55:21.870 --> 00:55:23.529
+Anthony Taylor: 3 questions.
+
+626
+00:55:24.700 --> 00:55:27.889
+Anthony Taylor: I love, that makes me happy when I make sense.
+
+627
+00:55:29.630 --> 00:55:33.650
+Anthony Taylor: Hi! Any questions. No more questions.
+
+628
+00:55:35.080 --> 00:55:36.800
+Alberto Aigner: Hi! You don't have something.
+
+629
+00:55:37.320 --> 00:55:39.350
+Anthony Taylor: What? Oh, sorry! What? What I missed
+
+630
+00:55:40.650 --> 00:55:43.640
+Alberto Aigner: just Clayton Clayton had somethin.
+
+631
+00:55:43.690 --> 00:55:45.580
+Anthony Taylor: Clayton, you have a question.
+
+632
+00:55:49.490 --> 00:56:00.830
+Anthony Taylor: He's thinking about it. Yeah, I had. I had an issue, and you were like, Well, sorry I didn't know. Let's let's look at it real quick as a group. Go ahead. Sorry, my bad.
+
+633
+00:56:00.990 --> 00:56:03.219
+Clayton Graves: Hi, there, thank you. Alberto
+
+634
+00:56:04.850 --> 00:56:14.430
+Masarirambi, Rodney: Clayton, as you as you show it. I'm gonna ask you a question, because you might have done the same thing that I did. Do you use the same the same data frame
+
+635
+00:56:14.750 --> 00:56:16.670
+Masarirambi, Rodney: in the second one or no.
+
+636
+00:56:16.800 --> 00:56:18.400
+Clayton Graves: You got it.
+
+637
+00:56:19.210 --> 00:56:26.730
+Clayton Graves: So I'm I'm I'm this is the same issue that I ran into on the first activity. It won't fly.
+
+638
+00:56:26.930 --> 00:56:29.510
+Clayton Graves: It's telling me that
+
+639
+00:56:30.120 --> 00:56:32.720
+Clayton Graves: that C has to be a color.
+
+640
+00:56:34.040 --> 00:56:40.780
+Clayton Graves: The argument must be a color, a sequence of colors, or a sequence of numbers, not customer segments.
+
+641
+00:56:40.900 --> 00:56:44.719
+Anthony Taylor: Alright. Show me the the your data up above.
+
+642
+00:56:46.950 --> 00:56:50.529
+Anthony Taylor: Okay, so that's clearly.
+
+643
+00:56:52.320 --> 00:56:55.380
+Clayton Graves: are you running into that data type problem again?
+
+644
+00:56:55.910 --> 00:57:05.710
+Dipinto, Matt: So you copied the data frame and the line you have highlighted up there. But then you added customer segments to your old data frame.
+
+645
+00:57:06.080 --> 00:57:11.209
+Dipinto, Matt: So you want to add it to your customer. Pca predictions data frame in the lines of code right below that.
+
+646
+00:57:13.150 --> 00:57:14.890
+Clayton Graves: So I need to do
+
+647
+00:57:15.610 --> 00:57:17.999
+Anthony Taylor: Pca predictions data frame
+
+648
+00:57:24.420 --> 00:57:27.260
+Anthony Taylor: and then do it again in the may or just that whenever you're good.
+
+649
+00:57:38.680 --> 00:57:42.100
+Clayton Graves: Okay? Well, nice job. Yeah.
+
+650
+00:57:43.330 --> 00:57:46.609
+Clayton Graves: Good work that does not look like a middle finger
+
+651
+00:57:46.760 --> 00:57:48.360
+Clayton Graves: that looks like something else
+
+652
+00:57:49.800 --> 00:57:51.590
+michael mcpherson: we're going with
+
+653
+00:57:51.960 --> 00:57:56.970
+Anthony Taylor: started the recording. Now go. sir. start.
+
+654
+00:57:59.420 --> 00:58:00.910
+Anthony Taylor: Cindy.
+
+655
+00:58:01.490 --> 00:58:02.760
+Anthony Taylor: are you there?
+
+656
+00:58:06.360 --> 00:58:10.989
+Anthony Taylor: Alright, we're gonna zoom to there. Okay? Well, the exciting thing.
+
+657
+00:58:14.020 --> 00:58:17.780
+Anthony Taylor: I have nothing to say, I have just a new activity for you.
+
+658
+00:58:19.720 --> 00:58:21.469
+michael mcpherson: I'm still working on that.
+
+659
+00:58:21.990 --> 00:58:24.550
+Anthony Taylor: Well, stop it. Sorry.
+
+660
+00:58:25.100 --> 00:58:30.299
+Anthony Taylor:  alright. So this time you're going to do some stock data.
+
+661
+00:58:30.900 --> 00:58:36.739
+Anthony Taylor: Okay, this is pretty cool. One. There is a lot of steps in this one. So you're gonna get.
+
+662
+00:58:36.950 --> 00:58:40.070
+Anthony Taylor: get ready for this 30 min
+
+663
+00:58:41.140 --> 00:58:47.109
+Anthony Taylor: to do this. This is like one of the longest activities of the entire Oprah.
+
+664
+00:58:47.920 --> 00:58:51.949
+Anthony Taylor: Okay? But you got 30 min. It's again.
+
+665
+00:58:52.320 --> 00:58:56.410
+Anthony Taylor: guys. you know what I show you guys all the time.
+
+666
+00:58:58.130 --> 00:59:08.160
+Anthony Taylor: you know. Do one of these numbers sample on one side, the other one on the other. Make a half. Okay. There's there's no reason to type a whole bunch of stuff.
+
+667
+00:59:08.540 --> 00:59:11.190
+Anthony Taylor:  it looks like
+
+668
+00:59:12.990 --> 00:59:25.540
+Anthony Taylor: they give you quite a bit to start with. Okay. so and then you're just gonna get here. You're gonna do a K-means with 3. You're gonna scale some data.
+
+669
+00:59:27.580 --> 00:59:31.320
+Anthony Taylor: do your scatters. That's that's a weird looking scatter.
+
+670
+00:59:32.260 --> 00:59:37.750
+Anthony Taylor: And then you're gonna do. Pca. alright. That's ugly.
+
+671
+00:59:40.080 --> 00:59:43.109
+Anthony Taylor: How many columns are in this? There's quite a few, though.
+
+672
+00:59:45.070 --> 00:59:45.880
+Anthony Taylor: Okay.
+
+673
+00:59:47.460 --> 00:59:48.320
+Anthony Taylor: alright.
+
+674
+00:59:48.430 --> 00:59:51.869
+Anthony Taylor: that's it. Guys knock that out and
+
+675
+00:59:52.480 --> 00:59:57.750
+Anthony Taylor: we'll review, and then we'll see if we have time to do the open AI thing. Sound good.
+
+676
+00:59:57.880 --> 01:00:03.410
+Anthony Taylor: I'm thinking we'll probably wait till Wednesday, because this is gonna take us to about 10 or 9 15,
+
+677
+01:00:03.940 --> 01:00:05.830
+Anthony Taylor: but we'll see. All right.
+
+678
+01:00:05.850 --> 01:00:09.630
+Anthony Taylor: Bye, guys, 30 min. Let me
+
+679
+01:00:31.300 --> 01:00:32.630
+Anthony Taylor: welcome back
+
+680
+01:00:33.830 --> 01:00:34.770
+Anthony Taylor: how we do it.
+
+681
+01:00:35.550 --> 01:00:37.080
+michael mcpherson: Did you close it early.
+
+682
+01:00:38.080 --> 01:00:41.450
+Anthony Taylor: No, sir. why would I do that?
+
+683
+01:00:43.660 --> 01:00:47.130
+Anthony Taylor: Did I close it early? Did we only do 20 min instead of 30?
+
+684
+01:00:47.930 --> 01:00:50.170
+michael mcpherson: I thought you said see it back at 9 20.
+
+685
+01:00:52.980 --> 01:00:55.450
+Anthony Taylor: No, I don't. Yeah, Tyler.
+
+686
+01:00:56.380 --> 01:01:03.540
+Raugewitz, Tania: you know II am understanding this, but I am having a hard time keeping all my variables straight.
+
+687
+01:01:04.040 --> 01:01:10.759
+Anthony Taylor: I don't know if that's a common thing with all these
+
+688
+01:01:11.310 --> 01:01:13.640
+Anthony Taylor: again, also because we're
+
+689
+01:01:14.230 --> 01:01:27.540
+Anthony Taylor: we're learning. Okay, we're doing a lot of steps that maybe you'll do in the real like. And and I'll actually, when we get to that point in this example, I will show you where you would probably actually like. This would be the work.
+
+690
+01:01:27.920 --> 01:01:32.370
+Anthony Taylor: right? We're doing all kinds of steps. But normally, this is probably like 2 sales of both.
+
+691
+01:01:32.540 --> 01:01:35.460
+Anthony Taylor: Okay, we have, like what 20 in here.
+
+692
+01:01:35.470 --> 01:01:51.999
+Anthony Taylor: so we we will. I will show you. But it's a great point, and it's not on top. And do remember, though, like right here, remember, you can always like, bring this up and see all of the variables that you're currently using out all that helps because they're not in any kind of order, but it is available.
+
+693
+01:01:52.630 --> 01:01:56.410
+Anthony Taylor: Alright. So let's see if we can talk about that. Yes.
+
+694
+01:01:56.470 --> 01:02:11.100
+Masarirambi, Rodney: Oh, Tanya, one thing that I ran into like the first site. Then the lost exercise which I tried correct this time was I didn't pay attention to the variable names that they suggested, and I got confused and stuff like that. So by doing that, that helped out quite a bit
+
+695
+01:02:12.140 --> 01:02:23.020
+Anthony Taylor: right. But even if they, I mean, like, when you guys are doing this work yourselves, I mean, yes, you will. This is the importance of naming variables, something that makes sense. Right?
+
+696
+01:02:23.990 --> 01:02:30.840
+Anthony Taylor: That's where most people where I see they start to fall apart on variables is that they just didn't name them well.
+
+697
+01:02:30.960 --> 01:02:35.660
+Anthony Taylor: and then they start getting mixed up like, oh, well, I named this one credit card info. I'm like, but
+
+698
+01:02:35.710 --> 01:02:44.529
+Anthony Taylor: isn't that what you named the first data frame? Oh. well, yeah. But this is credit card info standardized like, well, how do you know that.
+
+699
+01:02:44.680 --> 01:02:45.570
+Anthony Taylor: Right?
+
+700
+01:02:45.900 --> 01:02:48.140
+Anthony Taylor: Okay, that kind of stuff. So
+
+701
+01:02:48.200 --> 01:02:53.810
+Anthony Taylor: it it is a practice. It's kind of a organizational skill that you will get. But
+
+702
+01:02:54.040 --> 01:02:59.130
+Anthony Taylor: we are doing a lot of extra. So let's talk about that. So the imports this wouldn't change
+
+703
+01:03:00.020 --> 01:03:09.479
+Anthony Taylor:  reading in the data. And like we always do like head and shade info. None of this stuff. Would you probably really do?
+
+704
+01:03:09.940 --> 01:03:17.870
+Anthony Taylor: Okay? Because you're already going to know this information? It's not, I mean, maybe the first time. But once you do it, you're not going to leave it in your notebook. You're going to delete these cells.
+
+705
+01:03:18.750 --> 01:03:35.940
+Anthony Taylor: Okay? Cause they're not necessary every time. Run. They just this is just to get to know your data. Okay, so we're gonna pull in our data. We're gonna do a quick shape. You can see there's 30 columns. There's sorry. There's 8 columns and 30 rows.
+
+706
+01:03:36.580 --> 01:03:38.960
+And then we're gonna do our info.
+
+707
+01:03:39.100 --> 01:03:43.649
+Anthony Taylor: You can see our columns, and that there's all these numbers.
+
+708
+01:03:44.180 --> 01:03:46.949
+Anthony Taylor: Okay. lots of numbers in it.
+
+709
+01:03:47.850 --> 01:03:54.279
+Anthony Taylor: Alright, alright. So now we know that we're only going to standard scale
+
+710
+01:03:54.400 --> 01:03:55.950
+Anthony Taylor: these numbers.
+
+711
+01:03:56.460 --> 01:04:03.490
+Anthony Taylor: So we're going to do a standard scale fit transform on just those columns that are actual numbers.
+
+712
+01:04:04.480 --> 01:04:07.530
+Anthony Taylor: Okay. this you would do every time.
+
+713
+01:04:09.250 --> 01:04:13.969
+Anthony Taylor: Then, in this whole process, right here.
+
+714
+01:04:15.280 --> 01:04:18.149
+Anthony Taylor: We'll probably trim this down quite a bit.
+
+715
+01:04:18.220 --> 01:04:21.470
+Anthony Taylor: but it it it'll work just the same.
+
+716
+01:04:22.110 --> 01:04:31.669
+Anthony Taylor: We're gonna get the ticker, create an index with the ticker for those columns. So now we have the standardized data and our tickers.
+
+717
+01:04:33.720 --> 01:04:43.150
+Anthony Taylor: and we're going to do our get dummies on sector. Let's go up and look again. So we got our ticker here. We're gonna do Sector
+
+718
+01:04:43.320 --> 01:04:49.169
+Anthony Taylor: Company name does not make sense to do a get dummy. So as we have our ticker. We don't need to do that.
+
+719
+01:04:49.940 --> 01:04:50.970
+Anthony Taylor: Okay.
+
+720
+01:04:51.260 --> 01:04:56.609
+Anthony Taylor: it's just it. You wouldn't need to do that. We're basically just going to eliminate it from the initial run
+
+721
+01:04:56.810 --> 01:04:59.930
+Anthony Taylor: is what it? Well, I assume that's what they're gonna do. That's what I would do.
+
+722
+01:05:00.370 --> 01:05:03.850
+Anthony Taylor: So we'll do the get dummies, and we're gonna get
+
+723
+01:05:04.060 --> 01:05:06.850
+Anthony Taylor: all these cool columns by ticker.
+
+724
+01:05:08.030 --> 01:05:18.360
+Anthony Taylor: Now that we have ticker in both data frames, we can just bring them together into a single data frame. And now we have beautifully
+
+725
+01:05:18.690 --> 01:05:20.360
+Anthony Taylor: prepped data
+
+726
+01:05:21.400 --> 01:05:22.909
+Anthony Taylor: questions on this.
+
+727
+01:05:25.280 --> 01:05:27.439
+Meredith McCanse (she/her): I think all of that was provided.
+
+728
+01:05:29.150 --> 01:05:30.940
+Anthony Taylor: Well, now you understand.
+
+729
+01:05:32.230 --> 01:05:37.970
+Anthony Taylor: Okay, so is this the work part where you guys actually started.
+
+730
+01:05:38.230 --> 01:05:39.599
+Meredith McCanse (she/her): I think so.
+
+731
+01:05:39.960 --> 01:05:44.709
+Anthony Taylor: See, I don't want anybody. Tell me I don't go over the provided code. I did very thoroughly.
+
+732
+01:05:45.110 --> 01:05:49.079
+Anthony Taylor: Alright. So a means 3
+
+733
+01:05:49.200 --> 01:05:51.139
+Anthony Taylor: fit. Look at that one
+
+734
+01:05:51.780 --> 01:05:55.039
+Anthony Taylor: one cell. This is reality right? There.
+
+735
+01:05:55.980 --> 01:05:59.549
+Anthony Taylor: Okay, this is reality. We would fit it.
+
+736
+01:05:59.560 --> 01:06:05.350
+Anthony Taylor: We may score it, but keep in mind. Once you score it. That's the development process.
+
+737
+01:06:05.620 --> 01:06:07.910
+Anthony Taylor: Once you're done developing this.
+
+738
+01:06:08.070 --> 01:06:13.329
+Anthony Taylor: you're not gonna keep all that stuff that stuff goes away. They're only gonna have like a couple of lines.
+
+739
+01:06:14.260 --> 01:06:21.019
+Anthony Taylor:  but for right now we're developing. So yeah, we got to build out and
+
+740
+01:06:21.070 --> 01:06:22.210
+Anthony Taylor: take a look.
+
+741
+01:06:22.260 --> 01:06:25.349
+Anthony Taylor: Okay. So now we have our clusters
+
+742
+01:06:27.320 --> 01:06:28.580
+Anthony Taylor: pretty exciting.
+
+743
+01:06:29.350 --> 01:06:35.919
+Anthony Taylor: Okay, I'm not sure what we're getting out of these clusters because it's just stock data. But we have clustered.
+
+744
+01:06:39.040 --> 01:06:42.640
+Anthony Taylor: Let's do a quick scatterplot and see what this looks like.
+
+745
+01:06:44.730 --> 01:06:46.320
+Anthony Taylor: Not very exciting
+
+746
+01:06:47.250 --> 01:06:49.570
+Anthony Taylor: kind of all over the place.
+
+747
+01:06:49.730 --> 01:06:56.119
+Anthony Taylor: So let's reduce the number of features to 2. So we're going to do. Pca. We're going to tell it. Just give me 2.
+
+748
+01:06:56.660 --> 01:07:00.070
+Anthony Taylor: We're gonna fit it and then take a look at our data
+
+749
+01:07:01.550 --> 01:07:08.720
+Anthony Taylor: and then we'll look at our variance. How did we do? 63 and 19? Or, let's say, 64 and 19.
+
+750
+01:07:08.980 --> 01:07:23.770
+Anthony Taylor: Yeah. okay, it's not great, not terrible depends depends what we're doing right. This is not life or death stuff. It's stock predictions. Okay, we're just trying to group stocks by, maybe good and bad. We don't know.
+
+751
+01:07:24.220 --> 01:07:25.160
+Anthony Taylor: Okay.
+
+752
+01:07:25.420 --> 01:07:33.789
+Anthony Taylor: so we're gonna take that and put it into a data frame. Give it some column names, add our index back to it.
+
+753
+01:07:33.990 --> 01:07:38.670
+Anthony Taylor: and then we should end up with our index and our new Pca data.
+
+754
+01:07:40.110 --> 01:07:40.920
+Anthony Taylor: Okay.
+
+755
+01:07:42.410 --> 01:07:46.480
+Anthony Taylor: now that we have that, let's do the same K-means that we did above.
+
+756
+01:07:46.510 --> 01:07:49.379
+Anthony Taylor: But now, using our Pca data to train
+
+757
+01:07:50.140 --> 01:07:53.540
+Anthony Taylor: and then let's output it and see what we get.
+
+758
+01:07:53.780 --> 01:08:02.650
+Anthony Taylor: Very nice. And last, but not least, let's the clusters look tighter. We can agree to that right?
+
+759
+01:08:02.770 --> 01:08:07.550
+Anthony Taylor: They look tighter, but we also lost a whole bunch of of detail.
+
+760
+01:08:07.650 --> 01:08:19.370
+Anthony Taylor: so it may or may not be a good thing?  so what is the impact of using fewer features in this cluster? So well, we can include that using less makes more clearly
+
+761
+01:08:19.920 --> 01:08:22.729
+Anthony Taylor: 3 clusters. We can agree to that.
+
+762
+01:08:23.180 --> 01:08:29.760
+Anthony Taylor: Okay, that makes sense less less spread. Okay. alright.
+
+763
+01:08:31.470 --> 01:08:33.940
+Anthony Taylor: Now. let's look at the weights.
+
+764
+01:08:34.270 --> 01:08:38.909
+Anthony Taylor: So using the exact same code that we used in the other one.
+
+765
+01:08:39.359 --> 01:08:43.890
+Anthony Taylor: Alright. The only difference would be the name of the data frame. Okay.
+
+766
+01:08:44.050 --> 01:08:50.090
+Anthony Taylor: we can pull this out and take a look. This is kind of interesting. So which features
+
+767
+01:08:50.490 --> 01:08:53.959
+Anthony Taylor: in Pca one or the most important
+
+768
+01:08:55.359 --> 01:08:56.460
+Raugewitz, Tania: open.
+
+769
+01:08:58.660 --> 01:09:03.930
+Anthony Taylor: mean, open, mean, Hi, mean, low, mean, close right? All the meetings.
+
+770
+01:09:04.520 --> 01:09:06.670
+Anthony Taylor: I mean just straight up. That's it.
+
+771
+01:09:07.850 --> 01:09:10.229
+Anthony Taylor: Okay, that
+
+772
+01:09:11.700 --> 01:09:19.850
+Meredith McCanse (she/her): did anybody get an error here where it wouldn't do this because the sizes of the data frame you are calling didn't match the array.
+
+773
+01:09:20.130 --> 01:09:35.689
+Sihong Zhou: Maybe I think we should use the scaled in code. Did we use that? Does it tell you the shape of your array at the bottom, and then tell you
+
+774
+01:09:35.910 --> 01:09:41.520
+Dipinto, Matt: that it doesn't match the index? Or is it just say that the shape should be 2 dimensional? And it's not
+
+775
+01:09:41.630 --> 01:09:58.110
+Dipinto, Matt: it says, the shape of past values is 6 and 2, and the indices implied 14 and 2 you did your Pca on a different data frame than that code right there. So you did your Pca on just the 6 numerical values. You didn't do it on the 14 column data frame.
+
+776
+01:09:59.850 --> 01:10:05.600
+Anthony Taylor: That sounds good. We'll go through it. You can go through and look at the solution. It'll it'll
+
+777
+01:10:06.080 --> 01:10:09.289
+Anthony Taylor: it'll be clear. Alright. So
+
+778
+01:10:10.600 --> 01:10:20.330
+Anthony Taylor: this was big. This was a lot. Okay? And then on Pca 2, we see.
+
+779
+01:10:21.340 --> 01:10:26.219
+Anthony Taylor: got a couple of different variables overall. We got mean value
+
+780
+01:10:28.010 --> 01:10:29.500
+Anthony Taylor: financials
+
+781
+01:10:30.040 --> 01:10:34.009
+Anthony Taylor: and information technology, you know, contributed a lot to that.
+
+782
+01:10:34.700 --> 01:10:44.020
+Anthony Taylor: Okay, so that's pretty cool. So basically, what we've learned here is that these means are driving these clusters theory. Okay.
+
+783
+01:10:44.240 --> 01:10:55.059
+Anthony Taylor: so yeah, mean, open, mean, high, mean value. all of that. Alright. So we're going to create a scatterplot, using those 2 most influential
+
+784
+01:10:55.960 --> 01:11:03.760
+Anthony Taylor: and the clusters are a little clearer. There's not a lot in this light in this cluster, but these are fairly clear.
+
+785
+01:11:04.510 --> 01:11:15.279
+Anthony Taylor:  so what's the difference between segmentation results of the 2? The it appears that when we do the most influential ones.
+
+786
+01:11:15.340 --> 01:11:25.870
+Anthony Taylor: okay, plotting, these features yields do not yield similar results, plotting each principal component. Why? Because the principal components are not just
+
+787
+01:11:26.170 --> 01:11:27.859
+Anthony Taylor: these features.
+
+788
+01:11:28.440 --> 01:11:30.670
+Anthony Taylor: It's the the
+
+789
+01:11:31.680 --> 01:11:35.579
+Anthony Taylor: the mother, the I wanted to say, meet both
+
+790
+01:11:35.660 --> 01:11:39.830
+Anthony Taylor: the blob of all of these guys.
+
+791
+01:11:40.040 --> 01:11:41.540
+Anthony Taylor: Combination of all of them.
+
+792
+01:11:41.940 --> 01:11:48.210
+Anthony Taylor: Right? So it's not going to look exactly the same. But cool thing is is, you can pretty clearly see
+
+793
+01:11:48.290 --> 01:11:55.960
+Anthony Taylor: the differentiations. you know, when we do use the most influential data. Alright.
+
+794
+01:11:57.270 --> 01:12:08.010
+Mason, Natalie: Yesterday Hafton told me about the rainbow colors on the plot chart, and I just wanted to say, Rainbow is very easy for me to look at.
+
+795
+01:12:08.810 --> 01:12:09.960
+Mason, Natalie: and it's pretty.
+
+796
+01:12:10.430 --> 01:12:13.069
+Anthony Taylor: is it called? Just rainbow? Yes.
+
+797
+01:12:14.880 --> 01:12:15.770
+Anthony Taylor: okay.
+
+798
+01:12:17.330 --> 01:12:21.010
+Anthony Taylor: In honor of Natalie's statement, we changed its rate.
+
+799
+01:12:22.020 --> 01:12:24.340
+Anthony Taylor: Okay, captain.
+
+800
+01:12:24.690 --> 01:12:26.170
+where'd go after
+
+801
+01:12:27.100 --> 01:12:27.920
+Anthony Taylor: victim?
+
+802
+01:12:29.550 --> 01:12:30.600
+Anthony Taylor: Okay?
+
+803
+01:12:31.230 --> 01:12:38.830
+Anthony Taylor:  do we want to go back and look at Meredith real quick? We still have some time. I do want to at least
+
+804
+01:12:38.890 --> 01:12:40.700
+Anthony Taylor: tell you about your homework.
+
+805
+01:12:41.650 --> 01:12:43.690
+Anthony Taylor: Yeah, Ronnie.
+
+806
+01:12:45.980 --> 01:12:50.569
+Masarirambi, Rodney: Oh, just a question. So I noticed that in the code we're getting like
+
+807
+01:12:52.030 --> 01:12:57.489
+Masarirambi, Rodney: less and less than we have to do in terms of the puller preliminary stuff.
+
+808
+01:12:57.790 --> 01:13:00.089
+Masarirambi, Rodney: So out in the real world.
+
+809
+01:13:00.250 --> 01:13:11.689
+Anthony Taylor: that's yeah. This is, that's because we're trying to make it easy for you for the again, for learning real world. You're gonna get that messy, nasty data like we got earlier today and yesterday.
+
+810
+01:13:12.260 --> 01:13:17.570
+Anthony Taylor: Okay? And worse way. Worse. The good news is, it's the same step.
+
+811
+01:13:19.150 --> 01:13:27.189
+Anthony Taylor: Okay. It makes note that the steps are still exactly the same. no matter if it's 150 ugly columns
+
+812
+01:13:27.440 --> 01:13:36.460
+Anthony Taylor: or 20 really? Well, nicely done. You're still gonna figure out what needs to be standard scale. Figure it out what needs to be encoded
+
+813
+01:13:36.780 --> 01:13:49.550
+Anthony Taylor: right? And do that. Pca, maybe maybe not. But if it, if your if your use case permits, use Pca as well. Okay.
+
+814
+01:13:49.800 --> 01:13:51.100
+Anthony Taylor: alright, yeah. Mike.
+
+815
+01:13:53.420 --> 01:13:55.170
+michael mcpherson: can you show me? Step 7.
+
+816
+01:13:58.170 --> 01:14:00.409
+Anthony Taylor: Step 7. You mean command 7.
+
+817
+01:14:00.510 --> 01:14:02.200
+michael mcpherson: Yeah. This one.
+
+818
+01:14:03.290 --> 01:14:04.020
+michael mcpherson: no.
+
+819
+01:14:05.030 --> 01:14:05.970
+michael mcpherson: Markdown
+
+820
+01:14:06.210 --> 01:14:10.739
+michael mcpherson: mark labeled, Step 7. Use labeled 7. Okay, which
+
+821
+01:14:11.750 --> 01:14:12.840
+michael mcpherson: stop here.
+
+822
+01:14:19.230 --> 01:14:29.159
+michael mcpherson: The stock Pca ticker. I did that Ds time. Pca, dsl, PC, probably. Only thing you gotta make sure you did is put that index cause that we hadn't done before.
+
+823
+01:14:30.750 --> 01:14:32.130
+michael mcpherson: literally did that.
+
+824
+01:14:33.470 --> 01:14:36.580
+michael mcpherson: Okay, yeah. My computer's just being stupid. Thanks.
+
+825
+01:14:37.250 --> 01:14:38.220
+michael mcpherson: Alright.
+
+826
+01:14:39.100 --> 01:14:44.640
+Anthony Taylor: Hi, do we want to look at Meredith real quick? Let's do that just real quick.
+
+827
+01:14:44.790 --> 01:14:49.960
+Meredith McCanse (she/her): The thing that it was the thing that Matt said I had.
+
+828
+01:14:50.670 --> 01:14:54.470
+Anthony Taylor: Good job the Mac is trying to be.
+
+829
+01:14:54.680 --> 01:14:59.829
+Anthony Taylor: Matt is going to be request going to be invited to become a ta keep.
+
+830
+01:15:00.670 --> 01:15:05.970
+Anthony Taylor: It's gonna be awesome dude. It'll be a raise. Tas are great. Oh, not up to that job.
+
+831
+01:15:06.710 --> 01:15:08.759
+Anthony Taylor: You're doing all the time.
+
+832
+01:15:09.850 --> 01:15:13.340
+Anthony Taylor: Look at how hard these guys work sweating out there.
+
+833
+01:15:13.390 --> 01:15:14.739
+Anthony Taylor: They need your help.
+
+834
+01:15:15.290 --> 01:15:17.350
+Anthony Taylor: Okay,
+
+835
+01:15:18.550 --> 01:15:24.470
+Anthony Taylor: alright. Let's just quickly talk about the homework. III I'm gonna be honest with you guys.
+
+836
+01:15:27.930 --> 01:15:29.290
+Anthony Taylor: what you just did.
+
+837
+01:15:30.750 --> 01:15:31.850
+Anthony Taylor: You'll be okay.
+
+838
+01:15:32.530 --> 01:15:35.779
+Anthony Taylor: Okay. That's pretty much it has anybody already done it.
+
+839
+01:15:35.950 --> 01:15:38.770
+Anthony Taylor: I think Tanya's already looked at it. Cause she's like, yeah.
+
+840
+01:15:39.630 --> 01:15:43.919
+Anthony Taylor: yeah, that activity. Just you're gonna do that in the homework.
+
+841
+01:15:45.170 --> 01:15:53.890
+Anthony Taylor: I will tell you guys, in my opinion. the machine learning homework is relatively simple all the way through.
+
+842
+01:15:55.110 --> 01:16:02.790
+Anthony Taylor: Okay, and and not just like Anthony, simple like. it's like, literally, we're gonna cover exactly what you have to do with.
+
+843
+01:16:04.000 --> 01:16:07.789
+Anthony Taylor: Alright. So it's not too bad. We're just read
+
+844
+01:16:08.010 --> 01:16:09.570
+Anthony Taylor: emphasizing
+
+845
+01:16:12.110 --> 01:16:14.009
+Anthony Taylor: the the the stuff you already did.
+
+846
+01:16:15.710 --> 01:16:16.470
+Anthony Taylor: Okay.
+
+847
+01:16:18.610 --> 01:16:19.400
+Anthony Taylor: yeah.
+
+848
+01:16:19.650 --> 01:16:27.750
+Anthony Taylor: So don't really have time to do the review. So let's do it real quick. So basically, let me remind, let me tell you what we're gonna do. It's really straightforward.
+
+849
+01:16:28.020 --> 01:16:32.010
+Anthony Taylor: We're going to take our open Api open. AI Api.
+
+850
+01:16:32.230 --> 01:16:35.080
+Anthony Taylor: we're going to create a python
+
+851
+01:16:35.730 --> 01:16:44.150
+Anthony Taylor: chat. Gpt. that's what we're gonna do. Okay. so you're gonna create it in the notebook.
+
+852
+01:16:47.080 --> 01:16:58.119
+Anthony Taylor: That's what we're going to do on this review. That's the first step alright. So that's like it's gonna take. I would say, if it takes 20 min I'd be surprised.
+
+853
+01:16:59.910 --> 01:17:01.660
+Anthony Taylor: Okay, so
+
+854
+01:17:02.140 --> 01:17:03.519
+Anthony Taylor: who wants to do it?
+
+855
+01:17:03.670 --> 01:17:05.819
+Anthony Taylor: At 60'clock
+
+856
+01:17:06.150 --> 01:17:07.580
+Anthony Taylor: Monday?
+
+857
+01:17:08.320 --> 01:17:16.700
+Anthony Taylor: Raise your hand on the screen. Use your buttons, guys, I'll never see that everybody use your raise hand button if you want to do it. 60'clock
+
+858
+01:17:16.930 --> 01:17:20.160
+Anthony Taylor: mine. I think this is gonna be yeah.
+
+859
+01:17:21.230 --> 01:17:24.539
+Anthony Taylor: Okay. Does any? Okay, everybody put your hand up.
+
+860
+01:17:24.630 --> 01:17:28.919
+Anthony Taylor: Does anybody want to do it? Wednesday at 60'clock?
+
+861
+01:17:32.500 --> 01:17:39.560
+Anthony Taylor: Okay, so those you didn't raise your hand. What the heck, do you want? You don't care. Cindy Halfton?
+
+862
+01:17:40.060 --> 01:17:41.790
+Sihong Zhou: And then so yeah.
+
+863
+01:17:41.850 --> 01:17:46.140
+Sihong Zhou: so it's a month. Monday. Monday, 60'clock, right?
+
+864
+01:17:46.440 --> 01:17:48.720
+Anthony Taylor: Yes. So during office hours.
+
+865
+01:17:48.820 --> 01:17:59.070
+Sihong Zhou: Oh, yeah, it works, cause I'm about to raise my hand. And you said, Put ever pull, put your hands down, and just a slow, you know.
+
+866
+01:17:59.590 --> 01:18:14.640
+Anthony Taylor: that's all right. So so all right. So again. you don't have to have the TV, that's not a requirement of this course. Okay. it's it's it's gonna be. You're. Gonna I'm gonna show you we can do it together. I'll give you all the code.
+
+867
+01:18:14.700 --> 01:18:18.999
+Anthony Taylor: Give you the slideshow. You're gonna get everything, and it'll be recorded
+
+868
+01:18:19.970 --> 01:18:22.520
+Anthony Taylor: alright my recommendation.
+
+869
+01:18:22.560 --> 01:18:25.420
+Anthony Taylor: because these extra views tend to be fast.
+
+870
+01:18:26.470 --> 01:18:31.850
+Anthony Taylor: Okay is feel free to try to keep up. But don't stress if you don't.
+
+871
+01:18:32.170 --> 01:18:33.909
+Anthony Taylor: because you're gonna get all the code.
+
+872
+01:18:34.380 --> 01:18:37.790
+Anthony Taylor: and you're gonna get the recording. What am I talking about?
+
+873
+01:18:38.040 --> 01:18:41.340
+Anthony Taylor: I don't know. I'm talking about the extra review.
+
+874
+01:18:41.500 --> 01:18:44.770
+Raugewitz, Tania: No, not to you sorry this is to Rodney. Oh.
+
+875
+01:18:45.520 --> 01:18:48.759
+Raugewitz, Tania: okay,
+
+876
+01:18:48.870 --> 01:18:56.180
+Anthony Taylor: So yeah. So don't stress if you like. Oh, okay, keep up. Go back. Well, care. Okay? Cause it's an extra view. The idea
+
+877
+01:18:56.200 --> 01:18:58.089
+Anthony Taylor: get you. This material
+
+878
+01:18:58.260 --> 01:19:02.640
+Anthony Taylor: gets you visibility to it, and then gets you a lesson that you can do
+
+879
+01:19:02.800 --> 01:19:04.380
+Anthony Taylor: on your own whenever you want.
+
+880
+01:19:05.480 --> 01:19:06.310
+Anthony Taylor: Okay.
+
+881
+01:19:06.460 --> 01:19:14.290
+Anthony Taylor: the way we used to do this is so you guys know. is, I used to do all of this make video and then give you the video
+
+882
+01:19:15.240 --> 01:19:19.850
+Anthony Taylor: and then say, Okay, come back on Wednesday and ask questions.
+
+883
+01:19:20.360 --> 01:19:23.249
+Anthony Taylor: And that was it. That was a whole extra review.
+
+884
+01:19:24.040 --> 01:19:26.419
+In this case we'll have a video. But
+
+885
+01:19:26.480 --> 01:19:31.230
+Anthony Taylor: it's going to be for the one thing. Okay. alright. You, too.
+
+886
+01:19:32.820 --> 01:19:38.000
+Anthony Taylor: That piece popping up on my screen. Alright!
+
+887
+01:19:38.790 --> 01:19:44.200
+Anthony Taylor: that's all I have for you guys. Okay, so have a great weekend.
+
+888
+01:19:45.660 --> 01:19:51.609
+Anthony Taylor: That's right. No holiday on Monday. Come to school. Don't take extra time off Derek.
+
+889
+01:19:53.680 --> 01:19:54.490
+Anthony Taylor: Ha, ha!
+
+890
+01:19:57.040 --> 01:19:57.920
+Anthony Taylor: But yeah.
+
+891
+01:19:58.530 --> 01:20:00.769
+Anthony Taylor: alright, guys have a great weekend.
+
+892
+01:20:00.780 --> 01:20:01.930
+Anthony Taylor: See that.
+

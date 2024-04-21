@@ -1,0 +1,88 @@
+##--CODE--##
+# Import Libraries and Dependencies
+import pandas as pd
+from pathlib import Path
+
+##--CODE--##
+# Import data
+wheat_2018_path = Path('Resources/G20_wheat_production_2018.csv')
+wheat_2019_path = Path('Resources/G20_wheat_production_2019.csv')
+wheat_2020_path = Path('Resources/G20_wheat_production_2020.csv')
+
+# Read in data 
+wheat_2018_df = pd.read_csv(wheat_2018_path, index_col="Country")
+wheat_2019_df = pd.read_csv(wheat_2019_path, index_col="Country")
+wheat_2020_df = pd.read_csv(wheat_2020_path, index_col="Country")
+
+##--CODE--##
+# Display the 2018 wheat data
+
+
+##--CODE--##
+# Display the 2019 wheat data
+
+
+##--CODE--##
+# Display the 2020 wheat data
+
+
+### Join the 2018 wheat data with the 2019 wheat data. 
+
+##--CODE--##
+# Join the 2018 and 2019 wheat data where the left suffix is 2019 and right suffix is 2018. 
+
+
+##--CODE--##
+#  Join the 2018 and 2019 wheat data with the 2020 wheat data and add the suffix, '_2020' to the 2020 data. 
+
+
+##--CODE--##
+# Alternative method to joining DataFrames.
+
+# Add the '_2018' &  '_2019' suffixes to the 2018 and 2019 data.
+
+
+# Add '_2020' suffix to the 2020 data and join the 2018 and 2019 data. 
+
+
+### Join the data without setting the `index_col` parameter to "Country". 
+
+##--CODE--##
+# Read in the 2018 and 2019 data without setting the "index_col" parameter to the "Country"
+wheat_2018_df = pd.read_csv(wheat_2018_path)
+wheat_2019_df = pd.read_csv(wheat_2019_path)
+wheat_2020_df = pd.read_csv(wheat_2020_path)
+
+##--CODE--##
+# Display the 2018 wheat data
+
+
+##--CODE--##
+# Display the 2019 wheat data
+
+
+##--CODE--##
+# Display the 2020 wheat data
+
+
+##--CODE--##
+# Combine the 2018 and 2019 DataFrames by setting the index to the "Country" and "Crop" columns 
+# Then perform an inner join on the "Country" and "Crop" columns.
+# Add the _2019 and _2018 suffixes to the appropriate columns. 
+
+
+# Display the DataFrame
+
+
+##--CODE--##
+# How would you add the 2020 DataFrame to the 2018-2019 inner join DataFrame?
+# Combine the DataFrames by setting the index to the "Country" and "Crop" columns 
+# Then perform an inner join on the "Country" and "Crop" columns.
+
+
+# Display the DataFrame
+
+
+##--CODE--##
+
+

@@ -1,0 +1,67 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read file into DataFrame
+ufo_df = pd.read_csv('Resources/ufoSightings.csv', low_memory=False)
+
+# Remove the rows with missing data
+clean_ufo_df = ufo_df.dropna(how="any")
+
+# Converting the "duration (seconds)" column's values to numeric
+converted_ufo_df = clean_ufo_df.copy()
+converted_ufo_df["duration (seconds)"] = converted_ufo_df.loc[:, "duration (seconds)"].astype(float)
+
+# Display the DataFrame
+converted_ufo_df.head()
+
+### Single Index (review)
+
+##--CODE--##
+# Show the average seconds for each country. And, round to one decimal place.
+
+
+# Rename the index
+
+
+### Multi-Indexing
+
+##--CODE--##
+# Show the average seconds for each country and state and round to one decimal place
+
+
+# Show the table.
+
+
+##--CODE--##
+# Show the number of UFOs for each country, state, and city.  
+
+# Show the table.
+
+
+##--CODE--##
+# Show the number of UFO sightings for each country, state, and city.  
+# And, use `sort=False` to sort in descending order. 
+
+# Show the table. 
+
+
+##--CODE--##
+# Rename the "shape" column to "UFO Sightings"
+
+
+# Sort the pivot table to show the highest number of UFO sightings by country, state, and city.
+
+
+### Multi-Index and Multi-Aggregations
+
+##--CODE--##
+# Show the minimum and maximum seconds for each country and state.
+
+# Show the table. 
+
+
+##--CODE--##
+
+

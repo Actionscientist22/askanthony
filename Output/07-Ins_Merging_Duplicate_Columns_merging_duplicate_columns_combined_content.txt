@@ -1,0 +1,90 @@
+#### Import Libraries and Dependencies 
+
+##--CODE--##
+import pandas as pd
+from pathlib import Path
+
+#### Read in Files 
+
+##--CODE--##
+# Import data
+
+apple_path = Path('Resources/AAPL.csv')
+google_path = Path('Resources/GOOG.csv')
+meta_path = Path('Resources/META.csv')
+
+# Read in data and index by date
+apple_data = pd.read_csv(apple_path)
+google_data = pd.read_csv(google_path)
+meta_data = pd.read_csv(meta_path)
+
+#### Output of sample data
+
+##--CODE--##
+# Show sample of Apple data
+apple_data.head()
+
+##--CODE--##
+# Show sample of Google data
+google_data.head()
+
+##--CODE--##
+# Show sample of Meta data
+meta_data.head()
+
+### Merge the Apple anbd Google data on the date.
+
+##--CODE--##
+# Merge Apple stock with Google stock on the date using pd.merge()
+
+
+##--CODE--##
+# Alternative: Merge Apple stock with Google stock on the date.
+
+
+##--CODE--##
+# Get the column names.
+merged_apple_google.columns
+
+##--CODE--##
+# Rename the columns
+
+
+### Merge all three DataFrames.
+
+##--CODE--##
+# Merge Apple stock with Google stock and then merge Meta stock with the Apple and Google stocks.
+# The Meta stock data will be added on the left side. 
+
+
+##--CODE--##
+# Merge Apple, Google and Meta stocks on the "Date". And have the meta stocks last. 
+# The Meta stock data will be added on the right side. 
+
+
+##--CODE--##
+# Rename the meta columns
+
+
+### Create a Summary DataFrame that has the best opening and closing, and the total volume in millions for each stock.
+
+
+##--CODE--##
+# Calculate the best opening for each stock
+
+
+##--CODE--##
+# Calculate the best closing price for each stock
+
+
+##--CODE--##
+# Calculate the total volume for each stock to the millions and rounded to two decimal places.
+
+
+##--CODE--##
+# Create a Summary DataFrame of the Opening, Closing and Volume for each stock
+
+
+##--CODE--##
+
+

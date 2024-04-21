@@ -1,0 +1,174 @@
+##--CODE--##
+# Import required libraries
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+## Load and Visualize the Electricity Data
+
+##--CODE--##
+# Read the electricity generation data
+file_path = "https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_1/datasets/electricity-generation.csv"
+df_electricity = pd.read_csv(file_path)
+
+# Display sample data
+df_electricity.head()
+
+##--CODE--##
+# Create a scatter plot with the total electricity generation by year
+electricity_plot = df_electricity.plot.scatter(
+    x="Year",
+    y="Total",
+    title="Total electricity generation by year (GHz)"
+)
+electricity_plot
+
+##--CODE--##
+# The first three years look like significant outliers.
+# Reduce the DataFrame to just the "Year" and "Total" columns
+# and only from 2003 onwards
+
+df = pd.DataFrame(df_electricity.loc[df_electricity["Year"]>=2003,["Year","Total"]])\
+        .reset_index().drop(columns="index")
+df.head()
+
+## Prepare the Data to Fit the Linear Regression Model
+
+##--CODE--##
+# Create the X set
+X = df["Year"].values.reshape(-1, 1)
+
+# Display sample data
+X[:5]
+
+##--CODE--##
+# Create an array for the dependent variable y with the total electricity generation data
+y = df["Total"]
+
+## Build the Linear Regression Model
+
+##--CODE--##
+# Create a model with scikit-learn
+model = LinearRegression()
+
+##--CODE--##
+# Fit the data into the model
+model.fit(X, y)
+
+##--CODE--##
+# Display the slope
+print(f"Model's slope: {model.coef_}")
+
+##--CODE--##
+# Display the y-intercept
+print(f"Model's y-intercept: {model.intercept_}")
+
+##--CODE--##
+# Display the model's best fit line formula
+print(f"Model's formula: y = {model.intercept_} + {model.coef_[0]}X")
+
+## Plot the Best Fit Line for the Electricity Generation Prediction Model
+
+##--CODE--##
+# Make predictions using the X set
+predicted_y_values = model.predict(X)
+
+##--CODE--##
+# Create a copy of the original data
+df_electricity_predicted = df.copy()
+
+# Add a column with the predicted electricity values
+df_electricity_predicted["electricity_predicted"] = predicted_y_values
+
+# Display sample data
+df_electricity_predicted.head()
+
+##--CODE--##
+# Create a line plot of the predicted total electricity generation values
+best_fit_line = df_electricity_predicted.plot.line(
+    x = "Year",
+    y = "electricity_predicted",
+    color = "red"
+)
+best_fit_line
+
+##--CODE--##
+# Superpose the original data and the best fit line
+# Create a scatter plot with the electricity information
+electricity_plot = df_electricity_predicted.plot.scatter(
+    x="Year",
+    y="Total",
+    title="Electricity Generation by Year (GHz)"
+)
+
+# Create a line plot of the predicted total electricity generation values
+best_fit_line = df_electricity_predicted.plot.line(
+    x = "Year",
+    y = "electricity_predicted",
+    color = "red",
+    ax=electricity_plot
+)
+electricity_plot
+
+## Make Manual Predictions
+
+##--CODE--##
+# Display the formula to predict the electricity generation for 2023
+print(f"Model's formula: y = {model.intercept_} + {model.coef_[0]} * 2023")
+
+# Predict the electricity generation for 2023
+y_2023 = model.intercept_ + model.coef_[0] * 2023
+
+# Display the prediction
+print(f"Predicted electricity generation for 2023: {y_2023:.2f}")
+
+## Make Predictions Using the `predict` Function
+
+##--CODE--##
+# Create an array to predict electricity generation for the years 2020, 2021, 2022, and 2023
+X_years = np.array([2020, 2021, 2022, 2023])
+
+# Format the array as a one-column array
+X_years = X_years.reshape(-1,1)
+
+# Display sample data
+X_years
+
+##--CODE--##
+# Predict electricity generation for the years 2020, 2021, 2022, and 2023
+predicted_electricity = model.predict(X_years)
+
+##--CODE--##
+# Create a DataFrame for the predicted electricity generation
+df_predicted_electricity = pd.DataFrame(
+    {
+        "Year": X_years.reshape(1, -1)[0],
+        "predicted_electricity": predicted_electricity
+    }
+)
+
+# Display data
+df_predicted_electricity
+
+## Linear Regression Model Assessment
+
+##--CODE--##
+# Import relevant metrics - score, r2, mse, rmse - from Scikit-learn
+from sklearn.metrics import mean_squared_error, r2_score
+
+##--CODE--##
+# Compute the metrics for the linear regression model
+score = round(model.score(X, y, sample_weight=None),5)
+r2 = round(r2_score(y, predicted_y_values),5)
+mse = round(mean_squared_error(y, predicted_y_values),4)
+rmse = round(np.sqrt(mse),4)
+
+# Print relevant metrics.
+print(f"The score is {score}.")
+print(f"The r2 is {r2}.")
+print(f"The mean squared error is {mse}.")
+print(f"The root mean squared error is {rmse}.")
+
+##--CODE--##
+
+

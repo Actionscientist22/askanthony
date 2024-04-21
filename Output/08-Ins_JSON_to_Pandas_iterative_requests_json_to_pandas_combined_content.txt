@@ -1,0 +1,53 @@
+##--CODE--##
+# Dependencies
+import json
+import requests
+import pandas as pd
+
+##--CODE--##
+# Open library results limit to 50 results per page. 
+# Authors documentation: https://openlibrary.org/dev/docs/api/authors
+# URL for Neil Gaiman
+url = "https://openlibrary.org/authors/OL53305A/works.json"
+
+##--CODE--##
+# Create an empty list to store the responses
+response_json = []
+
+##--CODE--##
+# Make a request for 3 pages of results
+
+
+    # Get the results
+
+
+    # Loop through the "entries" of the results and
+    # append them to the response_json list
+
+        # Save post's JSON
+
+
+##--CODE--##
+# Now we have 150 book objects, 
+# which we got by making 3 requests to the API.
+
+
+##--CODE--##
+# preview the JSON
+print(json.dumps(response_json, indent=4))
+
+##--CODE--##
+# Convert the results to a DataFrame
+
+
+##--CODE--##
+# Convert the results to a DataFrame, normalizing the JSON
+
+
+##--CODE--##
+# Export to CSV
+
+
+##--CODE--##
+
+

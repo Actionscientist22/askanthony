@@ -1,0 +1,51 @@
+##--CODE--##
+# Import dependencies
+import requests
+from dotenv import load_dotenv
+import os
+import time
+
+# Load environment variables and New York Times API key
+
+
+# New York Times Article API URL
+
+
+# Store a search term
+
+
+# Search for articles published between a begin and end date
+
+
+# Build URL
+
+
+##--CODE--##
+# Retrieve articles
+
+
+##--CODE--##
+# BONUS: How would we get 30 results? 
+# HINT: Look up the page query param
+
+# Empty list for articles
+
+
+# loop through pages 0-2
+
+    # create query with page number
+
+    
+    # Add a one second interval between queries to stay within API query limits
+
+    # loop through the response and append each article to the list
+
+
+##--CODE--##
+for article in articles_list:
+    print(article['snippet'])
+    print('---------------------------')
+
+##--CODE--##
+
+

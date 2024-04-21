@@ -1,0 +1,133 @@
+##--CODE--##
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+# Model and API Key
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Documents
+
+##--CODE--##
+# Additional imports for loading PDF documents and QA chain.
+from langchain.document_loaders import PyPDFLoader
+from langchain.chains.question_answering import load_qa_chain
+
+##--CODE--##
+# Create the PDF loader and load the document.
+pdf_loader = PyPDFLoader('https://static.bc-edx.com/ai/ail-v-1-0/m22/lesson_1/datasets/Resume.pdf')
+documents = pdf_loader.load()
+
+# Initialize the model.
+llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.0)
+
+# Create the QA chain using the LLM.
+chain = load_qa_chain(llm)
+
+# Define a query as a string.
+query = 'Could I write to Jane Doe in Spanish and expect her to understand?'
+
+# Pass the documents and the query to the chain, and print the result.
+result = chain.invoke({"input_documents": documents, "question": query})
+print(result["output_text"])
+
+# Built-in Integrations
+
+##--CODE--##
+# Additional imports for loading Wikipedia content and QA chain.
+from langchain_community.document_loaders import WikipediaLoader
+from langchain.chains.question_answering import load_qa_chain
+
+##--CODE--##
+# Initialize the model.
+llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.0)
+
+# Define the wikipedia topic as a string.
+wiki_topic = "Leonard Cohen"
+
+# Load the wikipedia results as documents, using a max of 2.
+documents = WikipediaLoader(query=wiki_topic, load_max_docs=2, load_all_available_meta=True).load()
+
+# Create the QA chain using the LLM.
+chain = load_qa_chain(llm)
+
+# Define a query as a string.
+query = 'How many albums has Leonard Cohen released?'
+
+# Pass the documents and the query to the chain, and print the result.
+result = chain.invoke({"input_documents": documents, "question": query})
+print(result["output_text"])
+
+# External APIs
+
+##--CODE--##
+# Additional imports for API chain.
+from langchain.chains import APIChain
+
+##--CODE--##
+# Text description of API spec.
+spec = """URL STRUCTURE
+        Just hit http://numbersapi.com/number/type to get a plain text response, where
+        type is one of trivia, math, date, or year. Defaults to trivia if omitted.
+        number is an integer, or the keyword random, for which we will try to return
+        a random available fact, or a day of year in the form month/day 
+        (eg. 2/29, 1/09, 04/1), if type is date ranges of numbers"""
+
+# Initialize the model.
+llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.0)
+
+# Create the API chain from the spec, using the LLM.
+chain = APIChain.from_llm_and_api_docs(
+    llm,
+    api_docs=spec,
+    verbose=True, # Caution: for APIs that require a key, this setting can display the API key in the output.
+    limit_to_domains=["http://numbersapi.com"],
+)
+
+# Define a query as a dictionary.
+query = {"question": "What is a fun fact about the number 22?"}
+
+# Run the chain using the query, and print the response.
+result = chain.invoke(query)
+print(result["output"])
+
+##--CODE--##
+# Additional imports for API chain and processing json.
+from langchain.chains import APIChain
+import json
+import requests
+
+##--CODE--##
+# Store the API key in a variable.
+api_key = os.getenv("NYT_API_KEY")
+
+# Load the spec from json file and store the API key.
+spec = requests.get("https://raw.githubusercontent.com/nytimes/public_api_specs/master/article_search/article_search_v2.json").json()
+spec["api_key"] = api_key
+
+# Initialize the model.
+llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.0)
+
+# Create the API chain from the spec, using the LLM.
+chain = APIChain.from_llm_and_api_docs(
+    llm,
+    api_docs=json.dumps(spec),
+    verbose=False,  # Changing to True will expose user's NYT API key.
+    limit_to_domains=["https://api.nytimes.com/"],
+)
+
+# Define a query as a string.
+query = {"question": 'What are the headlines of three articles about Tracy Chapman since 2020?'}
+
+# Run the chain using the query, and print the response.
+result = chain.invoke(query)
+print(result["output"])
+

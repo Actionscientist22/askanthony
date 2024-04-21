@@ -1,0 +1,50 @@
+##--CODE--##
+# Import the modules
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+##--CODE--##
+# Read in the CSV file and create the Pandas DataFrame
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Check the DataFrame data types
+
+
+##--CODE--##
+# Get the column names.
+
+
+##--CODE--##
+# Scaling the numeric columns: 'Fresh', 'Milk', 'Grocery', 'Frozen', 'Detergents_Paper', 'Delicassen' columns
+
+# Display the arrays. 
+
+
+##--CODE--##
+# Creating a DataFrame with with the scaled data
+
+
+# Display sample data
+
+
+##--CODE--##
+# Transform the "Method" column using get_dummies()
+
+# Display the transformed data
+
+
+##--CODE--##
+# Concatenate the df_shopping_transformed and the card_dummies DataFrames
+
+
+# Display concatenated DataFrame
+
+
+##--CODE--##
+
+

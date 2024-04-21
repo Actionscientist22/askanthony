@@ -1,0 +1,47 @@
+##--CODE--##
+# Import the modules
+import pandas as pd
+from sklearn.cluster import KMeans
+
+##--CODE--##
+# Read in the CSV file as a pandas DataFrame and make the "year" column the index.
+used_car_sales_df = pd.read_csv("Resources/used-car-sales-data.csv", index_col="year")
+
+# Review the DataFrame
+used_car_sales_df.head()
+
+##--CODE--##
+# Create a a list to store inertia values
+inertia = []
+
+# Create a a list to store the values of k
+k = list(range(1, 11))
+
+# Create a for-loop where each value of k is evaluated using the K-means algorithm
+# Fit the model using the spread_df DataFrame
+# Append the value of the computed inertia from the `inertia_` attribute of the K-means model instance
+for i in k:
+    k_model = KMeans(n_clusters=i, n_init='auto', random_state=2)
+    k_model.fit(used_car_sales_df)
+    inertia.append(k_model.inertia_)
+
+##--CODE--##
+# Create a dictionary that holds the list values for k and inertia
+elbow_data = {"k": k, "inertia": inertia}
+
+# Create a DataFrame using the elbow_data dictionary
+df_elbow = pd.DataFrame(elbow_data)
+
+# Review the DataFrame
+df_elbow.head()
+
+##--CODE--##
+# Plot the elbow curve
+df_elbow.plot.line(x="k",
+                   y="inertia",
+                   title="Elbow Curve",
+                   xticks=k)
+
+##--CODE--##
+
+

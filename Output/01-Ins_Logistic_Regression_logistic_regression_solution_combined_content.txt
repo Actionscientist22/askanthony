@@ -1,0 +1,109 @@
+##--CODE--##
+import pandas as pd
+
+# Prepare the Data
+
+##--CODE--##
+# Import the data
+startup_path = "https://static.bc-edx.com/ai/ail-v-1-0/m13/lesson_1/datasets/start-up-success.csv"
+df = pd.read_csv(startup_path)
+df.head()
+
+##--CODE--##
+# Plot the data on a scatter plot
+df.plot.scatter(
+    x='Industry Health', 
+    y='Financial Performance', 
+    c='Firm Category', 
+    marker='o', 
+    s=25, 
+    edgecolor='k',
+    colormap="winter"
+)
+
+##--CODE--##
+# Preview the DataFrame
+df.head(3)
+
+##--CODE--##
+# Check the number of unhealthy vs. healthy firms ('Firm Category')
+# using value_counts
+df['Firm Category'].value_counts()
+
+# Split the data into training and testing sets
+
+##--CODE--##
+# Import Module
+from sklearn.model_selection import train_test_split
+
+# Split training and testing sets
+# Create the features DataFrame, X
+X = df.copy()
+X = X.drop(columns='Firm Category')
+
+# Create the target DataFrame, y
+y = df['Firm Category']
+
+# Use train_test_split to separate the data
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+##--CODE--##
+# Review the X_train DataFrame
+X_train
+
+# Model and Fit the Data to a Logistic Regression
+
+##--CODE--##
+# Import `LogisticRegression` from sklearn
+from sklearn.linear_model import LogisticRegression
+
+
+##--CODE--##
+# Create a `LogisticRegression` function and assign it 
+# to a variable named `logistic_regression_model`.
+logistic_regression_model = LogisticRegression()
+
+
+##--CODE--##
+# Fit the model
+logistic_regression_model.fit(X_train, y_train)
+
+##--CODE--##
+# Score the model
+print(f"Training Data Score: {logistic_regression_model.score(X_train, y_train)}")
+print(f"Testing Data Score: {logistic_regression_model.score(X_test, y_test)}")
+
+# Predict the Testing Labels
+
+##--CODE--##
+# Generate predictions from the model we just fit
+predictions = logistic_regression_model.predict(X_train)
+
+# Convert those predictions (and actual values) to a DataFrame
+results_df = pd.DataFrame({"Prediction": predictions, "Actual": y_train})
+results_df
+
+##--CODE--##
+# Apply the fitted model to the `test` dataset
+testing_predictions = logistic_regression_model.predict(X_test)
+
+# Save both the test predictions and actual test values to a DataFrame
+results_df = pd.DataFrame({
+    "Testing Data Predictions": testing_predictions, 
+    "Testing Data Actual Targets": y_test})
+
+##--CODE--##
+# Display the results DataFrame
+results_df
+
+##--CODE--##
+# Import the accuracy_score function
+from sklearn.metrics import accuracy_score
+
+# Calculate the model's accuracy on the test dataset
+accuracy_score(y_test, testing_predictions)
+
+
+##--CODE--##
+
+

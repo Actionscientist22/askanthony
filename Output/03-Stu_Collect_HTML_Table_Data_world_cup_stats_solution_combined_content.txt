@@ -1,0 +1,59 @@
+# World Cup Stats
+
+Use Pandas scraping to collect the 2019 FIFA World Cup Stats.
+
+##--CODE--##
+import pandas as pd
+
+Use Pandas to scrape the following site, extract the "Tournament ranking" results table, clean the data, and export it to a CSV.
+
+##--CODE--##
+url = 'https://en.wikipedia.org/wiki/2019_FIFA_Women%27s_World_Cup'
+
+##--CODE--##
+# Use the Pandas `read_html` to parse the url
+tables = pd.read_html(url)
+tables
+
+##--CODE--##
+# Find the correct table
+for i in range(79):
+    print(f"table: {i}")
+    print(tables[i])
+# tables[13]
+
+##--CODE--##
+# Save the table to a DataFrame
+stats_df = pd.DataFrame(tables[18])
+stats_df
+
+##--CODE--##
+# Drop NA rows and reset the index
+stats_df = stats_df.dropna().reset_index()
+stats_df
+
+##--CODE--##
+# Check the data types
+stats_df.dtypes
+
+##--CODE--##
+# Remove the "+" and replace the "−" with "-" from the "GD" column
+stats_df["GD"] = stats_df["GD"].str.replace("+", "", regex=False)
+stats_df["GD"] = stats_df["GD"].str.replace("−", "-", regex=False)
+stats_df
+
+##--CODE--##
+# Convert the following columns to dtype int
+cols = ["Pos", "Pld", "W", "D", "L", "GF", "GA", "GD", "Pts"]
+
+for col in cols:
+    stats_df[col] = stats_df[col].astype('int')
+stats_df
+
+##--CODE--##
+# Export as a CSV without the index
+stats_df.to_csv("fifa_stats.csv", index=False)
+
+##--CODE--##
+
+

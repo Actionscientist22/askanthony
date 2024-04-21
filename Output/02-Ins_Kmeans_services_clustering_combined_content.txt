@@ -1,0 +1,56 @@
+##--CODE--##
+# Import dependencies
+import pandas as pd
+
+##--CODE--##
+# Read in the CSV file as a Pandas DataFrame
+service_ratings_df = pd.read_csv("https://static.bc-edx.com/mbc/ai/m2/datasets/service-ratings.csv")
+
+# Review the DataFrame
+service_ratings_df.head()
+
+##--CODE--##
+# Visualize a scatter plot of the data
+
+
+## Run the k-means model with 2 clusters
+
+##--CODE--##
+# Start by importing the K-means algorithm
+from sklearn.cluster import KMeans
+
+##--CODE--##
+# Create and initialize the K-means model instance for 2 clusters
+model = KMeans(n_clusters=2, n_init='auto',random_state=1)
+
+# Print the model
+model
+
+##--CODE--##
+# Fit the data to the instance of the model
+model.fit(service_ratings_df)
+
+##--CODE--##
+# Make predictions about the data clusters using the trained model
+
+
+# Print the predictions
+
+
+##--CODE--##
+# Create a copy of the DataFrame
+
+
+# Add a column to the DataFrame that contains the customer_ratings information
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Plot the data points based on the customer rating
+
+
+
+##--CODE--##
+
+

@@ -1,0 +1,57 @@
+# Sourcing Data from HTML Tables with Pandas
+
+##--CODE--##
+import pandas as pd
+
+We can use the `read_html` function in Pandas to automatically extract any tabular data from a page.
+
+##--CODE--##
+url = 'https://en.wikipedia.org/wiki/List_of_Australian_capital_cities'
+
+##--CODE--##
+tables = pd.read_html(url)
+tables
+
+#### What we get in return is a list of dataframes for any tabular data that Pandas found.
+
+##--CODE--##
+type(tables)
+
+#### We can slice off any of those dataframes that we want using normal indexing.
+
+##--CODE--##
+df = tables[1]
+df.head()
+
+#### Fix column names
+
+##--CODE--##
+cols = list(df.columns)
+cols[2] = "City population"
+cols[3] = "State/territory population"
+df.columns = cols
+df.head()
+
+#### Drop a column
+
+##--CODE--##
+df = df.drop(['Image'], axis=1)
+df.head()
+
+#### Reset an index
+
+##--CODE--##
+df = df.reset_index(drop=True)
+df.head()
+
+##--CODE--##
+df.loc[df["State/territory"]=="New South Wales"]
+
+## Export DataFrame as CSV
+
+##--CODE--##
+df.to_csv("australian_city_data.csv", index=False)
+
+##--CODE--##
+
+

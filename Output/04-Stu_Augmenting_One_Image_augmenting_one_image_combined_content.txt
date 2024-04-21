@@ -1,0 +1,65 @@
+##--CODE--##
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from matplotlib import pyplot as plt
+from PIL import Image
+import requests
+import numpy as np
+import pickle
+
+# Import an image
+img_url = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_2/datasets/H2_122c_4.jpg"
+example_image = Image.open(requests.get(img_url, stream=True).raw)
+example_image
+
+Before we augment an image, we must preprocess it like we have before
+
+##--CODE--##
+# Do some quick preprocessing
+## Resize to 250 by 250
+
+
+##--CODE--##
+# Convert to floating point and normalize
+
+
+
+##--CODE--##
+# Look at the shape
+
+
+In addition to our regular preprocessing, the image generator requires a "batch" dimension and a "channels" dimension. RGB images already have channel dimensions, but a grayscale image must have it added.
+
+##--CODE--##
+# The image generator requires a "batch" dimension
+# We can add that using the "expand dims" function
+
+# Add batch dimension
+
+
+# View the shape
+
+
+
+##--CODE--##
+# Create an ImageDataGenerator with augmentation settings
+
+# Create a new image based on the original image
+
+# View the shape of the new image
+
+
+
+##--CODE--##
+# Using a plotting library like matplot lib, we can view this image
+# Plot the new image
+# Note that we select all data from the first two dimensions, and specifically
+# select the first value from the third dimension (color scale). We
+# multiply by 255 to undo the normalization for plotting.
+
+
+
+##--CODE--##
+# Plot the original for comparison
+
+
+

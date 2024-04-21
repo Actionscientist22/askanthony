@@ -1,0 +1,65 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Create a reference the CSV file desired
+csv_path = "Resources/ufoSightings.csv"
+
+# Read the CSV into a Pandas DataFrame
+ufo_df = pd.read_csv(csv_path, low_memory = False)
+
+# Print the first five rows of data to the screen
+ufo_df.head()
+
+##--CODE--##
+# Remove the rows with missing data
+
+
+##--CODE--##
+
+
+##--CODE--##
+
+
+##--CODE--##
+# Converting the "duration (seconds)" column's values to numeric
+
+
+##--CODE--##
+
+
+##--CODE--##
+
+
+##--CODE--##
+# Filter the data so that only those sightings in the US are in a DataFrame
+
+
+##--CODE--##
+# Count how many sightings have occured within each state
+
+
+##--CODE--##
+# Using GroupBy in order to separate the data into fields according to "state" values
+
+# The object returned is a "GroupBy" object and cannot be viewed normally...
+
+
+# In order to be visualized, a data function must be used...
+
+
+##--CODE--##
+
+
+##--CODE--##
+# Since "duration (seconds)" was converted to a numeric time, it can now be summed up per state
+
+
+##--CODE--##
+# Creating a new DataFrame using both duration and count
+
+
+##--CODE--##
+
+

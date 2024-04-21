@@ -1,0 +1,379 @@
+##--CODE--##
+# Import spacy, import the large english model (this is 600 MB), and disable tagger, ner and lemmatizer.
+# Download the large English model ~ 600 MB if you have not done so: `python -m spacy download en_core_web_lg`.
+import spacy
+nlp = spacy.load('en_core_web_lg',disable=["tagger", "ner", "lemmatizer"])
+
+##--CODE--##
+# Read in the text file with the read_file function.
+def read_file(filepath):
+    """
+    Reads in a text file from the directory and saves the file contents to a variable.
+    
+    Args:
+        text (str): The input text to read and save
+        
+    Returns: 
+        A string containing the file contents.
+    """
+    with open(filepath) as f:
+        str_text = f.read()
+    return str_text
+
+## Tokenize and Clean Text
+
+##--CODE--##
+# Use the separate_punc function to remove the puncutation. 
+def separate_punc(md_text):
+    """
+    Retrieves all the words in the text without punctuation 
+
+    Args:
+        text (str): The input text from which words are extracted witout punctuation.
+
+    Returns:
+        list: A list of words
+
+    """
+    # Create a list comprehension to get only the tokens, i.e., words in the text.
+    return [token.text.lower() for token in nlp(md_text) \
+            if token.text not in '\n\n \n\n\n!"-#$%&()--.*+,-/:;<=>?@[\\]^_`{|}~\t\n']
+
+##--CODE--##
+# Pass in the first four chapters of Moby Dick to the read_file function.
+
+# Clean and tokenize the text using the separate_punc function.
+
+
+##--CODE--##
+# Get the length of the tokens list.
+
+
+##--CODE--##
+# Look over the tokems to make sure all theo punctuation has been reomved.  
+# Some punctuation wasn't removed, i.e., "?--".
+print(tokens[:300])
+
+##--CODE--##
+# How many tokens contain "?--"?
+
+
+## Create Sequences of Tokens
+
+##--CODE--##
+# Organize into sequences of tokens.
+# Use 25 words to predict the 26th word using "+1".
+train_len = 26 # = 25 training words plus one target word.
+
+# Create an empty list of sequences
+
+
+# Use a for loop to create lists of 26 tokens for the whole text. 
+
+    # Range is 26 to 11,338
+    # Get the train_len amount of characters 
+    # First iteration gets the words from 0:26
+    # The second iteration getst the words from 1:27, etc.
+
+    
+    # Add to list of sequences
+
+
+##--CODE--##
+# The first 26 words [0:26]
+print(text_sequences[0])
+# The next 26 words [1:27]
+print(text_sequences[1]) 
+# The next 26 words [2:28]. 
+print(text_sequences[2])
+
+##--CODE--##
+# Join the first 26 words. 
+print(' '.join(text_sequences[0]))
+# Join the next 26 words. 
+print(' '.join(text_sequences[1]))
+# And, join the next 26 words. 
+print(' '.join(text_sequences[2]))
+
+##--CODE--##
+# The list of text_sequences should be 26 less than the total tokens.
+len(text_sequences)
+
+## Perform Tokenization with Keras
+
+##--CODE--##
+# Import the Keras tokenization to format the data from words into a numerical format.
+from keras.preprocessing.text import Tokenizer
+
+##--CODE--##
+# Initialize the Keras Tokenizer class 
+tokenizer = Tokenizer()
+# Map each word with an index.
+tokenizer.fit_on_texts(text_sequences)
+
+##--CODE--##
+# Get the dictionary mapping of words to their indices
+
+
+##--CODE--##
+# Get the dictionary of words and the number of times they appear in the text.
+
+
+##--CODE--##
+# What is the size of the vocabulary
+
+
+##--CODE--##
+# Encode each word in the text_sequences to the indices. 
+
+
+##--CODE--##
+# Get the encoded indices for the the first 26 words
+
+
+##--CODE--##
+# Get the word associated with the indices for the first sequence.
+
+
+##--CODE--##
+# Get the word associated with a specific index.
+
+
+##--CODE--##
+# Get the number of times the word "call" appears in the text.
+
+
+## Convert the List of Sequences to Arrays.
+
+##--CODE--##
+# Import numpy to convert the list of sequences to arrays.
+import numpy as np
+
+##--CODE--##
+# Convert the all 26 word list of lists to arrays.
+
+
+##--CODE--##
+# Get the length of the array
+
+
+##--CODE--##
+# Get the first array.
+
+
+## Create input sequences and one-hot encode the target variable.
+
+##--CODE--##
+# Import the to_categorical function to convert the arrays to binary values.
+import keras
+from keras.utils import to_categorical
+
+##--CODE--##
+# Get the first 25 numbers from each array. These will be our "X". 
+
+
+##--CODE--##
+# Get the last number (number 26) from each array. These will be our "y".
+
+
+##--CODE--##
+# Set the input variable, `X`, to the first 25 numbers of each array.
+
+# Set target variable, `y`, to the last number of each array.
+
+
+##--CODE--##
+# Get the shape of X
+
+# Get the length of each sequence.
+
+
+##--CODE--##
+# Get the shape of y
+
+
+##--CODE--##
+# Next,one-hot encode the target variable to get transform each index to a binary value. 
+# We increase the vocabulary by 1 so we can predict the next word. 
+
+
+##--CODE--##
+# Get the shape of y again.
+
+
+##--CODE--##
+# Print the first 24 binary values in the first array.
+# The index in for the last word in before transforming was "24", this is converted to a "1".
+
+
+## Creating a LSTM  Model
+
+##--CODE--##
+# Import the dependencies for LSTM model.
+from keras.models import Sequential
+from keras.layers import Dense,LSTM,Embedding
+
+##--CODE--##
+def create_model(vocabulary_size, seq_len):
+    """
+    Create and compile an LSTM-based sequential model for text generation.
+
+    Parameters:
+    - vocabulary_size (int): The size of the vocabulary, i.e., the number of unique words in the text.
+    - seq_len (int): The length of the input sequences, indicating the number of words in each sequence.
+
+    Returns:
+    - model (Sequential): A compiled Keras sequential model for text generation.
+
+    Model Architecture:
+    - Embedding Layer: Maps word indices to dense vectors.
+    - LSTM Layer 1: 150 units, returns full sequence.
+    - LSTM Layer 2: 150 units.
+    - Dense Layer: 150 units, ReLU activation.
+    - Output Layer: Dense layer with softmax activation for multi-class classification.
+
+    Compilation:
+    - Loss: Categorical crossentropy.
+    - Optimizer: Adam.
+    - Metrics: Accuracy.
+
+    Usage Example:
+    ```python
+    model = create_model(vocabulary_size=10000, seq_len=25)
+    ```
+    """
+    model = Sequential()
+    model.add(Embedding(vocabulary_size, 25, input_length=seq_len))
+    model.add(LSTM(150, return_sequences=True))
+    model.add(LSTM(150))
+    model.add(Dense(150, activation='relu'))
+
+    model.add(Dense(vocabulary_size, activation='softmax'))
+    
+    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+   
+    model.summary()
+    
+    return model
+
+## Training the Model
+
+##--CODE--##
+# Define the model and pass in the vocabulary (+1) and the seq_len (25 words).
+model = create_model(vocabulary_size+1, seq_len)
+
+##--CODE--##
+# Fit model with 300 epochs. (This will take ~60 min to complete.)
+model.fit(X, y, batch_size=128, epochs=300,verbose=1) 
+
+##--CODE--##
+from pickle import dump
+
+##--CODE--##
+# Save the model to file
+# model.save('four_chapters_moby_dick_model_300.keras')
+# Save the tokenizer
+# dump(tokenizer, open('four_chapters_moby_dick_tokenizer_300', 'wb'))
+
+## Generating New Text
+
+##--CODE--##
+# Import the dependencies needed for the LSTM.
+from random import randint
+from pickle import load
+from keras.models import load_model
+# May needt to use `pip install Keras-Preprocessing`
+from keras_preprocessing.sequence import pad_sequences
+
+##--CODE--##
+def generate_text(model, tokenizer, seq_len, seed_text, num_gen_words):
+    '''
+    Generate text using a trained language model.
+    
+    INPUTS:
+     - model: Trained language model (e.g., LSTM) capable of text generation.
+     - tokenizer: Tokenizer that was fit on text data.
+     - seq_len: Length of the training sequences used to train the model.
+     - seed_text: A raw string text serving as the seed for text generation.
+     - num_gen_words: The number of words to be generated by model.
+    '''
+    
+    # Final Output
+    output_text = []
+    
+    # Intial Seed Sequence
+    input_text = seed_text
+    
+    # Create num_gen_words
+    for i in range(num_gen_words):
+        
+        # Take the input text string and encode it to a sequence
+        encoded_text = tokenizer.texts_to_sequences([input_text])[0]
+        # Pad sequences to our trained rate of 25 words.
+        pad_encoded = pad_sequences([encoded_text], maxlen=seq_len, truncating='pre')
+        # Predict Class Probabilities for each word
+        pred_w = model.predict(pad_encoded, verbose=0)[0]
+        
+        pred_word_ind = np.argmax(pred_w, axis= -1)
+        
+        # Grab word
+        pred_word = tokenizer.index_word[pred_word_ind] 
+        
+        # Update the sequence of input text (shifting one over with the new word)
+        input_text += ' ' + pred_word
+        
+        output_text.append(pred_word)
+        
+    # Make it look like a sentence.
+    return ' '.join(output_text)
+
+## Test: Grab a random seed sequence
+
+##--CODE--##
+# Import the random module. 
+import random
+
+##--CODE--##
+# Pick a random sequence of 26 words. 
+
+# Join the words
+
+
+##--CODE--##
+# Import the load_model method.
+from keras.models import load_model
+
+##--CODE--##
+# Set the model to the saved trained 300 epoch model. 
+
+# Set the tokenizer to the trained tokenizer from the model. 
+
+
+##--CODE--##
+# Call the generate_text function and pass in the required parameters. We set the num_gen_words = 25. 
+
+
+- **The next 25 words aren't that accurate.**
+
+## Explore Generating Text
+
+##--CODE--##
+# Choose a 26 word text string from the first four chapters of Moby Dick.
+# If less than 26 the accuracy is off. 
+text = """provide 25 words from the first four chapters of Mody Dick"""
+
+##--CODE--##
+# Create tokens by using the separate_punc function.
+
+# Join the tokens and set them to the "seed_text" variable. 
+
+
+##--CODE--##
+# Call the generate_text function and pass in the required parameters. Set the `num_gen_words` to 25. 
+generate_text(m)
+
+**Question: How would we gain better accuracy for the next 50 words?**
+
+- Increase or decrease the length of the sequence? 
+- Decrease the batch size? 
+

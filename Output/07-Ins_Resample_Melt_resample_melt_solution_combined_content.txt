@@ -1,0 +1,78 @@
+##--CODE--##
+# Import the dependencies
+import pandas as pd
+import random
+
+##--CODE--##
+# Create a Data Series with a range of 90 dates.
+dates = pd.date_range('1/1/23', periods=90, freq='D')
+random_integers = [random.randint(10, 50) for _ in range(90)]
+data = {"date": dates, "visits": random_integers}
+sales_data_df = pd.DataFrame(data)
+sales_data_df
+
+### Applying the `resample()` Function
+
+##--CODE--##
+# Make the dates the index because resample only works on a datetime index
+sales_df = sales_data_df.set_index('date')
+sales_df
+
+##--CODE--##
+# Get the total visits for each week.
+sales_df.resample('W').sum()
+
+##--CODE--##
+# Get the number of visits for each week.
+sales_df.resample('W').count()
+
+##--CODE--##
+# Get the average number of visits for each week rounded to one decimal place.
+sales_df.resample('W').mean().round(1)
+
+##--CODE--##
+# Get the total visits for each month.
+sales_df.resample('M').sum()
+
+### Applying the `melt()` Function
+
+##--CODE--##
+# Read file into DataFrame
+exam_scores_df = pd.read_csv('Resources/students_exam_scores.csv')
+exam_scores_df.head(10)
+
+##--CODE--##
+# Using the `pivot_table` or the `pivot` function show each students exam score for each subject.
+# The student names are the columns, the subject is the index, and the values are the exam scores.
+exam_scores_subject = exam_scores_df.pivot_table(index="subject", 
+                                                 columns="student_name",
+                                                 values="exam_score").rename_axis(None, axis=1)
+exam_scores_subject
+
+##--CODE--##
+# Reset the index so "subject" is a column.
+exam_scores_reindexed = exam_scores_subject.reset_index()
+exam_scores_reindexed
+
+##--CODE--##
+# Convert the DataFrame from short form to long form. 
+# Melt the DataFrame
+exam_scores_reindexed.melt()
+
+##--CODE--##
+# Melt the DataFrame using the variable we'd like to keep in the long DataFrame.
+exam_scores_reindexed.melt(id_vars="subject")
+
+##--CODE--##
+# Melt the DataFrame and rename the columns
+melted_df = exam_scores_reindexed.melt(id_vars="subject", var_name="student_name", value_name="exam_score")
+melted_df
+
+##--CODE--##
+# Group the melted DataFrame on the subject get the average exam score rounded to one decimal place.
+subject_exam_scores = melted_df.groupby("subject")[["exam_score"]].mean().round(1)
+subject_exam_scores
+
+##--CODE--##
+
+

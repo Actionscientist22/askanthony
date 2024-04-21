@@ -1,0 +1,95 @@
+##--CODE--##
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from matplotlib import pyplot as plt
+from PIL import Image
+import requests
+import numpy as np
+import pandas as pd
+import io
+import pickle
+
+##--CODE--##
+# Import the preprocessed data
+X_preprocessed_url = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_2/datasets/pickles/preprocessed_fungi.pkl"
+y_url = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_2/datasets/pickles/fungi_y.pkl"
+
+X = pickle.load(io.BytesIO(requests.get(X_preprocessed_url).content))
+y = pickle.load(io.BytesIO(requests.get(y_url).content))
+
+print(X[0])
+print(y.head())
+
+##--CODE--##
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+
+# Label encode the y data
+y_encoder = LabelEncoder().fit(y)
+y = y_encoder.transform(y)
+
+# Convert values to numpy arrays
+X = np.array(X)
+
+# Split the training dataset into training and validation sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+##--CODE--##
+# Create an ImageDataGenerator
+datagen = ImageDataGenerator(
+    rotation_range=20,      # Random rotation (degrees)
+    width_shift_range=0.1,  # Random horizontal shift
+    height_shift_range=0.1, # Random vertical shift
+    shear_range=0.2,        # Shear intensity
+    zoom_range=0.2,         # Random zoom
+    horizontal_flip=True,   # Random horizontal flip
+    vertical_flip=False,    # No vertical flip for face images
+    fill_mode='nearest'     # Fill mode for handling newly created pixels
+)
+
+
+##--CODE--##
+# Create an emtpty list for X and y augmentations
+X_train_aug = []
+y_train_aug = []
+
+# Loop through the entire X_train set
+for i in range(len(X_train)):
+    # Select the original image and its y label
+    img = X_train[i]
+    label = y_train[i]
+
+    # Ensure that the input data has the correct shape
+    img = np.expand_dims(img, axis=0)  # Add batch dimension
+
+    # Add 5 new images for every original
+    for j in range(5):
+        # Create and append the image
+        X_train_aug.append(datagen.flow(img, batch_size=1).next()[0])
+        # Append the original label
+        y_train_aug.append(label)
+
+# Print the length of the augmented images and the labels
+print(len(X_train_aug))
+print(len(y_train_aug))
+
+##--CODE--##
+# Export our final variables to a pickle file using a dictionary
+from google.colab import drive
+drive.mount('/content/drive')
+
+# Create the dictionary
+fungi_dict = {
+    'X_train': X_train_aug,
+    'X_test': X_test,
+    'y_train': y_train_aug,
+    'y_test': y_test
+}
+
+# Store the dictionary in a pickle file
+with open('/content/drive/My Drive/fungi_dict.pkl', 'wb') as file:
+    pickle.dump(fungi_dict, file)
+
+##--CODE--##
+
+

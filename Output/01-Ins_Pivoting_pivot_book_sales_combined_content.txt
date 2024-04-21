@@ -1,0 +1,94 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read file into DataFrame
+book_sales_df = pd.read_csv('Resources/book_sales.csv')
+book_sales_df.head(20)
+
+##--CODE--##
+# Show the unique values in the book_name column.
+book_sales_df["book_name"].unique()
+
+##--CODE--##
+# Show the unique values in the date_ending column.
+book_sales_df["date_ending"].unique()
+
+### Using the `pivot()` function.
+---
+`pd.pivot(data, columns, index=<a column>, values=<a column>` or `df.pivot(columns, index=<a column>, values=<a column>`
+
+
+##--CODE--##
+#  Pivot on the date_ending with the book_name as the index, and pass the "total_sales" as the values.
+
+# Show the table.
+
+
+##--CODE--##
+# Reorder columns
+
+
+##--CODE--##
+#  Pivot on the book_name with the date_ending as the index, and pass the "total_sales" as the values.
+
+
+##--CODE--##
+# We can't use sort_values to sort the index. We have to use `reindex`.  
+# Get the index values to copy.
+
+
+##--CODE--##
+# Reindex in monthly ascending order. 
+
+
+### Using the `pivot_table()` function.
+---
+
+- `pd.pivot_table(data, values=None, index=None, columns=None, aggfunc='mean', fill_value=None, margins=False, dropna=True, margins_name='All', observed=False, sort=True)`
+- `pivot_table()` performs the mean aggregation by defualt
+
+##--CODE--##
+# Using the `pivot_table()` function, get the total book sales for each book. 
+# Make the columns the book title. 
+
+
+# Show the table.
+
+
+##--CODE--##
+# Using the `pivot_table()` function, get the average book sales for each book. 
+# Make the columns the book title. 
+
+# Show the table.
+
+
+##--CODE--##
+# Rename the index: "total_sales" to "Avg_Sales".
+
+
+### Mutiple aggregations.
+
+##--CODE--##
+# Get the total and average book sales for each book. 
+# Make the books the columns, and the mean and sum of the total sales under each book. 
+
+
+# Show the table
+
+
+##--CODE--##
+# Using the pivot_table function get the average and the total of the book sales 
+# for each date. Make the date the index and round to one decimal place. 
+
+# Show the table
+
+
+##--CODE--##
+# Reindex in monthly ascending order. 
+
+
+##--CODE--##
+
+

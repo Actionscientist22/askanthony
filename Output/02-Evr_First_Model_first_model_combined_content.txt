@@ -1,0 +1,31 @@
+##--CODE--##
+# Import the data
+import pandas as pd
+
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m14/datasets/bank_marketing.csv')
+df.head()
+
+##--CODE--##
+# Drop rows with null values
+
+# Convert y to numeric
+
+# Drop all non-numeric columns
+
+# Verify changes with the info method
+
+
+##--CODE--##
+# Setup X and y variables
+
+
+##--CODE--##
+# Create and train a logistic regression model
+from sklearn.linear_model import LogisticRegression
+
+
+
+##--CODE--##
+# Check the model's score
+
+

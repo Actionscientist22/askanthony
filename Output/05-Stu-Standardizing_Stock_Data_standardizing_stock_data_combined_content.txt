@@ -1,0 +1,83 @@
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+##--CODE--##
+# Read the CSV file into a pandas DataFrame
+# Set the index using the Ticker column
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Get the information on the data types
+
+
+## Preprocess and Scale the Data
+
+##--CODE--##
+# Use the StandardScaler module and fit_transform function to 
+# scale all columns with numerical values
+
+
+# Display the first five rows of the scaled data
+
+
+##--CODE--##
+# Create a DataFrame called with the scaled data
+# The column names should match those referenced in the StandardScaler step
+
+# Create a Ticker column in the df_stocks_scaled DataFrame
+# using the index of the original df_stocks DataFrame
+
+
+# Set the newly created Ticker column as index of the df_stocks_scaled DataFrame
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Encode the Sector column
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Concatenate the Sector encoded data with the scaled data DataFrame
+
+
+# Display the concatenated DataFrame
+
+
+##--CODE--##
+# Initialize the K-Means model with n_clusters=3,  n_init='auto', and random_state=1
+
+
+# Fit the model for the df_stocks_scaled DataFrame
+
+
+##--CODE--##
+# Predict the model segments (clusters)
+
+
+# View the stock segments
+
+
+##--CODE--##
+# Create a copy of the concatenated DataFrame
+
+
+# Create a new column in the copy of the concatenated DataFrame with the predicted clusters
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+
+

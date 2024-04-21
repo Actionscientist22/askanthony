@@ -1,0 +1,5638 @@
+WEBVTT
+
+1
+00:00:08.080 --> 00:00:08.770
+Anthony Taylor: I
+
+2
+00:00:10.020 --> 00:00:16.060
+Anthony Taylor: welcome to day 3 of deep learning. Week, 2 of boot camp.
+
+3
+00:00:16.480 --> 00:00:17.980
+Anthony Taylor: What would you do?
+
+4
+00:00:22.890 --> 00:00:23.570
+Not that
+
+5
+00:00:25.370 --> 00:00:29.459
+Meredith McCanse (she/her):  Your sound is cutting in and out a little bit, Anthony.
+
+6
+00:00:31.810 --> 00:00:32.750
+Anthony Taylor: Really.
+
+7
+00:00:32.850 --> 00:00:39.390
+Dipinto, Matt: I think it's only because, being loud it anytime, you're like yelling things loudly. Your Mike gets a little spotty, so
+
+8
+00:00:44.450 --> 00:00:46.389
+Anthony Taylor: alright, so hopefully, that doesn't happen.
+
+9
+00:00:46.660 --> 00:00:50.629
+Baro, Sonja: I feel bad. If that ever that's making me laugh again.
+
+10
+00:00:51.590 --> 00:00:56.480
+Anthony Taylor: I do have like a really fancy, like podcast Mike.
+
+11
+00:00:56.630 --> 00:00:57.929
+Anthony Taylor: that I don't plug in
+
+12
+00:00:58.340 --> 00:01:03.699
+Anthony Taylor: because it feels too pretentious. Thank God, nobody here has one of those
+
+13
+00:01:04.190 --> 00:01:07.760
+Baro, Sonja: you don't want. The Britney Spears concert like
+
+14
+00:01:08.410 --> 00:01:11.410
+Anthony Taylor: I used to. You know what's funny. I used to wear that
+
+15
+00:01:11.480 --> 00:01:13.240
+Anthony Taylor: when I taught in person.
+
+16
+00:01:14.060 --> 00:01:20.950
+Anthony Taylor: and the reason is because we also recorded the class when I taught in person.
+
+17
+00:01:21.320 --> 00:01:22.250
+Baro, Sonja: But
+
+18
+00:01:22.550 --> 00:01:26.630
+Anthony Taylor: I you don't realize this about me. I do not sit still
+
+19
+00:01:26.930 --> 00:01:27.750
+Anthony Taylor: ever
+
+20
+00:01:28.400 --> 00:01:44.219
+Anthony Taylor: you get a Kevin. Remember, I'm all over the classroom. I will be right next to you asking you questions. I'll be everywhere all over the whiteboard. I love using white. And and so, because of that, my, my sound and my portings were always bad. So I just thought
+
+21
+00:01:44.640 --> 00:01:48.580
+Anthony Taylor: a wireless headset microphone that I would just wear
+
+22
+00:01:48.640 --> 00:01:50.210
+Anthony Taylor: while I taught class.
+
+23
+00:01:50.690 --> 00:01:54.710
+Anthony Taylor: So there's a bit of trivia way back, when
+
+24
+00:01:56.230 --> 00:01:59.140
+Anthony Taylor: seems like everything in my life is way back.
+
+25
+00:02:01.250 --> 00:02:12.310
+Anthony Taylor: I don't know why that is okay. So let's get started. Today's an interesting. a bit of excitement. We're gonna talk about branching and neural networks.
+
+26
+00:02:12.400 --> 00:02:15.620
+Anthony Taylor: We're gonna apply it to a neural network.
+
+27
+00:02:15.670 --> 00:02:19.509
+Anthony Taylor: We're going to understand the implications of Softmax.
+
+28
+00:02:19.670 --> 00:02:35.429
+Anthony Taylor: We've been using sigmoid as an output activation function. We're gonna use one called Softmax. Today, we're going to use softmax. And then we're gonna apply branching and softmax in a Cnm for image classification.
+
+29
+00:02:36.030 --> 00:02:38.360
+Anthony Taylor: That's our objectives.
+
+30
+00:02:38.650 --> 00:02:42.340
+Anthony Taylor: Okay. so what are we talking about?
+
+31
+00:02:42.650 --> 00:02:52.009
+Anthony Taylor:  so far, we have mostly done classifications that were relatively simple.
+
+32
+00:02:52.430 --> 00:02:56.090
+Anthony Taylor: By that, I mean, we have like a class, and maybe there's.
+
+33
+00:02:56.170 --> 00:02:58.920
+Anthony Taylor: you know, 10 different options
+
+34
+00:02:59.370 --> 00:03:06.070
+Anthony Taylor: for that class. But it affected. But for the most part, we haven't done anything where the Y variable
+
+35
+00:03:07.640 --> 00:03:10.770
+Anthony Taylor: could be more than one column.
+
+36
+00:03:12.630 --> 00:03:20.159
+Anthony Taylor: Okay. for example. Actually, we might have some. I don't think they really?
+
+37
+00:03:21.600 --> 00:03:22.450
+Anthony Taylor: Well.
+
+38
+00:03:23.970 --> 00:03:25.350
+Anthony Taylor: for example.
+
+39
+00:03:25.450 --> 00:03:29.570
+Anthony Taylor:  see what these are
+
+40
+00:03:30.610 --> 00:03:33.340
+Anthony Taylor: any good at all for, what we're trying to talk about.
+
+41
+00:03:33.960 --> 00:03:38.040
+Anthony Taylor: I can use their example, but I'm trying to see if I want to use a different one. Hold on.
+
+42
+00:03:39.250 --> 00:03:41.069
+Anthony Taylor: So a news article.
+
+43
+00:03:42.120 --> 00:03:47.050
+Anthony Taylor: About the net worth of social media influencer. Okay.
+
+44
+00:03:47.280 --> 00:03:53.219
+Anthony Taylor:  what 2 categories, or what categories could that article show up in?
+
+45
+00:03:55.030 --> 00:04:08.579
+Anthony Taylor: I mean, if you were trying to classify it? Well, it it could be a lifestyle piece. It could be an entertainment piece, because it's a social media influencer could be a business piece
+
+46
+00:04:08.740 --> 00:04:12.239
+Anthony Taylor: because we're talking about their, you know, their net worth.
+
+47
+00:04:13.260 --> 00:04:16.710
+Anthony Taylor: Okay? So the same
+
+48
+00:04:16.890 --> 00:04:18.430
+Anthony Taylor: features
+
+49
+00:04:18.890 --> 00:04:21.760
+Anthony Taylor: can give us more than one answer.
+
+50
+00:04:23.130 --> 00:04:30.360
+Anthony Taylor:  same thing. If you're like looking at Netflix shows, I mean, do Netflix shows have one category.
+
+51
+00:04:30.820 --> 00:04:32.300
+Anthony Taylor: Nay.
+
+52
+00:04:33.190 --> 00:04:36.960
+Anthony Taylor: right? Irreverent, quirky, witty
+
+53
+00:04:37.110 --> 00:04:38.560
+Anthony Taylor: comedy.
+
+54
+00:04:40.410 --> 00:04:43.639
+Anthony Taylor: Okay, all of these things are different
+
+55
+00:04:43.960 --> 00:04:47.760
+Clayton Graves: categories. You can have the same movie show up in different
+
+56
+00:04:48.030 --> 00:04:58.289
+Anthony Taylor: classifications, absolutely. And that's and that's really what we're looking at here. Same thing. So here, like, say, you're searching for? A pair of running shoes?
+
+57
+00:04:59.190 --> 00:05:01.340
+Anthony Taylor: Okay, can a pair running.
+
+58
+00:05:02.290 --> 00:05:07.789
+Anthony Taylor: Can I have a a. a row of of features
+
+59
+00:05:08.090 --> 00:05:11.070
+Anthony Taylor: that describe a black running shoot?
+
+60
+00:05:11.820 --> 00:05:15.590
+Anthony Taylor: Yeah, I have a row. Features that describe. It's just a shoe.
+
+61
+00:05:16.120 --> 00:05:18.170
+Anthony Taylor: Yep, how about just a running shoot?
+
+62
+00:05:18.740 --> 00:05:22.939
+Anthony Taylor: Yep, what about a trail running? Shoot? Yep.
+
+63
+00:05:23.500 --> 00:05:29.549
+Anthony Taylor: So all of these things are separate classifications. But one
+
+64
+00:05:29.600 --> 00:05:39.669
+Anthony Taylor: set of features. So we have not done this yet. Every Y label we've looked at so far has been one column. There are lots of classifications
+
+65
+00:05:40.100 --> 00:05:47.800
+Anthony Taylor: within that one column that we could do. We know how to do that right. But what we haven't done is
+
+66
+00:05:48.400 --> 00:05:55.079
+Anthony Taylor: what if a row of data gives us more than one type classification. And the key here
+
+67
+00:05:55.460 --> 00:05:58.589
+Anthony Taylor: is that you can have one without the other.
+
+68
+00:05:59.700 --> 00:06:04.409
+Anthony Taylor: Okay, so like. if if you had 2 classifications.
+
+69
+00:06:04.430 --> 00:06:08.470
+Anthony Taylor: that only made sense together.
+
+70
+00:06:09.050 --> 00:06:10.720
+Anthony Taylor: I'm trying to think of some. I mean.
+
+71
+00:06:13.340 --> 00:06:15.430
+Anthony Taylor: like, maybe Running Shoe.
+
+72
+00:06:16.020 --> 00:06:21.929
+Anthony Taylor: Okay, versus running and shoe as a separate thing. Running by itself is simply.
+
+73
+00:06:22.000 --> 00:06:27.050
+Anthony Taylor: you know, it may not necessarily be a classification, though it is a classification of a type shoe.
+
+74
+00:06:27.590 --> 00:06:40.389
+Anthony Taylor: Okay, but I don't know if that's the best example. But it's it's you understand, where I'm going with this right is that you have? If you have 2 columns that are describing something, and you couldn't pull one out by itself
+
+75
+00:06:40.460 --> 00:06:43.869
+Anthony Taylor: and say, Oh, well, it's just, you know this.
+
+76
+00:06:44.600 --> 00:06:45.630
+Anthony Taylor: okay.
+
+77
+00:06:45.810 --> 00:06:58.130
+Anthony Taylor: and that wouldn't make sense. But when you put them together they make sense. That is not what we're talking about. What we're talking about is that. And and let's use the first one as an example for the news story.
+
+78
+00:06:58.980 --> 00:07:02.110
+Anthony Taylor: It is an entertainment story.
+
+79
+00:07:02.260 --> 00:07:06.119
+Anthony Taylor: It is also a business story.
+
+80
+00:07:06.970 --> 00:07:09.999
+Anthony Taylor: So either one will work without the other.
+
+81
+00:07:11.070 --> 00:07:13.840
+Anthony Taylor: Okay, mutually exclusive.
+
+82
+00:07:14.960 --> 00:07:16.930
+Anthony Taylor: Okay, okay.
+
+83
+00:07:17.550 --> 00:07:27.030
+Clayton Graves:  So let me ask this if you were to come up with a classification for
+
+84
+00:07:27.650 --> 00:07:29.429
+Clayton Graves: for for the news article?
+
+85
+00:07:29.790 --> 00:07:33.750
+Clayton Graves: It could could it be either entertainment or business.
+
+86
+00:07:33.780 --> 00:07:38.880
+Clayton Graves: or entertainment and business? Or would it just be entertainment and business?
+
+87
+00:07:39.150 --> 00:07:57.140
+Anthony Taylor: And that's that's it's perfect that you ask that question, because that's exactly what I'm saying. If you can put an or between it, then that's what we're talking about today, if it's an and so they both have to be there, then that's really a situation where you would pre process the data and put those 2 in the same problem.
+
+88
+00:07:58.250 --> 00:08:15.940
+Anthony Taylor: Okay? Cause you would want to say entertainment slash business as one column, if it's an and if it's an or that's what we're talking about today. Okay, we're saying, Hey, this could be this or this. So what's that gonna mean? Well, ultimately, that's gonna mean, we're gonna have more than one y variable
+
+89
+00:08:16.330 --> 00:08:20.599
+Anthony Taylor: right? Y has been our predictive column every single time. Well.
+
+90
+00:08:20.910 --> 00:08:23.120
+Anthony Taylor: for the first time, we're gonna have more than one.
+
+91
+00:08:24.070 --> 00:08:27.880
+Anthony Taylor: Okay, let's talk about another example. Let's say we have
+
+92
+00:08:28.510 --> 00:08:32.020
+Anthony Taylor: all of these columns, and they're they're explaining a fruit.
+
+93
+00:08:32.419 --> 00:08:36.600
+Anthony Taylor: Okay, but we want to predict the type of fruit.
+
+94
+00:08:37.370 --> 00:08:49.960
+Anthony Taylor: the color of the fruit. and the ripeness of the fruit. Now all of the columns together have all of that information. So any one of them
+
+95
+00:08:50.090 --> 00:08:57.209
+Anthony Taylor: could give us the answer we're looking for. So now we could absolutely create a neural network
+
+96
+00:08:57.570 --> 00:09:01.490
+Anthony Taylor: that we put all of the data through and say, Give me the type of fruit
+
+97
+00:09:02.210 --> 00:09:04.800
+Anthony Taylor: and be done alright.
+
+98
+00:09:04.940 --> 00:09:08.040
+Anthony Taylor: Then another neural network. Take the same data.
+
+99
+00:09:08.160 --> 00:09:10.099
+Anthony Taylor: Tell me how ripe this rule is.
+
+100
+00:09:10.760 --> 00:09:17.169
+Anthony Taylor: And then another neural network. Take the same data. Tell me what color this fruit should be, and maybe switch those up. But still.
+
+101
+00:09:17.640 --> 00:09:21.910
+Anthony Taylor: okay, what we're going to do today is we're going to talk about how to avoid that.
+
+102
+00:09:23.110 --> 00:09:28.910
+Anthony Taylor: because this isn't that uncommon for us to run into this. So
+
+103
+00:09:29.320 --> 00:09:30.749
+Anthony Taylor: here's a cool example.
+
+104
+00:09:31.180 --> 00:09:44.480
+Anthony Taylor: We're going to say, input layer. We're going to take all the features that are going to come in. We're going to have a hidden layer, a hidden layer. maybe. And this is very maybe alright. By by this. Okay.
+
+105
+00:09:44.490 --> 00:09:52.900
+Anthony Taylor: Will have an output of just the fruit type. Maybe we'll have another hidden layer. Maybe we'll just have another output.
+
+106
+00:09:54.750 --> 00:09:59.709
+Anthony Taylor: Okay? And then the same thing for the third category we're looking for.
+
+107
+00:10:00.110 --> 00:10:05.699
+Anthony Taylor: Okay, you could have another human layer. We're like, Hey, you know what? We can get this fruit type with just
+
+108
+00:10:05.710 --> 00:10:18.800
+Anthony Taylor: these layers. But we need another layer to get out color, and another layer to get brightness, or we find that, hey? We could do this with like 3 layers and get all 3 outputs, but they would still be a separate output for each one
+
+109
+00:10:20.710 --> 00:10:23.780
+Anthony Taylor: alright. And that output could.
+
+110
+00:10:23.930 --> 00:10:30.330
+Anthony Taylor: Is that where is this? So we can get into sigmoid? Yep, so that output output could absolutely
+
+111
+00:10:30.630 --> 00:10:43.019
+Anthony Taylor: have a different activation function. Alright. So another thing to remember. And and and this you'll see when we start coding. This
+
+112
+00:10:43.030 --> 00:10:45.089
+Anthony Taylor: is is this sequential?
+
+113
+00:10:47.760 --> 00:10:56.509
+Anthony Taylor: Not anymore. Is it everything we've done with neural networks thus far has been sequential, and I realize you could argue that that you know the
+
+114
+00:10:56.650 --> 00:11:04.769
+Anthony Taylor: the the Cnn's were maybe not because they were going back and forth to back and forth. but they were still using sequential mechanisms.
+
+115
+00:11:04.980 --> 00:11:07.849
+Anthony Taylor: Okay, these are not alright.
+
+116
+00:11:07.910 --> 00:11:10.130
+Clayton Graves: As we
+
+117
+00:11:10.220 --> 00:11:13.399
+Clayton Graves: is. This more and indicative of
+
+118
+00:11:14.040 --> 00:11:23.390
+Clayton Graves: standard practice like you would never branch the first hidden layer, or is that? No, you could absolutely. If that's enough, it's the same.
+
+119
+00:11:23.460 --> 00:11:25.849
+Anthony Taylor: All of the same principles. Apply
+
+120
+00:11:25.900 --> 00:11:30.819
+Anthony Taylor: that as they do to a neural network. If you could do it in one layer. That's better than doing it for
+
+121
+00:11:31.440 --> 00:11:39.180
+Anthony Taylor: right. But yeah, it's still gonna be faster to do it. I mean, you're still gonna have multiple outputs which are, gonna be separate layers.
+
+122
+00:11:40.030 --> 00:11:42.310
+Anthony Taylor: But then but you might have only one hit.
+
+123
+00:11:43.220 --> 00:11:56.659
+Anthony Taylor: That's that's not unbelievable. I will say, since we're not using sequential. We'll actually build the layers out ourselves. And we're gonna crack up a little bit. That sounds awful. It's really not. It's it's actually pretty simple.
+
+124
+00:11:56.870 --> 00:12:14.990
+Anthony Taylor:  okay? So each network will have a separate output layer and they'll have their own activation function. So the type of activation functions that are important are is, is whether they all depend on whether the the output is mutually exclusive
+
+125
+00:12:15.320 --> 00:12:16.720
+Anthony Taylor: or independent.
+
+126
+00:12:16.980 --> 00:12:21.699
+Anthony Taylor: or I shouldn't read it that way, mutually exclusive or independent, not like they're too different.
+
+127
+00:12:22.480 --> 00:12:27.809
+Clayton Graves: Okay, it's almost like this concept is.
+
+128
+00:12:28.300 --> 00:12:40.089
+Clayton Graves: And I know that this is kind of a broad stroke. But it's almost the same kind of concept is is nesting loops or investing dictionaries, or, you know, nesting one of those
+
+129
+00:12:40.740 --> 00:12:43.189
+Anthony Taylor: see? And and I would say.
+
+130
+00:12:43.480 --> 00:12:49.270
+Anthony Taylor: the convolutional stuff was more like nesting groups. This, to me, is more like reusing logic.
+
+131
+00:12:49.910 --> 00:13:05.679
+Anthony Taylor: Right? I'm I'm already, since I've already processed the data through these 2 hidden layers. And it's. And and it's the same data for all 3 classes. I'm basically saying, I'm going to continue to use this work I did here, and just add a little bit more.
+
+132
+00:13:05.780 --> 00:13:08.450
+Anthony Taylor: and I get this, and then a little bit more, and I get this
+
+133
+00:13:08.880 --> 00:13:10.490
+Anthony Taylor: right.
+
+134
+00:13:10.730 --> 00:13:16.909
+Anthony Taylor: that's I mean, like I said, the the loop and the 4 next that definitely describes the convolutional stuff.
+
+135
+00:13:17.070 --> 00:13:20.269
+Anthony Taylor: But for this it's more like reusing processes.
+
+136
+00:13:20.500 --> 00:13:34.050
+Clayton Graves: Get branches out from
+
+137
+00:13:34.370 --> 00:13:39.799
+Clayton Graves: branching out, and then you get the second output from that one, and then you branch again. That makes sense. Got it.
+
+138
+00:13:41.250 --> 00:13:49.089
+Anthony Taylor: So okay, so the type of so it is, if it. If it is only possible for an output to be part of one class.
+
+139
+00:13:49.260 --> 00:13:54.179
+Anthony Taylor: the output is mutually exclusive. So, for example, a fruit is either ripe or not.
+
+140
+00:13:55.010 --> 00:13:56.440
+Anthony Taylor: Oh, yes, I'm
+
+141
+00:14:02.680 --> 00:14:09.920
+Baro, Sonja: trying to unmute myself. Sorry I got confused, though, when you said that this is not sequential.
+
+142
+00:14:10.440 --> 00:14:12.370
+Baro, Sonja: because not sequential.
+
+143
+00:14:12.660 --> 00:14:15.169
+Baro, Sonja: So cause we're brand new. That's up.
+
+144
+00:14:16.250 --> 00:14:21.080
+Baro, Sonja: So Branch isn't considered a sequence. cause it can end right here.
+
+145
+00:14:21.700 --> 00:14:26.029
+Anthony Taylor: You see this. So yeah, so this this network could end right here.
+
+146
+00:14:26.320 --> 00:14:35.520
+Anthony Taylor: but because we have a branch, it can continue. And the main reason it's it's they. They make a big deal out of it when they say it, and the way I said it, II should have.
+
+147
+00:14:36.030 --> 00:14:49.370
+Anthony Taylor: I should have been a little less emphatic about it, because the reality is is all that they're really trying to say, there is when we import the library, we're not gonna use the sequential library that builds the model for us.
+
+148
+00:14:49.450 --> 00:14:55.570
+Anthony Taylor: Right? We're gonna actually build that model out that that's what they were really trying.
+
+149
+00:14:55.610 --> 00:15:12.960
+Anthony Taylor: Yeah, yeah, they they got kind of excited about, okay. So for example, fruit is either ripe or not. Okay, and it's mutually. This is a mutually exclusive binary classification. We already know what activation function to use for binary classification. Don't
+
+150
+00:15:13.290 --> 00:15:16.450
+Anthony Taylor: sigmoid. I saw sign your mouth and it was going to be reversible.
+
+151
+00:15:16.910 --> 00:15:25.649
+Anthony Taylor: Okay, absolutely. A fruit can be either an apple, a banana, or an orange in this model
+
+152
+00:15:26.660 --> 00:15:32.880
+Anthony Taylor: is. This is a mutually, and this is mutually exclusive, but it is also multi-class.
+
+153
+00:15:33.110 --> 00:15:35.750
+Anthony Taylor: which for that we're going to use
+
+154
+00:15:35.910 --> 00:15:38.699
+Anthony Taylor: a new one called Softmax.
+
+155
+00:15:39.650 --> 00:15:40.550
+Anthony Taylor: Okay?
+
+156
+00:15:41.660 --> 00:15:48.600
+Anthony Taylor: It is possible for an output to be part of one, both or neither.
+
+157
+00:15:48.840 --> 00:15:51.440
+Anthony Taylor: That would be an output that is independent.
+
+158
+00:15:51.510 --> 00:15:58.189
+Anthony Taylor: For example, think back to the example of black trail running shoes on the e-commerce site. Right?
+
+159
+00:15:59.190 --> 00:16:08.859
+Anthony Taylor: imagine, if we had a Cnn that predicted how relevant product in the product database would be in your search product, maybe a black shoe, but also a lace up shoe.
+
+160
+00:16:09.150 --> 00:16:13.090
+Anthony Taylor: It may be a running shoe, but not suited for trail running.
+
+161
+00:16:13.660 --> 00:16:17.210
+Anthony Taylor: It may be a trail running shoe, but yellow
+
+162
+00:16:17.350 --> 00:16:29.990
+Anthony Taylor: or pink fashion, you will not relevant your search at all. In this case the output is independent, because the product could meet 1, 2, or all 3 of these criteria, or it could meet none of them
+
+163
+00:16:30.410 --> 00:16:31.440
+Anthony Taylor: you follow.
+
+164
+00:16:31.650 --> 00:16:34.729
+Anthony Taylor: So if I say
+
+165
+00:16:35.920 --> 00:16:46.480
+Anthony Taylor: well, let's let's change the model we have here. So here we're doing fruit type, fruit, color, fruit, ripeness. Well, what if we didn't say fruit? What if we said, anything that grows
+
+166
+00:16:47.500 --> 00:16:48.940
+Anthony Taylor: any produce.
+
+167
+00:16:49.640 --> 00:16:51.730
+Anthony Taylor: Okay? So
+
+168
+00:16:51.980 --> 00:17:00.870
+Anthony Taylor: you know. Then maybe we could say, Well. you know, it's well. No, I guess no fruit is also a vegetable. So that's not gonna work
+
+169
+00:17:01.360 --> 00:17:07.559
+Clayton Graves: trying to think of a good example. I mean, the shoe example works fruit, vegetable or not. I mean, yeah, that's that's
+
+170
+00:17:07.640 --> 00:17:14.429
+Anthony Taylor: well, that's multi-class, but that's not necessarily independent. What what I'm looking for is
+
+171
+00:17:14.890 --> 00:17:21.759
+Anthony Taylor: well, I mean, you could possibly argue that you can have a green apple, a red apple, a yellow apple.
+
+172
+00:17:22.130 --> 00:17:28.680
+Anthony Taylor: Okay? So that would then make that independent thing not mutually exclusive
+
+173
+00:17:29.280 --> 00:17:31.450
+Anthony Taylor: when you compare color to type.
+
+174
+00:17:32.080 --> 00:17:34.449
+Anthony Taylor: Okay,
+
+175
+00:17:35.740 --> 00:17:40.900
+Anthony Taylor: so sigmoid for binary as, and and also for independent
+
+176
+00:17:40.950 --> 00:17:52.130
+Anthony Taylor: softmax, is used to predict outputs that are mutually exclusive. you will get a probability of which one of these mutually exclusive items
+
+177
+00:17:52.250 --> 00:17:57.379
+Anthony Taylor: is, you know, it is. So if it's 80% chance, it's a banana.
+
+178
+00:17:57.710 --> 00:18:00.439
+Anthony Taylor: 20% chance. It's a zucchini.
+
+179
+00:18:01.260 --> 00:18:03.300
+Anthony Taylor: Okay, something like that
+
+180
+00:18:03.610 --> 00:18:04.500
+Anthony Taylor: alright.
+
+181
+00:18:04.740 --> 00:18:13.319
+Anthony Taylor: But we have multiple things to predict, such as with branch network, it's possible that there are multiple sets of mutually exclusive and
+
+182
+00:18:13.340 --> 00:18:15.210
+Anthony Taylor: independent outputs.
+
+183
+00:18:15.390 --> 00:18:18.939
+Anthony Taylor: Alright. Just keep that in mind. You can have both in one that
+
+184
+00:18:20.460 --> 00:18:22.929
+Anthony Taylor: okay, first activity.
+
+185
+00:18:23.630 --> 00:18:36.270
+Anthony Taylor: This is not a go away activity. You're all gonna stay here. You're gonna answer out loud. okay, so the defe the decision to know which activation function is quite important.
+
+186
+00:18:36.520 --> 00:18:43.840
+Anthony Taylor: So let's consider the following scenarios and discuss whether it's a softmax or a sigmoid.
+
+187
+00:18:44.110 --> 00:18:46.230
+Anthony Taylor: I don't. Oh, I think I do. Okay.
+
+188
+00:18:46.880 --> 00:18:48.470
+Anthony Taylor: alright. First one.
+
+189
+00:18:50.570 --> 00:19:05.980
+Anthony Taylor: a Cnn is created to predict whether an image has one vegetable or multiple vegetables, and whether the vegetables are green or red. these labels are in 4 columns, one vegetable, multiple vegetables, red and green.
+
+190
+00:19:06.030 --> 00:19:12.500
+Anthony Taylor: If these columns are predicted using a single layer which activation function should be used.
+
+191
+00:19:17.090 --> 00:19:20.790
+Clayton Graves: I'm going to guess softmax because
+
+192
+00:19:21.330 --> 00:19:26.740
+Clayton Graves:  it's it's not. It doesn't seem binary.
+
+193
+00:19:27.000 --> 00:19:38.290
+Clayton Graves: It seems like you're gonna need to branch to get this done. I know I know it, said only one layer, but if you have one, a hidden layer you can branch off from that right.
+
+194
+00:19:38.320 --> 00:19:39.570
+Clayton Graves: And still
+
+195
+00:19:42.830 --> 00:19:43.970
+Clayton Graves: that's my guess.
+
+196
+00:19:44.460 --> 00:19:46.579
+Anthony Taylor: Alright. Good! Guess alright, sign it.
+
+197
+00:19:47.760 --> 00:19:52.519
+Baro, Sonja: see? And I would have thought one or many is a binary choice.
+
+198
+00:19:53.310 --> 00:20:03.950
+Baro, Sonja: So I can pick one or right. So there's only 2 values. The multiple vegetables isn't 2, 3, 4, 5. It's just 2 or more.
+
+199
+00:20:04.020 --> 00:20:09.779
+Baro, Sonja: So I would have thought, that's binary. I thought about that. But when you start adding color.
+
+200
+00:20:10.120 --> 00:20:12.929
+Clayton Graves: that's when I'm like, okay, maybe it needs to branch.
+
+201
+00:20:13.470 --> 00:20:18.080
+Anthony Taylor: Okay, so let me throw this out. There wouldn't color be an independent
+
+202
+00:20:18.930 --> 00:20:21.169
+Anthony Taylor: variable in this case.
+
+203
+00:20:23.450 --> 00:20:25.250
+Baro, Sonja: No. 7, and update
+
+204
+00:20:25.400 --> 00:20:34.879
+Anthony Taylor: it would. Oh, yeah, because you could have red one. You could have red, multiple green, one green.
+
+205
+00:20:35.050 --> 00:20:39.289
+Anthony Taylor: In this case you would probably, and usually you will use Sig. What?
+
+206
+00:20:39.320 --> 00:20:43.500
+Anthony Taylor: Because it is, it will go because they're independent, each one. It'll be rated that way.
+
+207
+00:20:43.960 --> 00:20:52.600
+Anthony Taylor: Alright, alright! You would use it because it's independent and a single layer. You would use sigmoid for this.
+
+208
+00:20:53.890 --> 00:21:01.889
+Baro, Sonja: So in that case, it sounds like it's the independence kind of is like the important. A lot of it is. Yeah, because we're not trying to get
+
+209
+00:21:02.080 --> 00:21:04.150
+Anthony Taylor: like a
+
+210
+00:21:04.550 --> 00:21:10.609
+Anthony Taylor: none of those things. The other thing is is while you can have one vegetable and it's red.
+
+211
+00:21:10.870 --> 00:21:14.549
+Anthony Taylor: one vegetable. And it's green multi class.
+
+212
+00:21:14.630 --> 00:21:17.279
+Anthony Taylor: red, multi-class green.
+
+213
+00:21:17.350 --> 00:21:23.349
+Anthony Taylor: you would not necessarily have any of those, or all of those could be independent of the other.
+
+214
+00:21:23.400 --> 00:21:26.699
+Anthony Taylor: You could have red, you could have green. You could have one. You could have bank.
+
+215
+00:21:27.380 --> 00:21:39.700
+Anthony Taylor: Okay? All right. Next one.  a neural network too far, a neural network is created to evaluate whether an item online will sell more
+
+216
+00:21:39.740 --> 00:21:43.559
+Anthony Taylor: fewer or the same number of units next month.
+
+217
+00:21:43.720 --> 00:21:47.059
+Anthony Taylor: Each potential outcome has its own column.
+
+218
+00:21:48.720 --> 00:21:55.010
+Clayton Graves: So at this point each one of those is going to be exclusive. I don't think you could have an item
+
+219
+00:21:55.300 --> 00:21:57.959
+Clayton Graves: belong to more than one
+
+220
+00:21:58.110 --> 00:22:02.949
+Clayton Graves: column. In this case you're either gonna sell more, fewer or the same.
+
+221
+00:22:03.000 --> 00:22:04.970
+Clayton Graves: So I would say, signal
+
+222
+00:22:06.350 --> 00:22:14.269
+Anthony Taylor: the the other way. If you have mutually exclusive, then you want soft mix. I'm still kind of dependent. You want Sigma, that's okay.
+
+223
+00:22:14.290 --> 00:22:18.640
+Anthony Taylor: That's okay. Mutually exclusive. Multiclass means soft bends.
+
+224
+00:22:19.050 --> 00:22:22.309
+Anthony Taylor: Alright. Let's click to the answer.
+
+225
+00:22:22.480 --> 00:22:28.289
+Anthony Taylor: So faded in. That's exactly the sound. It makes
+
+226
+00:22:29.320 --> 00:22:43.660
+Anthony Taylor: all right. Scenario 3. A neural network is designed to predict which group of flowers belongs to species A, B, or C, or large petal variants. Any species.
+
+227
+00:22:43.760 --> 00:22:49.569
+Anthony Taylor: If these 4 columns are predicted using one layer, which activation
+
+228
+00:22:49.870 --> 00:22:51.589
+Anthony Taylor: should they use?
+
+229
+00:22:57.160 --> 00:23:01.880
+Clayton Graves: Okay, so a flower can belong to both species, A and
+
+230
+00:23:01.900 --> 00:23:07.149
+Clayton Graves: and large petal variant. Yes, it's only using one layer.
+
+231
+00:23:11.760 --> 00:23:14.789
+Clayton Graves: I gotta say, Softman, one layer is, gonna be the key
+
+232
+00:23:14.860 --> 00:23:19.459
+Anthony Taylor: on this. It's just. And, to be honest with you I would prefer, they said, one call.
+
+233
+00:23:20.070 --> 00:23:23.219
+Anthony Taylor: Okay. If I said one column, would it make more sense?
+
+234
+00:23:24.230 --> 00:23:25.949
+Clayton Graves: Yes, Jennifer agrees.
+
+235
+00:23:26.300 --> 00:23:37.250
+Anthony Taylor: Right. One column. This is definitely this is the thing, even though it is possible that an A, A B or C can also be a large Federal variant, because it's in one column.
+
+236
+00:23:37.620 --> 00:23:42.030
+Anthony Taylor: right. It can't be. They're not. Yeah. It's it's
+
+237
+00:23:42.140 --> 00:23:45.560
+Anthony Taylor: it's just it can't. So it Sig wide
+
+238
+00:23:46.180 --> 00:23:57.650
+Anthony Taylor: works beautifully here. So I have completely flunked the first activity. Everybody give me a runner. That's okay, you know, and I was kind of I had to change it to slideshow.
+
+239
+00:23:57.880 --> 00:24:01.310
+Anthony Taylor: because I realized it was giving answer down here at the time.
+
+240
+00:24:03.110 --> 00:24:04.840
+Anthony Taylor: Insight?
+
+241
+00:24:05.500 --> 00:24:08.250
+Anthony Taylor: Oh, well, darn it.
+
+242
+00:24:09.550 --> 00:24:11.430
+Anthony Taylor: yeah. So a
+
+243
+00:24:11.770 --> 00:24:17.790
+Anthony Taylor: alright alright. So bottom line is is
+
+244
+00:24:19.150 --> 00:24:28.200
+Anthony Taylor: a lot of the time. If you have more than one target, variable or label variable. It's probably going to be softmax. But if I mean, if you have
+
+245
+00:24:28.590 --> 00:24:32.599
+Anthony Taylor: more than yeah, more than one if you have multi-class.
+
+246
+00:24:33.270 --> 00:24:37.720
+Anthony Taylor: you know where you have just one and is multi-class. That's definitely signal.
+
+247
+00:24:38.230 --> 00:24:45.590
+Anthony Taylor: you know. I'm not gonna say Softmax.
+
+248
+00:24:45.750 --> 00:24:49.329
+Clayton Graves: More than one column in the output. It's probably
+
+249
+00:24:49.410 --> 00:24:59.539
+Anthony Taylor: I mean the output variable itself can still be a sigmoid or a soft match. Right? So the output layer remember? Well, up until now we've only done.
+
+250
+00:25:00.390 --> 00:25:05.550
+Anthony Taylor: But if you can have, like. like in the example, apple, orange, or banana.
+
+251
+00:25:06.000 --> 00:25:14.609
+Anthony Taylor: okay, in in the single output that could that could be a soft box, cause you're guessing the probability. It's one of those 3.
+
+252
+00:25:14.990 --> 00:25:21.810
+Clayton Graves: Could you have a hidden layer that is Softmax that branches to another hidden layer. That is sigmoid.
+
+253
+00:25:23.000 --> 00:25:26.720
+Clayton Graves: I suppose you could, but I don't know that that would work out well for you.
+
+254
+00:25:26.900 --> 00:25:32.959
+Anthony Taylor: You probably want to keep with like Relu, or one of the other activations for that.
+
+255
+00:25:33.190 --> 00:25:36.260
+Anthony Taylor: Typically you're not going to do soft bat sigmoid inside.
+
+256
+00:25:36.630 --> 00:25:39.160
+Anthony Taylor: But you could. I mean, you could try it.
+
+257
+00:25:40.000 --> 00:25:40.880
+Anthony Taylor: Okay.
+
+258
+00:25:41.900 --> 00:25:44.590
+Anthony Taylor: so let's go build one of these things.
+
+259
+00:25:44.960 --> 00:25:50.499
+Anthony Taylor: Now, I'm gonna be honest with you guys. it's best to go ahead and use coab today.
+
+260
+00:26:03.430 --> 00:26:04.120
+Anthony Taylor: Huh?
+
+261
+00:26:04.390 --> 00:26:06.730
+Anthony Taylor: How many times you go make me sign in. Okay, there we go.
+
+262
+00:26:08.120 --> 00:26:11.460
+Anthony Taylor: So go ahead and
+
+263
+00:26:11.510 --> 00:26:17.469
+Anthony Taylor: upload browse you. These do work on your local. By the way, all except the last.
+
+264
+00:26:17.720 --> 00:26:19.720
+Anthony Taylor: And I'm gonna be honest with you guys.
+
+265
+00:26:19.750 --> 00:26:23.530
+Anthony Taylor: I probably could solve the last one figured out why it didn't work.
+
+266
+00:26:26.950 --> 00:26:28.780
+Anthony Taylor: But the heck out of me that it didn't work.
+
+267
+00:26:30.890 --> 00:26:32.479
+Anthony Taylor: and I was just like forget it.
+
+268
+00:26:32.680 --> 00:26:37.100
+Meredith McCanse (she/her): So, Anthony, are you on exercise, too? Then the branch.
+
+269
+00:26:37.350 --> 00:26:48.660
+Anthony Taylor: the everyone, Duke, or don't do your solved. even though I'm going to end up pasting a lot of the info into slack that you could just get off of your
+
+270
+00:26:49.690 --> 00:26:51.080
+Anthony Taylor: solved version.
+
+271
+00:26:51.870 --> 00:26:56.569
+Anthony Taylor: But let's go ahead and work through it. Alright, like we're like, we're
+
+272
+00:26:56.800 --> 00:26:59.060
+Anthony Taylor: gonna have some fun with this. Okay.
+
+273
+00:26:59.270 --> 00:27:04.549
+Anthony Taylor: alright, otherwise we'll be done at like, you know, 80'clock, and everybody will be bad.
+
+274
+00:27:06.060 --> 00:27:09.460
+Anthony Taylor: Okay. it's Mike's like, not me
+
+275
+00:27:11.480 --> 00:27:14.150
+Anthony Taylor: alright. So we're gonna get ourselves.
+
+276
+00:27:15.290 --> 00:27:21.880
+Anthony Taylor: Gotta get all this, we're gonna bring in some wine data and take a quick peek at it once everything gets installed.
+
+277
+00:27:24.260 --> 00:27:32.000
+Anthony Taylor: Okay, and this is an interesting one. Now, here's what's fun about this data? Look at the end down.
+
+278
+00:27:33.100 --> 00:27:37.810
+Anthony Taylor: Now. We could try to guess just the color
+
+279
+00:27:38.160 --> 00:27:43.149
+Anthony Taylor: we could try to just just quality. But what if we wanted to get what if we needed to predict
+
+280
+00:27:43.170 --> 00:27:44.850
+Anthony Taylor: both of these items?
+
+281
+00:27:47.060 --> 00:27:51.680
+Anthony Taylor: Right? I mean, that's seems reasonable.
+
+282
+00:27:52.520 --> 00:28:00.430
+Anthony Taylor: So if we're going to predict both of these items. Then basically, all we have to do is preprocess the data
+
+283
+00:28:01.180 --> 00:28:02.830
+Anthony Taylor: or both columns.
+
+284
+00:28:03.100 --> 00:28:07.280
+Anthony Taylor: Okay, so we'll do one. We'll call it quality encoder.
+
+285
+00:28:08.570 --> 00:28:14.910
+Anthony Taylor: And we're gonna just encode it. So we're just gonna do our normal one hot coating. Okay.
+
+286
+00:28:15.090 --> 00:28:19.370
+and we'll use sparse outputs.
+
+287
+00:28:22.550 --> 00:28:24.520
+Anthony Taylor: Keep it. Keep it cleaner.
+
+288
+00:28:25.300 --> 00:28:37.069
+Anthony Taylor: Okay, so that'll give us quality encoder. Now we need, you know, now that we have it, let's go ahead and fit, transform it. So we'll say quality encoded.
+
+289
+00:28:41.050 --> 00:28:50.120
+Anthony Taylor: So here's where we're gonna actually do our fits. So use our quality encoder that we just made dot fit underscore transform
+
+290
+00:28:50.350 --> 00:28:55.009
+Anthony Taylor: and pass in our quality data. So df.
+
+291
+00:28:55.680 --> 00:28:57.960
+Anthony Taylor: 2 squares quality.
+
+292
+00:28:59.200 --> 00:29:00.060
+Anthony Taylor: Okay.
+
+293
+00:29:00.420 --> 00:29:03.430
+Anthony Taylor: so we just simply
+
+294
+00:29:03.620 --> 00:29:08.150
+Anthony Taylor: encoded our quality color. Okay.
+
+295
+00:29:08.400 --> 00:29:18.610
+Anthony Taylor:  we also need that. The the variations of the quality column. So to do that. We'll do quality underscore columns.
+
+296
+00:29:18.990 --> 00:29:23.690
+Anthony Taylor: equals. And we'll do quality underscore encoder
+
+297
+00:29:23.700 --> 00:29:25.390
+Anthony Taylor: dot, get
+
+298
+00:29:25.650 --> 00:29:30.329
+Anthony Taylor: feature names out and tell it. We want both.
+
+299
+00:29:31.810 --> 00:29:34.199
+Anthony Taylor: Okay, now, does everyone remember what that does?
+
+300
+00:29:35.580 --> 00:29:48.069
+Anthony Taylor: Am I forget what that does? Okay, that's alright. So this first one's gonna encode it. So remember. So from what we can see, we have okay and good. So it's gonna make quality. Okay? And put a one quality. Good, put a 0
+
+301
+00:29:48.160 --> 00:29:53.330
+Anthony Taylor: right? If it's okay, if it's good. It's gonna be quality. Okay, is 0 quality. Good is one.
+
+302
+00:29:53.410 --> 00:30:02.140
+Anthony Taylor: So everybody remembers. That's how one hiding photo works. Well, what quality columns is going to tell us, is where I said, quality underscore. Okay.
+
+303
+00:30:02.420 --> 00:30:10.690
+Anthony Taylor: that's one column name, quality underscore. Good. That's another column. Name. Okay? All the column names that it came up with while
+
+304
+00:30:10.920 --> 00:30:17.329
+Anthony Taylor: creating this, in fact. going to go in. And and you do not need to run this. But I am going to
+
+305
+00:30:18.870 --> 00:30:21.829
+Anthony Taylor: need to clean my screen. I thought I had a comma right there.
+
+306
+00:30:22.440 --> 00:30:24.780
+Anthony Taylor: Just to show you
+
+307
+00:30:25.620 --> 00:30:27.079
+Anthony Taylor: what that would look like.
+
+308
+00:30:29.500 --> 00:30:39.219
+Anthony Taylor: So see? So we have a quality, bad quality, good quality. Okay? And that's what this this is doing here. Alright. So you can comment that up, you know. Read that
+
+309
+00:30:39.500 --> 00:30:46.389
+Anthony Taylor:  And then we're going to create a little data frame with this called Df quality encoded.
+
+310
+00:30:48.420 --> 00:30:49.630
+Anthony Taylor: And
+
+311
+00:30:50.330 --> 00:30:57.800
+Anthony Taylor: that's and yes, so we're just gonna create it because we're gonna merge them all back together in a minute. So pd.is name
+
+312
+00:30:59.360 --> 00:31:02.610
+Anthony Taylor: pass in quality encoded
+
+313
+00:31:05.300 --> 00:31:08.580
+Anthony Taylor: and columns
+
+314
+00:31:09.670 --> 00:31:12.440
+Anthony Taylor: equals quality columns.
+
+315
+00:31:14.670 --> 00:31:19.189
+Anthony Taylor: Okay. so what do we do? All we did? We encoded quality.
+
+316
+00:31:19.460 --> 00:31:30.630
+Anthony Taylor: And then we threw it into a little tiny data frame. Because in a minute we're gonna merge it back on with the rest of the data. Okay, now, we need to do the a similar thing with color. Now.
+
+317
+00:31:33.980 --> 00:31:43.140
+Anthony Taylor: it's telling us here to do this. This one is, gonna be a little different. It's one on encoding for multiple categories.
+
+318
+00:31:43.780 --> 00:31:47.890
+Anthony Taylor: Alright. So in this case, we're just gonna use label encoder.
+
+319
+00:31:47.950 --> 00:32:02.530
+Anthony Taylor: So we're gonna do it. A little different color encoder equals. we're going to initialize a label encoder. And then we're gonna fit, transform it. So. And and this one.
+
+320
+00:32:02.590 --> 00:32:05.349
+Anthony Taylor: in my opinion, way easier to use
+
+321
+00:32:06.350 --> 00:32:09.160
+cause we can do it really fast color
+
+322
+00:32:09.950 --> 00:32:11.360
+Anthony Taylor: encoded
+
+323
+00:32:13.060 --> 00:32:15.100
+Anthony Taylor: and equals.
+
+324
+00:32:15.460 --> 00:32:17.950
+Anthony Taylor: And we're just gonna color
+
+325
+00:32:20.390 --> 00:32:23.270
+encoder, dot
+
+326
+00:32:23.500 --> 00:32:24.470
+Anthony Taylor: pitch.
+
+327
+00:32:25.710 --> 00:32:31.050
+Anthony Taylor: score, transform and pass in our df color.
+
+328
+00:32:32.280 --> 00:32:34.139
+Anthony Taylor: I've always liked labeling code a bit.
+
+329
+00:32:35.610 --> 00:32:36.650
+Anthony Taylor: Okay.
+
+330
+00:32:36.690 --> 00:32:42.099
+Anthony Taylor: so this one pretty much will just add it to our existing data. Frame.
+
+331
+00:32:42.850 --> 00:32:50.350
+Anthony Taylor: And now we'll go ahead and concatenate the quality on to
+
+332
+00:32:50.630 --> 00:32:55.450
+Anthony Taylor: our data frame. Okay, so we'll call it Df und process.
+
+333
+00:32:56.450 --> 00:33:00.800
+Anthony Taylor: and that will equal Pd dot concat.
+
+334
+00:33:02.230 --> 00:33:05.939
+Anthony Taylor: And in the list. We'll put the the 2 data frames
+
+335
+00:33:08.460 --> 00:33:10.290
+Anthony Taylor: and
+
+336
+00:33:10.320 --> 00:33:12.680
+Anthony Taylor: and we're axi. So
+
+337
+00:33:13.850 --> 00:33:16.010
+Anthony Taylor: comma axis
+
+338
+00:33:17.580 --> 00:33:19.719
+Anthony Taylor: it didn't give it to me, was what.
+
+339
+00:33:20.380 --> 00:33:21.390
+Anthony Taylor: okay?
+
+340
+00:33:23.510 --> 00:33:31.020
+Anthony Taylor: Alright, that looks good. Now we'll get rid of the original ones. We don't need them anymore. So and Df processed.
+
+341
+00:33:31.750 --> 00:33:35.509
+Anthony Taylor: we'll say equals df process.
+
+342
+00:33:37.630 --> 00:33:38.970
+dot drop
+
+343
+00:33:40.290 --> 00:33:43.229
+Anthony Taylor: and then put in the 2 columns. We're getting rid of.
+
+344
+00:33:46.500 --> 00:33:47.520
+Anthony Taylor: Alright
+
+345
+00:33:48.830 --> 00:33:50.770
+Anthony Taylor: comma accident.
+
+346
+00:33:51.200 --> 00:33:51.980
+this one.
+
+347
+00:33:53.300 --> 00:33:58.020
+Anthony Taylor: Okay? And then let's look at it and see how we ended up.
+
+348
+00:34:04.760 --> 00:34:12.819
+Anthony Taylor: Okay, so if you look down here at the end we now have color encoded, which is just, it's
+
+349
+00:34:13.090 --> 00:34:18.469
+Anthony Taylor: whatever it is. It could be more than just one at 0, by the way, but and then for
+
+350
+00:34:18.760 --> 00:34:23.670
+Anthony Taylor: quality, we have a one hot encoded 0 0 1,
+
+351
+00:34:23.929 --> 00:34:26.069
+Anthony Taylor: okay, or 1 0 0 whatever.
+
+352
+00:34:26.590 --> 00:34:28.350
+Anthony Taylor: So everybody see what we did there.
+
+353
+00:34:31.159 --> 00:34:37.830
+Anthony Taylor: everybody pretty comfortable with that step. It's really no different than what we've done in the past. We just did it twice
+
+354
+00:34:39.760 --> 00:34:44.940
+Anthony Taylor: alright. Cause now we're gonna we're actually gonna predict all of these columns.
+
+355
+00:34:46.409 --> 00:34:47.260
+Anthony Taylor: Okay.
+
+356
+00:34:47.550 --> 00:34:53.000
+Anthony Taylor: alright. So here we are. Plain old train train test.
+
+357
+00:34:53.550 --> 00:34:55.260
+Anthony Taylor: Split
+
+358
+00:34:55.489 --> 00:34:58.219
+Anthony Taylor: but to do our X,
+
+359
+00:34:58.680 --> 00:35:02.849
+Anthony Taylor: we need to get rid of all of these cool new columns. We just made.
+
+360
+00:35:03.160 --> 00:35:07.500
+Anthony Taylor: Okay, so we could even probably copy that
+
+361
+00:35:07.700 --> 00:35:11.370
+Anthony Taylor: and then say, X equals df
+
+362
+00:35:11.890 --> 00:35:15.010
+Anthony Taylor: process. dot drop
+
+363
+00:35:16.330 --> 00:35:17.810
+Anthony Taylor: columns
+
+364
+00:35:21.270 --> 00:35:25.740
+Anthony Taylor: equals base.
+
+365
+00:35:26.120 --> 00:35:28.610
+Anthony Taylor: Look at that. Almost worked.
+
+366
+00:35:42.980 --> 00:35:55.889
+Anthony Taylor: Okay. alright. So why? Because we really only need these columns as our X data. we're gonna have 2 Y variables. We're gonna have y underscore color.
+
+367
+00:35:56.180 --> 00:36:06.860
+Anthony Taylor: And it's going to be Df underscore process bracket color encode it color encoding.
+
+368
+00:36:07.360 --> 00:36:12.089
+Anthony Taylor: Okay, and then we're gonna have a Y underscore quality.
+
+369
+00:36:13.190 --> 00:36:15.980
+Anthony Taylor: and that's going to be Df
+
+370
+00:36:16.390 --> 00:36:18.180
+Anthony Taylor: underscore process
+
+371
+00:36:18.390 --> 00:36:24.750
+Anthony Taylor: underscore process bracket. And it's going to be all of the quality ones these 3.
+
+372
+00:36:26.070 --> 00:36:28.129
+Anthony Taylor: No reason to copy those again.
+
+373
+00:36:30.100 --> 00:36:43.130
+Clayton Graves:  you're copying power encoded instead of quality. Okay, you are absolutely right. Look at that. Thank you.
+
+374
+00:36:46.930 --> 00:36:47.870
+Anthony Taylor: Okay.
+
+375
+00:36:49.800 --> 00:36:52.860
+Anthony Taylor: alright, good. So we have our our X data.
+
+376
+00:36:54.060 --> 00:36:57.150
+Anthony Taylor: our first Y data and our second
+
+377
+00:36:57.200 --> 00:36:58.380
+Anthony Taylor: wide data.
+
+378
+00:36:58.720 --> 00:37:09.390
+Anthony Taylor: Now, we can do our train test splits. So this has been really long. So you're going to have X underscore train that one makes sense except for it needs to be an underscore.
+
+379
+00:37:10.250 --> 00:37:13.910
+Anthony Taylor: Okay, comma X underscore test
+
+380
+00:37:15.160 --> 00:37:20.230
+Anthony Taylor: comma y underscore color underscore train
+
+381
+00:37:20.650 --> 00:37:29.740
+Anthony Taylor: comma y underscore color underscore test. Hello!
+
+382
+00:37:29.840 --> 00:37:32.170
+Anthony Taylor: Why, underscore
+
+383
+00:37:32.460 --> 00:37:33.910
+Anthony Taylor: quality
+
+384
+00:37:35.880 --> 00:37:41.830
+Anthony Taylor: underscore train, and I put a V there. I think I put a V there?
+
+385
+00:37:42.150 --> 00:37:43.400
+Anthony Taylor: Why.
+
+386
+00:37:43.700 --> 00:37:47.700
+Anthony Taylor: underscore quality underscore tests
+
+387
+00:37:48.040 --> 00:37:50.750
+Anthony Taylor: equals drain.
+
+388
+00:37:51.770 --> 00:37:55.860
+Anthony Taylor: press split. And you're going to pass in X comma
+
+389
+00:37:56.200 --> 00:38:05.280
+Anthony Taylor: y underscore color comma. Why. underscore quality. Gotcha.
+
+390
+00:38:05.970 --> 00:38:08.980
+Anthony Taylor: Okay, let me make sure. I got that.
+
+391
+00:38:10.000 --> 00:38:11.689
+Anthony Taylor: I did put a V there, didn't it?
+
+392
+00:38:14.530 --> 00:38:15.410
+Anthony Taylor: Okay?
+
+393
+00:38:15.840 --> 00:38:18.189
+Anthony Taylor: Alright. So one more time
+
+394
+00:38:18.210 --> 00:38:20.520
+Anthony Taylor: X. We got rid of all of our lakes.
+
+395
+00:38:21.360 --> 00:38:27.620
+Anthony Taylor: Why, color we took just our encoded color label. Put it in Y color
+
+396
+00:38:28.320 --> 00:38:39.590
+Anthony Taylor: quality are quality labels. Those columns we put in our. why underscore quality. And then we did a train test split on the whole thing. Sure.
+
+397
+00:38:42.070 --> 00:38:51.349
+Anthony Taylor: Alright. So our input layer is pretty simple. It's simply input
+
+398
+00:38:51.360 --> 00:38:57.900
+Anthony Taylor: layer. Now, remember, we don't have curios sequential. So it's going to look a little different as we build this out.
+
+399
+00:38:58.050 --> 00:39:00.710
+Anthony Taylor: So in this first off, right away.
+
+400
+00:39:00.730 --> 00:39:06.900
+Anthony Taylor: we're not going to build our input layer the way we built our input layer in a neural network, it's a little bit different.
+
+401
+00:39:07.060 --> 00:39:18.590
+Anthony Taylor: So we're gonna have layers dot input. And in parentheses. we're going to put the shape of our
+
+402
+00:39:19.740 --> 00:39:30.350
+Anthony Taylor: X data in this case, the shape, as in how many nodes and the way we can do that is, we can say, X shape
+
+403
+00:39:33.370 --> 00:39:36.750
+Anthony Taylor: brackets. one
+
+404
+00:39:38.440 --> 00:39:43.869
+Anthony Taylor: close bracket comma. Okay? So that will give us
+
+405
+00:39:44.360 --> 00:39:48.830
+Anthony Taylor: the the shape, and it will give us the second item in that shape.
+
+406
+00:39:50.000 --> 00:39:56.350
+Anthony Taylor: So you guys remember when you type shape, you get 2 numbers. Well, this will give us the second number of that shape.
+
+407
+00:39:56.540 --> 00:39:59.020
+Anthony Taylor: and that'll be the end of
+
+408
+00:39:59.140 --> 00:39:59.890
+Anthony Taylor: that.
+
+409
+00:40:00.100 --> 00:40:03.329
+Anthony Taylor:  Oh! And you know what
+
+410
+00:40:04.960 --> 00:40:10.340
+Anthony Taylor: I missed an opening parentheses. So at the beginning of that X shape do an open parenthesis.
+
+411
+00:40:11.500 --> 00:40:12.330
+Anthony Taylor: Okay?
+
+412
+00:40:12.500 --> 00:40:21.020
+Anthony Taylor: Alright. So after the shape we're gonna give it a name. And this name is gonna Be input Features. And you'll understand why, it meets a need
+
+413
+00:40:21.410 --> 00:40:22.819
+Anthony Taylor: in just a moment.
+
+414
+00:40:25.090 --> 00:40:27.010
+Anthony Taylor: And then close parentheses.
+
+415
+00:40:28.800 --> 00:40:34.050
+Anthony Taylor: Okay. so there's our input layer. Actually.
+
+416
+00:40:35.180 --> 00:40:41.680
+Anthony Taylor: not a hundred percent sure, we needed that. But anyway, okay, so now we're gonna have our shared
+
+417
+00:40:42.010 --> 00:40:46.270
+Anthony Taylor: cinema layers. So when you look back at the fruit picture.
+
+418
+00:40:48.970 --> 00:40:53.209
+Anthony Taylor: this one, we did this. Now we're going to do 2 of these.
+
+419
+00:40:53.840 --> 00:40:55.920
+Anthony Taylor: Okay, and this isn't the fruit one. But
+
+420
+00:40:56.080 --> 00:40:59.899
+Clayton Graves: same idea. Okay. So for the first, the first.
+
+421
+00:41:00.500 --> 00:41:03.229
+Clayton Graves: the first layer doesn't look like it's shared, though
+
+422
+00:41:03.850 --> 00:41:11.450
+Anthony Taylor: it well, we're about to do. That's what happened. Oh, oh, I got what you're saying right. But
+
+423
+00:41:11.930 --> 00:41:12.760
+Anthony Taylor: the
+
+424
+00:41:13.790 --> 00:41:18.389
+Anthony Taylor: these 2 are going down into here. Well, this one's not shared.
+
+425
+00:41:18.460 --> 00:41:22.969
+Anthony Taylor: but this one is dependent on this one. So in that sense it is
+
+426
+00:41:23.030 --> 00:41:29.680
+Anthony Taylor: so. This whole block is just being continued to hear. and then continued to hear.
+
+427
+00:41:30.040 --> 00:41:37.550
+Anthony Taylor: And that's what we're about to to do now. So first let's create those virtue layers. You do have to name the layers so shared
+
+428
+00:41:37.850 --> 00:41:39.370
+Anthony Taylor: layer one
+
+429
+00:41:39.450 --> 00:41:45.779
+Anthony Taylor: equals. We are going to create a dense layer because that's still what we call those hidden layers.
+
+430
+00:41:46.250 --> 00:41:49.860
+Anthony Taylor: Alright, we're gonna give this 1 64 nodes
+
+431
+00:41:50.150 --> 00:41:54.440
+Anthony Taylor: and the activation will be Relu.
+
+432
+00:41:56.760 --> 00:41:57.660
+Anthony Taylor: Okay.
+
+433
+00:41:58.340 --> 00:42:04.689
+Anthony Taylor: now, outside of these parentheses create new parentheses and give it the name input
+
+434
+00:42:05.260 --> 00:42:06.290
+Anthony Taylor: layer.
+
+435
+00:42:09.470 --> 00:42:15.449
+Anthony Taylor: Now, before I explain that, let's do the next 10, it's not layers. It's layers with an S.
+
+436
+00:42:16.470 --> 00:42:18.439
+Anthony Taylor: Okay, so let's do. Shared layer 2.
+
+437
+00:42:21.420 --> 00:42:25.119
+Anthony Taylor: And again, layers period dense
+
+438
+00:42:25.630 --> 00:42:31.810
+Anthony Taylor: parentheses. This one's only got to be 32 nodes. and we're going to use relu again.
+
+439
+00:42:34.720 --> 00:42:38.660
+Anthony Taylor: Now, what do you think goes in the parentheses here
+
+440
+00:42:44.960 --> 00:42:46.120
+michael mcpherson: output layer.
+
+441
+00:42:47.650 --> 00:42:52.680
+Clayton Graves: No, it's the other direction. No, I think this is this one shared, isn't it?
+
+442
+00:42:54.280 --> 00:42:55.919
+Clayton Graves: Isn't this? This is
+
+443
+00:42:55.930 --> 00:43:00.709
+Clayton Graves: another. This is the second shared layer. We can even look back at the picture.
+
+444
+00:43:02.080 --> 00:43:13.629
+Clayton Graves: Yeah. But technically, the first layer was considered the the input layer. This would be this would be the first shared layer.
+
+445
+00:43:14.470 --> 00:43:18.149
+Anthony Taylor: Well, this is the first. So you're saying, that's what goes here or
+
+446
+00:43:18.470 --> 00:43:19.340
+Clayton Graves: yeah.
+
+447
+00:43:20.150 --> 00:43:21.459
+Anthony Taylor: and that is correct.
+
+448
+00:43:22.100 --> 00:43:25.530
+Anthony Taylor: Okay, so what this is doing, what this
+
+449
+00:43:25.680 --> 00:43:31.899
+Anthony Taylor: parentheses at the end it's doing is showing you what's connected to.
+
+450
+00:43:33.460 --> 00:43:42.080
+Anthony Taylor: So this first shared layer is connected to the input layer. The second shared layer is connected to the first shared layer.
+
+451
+00:43:43.740 --> 00:43:44.780
+Anthony Taylor: Alright.
+
+452
+00:43:45.080 --> 00:43:46.750
+Clayton Graves: That makes sure. Huh!
+
+453
+00:43:47.430 --> 00:43:48.610
+Anthony Taylor: Here we go.
+
+454
+00:43:54.600 --> 00:43:57.379
+Baro, Sonja: Good job, Clayton. I was cheering for you.
+
+455
+00:43:58.550 --> 00:44:00.949
+Anthony Taylor: Stop token.
+
+456
+00:44:02.590 --> 00:44:07.069
+Anthony Taylor: So so now we're going to create. So these are the branches, these
+
+457
+00:44:07.280 --> 00:44:15.750
+Anthony Taylor: little guys coming out here. Okay, these are branches of our thing. So we're going to do a branch for quality and a branch for color.
+
+458
+00:44:15.800 --> 00:44:23.510
+Anthony Taylor: so for the quality output that's going to be a dense layer.
+
+459
+00:44:26.770 --> 00:44:34.560
+Anthony Taylor: and it's going to have how how many. how many outputs are possible
+
+460
+00:44:37.780 --> 00:44:39.809
+Anthony Taylor: for quality? What was that? Derek?
+
+461
+00:44:43.230 --> 00:44:44.110
+Derek Rikke: 3,
+
+462
+00:44:44.750 --> 00:44:46.819
+Anthony Taylor: 3. So we need
+
+463
+00:44:47.240 --> 00:44:55.299
+Anthony Taylor: 3 nodes. All right. And because this one can have 3. The activations should be what
+
+464
+00:45:00.900 --> 00:45:01.950
+michael mcpherson: sigmoid?
+
+465
+00:45:02.620 --> 00:45:06.729
+Anthony Taylor:  same lines, too.
+
+466
+00:45:06.740 --> 00:45:09.429
+Anthony Taylor: or basically one with multiple options.
+
+467
+00:45:09.460 --> 00:45:11.490
+Anthony Taylor: Sophisticated idea. Okay.
+
+468
+00:45:11.830 --> 00:45:16.760
+Anthony Taylor: that's all right. Hey? You know what? That's the whole point. We're learning over here
+
+469
+00:45:16.910 --> 00:45:23.970
+Anthony Taylor: alright. And the name we're gonna give this one a name. Quality output.
+
+470
+00:45:25.870 --> 00:45:28.489
+Anthony Taylor: Now, what is it connected to?
+
+471
+00:45:33.550 --> 00:45:37.689
+Anthony Taylor: I see 2. Sonia's on it. Sonia means shared 2. I think
+
+472
+00:45:38.050 --> 00:45:41.750
+Anthony Taylor: right? Correct, this is gonna be connected
+
+473
+00:45:41.760 --> 00:45:45.439
+Anthony Taylor: to here. So we're gonna say, share
+
+474
+00:45:46.800 --> 00:45:49.420
+Anthony Taylor: underscore layer. 2.
+
+475
+00:45:50.120 --> 00:46:02.080
+Anthony Taylor: Okay. And now for our color one which we put into one column. Okay. color output equals
+
+476
+00:46:02.670 --> 00:46:04.769
+Anthony Taylor: again, dense layer.
+
+477
+00:46:06.250 --> 00:46:09.400
+Anthony Taylor: And there's only one output.
+
+478
+00:46:09.520 --> 00:46:12.789
+Anthony Taylor: And our activation for this is going to be go, Mike.
+
+479
+00:46:15.730 --> 00:46:16.800
+michael mcpherson: signally
+
+480
+00:46:17.280 --> 00:46:28.099
+Anthony Taylor: alright ahead of time, that's all there was to it. Okay, and then we're gonna call this one color output
+
+481
+00:46:28.690 --> 00:46:34.000
+Anthony Taylor: name equals. I don't really think those are necessary, but let's do it anyway.
+
+482
+00:46:34.210 --> 00:46:38.029
+Anthony Taylor: And then, last, but not least, what is this one connected to?
+
+483
+00:46:38.070 --> 00:46:47.609
+Clayton Graves: It's it's a branch, right? So it's going to be. Yes, sir, and it's gonna be the same layer. It's gonna be shared layer, too, like you, too nice. That is exactly correct.
+
+484
+00:46:48.070 --> 00:46:53.190
+Anthony Taylor: Okay, so what does that mean? So let's just quickly walk through what that all means. Again, guys.
+
+485
+00:46:53.430 --> 00:46:57.089
+Anthony Taylor: same input, data. 2 hidden layers.
+
+486
+00:46:57.930 --> 00:47:01.149
+Anthony Taylor: 2 separate outputs.
+
+487
+00:47:01.440 --> 00:47:02.570
+Anthony Taylor: So whatever
+
+488
+00:47:02.840 --> 00:47:08.270
+Anthony Taylor: thinking back to how neural networks work. whatever weights come up from here.
+
+489
+00:47:09.310 --> 00:47:12.679
+Anthony Taylor: okay are gonna be passed into
+
+490
+00:47:12.970 --> 00:47:14.160
+Anthony Taylor: this layer
+
+491
+00:47:14.690 --> 00:47:18.419
+Anthony Taylor: and treated completely, separately
+
+492
+00:47:18.530 --> 00:47:19.930
+Anthony Taylor: from this link.
+
+493
+00:47:21.340 --> 00:47:25.939
+Anthony Taylor: Same weights will go into both, as we told it. Use shared layer 2.
+
+494
+00:47:25.950 --> 00:47:36.260
+Anthony Taylor: But the outputs will be different. One. They were trained for different columns. But 2, they literally have different activations. I mean, they're completely different.
+
+495
+00:47:36.950 --> 00:47:39.200
+Anthony Taylor: even though they come
+
+496
+00:47:39.320 --> 00:47:41.080
+Anthony Taylor: from the same inputs.
+
+497
+00:47:42.330 --> 00:47:46.890
+Anthony Taylor: Alright, alright. So with that, we can now create our model
+
+498
+00:47:48.710 --> 00:48:00.320
+Anthony Taylor: model equals model. And we're just gonna pass in all our stuff. So we're gonna pass in inputs equals input
+
+499
+00:48:01.660 --> 00:48:02.780
+Anthony Taylor: layer.
+
+500
+00:48:04.970 --> 00:48:10.099
+Anthony Taylor: Oh, that's where those names are coming from, even though we call them the same thing. Aha!
+
+501
+00:48:10.760 --> 00:48:12.059
+Anthony Taylor: That makes sense now.
+
+502
+00:48:12.260 --> 00:48:23.529
+Anthony Taylor: because all we have to do when we create. Oh, automeric, all we have to do when we create our model is, give it the inputs and the outputs the stuff in the middle. We don't need to give it that
+
+503
+00:48:23.590 --> 00:48:31.729
+Anthony Taylor: it'll figure all that out based on what we put in there. So here we'll have outputs equals, and it'll be the names we gave them
+
+504
+00:48:31.770 --> 00:48:32.899
+Anthony Taylor: here and here
+
+505
+00:48:33.360 --> 00:48:35.190
+Anthony Taylor: got it. So
+
+506
+00:48:36.500 --> 00:48:40.270
+Anthony Taylor: quality. output.
+
+507
+00:48:42.070 --> 00:48:46.140
+Anthony Taylor: color output. Yes, Meredith.
+
+508
+00:48:50.440 --> 00:48:54.700
+Meredith McCanse (she/her): I had a question on the the step right before this with the color.
+
+509
+00:48:55.340 --> 00:49:00.270
+Meredith McCanse (she/her): so with the color output, we said it was just one that there was one
+
+510
+00:49:01.630 --> 00:49:07.500
+Meredith McCanse (she/her): possible output, I think, but the possible color is one column
+
+511
+00:49:08.200 --> 00:49:13.640
+Anthony Taylor: that can have multiple colors, multiple values. So that we've done lots
+
+512
+00:49:14.650 --> 00:49:16.300
+Meredith McCanse (she/her): right? Okay?
+
+513
+00:49:16.380 --> 00:49:20.790
+Meredith McCanse (she/her): But how did why does the one? But why does quality have 3 columns.
+
+514
+00:49:20.850 --> 00:49:23.180
+Meredith McCanse (she/her): Is that because the one
+
+515
+00:49:23.340 --> 00:49:32.969
+Anthony Taylor: because the one had included one hot encoder, and then we did label, Encoder. Right? So this one has to predict which one of those 3, it probably is.
+
+516
+00:49:33.390 --> 00:49:38.269
+Anthony Taylor: Okay. This one just has to give us a probability on one call.
+
+517
+00:49:38.800 --> 00:49:41.880
+Anthony Taylor: So it's either yes or no? Okay.
+
+518
+00:49:42.180 --> 00:49:50.140
+Anthony Taylor: and then we do our model summary. Oh, gotta remember to compile what? Put this in the wrong place. That's okay.
+
+519
+00:49:50.200 --> 00:49:56.789
+Anthony Taylor: So we got to do model dot compile. This is a lot of typing. I should just give you guys this one. But
+
+520
+00:49:57.120 --> 00:50:00.989
+Anthony Taylor: since we're doing pretty good so far, we'll finish this one out and type in
+
+521
+00:50:01.660 --> 00:50:07.319
+Anthony Taylor: optimizer equals Adam. This is all pretty common.
+
+522
+00:50:08.410 --> 00:50:14.070
+Anthony Taylor: We can do loss equals. This is a lot.
+
+523
+00:50:14.250 --> 00:50:17.270
+Anthony Taylor: So quality output.
+
+524
+00:50:19.120 --> 00:50:24.069
+Anthony Taylor:  Poland categorical cross entropy.
+
+525
+00:50:24.350 --> 00:50:29.800
+Anthony Taylor: Okay? So once you think about this one, I'm I'm going to type both of these before I ask a question.
+
+526
+00:50:30.570 --> 00:50:33.920
+Anthony Taylor: Cost entropy.
+
+527
+00:50:34.870 --> 00:50:38.669
+Anthony Taylor: Think I got that spell right. and then the color output
+
+528
+00:50:44.840 --> 00:50:45.850
+Anthony Taylor: is
+
+529
+00:50:46.170 --> 00:50:49.240
+Anthony Taylor: binary. This is the one we've been using
+
+530
+00:50:49.540 --> 00:50:50.530
+Anthony Taylor: cross
+
+531
+00:50:51.210 --> 00:50:57.000
+Anthony Taylor: entropy. Now, I don't care if you remember what the cross entropy part is. But do you understand why they're different?
+
+532
+00:50:58.100 --> 00:51:04.240
+Anthony Taylor: Categorical, because we have 3 separate columns binary, because we're just looking
+
+533
+00:51:04.300 --> 00:51:05.560
+Anthony Taylor: at one
+
+534
+00:51:08.410 --> 00:51:17.030
+Anthony Taylor: and then a comma after the curly bracket. Then we're going to do metrics. So again, we're going to put in metrics for
+
+535
+00:51:17.170 --> 00:51:18.180
+Anthony Taylor: both
+
+536
+00:51:18.650 --> 00:51:23.439
+Anthony Taylor: outputs, or, more effectively, all outputs.
+
+537
+00:51:24.300 --> 00:51:28.299
+Anthony Taylor: Okay, cause if you just, I mean it could be more than one. You could have 10
+
+538
+00:51:28.440 --> 00:51:30.600
+Anthony Taylor: different outputs if you really would.
+
+539
+00:51:44.520 --> 00:51:46.930
+Anthony Taylor: And we've opted to keep them the same.
+
+540
+00:51:48.570 --> 00:51:51.690
+Anthony Taylor: Alright, that's looking good. Last, we'll do a summary.
+
+541
+00:51:55.700 --> 00:51:59.290
+Anthony Taylor: And I made a mistake. Input
+
+542
+00:52:01.490 --> 00:52:03.349
+Dipinto, Matt: he didn't run the 2 prior cells.
+
+543
+00:52:03.400 --> 00:52:05.469
+Anthony Taylor: I called it input, features.
+
+544
+00:52:05.660 --> 00:52:09.190
+Dipinto, Matt: you have problems. So yeah, how is that possible?
+
+545
+00:52:10.280 --> 00:52:12.219
+Dipinto, Matt: In ruby? Yeah, I. Still, I. Still.
+
+546
+00:52:12.450 --> 00:52:13.170
+Anthony Taylor: I've
+
+547
+00:52:14.150 --> 00:52:17.759
+Dipinto, Matt: typed all that stuff and then didn't run it.
+
+548
+00:52:17.840 --> 00:52:19.480
+Anthony Taylor: That's too funny.
+
+549
+00:52:19.540 --> 00:52:23.569
+Anthony Taylor: Okay? But and this one's still wrong because it's input features.
+
+550
+00:52:28.960 --> 00:52:29.710
+Anthony Taylor: Nope
+
+551
+00:52:31.110 --> 00:52:35.110
+Anthony Taylor: input layer. So it's not the name. I really thought it would be the name
+
+552
+00:52:36.560 --> 00:52:40.940
+Kanouff, Christine: we've got lose instead of loss in the next 2.
+
+553
+00:52:41.290 --> 00:52:44.249
+Anthony Taylor: Look at you. Thank you very much.
+
+554
+00:52:45.680 --> 00:52:50.340
+Anthony Taylor: Anything else. Before I push that right. Button still got it down.
+
+555
+00:52:51.670 --> 00:52:57.699
+Anthony Taylor: Keyword argument, output model model input output equals
+
+556
+00:52:58.930 --> 00:53:01.470
+Anthony Taylor: output the ads.
+
+557
+00:53:02.420 --> 00:53:03.950
+Anthony Taylor: This is why I should type.
+
+558
+00:53:05.480 --> 00:53:08.999
+Anthony Taylor: Okay, input output.
+
+559
+00:53:09.060 --> 00:53:11.540
+sensor or function model must be
+
+560
+00:53:11.630 --> 00:53:19.350
+Anthony Taylor: the output of a tensorflow layer. thus holding the last metadata. So M,
+
+561
+00:53:19.430 --> 00:53:23.969
+Dipinto, Matt: it wants the object, not a string inside your outbook outputs list.
+
+562
+00:53:24.670 --> 00:53:26.139
+Anthony Taylor: You are correct.
+
+563
+00:53:27.260 --> 00:53:28.160
+Dipinto, Matt: So
+
+564
+00:53:28.570 --> 00:53:32.399
+Dipinto, Matt: yeah, and how do you know this, Matt? Cause I'm staring at the solution.
+
+565
+00:53:32.960 --> 00:53:35.199
+Anthony Taylor: Thank you for that.
+
+566
+00:53:35.480 --> 00:53:39.669
+Anthony Taylor:  then there it is. Okay.
+
+567
+00:53:40.050 --> 00:53:41.190
+Anthony Taylor: So
+
+568
+00:53:42.690 --> 00:53:45.010
+Anthony Taylor: there you go. There's our model summer
+
+569
+00:53:45.640 --> 00:53:49.289
+Anthony Taylor: alright. So the last part of this
+
+570
+00:53:51.040 --> 00:53:53.089
+Anthony Taylor: is the fit step
+
+571
+00:53:54.340 --> 00:53:59.559
+Anthony Taylor: model dot fits parentheses inside of here. We need X.
+
+572
+00:54:07.470 --> 00:54:09.850
+Anthony Taylor: I gotta dust my screen off, I'm telling.
+
+573
+00:54:09.930 --> 00:54:14.809
+Anthony Taylor: And then for the second argument, we need the both
+
+574
+00:54:14.920 --> 00:54:16.319
+Anthony Taylor: of the
+
+575
+00:54:16.660 --> 00:54:23.849
+Anthony Taylor:  possible y variable. So y underscore quality
+
+576
+00:54:24.360 --> 00:54:27.750
+Anthony Taylor: and color
+
+577
+00:54:30.210 --> 00:54:31.580
+Anthony Taylor: output.
+
+578
+00:54:32.570 --> 00:54:36.199
+Anthony Taylor: Comma not comma Poland.
+
+579
+00:54:36.960 --> 00:54:38.530
+Why, underscore code.
+
+580
+00:54:39.140 --> 00:54:40.020
+Anthony Taylor: And
+
+581
+00:54:41.860 --> 00:54:50.449
+Anthony Taylor: I hate that pop-up. That is so annoying. Okay? And then how many epics do we want? We'll do 10
+
+582
+00:54:53.630 --> 00:54:55.969
+Anthony Taylor: and batch size.
+
+583
+00:54:57.770 --> 00:54:59.870
+Anthony Taylor: We'll do 32,
+
+584
+00:55:00.630 --> 00:55:04.130
+Anthony Taylor: and validation split will be point 2
+
+585
+00:55:09.050 --> 00:55:10.100
+Anthony Taylor: 0
+
+586
+00:55:10.150 --> 00:55:12.980
+Anthony Taylor: point 2. Not a split split
+
+587
+00:55:13.400 --> 00:55:15.340
+Anthony Taylor: equals 0 point 2.
+
+588
+00:55:16.210 --> 00:55:18.739
+Anthony Taylor: That should do it.
+
+589
+00:55:19.870 --> 00:55:21.099
+Anthony Taylor: What I miss
+
+590
+00:55:22.340 --> 00:55:27.169
+Anthony Taylor: unexpected output valid mode
+
+591
+00:55:27.810 --> 00:55:30.670
+Anthony Taylor: quality output. Something in here is wrong.
+
+592
+00:55:31.660 --> 00:55:35.760
+Masarirambi, Rodney: spelt incorrectly.
+
+593
+00:55:36.580 --> 00:55:39.250
+Masarirambi, Rodney: It's uncommon. It's outcut.
+
+594
+00:55:39.440 --> 00:55:42.129
+Anthony Taylor: That's the that's the Egyptian version.
+
+595
+00:55:44.680 --> 00:55:45.480
+Anthony Taylor: There we
+
+596
+00:55:47.290 --> 00:55:49.849
+Anthony Taylor: -oh! I knocked my at night over
+
+597
+00:55:55.270 --> 00:56:02.049
+Anthony Taylor: model dot fits parentheses X quality output equals.
+
+598
+00:56:11.200 --> 00:56:15.579
+Masarirambi, Rodney: I mean, you spell color wrong, but I think that that's taken under and tied on.
+
+599
+00:56:15.910 --> 00:56:18.099
+Anthony Taylor: I spelt it the American way.
+
+600
+00:56:21.130 --> 00:56:28.020
+Anthony Taylor:  I'll tell you wrong.
+
+601
+00:56:34.790 --> 00:56:36.490
+Anthony Taylor: I don't see what I did wrong there.
+
+602
+00:56:37.910 --> 00:56:40.129
+Anthony Taylor: Oh, okay, I did it again.
+
+603
+00:56:46.300 --> 00:56:48.919
+Anthony Taylor: Did I not run the compile? I did
+
+604
+00:56:52.720 --> 00:56:54.379
+Anthony Taylor: hate it when this happens.
+
+605
+00:56:54.770 --> 00:57:02.770
+Masarirambi, Rodney: Oh, wait! Hold on did you run it off to? No, never mind.
+
+606
+00:57:12.170 --> 00:57:18.330
+Anthony Taylor: I hate it. That's the only thing I don't like about this whole typing thing is when you do it.
+
+607
+00:57:20.480 --> 00:57:22.649
+Anthony Taylor: Yeah, there was something wrong in there, too.
+
+608
+00:57:28.690 --> 00:57:39.069
+michael mcpherson: My error says that instead of quality output, color, output, the valid output. Names are dense. Underscore 4 and dense underscore 5.
+
+609
+00:57:42.270 --> 00:57:50.420
+Anthony Taylor: That wouldn't be right. No, I got it to work, I mean, II copied it from. I copied it from the solution file
+
+610
+00:57:51.170 --> 00:57:59.849
+Anthony Taylor: because I wanted to see what the heck it was, but it's for sure it's supposed to be quality, output, color, output. and the same there and there.
+
+611
+00:58:01.180 --> 00:58:04.020
+Anthony Taylor: I don't know. I'm sure I had something weird going on there.
+
+612
+00:58:04.600 --> 00:58:09.899
+Anthony Taylor: But that's the idea we still typed it. Did it fail for anybody else?
+
+613
+00:58:13.300 --> 00:58:17.290
+Anthony Taylor: Okay, good. Well, I'm glad it wasn't just me.
+
+614
+00:58:17.640 --> 00:58:26.150
+Anthony Taylor: I know Matt's not typing, because he's just looking directly at the solution which I don't blame him. I would do exactly the same thing if I sitting in this.
+
+615
+00:58:26.520 --> 00:58:34.650
+Dipinto, Matt: did you? Really? It's really no fun to freakin type like this, because there's so many possibilities for error.
+
+616
+00:58:34.960 --> 00:58:39.760
+Anthony Taylor: And normally, that's not a big deal, because in the real world that's what happens.
+
+617
+00:58:40.130 --> 00:58:45.190
+Anthony Taylor: You run into errors and you have to find them, and it's loads of fun.
+
+618
+00:58:45.370 --> 00:58:53.490
+Anthony Taylor: and you usually don't have, like a whole bunch of students staring at it. just dying to catch you making an error.
+
+619
+00:58:55.780 --> 00:58:59.000
+Anthony Taylor: which is at this point has become a game for me.
+
+620
+00:59:00.700 --> 00:59:04.060
+Anthony Taylor: If I had a way to reward you, I would bored you
+
+621
+00:59:04.770 --> 00:59:06.860
+Anthony Taylor: for catching my mistakes.
+
+622
+00:59:07.310 --> 00:59:09.839
+Anthony Taylor: And, Matt, you by far
+
+623
+00:59:10.050 --> 00:59:13.670
+Anthony Taylor: are the winner. So far this cohort.
+
+624
+00:59:17.890 --> 00:59:23.600
+Anthony Taylor: Yeah. Got it to work alright. And then last, but not least, we're gonna print it all out.
+
+625
+00:59:29.880 --> 00:59:32.869
+Anthony Taylor: Print f quality.
+
+626
+00:59:33.120 --> 00:59:34.580
+Anthony Taylor: accuracy.
+
+627
+00:59:36.630 --> 00:59:42.740
+Anthony Taylor: Oh, well got. And we want test results. 3.
+
+628
+00:59:46.280 --> 00:59:50.259
+Anthony Taylor: I'm sure if we dig through that, we'll figure out why. But
+
+629
+00:59:50.940 --> 00:59:53.620
+Anthony Taylor: I think I worry too much on that
+
+630
+00:59:55.090 --> 01:00:00.099
+Anthony Taylor: and print, and and we will. If you guys want to know why it's we can do that
+
+631
+01:00:00.670 --> 01:00:01.800
+Anthony Taylor: color
+
+632
+01:00:02.130 --> 01:00:03.490
+Anthony Taylor: accuracy
+
+633
+01:00:06.510 --> 01:00:07.430
+Anthony Taylor: as
+
+634
+01:00:10.640 --> 01:00:11.640
+Anthony Taylor: bracket.
+
+635
+01:00:13.610 --> 01:00:14.580
+Anthony Taylor: There we go.
+
+636
+01:00:21.580 --> 01:00:27.749
+Anthony Taylor: So for quality, we were about 75% for color, we 96%. It's not
+
+637
+01:00:27.890 --> 01:00:31.640
+Anthony Taylor: aye. not bad at all.
+
+638
+01:00:32.130 --> 01:00:36.830
+Anthony Taylor: You guys understand the 3 and the 4. If we just print test results.
+
+639
+01:00:40.300 --> 01:00:46.710
+Anthony Taylor: This is what we get. apparently 0 1, 2. The last 2 were the
+
+640
+01:00:46.950 --> 01:00:49.839
+Anthony Taylor: well we got all those hands. Yes, Meredith.
+
+641
+01:00:53.110 --> 01:00:54.889
+I had a question about
+
+642
+01:00:54.970 --> 01:01:00.450
+Meredith McCanse (she/her): like. So if you're looking at all the outputs with the different epics. And the
+
+643
+01:01:00.590 --> 01:01:07.439
+Meredith McCanse (she/her): I think, yeah, I think that the one we really care about is the one that's the act. So like the
+
+644
+01:01:08.140 --> 01:01:12.640
+Meredith McCanse (she/her): quality, output, accuracy and color output accuracy.
+
+645
+01:01:13.130 --> 01:01:15.859
+Meredith McCanse (she/her): But it it
+
+646
+01:01:15.890 --> 01:01:16.920
+Meredith McCanse (she/her): is
+
+647
+01:01:17.980 --> 01:01:29.650
+Meredith McCanse (she/her): in the next cell. When we then, are asking for the results. Is it just giving us the tenth epic? The numbers from the tenth epic, like, what's the difference between the it's actually running the test.
+
+648
+01:01:29.830 --> 01:01:31.430
+Anthony Taylor: Those up here are trimmed.
+
+649
+01:01:32.430 --> 01:01:33.510
+Meredith McCanse (she/her): Okay.
+
+650
+01:01:33.750 --> 01:01:40.570
+Anthony Taylor: yeah. So this is using your training data. And this is actually using your test data to give you your to tell you how you did.
+
+651
+01:01:42.410 --> 01:01:51.649
+Anthony Taylor: And it's in that last cell. It's not doing. It's not like creating predictions or anything. It's literally just giving you a score
+
+652
+01:01:51.790 --> 01:01:54.850
+Meredith McCanse (she/her): like, right here, you mean.
+
+653
+01:01:55.360 --> 01:01:58.819
+Anthony Taylor: yeah, I'll it's just printing these last 2.
+
+654
+01:02:00.090 --> 01:02:10.340
+Anthony Taylor: So these other ones were just. I'm I know what these other ones were to be honest with you. They don't make a ton of sense, but I'm sure they need something to somebody. What we want
+
+655
+01:02:10.510 --> 01:02:13.390
+Anthony Taylor: for what we're doing was just these last 2 values.
+
+656
+01:02:14.100 --> 01:02:26.650
+Meredith McCanse (she/her): But I get in. So in cell 20, sorry, I guess I described the wrong 1, 2 2 cells above where you are you're doing dot evaluate. It's literally just
+
+657
+01:02:27.220 --> 01:02:29.730
+Meredith McCanse (she/her): taking the test data
+
+658
+01:02:29.960 --> 01:02:45.109
+Anthony Taylor: and comparing it against the answers and telling you how close you were right. Just just like every time we ran score before same thing. It says, you finish training your model. Now we're going to train it against test data and tell you what your you know how well you did.
+
+659
+01:02:46.670 --> 01:02:47.350
+Yeah.
+
+660
+01:02:48.670 --> 01:02:50.629
+Anthony Taylor: good. Good question. Yeah. Derek.
+
+661
+01:02:51.800 --> 01:02:59.509
+Derek Rikke: How come you when you fit it? You don't use the train like X train and Y train. You just use the whole.
+
+662
+01:02:59.660 --> 01:03:03.999
+Anthony Taylor: You know what? That's a good question. I wonder why we did that hold on.
+
+663
+01:03:04.900 --> 01:03:07.980
+Anthony Taylor: because that's how they did it in the model. But it's wrong
+
+664
+01:03:09.430 --> 01:03:11.040
+Anthony Taylor: that is wrong.
+
+665
+01:03:13.390 --> 01:03:15.090
+Dipinto, Matt: So
+
+666
+01:03:15.560 --> 01:03:22.929
+Dipinto, Matt: I think the validation split. And so I agree that we did. A taint train test split earlier, and so it was wrong to do it that way.
+
+667
+01:03:23.060 --> 01:03:32.149
+Dipinto, Matt: But if I was guessing the validation split variable in, there is literally a on the fly train test. Split. Yeah, maybe
+
+668
+01:03:32.330 --> 01:03:34.789
+Dipinto, Matt: I still wanna do it this way.
+
+669
+01:03:35.740 --> 01:03:41.049
+Anthony Taylor: I hear you. I hear you and I would I I wouldn't doubt it. But
+
+670
+01:03:41.140 --> 01:03:42.340
+Anthony Taylor: I still want to
+
+671
+01:03:42.410 --> 01:03:48.149
+Anthony Taylor: use the which means we're gonna figure out if you're right. Because if it is, we don't want to split it twice.
+
+672
+01:03:49.460 --> 01:03:57.750
+Dipinto, Matt: So that's why I was typing earlier. so when we used validation data like 5 classes ago.
+
+673
+01:03:57.910 --> 01:04:01.000
+Dipinto, Matt: is interesting. And so I think validation split
+
+674
+01:04:01.510 --> 01:04:09.010
+Dipinto, Matt: is a different form of that I haven't read up on yet. So that's still.
+
+675
+01:04:09.520 --> 01:04:11.469
+Anthony Taylor: this is the beauty of
+
+676
+01:04:12.570 --> 01:04:16.220
+Anthony Taylor: situations like this. So we'll say,
+
+677
+01:04:21.050 --> 01:04:31.060
+Anthony Taylor: answer, flow. model and dot fit validation
+
+678
+01:04:32.260 --> 01:04:33.170
+Anthony Taylor: split.
+
+679
+01:04:34.660 --> 01:04:35.910
+Anthony Taylor: That might be enough.
+
+680
+01:04:37.030 --> 01:04:38.370
+Anthony Taylor: Here we go.
+
+681
+01:04:46.060 --> 01:04:49.449
+Anthony Taylor: No, it's resampling after each epic from the looks of it.
+
+682
+01:04:50.470 --> 01:04:52.019
+Anthony Taylor: Oh, no! Hold on.
+
+683
+01:04:58.290 --> 01:05:01.919
+Dipinto, Matt: that's right from their documentation that I just dropped in chat
+
+684
+01:05:02.510 --> 01:05:14.180
+Dipinto, Matt: fraction of the training data we use as validation data model will set apart this fraction of the training data and will not train on it. So it's it's essentially a in model train test. Split. Yeah. So
+
+685
+01:05:15.920 --> 01:05:19.340
+Anthony Taylor: I can see why they did that. I'm gonna remove it.
+
+686
+01:05:19.540 --> 01:05:22.860
+Dipinto, Matt: But yeah, I mean, we're gonna use our actual training data
+
+687
+01:05:23.030 --> 01:05:29.489
+Dipinto, Matt: redundant to having done a train test split already. So
+
+688
+01:05:29.650 --> 01:05:33.200
+Anthony Taylor: we did use the test data for the evaluation.
+
+689
+01:05:34.180 --> 01:05:36.679
+Dipinto, Matt: So the interesting thing is is
+
+690
+01:05:37.210 --> 01:05:42.079
+Anthony Taylor: it may not be any better it could be might be cause you should be getting more data.
+
+691
+01:05:42.580 --> 01:05:45.109
+Anthony Taylor: Yeah, it's not. It's the same.
+
+692
+01:05:46.380 --> 01:05:50.929
+Anthony Taylor: Okay. So for those that were or we're not following along.
+
+693
+01:05:51.200 --> 01:05:55.429
+Anthony Taylor: there was a variable in our.
+
+694
+01:05:56.190 --> 01:05:59.860
+Anthony Taylor: or was that that was in our train. Our model
+
+695
+01:06:02.560 --> 01:06:04.470
+Anthony Taylor: heck was that here?
+
+696
+01:06:04.530 --> 01:06:09.430
+Anthony Taylor: So it was in our fit that was called, whether validation or whatever
+
+697
+01:06:09.510 --> 01:06:15.420
+Anthony Taylor: that was basically splitting up our training data and knocking out 20% to do validation.
+
+698
+01:06:15.640 --> 01:06:19.780
+Anthony Taylor:  we didn't need that because we already did
+
+699
+01:06:20.270 --> 01:06:21.610
+Anthony Taylor: string test split.
+
+700
+01:06:21.730 --> 01:06:31.270
+Anthony Taylor: So we just we changed the model dot fit from using the original data to using our training data. And then we correctly
+
+701
+01:06:31.470 --> 01:06:33.560
+Anthony Taylor: tested with our testing data
+
+702
+01:06:34.600 --> 01:06:39.190
+Anthony Taylor: effectively, all that really needs is, we add a little bit more training data
+
+703
+01:06:40.080 --> 01:06:44.530
+Anthony Taylor: by removing that alright. So
+
+704
+01:06:44.750 --> 01:06:48.169
+Anthony Taylor: there you go. But that's a cool feature to know about. I like.
+
+705
+01:06:50.340 --> 01:06:51.590
+Anthony Taylor: okay.
+
+706
+01:06:51.760 --> 01:06:53.970
+Anthony Taylor: so we've done it any.
+
+707
+01:06:54.060 --> 01:07:01.430
+Baro, Sonja: So on that, Anthony, if you were to use it where? So you wouldn't do a train test split
+
+708
+01:07:01.610 --> 01:07:06.119
+Baro, Sonja: if you're gonna use your validation stuff that doesn't make sense to me.
+
+709
+01:07:08.430 --> 01:07:11.170
+Baro, Sonja: I like, where would you put it?
+
+710
+01:07:16.840 --> 01:07:27.650
+Anthony Taylor: See? Like this guy saying, I always use train tests. But I'm thinking that's kind of what the thought was. I should point out that this is a fixed validation set which is chosen after suppling
+
+711
+01:07:28.470 --> 01:07:43.109
+Anthony Taylor: to get separate validation data sets and then use validation argument in the fit instead of validation. Split and point to the X and Y and C. That's pretty much what I'm seeing everybody's saying, and don't use that. But it's just one article.
+
+712
+01:07:44.000 --> 01:07:47.750
+Anthony Taylor: I'd have to dig into it more if I'm being honest with you.
+
+713
+01:07:47.780 --> 01:07:48.820
+Baro, Sonja: Okay.
+
+714
+01:07:49.030 --> 01:07:59.950
+Anthony Taylor: I have not used it before that particular way. We always do a train test split always. And my stuff. So
+
+715
+01:08:01.350 --> 01:08:03.939
+Anthony Taylor: even in Ottawa, you do drug testing.
+
+716
+01:08:06.000 --> 01:08:07.309
+Anthony Taylor: Even in Gui.
+
+717
+01:08:07.560 --> 01:08:10.880
+Anthony Taylor: we use pinterest. So yeah, I haven't seen that done before.
+
+718
+01:08:12.120 --> 01:08:16.959
+Anthony Taylor: Thank you for pointing that out. I actually, I think I'm gonna say I learned something.
+
+719
+01:08:18.220 --> 01:08:24.759
+Anthony Taylor: Don't use that stop following the stuff that they give me in my
+
+720
+01:08:24.840 --> 01:08:28.999
+Anthony Taylor: lesson plan. Okay, so alright. Everybody.
+
+721
+01:08:29.050 --> 01:08:33.819
+Anthony Taylor: Any other questions about branching? You got the idea now, right, Rodney, you good.
+
+722
+01:08:34.540 --> 01:08:40.509
+Anthony Taylor: I know it was boring as hell, wasn't it? I shouldn't give you all the solution that way. You have to type with.
+
+723
+01:08:40.640 --> 01:08:44.730
+Clayton Graves: I have a question that the solution, yeah, as it's written.
+
+724
+01:08:45.149 --> 01:08:47.240
+Clayton Graves: does not work in my environment.
+
+725
+01:08:47.670 --> 01:08:51.039
+Clayton Graves: the solution should be in covap.
+
+726
+01:08:51.939 --> 01:08:58.399
+Clayton Graves: right? So if I run it in my environment, it doesn't work. But if I run it in Cola, it does.
+
+727
+01:08:58.790 --> 01:09:03.819
+Clayton Graves: Yeah, there's something about this one. It does.
+
+728
+01:09:04.060 --> 01:09:08.210
+Clayton Graves: Colab uses tensorflow 2.15.
+
+729
+01:09:08.500 --> 01:09:12.570
+Clayton Graves: My environment uses 2 dot 16 dot one.
+
+730
+01:09:13.700 --> 01:09:19.120
+Anthony Taylor: That's entirely possible. It does work for me.
+
+731
+01:09:20.850 --> 01:09:25.749
+Anthony Taylor:  what part of flow are you using? Yeah.
+
+732
+01:09:25.810 --> 01:09:28.370
+Anthony Taylor: how did you check your tensorflow version?
+
+733
+01:09:28.729 --> 01:09:30.069
+Clayton Graves: You print
+
+734
+01:09:30.080 --> 01:09:34.869
+Clayton Graves: parentheses. Tf dot underscore.
+
+735
+01:09:35.930 --> 01:09:40.899
+Anthony Taylor: France, yeah. dot underscore underscore.
+
+736
+01:09:42.790 --> 01:09:43.850
+Anthony Taylor: That's gonna ask.
+
+737
+01:09:45.850 --> 01:09:50.490
+Clayton Graves: Oh, I don't even have. Tf, yeah, you gotta import it. There's Gap
+
+738
+01:09:59.420 --> 01:10:00.740
+Anthony Taylor: 2.1 5
+
+739
+01:10:02.570 --> 01:10:07.649
+Clayton Graves: works for you. I think I think the version that I have is is causing it to not work.
+
+740
+01:10:09.520 --> 01:10:15.240
+Anthony Taylor: It is possible, I will tell you, though, before the end of the day, the last one we do does not work for.
+
+741
+01:10:17.330 --> 01:10:28.629
+Anthony Taylor: And and actually, it's more of a pickling error than anything. But we're but that's why I told you guys just go straight to Co. Web. because I know everything works in co-labbed.
+
+742
+01:10:30.070 --> 01:10:35.649
+Anthony Taylor: Hi. If there are no other questions. it is break time.
+
+743
+01:10:36.430 --> 01:10:41.939
+Anthony Taylor: You're like what? No, really it is. So
+
+744
+01:10:42.190 --> 01:10:43.630
+Anthony Taylor: give you out till
+
+745
+01:10:44.100 --> 01:10:53.759
+Anthony Taylor: the hour the top of the hour. Right. Would that be 80'clock for you guys? Alright, I'll see you at 80'clock. so I have an example of using Chat Gp, in a way that
+
+746
+01:10:53.920 --> 01:10:57.670
+Anthony Taylor: you may or may not even have thought. Okay.
+
+747
+01:10:57.780 --> 01:11:04.450
+Anthony Taylor:  I was doing a requirement today, and I don't know 25 columns of data.
+
+748
+01:11:04.990 --> 01:11:13.640
+Anthony Taylor: and about 20 of them all needed data transformation. So ask the float cast int
+
+749
+01:11:14.020 --> 01:11:21.859
+Anthony Taylor: stuff like that, right. And I mean, I could've went through and typed. Oh, I but instead.
+
+750
+01:11:22.670 --> 01:11:29.830
+Anthony Taylor: I just copied the 2 columns from Excel, which was the column name and the data type. And I said.
+
+751
+01:11:31.210 --> 01:11:37.460
+Anthony Taylor: Write me spark code. That would convert all of these to, you know, are all of these columns based on this grid.
+
+752
+01:11:39.660 --> 01:11:52.659
+Anthony Taylor: like. 3 s later I had all of it done something that probably would have took me at least 2030 min. I did in like 1 min. That's the value of these tools.
+
+753
+01:11:53.430 --> 01:11:58.499
+Anthony Taylor: Okay, not how do I do it? It's help me do this.
+
+754
+01:11:59.330 --> 01:12:10.180
+Anthony Taylor: And as long as we treat them as assistants. right? I mean, the cool thing is is you can also. you can also treat them as as a a
+
+755
+01:12:10.280 --> 01:12:16.200
+Anthony Taylor: tutor or an instructor. But ultimately your goal will be to treat them as assistants.
+
+756
+01:12:16.560 --> 01:12:20.610
+Clayton Graves: I mean III ask them all the time, how how do you do this?
+
+757
+01:12:21.230 --> 01:12:30.200
+Clayton Graves: And you're using them as a tutor right now. You're losing syntax and things like that. I'm not writing
+
+758
+01:12:30.440 --> 01:12:46.329
+Clayton Graves: and having it do it for me. I'm I'm like, Hey, I'm having a I'm having a problem here. This is my error. You know. What what should I be looking for? And it'll tell you, and then you go look for it. You're like, Oh, yep, that's a problem and fix it, and everything's fine.
+
+759
+01:12:47.080 --> 01:12:54.040
+Anthony Taylor: Well, in a lot of tools, I mean, I'll tell you the tool I use every day at work has a built in Chat Gpt. Engine. Now.
+
+760
+01:12:54.320 --> 01:13:01.169
+Anthony Taylor: where I can just say, Hey, what's wrong with this something done? Where? What's wrong with this I can even like go control. I
+
+761
+01:13:01.350 --> 01:13:05.549
+Anthony Taylor: write some code that does this and brutally writes it fills it in. I mean, it's
+
+762
+01:13:05.770 --> 01:13:07.710
+Anthony Taylor: it's as simple as it can be.
+
+763
+01:13:08.260 --> 01:13:09.870
+It still gets it wrong
+
+764
+01:13:10.200 --> 01:13:14.060
+Anthony Taylor: often enough that you have to know what you're doing. But,
+
+765
+01:13:14.820 --> 01:13:24.439
+Anthony Taylor: The the cool thing about all of this stuff is, and and and you know all I could think of. So how many of you guys saw that link I pulled in the other day with the robot that had the apple.
+
+766
+01:13:24.860 --> 01:13:28.879
+Anthony Taylor: It was amazing if you haven't seen it yet. It's pretty freaking crazy.
+
+767
+01:13:29.220 --> 01:13:44.810
+Anthony Taylor:  But they were. But they were saying, you know the I robot. They weren't doing Terminator exactly. They were going more down the irobot side of things, which were, if you guys haven't seen that. Yes, it goes sideways. Of course it would be a good movie if it didn't.
+
+768
+01:13:44.920 --> 01:13:48.440
+Anthony Taylor: But the irobot were basically robots that were assistants
+
+769
+01:13:48.770 --> 01:13:59.640
+Anthony Taylor: to everybody. I mean they were maids. They were nannies, they were. you know, they worked. They did everything, and it freed up people to be well, something different.
+
+770
+01:14:00.010 --> 01:14:02.480
+Anthony Taylor: and that.
+
+771
+01:14:03.520 --> 01:14:05.560
+Anthony Taylor: I believe, is a reality
+
+772
+01:14:06.300 --> 01:14:22.360
+Anthony Taylor: that we may even see. Many of you will see before you know we we move on to the next, whatever I think that's going to happen in our generation, not to the degree it is in the movie, of course, but I think there will be assistance.
+
+773
+01:14:23.280 --> 01:14:26.739
+Anthony Taylor: you know, and and again, and the reason I bring that up is
+
+774
+01:14:26.860 --> 01:14:36.650
+Anthony Taylor: as as long as we always use this these machines as the system, and don't let them take over, and I don't mean take over the world. I mean.
+
+775
+01:14:36.890 --> 01:14:41.410
+Anthony Taylor: we just, you know. I don't make decisions anymore. I don't need to do this.
+
+776
+01:14:42.400 --> 01:14:54.220
+Anthony Taylor: I think will always be good. But that's just, old man advice. It's really not anything for you. because I don't really know. It's like none of us really know. Alright.
+
+777
+01:14:54.990 --> 01:14:56.229
+Anthony Taylor: let us continue.
+
+778
+01:14:58.670 --> 01:15:10.039
+Anthony Taylor: Okay. So we have yet another. Everyone do. And of course, you guys already have. See? This is why I don't give the solutions cause. It's no fun. It's like, well, what's the point? If you already have the solution?
+
+779
+01:15:10.810 --> 01:15:22.219
+Baro, Sonja:  one nice thing I was just gonna say, having just tried to keep up
+
+780
+01:15:22.340 --> 01:15:34.990
+Baro, Sonja: with you. It's easier because now I, instead of uploading the unsolved, I'll just see the solved, and then I can like track with you better rather than go. Oh, my God! I misspelled this. I have to go back and fix it
+
+781
+01:15:35.030 --> 01:15:46.620
+Anthony Taylor: so that is a benefit. II agree with that I agree with that. I could see that the biggest, the only thing with me is is is like, as you guys can see if I do a type or something it's like.
+
+782
+01:15:47.990 --> 01:15:50.299
+Anthony Taylor: but who else? Somebody else had a thought on that.
+
+783
+01:15:50.990 --> 01:15:55.350
+Raugewitz, Tania: No, this is Tonya. My pictures frozen. But I agree with Sonia.
+
+784
+01:15:56.460 --> 01:15:58.729
+Anthony Taylor: Alright. Alright. Well.
+
+785
+01:15:58.830 --> 01:16:08.280
+Anthony Taylor: okay. for really long ones like this, I think I think I got. I agree with you because these are so much tight.
+
+786
+01:16:10.370 --> 01:16:14.039
+Anthony Taylor: But I think this one's worse than the last week, too.
+
+787
+01:16:14.540 --> 01:16:22.850
+Anthony Taylor: It looks longer. Yeah, we made this one. We may. I may just pay some stuff to you, even though you already have it.
+
+788
+01:16:23.400 --> 01:16:25.760
+Anthony Taylor: I may still just paste some stuff to you.
+
+789
+01:16:27.200 --> 01:16:29.750
+Anthony Taylor: Want to clear all the outputs. There we go.
+
+790
+01:16:30.540 --> 01:16:31.909
+Anthony Taylor: I don't know. Maybe
+
+791
+01:16:32.300 --> 01:16:40.979
+Anthony Taylor: I'm hoping they have a lot of it done. But this one's important because I believe the next exercise you guys are gonna do all this on.
+
+792
+01:16:41.540 --> 01:16:43.520
+Anthony Taylor: So we got to get through this?
+
+793
+01:16:43.970 --> 01:16:54.549
+Anthony Taylor: Alright. So first, let's import some data and some columns. And so this is that same steps. It's still a thing I don't like this, because we already did all of this.
+
+794
+01:16:56.060 --> 01:17:03.759
+Anthony Taylor: That's all right. We'll push through it. So remember, we're getting the file list. Then we're gonna pull in the faces data.
+
+795
+01:17:04.410 --> 01:17:07.170
+Anthony Taylor: There's the yeah. Urls
+
+796
+01:17:08.340 --> 01:17:09.320
+Anthony Taylor: exciting
+
+797
+01:17:10.280 --> 01:17:15.039
+Anthony Taylor: and then here's our 644 images.
+
+798
+01:17:16.010 --> 01:17:16.700
+Anthony Taylor: Boop.
+
+799
+01:17:17.800 --> 01:17:19.070
+Anthony Taylor: that'll take a while.
+
+800
+01:17:19.840 --> 01:17:24.530
+Anthony Taylor: Okay, so all this stuff we've done trying to see if there's anything we haven't done here yet.
+
+801
+01:17:28.320 --> 01:17:30.730
+Anthony Taylor: Even this step we've already done.
+
+802
+01:17:31.100 --> 01:17:36.759
+Anthony Taylor: But since we have to wait, you know 3 or 4 min for it to finish processing. I guess we could type it in
+
+803
+01:17:36.790 --> 01:17:38.539
+Anthony Taylor: just for extra
+
+804
+01:17:40.610 --> 01:17:41.660
+Anthony Taylor: stuff.
+
+805
+01:17:42.020 --> 01:17:47.729
+Anthony Taylor: So fun, okay, where are we?
+
+806
+01:17:48.530 --> 01:17:51.680
+Anthony Taylor: Let's look at our file names and prepare our model.
+
+807
+01:17:57.460 --> 01:17:58.250
+Okay?
+
+808
+01:18:01.940 --> 01:18:02.760
+Anthony Taylor: And
+
+809
+01:18:05.320 --> 01:18:07.720
+Anthony Taylor:  mmm.
+
+810
+01:18:09.000 --> 01:18:11.780
+Anthony Taylor: okay. So we got the pixel values
+
+811
+01:18:13.700 --> 01:18:17.420
+Anthony Taylor: file names. They have had all right.
+
+812
+01:18:17.980 --> 01:18:24.719
+Anthony Taylor: Okay, so we remember that we have user, id pose, expression and eyes.
+
+813
+01:18:25.250 --> 01:18:30.259
+Anthony Taylor: So we'll create a file names or we'll pull from file names. Df.
+
+814
+01:18:30.840 --> 01:18:33.399
+Anthony Taylor: and we'll get user id.
+
+815
+01:18:35.450 --> 01:18:36.530
+folks.
+
+816
+01:18:38.120 --> 01:18:39.190
+Anthony Taylor: expression
+
+817
+01:18:40.970 --> 01:18:44.400
+Anthony Taylor: and eyes. Okay?
+
+818
+01:18:44.630 --> 01:18:46.950
+Anthony Taylor: And we're gonna take those.
+
+819
+01:18:47.520 --> 01:18:49.380
+Anthony Taylor: And
+
+820
+01:18:54.050 --> 01:19:01.269
+Anthony Taylor: oh, we're just gonna basically make new columns with each of these in it alright. That's what we're doing. So yeah, we've done this a couple of times now.
+
+821
+01:19:02.440 --> 01:19:04.640
+Anthony Taylor: In class.
+
+822
+01:19:05.140 --> 01:19:14.980
+Anthony Taylor: So we'll do dot string dot replace. and we're gonna get rid of the Png first dot P. And G comma empty.
+
+823
+01:19:15.150 --> 01:19:17.149
+Anthony Taylor: and then we'll do. Oh.
+
+824
+01:19:20.080 --> 01:19:21.680
+Anthony Taylor: I want Redjax
+
+825
+01:19:23.260 --> 01:19:25.070
+Anthony Taylor: Falls.
+
+826
+01:19:27.650 --> 01:19:36.840
+Anthony Taylor: I'll bet you anything that's the default. But whatever I could be wrong and then last, we're gonna split on the underscore stream. Drop, split
+
+827
+01:19:38.290 --> 01:19:45.190
+Anthony Taylor: dot underscore. and then expand it to new columns.
+
+828
+01:19:45.960 --> 01:19:50.220
+Baro, Sonja: Anthony, is this where you did the triple quotations
+
+829
+01:19:51.530 --> 01:19:54.880
+Anthony Taylor: on this one? No. now.
+
+830
+01:19:55.080 --> 01:20:09.740
+Anthony Taylor: just yeah, it's just just work. So like in the in the, in the solution. They have the slash they're doing. Yeah, it's just because they have the slash there. III we didn't need it, cause we had plenty of of room.
+
+831
+01:20:09.930 --> 01:20:14.310
+Anthony Taylor: But I mean, if you wanted to do the yeah, you just would put a slash.
+
+832
+01:20:15.510 --> 01:20:28.430
+Anthony Taylor: And then last we got y underscore df equals. Hi, I'll name. See! I gotta keep you guys on your toes. Since you're looking at the solution already. It's like, Oh, well, I gotta really mess up every once in a while.
+
+833
+01:20:29.680 --> 01:20:44.990
+Anthony Taylor: No, I really don't like messing up to be honest with sometimes that's exactly right, right. I can always count on Matt's paying attention, whereas Matt Matt so good. Yeah.
+
+834
+01:20:45.330 --> 01:20:46.460
+Anthony Taylor: you're not home.
+
+835
+01:20:46.990 --> 01:20:54.040
+Dipinto, Matt: I'm in Boise, my my other. Oh, you're still in Boise. I came back for the weekends.
+
+836
+01:20:54.530 --> 01:20:56.170
+Anthony Taylor: How exciting!
+
+837
+01:20:56.380 --> 01:20:59.950
+Anthony Taylor: I guess it's got a real heavy nightlife out there.
+
+838
+01:21:01.430 --> 01:21:03.060
+Clayton Graves: You're doing it on purpose
+
+839
+01:21:03.670 --> 01:21:05.120
+Dipinto, Matt: going to Boise
+
+840
+01:21:06.080 --> 01:21:09.170
+Dipinto, Matt: work. So much work work.
+
+841
+01:21:09.610 --> 01:21:11.079
+michael mcpherson: Boise is lovely.
+
+842
+01:21:11.860 --> 01:21:16.479
+Dipinto, Matt: It is actually pretty nice. It's like kind of cute. It's not not bad.
+
+843
+01:21:17.090 --> 01:21:18.740
+Anthony Taylor: So like a little town.
+
+844
+01:21:19.400 --> 01:21:27.419
+Dipinto, Matt: It's got a downtown. I think it's honestly got like a 4 by 4 set of blocks that make up like proper downtown. So it's a pretty small city.
+
+845
+01:21:28.730 --> 01:21:32.880
+Anthony Taylor: I have only driven through the North like twice in my lifetime
+
+846
+01:21:33.980 --> 01:21:35.930
+Anthony Taylor: anything above like
+
+847
+01:21:37.560 --> 01:21:40.860
+Anthony Taylor: Missouri, St. Louis, anything above that
+
+848
+01:21:42.060 --> 01:21:45.979
+Anthony Taylor: drove through it like once, twice in my life. That's it.
+
+849
+01:21:46.200 --> 01:21:47.499
+Anthony Taylor: Alright. So let's get.
+
+850
+01:21:48.510 --> 01:21:50.109
+Anthony Taylor: Oh, this is interesting.
+
+851
+01:21:54.590 --> 01:21:57.019
+Anthony Taylor: Oh, this is working. What?
+
+852
+01:21:57.080 --> 01:22:01.889
+Anthony Taylor: Okay? It must have finished. Okay, I was like, how is that happening? Alright? So
+
+853
+01:22:02.180 --> 01:22:03.830
+Anthony Taylor: we finished processing.
+
+854
+01:22:04.300 --> 01:22:11.680
+Anthony Taylor: we're gonna see? Oh, okay. Blah, blah, blah! We've like said, we've done all this. This is all the size. There, there, now, we're gonna resize everything. 6, 4, 6.
+
+855
+01:22:12.080 --> 01:22:14.859
+Anthony Taylor: We're going to convert our points to floats.
+
+856
+01:22:15.170 --> 01:22:22.559
+Anthony Taylor: We're gonna normalize by dividing by 255, and then
+
+857
+01:22:23.010 --> 01:22:27.610
+Anthony Taylor: we're going to split the columns. Now, let's look at the user id
+
+858
+01:22:27.650 --> 01:22:28.670
+Anthony Taylor: column.
+
+859
+01:22:29.350 --> 01:22:34.079
+Anthony Taylor: So we're gonna say, why, yeah.
+
+860
+01:22:34.740 --> 01:22:39.559
+Anthony Taylor: And somehow or another ended up too many quotes there
+
+861
+01:22:39.760 --> 01:22:42.830
+Anthony Taylor: and do a value caps. Okay.
+
+862
+01:22:46.270 --> 01:22:52.129
+Anthony Taylor: we can see we have quite a few different ones there. So again.
+
+863
+01:22:52.380 --> 01:22:55.199
+Anthony Taylor: this still feels like we're doing something we did the other day.
+
+864
+01:22:56.060 --> 01:23:05.149
+Anthony Taylor:  we're gonna do user id and code. Oh, I remember, y, no, okay. So we're going to do user id encoder.
+
+865
+01:23:05.410 --> 01:23:06.670
+Anthony Taylor: Okay.
+
+866
+01:23:07.450 --> 01:23:16.639
+Anthony Taylor: I know why we're doing this all again because we're gonna do it a little differently when we did the other day. So for this one, we're gonna use one hot encoder, which to me seems nuts.
+
+867
+01:23:16.940 --> 01:23:18.780
+Anthony Taylor: But okay.
+
+868
+01:23:19.310 --> 01:23:26.180
+Anthony Taylor:  we're going to do so. Parse output equals false.
+
+869
+01:23:27.190 --> 01:23:30.329
+Anthony Taylor: And then we're gonna fit. Transform it.
+
+870
+01:23:32.060 --> 01:23:41.249
+Anthony Taylor: Id coder. Oh, encoded equals user Id and code dot hit transform
+
+871
+01:23:43.860 --> 01:23:47.730
+Anthony Taylor: parentheses y and
+
+872
+01:23:48.120 --> 01:23:51.670
+Anthony Taylor: that user. Id.
+
+873
+01:23:52.690 --> 01:23:53.620
+Anthony Taylor: okay.
+
+874
+01:23:53.990 --> 01:24:04.219
+Anthony Taylor: all right. So we have our encoded user id, we still need to get the columns and stuff like we did earlier today. Okay.
+
+875
+01:24:04.260 --> 01:24:06.470
+Anthony Taylor: so we're gonna do columns.
+
+876
+01:24:06.770 --> 01:24:11.869
+Anthony Taylor: equals and user id encoded.
+
+877
+01:24:13.090 --> 01:24:18.800
+Anthony Taylor: Nope encoder dot get feature names out.
+
+878
+01:24:19.010 --> 01:24:21.889
+Anthony Taylor: And we just want user id
+
+879
+01:24:22.030 --> 01:24:22.840
+Anthony Taylor: column.
+
+880
+01:24:24.310 --> 01:24:30.399
+Anthony Taylor: Okay, everybody remember what that does. That gets us all the columns that one hot encoder made from
+
+881
+01:24:30.640 --> 01:24:33.300
+Anthony Taylor: our data. So now
+
+882
+01:24:34.260 --> 01:24:39.249
+Anthony Taylor: let's create a little df. that we're going to use in a little bit
+
+883
+01:24:39.660 --> 01:24:42.270
+Anthony Taylor: to bring it all back together again.
+
+884
+01:24:43.260 --> 01:24:49.690
+Clayton Graves: and the result of all that is going to be a list of all the usernames. And then it's going to be 1 0, right?
+
+885
+01:24:50.680 --> 01:25:00.119
+Anthony Taylor: Well, yeah, each one. So there only be one per. Yeah. It's gonna be a lot. I don't know how you're there. Looks like 30 of them.
+
+886
+01:25:00.540 --> 01:25:02.470
+Anthony Taylor: Yeah, there's gonna be a lot of
+
+887
+01:25:03.690 --> 01:25:06.090
+user encoded column
+
+888
+01:25:07.280 --> 01:25:10.910
+Anthony Taylor: equals User Id at the score column.
+
+889
+01:25:12.860 --> 01:25:15.010
+Anthony Taylor: Hopefully, that I'm getting typos in there
+
+890
+01:25:16.010 --> 01:25:18.649
+Anthony Taylor: and then we'll just take a look at the first couple.
+
+891
+01:25:25.140 --> 01:25:28.789
+Anthony Taylor: Look at that. So yeah, we can see there's a lot of them there.
+
+892
+01:25:30.720 --> 01:25:37.040
+Anthony Taylor: Okay. alright. So it says, repeat the process for the pose column.
+
+893
+01:25:37.660 --> 01:25:41.709
+Anthony Taylor: Okay, so we will just I will do the the.
+
+894
+01:25:42.640 --> 01:25:45.419
+Anthony Taylor: I'll do the value counts without.
+
+895
+01:25:45.830 --> 01:25:50.670
+Anthony Taylor: But I am gonna probably pay. I'm not gonna type all that other stuff yet. So I'll be set over. You guys.
+
+896
+01:25:50.930 --> 01:25:52.829
+Anthony Taylor: I know you already have it. But
+
+897
+01:25:53.980 --> 01:26:00.299
+Baro, Sonja: yeah, and you're gonna have to do that for a bunch more. I know we're gonna do it for all of them
+
+898
+01:26:00.560 --> 01:26:02.689
+Baro, Sonja: in the end. Yes.
+
+899
+01:26:03.990 --> 01:26:04.710
+oops
+
+900
+01:26:04.980 --> 01:26:06.480
+Anthony Taylor: gotta remember that.
+
+901
+01:26:07.860 --> 01:26:11.400
+Anthony Taylor: Okay, so we have left straight up and right.
+
+902
+01:26:11.460 --> 01:26:16.219
+Anthony Taylor: So we're gonna do exactly what we did up above. But we're gonna do it with
+
+903
+01:26:16.380 --> 01:26:17.650
+Anthony Taylor: hose.
+
+904
+01:26:17.840 --> 01:26:21.060
+Anthony Taylor: So I'm going to just put this into slack.
+
+905
+01:26:27.530 --> 01:26:37.220
+Clayton Graves: You don't. You don't have to put it in slack if you don't want to. I mean well, I know, but you know what not. Everybody is necessarily looking right at it, so I'll put it there for that.
+
+906
+01:26:37.330 --> 01:26:40.249
+Anthony Taylor: So, Biggie. it's good practice for me.
+
+907
+01:26:40.620 --> 01:26:44.229
+Anthony Taylor: I mean, I got a copy of paste it, anyway, so I might as well, paste it in there.
+
+908
+01:26:44.640 --> 01:26:48.200
+Anthony Taylor: Okay, so there, now, we have pose.
+
+909
+01:26:48.300 --> 01:26:54.340
+Anthony Taylor: Then we're gonna do the same thing for expression.
+
+910
+01:26:54.780 --> 01:26:58.540
+Anthony Taylor: So you know, I'm gonna save me a second. Just copy. This line
+
+911
+01:26:59.470 --> 01:27:00.589
+Anthony Taylor: come down here
+
+912
+01:27:01.780 --> 01:27:03.580
+Anthony Taylor: changes to expression.
+
+913
+01:27:07.630 --> 01:27:17.060
+Anthony Taylor: and there we go again exactly the same thing, except this time it's for expression. So we'll copy
+
+914
+01:27:23.700 --> 01:27:25.159
+Anthony Taylor: paste that in there
+
+915
+01:27:27.120 --> 01:27:28.750
+Anthony Taylor: paste that in there.
+
+916
+01:27:30.010 --> 01:27:37.190
+Anthony Taylor: Now I these, I'm kind of going through fast. Now, is everybody okay with this code, everybody kind of following what we're doing here.
+
+917
+01:27:37.400 --> 01:27:41.070
+Anthony Taylor: So all we're doing is, you know, we're looking at it. And then
+
+918
+01:27:41.160 --> 01:27:42.799
+Anthony Taylor: where?
+
+919
+01:27:43.380 --> 01:27:45.310
+Anthony Taylor: we're just encoding it right now.
+
+920
+01:27:46.560 --> 01:27:48.920
+So and then we're gonna do eyes.
+
+921
+01:27:49.570 --> 01:27:55.730
+Anthony Taylor: So same value counts. This time we're gonna look at. I
+
+922
+01:27:59.760 --> 01:28:03.970
+Derek Rikke: you should have made the first one into a function, and just pass all these through.
+
+923
+01:28:04.200 --> 01:28:05.600
+Anthony Taylor: Dang it.
+
+924
+01:28:06.510 --> 01:28:11.019
+Clayton Graves: Derek, that's freaking, brilliant! That's your job.
+
+925
+01:28:11.320 --> 01:28:16.680
+Anthony Taylor: That's Derek. I love that. III just like that a lot. I think that's really, really cool.
+
+926
+01:28:17.650 --> 01:28:19.949
+Is there anything special about this one.
+
+927
+01:28:20.260 --> 01:28:28.009
+Anthony Taylor: this one? We're dropping the others? We did not. Okay. So this one, because there's only 2,
+
+928
+01:28:28.170 --> 01:28:37.730
+Anthony Taylor: right? We learned this a long time ago, right? If you only have 2 values, you really don't need to columns. you know. One column with just one flag.
+
+929
+01:28:38.320 --> 01:28:40.859
+So it's a little different.
+
+930
+01:28:40.870 --> 01:28:45.150
+Anthony Taylor: just slightly. But I will throw it into slack
+
+931
+01:28:47.040 --> 01:28:48.659
+Anthony Taylor: and point it out.
+
+932
+01:28:53.390 --> 01:28:56.100
+Anthony Taylor: So right here we're gonna actually drop
+
+933
+01:28:56.380 --> 01:28:58.760
+Anthony Taylor: the first column value.
+
+934
+01:28:58.770 --> 01:29:00.320
+Anthony Taylor: So we end up with just
+
+935
+01:29:00.550 --> 01:29:02.519
+Anthony Taylor: true or false one or 0.
+
+936
+01:29:03.490 --> 01:29:04.350
+Anthony Taylor: Okay?
+
+937
+01:29:06.010 --> 01:29:16.209
+Anthony Taylor: All right. Okay. I'm going to give you guys this one, too. So now we're gonna take all of the data friends we just made and combine them together
+
+938
+01:29:18.110 --> 01:29:19.419
+Anthony Taylor: just like that.
+
+939
+01:29:21.360 --> 01:29:35.500
+Anthony Taylor: Okay, so let's walk through this. So we have this new data frame called process df. and we're gonna do concat. We're gonna concat user id encoded pose, encoded expression encoded eyes and code.
+
+940
+01:29:36.370 --> 01:29:41.520
+Anthony Taylor: Alright. but I do. And then take a peek.
+
+941
+01:29:43.590 --> 01:29:46.109
+Did I call it? Something different in expression.
+
+942
+01:29:52.650 --> 01:29:54.590
+Anthony Taylor: Expression encoded the yeah.
+
+943
+01:29:55.080 --> 01:29:58.379
+Anthony Taylor: Oh, eyes and Covid! Oh, I didn't run it. Huh?
+
+944
+01:29:58.490 --> 01:29:59.170
+It's fine.
+
+945
+01:30:00.130 --> 01:30:05.309
+Anthony Taylor: Okay. So now we have all the encoded data.
+
+946
+01:30:06.750 --> 01:30:10.570
+Anthony Taylor: So basically, this is like all of our Y variables. Slot.
+
+947
+01:30:11.720 --> 01:30:12.780
+Anthony Taylor: Okay.
+
+948
+01:30:13.180 --> 01:30:22.830
+Anthony Taylor: alright. So now we're gonna do that augmenting stuff again. Well, we can. We can start it. We'll we'll do it for a while. This isn't too much.
+
+949
+01:30:22.860 --> 01:30:29.380
+Anthony Taylor: So X equals, NP. Array normalized images.
+
+950
+01:30:31.440 --> 01:30:35.950
+Anthony Taylor: So if you guys remember what we're doing here is we're simply
+
+951
+01:30:36.060 --> 01:30:40.589
+Anthony Taylor: going to create more views of our images.
+
+952
+01:30:41.380 --> 01:30:50.059
+Anthony Taylor: Okay. So we're gonna take our little pictures, move around a little bit. Kind of give the model something, a little more data to work with.
+
+953
+01:30:50.780 --> 01:30:51.910
+Anthony Taylor: Okay.
+
+954
+01:30:53.010 --> 01:30:54.380
+Anthony Taylor: processed?
+
+955
+01:31:00.830 --> 01:31:09.659
+Anthony Taylor: Well for image and X, we're going to do image equals
+
+956
+01:31:10.570 --> 01:31:14.980
+Anthony Taylor: Anthony. Can I ask a question while you're go ahead? Of course.
+
+957
+01:31:14.990 --> 01:31:21.949
+Baro, Sonja: So so augmenting? I know we're doing that because it adds data into the training.
+
+958
+01:31:22.510 --> 01:31:31.149
+Baro, Sonja: But where I was wondering is, when do you decide to use a Cnn because that was do? Oh, that was reducing. It wasn't adding right?
+
+959
+01:31:31.940 --> 01:31:45.699
+Anthony Taylor: The Cnn itself it reduces. Yeah. So if you have, like a you know, 1,000 by 1,000, let's it might down to 700 by 7. So it's the opposite actually cause. Then it would be rough.
+
+960
+01:31:45.790 --> 01:31:48.450
+Anthony Taylor: right? Cause that's for training.
+
+961
+01:31:48.560 --> 01:31:51.000
+Anthony Taylor: That's for teaching the model.
+
+962
+01:31:51.050 --> 01:31:56.519
+Baro, Sonja: This, I mean, yes, this is technically, we're teaching a model. But we're trying to give it more data to teach from
+
+963
+01:31:56.780 --> 01:32:02.220
+Anthony Taylor: now, there is a huge problem with this, right? When you use it.
+
+964
+01:32:02.530 --> 01:32:07.140
+Clayton Graves: you're using it to shrink the picture right? It's not necessarily
+
+965
+01:32:07.540 --> 01:32:13.890
+Clayton Graves: about your data. Set your data, frame it. It's it's the. It's the the image that you're
+
+966
+01:32:14.440 --> 01:32:18.079
+Clayton Graves: for. The Cnn, yeah. Well, you're trying to
+
+967
+01:32:18.120 --> 01:32:21.300
+Anthony Taylor: reduce extra.
+
+968
+01:32:21.460 --> 01:32:31.590
+Anthony Taylor: Alright. So if you have a background, you don't care about the background. You want to look at the foreground. That's where Cnn is fantastic. These pictures, Cnn is great, because if you guys look at these pictures they all have a black background.
+
+969
+01:32:32.130 --> 01:32:37.049
+Anthony Taylor: Okay, now, the problem with increasing the number of these pictures.
+
+970
+01:32:37.790 --> 01:32:42.299
+Anthony Taylor: let's say we get it to the point where every single I take y'all's pictures the same way.
+
+971
+01:32:42.460 --> 01:32:48.559
+Anthony Taylor: and every single time it can identify, you know Furry's picture. Just it's perfect.
+
+972
+01:32:48.710 --> 01:32:52.240
+Anthony Taylor: Okay, every time we show it. Curry hat. No hat.
+
+973
+01:32:53.090 --> 01:32:56.320
+Anthony Taylor: right? Must ask beer. No, must beard
+
+974
+01:32:56.490 --> 01:32:57.590
+Anthony Taylor: doesn't care.
+
+975
+01:32:57.750 --> 01:33:02.659
+Anthony Taylor: Gets it every time. But then we put curry in Boise. Idaho.
+
+976
+01:33:05.020 --> 01:33:14.580
+Anthony Taylor: okay. background has now changed because we did so much training on the model with the black background new background.
+
+977
+01:33:15.790 --> 01:33:17.510
+Anthony Taylor: It doesn't know who curry is in.
+
+978
+01:33:18.910 --> 01:33:23.699
+Anthony Taylor: Okay, so it's not there. There's there's a lot of things you have to consider. But
+
+979
+01:33:23.760 --> 01:33:26.360
+Anthony Taylor: when we don't have a ton of
+
+980
+01:33:26.470 --> 01:33:30.160
+Anthony Taylor: of data, this is a very nice way
+
+981
+01:33:30.470 --> 01:33:43.510
+Anthony Taylor: to augment. And and it's honestly I would not say, I would say that while you may not do this as much with as small amount of data as we have. But if you had.
+
+982
+01:33:43.560 --> 01:33:48.279
+Anthony Taylor: let's say we had 50 pictures of each of these people in different backgrounds.
+
+983
+01:33:49.210 --> 01:33:53.800
+Anthony Taylor: Okay? Then augmenting it could actually be very valuable
+
+984
+01:33:55.080 --> 01:33:57.029
+Anthony Taylor: right? Yes, Meredith.
+
+985
+01:33:58.690 --> 01:34:01.440
+Meredith McCanse (she/her): I have a question about the stuff that we're on right now.
+
+986
+01:34:01.480 --> 01:34:05.599
+Meredith McCanse (she/her): We're we're augmenting the X
+
+987
+01:34:06.670 --> 01:34:13.969
+Meredith McCanse (she/her): data added data to it. But when we do the train test split.
+
+988
+01:34:14.250 --> 01:34:20.729
+Meredith McCanse (she/her): So we'll we're going to tell it. The source for the X stuff is going to be this new augmented X process.
+
+989
+01:34:21.250 --> 01:34:31.529
+Meredith McCanse (she/her): We didn't add data to the Y process stuff that we just did. So they're gonna be 2. Those 2 data frames are gonna have different
+
+990
+01:34:31.700 --> 01:34:41.670
+Meredith McCanse (she/her): Nope sheep. They're gonna have diff awesome but different shapes, like the different number that we just added a bunch of images to the X set. But we didn't never add anything to the Y set.
+
+991
+01:34:45.170 --> 01:34:50.070
+Meredith McCanse (she/her): It's understanding how that works. Yeah, no, I'm sure. Yeah, no, you're right. I'm trying to see.
+
+992
+01:34:51.620 --> 01:34:53.230
+Anthony Taylor: It's almost like it's
+
+993
+01:34:55.570 --> 01:35:08.400
+Dipinto, Matt: so. All this did was we haven't actually augmented yet. This just added the the batch number, the Channel dimension to all the Grayscale images. I assume this isn't doing the augmentation.
+
+994
+01:35:10.160 --> 01:35:17.939
+Anthony Taylor: Yeah, augmentation is still coming. Yeah, this is where we're gonna do the augmentation. Excellent point. Thank you. Matt.
+
+995
+01:35:18.310 --> 01:35:23.259
+Anthony Taylor: So yeah, so all exactly. So this, see this here.
+
+996
+01:35:24.120 --> 01:35:37.510
+Anthony Taylor: Remember how we had the size dimension. And when we had, you know, we needed to add the extra bit inside the tuple. So this is just going to add the one at the end of the tuple to say, this is grayscale.
+
+997
+01:35:38.160 --> 01:35:41.979
+Meredith McCanse (she/her): Oh, got it? Okay, yeah, that's all that's gonna happen?
+
+998
+01:35:42.520 --> 01:35:52.679
+Meredith McCanse (she/her): Do we have to add the number at the beginning to like we did in previous? No, because well, we're at least not yet. We're not adding a batch number yet.
+
+999
+01:35:52.960 --> 01:35:53.900
+Meredith McCanse (she/her): Okay, yeah.
+
+1000
+01:35:54.090 --> 01:36:01.649
+Anthony Taylor: So we will see. We'll work our way through that. What the heck just happened there.
+
+1001
+01:36:02.990 --> 01:36:10.660
+Anthony Taylor: My fingers went in the wrong place. X process. Y processed. Yes.
+
+1002
+01:36:13.600 --> 01:36:17.260
+Anthony Taylor: Oh, my God, I did it again. I don't know what I'm touching here. That's doing that.
+
+1003
+01:36:19.800 --> 01:36:32.079
+Anthony Taylor: Okay. alright. So that cell ran alright. So here I'm definitely gonna copy and paste, because this is all of the actual augmenting
+
+1004
+01:36:32.850 --> 01:36:36.480
+Anthony Taylor: that we will have to do. And it's a lot.
+
+1005
+01:36:37.500 --> 01:36:39.999
+Anthony Taylor: So I'm gonna copy and paste that whole cell.
+
+1006
+01:36:40.880 --> 01:36:45.589
+Anthony Taylor: So this is that image data generator. If you guys remember
+
+1007
+01:36:45.840 --> 01:36:47.490
+Anthony Taylor: when we cover this
+
+1008
+01:36:51.160 --> 01:36:59.220
+Dipinto, Matt: to be personity for a moment. So if you look at you know, whatever line 25 of that
+
+1009
+01:36:59.330 --> 01:37:05.290
+Dipinto, Matt: we do do, the expand dims in this next cell, why wouldn't we just do it.
+
+1010
+01:37:05.360 --> 01:37:12.970
+Dipinto, Matt: So you see, why wouldn't we do it in the first loop and keep this one actually to do
+
+1011
+01:37:13.620 --> 01:37:17.149
+Dipinto, Matt: image generation rather than like convoluting the 2 together.
+
+1012
+01:37:17.990 --> 01:37:24.540
+Dipinto, Matt: Anyway, whatever it's, it's fine. Yeah, I'm I'm looking to see if maybe they explained why they did that stand by.
+
+1013
+01:37:25.490 --> 01:37:30.960
+Clayton Graves: But I think this this next cell, Meredith? Question right?
+
+1014
+01:37:31.090 --> 01:37:33.919
+Clayton Graves: Because there you're augmenting. You're augmenting
+
+1015
+01:37:34.350 --> 01:37:37.459
+Clayton Graves: the X train and the Y train this time around.
+
+1016
+01:37:39.300 --> 01:37:40.240
+Anthony Taylor: Correct
+
+1017
+01:37:43.310 --> 01:37:46.939
+Anthony Taylor: like, I said, I'm looking to see if there's a
+
+1018
+01:37:51.290 --> 01:37:54.670
+Anthony Taylor: an explanation as to why they chose to do it that way.
+
+1019
+01:37:57.260 --> 01:37:58.580
+Anthony Taylor: I just want to look
+
+1020
+01:38:00.020 --> 01:38:01.059
+Anthony Taylor: here. We go.
+
+1021
+01:38:02.260 --> 01:38:11.200
+Anthony Taylor: Okay, we encoded Y move on working with X data for a bit. In particular, we want to augment the images to increase the size of our training set.
+
+1022
+01:38:13.810 --> 01:38:16.810
+Anthony Taylor: Now it's time to augment the images. No.
+
+1023
+01:38:19.250 --> 01:38:23.840
+Anthony Taylor: it I agree. II agree with you, Matt. That's a good good point.
+
+1024
+01:38:25.140 --> 01:38:30.659
+Anthony Taylor: It doesn't make a ton of sense. Why. they didn't just do that all in the same way.
+
+1025
+01:38:33.540 --> 01:38:48.530
+Anthony Taylor: Alright. Well, let's walk through this and talk about all the things. So this same as what we did the other day. It's really just a whole bunch of different augmentations. Remember, this is like a range.
+
+1026
+01:38:48.670 --> 01:38:53.539
+Anthony Taylor: So it's not gonna do 20 degrees every single time it could be anything between
+
+1027
+01:38:53.580 --> 01:38:55.499
+Anthony Taylor: one in 20 degrees.
+
+1028
+01:38:55.800 --> 01:39:01.760
+Anthony Taylor: So do all that. Here's our X-train augmented empty list.
+
+1029
+01:39:01.860 --> 01:39:05.290
+Anthony Taylor: Our Y train augmented data frame.
+
+1030
+01:39:05.800 --> 01:39:13.349
+Anthony Taylor: And then we're going to say, Okay, go through each one of these. assign the image. assign the label
+
+1031
+01:39:13.970 --> 01:39:18.650
+Anthony Taylor:  expand the dim. So this is where it puts the one in front.
+
+1032
+01:39:20.140 --> 01:39:30.700
+Anthony Taylor: Okay, so now we have one comma, 64, 60 comma one and this is what Matt was talking about. It's like, why, why would we just do that there?
+
+1033
+01:39:30.850 --> 01:39:34.890
+Anthony Taylor: I don't see a reason why we wouldn't. So
+
+1034
+01:39:37.260 --> 01:39:41.280
+Anthony Taylor: we can go gripe it to develop the original one.
+
+1035
+01:39:41.640 --> 01:39:44.109
+Dipinto, Matt: You mean chat uppity.
+
+1036
+01:39:45.090 --> 01:39:53.759
+Anthony Taylor: I don't think chat TV wrote this. I don't know. I don't know who wrote these. I would say, probably not legally. I don't think they were allowed to use it.
+
+1037
+01:39:55.200 --> 01:40:02.540
+Anthony Taylor:  My understanding at least the way it was when I was on the curriculum team. As a consultant
+
+1038
+01:40:02.710 --> 01:40:14.170
+Anthony Taylor: we would usually write out a lot of this stuff, but a lot of it also gets  I mean, you know, they find examples, or they come up with examples and
+
+1039
+01:40:14.240 --> 01:40:22.419
+Anthony Taylor: ask the consultant to review them, and then and and again. as a consultant would. I have noticed this?
+
+1040
+01:40:23.310 --> 01:40:25.780
+Anthony Taylor: Maybe maybe not. I don't know
+
+1041
+01:40:25.890 --> 01:40:31.810
+Anthony Taylor: it's hard to say they they usually want us to to review it as quickly as possible.
+
+1042
+01:40:31.890 --> 01:40:33.590
+Anthony Taylor: Does it work? Yeah.
+
+1043
+01:40:34.900 --> 01:40:35.840
+Anthony Taylor: Thumbs up
+
+1044
+01:40:36.540 --> 01:40:37.320
+so
+
+1045
+01:40:37.520 --> 01:40:39.960
+Anthony Taylor: because they pay us a lot be consulted.
+
+1046
+01:40:40.390 --> 01:40:45.420
+Anthony Taylor:  all right. So where are we? Okay?
+
+1047
+01:40:45.530 --> 01:41:02.529
+Anthony Taylor: So here we're going to add 5 new images to each one, basically just going to go through and apply one or more of these augments to an image and then save it to the list. And when we're all done we'll get a new link.
+
+1048
+01:41:02.640 --> 01:41:07.679
+Anthony Taylor: The one thing we really want to see is that the length of X train and length of Y train are the same.
+
+1049
+01:41:07.720 --> 01:41:10.470
+Anthony Taylor: They are so so far.
+
+1050
+01:41:10.510 --> 01:41:11.830
+Anthony Taylor: so good.
+
+1051
+01:41:12.260 --> 01:41:18.460
+Anthony Taylor:  next, we're gonna convert
+
+1052
+01:41:18.960 --> 01:41:22.290
+Anthony Taylor: our data to a single arrays.
+
+1053
+01:41:23.200 --> 01:41:26.119
+Anthony Taylor: So I'm gonna bring. Oh, I can type.
+
+1054
+01:41:26.650 --> 01:41:31.189
+Anthony Taylor: I can type it. I get lazy, and I'm like, I don't want to type.
+
+1055
+01:41:32.490 --> 01:41:36.419
+Clayton Graves: But you said you were gonna convert it to a single array, but it looks like.
+
+1056
+01:41:36.770 --> 01:41:41.919
+Clayton Graves: well, it's not gonna be one array. Each one will be an array, I guess. I should say.
+
+1057
+01:41:42.520 --> 01:41:47.539
+Anthony Taylor: yeah, sorry you are correct. Not a single array of the whole thing
+
+1058
+01:41:48.020 --> 01:41:51.080
+Anthony Taylor: single. That's that's wrong, right? There's wrong
+
+1059
+01:41:53.130 --> 01:41:58.229
+Anthony Taylor: underscore. And then same for tests
+
+1060
+01:42:00.370 --> 01:42:04.830
+Anthony Taylor: equals. Np, array
+
+1061
+01:42:06.920 --> 01:42:07.900
+Anthony Taylor: tests.
+
+1062
+01:42:10.170 --> 01:42:13.760
+Anthony Taylor: And we can take a look. The shape
+
+1063
+01:42:20.930 --> 01:42:28.569
+Anthony Taylor: that's good enough. Okay, so 2,364, one. Yay. we're looking good.
+
+1064
+01:42:29.240 --> 01:42:32.420
+Anthony Taylor: Okay? All right.
+
+1065
+01:42:36.580 --> 01:42:40.100
+Anthony Taylor: let's take a look at why, underscore train
+
+1066
+01:42:42.690 --> 01:42:44.320
+Anthony Taylor: ahead.
+
+1067
+01:42:46.710 --> 01:42:48.290
+Anthony Taylor: Okay? Not sure what?
+
+1068
+01:42:48.440 --> 01:43:00.190
+Anthony Taylor: Oh, okay. Now, we have all the wide view to format correctly need to divide it back into sets of columns that can be predicted by a single layer. For instance, user Id columns should be together.
+
+1069
+01:43:00.540 --> 01:43:01.380
+Anthony Taylor: Okay.
+
+1070
+01:43:01.870 --> 01:43:19.689
+Anthony Taylor: it's perfectly reasonable to gather all one hot encoded inputs with original columns back together. For example, we gather all the augmented data for pose in its own data frame to do the same. So if we have separate data frames for each of the target variables. How many Y variables will we be working with?
+
+1071
+01:43:26.650 --> 01:43:29.689
+Anthony Taylor: So of all the different ones we did, how many different?
+
+1072
+01:43:30.310 --> 01:43:32.050
+Anthony Taylor: Why, variables do we have?
+
+1073
+01:43:35.800 --> 01:43:44.999
+Anthony Taylor: I'll give you a hint if you want to look. Go all the way back up to where we were doing those same things over and over again. How many times did we do those things over and over again?
+
+1074
+01:43:45.820 --> 01:43:46.650
+Anthony Taylor: 4.
+
+1075
+01:43:47.080 --> 01:43:52.020
+Anthony Taylor: Okay, so we have 4 different ones, user, id expression, pose ice
+
+1076
+01:43:53.130 --> 01:43:58.079
+Anthony Taylor: alright! How many branches will our architecture have?
+
+1077
+01:43:59.330 --> 01:44:02.230
+Anthony Taylor: And the branches are after the hidden layers?
+
+1078
+01:44:06.190 --> 01:44:11.849
+Clayton Graves: Well, you're gonna need one for each each one. Right? So so or again.
+
+1079
+01:44:12.000 --> 01:44:14.310
+Anthony Taylor: yeah, 4 is correct.
+
+1080
+01:44:14.400 --> 01:44:16.050
+Anthony Taylor: Alright. So which
+
+1081
+01:44:16.140 --> 01:44:18.790
+Anthony Taylor: activation function
+
+1082
+01:44:19.340 --> 01:44:21.689
+Anthony Taylor: can we apply to each branch?
+
+1083
+01:44:24.310 --> 01:44:25.620
+Softmax?
+
+1084
+01:44:26.820 --> 01:44:27.510
+And
+
+1085
+01:44:29.900 --> 01:44:33.019
+Anthony Taylor: here's the good news. Your answer is not wrong.
+
+1086
+01:44:34.550 --> 01:44:42.180
+Anthony Taylor: Okay, the way that we're going to handle this, we can actually apply either to some of them.
+
+1087
+01:44:42.250 --> 01:44:46.079
+Anthony Taylor: like the only one that for sure is sigmoid is the eyes?
+
+1088
+01:44:46.110 --> 01:44:56.619
+Anthony Taylor: Yeah, was the eyes. Well, that one's there's no question. Okay, but we're going to actually use sigmoid on all of these, and it'll be fine, because each one is a separate
+
+1089
+01:44:57.000 --> 01:45:01.279
+Anthony Taylor: variable. That is, gonna that it'll work. It'll work that way.
+
+1090
+01:45:01.710 --> 01:45:10.470
+Anthony Taylor:  where do we expect the output to look like. So if we use sigmoid, go ahead
+
+1091
+01:45:10.810 --> 01:45:12.230
+Clayton Graves: only has
+
+1092
+01:45:12.370 --> 01:45:17.790
+Clayton Graves: one of 2 possible variables, one or 0 correct, each column correct.
+
+1093
+01:45:18.870 --> 01:45:23.350
+Clayton Graves: So then that explains why we wouldn't need to use
+
+1094
+01:45:23.800 --> 01:45:25.060
+Clayton Graves: the software
+
+1095
+01:45:26.560 --> 01:45:28.860
+Clayton Graves: because you can't be both one and 0.
+
+1096
+01:45:29.590 --> 01:45:32.830
+Anthony Taylor: Well, all right. Well, hold on to that. Hold on to that thought.
+
+1097
+01:45:32.930 --> 01:45:33.810
+Anthony Taylor: So
+
+1098
+01:45:34.310 --> 01:45:40.099
+Anthony Taylor: if we use sigmoid, what do we expect? So let's just look at the eyes. One. We have 2 possibilities.
+
+1099
+01:45:40.250 --> 01:45:43.959
+Anthony Taylor: Okay, if we use sigmoid. what would we expect to see
+
+1100
+01:45:47.050 --> 01:45:49.180
+Meredith McCanse (she/her): either classes or without.
+
+1101
+01:45:50.720 --> 01:45:53.259
+Anthony Taylor: But what would it come out as go ahead, Meredith?
+
+1102
+01:45:55.490 --> 01:45:59.529
+Meredith McCanse (she/her): Oh, I was gonna say the same thing, Playton, said I, one or 0, I guess.
+
+1103
+01:45:59.970 --> 01:46:09.929
+Anthony Taylor: Well, right. It would be a probability between 0 and one with one being. They're wearing sunglasses
+
+1104
+01:46:10.070 --> 01:46:13.789
+Anthony Taylor: and 0 being they're you can see their eyes.
+
+1105
+01:46:14.280 --> 01:46:23.609
+Anthony Taylor: Okay, so it would be a probability between the 2, the models not going to be perfect every time. It's gonna say, well, it's like 83% chance. They got sunglasses.
+
+1106
+01:46:24.990 --> 01:46:29.149
+Anthony Taylor: Okay? And then that's gonna round up one. And you're gonna get sunglasses.
+
+1107
+01:46:29.310 --> 01:46:34.589
+Anthony Taylor: Now, what? It would be an advantage of using softmax instead of sigmoid.
+
+1108
+01:46:35.110 --> 01:46:39.670
+Anthony Taylor: In some of these. let's use user Id as an example.
+
+1109
+01:46:50.490 --> 01:46:58.690
+Baro, Sonja: Is that the case where we've augmented the picture, and something might have changed, or or maybe we added a whole new picture
+
+1110
+01:46:58.900 --> 01:47:03.690
+Baro, Sonja: right? Cause there's so if there's more pictures of the same person.
+
+1111
+01:47:03.900 --> 01:47:06.749
+Baro, Sonja: that's when you would want to use Softmax.
+
+1112
+01:47:07.740 --> 01:47:14.489
+Anthony Taylor: Well, let's say, let's just say, how about a new person complete.
+
+1113
+01:47:15.760 --> 01:47:29.940
+Anthony Taylor: Okay, so consider this. If if if we you later use this model with sigmoid, all predictions would be forced to one, even if the model was certain that the new image didn't belong to any of the original faces.
+
+1114
+01:47:31.600 --> 01:47:39.560
+Anthony Taylor: Okay, so it would. It could be completely wrong, because it's a whole new image, but they all are pointing to whatever one indicates.
+
+1115
+01:47:39.760 --> 01:47:49.150
+Anthony Taylor: All right with the Softmax, you would get a probability of what this is, and and that probability could be very, very low.
+
+1116
+01:47:49.170 --> 01:47:53.720
+Anthony Taylor: but it would be a probability of all of the images which one is this one most similar to.
+
+1117
+01:47:54.640 --> 01:48:00.099
+Anthony Taylor: So if all of them, it's not similar to any of them, it's just going to come back with a very low probability.
+
+1118
+01:48:00.280 --> 01:48:01.230
+Anthony Taylor: all of it.
+
+1119
+01:48:02.290 --> 01:48:04.820
+Anthony Taylor: Okay. so that's
+
+1120
+01:48:04.900 --> 01:48:14.400
+Anthony Taylor: this is another one of those like tunable moments. Right? We're going to use sigmoid. And all of them. Is it ideal? Not necessarily. But
+
+1121
+01:48:14.820 --> 01:48:20.419
+Anthony Taylor: it's it's like. Again, you could go and flip this switch and try different things
+
+1122
+01:48:20.530 --> 01:48:22.349
+Anthony Taylor: to get different results.
+
+1123
+01:48:22.870 --> 01:48:26.940
+Clayton Graves: We are using multiple columns right?
+
+1124
+01:48:27.310 --> 01:48:30.210
+Clayton Graves: And that was that was one of the things that
+
+1125
+01:48:30.500 --> 01:48:34.590
+Anthony Taylor: one of the things you would consider absolutely absolutely.
+
+1126
+01:48:34.640 --> 01:48:43.549
+Baro, Sonja: Is there a high resource draw from sick Softmax, or there is Softmax is definitely higher than signal.
+
+1127
+01:48:43.650 --> 01:48:49.329
+Baro, Sonja: But you I mean you could eat honestly, though I don't know that it would be enough to get all freaky about.
+
+1128
+01:48:49.370 --> 01:48:58.649
+Anthony Taylor: I mean, you're probably would be fine using using either one. And I mean we could even go as far as to try it.
+
+1129
+01:48:58.800 --> 01:49:03.499
+Anthony Taylor: But first let's continue. Let's just go with this the way this one is for now
+
+1130
+01:49:05.980 --> 01:49:12.590
+Anthony Taylor: and then we'll talk more about it. So here we go. So here's the next cell. It's quite elaborate.
+
+1131
+01:49:15.990 --> 01:49:17.670
+Anthony Taylor: This is this cell. Here.
+
+1132
+01:49:19.610 --> 01:49:29.889
+Anthony Taylor: Alright, let's go through all of this. So here we're gonna take the Y, so basically, all we're gonna do is get our Y variables for each of the columns. Okay.
+
+1133
+01:49:29.950 --> 01:49:31.929
+Anthony Taylor: that's that's our goal here.
+
+1134
+01:49:32.310 --> 01:49:36.460
+Anthony Taylor: So we have our wide train user. Id, we're going to get it from Aug.
+
+1135
+01:49:36.650 --> 01:49:43.550
+Anthony Taylor: and we're just going to basically grab user, id, impose, then expression, then, eyes.
+
+1136
+01:49:44.020 --> 01:49:45.080
+Anthony Taylor: Okay.
+
+1137
+01:49:45.280 --> 01:49:54.550
+Anthony Taylor: and now repeat all 4 selections with the Why did Y testing so this did it with the train. This did it with the tests. Run it.
+
+1138
+01:49:55.990 --> 01:49:56.750
+Anthony Taylor: Yeah.
+
+1139
+01:49:57.270 --> 01:50:03.860
+Anthony Taylor: okay, we can look at just one of our data frames. Let's look at head pose.
+
+1140
+01:50:04.230 --> 01:50:06.420
+Anthony Taylor: So I train.
+
+1141
+01:50:13.360 --> 01:50:14.479
+Anthony Taylor: And there we go.
+
+1142
+01:50:14.800 --> 01:50:25.829
+Anthony Taylor: Okay, we can see, we got some cool stuff all right. So we're actually, gonna we're actually not going to continue this. We're going to stop right here by pickling out our data.
+
+1143
+01:50:26.000 --> 01:50:30.599
+Anthony Taylor: Now, I'm gonna grab. I'm gonna again. I'm just gonna copy this. This is another
+
+1144
+01:50:31.060 --> 01:50:32.580
+Anthony Taylor: lot of stuff here.
+
+1145
+01:50:33.920 --> 01:50:36.399
+Anthony Taylor: You guys, of course, can see it already.
+
+1146
+01:50:37.240 --> 01:50:39.909
+Anthony Taylor: But I still gonna give it to you.
+
+1147
+01:50:43.320 --> 01:50:44.400
+Anthony Taylor: Alright.
+
+1148
+01:50:44.450 --> 01:50:56.269
+Anthony Taylor: They actually gave us quite a bit of this, but we'll still there we go, all right. So what do we got? Well, we've got a dictionary of all of our different
+
+1149
+01:50:56.560 --> 01:50:57.900
+Anthony Taylor: data sets.
+
+1150
+01:50:58.640 --> 01:51:07.440
+Anthony Taylor: Then we're gonna connect to Google, Colab, mount our drive and then write it to our mounted drive. So we'll run this
+
+1151
+01:51:08.390 --> 01:51:11.269
+Anthony Taylor: connect to Google. Drive. Go ahead.
+
+1152
+01:51:12.490 --> 01:51:13.570
+Anthony Taylor: go ahead.
+
+1153
+01:51:14.740 --> 01:51:15.930
+Anthony Taylor: go ahead
+
+1154
+01:51:17.140 --> 01:51:22.029
+Anthony Taylor: eventually. It'll go now. It's going to put all that data in here.
+
+1155
+01:51:46.690 --> 01:51:49.209
+Anthony Taylor: and it's done. So let's check and see if it worked
+
+1156
+01:51:49.330 --> 01:51:51.810
+Anthony Taylor: 5 microt.
+
+1157
+01:51:52.690 --> 01:51:55.460
+Anthony Taylor: And we're looking for preprocessed faces.
+
+1158
+01:51:56.730 --> 01:51:57.850
+Anthony Taylor: And there they are.
+
+1159
+01:51:58.830 --> 01:52:01.649
+Anthony Taylor: Okay, pretty exciting.
+
+1160
+01:52:01.780 --> 01:52:03.990
+Anthony Taylor: All our data is preprocessed.
+
+1161
+01:52:04.990 --> 01:52:07.079
+Anthony Taylor: And we're not done yet.
+
+1162
+01:52:08.470 --> 01:52:15.179
+Anthony Taylor: Okay, I'm hoping I have some pictures. So yeah, so let's talk about
+
+1163
+01:52:15.510 --> 01:52:18.920
+Anthony Taylor: some challenge. Well, first, before I leave that any questions
+
+1164
+01:52:19.000 --> 01:52:24.550
+Anthony Taylor: think we were kind of addressing questions as we went. Everyone's pretty okay with what we just did.
+
+1165
+01:52:25.020 --> 01:52:26.500
+Anthony Taylor: Okay, I
+
+1166
+01:52:26.520 --> 01:52:36.240
+Anthony Taylor: the bottom. I remember guys and I, we've been saying this. I don't know. Probably the whole boot camp preprocessing is most of the work. Okay.
+
+1167
+01:52:36.750 --> 01:52:46.220
+Anthony Taylor: feel free to go through that code. Understand? It's I don't know that there's a lot that is weird activation functions are iffy. But
+
+1168
+01:52:47.010 --> 01:52:51.779
+Anthony Taylor: I think you're gonna be fine with that. Okay, you could try different ones
+
+1169
+01:52:51.860 --> 01:52:55.069
+Anthony Taylor: for different purposes. But if you stick to the rules
+
+1170
+01:52:56.120 --> 01:53:00.949
+Anthony Taylor: which we just told you, we're not. Gonna but if we stick to the rules, you should be okay.
+
+1171
+01:53:01.140 --> 01:53:03.419
+Anthony Taylor: So some of the challenges with image data.
+
+1172
+01:53:03.670 --> 01:53:08.839
+Anthony Taylor: Okay, probably one of the most
+
+1173
+01:53:09.150 --> 01:53:15.360
+Anthony Taylor: pain and the butt challenges is noisy images. Okay?
+
+1174
+01:53:16.120 --> 01:53:24.030
+Anthony Taylor: and this, you know, a lot of this can come from how the pictures were taken. So older smartphones are very noisy.
+
+1175
+01:53:24.430 --> 01:53:28.239
+Anthony Taylor:  Anything in the background
+
+1176
+01:53:28.260 --> 01:53:29.569
+Anthony Taylor: can mess you up.
+
+1177
+01:53:29.810 --> 01:53:33.979
+Anthony Taylor: You have pictures with photos behind you, I mean.
+
+1178
+01:53:34.440 --> 01:53:40.080
+Anthony Taylor: like, if Clayton brought his dog up on the screen and we took picture with all that noise behind him.
+
+1179
+01:53:41.240 --> 01:53:49.750
+Anthony Taylor: Meredith, all her oranges. Oh, my goodness. okay, my area even is pretty pretty cluttered in the back.
+
+1180
+01:53:50.080 --> 01:53:56.320
+Anthony Taylor: So you know, these kind of things will definitely make it difficult.
+
+1181
+01:53:56.590 --> 01:54:00.030
+Anthony Taylor: Believe it or not. There are ways to deal with it. In fact.
+
+1182
+01:54:01.310 --> 01:54:03.539
+Anthony Taylor: I just want to see something.
+
+1183
+01:54:05.670 --> 01:54:08.150
+Anthony Taylor: II used to have this great
+
+1184
+01:54:08.880 --> 01:54:10.180
+Anthony Taylor: example.
+
+1185
+01:54:11.590 --> 01:54:13.459
+Anthony Taylor: I think it was these guys.
+
+1186
+01:54:14.620 --> 01:54:16.209
+Anthony Taylor: and it showed
+
+1187
+01:54:18.960 --> 01:54:24.730
+Anthony Taylor: what's happening with the image itself. That's not it. Darn it.
+
+1188
+01:54:25.510 --> 01:54:28.750
+Anthony Taylor: I'm not gonna spend too long looking for this, but I was hoping.
+
+1189
+01:54:29.850 --> 01:54:31.310
+Anthony Taylor: hoping.
+
+1190
+01:54:33.610 --> 01:54:40.449
+Baro, Sonja: I think you referenced this when we were doing Cnn. The that there was an image that you had
+
+1191
+01:54:40.700 --> 01:54:41.950
+Anthony Taylor: right.
+
+1192
+01:54:50.120 --> 01:54:53.939
+Anthony Taylor: There's there's I mean, as you can see. Cnn is very, very poppy.
+
+1193
+01:54:54.360 --> 01:54:57.959
+Anthony Taylor: There is a ton. This looks right.
+
+1194
+01:55:00.400 --> 01:55:02.520
+Anthony Taylor: I wonder if they have it blown up, though?
+
+1195
+01:55:08.790 --> 01:55:11.719
+Anthony Taylor: Yeah, little bit. Let's see, they got more. But
+
+1196
+01:55:14.350 --> 01:55:18.949
+Anthony Taylor: so basically, what's happening with the filters. This is a small example.
+
+1197
+01:55:19.200 --> 01:55:23.039
+Anthony Taylor: Well, this is this is AI, that's
+
+1198
+01:55:23.510 --> 01:55:27.339
+Anthony Taylor: that. And and I don't want to explain that right now.
+
+1199
+01:55:27.400 --> 01:55:33.240
+Anthony Taylor: We'll explain that later. If we don't remind me to explain that to you later. How? A picture is generated
+
+1200
+01:55:33.560 --> 01:55:34.890
+Anthony Taylor: through AI.
+
+1201
+01:55:36.250 --> 01:55:37.210
+Anthony Taylor: Okay.
+
+1202
+01:55:37.310 --> 01:55:43.820
+Anthony Taylor: so this is the closest I'm going to find. I think so basically, what's happening with each
+
+1203
+01:55:45.360 --> 01:55:49.870
+Anthony Taylor: filter. So like earlier, remember, when we did the Cnn, we said, 32 filters.
+
+1204
+01:55:50.050 --> 01:56:05.879
+Anthony Taylor: each filter is basically identifying something else within the picture, and then based on the kernel that we pass it. Remember, one did like horizontal lines. One did vertical lines, one did blur, one did this, all these different things get identified
+
+1205
+01:56:06.300 --> 01:56:17.540
+Anthony Taylor: as the convolutions continue. and as they go through it, it basically. I mean, imagine, if you took the picture and said, Alright, let's look at it with one eye.
+
+1206
+01:56:18.820 --> 01:56:20.740
+Anthony Taylor: Okay, let's look at it with other.
+
+1207
+01:56:21.150 --> 01:56:23.710
+Anthony Taylor: Now let's put 3D glasses on.
+
+1208
+01:56:24.090 --> 01:56:29.169
+Anthony Taylor: Now let's put you know, sunglasses on. Now turn it this way, turn it that.
+
+1209
+01:56:29.540 --> 01:56:43.329
+Anthony Taylor: whatever the more different ways you look at it, the easier it is for you to identify. Or remember. the model is basically training that way. It's trying to find it's basically trying to understand the detail
+
+1210
+01:56:43.560 --> 01:56:53.429
+Anthony Taylor: via the numbers, because realize it's just a bunch of floats right? So it's trying to understand the details that are in front of it. And to do that, it basically
+
+1211
+01:56:53.610 --> 01:56:55.200
+Anthony Taylor: like tries to do.
+
+1212
+01:56:55.700 --> 01:57:06.039
+Anthony Taylor: You know what kind of this is? What it makes you think of, do you guys ever? And and I don't know. Maybe this is like some silly kid thing. But like, if you're ever looking to something, do you ever intentionally
+
+1213
+01:57:06.130 --> 01:57:07.600
+Anthony Taylor: get out of focus
+
+1214
+01:57:08.400 --> 01:57:15.969
+Anthony Taylor: like you look at something, and then you like, you know, like, try to look past it or look closer, whatever. And it's almost like you're looking
+
+1215
+01:57:16.210 --> 01:57:18.090
+Anthony Taylor: at different layers.
+
+1216
+01:57:18.290 --> 01:57:22.150
+Anthony Taylor: Okay? Or here's another great example.
+
+1217
+01:57:22.620 --> 01:57:29.389
+Anthony Taylor: When you take a picture on your phone with portrait. Move right? That for that picture looks 3D. Doesn't.
+
+1218
+01:57:29.560 --> 01:57:37.369
+Anthony Taylor: It? Looks like you can see another layer is behind the the the main feature of the photo. Well, think like that.
+
+1219
+01:57:37.450 --> 01:57:42.930
+Anthony Taylor: It's basically trying to cut that photo into layers with different filters
+
+1220
+01:57:43.240 --> 01:57:50.410
+Anthony Taylor: to come up with what the features of this the details of the picture are. So there are some great Cnn
+
+1221
+01:57:50.450 --> 01:57:53.739
+Anthony Taylor: documentation out there. It's incredibly popular.
+
+1222
+01:57:53.850 --> 01:57:59.580
+Anthony Taylor: and it's kind of key to the whole stable diffusion and
+
+1223
+01:57:59.840 --> 01:58:04.109
+Anthony Taylor: mid journey, and Dolly 3 for image generation.
+
+1224
+01:58:04.750 --> 01:58:08.880
+Anthony Taylor: Alright. So. And we will talk about some of that stuff anyway.
+
+1225
+01:58:08.970 --> 01:58:13.749
+Anthony Taylor: Okay, so noisy images. it's just hard to deal with.
+
+1226
+01:58:14.030 --> 01:58:17.920
+Anthony Taylor: all right, especially other things. Compression.
+
+1227
+01:58:19.170 --> 01:58:23.240
+Anthony Taylor: compression. What's compression? Are pictures always compress.
+
+1228
+01:58:24.080 --> 01:58:25.680
+Anthony Taylor: are never compressed.
+
+1229
+01:58:30.750 --> 01:58:32.560
+Anthony Taylor: Any photographers in the room.
+
+1230
+01:58:34.540 --> 01:58:36.210
+Dipinto, Matt: sometimes compressed.
+
+1231
+01:58:36.980 --> 01:58:42.610
+Dipinto, Matt: Sometimes I mean, you can take it in a prop format that wouldn't be compressed.
+
+1232
+01:58:42.740 --> 01:58:55.099
+Anthony Taylor: So most photographers take pictures in a raw okay, which is dot raw. right? Most of you probably have never seen a dot raw photo. It doesn't look any different than a Jpeg.
+
+1233
+01:58:55.610 --> 01:59:04.270
+Anthony Taylor: at least to the naked eye. The difference with a dot raw is that we can apply filters to it, or or change photo settings
+
+1234
+01:59:04.300 --> 01:59:05.579
+after the fact.
+
+1235
+01:59:06.060 --> 01:59:07.429
+Anthony Taylor: To say, you want
+
+1236
+01:59:08.590 --> 01:59:10.410
+Anthony Taylor: to change the f-stop.
+
+1237
+01:59:10.700 --> 01:59:16.629
+Anthony Taylor: If you have a raw photo taken with a digital camera, you can actually change the f-stop after that
+
+1238
+01:59:17.150 --> 01:59:23.060
+Anthony Taylor: kind of interesting little tidbits. Well, those are pretty much only uncompressed images.
+
+1239
+01:59:23.570 --> 01:59:29.600
+Anthony Taylor: Jpeg. Compressed. Get a press, P. And G. Compress.
+
+1240
+01:59:30.440 --> 01:59:43.090
+Anthony Taylor: Now the level to which the compression is is dependent on how you have it set up. If you ever use Photoshop and you go to save a picture like export as Jpeg, it will ask you.
+
+1241
+01:59:43.600 --> 01:59:45.249
+Anthony Taylor: how good quality do you want?
+
+1242
+01:59:45.280 --> 01:59:48.500
+Anthony Taylor: And that means, how compressed do you want this?
+
+1243
+01:59:49.930 --> 01:59:55.059
+Anthony Taylor: Okay? So that also creates noise, alright variation?
+
+1244
+01:59:55.150 --> 02:00:13.940
+Anthony Taylor:  so Cnids are great at recognizing patterns and data sets, especially large ones. Lots of inputs. Okay, when there's less variety, though, it's easier for this model to identify
+
+1245
+02:00:14.930 --> 02:00:16.210
+Anthony Taylor: it's
+
+1246
+02:00:19.660 --> 02:00:23.340
+Anthony Taylor: well, I mean with normalization, it makes it easier.
+
+1247
+02:00:23.910 --> 02:00:35.050
+Anthony Taylor: But the variations are just a problem. Okay, so say, for instance, we have a database of flowering plant images, and we classify them as either fruiting or non-fruiting.
+
+1248
+02:00:35.180 --> 02:00:43.899
+Anthony Taylor: The non fruiting plants can include dandelions, roses, lilies, although they all belong to the same class. Their flowers are very different
+
+1249
+02:00:44.060 --> 02:00:48.829
+Anthony Taylor: appearance. This is an intra class barrier. So
+
+1250
+02:00:49.980 --> 02:00:58.070
+Anthony Taylor: I mean, you know, II remember this. This didn't used to be flowers. But yeah, so think about. If you have flowering fruits
+
+1251
+02:00:58.470 --> 02:01:10.410
+Anthony Taylor: right? And you're looking at flowers and trying to determine which one is what is, is a fruit and which one is not, I mean. flowering fruits can be practically any color and any shape
+
+1252
+02:01:11.480 --> 02:01:17.060
+Anthony Taylor: and non flowering fruits. Fruits can also be practically any color, any shape.
+
+1253
+02:01:17.120 --> 02:01:21.310
+Anthony Taylor: So it does complicate things when you're trying to do image classification.
+
+1254
+02:01:21.500 --> 02:01:29.540
+Anthony Taylor: Alright. So that's something. Keep in mind the last thing about Cnn's that we'll talk about before sending you off to do. Your activity
+
+1255
+02:01:29.660 --> 02:01:32.660
+Anthony Taylor: is computational expense.
+
+1256
+02:01:32.700 --> 02:01:34.220
+Anthony Taylor: You can imagine.
+
+1257
+02:01:34.270 --> 02:01:38.549
+Anthony Taylor: If it's got to take this giant picture, cut it into
+
+1258
+02:01:39.710 --> 02:01:49.690
+Anthony Taylor: potentially thousands of more little blocks and then process. Oh, and we're gonna apply a filter to every one of those blocks.
+
+1259
+02:01:50.700 --> 02:02:04.110
+Anthony Taylor: I mean, this is gonna be very computationally intense. But keep climates only the training. Remember what I always tell you guys, the training is computationally expensive, actually using it typically is not
+
+1260
+02:02:05.790 --> 02:02:07.750
+Anthony Taylor: so Amazon
+
+1261
+02:02:08.000 --> 02:02:09.939
+Anthony Taylor: azure. Google.
+
+1262
+02:02:09.970 --> 02:02:16.819
+Anthony Taylor: they all have. You can pre-buy. You can use their trained vision models.
+
+1263
+02:02:17.150 --> 02:02:19.350
+Anthony Taylor: and they are ridiculous.
+
+1264
+02:02:19.530 --> 02:02:25.980
+Anthony Taylor: I can take and and and and between Meredith and Clayton I'm not sure who has a more complicated background.
+
+1265
+02:02:26.370 --> 02:02:28.000
+Anthony Taylor: Okay? But
+
+1266
+02:02:28.010 --> 02:02:35.219
+Anthony Taylor: I could take. Let's use Clayton Clayton's background. Put it into these these models we can buy
+
+1267
+02:02:35.390 --> 02:02:42.020
+Anthony Taylor: and just take his picture boom, say, identify it, will pick up every single thing
+
+1268
+02:02:43.080 --> 02:02:45.990
+Anthony Taylor: in his picture and tell me what it is
+
+1269
+02:02:47.390 --> 02:02:51.530
+Anthony Taylor: without any training that's already been trained. It's ready to go.
+
+1270
+02:02:52.400 --> 02:02:54.139
+Anthony Taylor: and it'll cost me about a nickel.
+
+1271
+02:02:56.210 --> 02:03:02.260
+Anthony Taylor: Okay? Because most people don't process one image. They process 1 million a thousand.
+
+1272
+02:03:03.600 --> 02:03:07.009
+Anthony Taylor: though the cloud services make good money on this.
+
+1273
+02:03:07.240 --> 02:03:13.629
+Anthony Taylor: Alright. Last, but not least. you guys are going to finish what we started
+
+1274
+02:03:14.060 --> 02:03:17.170
+Anthony Taylor: do it in Google colab.
+
+1275
+02:03:18.080 --> 02:03:30.980
+Anthony Taylor: But but but but, please. I did not give you the solution. the good news is all you got to do. Is that model? Build and branches.
+
+1276
+02:03:31.070 --> 02:03:36.220
+Anthony Taylor: And this is all like what I showed you earlier. So it's not really that difficult train it.
+
+1277
+02:03:36.630 --> 02:03:43.540
+Anthony Taylor: and it has the evaluate there. It's all you got to do you actually have. I'm going to give you all 20 min
+
+1278
+02:03:44.250 --> 02:03:49.779
+Anthony Taylor: to do this. and if you get done way early.
+
+1279
+02:03:50.370 --> 02:03:54.090
+Anthony Taylor: come on back. If not feel free to take the whole 20 min.
+
+1280
+02:03:55.220 --> 02:03:57.660
+Anthony Taylor: Alright!
+
+1281
+02:03:57.800 --> 02:04:00.820
+Anthony Taylor: How did everybody do? Did we get through? It
+
+1282
+02:04:01.210 --> 02:04:03.870
+Clayton Graves: mostly was 20 min enough.
+
+1283
+02:04:03.890 --> 02:04:05.670
+Meredith McCanse (she/her): We did not get through it.
+
+1284
+02:04:05.950 --> 02:04:10.919
+Anthony Taylor: I feel bad. Cause II mean, I was like it was 25 min. But I thought.
+
+1285
+02:04:11.210 --> 02:04:13.470
+Anthony Taylor: for sure, you guys will be okay
+
+1286
+02:04:14.990 --> 02:04:16.130
+Anthony Taylor: with 20 min.
+
+1287
+02:04:17.040 --> 02:04:25.990
+Baro, Sonja: You're okay to find what you're looking to reference and all that. So I definitely can follow you on that.
+
+1288
+02:04:26.270 --> 02:04:30.520
+Baro, Sonja: Alright. So let me go on and bring in the solution.
+
+1289
+02:04:32.110 --> 02:04:35.570
+Anthony Taylor: I gotta. I gotta tell you guys I am so excited.
+
+1290
+02:04:36.470 --> 02:04:37.350
+Anthony Taylor: So
+
+1291
+02:04:38.500 --> 02:04:43.560
+Anthony Taylor: I I've been telling you for a while now that some of the later parts of the curriculum.
+
+1292
+02:04:43.630 --> 02:04:45.530
+Anthony Taylor: you know, weren't complete
+
+1293
+02:04:46.100 --> 02:04:51.860
+Anthony Taylor: right? And I was waiting to see where they were. Gonna be? Well, they're all done. I was just reviewing them.
+
+1294
+02:04:53.390 --> 02:04:54.570
+Anthony Taylor: Hell, yeah.
+
+1295
+02:04:56.570 --> 02:04:57.810
+Anthony Taylor: it's good.
+
+1296
+02:04:58.280 --> 02:04:59.550
+Anthony Taylor: really good.
+
+1297
+02:05:00.640 --> 02:05:05.550
+Anthony Taylor: Alright, you guys, starting tomorrow to Wednesday.
+
+1298
+02:05:05.710 --> 02:05:08.110
+Anthony Taylor: it's all fun stuff
+
+1299
+02:05:09.610 --> 02:05:11.110
+Anthony Taylor: like all fun stuff
+
+1300
+02:05:12.360 --> 02:05:14.740
+Anthony Taylor: does that work for you guys, you guys want fun stuff
+
+1301
+02:05:16.050 --> 02:05:22.610
+Clayton Graves: having you been saying every week everything is fine. Clayton, stop it.
+
+1302
+02:05:24.300 --> 02:05:27.329
+Anthony Taylor: So you're right. But seriously.
+
+1303
+02:05:28.380 --> 02:05:33.130
+Anthony Taylor: I mean, how many of you guys signed up with this thinking you were gonna learn, chat, gpt the whole time.
+
+1304
+02:05:33.570 --> 02:05:49.450
+Anthony Taylor: Huh? How many when you signed up? Oh, it's AI. You think you're just gonna be using it the whole time, right? But that's what that's that's I. And I knew that I knew that from day one. So it drove me
+
+1305
+02:05:49.500 --> 02:05:52.990
+Clayton Graves: no complaints. I have nothing to complain about.
+
+1306
+02:05:53.920 --> 02:05:58.959
+Anthony Taylor: and I appreciate that, and I'll be honest with you. You need it all at all. Most of what you've got.
+
+1307
+02:05:59.140 --> 02:06:10.350
+Anthony Taylor: You needed it really to to say, you know, to understand AI in general. But starting Wednesday, we're gonna start natural language processing. And from that point on.
+
+1308
+02:06:10.490 --> 02:06:14.859
+Anthony Taylor: you're basically getting the foundations and the understanding of how to create
+
+1309
+02:06:15.660 --> 02:06:17.630
+chat applications
+
+1310
+02:06:17.720 --> 02:06:23.350
+Anthony Taylor: using. And they even have you get an opening. I, Api almost fell over. I'm like what
+
+1311
+02:06:23.500 --> 02:06:28.930
+Anthony Taylor: I can't believe they did that. So that open AI Api, you guys got for the extra review.
+
+1312
+02:06:30.450 --> 02:06:31.790
+Anthony Taylor: You're going to end up using.
+
+1313
+02:06:31.800 --> 02:06:37.380
+Anthony Taylor: Okay, anyway. Sorry. I don't know how much they gave you, so we'll go through us. We did our pickle.
+
+1314
+02:06:37.620 --> 02:06:40.829
+Anthony Taylor: We're going to assign our variables
+
+1315
+02:06:41.160 --> 02:06:43.449
+Anthony Taylor: from the data in our pickle.
+
+1316
+02:06:44.800 --> 02:06:45.830
+Anthony Taylor: Okay?
+
+1317
+02:06:45.980 --> 02:06:52.039
+Anthony Taylor: And then we're gonna build our model. So I know this is where we started. So your input layer
+
+1318
+02:06:52.440 --> 02:06:56.629
+Anthony Taylor: I you know what. I bet you, if I would have gave you this, you guys probably would have figured out the best of the.
+
+1319
+02:06:59.630 --> 02:07:04.469
+Anthony Taylor: And that's like, yeah, probably maybe no. The big thing here was this shape.
+
+1320
+02:07:04.980 --> 02:07:09.110
+Anthony Taylor: right? Big thing. Here was this shit. But
+
+1321
+02:07:09.350 --> 02:07:15.600
+Anthony Taylor: this record. We have done this exact same shape before the same input layer. Just
+
+1322
+02:07:15.720 --> 02:07:19.090
+Anthony Taylor: because, remember, we didn't have all the cool.
+
+1323
+02:07:19.220 --> 02:07:27.239
+Anthony Taylor: naming things and stuff right? Because we were doing it, men. But so this is actually from the same one we did.
+
+1324
+02:07:27.710 --> 02:07:35.689
+Anthony Taylor: I want to say Thursday. maybe Wednesday. This should have came right out of there
+
+1325
+02:07:36.040 --> 02:07:39.769
+Anthony Taylor: right? So we did the all of these, and then we have this
+
+1326
+02:07:39.960 --> 02:07:44.150
+Anthony Taylor: shared layers. So this is our first shared layer.
+
+1327
+02:07:45.600 --> 02:07:56.599
+Anthony Taylor: Once we have that now we just need to do. And this is interesting. And I guess, did they actually say, to do this? Build the branches, include a density layer
+
+1328
+02:07:57.720 --> 02:07:59.260
+Anthony Taylor: and then an output link.
+
+1329
+02:07:59.700 --> 02:08:02.900
+Anthony Taylor: Alright. So this perspective visual.
+
+1330
+02:08:03.200 --> 02:08:05.480
+Anthony Taylor: Okay? You mean with the directions.
+
+1331
+02:08:06.640 --> 02:08:09.849
+michael mcpherson: okay? Good. Okay. Yeah. The directions were not.
+
+1332
+02:08:10.640 --> 02:08:20.960
+Anthony Taylor: So there's your dead slayer, same as before, and it sources the last one of our right before or right after our flatmate.
+
+1333
+02:08:21.380 --> 02:08:26.949
+Anthony Taylor: Okay? And then we have our output. We said we would use sigmoid on all of them.
+
+1334
+02:08:27.150 --> 02:08:31.599
+Anthony Taylor: And notice they all refer back to dense shared.
+
+1335
+02:08:33.990 --> 02:08:40.699
+Anthony Taylor: Okay. So each of these branches refer back to here. Each of these branches have a hidden layer.
+
+1336
+02:08:40.760 --> 02:08:46.960
+Anthony Taylor: The only one that we oh, you know what we did use softmax here, and softmax here, which is a good choice
+
+1337
+02:08:46.970 --> 02:08:48.859
+Anthony Taylor: cause. They had multiple columns.
+
+1338
+02:08:49.320 --> 02:08:51.459
+Anthony Taylor: Okay,
+
+1339
+02:08:51.690 --> 02:08:54.650
+Anthony Taylor: did I run that cell? I don't know. We'll run it again.
+
+1340
+02:08:55.130 --> 02:08:58.830
+Anthony Taylor: Okay? And then, once we have that, we can build the model out
+
+1341
+02:08:58.890 --> 02:09:05.789
+Anthony Taylor: and compile it, and got all this garbage to put in there. It's not garbage, it's important, but it's a lot
+
+1342
+02:09:06.020 --> 02:09:07.979
+Anthony Taylor: alright, and then we can train it.
+
+1343
+02:09:10.810 --> 02:09:14.339
+Anthony Taylor: This will probably take a second to train, because there's a lot of stuff going on.
+
+1344
+02:09:18.500 --> 02:09:28.819
+Anthony Taylor: and then when it's done, we'll get our our stuff. But the most important thing here is to understand how we built these layers. So we'll let the training go. You guys can do model that fit, probably blindfolded. Now.
+
+1345
+02:09:29.000 --> 02:09:32.010
+Anthony Taylor: so this is our Cnn.
+
+1346
+02:09:33.520 --> 02:09:38.180
+Anthony Taylor: remember this. This is again. This is something you guys have seen before.
+
+1347
+02:09:38.500 --> 02:09:49.649
+Anthony Taylor: It's totally understandable. If you don't remember all of these values. Okay, but it's it's something that go back and look at those
+
+1348
+02:09:49.960 --> 02:09:56.229
+Anthony Taylor: other ones. Don't try to learn it. Here, go back and look at the other. Then we ended
+
+1349
+02:09:56.470 --> 02:09:59.990
+Anthony Taylor: from our flat layer. We did one hidden layer.
+
+1350
+02:10:02.130 --> 02:10:12.740
+Anthony Taylor: Okay? And then that built beginning of our model, our Cnn. Now we're saying, give me a new hidden layer and an output branch number one
+
+1351
+02:10:14.250 --> 02:10:20.490
+Anthony Taylor: and connect it to to here. So this this hidden layer
+
+1352
+02:10:20.530 --> 02:10:25.160
+Anthony Taylor: does not affect any of these other branches.
+
+1353
+02:10:26.340 --> 02:10:35.350
+Anthony Taylor: Same with this hidden layer and this one and this one they all are, are unique to this branch. Now let me ask you a question.
+
+1354
+02:10:36.810 --> 02:10:46.790
+Anthony Taylor: This is still great. Well, we could already see the scores. Okay. So we got like a charitable score on expression, accuracy
+
+1355
+02:10:48.340 --> 02:10:55.510
+Anthony Taylor: terrible, and not a very good score on Pose X. What might be an option
+
+1356
+02:10:58.130 --> 02:11:02.149
+Anthony Taylor: that we could try before, like just saying, Forget it. We can't do expressions.
+
+1357
+02:11:06.090 --> 02:11:07.829
+Anthony Taylor: and it would be in this cell.
+
+1358
+02:11:11.210 --> 02:11:12.190
+Anthony Taylor: Anybody
+
+1359
+02:11:15.880 --> 02:11:21.830
+Anthony Taylor: when we did neural networks before. What? What did we have to do to to improve our accuracy?
+
+1360
+02:11:25.350 --> 02:11:26.330
+michael mcpherson: Add data?
+
+1361
+02:11:27.280 --> 02:11:38.050
+Anthony Taylor: Well, adding data work. We did that with augment. So we've kind of done more epics, more epics would work now, epics would affect everything.
+
+1362
+02:11:38.170 --> 02:11:44.190
+Baro, Sonja: More layers was the other layers, so we could come in here
+
+1363
+02:11:44.300 --> 02:11:47.790
+Anthony Taylor: and add another layer. Maybe add more notes
+
+1364
+02:11:48.350 --> 02:11:55.160
+Anthony Taylor: right? We could try a number of things because each of these branches can be whatever we need it to be.
+
+1365
+02:11:56.480 --> 02:11:59.789
+Anthony Taylor: The only thing we're sharing is this first portion.
+
+1366
+02:12:01.930 --> 02:12:08.840
+Anthony Taylor: right? So it gets to here, then shared everything after that is unique to that branch.
+
+1367
+02:12:10.400 --> 02:12:16.120
+Anthony Taylor: So you could say, Go to dense shared, and then create another branch that goes to posed dense.
+
+1368
+02:12:18.080 --> 02:12:20.989
+Anthony Taylor: understand. or expression dense.
+
+1369
+02:12:22.590 --> 02:12:28.849
+Anthony Taylor: and you could make more, you know, whatever you thought you needed, maybe one would be enough. Maybe 10 would be enough. I have no idea
+
+1370
+02:12:29.080 --> 02:12:30.290
+Anthony Taylor: that's the point.
+
+1371
+02:12:31.300 --> 02:12:34.020
+Anthony Taylor: And that's the science of data, science.
+
+1372
+02:12:36.060 --> 02:12:37.600
+Baro, Sonja: alright
+
+1373
+02:12:39.130 --> 02:12:48.869
+Anthony Taylor: or the art. I mean, it's there's so much to it. Yeah, I guess it's the art, because there's really no science to it other than the accuracy. Go up. Yeah.
+
+1374
+02:12:49.110 --> 02:12:52.750
+Baro, Sonja:  yeah.
+
+1375
+02:12:52.940 --> 02:12:58.749
+Anthony Taylor: But yeah, so I mean, that's really it. Guys, I mean the the
+
+1376
+02:12:59.110 --> 02:13:07.729
+Anthony Taylor: the hardest part of this particular exercise is knowing what to put in to these convolutional layers. But, like I said, we did cover this the other day.
+
+1377
+02:13:07.900 --> 02:13:12.630
+Anthony Taylor: You know. Please go back and look through what all this stuff means.
+
+1378
+02:13:12.870 --> 02:13:17.860
+Anthony Taylor: so that you have this. If you feel you, you really want to get that down.
+
+1379
+02:13:18.330 --> 02:13:28.209
+Anthony Taylor:  if you're really interested in image machine learning this, this is what you definitely want to get this down.
+
+1380
+02:13:29.690 --> 02:13:31.610
+Anthony Taylor: Okay, this is
+
+1381
+02:13:32.010 --> 02:13:33.799
+Anthony Taylor: the big one for image right now.
+
+1382
+02:13:34.600 --> 02:13:40.569
+Anthony Taylor: I'm not saying there's not new stuff coming and up and coming. There's still more stuff out there. But
+
+1383
+02:13:40.790 --> 02:13:42.510
+Anthony Taylor: understanding this is key.
+
+1384
+02:13:43.600 --> 02:13:51.939
+Anthony Taylor: Okay? the branching thing. This is really cool, but this II would say, this works for any neural net.
+
+1385
+02:13:53.040 --> 02:13:57.760
+Anthony Taylor: not justice. any neural network that has multi-classification.
+
+1386
+02:13:59.520 --> 02:14:00.470
+Anthony Taylor: Alright.
+
+1387
+02:14:01.800 --> 02:14:07.129
+Anthony Taylor: that's all I have. So, guys. I know you want to go. I have 2 min.
+
+1388
+02:14:10.730 --> 02:14:18.669
+Anthony Taylor: We're done with neural networks. We're done pretty much now we are gonna talk more machine learning in an Lp.
+
+1389
+02:14:19.120 --> 02:14:25.790
+Anthony Taylor: and we are going to get into the Llms and transformers. And all of this kind of stuff over the coming couple of weeks.
+
+1390
+02:14:26.150 --> 02:14:29.050
+Anthony Taylor: But I mean.
+
+1391
+02:14:29.480 --> 02:14:33.050
+Anthony Taylor: guys, you've learned more machine learning than I've ever taught anybody.
+
+1392
+02:14:33.770 --> 02:14:38.740
+Clayton Graves: Just remember, guys, transformers are more than meets the eye
+
+1393
+02:14:40.170 --> 02:14:42.019
+Anthony Taylor: more than meets the eye.
+
+1394
+02:14:43.590 --> 02:14:46.739
+Anthony Taylor: Now we're all gonna be doing that every time I see transform
+
+1395
+02:14:47.820 --> 02:14:51.720
+Anthony Taylor: every time. Thank you, Clayton, for sticking that in my brain
+
+1396
+02:14:51.750 --> 02:14:53.400
+Clayton Graves: what I'm here for. Thanks.
+
+1397
+02:14:55.450 --> 02:15:01.450
+Anthony Taylor: anyway. So be excited, guys, you have a ton of information.
+
+1398
+02:15:03.470 --> 02:15:07.870
+Anthony Taylor: that's all I have. So what is today? Monday?
+
+1399
+02:15:08.640 --> 02:15:16.639
+Anthony Taylor: Have a great Tuesday, and I will see you Wednesday. And we're gonna start learning how to make computers
+
+1400
+02:15:16.770 --> 02:15:20.570
+Anthony Taylor: more importantly. make computers comprehend
+
+1401
+02:15:22.300 --> 02:15:28.930
+Anthony Taylor: something they don't know how to do. And I can tell you. here's my favorite example.
+
+1402
+02:15:30.270 --> 02:15:31.690
+Anthony Taylor: Let's eat, grandma.
+
+1403
+02:15:33.610 --> 02:15:35.729
+Anthony Taylor: Let's eat comma, grandma.
+
+1404
+02:15:37.030 --> 02:15:48.960
+Anthony Taylor: Comma save lives. Computers don't understand them. Okay. so we're gonna teach it. So it understands them.
+
+1405
+02:15:50.240 --> 02:15:54.449
+Clayton Graves: I know what my court defense is. Gonna be, thanks.
+
+1406
+02:15:58.200 --> 02:16:02.949
+Anthony Taylor: That's actually a T-shirt. I think that one something like that.
+
+1407
+02:16:03.700 --> 02:16:07.329
+Anthony Taylor: But anyway, alright, King, have a great Tuesday.
+
+1408
+02:16:07.720 --> 02:16:09.849
+Anthony Taylor: See? Ya, we'll be here 30 min.
+
+1409
+02:16:09.960 --> 02:16:11.100
+Raugewitz, Tania: I don't.
+

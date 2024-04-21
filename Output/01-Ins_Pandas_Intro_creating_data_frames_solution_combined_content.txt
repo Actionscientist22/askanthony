@@ -1,0 +1,30 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+
+##--CODE--##
+# We can create a Pandas Series from a raw list
+data_series = pd.Series(["UCLA", "UC Berkeley", "UC Irvine",
+                         "University of Central Florida", "Rutgers University"])
+data_series
+
+##--CODE--##
+# Convert a list of dictionaries into a DataFrame
+states_dicts = [{"STATE": "New Jersey", "ABBREVIATION": "NJ"},
+                {"STATE": "New York", "ABBREVIATION": "NY"}]
+
+states_df = pd.DataFrame(states_dicts)
+states_df
+
+##--CODE--##
+# Convert a single dictionary containing lists into a DataFrame
+pharaoh_df = pd.DataFrame(
+    {"Dynasty": ["Early Dynastic Period", "Old Kingdom"],
+     "Pharaoh": ["Thinis", "Memphis"]
+     }
+)
+pharaoh_df
+
+##--CODE--##
+
+

@@ -1,0 +1,60 @@
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+
+# Import the data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m14/lesson_1/datasets/app-data.csv")
+df.info()
+
+##--CODE--##
+# Create an X and y variable
+X = df.drop(columns=['Result'])
+y = df['Result']
+
+# Split the data into training and testing sets
+
+
+##--CODE--##
+# Create a Random Forest model
+
+
+# Fit (train) or model using the training data
+
+
+# Calculate the accuracy of the model on the testing data
+
+
+##--CODE--##
+# Calculate the accuracy of the model on the training data
+
+
+##--CODE--##
+# Create a loop to vary the max_depth parameter
+# Make sure to record the train and test scores 
+# for each pass.
+
+# Depths should span from 1 up to 40 in steps of 2
+
+
+# The scores dataframe will hold depths and scores
+# to make plotting easy
+
+
+# Loop through each depth (this will take time to run)
+
+
+# Create a dataframe from the scores dictionary and
+# set the index to depth
+
+
+
+
+
+##--CODE--##
+# Plot the scores dataframe with the plot method
+
+
+##--CODE--##
+
+

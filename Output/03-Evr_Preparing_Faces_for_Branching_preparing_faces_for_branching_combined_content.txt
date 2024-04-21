@@ -1,0 +1,318 @@
+# 1. Import the Data
+Import the individual image files; this will take some time!
+
+##--CODE--##
+# Build a list of images using a for loop
+import pandas as pd
+import numpy as np
+import requests
+from PIL import Image
+import io
+from tensorflow.keras import layers, models, Model
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+
+# Define the base_url
+path = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_3/datasets/csvs/files_list.csv"
+
+# Import the file and display the first few rows
+filenames_df = pd.read_csv(path)
+filenames_df.head()
+
+
+
+##--CODE--##
+# Define the base_url
+base_url = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_3/datasets/faces_data/"
+
+# Create an empty list for the urls
+img_urls = []
+
+# Loop through the DataFrame and build and append the full image urls
+for i in range(len(filenames_df)):
+    filename = filenames_df.iloc[i,0]
+    img_urls.append(base_url + filename)
+
+img_urls[0:5]
+
+##--CODE--##
+# Create and empty list for images
+imgs = []
+
+# Loop through ALL image_urls to open and append each image
+num_imgs = len(img_urls)
+
+for i in range(num_imgs):
+    img_url = img_urls[i]
+    # Print a statement to show progress
+    print(f"{i}/{num_imgs}: Attempting to import {img_url}")
+
+    # Use requests.get along with the stream parameter and raw attribute
+    response = requests.get(img_url, stream=True).raw
+
+    # Append each img to the imgs list
+    imgs.append(Image.open(response))
+
+# View the first image to confirm
+imgs[0]
+
+# 2. Preprocessing Images
+Resize, convert to floating point, and normalize. If you'd like a challenge, research mean subtraction or standard deviation scaling!
+
+##--CODE--##
+# Get all the sizes into a list, then convert to a set
+sizes = set([img.size for img in imgs])
+sizes
+
+##--CODE--##
+# Convert the images to the middle 64, 60 size
+
+target_size = (64, 60)
+resized_imgs = [img.resize(target_size, resample = Image.LANCZOS) for img in imgs]
+resized_imgs[1]
+
+##--CODE--##
+# Convert all images to floating point numpy arrays
+float_images = [np.array(img).astype(np.float32) for img in resized_imgs]
+
+# Display the pixel values of the first image
+print("Pixel Values:")
+print(float_images[0])
+
+##--CODE--##
+# To normalize pixel values to a range between 0 and 1,
+# we need to divide all pixel values by the max of 255
+
+normalized_images = [img/255 for img in float_images]
+
+# Display the pixel values of the first image
+print("Pixel Values:")
+print(normalized_images[0])
+
+Lets look at our filename data and prepare it for the model.
+
+##--CODE--##
+# Look at the filenames DataFrame
+filenames_df.head()
+
+##--CODE--##
+# First, remove the .png file extension, then split into four new columns.
+
+
+# Make a new df without the "files" column
+
+
+
+Now that we've split our y data into separate columns, lets preprocess each y column and determine how many output layers to create.
+
+##--CODE--##
+# Start with the userid column
+# Look at the value counts to decide which encoder to use
+
+
+
+##--CODE--##
+# OneHotEncode the userid column
+# Create an encoder
+
+
+# Fit_transform the userid column
+
+
+# Get the feature names from the encoder
+
+
+# Create a new DataFrame with the data
+
+
+# View the first few rows of the data
+
+
+
+##--CODE--##
+# Repeat the process for the pose column
+# Look at the value counts to decide which encoder to use
+
+
+
+##--CODE--##
+# Create an encoder
+
+
+# Fit_transform the pose column
+
+
+# Get the feature names from the encoder
+
+
+# Create a new DataFrame with the data
+
+
+# View the first few rows of the data
+
+
+
+##--CODE--##
+# Repeat the process for the expression column
+# Start with the userid column
+# Look at the value counts to decide which encoder to use
+
+
+
+##--CODE--##
+# Create an encoder
+
+
+# Fit_transform the expression column
+
+
+# Get the feature names from the encoder
+
+
+# Create a new DataFrame with the data
+
+
+# View the first few rows of the data
+
+
+##--CODE--##
+# Repeat the process for the eyes column
+# Start with the userid column
+# Look at the value counts to decide which encoder to use
+
+
+##--CODE--##
+# Create an encoder
+
+# Fit_transform the eyes column
+
+# Get the feature names from the encoder
+
+# Create a new DataFrame with the data
+
+# View the first few rows of the data
+
+
+##--CODE--##
+# Combine the processed y data into a new DataFrame
+
+
+# Display the first few rows
+
+
+# 4. Augmenting the Image Files
+When augmenting, it is important to think through whether any particular augmentation will invalidate a label. For instance, in this dataset, the "pose" label is dependent on the direction the subject is facing. If we flip an image horizontally, the "pose" label may be incorrect on the augmented file! Lets choose carefully which augmentations we can apply to this set.
+
+##--CODE--##
+# Convert X to a numpy array
+
+# Loop through each image to include the channel dimension
+
+    # Add channel dimension
+
+
+    # Append the image to the array
+
+
+# Split X and y into train and test sets; do not augment the test set!
+
+
+
+
+##--CODE--##
+import pickle
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+# Augment the images
+# Create the ImageDataGenerator
+
+
+# Create an empty list to hold the augmented images
+
+
+# Create an empty DataFrame to hold the new y training data
+# Use the column names from the processed y DataFrame
+
+# Loop through the images
+
+    # Select the image
+
+
+    # Select the label row from the y data
+
+
+    # Add the batch dimension
+
+
+    # Add 5 new images for each original
+
+        # Append the image and the label
+
+
+
+
+
+##--CODE--##
+# Convert X_train_aug and X_test to numpy arrays
+
+
+
+
+
+##--CODE--##
+# Look at the first few rows of y_train_aug
+
+
+
+# 5. Preparing y Data for Output Layers
+Now that we have all the y data formatted correctly, we need to divide it back into sets of columns that can be predicted by a single layer. For instance, all the userid columns should be together. It is perfectly reasonable to gather all onehotencoded outputs for the original columns back together and use 'sigmoid' as the activation function for all the output layers. This will result in one y variable for "userid", one for "expression", one for "pose" and one for "eyes".
+
+Could any of these be combined? Would there be an advantage to using softmax instead of sigmoid somewhere?
+
+Specifically for the userid column, what if we later use this model to predict an image of a new person? With sigmoid, all predictions would be forced to add to 1 even if the model was certain that the new image didn't belong to any of the original faces. With softmax, our model would be allowed to show a confidence near zero for every userid.
+
+##--CODE--##
+# Using a creative list comprehension, we can easily gather
+# columns related to the userid in the training data
+
+
+# Repeat this for the following in the training data
+# pose
+
+
+# expression
+
+
+# eyes
+
+
+
+# Now repeat all 4 selections with the y_test data
+
+
+
+##--CODE--##
+# Display the first few rows of one of the DataFrames to confirm your work
+
+
+
+# 7. Export Pickle Files
+At this stage, the data has been manipulated and cleaned an extensive amount. We're happy with how the data looks, so this is a good opportunity to create a "checkpoint". Lets save all our data variables in a pickle file so we don't have to repeat our preprocessing the next time we try to work with our model!
+
+##--CODE--##
+# Create a dictionary containing all the data
+
+
+
+# Store the dictionary as a pickle file
+from google.colab import drive
+import pickle
+
+drive.mount('/content/drive')
+
+with open('/content/drive/My Drive/preprocessed_faces_data.pkl', 'wb') as file:
+    pickle.dump(preprocessed_data, file)
+
+##--CODE--##
+
+

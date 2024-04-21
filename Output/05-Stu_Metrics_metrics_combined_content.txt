@@ -1,0 +1,65 @@
+##--CODE--##
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix, classification_report, balanced_accuracy_score, roc_auc_score
+
+##--CODE--##
+# Import the data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m14/lesson_1/datasets/crowdfunding-data-imbalanced.csv")
+df.head()
+
+##--CODE--##
+# Show the total number of positive and negative outcomes
+
+
+##--CODE--##
+# Create an X and y variable
+
+
+##--CODE--##
+# Create a Logistic Regression Model
+
+
+# Fit the model to the training data
+
+
+# Calculate the accuracy of the model
+
+
+
+##--CODE--##
+# Make predictions on the test data
+
+
+# Create a confusion matrix
+
+
+##--CODE--##
+# Create a classification report
+
+
+##--CODE--##
+# Calculate the balanced accuracy score
+
+
+##--CODE--##
+# Predict values with probabilities
+
+
+# Print the probabilities
+
+
+##--CODE--##
+# Each prediction includes a prediction for both the 0 class and the 1 class
+# We only need the predictions for the 1 class; use a list comprehension to 
+# gather the second value from each list
+
+
+# Print the first 5 probabilities
+
+
+
+##--CODE--##
+# Calculate the roc_auc_score
+
+

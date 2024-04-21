@@ -1,0 +1,95 @@
+##--CODE--##
+# Import our dependencies
+import pandas as pd
+from sklearn.model_selection import train_test_split
+import tensorflow as tf
+
+##--CODE--##
+# Import the speech recognition data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_1/datasets/voice.csv")
+df.head()
+
+##--CODE--##
+# Drop the label to create the X data
+X = df.drop('Class', axis=1)
+# Create the y set from the "Class" column
+y = df["Class"]
+
+# Use sklearn to split dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=78)
+
+##--CODE--##
+# Create the Keras Sequential model
+
+
+##--CODE--##
+# Set input nodes to the number of features
+
+
+# Add our first Dense layer, including the input layer
+
+
+##--CODE--##
+# Add the output layer that uses a probability activation function
+
+
+##--CODE--##
+# Check the structure of the Sequential model
+
+
+##--CODE--##
+# Compile the Sequential model together and customize metrics
+
+
+# Fit the model to the training data
+
+
+##--CODE--##
+# Create a DataFrame containing training history
+
+
+# Increase the index by 1 to match the number of epochs
+
+
+# Plot the loss
+
+
+##--CODE--##
+# Plot the accuracy
+
+
+##--CODE--##
+# Evaluate the model using the test data
+
+
+##--CODE--##
+# Make predictions
+
+
+##--CODE--##
+# Round predictions
+
+
+##--CODE--##
+# Check the classification report
+from sklearn.metrics import classification_report
+
+
+##--CODE--##
+# Compare with random forest model
+from sklearn.ensemble import RandomForestClassifier
+
+# Create the random forest classifier model
+# with n_estimators=128 and random_state=1
+
+
+# Fit the model to the training data
+
+
+# Validate the model by checking the model accuracy with model.score
+
+
+##--CODE--##
+# Make predictions and produce the classification report for the random forest model
+
+

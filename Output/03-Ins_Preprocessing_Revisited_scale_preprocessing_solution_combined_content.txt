@@ -1,0 +1,67 @@
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+
+##--CODE--##
+# Load in data
+df_crowdfunding = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m13/lesson_1/datasets/crowdfunding-data.csv')
+df_crowdfunding
+
+##--CODE--##
+# Define features set
+# Drop the target to create the X data
+X = df_crowdfunding.copy()
+X.drop("outcome", axis=1, inplace=True)
+X.head()
+
+##--CODE--##
+# Define target vector
+y = df_crowdfunding["outcome"].values.reshape(-1, 1)
+y[:5]
+
+##--CODE--##
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=78)
+
+##--CODE--##
+# Scaling the X data by using StandardScaler()
+scaler = StandardScaler().fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_train_scaled
+
+##--CODE--##
+# Transforming the test dataset based on the fit from the training dataset
+X_test_scaled = scaler.transform(X_test)
+X_test_scaled
+
+##--CODE--##
+# Check the max and min of the scaled training and testing sets
+print("Scaled data min/max (StandardScaler):")
+print("Training data min:",X_train_scaled.min())
+print("Training data max:",X_train_scaled.max())
+print("Testing data min:",X_test_scaled.min())
+print("Testing data max:",X_test_scaled.max())
+
+##--CODE--##
+# Alternatively, scaling the data by using MinMaxScaler()
+scaler = MinMaxScaler().fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_train_scaled
+
+##--CODE--##
+# Transforming the test dataset based on the fit from the training dataset
+X_test_scaled = scaler.transform(X_test)
+X_test_scaled
+
+##--CODE--##
+# Check the max and min of the scaled training and testing sets
+print("Scaled data min/max (MinMaxScaler):")
+print("Training data min:",X_train_scaled.min())
+print("Training data max:",X_train_scaled.max())
+print("Testing data min:",X_test_scaled.min())
+print("Testing data max:",X_test_scaled.max())
+
+##--CODE--##
+
+

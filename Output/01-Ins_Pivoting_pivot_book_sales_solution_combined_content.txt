@@ -1,0 +1,104 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read file into DataFrame
+book_sales_df = pd.read_csv('Resources/book_sales.csv')
+book_sales_df.head(20)
+
+##--CODE--##
+# Show the unique values in the book_name column.
+book_sales_df["book_name"].unique()
+
+##--CODE--##
+# Show the unique values in the date_ending column.
+book_sales_df["date_ending"].unique()
+
+### Using the `pivot()` function.
+---
+`pd.pivot(data, columns, index=<a column>, values=<a column>` or `df.pivot(columns, index=<a column>, values=<a column>`
+
+
+##--CODE--##
+#  Pivot on the date_ending with the book_name as the index, and pass the "total_sales" as the values.
+pivot_date_short_form = pd.pivot(book_sales_df, columns="date_ending",index="book_name",values="total_sales" )
+# Show the table.
+pivot_date_short_form
+
+##--CODE--##
+# Reorder columns
+pivot_date_short_form.iloc[:,[3,4,0,1,2]]
+
+##--CODE--##
+#  Pivot on the book_name with the date_ending as the index, and pass the "total_sales" as the values.
+pivot_books_long_form = pd.pivot(book_sales_df, columns="book_name",index="date_ending",values="total_sales" )
+pivot_books_long_form
+
+##--CODE--##
+# We can't use sort_values to sort the index. We have to use `reindex`.  
+# Get the index values to copy.
+pivot_books_long_form.index
+
+##--CODE--##
+# Reindex in monthly ascending order. 
+pivot_books_long_form.reindex(['8/31/23', '9/30/23','10/31/23', '11/30/23', '12/31/23'])
+
+### Using the `pivot_table()` function.
+---
+
+- `pd.pivot_table(data, values=None, index=None, columns=None, aggfunc='mean', fill_value=None, margins=False, dropna=True, margins_name='All', observed=False, sort=True)`
+- `pivot_table()` performs the mean aggregation by defualt
+
+##--CODE--##
+# Using the `pivot_table()` function, get the total book sales for each book. 
+# Make the columns the book title. 
+pivot_table_books_sum = pd.pivot_table(book_sales_df, 
+                                       values='total_sales',
+                                       columns='book_name', 
+                                       aggfunc='sum')
+
+# Show the table.
+pivot_table_books_sum
+
+##--CODE--##
+# Using the `pivot_table()` function, get the average book sales for each book. 
+# Make the columns the book title. 
+pivot_table_books_avg = book_sales_df.pivot_table(values='total_sales',
+                                                  columns='book_name',
+                                                  aggfunc='mean')
+# Show the table.
+pivot_table_books_avg
+
+##--CODE--##
+# Rename the index: "total_sales" to "Avg_Sales".
+pivot_table_books_avg.rename(index={'total_sales': 'Avg_Sales'})
+
+### Mutiple aggregations.
+
+##--CODE--##
+# Get the total and average book sales for each book. 
+# Make the books the columns, and the mean and sum of the total sales under each book. 
+avg_sum_books = pd.pivot_table(book_sales_df, 
+                               values='total_sales',
+                               columns='book_name',
+                               aggfunc=('sum', 'mean'))
+# Show the table
+avg_sum_books
+
+##--CODE--##
+# Using the pivot_table function get the average and the total of the book sales 
+# for each date. Make the date the index and round to one decimal place. 
+date_ending_pivot_table = book_sales_df.pivot_table(index="date_ending", 
+                                             values="total_sales",
+                                            aggfunc=('mean','sum')).round(1)
+# Show the table
+date_ending_pivot_table
+
+##--CODE--##
+# Reindex in monthly ascending order. 
+date_ending_pivot_table.reindex(['8/31/23', '9/30/23','10/31/23', '11/30/23', '12/31/23'])
+
+##--CODE--##
+
+

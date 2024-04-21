@@ -1,0 +1,39 @@
+##--CODE--##
+import pandas as pd
+
+##--CODE--##
+# Read the data
+ratings_df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_3/datasets/ratings.txt",
+                         sep=" ",
+                         header=None,
+                         names=["user_id", "movie_id", "rating"])
+ratings_df
+
+##--CODE--##
+# Remove duplicates on user_id and movie_id, keeping the last row
+
+
+##--CODE--##
+# Pivot the DataFrame so user_id is the index, movie_id is columns,
+# and ratings are the values
+
+
+##--CODE--##
+# Fill NAs with 0
+
+
+##--CODE--##
+# Create variable for normalization
+# Ratings are between 0-5
+
+
+# Normalize the ratings
+
+
+##--CODE--##
+# Save the training data as an array of values from the normalized DataFrame
+
+
+##--CODE--##
+
+

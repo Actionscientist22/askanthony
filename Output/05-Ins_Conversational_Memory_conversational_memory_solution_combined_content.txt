@@ -1,0 +1,172 @@
+##--CODE--##
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+# Model and API Key
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Multiple Queries
+
+##--CODE--##
+# Initialize the model.
+llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+# Define a query as a string.
+query = "What are two common breeds of cats?"
+
+# Pass the query to the invoke method, and print the result.
+result = llm.invoke(query)
+print(result.content)
+
+print()
+
+# Define a query as a string.
+query = "Which of those shed the least?"
+
+# Pass the query to the invoke method, and print the result.
+result = llm.invoke(query)
+print(result.content)
+
+# Memory
+
+##--CODE--##
+# Additional imports for conversational memory.
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationBufferMemory
+
+##--CODE--##
+# Initialize the model.
+llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+# Initialize an object for conversational memory.
+buffer = ConversationBufferMemory()
+
+# Create the chain for conversation, using a ConversationBufferMemory object.
+conversation = ConversationChain(llm=llm, verbose=True, memory=buffer)
+
+# Define a query as a string.
+query = "What are two common breeds of cats?"
+
+# Pass the query to the predict method and print the result.
+result = conversation.predict(input=query)
+print(result)
+
+print()
+
+# Define a query as a string.
+query = "Which of those shed the least?"
+
+# Pass the query to the predict method, and print the result.
+result = conversation.predict(input=query)
+print(result)
+
+# Summaries as memory
+
+##--CODE--##
+# Additional imports for summary-based memory.
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationSummaryMemory
+
+##--CODE--##
+# Initialize the model for summaries.
+summary_llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY,
+                         model_name=OPENAI_MODEL,
+                         temperature=0.0)
+
+# Initialize the model for output.
+chat_llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY,
+                      model_name=OPENAI_MODEL,
+                      temperature=0.7)
+
+# Initialize an object for conversational memory.
+buffer = ConversationSummaryMemory(llm=summary_llm)
+
+# Create the chain for conversation, using a ConversationBufferMemory object.
+conversation = ConversationChain(llm=chat_llm, memory=buffer, verbose=True)
+
+# Define a query as a string.
+query = "What are two common breeds of cats?"
+
+# Pass the query to the predict method, and print the result.
+result = conversation.predict(input=query)
+print(result)
+
+print()
+
+# Define a query as a string.
+query = "Which of those shed the least?"
+
+# Pass the query to the predict method, and print the result.
+result = conversation.predict(input=query)
+print(result)
+
+print()
+
+# Define a query as a string.
+query = "Which one tends to weigh more?"
+
+# Pass the query to the predict method, and print the result.
+result = conversation.predict(input=query)
+print(result)
+
+# Entity-based Memory
+
+##--CODE--##
+# Additional imports for entity-based memory.
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationEntityMemory
+from langchain.memory.prompt import ENTITY_MEMORY_CONVERSATION_TEMPLATE
+
+##--CODE--##
+# Initialize the model for entities.
+entity_llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY,
+                        model_name=OPENAI_MODEL,
+                        temperature=0.0)
+
+# Initialize the model for output.
+chat_llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY,
+                      model_name=OPENAI_MODEL,
+                      temperature=0.7)
+
+# Initialize an object for conversational memory.
+buffer = ConversationEntityMemory(llm=entity_llm)
+
+# Create the chain for conversation, using a ConversationBufferMemory object.
+conversation = ConversationChain(
+    llm=chat_llm, 
+    memory=buffer, 
+    verbose=True, 
+    prompt=ENTITY_MEMORY_CONVERSATION_TEMPLATE
+)
+
+# Define a query as a string.
+query = "There are two cats up for adoption: Godric is a Maine Coon, and Luna is a Bombay."
+
+# Pass the query to the predict method.
+result = conversation.predict(input=query)
+
+# Define a query as a string.
+query = "Which of those cats probably has shorter fur?"
+
+# Pass the query to the predict method, and print the result.
+result = conversation.predict(input=query)
+print(result)
+
+# Define a query as a string.
+query = "Which cat probably has a calmer temperament?"
+
+# Pass the query to the predict method, and print the result.
+result = conversation.predict(input=query)
+print(result)
+
+print()
+

@@ -1,0 +1,72 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install -U sentence-transformers
+
+##--CODE--##
+# Import the SentenceTransformer class and utility function class from the sentence_transformers module 
+from sentence_transformers import SentenceTransformer, util
+# Use the `all-MiniLM-L6-v2` model.
+model = SentenceTransformer('all-MiniLM-L6-v2')
+# Import pandas
+import pandas as pd
+pd.set_option('max_colwidth', 200)
+
+##--CODE--##
+# Create a DataFrame for the "news_headlines.csv" 
+
+
+##--CODE--##
+# Convert the "headline" column to a list 
+
+
+##--CODE--##
+# Get the vector embeddings for the headlines.
+
+
+##--CODE--##
+# Get the vector embeddings from the following news headline. 
+new_headline = "Top 10 Hacks for Traveling Like a Pro."
+
+
+##--CODE--##
+# Create a list to store tuples of (news headline, similarity score)
+similarities = []
+
+# # Loop through the headline embeddings.
+
+    # Calculate the cosine similarity score between each headline embedding and the new headline embedding. 
+    # cosine_similarity_score = util.cos_sim(headline_embedding, new_headline_embedding)
+
+    # Store the news headline and similarity score as a tuple
+    
+
+# Sort the list of tuples based on similarity score in descending order
+#similarities.sort(key=lambda x: x[1], reverse=True)
+
+##--CODE--##
+# Print our news headline 
+print(f"News headline to categorize: {new_headline}")
+print()
+
+# Loop through the the similarities list and get the headline and similarity score.
+
+    # Get the category from the DataFrame for each headline..
+    # category = news_headlines_df.loc[news_headlines_df['headline'] == headline, 'category'].values[0]
+    # Print the rank, category, and the news headline.
+    # print(f"Rank {i+1}: Category: {category}, Headline: {headline}")
+    # Print the similarity score of the news headline.
+    # print(f"Similarity score: {similarity_score[0][0]}")
+    print()
+
+
+**Question:** What category is the new headline?
+
+**Answer:**  
+
+**Question:** Why did you choose this category?
+
+**Answer:** 
+
+##--CODE--##
+
+

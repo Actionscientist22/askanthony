@@ -1,0 +1,3970 @@
+WEBVTT
+
+1
+00:00:06.490 --> 00:00:07.700
+Anthony Taylor: But the
+
+2
+00:00:08.930 --> 00:00:10.290
+Anthony Taylor: alright! Everybody
+
+3
+00:00:11.520 --> 00:00:14.669
+Anthony Taylor: here we go. Look at that
+
+4
+00:00:16.030 --> 00:00:17.830
+Anthony Taylor: now. I have to reopen it.
+
+5
+00:00:21.310 --> 00:00:28.340
+Anthony Taylor: I am clicking just anywhere right now. randomly opening things. It's very exciting.
+
+6
+00:00:28.650 --> 00:00:29.990
+Anthony Taylor: I gang
+
+7
+00:00:31.990 --> 00:00:34.230
+Anthony Taylor: so welcome
+
+8
+00:00:36.270 --> 00:00:41.240
+Anthony Taylor: to the last day of basic python now, and I gotta be honest with you.
+
+9
+00:00:43.430 --> 00:00:45.150
+Anthony Taylor: That statement is interesting to me.
+
+10
+00:00:46.300 --> 00:00:49.550
+Anthony Taylor: because what I'm about to show you
+
+11
+00:00:49.630 --> 00:01:01.730
+Anthony Taylor: is like, if you were doing like your bachelor's degree in computer science. you might learn this like your third or fourth year. What I'm about to show you. Okay?
+
+12
+00:01:02.180 --> 00:01:07.729
+Anthony Taylor: It's it's it's a it's a paradigm. It's way to do development.
+
+13
+00:01:07.920 --> 00:01:09.530
+Anthony Taylor: It's very very cool.
+
+14
+00:01:09.820 --> 00:01:18.270
+Anthony Taylor:  I find it easy to explain. But the concepts might be difficult to understand how to implement.
+
+15
+00:01:21.400 --> 00:01:28.729
+Anthony Taylor: But we're going to do our best. Okay? So how many of you did the resources. I know Clayton. Did anybody else.
+
+16
+00:01:29.050 --> 00:01:35.619
+Anthony Taylor: Nice game? Alright. So you guys, all those we did it have pretty good idea what a class is
+
+17
+00:01:35.660 --> 00:01:37.910
+Anthony Taylor: what object oriented programming is.
+
+18
+00:01:38.330 --> 00:01:44.069
+Anthony Taylor: So you're gonna you're gonna have a pretty good time today because it's all we're gonna talk about. That's it
+
+19
+00:01:44.990 --> 00:01:58.659
+Anthony Taylor: the whole day. So we're gonna understand fundamentals of object oriented programming. We're going to understand the difference between a class objects. attributes, instances and methods.
+
+20
+00:01:58.670 --> 00:02:01.080
+Anthony Taylor: But basically just vocabulary for today.
+
+21
+00:02:01.660 --> 00:02:06.260
+Anthony Taylor: we're gonna write some code that is reusable, modular, readable.
+
+22
+00:02:06.280 --> 00:02:17.850
+Anthony Taylor: using python classes that we create. And we're going to understand and imply inheritance in object oriented program.
+
+23
+00:02:18.980 --> 00:02:20.299
+Anthony Taylor: Pretty exciting stuff.
+
+24
+00:02:21.040 --> 00:02:24.670
+Anthony Taylor: So let's talk about object-oriented program. What is it?
+
+25
+00:02:24.780 --> 00:02:27.280
+Anthony Taylor: Why is it so
+
+26
+00:02:30.260 --> 00:02:38.299
+Anthony Taylor: in a nutshell? So so I'll just quickly go over this definition. It's centered around creating objects. You think of an object as a wrapper.
+
+27
+00:02:38.870 --> 00:02:41.430
+Anthony Taylor: Not like ll cool J,
+
+28
+00:02:42.270 --> 00:02:54.250
+Anthony Taylor: like more like a gift wrap  for a group of code that has, you know that that is basically serving a specific purpose. Okay,
+
+29
+00:02:55.700 --> 00:03:01.999
+Anthony Taylor: it can have data in it. It can have procedures in it. It could have just properties, all kinds of fun stuff.
+
+30
+00:03:02.710 --> 00:03:06.640
+Anthony Taylor: Another way to look at it, especially in python
+
+31
+00:03:06.690 --> 00:03:08.550
+Anthony Taylor: is. It's a blueprint.
+
+32
+00:03:09.090 --> 00:03:15.390
+Anthony Taylor: So we make a blueprint. We say, Hey, this is how we would make in this case a car.
+
+33
+00:03:16.510 --> 00:03:20.899
+Anthony Taylor: These are the attributes that we would want to make a car. These are the
+
+34
+00:03:21.070 --> 00:03:25.800
+Anthony Taylor: actions a car should be able to do any car.
+
+35
+00:03:28.080 --> 00:03:31.210
+Anthony Taylor: Okay. when we
+
+36
+00:03:31.570 --> 00:03:35.829
+Anthony Taylor: create the class, we are just creating the blueprint.
+
+37
+00:03:37.030 --> 00:03:39.859
+Anthony Taylor: Eventually we will call the class
+
+38
+00:03:39.910 --> 00:03:43.179
+Anthony Taylor: and create. Here's that second vocabulary word.
+
+39
+00:03:43.500 --> 00:03:46.160
+Anthony Taylor: an instance of the class.
+
+40
+00:03:48.040 --> 00:03:50.189
+Anthony Taylor: That instance will have
+
+41
+00:03:50.330 --> 00:03:52.510
+attributes describing
+
+42
+00:03:52.890 --> 00:03:55.800
+Anthony Taylor: that particular instance of the class.
+
+43
+00:03:57.500 --> 00:04:04.840
+Clayton Graves: So if a class will print, then if a class is the blueprint of a car, then
+
+44
+00:04:04.970 --> 00:04:07.480
+Clayton Graves: the instances the car itself.
+
+45
+00:04:08.760 --> 00:04:13.319
+Clayton Graves: Well, well. So there's 2 ways. So the instances be programmatic. Call
+
+46
+00:04:13.590 --> 00:04:23.719
+Anthony Taylor: right? So in my code, I create an instance of the car. But if you really want to be specific. It's like it says, here, the car is the object that you're creating from your blueprint.
+
+47
+00:04:24.590 --> 00:04:30.210
+Anthony Taylor: Okay? But an instance in our code when we say, we need a car.
+
+48
+00:04:30.340 --> 00:04:43.050
+Anthony Taylor: We're just going to create an instance of our class. give it attributes. And that instance is now an object. a car. Okay? And you're gonna see this a little more exact.
+
+49
+00:04:43.160 --> 00:04:46.830
+Anthony Taylor: But I'm trying to get mostly just trying to get you guys
+
+50
+00:04:46.890 --> 00:04:48.500
+Anthony Taylor: the vernacular first.
+
+51
+00:04:49.030 --> 00:05:00.110
+Anthony Taylor: Okay, so here, you see, we have our blueprint. and we've created 3 objects which would be encode 3 instances of our car class.
+
+52
+00:05:02.270 --> 00:05:05.589
+Anthony Taylor: These instances each have attributes
+
+53
+00:05:05.610 --> 00:05:12.180
+Anthony Taylor: that make them unique. They don't have to be unique. not at all. But they do have to have a different name.
+
+54
+00:05:13.120 --> 00:05:23.939
+Anthony Taylor: So you can't make a car object. You know. 2 of them called Toyoga can't do that. Okay. you could have Toyota, camry, white, Toyota, camry red.
+
+55
+00:05:24.850 --> 00:05:28.670
+Anthony Taylor: but you can't call them both the same thing. That's really the only restriction.
+
+56
+00:05:31.740 --> 00:05:38.379
+Anthony Taylor: So when we define a class well, I don't think we've learned enough. So let's let's get a little more specific.
+
+57
+00:05:38.760 --> 00:05:39.820
+Anthony Taylor: So
+
+58
+00:05:39.960 --> 00:05:45.750
+Anthony Taylor: what are some attributes of cars, so we have 3 of them on here. Make bottle color. What are some other attributes of the car?
+
+59
+00:05:45.980 --> 00:05:46.950
+Anthony Taylor: Everybody
+
+60
+00:05:50.530 --> 00:05:53.930
+michael mcpherson: has wheels, it has doors. It has windows.
+
+61
+00:05:53.980 --> 00:05:59.360
+Anthony Taylor: It's 4 wheel drive. Not all cars have doors.
+
+62
+00:06:01.760 --> 00:06:03.179
+Anthony Taylor: not all cars have women.
+
+63
+00:06:05.390 --> 00:06:10.180
+Anthony Taylor: Right? So we want to be careful with that. So we want to make sure we are being very specific.
+
+64
+00:06:10.250 --> 00:06:12.929
+Clayton Graves: because right now we're doing a high level.
+
+65
+00:06:13.630 --> 00:06:15.900
+Anthony Taylor: What kind of thing but the year?
+
+66
+00:06:17.050 --> 00:06:23.860
+Anthony Taylor: A year, that's a great attribute. It had to be made some point. That's a good attribute. Okay, Meredith, did you have one?
+
+67
+00:06:24.970 --> 00:06:27.210
+Meredith McCanse (she/her): Yeah, I was saying, like four-wheel drive.
+
+68
+00:06:28.010 --> 00:06:35.409
+Anthony Taylor: So I mean, they we're gonna assume all cars, have an engine. We're not gonna necessarily say, if it's diesel gas or electric.
+
+69
+00:06:35.760 --> 00:06:38.380
+Anthony Taylor: That's an attribute of the engine.
+
+70
+00:06:39.180 --> 00:06:40.060
+Anthony Taylor: Right?
+
+71
+00:06:40.510 --> 00:06:44.170
+Anthony Taylor:  okay, that's probably enough
+
+72
+00:06:44.230 --> 00:06:46.939
+Anthony Taylor: for attributes. What about methods?
+
+73
+00:06:47.680 --> 00:06:52.160
+Anthony Taylor: If I have this car class. what kind of things can it do?
+
+74
+00:06:53.180 --> 00:06:54.090
+Gardner, Curry: Start.
+
+75
+00:06:54.920 --> 00:06:55.940
+Anthony Taylor: start.
+
+76
+00:06:58.670 --> 00:07:01.250
+Anthony Taylor: move forward backward.
+
+77
+00:07:01.320 --> 00:07:02.630
+Anthony Taylor: We're hopefully track.
+
+78
+00:07:03.840 --> 00:07:12.119
+Anthony Taylor: Well, see? And and and and Steve, Mike and I love that you're you're my guy, right? So drive is an interesting statement, because drive is a whole bunch of stuff.
+
+79
+00:07:13.590 --> 00:07:17.859
+Anthony Taylor: Right? Drive is forward, backward, turn right, turn left.
+
+80
+00:07:18.420 --> 00:07:23.090
+Anthony Taylor: all of them. So maybe I don't want to drive. Maybe I want forward, back.
+
+81
+00:07:23.570 --> 00:07:25.619
+Anthony Taylor: turn, left, right, etc.
+
+82
+00:07:26.510 --> 00:07:27.260
+But
+
+83
+00:07:28.240 --> 00:07:35.900
+Anthony Taylor: you can get as granular in this as you feel is necessary. The idea is that we are creating a class
+
+84
+00:07:36.060 --> 00:07:40.190
+Anthony Taylor: that we can say that we can apply to any car.
+
+85
+00:07:41.850 --> 00:07:43.310
+Anthony Taylor: So if you
+
+86
+00:07:43.890 --> 00:07:47.580
+Anthony Taylor: have a video game that has a highway on it.
+
+87
+00:07:48.200 --> 00:07:52.219
+Anthony Taylor: and you're like, I need 50 cars on this hype.
+
+88
+00:07:52.630 --> 00:07:56.690
+Anthony Taylor: You're not going to create 50 cars and fill in all the addresses.
+
+89
+00:07:56.920 --> 00:07:59.570
+Anthony Taylor: You're going to create one class.
+
+90
+00:08:00.950 --> 00:08:08.229
+Anthony Taylor: and then 50 instances of that class. all of which have the same
+
+91
+00:08:09.230 --> 00:08:18.030
+Anthony Taylor: type of attributes, but different values for each attribute. thus getting a freeway full of cars in your video game.
+
+92
+00:08:19.050 --> 00:08:19.990
+Anthony Taylor: Okay?
+
+93
+00:08:20.150 --> 00:08:23.530
+Anthony Taylor: And by the way, video games are all
+
+94
+00:08:23.850 --> 00:08:25.020
+Anthony Taylor: object-oriented.
+
+95
+00:08:26.110 --> 00:08:27.999
+Anthony Taylor: Most of it
+
+96
+00:08:28.090 --> 00:08:32.799
+Anthony Taylor: are, object oriented. Every every everything you see in a video game
+
+97
+00:08:32.860 --> 00:08:37.750
+Anthony Taylor: is either an actual, you know, box pixels that do nothing.
+
+98
+00:08:37.919 --> 00:08:41.320
+Anthony Taylor: Or if you can interact with it, it's a class.
+
+99
+00:08:42.159 --> 00:08:44.090
+Anthony Taylor: especially if you see lots of
+
+100
+00:08:45.580 --> 00:08:50.210
+Anthony Taylor: okay, cause they're gonna create lots of classes. It's just more efficient to do that.
+
+101
+00:08:50.300 --> 00:08:54.480
+Anthony Taylor: And you only want to have to change it in one place. If all of a sudden
+
+102
+00:08:54.620 --> 00:08:57.529
+Anthony Taylor: all cars were required
+
+103
+00:08:58.370 --> 00:09:00.989
+Anthony Taylor: to have a middle headlight.
+
+104
+00:09:01.990 --> 00:09:05.129
+Anthony Taylor: and we knew that every car on the planet going forward.
+
+105
+00:09:05.150 --> 00:09:16.519
+Anthony Taylor: We're having been ahead. We can add it to one spot. Our car class and every car we've ever generated will now pick up that extra headline.
+
+106
+00:09:18.000 --> 00:09:19.490
+Anthony Taylor: Okay, so
+
+107
+00:09:20.090 --> 00:09:29.510
+Anthony Taylor: this is why object-oriented programs so cool? I can say so. Remember the whole agile thing you're talking about, right? So we're building an application.
+
+108
+00:09:29.750 --> 00:09:40.369
+Anthony Taylor: And we decided we needed cars. We need cars in our app. So might you and Rodney your job in this agile development life cycle. You guys are going to go build the car class.
+
+109
+00:09:40.580 --> 00:09:44.910
+Anthony Taylor: I need you to give it attributes and methods that make sense for this use case.
+
+110
+00:09:45.280 --> 00:09:50.800
+Anthony Taylor: And that's you. Just you're gonna do it. I don't need to see you. I don't need to know anything about you until you're done.
+
+111
+00:09:50.940 --> 00:09:59.989
+Anthony Taylor: Okay? And and Matt and Dave, you guys are, gonna do buildings. And Natalie and Meredith, you guys are gonna keep the shrubbery.
+
+112
+00:10:01.440 --> 00:10:06.639
+Anthony Taylor: Okay? You might think these are all just art things. They're not because they can interact.
+
+113
+00:10:07.870 --> 00:10:08.810
+Anthony Taylor: Okay.
+
+114
+00:10:08.920 --> 00:10:11.320
+Anthony Taylor: So anyway,
+
+115
+00:10:11.660 --> 00:10:19.800
+Anthony Taylor: and that. And so with that, you guys all build your objects. And then you come back. And then the main program can just simply call your object.
+
+116
+00:10:21.410 --> 00:10:34.740
+Anthony Taylor: In fact, when we're developing video games, we often will create studs. What is this stub? A stub is, the class doesn't have hardly anything in it just a name. And like the minimum attributes.
+
+117
+00:10:35.510 --> 00:10:40.249
+Anthony Taylor: Okay, that way, the main, the main team, the team that's doing the engine of the
+
+118
+00:10:40.260 --> 00:10:45.740
+Anthony Taylor: whole game can call the stubs, and they'll be like, you know, there'll be dots on the screen or something.
+
+119
+00:10:46.210 --> 00:10:49.140
+Anthony Taylor: But then, as you guys finish your class
+
+120
+00:10:49.620 --> 00:10:52.970
+Anthony Taylor: right the next time we compile. Now there are zones.
+
+121
+00:10:54.710 --> 00:10:56.250
+Anthony Taylor: Alright. So anyway.
+
+122
+00:10:56.360 --> 00:11:00.400
+Anthony Taylor: I went way too deep on that. But hopefully, you guys get the idea.
+
+123
+00:11:01.520 --> 00:11:06.880
+Anthony Taylor: So in Python to define, to, to, to define a class. We're going to use
+
+124
+00:11:07.000 --> 00:11:07.780
+Anthony Taylor: class.
+
+125
+00:11:09.610 --> 00:11:15.720
+Anthony Taylor: That's it. Class. And then the name of the class Colin, and then a bunch of code.
+
+126
+00:11:16.950 --> 00:11:18.979
+Anthony Taylor: Alright. that's pretty much it.
+
+127
+00:11:20.250 --> 00:11:25.850
+Anthony Taylor: When we create a class, we're going to have a docstring to explain what it's for
+
+128
+00:11:26.310 --> 00:11:27.829
+Anthony Taylor: and we will.
+
+129
+00:11:29.490 --> 00:11:38.380
+Anthony Taylor: There's, I will say, this guy's in the slideshow. Would you guys look at the slide show later? There's a lot of stuff they say must do.
+
+130
+00:11:39.660 --> 00:11:45.010
+Anthony Taylor: and it's not wrong. But the way they say you must do it's wrong. So
+
+131
+00:11:45.310 --> 00:11:47.309
+Anthony Taylor: you you should
+
+132
+00:11:48.430 --> 00:11:49.900
+Anthony Taylor: have a limit.
+
+133
+00:11:50.430 --> 00:11:58.759
+Anthony Taylor: Well, what is an init in a class? And the knit is when you create an instance. So when we create that instance of a car.
+
+134
+00:11:59.960 --> 00:12:02.690
+Anthony Taylor: these things need to happen.
+
+135
+00:12:04.740 --> 00:12:06.039
+Anthony Taylor: That's the init.
+
+136
+00:12:07.160 --> 00:12:11.819
+Anthony Taylor: So here you see in the image we have self self.
+
+137
+00:12:12.300 --> 00:12:17.380
+Anthony Taylor: and this is one of the things that they say. You must. You sell? No, you don't have to. You sell. But
+
+138
+00:12:17.480 --> 00:12:28.900
+Anthony Taylor: whatever variable you put here will refer to the class to that class itself. So self makes the most sense. But if you wanted to call this Bob, you could call it, Bob.
+
+139
+00:12:29.260 --> 00:12:30.770
+Anthony Taylor: It's just a variable
+
+140
+00:12:31.610 --> 00:12:35.570
+Anthony Taylor: after self, or whatever the self variable.
+
+141
+00:12:35.670 --> 00:12:39.510
+Anthony Taylor: You can put as many very arguments, variables as you like.
+
+142
+00:12:40.070 --> 00:12:45.459
+Anthony Taylor: but when they when you create the class, you have to populate those values.
+
+143
+00:12:46.660 --> 00:12:52.220
+Anthony Taylor: So to create this class. Well, I'll show you on the in the code
+
+144
+00:12:52.510 --> 00:12:58.839
+Anthony Taylor: to create this class you would call car parenthesis, and you would pass in a make and a model.
+
+145
+00:13:01.350 --> 00:13:05.130
+Anthony Taylor: This here, this self is referring back to the class.
+
+146
+00:13:06.090 --> 00:13:08.610
+Anthony Taylor: It's the first variable could be about.
+
+147
+00:13:10.610 --> 00:13:13.870
+Anthony Taylor: Whatever you pass in here is going to get assigned
+
+148
+00:13:14.170 --> 00:13:16.699
+Anthony Taylor: to that variable, that attribute.
+
+149
+00:13:17.830 --> 00:13:23.760
+Anthony Taylor: and once it is done, unless you write code to let them change it?
+
+150
+00:13:23.890 --> 00:13:27.820
+Anthony Taylor: It cannot be changed. it can only be destroyed.
+
+151
+00:13:29.330 --> 00:13:30.829
+Anthony Taylor: Does that make any sense
+
+152
+00:13:32.020 --> 00:13:35.890
+Anthony Taylor: that is scoping? Remember, scope? We were talking about scope before
+
+153
+00:13:36.390 --> 00:13:43.809
+Anthony Taylor: this variable right now, as this is written, only lives inside of this class, you can't even read it
+
+154
+00:13:46.570 --> 00:13:50.430
+Anthony Taylor: yet. Okay. alright.
+
+155
+00:13:50.600 --> 00:14:00.919
+Anthony Taylor: So the nicon structure is super important. It is usually going to be in every class you make.  it. We use it to kind of
+
+156
+00:14:01.020 --> 00:14:03.230
+Anthony Taylor: like, set the class up.
+
+157
+00:14:03.780 --> 00:14:10.629
+Anthony Taylor: Here's where it must always be self. It's it's really just a variable. But yes, the first variable
+
+158
+00:14:10.820 --> 00:14:13.800
+Anthony Taylor: refers to the class.
+
+159
+00:14:14.910 --> 00:14:19.279
+Anthony Taylor: Second parameter could be anything in this case, it's make and then model.
+
+160
+00:14:20.460 --> 00:14:26.310
+Anthony Taylor: Okay. Now, when we pass it in, we're going to go ahead and assign it to something in the class
+
+161
+00:14:27.280 --> 00:14:29.070
+Anthony Taylor: so that it's there forever.
+
+162
+00:14:29.110 --> 00:14:35.380
+Anthony Taylor: As long as that class exists, it's there, dot notation. So you can't just put make equals. Make
+
+163
+00:14:36.620 --> 00:14:42.669
+Anthony Taylor: you have to tell it. The variable in my class that I want you to assign
+
+164
+00:14:43.120 --> 00:14:48.559
+Anthony Taylor: is, may we? We tell it my class by using that first value? Cell?
+
+165
+00:14:50.440 --> 00:14:53.250
+Anthony Taylor: The first fact. Okay.
+
+166
+00:14:55.540 --> 00:15:01.169
+Anthony Taylor: and then we do self, dot make. And that means it's an attribute of the class. And we're assigning whatever they
+
+167
+00:15:02.590 --> 00:15:05.510
+Anthony Taylor: okay. So
+
+168
+00:15:05.860 --> 00:15:08.110
+Anthony Taylor: here. Okay. So now.
+
+169
+00:15:08.400 --> 00:15:12.929
+Anthony Taylor: we've created our class. So this is our class phone right here. It's all we need. Right
+
+170
+00:15:14.670 --> 00:15:20.060
+Anthony Taylor: now, we're gonna use our same program. And we're going to create an instance
+
+171
+00:15:20.870 --> 00:15:24.209
+Anthony Taylor: of our class. So now we're going to date the first car
+
+172
+00:15:24.650 --> 00:15:34.910
+Anthony Taylor: from our blueprint. Our blueprint is simple. but we're going to create it. So we're gonna say. Carr, that's the name of the class
+
+173
+00:15:35.760 --> 00:15:37.770
+Anthony Taylor: we're passing in model
+
+174
+00:15:37.910 --> 00:15:42.779
+Anthony Taylor: and make you do not pass in self. Does that doesn't make any sense.
+
+175
+00:15:43.490 --> 00:15:45.929
+Anthony Taylor: Okay? And we're assigning it
+
+176
+00:15:45.970 --> 00:15:47.120
+Anthony Taylor: to Michael.
+
+177
+00:15:50.450 --> 00:15:57.109
+Anthony Taylor: So now my car is a inst. And in instance of the class call.
+
+178
+00:15:57.960 --> 00:16:10.149
+Anthony Taylor: what can I do with that? Well, right now there's only 2 things. There's 2 properties, so I can say, Hey for my car. Show me the make for my car. Show me the model. I can't change it.
+
+179
+00:16:11.780 --> 00:16:15.539
+Anthony Taylor: but I can show it. and that's it.
+
+180
+00:16:16.030 --> 00:16:20.129
+Anthony Taylor: Okay, I said, you couldn't access it. It's not exactly accurate. You can't change it.
+
+181
+00:16:22.220 --> 00:16:25.169
+Anthony Taylor: Okay. The only way you could change this would be to
+
+182
+00:16:25.280 --> 00:16:27.280
+Anthony Taylor: re overwrite that instance
+
+183
+00:16:28.340 --> 00:16:30.860
+Anthony Taylor: unless we write code to do it, which we're going to do later.
+
+184
+00:16:32.880 --> 00:16:35.080
+Anthony Taylor: All right. Questions to this point.
+
+185
+00:16:41.220 --> 00:16:42.569
+Anthony Taylor: Everybody's good with this
+
+186
+00:16:43.140 --> 00:16:52.100
+Anthony Taylor: told you it's not horrible concept. It's it's pretty straightforward. Alright. So let's go look at Code before I stick you onto an activity.
+
+187
+00:16:53.360 --> 00:16:54.990
+Anthony Taylor: By the way,
+
+188
+00:16:55.940 --> 00:16:57.730
+Anthony Taylor: Mike was
+
+189
+00:16:58.400 --> 00:16:59.550
+Anthony Taylor: upset
+
+190
+00:17:00.610 --> 00:17:09.620
+Anthony Taylor: earlier about indentations. and we found a nice extension for indentations. What did I do to my screen? Don't like this
+
+191
+00:17:17.240 --> 00:17:18.210
+Anthony Taylor: target?
+
+192
+00:17:23.250 --> 00:17:27.369
+Anthony Taylor: Well. I'll figure it out. But I'm not gonna do it right now.
+
+193
+00:17:32.190 --> 00:17:47.989
+Anthony Taylor: Okay, so it is call. II like this one. You get Rainbow. so it'll actually show you your indents in color so that you can make sure you don't mess up on your index. There's a lot of them, actually. But that one seemed pretty good as 6 million downloads.
+
+194
+00:17:48.240 --> 00:17:50.279
+Anthony Taylor: So it's pretty good quality.
+
+195
+00:17:51.740 --> 00:17:53.150
+So we're okay.
+
+196
+00:17:54.130 --> 00:17:56.150
+Anthony Taylor: So now I have to find my way back to
+
+197
+00:17:56.850 --> 00:17:59.410
+Anthony Taylor: explore. Okay.
+
+198
+00:18:00.540 --> 00:18:09.139
+Anthony Taylor: So let's look at an example. Now again, I think I mentioned earlier. we're going to
+
+199
+00:18:09.800 --> 00:18:22.049
+Anthony Taylor: be using just python files today. Okay?  not because I don't prefer the notebooks. I still do. But when we are doing
+
+200
+00:18:22.600 --> 00:18:27.350
+Anthony Taylor: something like this, it's just a little easier to import and stuff like that.
+
+201
+00:18:27.380 --> 00:18:29.180
+Anthony Taylor: Using.
+
+202
+00:18:31.090 --> 00:18:36.180
+Anthony Taylor: Okay? So 1 s.
+
+203
+00:18:40.050 --> 00:18:42.250
+Anthony Taylor: my brain is not playing alone.
+
+204
+00:18:42.750 --> 00:18:45.970
+Anthony Taylor: Okay. So
+
+205
+00:18:46.070 --> 00:18:51.920
+Anthony Taylor: here's what we're gonna do. We're in python. We're gonna create our class. So we're gonna start with, let's do a comment.
+
+206
+00:18:51.970 --> 00:18:55.329
+Anthony Taylor: Define a car class.
+
+207
+00:18:55.760 --> 00:18:57.520
+Anthony Taylor: We're going to do clap
+
+208
+00:18:59.110 --> 00:19:00.590
+Anthony Taylor: lowercase
+
+209
+00:19:00.780 --> 00:19:03.600
+Anthony Taylor: face the name of our class.
+
+210
+00:19:04.220 --> 00:19:07.729
+Anthony Taylor: Call it notice. There are no parentheses.
+
+211
+00:19:09.790 --> 00:19:13.849
+Anthony Taylor: Okay. Now we can do a job.
+
+212
+00:19:14.260 --> 00:19:15.919
+Anthony Taylor: Doc stream. Here.
+
+213
+00:19:16.480 --> 00:19:19.020
+Anthony Taylor: We can say, I don't know
+
+214
+00:19:19.380 --> 00:19:20.460
+Anthony Taylor: creating
+
+215
+00:19:21.130 --> 00:19:26.609
+Anthony Taylor: the car costs. I would put much more in there but for right now that's sufficient.
+
+216
+00:19:27.060 --> 00:19:39.070
+Anthony Taylor: because we don't even know what we're doing. So the first thing we do is define our initialized method. Okay, so DEF. Underscore underscore.
+
+217
+00:19:39.320 --> 00:19:43.400
+Anthony Taylor: INIT. Underscore underscore
+
+218
+00:19:46.160 --> 00:19:48.660
+Anthony Taylor: parentheses because it's a function
+
+219
+00:19:49.990 --> 00:19:52.600
+Anthony Taylor: we're going to start with our self variable.
+
+220
+00:19:53.270 --> 00:19:57.080
+Anthony Taylor: And then whatever attributes we want to pass in make
+
+221
+00:19:57.680 --> 00:19:58.510
+Anthony Taylor: mob.
+
+222
+00:20:00.480 --> 00:20:06.119
+Anthony Taylor: Okay, since this is a function, we're gonna end with a colon and go to the new line.
+
+223
+00:20:07.220 --> 00:20:12.460
+Anthony Taylor: Now, here we could do all kinds of stuff. But let's just go ahead and set
+
+224
+00:20:12.590 --> 00:20:17.850
+Anthony Taylor: are attributes. So we're going to say, self dot make
+
+225
+00:20:18.230 --> 00:20:20.290
+Anthony Taylor: equals nick
+
+226
+00:20:22.470 --> 00:20:26.889
+Anthony Taylor: and self dot model equals model.
+
+227
+00:20:31.620 --> 00:20:33.649
+Anthony Taylor: And that's the end of our class. For now.
+
+228
+00:20:36.010 --> 00:20:36.820
+Anthony Taylor: okay.
+
+229
+00:20:38.040 --> 00:20:39.449
+Anthony Taylor: so we can save that.
+
+230
+00:20:40.450 --> 00:20:43.910
+Anthony Taylor: And you can actually run just this.
+
+231
+00:20:48.700 --> 00:20:55.220
+Anthony Taylor: It won't hurt anything. It will run just fine. Okay.
+
+232
+00:20:55.360 --> 00:21:02.840
+Anthony Taylor: I just hold off on that, though. So to create an instance of our class.
+
+233
+00:21:03.050 --> 00:21:04.889
+Anthony Taylor: We have to create a variable.
+
+234
+00:21:06.290 --> 00:21:12.320
+Anthony Taylor: And we're going to say we're going to call the name of our class here. We're going to put parentheses.
+
+235
+00:21:12.850 --> 00:21:16.319
+Anthony Taylor: and we're gonna pass in the 2 arguments we need to.
+
+236
+00:21:16.700 --> 00:21:21.200
+Anthony Taylor: Now, if we don't pass in anything. see? And maybe I should do a note.
+
+237
+00:21:21.870 --> 00:21:22.530
+and
+
+238
+00:21:22.950 --> 00:21:27.560
+Anthony Taylor: we're gonna get missing. 2 required arguments, make and model.
+
+239
+00:21:28.620 --> 00:21:32.800
+Anthony Taylor: Okay, it's gonna tell us, hey? You told me I needed this.
+
+240
+00:21:33.140 --> 00:21:36.360
+Anthony Taylor: So we got to pass those in. So we'll do.
+
+241
+00:21:36.760 --> 00:21:38.650
+Gmc.
+
+242
+00:21:40.320 --> 00:21:41.430
+Anthony Taylor: Sierra.
+
+243
+00:21:43.570 --> 00:21:44.500
+Anthony Taylor: okay.
+
+244
+00:21:45.300 --> 00:21:57.240
+Anthony Taylor: So now, when we run this, we now have class, don't see anything to do anything with it. But now we can print out our attributes that we just set so we can say, F, Colon.
+
+245
+00:21:57.270 --> 00:21:58.330
+Anthony Taylor: make
+
+246
+00:21:58.710 --> 00:22:04.709
+Anthony Taylor:  and then pass in the the variable that we use. So my car.
+
+247
+00:22:06.460 --> 00:22:08.300
+Anthony Taylor:  dot.
+
+248
+00:22:11.520 --> 00:22:13.430
+Anthony Taylor: and you can see what I do
+
+249
+00:22:21.010 --> 00:22:24.489
+Anthony Taylor: and save. It's not gonna let me run it from.
+
+250
+00:22:24.550 --> 00:22:28.290
+Anthony Taylor: Oh, wait! There it is. Make. Gmc. okay.
+
+251
+00:22:29.610 --> 00:22:30.830
+Anthony Taylor: see how that works.
+
+252
+00:22:31.130 --> 00:22:34.259
+Anthony Taylor: Pretty pretty pretty easy, right? Not too bad.
+
+253
+00:22:35.480 --> 00:22:39.930
+Anthony Taylor: Alright. So fur your first fur your first fur, your first
+
+254
+00:22:40.140 --> 00:22:41.710
+Anthony Taylor: activity. Today
+
+255
+00:22:42.870 --> 00:22:44.340
+Anthony Taylor: you're going to
+
+256
+00:22:44.770 --> 00:22:47.319
+import a car loan function.
+
+257
+00:22:48.900 --> 00:22:51.210
+Anthony Taylor: import a car loan function. What
+
+258
+00:22:54.260 --> 00:22:56.399
+Anthony Taylor: did I like? Jump to the wrong instructions?
+
+259
+00:23:02.630 --> 00:23:15.840
+Anthony Taylor: II don't know what. Just just that doesn't even make any sense. So initialize the car class. Let's start here. Okay. on this second line. Don't worry about this person.
+
+260
+00:23:16.040 --> 00:23:19.010
+Anthony Taylor: because that's not even in this discussion.
+
+261
+00:23:19.060 --> 00:23:22.740
+Anthony Taylor: So you're gonna initialize car class. But you're gonna add some more brands.
+
+262
+00:23:24.270 --> 00:23:33.749
+Anthony Taylor: See the additional parameters there. model body engine year and color create an instance variable for each parameter
+
+263
+00:23:34.760 --> 00:23:38.739
+Anthony Taylor: prompt the user to enter the information. So you're gonna have.
+
+264
+00:23:41.210 --> 00:23:52.169
+Anthony Taylor: I see, I really, I do what you guys use. So I was gonna actually do this together with you. But now that I look at this one's not too bad. So you're gonna have 1, 2, 3, 4, 5, 6
+
+265
+00:23:52.350 --> 00:23:53.620
+Anthony Taylor: inputs.
+
+266
+00:23:54.560 --> 00:24:04.830
+Anthony Taylor: So you're going to say, what's the make you want to enter? Or what's the and what's the model? What's the body? What's the engine? And you're going to assign those to a variable. When you're done.
+
+267
+00:24:04.990 --> 00:24:10.300
+Anthony Taylor: you're going to create an instance of car with those variables
+
+268
+00:24:10.320 --> 00:24:13.019
+Anthony Taylor: and then print them back out. That's all you have to do.
+
+269
+00:24:13.940 --> 00:24:16.440
+Anthony Taylor: Got it. It's a lot of typing.
+
+270
+00:24:17.140 --> 00:24:18.600
+Anthony Taylor: Just so, you know.
+
+271
+00:24:19.580 --> 00:24:21.159
+Anthony Taylor: So copy and paste.
+
+272
+00:24:23.600 --> 00:24:29.440
+Dipinto, Matt: Actually, you know what? What's the import? Our loan function? I file that they're looking for.
+
+273
+00:24:29.970 --> 00:24:32.220
+Anthony Taylor: I just told you to ignore that one, Matt.
+
+274
+00:24:32.520 --> 00:24:34.810
+Dipinto, Matt: I'm sorry I was trying to find it still.
+
+275
+00:24:35.170 --> 00:24:42.659
+Dipinto, Matt: Yeah, it's not good in the winter, but I really do drive a Tesla, and we drive our Toyota for the whole winter.
+
+276
+00:24:42.730 --> 00:24:46.049
+Anthony Taylor: My wife tried to get me to buy a pistol. I said, You know.
+
+277
+00:24:47.710 --> 00:24:50.769
+Anthony Taylor: no, can't wear a baseball cap in the Tesla.
+
+278
+00:24:51.240 --> 00:24:53.430
+Anthony Taylor: Okay? So
+
+279
+00:24:54.040 --> 00:24:55.200
+Raugewitz, Tania: here you can.
+
+280
+00:24:55.710 --> 00:24:57.620
+Anthony Taylor: Yeah.
+
+281
+00:24:57.750 --> 00:25:03.650
+Anthony Taylor: just push it back on that little bit there. Okay, so here we go. Now.
+
+282
+00:25:04.880 --> 00:25:11.369
+Anthony Taylor: we're gonna add some methods. Okay, so let me see what we got here. Well, I wanted to
+
+283
+00:25:11.410 --> 00:25:13.940
+Anthony Taylor: populate them. I will. I'll just do this.
+
+284
+00:25:15.410 --> 00:25:17.840
+Anthony Taylor: So here we have our library.
+
+285
+00:25:18.490 --> 00:25:22.599
+Anthony Taylor: Our library. Sorry, our class
+
+286
+00:25:22.800 --> 00:25:28.010
+Anthony Taylor: with the with the attributesing.
+
+287
+00:25:28.320 --> 00:25:31.350
+Anthony Taylor:  I lost my mouse.
+
+288
+00:25:33.610 --> 00:25:34.700
+Anthony Taylor: Heck, is it still?
+
+289
+00:25:37.930 --> 00:25:38.660
+Anthony Taylor: Okay?
+
+290
+00:25:38.910 --> 00:25:45.550
+Anthony Taylor:  so some of the things that our car can do? Let's talk about things our car can do.
+
+291
+00:25:46.040 --> 00:25:49.390
+Anthony Taylor: Okay, we have one. We want to give it stuff to do.
+
+292
+00:25:49.530 --> 00:25:50.450
+Anthony Taylor: So.
+
+293
+00:25:52.650 --> 00:25:54.419
+Anthony Taylor: Remember, I mentioned
+
+294
+00:25:56.480 --> 00:26:02.160
+Anthony Taylor: that we can't change values once we create it.
+
+295
+00:26:03.250 --> 00:26:06.710
+Anthony Taylor: Okay? So a concept in
+
+296
+00:26:06.810 --> 00:26:15.850
+Anthony Taylor: classes. And and I've never done this in a python class. But I'll show it to you. And then I'm gonna say we don't always do this in a python box, but
+
+297
+00:26:15.890 --> 00:26:21.160
+Anthony Taylor: is setters and getters anyone ever heard that term before? Besides, Gabriel
+
+298
+00:26:22.500 --> 00:26:26.540
+Anthony Taylor: Pablo, you've heard setters and getters. Yeah, okay?
+
+299
+00:26:26.790 --> 00:26:34.949
+Anthony Taylor: Oh, so it's half okay, cool. So a setter and hurt. Okay, anybody that's done any OP training. Okay, has done setters and getters.
+
+300
+00:26:34.970 --> 00:26:39.020
+Anthony Taylor: What does that mean? A getter will get attributes out of your class.
+
+301
+00:26:39.120 --> 00:26:43.570
+Anthony Taylor: It's a programmatic way. It's a method. So we would do define.
+
+302
+00:26:43.740 --> 00:26:46.749
+Anthony Taylor: We'll call it get underscore, make.
+
+303
+00:26:47.090 --> 00:26:53.330
+Anthony Taylor: Okay? And all we're gonna pass into it is our class so self.
+
+304
+00:26:53.700 --> 00:26:57.050
+Anthony Taylor: And then the return of this will be return
+
+305
+00:26:58.010 --> 00:27:02.659
+Anthony Taylor: self dot make. Okay, that's it.
+
+306
+00:27:02.690 --> 00:27:03.769
+Anthony Taylor: That's a getter.
+
+307
+00:27:05.200 --> 00:27:07.400
+Anthony Taylor: Why do we need this? Well.
+
+308
+00:27:09.040 --> 00:27:10.050
+Anthony Taylor: I mean.
+
+309
+00:27:10.190 --> 00:27:17.009
+Anthony Taylor: it's really good. If you don't know the attributes, or if there's an attribute that you didn't set at initialization.
+
+310
+00:27:17.440 --> 00:27:30.249
+Anthony Taylor: Okay? Then you can go and you can look at the documentation and see and say, Oh, I need to get that value out of the class. Okay? Remember, because it's scoped inside. but because it's scoped inside, we can't change it
+
+311
+00:27:30.850 --> 00:27:31.900
+Anthony Taylor: unless
+
+312
+00:27:32.560 --> 00:27:34.960
+Anthony Taylor: we have get ready for it.
+
+313
+00:27:35.450 --> 00:27:36.580
+Anthony Taylor: A setter.
+
+314
+00:27:38.250 --> 00:27:43.159
+Anthony Taylor: Okay? And in the center we're going to pass in.
+
+315
+00:27:43.700 --> 00:27:46.360
+We always have to pass in self.
+
+316
+00:27:46.460 --> 00:27:52.149
+Anthony Taylor: But then we're going to pass in the new value we want to set the variable to.
+
+317
+00:27:52.630 --> 00:27:56.650
+Anthony Taylor: So we can say, self. dot make
+
+318
+00:27:57.170 --> 00:27:59.319
+Anthony Taylor: equals new
+
+319
+00:27:59.630 --> 00:28:00.550
+Anthony Taylor: make.
+
+320
+00:28:01.380 --> 00:28:13.679
+Anthony Taylor: Okay? So now we've basically exposed an attribute inside of our instance of a class, and made it possible for us to change it. Now, would you want to change the make of your of your car?
+
+321
+00:28:15.960 --> 00:28:16.870
+Anthony Taylor: No.
+
+322
+00:28:17.410 --> 00:28:23.569
+Anthony Taylor: okay, that's not something you would normally be able to do. But you could change the color
+
+323
+00:28:25.000 --> 00:28:32.029
+Anthony Taylor: while you may have instantiated it with color red. Something has happened. And now it's you know, green.
+
+324
+00:28:33.570 --> 00:28:39.899
+Anthony Taylor: Okay? So maybe then you need a setter to change the colors. So you would think about this as you build your cloud.
+
+325
+00:28:40.040 --> 00:28:42.970
+Anthony Taylor: Would I ever have a set of faith? Probably.
+
+326
+00:28:44.330 --> 00:28:47.470
+Anthony Taylor: Alright. But for color it's actually reasonable.
+
+327
+00:28:48.110 --> 00:28:51.019
+Anthony Taylor: Okay, I mean, you can. And you can.
+
+328
+00:28:51.630 --> 00:28:55.020
+Anthony Taylor: If you really follow true object-oriented
+
+329
+00:28:55.620 --> 00:29:00.190
+Anthony Taylor: programming technique, you will make a getter and center for every attribute
+
+330
+00:29:00.330 --> 00:29:02.390
+Anthony Taylor: in your class.
+
+331
+00:29:02.650 --> 00:29:06.209
+Anthony Taylor: Okay, my opinion on this is not necessary.
+
+332
+00:29:06.510 --> 00:29:09.320
+Anthony Taylor: Make it getter and center when it makes sense
+
+333
+00:29:10.760 --> 00:29:14.600
+Anthony Taylor: getters. You really don't need to get her, because you can call the attribute directly
+
+334
+00:29:15.600 --> 00:29:17.670
+Anthony Taylor: unless it's not
+
+335
+00:29:18.120 --> 00:29:27.889
+Anthony Taylor: in the initialize. So if you create a variable later, an attribute later in your class and you want to be able to get it out, you'll need to make a getter or some other method to pull it out.
+
+336
+00:29:28.400 --> 00:29:29.870
+Anthony Taylor: but setting
+
+337
+00:29:29.970 --> 00:29:34.460
+Anthony Taylor: you would not change like you wouldn't have a set mate or a set model.
+
+338
+00:29:35.880 --> 00:29:40.320
+Anthony Taylor: I suppose you could argue, could have a set body or a set, you can.
+
+339
+00:29:41.180 --> 00:29:47.830
+Anthony Taylor: or and the set color. but you would not have a set year can't change the year.
+
+340
+00:29:48.580 --> 00:29:51.950
+Anthony Taylor: Okay, so it doesn't make. So so you would use your just use your head.
+
+341
+00:29:52.210 --> 00:29:53.740
+Anthony Taylor: Think about it as you develop.
+
+342
+00:29:56.390 --> 00:29:58.839
+Anthony Taylor: And that's if you're doing really, really good fellow.
+
+343
+00:29:59.150 --> 00:30:01.160
+Anthony Taylor: Okay, it is
+
+344
+00:30:02.690 --> 00:30:10.209
+Anthony Taylor: almost no overhead at all. If you just said forget it, I'm gonna make a set for everyone, and I'm gonna make it get for everyone.
+
+345
+00:30:10.780 --> 00:30:19.389
+Anthony Taylor: Okay, it's not a big issue. no big deal. It's not gonna hurt anything. I'm just telling you in practicality. When we do this in the real world.
+
+346
+00:30:20.000 --> 00:30:24.619
+Anthony Taylor: we are thinking to ourselves, well, do I really need to type? What do you think?
+
+347
+00:30:25.190 --> 00:30:29.460
+Anthony Taylor: 12 functions that are gonna that only 3 of them are ever going to be used.
+
+348
+00:30:30.190 --> 00:30:34.680
+Anthony Taylor: That's what you're thinking when you're doing this in the real world. Okay, alright.
+
+349
+00:30:34.720 --> 00:30:40.699
+Anthony Taylor: So what else can we do? What if you had something like
+
+350
+00:30:40.860 --> 00:30:46.270
+Clayton Graves: mileage, you know? PE if you're if you're on a used car used car lot.
+
+351
+00:30:47.690 --> 00:30:53.259
+Clayton Graves: you know you, you might wanna have a a mileage attribute. And you that's something that you
+
+352
+00:30:53.690 --> 00:31:01.469
+Clayton Graves: might wanna either set or or add like a hundred miles to it if it's been driven, or something.
+
+353
+00:31:02.060 --> 00:31:12.249
+Anthony Taylor: I love that. And so that would be a method. Right? So you would have a setter. Okay, that you would call to change the value. And you could have another method
+
+354
+00:31:12.430 --> 00:31:24.330
+Anthony Taylor: that like like, say, when we get to it, we we create a drive myth. okay, or a forward method. Now, that forward method may actually reset the mileage method
+
+355
+00:31:24.520 --> 00:31:34.079
+Anthony Taylor: every time you use it. I'm driving. And it's gonna say, Oh, well, okay, every time you run this, you've gone one mile. go one mile. You have to increase one mile like pilots.
+
+356
+00:31:35.160 --> 00:31:40.070
+Anthony Taylor: so you can actually, from within your class call another function, another method.
+
+357
+00:31:40.390 --> 00:31:47.440
+Anthony Taylor: So you have a drive method that calls the mileage method. And so on. Okay. I'll
+
+358
+00:31:48.260 --> 00:31:51.650
+Anthony Taylor: okay. So let's real quick. Let's just show you how to use this.
+
+359
+00:31:51.770 --> 00:31:59.719
+Anthony Taylor: So again, we're here. Our class is made up there. and I'm going to create an instance of it.
+
+360
+00:31:59.750 --> 00:32:02.159
+Anthony Taylor: My car equals
+
+361
+00:32:02.270 --> 00:32:03.400
+Anthony Taylor: are
+
+362
+00:32:04.610 --> 00:32:05.800
+Anthony Taylor: Tesla.
+
+363
+00:32:11.180 --> 00:32:13.069
+Anthony Taylor: Initial! Make
+
+364
+00:32:14.700 --> 00:32:17.030
+Anthony Taylor: so notice I didn't put anything on.
+
+365
+00:32:19.180 --> 00:32:24.270
+Anthony Taylor: But I was able to create one. Right? Was I inland? Is that even possible?
+
+366
+00:32:27.360 --> 00:32:28.520
+Anthony Taylor: Actually
+
+367
+00:32:32.750 --> 00:32:34.399
+Anthony Taylor: me think about this for a second.
+
+368
+00:32:38.520 --> 00:32:44.550
+Clayton Graves: I don't think it would be possible, because you have to have the attributes defined in order to create the instance.
+
+369
+00:32:44.630 --> 00:32:48.620
+Anthony Taylor: Yeah, you probably would have to, for some reason.
+
+370
+00:32:52.690 --> 00:32:53.919
+Anthony Taylor: plan the right one.
+
+371
+00:32:56.310 --> 00:32:57.780
+Anthony Taylor: Oh, I see.
+
+372
+00:33:01.510 --> 00:33:03.940
+Anthony Taylor: make self make self make.
+
+373
+00:33:04.640 --> 00:33:10.179
+Anthony Taylor: Okay? So basically the same stuff. This is all filled out. Okay, so we have it all filled out
+
+374
+00:33:10.210 --> 00:33:12.390
+Anthony Taylor: here, we're gonna create
+
+375
+00:33:14.110 --> 00:33:16.659
+Anthony Taylor: with this should fail. Actually, let's find out.
+
+376
+00:33:17.600 --> 00:33:23.660
+Anthony Taylor: And sure enough, it did right. What is it missing? Well, it's missing the model. It can't run without the model.
+
+377
+00:33:23.960 --> 00:33:28.710
+Anthony Taylor:  Here, I wonder if we can set this to a default?
+
+378
+00:33:28.790 --> 00:33:30.380
+Anthony Taylor: Let's find out.
+
+379
+00:33:33.120 --> 00:33:33.850
+Anthony Taylor: Yeah.
+
+380
+00:33:34.000 --> 00:33:35.790
+Anthony Taylor: So
+
+381
+00:33:36.040 --> 00:33:40.020
+Anthony Taylor: one option. You'd have 2 options. Okay.
+
+382
+00:33:40.040 --> 00:33:45.549
+Anthony Taylor: one. You can leave it off like that. And then, yeah, this would have failed right here.
+
+383
+00:33:45.690 --> 00:33:54.499
+Anthony Taylor: the example will fail without putting something there. Okay? Or you can set it to a default. Remember, we did this with the functions
+
+384
+00:33:54.980 --> 00:34:06.420
+Anthony Taylor: right? You could have function could have an argument that you have to pass it in, or an argument that is defaulted to something. If you don't ask it to do the same thing in a class.
+
+385
+00:34:06.520 --> 00:34:15.539
+Anthony Taylor: So all you would do is just say in the init will say, model equals like, I'm not going to do that because that would be silly. Your car has to have a mall.
+
+386
+00:34:15.870 --> 00:34:18.950
+Anthony Taylor: So right here, we're going to do comma
+
+387
+00:34:19.940 --> 00:34:22.230
+Anthony Taylor: can't. Okay.
+
+388
+00:34:22.400 --> 00:34:27.429
+Anthony Taylor: So we're going to get. We're going to create our class. And then we're going to
+
+389
+00:34:27.520 --> 00:34:34.649
+Anthony Taylor: print out the initial make and then change it to a honda and then print it out again.
+
+390
+00:34:34.880 --> 00:34:39.530
+Anthony Taylor: Okay, so we're gonna do, let's Matt
+
+391
+00:34:39.550 --> 00:34:45.869
+Clayton Graves: use that mileage analogy again, you could set a default for that to 0.
+
+392
+00:34:46.580 --> 00:34:48.389
+Anthony Taylor: Yeah, absolutely
+
+393
+00:34:48.860 --> 00:34:49.980
+Anthony Taylor: 100%.
+
+394
+00:34:51.030 --> 00:35:02.199
+Anthony Taylor: Okay, yeah, I mean, we could. I mean classes to go very you ever when I said at the beginning of class, this is something you would learn like towards the end of your bachelors in computer science.
+
+395
+00:35:02.380 --> 00:35:06.110
+Anthony Taylor: Okay, this could be a whole semester. Just what we're covering today.
+
+396
+00:35:06.810 --> 00:35:09.109
+Anthony Taylor: All right. It's it's very deep.
+
+397
+00:35:09.170 --> 00:35:14.450
+Anthony Taylor: We're not going to go that deep if you don't need to go that deep to do this for AI.
+
+398
+00:35:14.590 --> 00:35:15.530
+Anthony Taylor: Okay.
+
+399
+00:35:15.830 --> 00:35:19.150
+Anthony Taylor: Let's see, is there anything else? So make. Okay? Good.
+
+400
+00:35:19.230 --> 00:35:21.840
+Anthony Taylor: Okay. For some reason. Oh.
+
+401
+00:35:24.130 --> 00:35:27.409
+Anthony Taylor: I see what happened. I was showing you the solution to the exercise.
+
+402
+00:35:28.800 --> 00:35:32.600
+Anthony Taylor: But I think you're still okay. So in the unsolved.
+
+403
+00:35:33.660 --> 00:35:35.860
+Anthony Taylor: They give you almost everything.
+
+404
+00:35:36.900 --> 00:35:39.149
+Anthony Taylor: All you have to do is create
+
+405
+00:35:39.680 --> 00:35:41.180
+a center method
+
+406
+00:35:41.540 --> 00:35:45.090
+Anthony Taylor: for the ones that don't have
+
+407
+00:35:46.380 --> 00:35:50.410
+Anthony Taylor: okay and then create prompts
+
+408
+00:35:51.120 --> 00:35:52.950
+Anthony Taylor: and make you happy.
+
+409
+00:35:53.530 --> 00:35:54.430
+Anthony Taylor: Okay.
+
+410
+00:35:56.690 --> 00:35:57.420
+alright.
+
+411
+00:35:57.730 --> 00:35:58.680
+Anthony Taylor: Any questions.
+
+412
+00:35:58.990 --> 00:36:02.490
+Anthony Taylor: This one I'm only gonna give you all 10 min for because it's not, it's not
+
+413
+00:36:02.770 --> 00:36:06.360
+Anthony Taylor: set that down recording. So if you guys are looking for books.
+
+414
+00:36:06.520 --> 00:36:11.370
+Anthony Taylor: even that one that Clayton Flash is probably copyright, like 8 years ago.
+
+415
+00:36:13.450 --> 00:36:15.850
+Anthony Taylor: Do we aware this year? Oh.
+
+416
+00:36:16.350 --> 00:36:19.079
+Clayton Graves: oh, really, it is current current
+
+417
+00:36:19.600 --> 00:36:23.240
+Anthony Taylor: that's current correct. So it has, like python 3.1 4 in it.
+
+418
+00:36:27.220 --> 00:36:29.430
+Anthony Taylor: anyway, while he's looking that up.
+
+419
+00:36:29.490 --> 00:36:37.020
+Anthony Taylor:  that's the hardest part about finding books for this course, it's it's almost easier just to look online
+
+420
+00:36:37.250 --> 00:36:39.809
+Anthony Taylor: and get stuff, because then you're gonna get the fresh stuff
+
+421
+00:36:40.210 --> 00:36:45.899
+Anthony Taylor: or I can give you guys a prompt that will.
+
+422
+00:36:45.940 --> 00:36:50.300
+Anthony Taylor: The black or the chat TV will just go out and give you content. But
+
+423
+00:36:51.760 --> 00:37:05.280
+Anthony Taylor: remember, I have a surprise for you guys. So what I really want, you do focus on what we're doing class. And in a couple of weeks. hopefully, I'm gonna try to get your surprise, and if I get it
+
+424
+00:37:05.970 --> 00:37:08.349
+Anthony Taylor: you won't need any books. Guarantee.
+
+425
+00:37:09.520 --> 00:37:13.010
+Anthony Taylor: Okay, it's the best surprise you ever ask for.
+
+426
+00:37:13.230 --> 00:37:14.870
+Anthony Taylor: If you are working in python.
+
+427
+00:37:16.910 --> 00:37:17.730
+Anthony Taylor: Okay.
+
+428
+00:37:17.840 --> 00:37:25.450
+Anthony Taylor: okay, okay. When you agree, Karen can't seem to give this to like every student ever. And
+
+429
+00:37:25.810 --> 00:37:30.110
+Anthony Taylor: it's the bar. It's so good that my company hasn't stopped.
+
+430
+00:37:30.790 --> 00:37:33.100
+Clayton Graves: Looks like it's 3 right around my birthday.
+
+431
+00:37:34.890 --> 00:37:35.980
+Anthony Taylor: Oh.
+
+432
+00:37:36.470 --> 00:37:38.179
+Clayton Graves: 3.11, logistically
+
+433
+00:37:38.340 --> 00:37:43.509
+Anthony Taylor: 3.11. Okay, that's still pretty close to new. That's a good book. That's a good book.
+
+434
+00:37:44.320 --> 00:37:50.149
+Anthony Taylor: Alright was there anything we need to go over on this? I guess we should. Just what's the name and title.
+
+435
+00:37:51.100 --> 00:37:53.570
+Anthony Taylor: That one was Python. Crash. Course
+
+436
+00:37:54.990 --> 00:38:00.889
+Anthony Taylor: it's the it's the no starch or what's who's the publisher there?
+
+437
+00:38:01.540 --> 00:38:07.729
+Anthony Taylor: I showed you guys humble bundle right? Did I show everybody humble bundle or not, I'll I'll put it in chat, guys.
+
+438
+00:38:08.290 --> 00:38:10.789
+Anthony Taylor: Alright, let me just show you guys humble bundle real quick.
+
+439
+00:38:11.780 --> 00:38:19.279
+Anthony Taylor:  it. It is not paper books, but you will not find books to. This is not thing. I'm going to keep you guys back.
+
+440
+00:38:21.270 --> 00:38:25.170
+Anthony Taylor: But I will show you this because
+
+441
+00:38:26.440 --> 00:38:28.479
+Anthony Taylor: I have literally
+
+442
+00:38:30.430 --> 00:38:39.770
+Anthony Taylor: hundreds of books that I have purchased through this at an amazing price. Are you serious?
+
+443
+00:38:42.220 --> 00:38:42.900
+A.
+
+444
+00:38:43.860 --> 00:38:45.010
+Anthony Taylor: No, Mae.
+
+445
+00:38:46.760 --> 00:38:48.389
+Anthony Taylor: 1 s guy. Sorry.
+
+446
+00:38:49.930 --> 00:38:53.660
+Anthony Taylor: hey? I'll usually log into this on my school account.
+
+447
+00:38:54.900 --> 00:38:56.009
+There it is.
+
+448
+00:38:57.710 --> 00:38:59.349
+Anthony Taylor: Oh, my God, really
+
+449
+00:39:02.580 --> 00:39:03.910
+Anthony Taylor: so small!
+
+450
+00:39:04.010 --> 00:39:04.670
+Hello!
+
+451
+00:39:12.830 --> 00:39:16.699
+Anthony Taylor: So yeah. Well, I have other things, too. There's cookbooks.
+
+452
+00:39:16.910 --> 00:39:18.230
+Anthony Taylor: but
+
+453
+00:39:22.220 --> 00:39:25.699
+Anthony Taylor: there is tons and tons
+
+454
+00:39:26.810 --> 00:39:29.090
+Anthony Taylor: of books in here.
+
+455
+00:39:30.500 --> 00:39:33.090
+Anthony Taylor: And so this is my library. It goes on and on and on.
+
+456
+00:39:33.970 --> 00:39:37.509
+Anthony Taylor: Alright! What does that mean. So if you go here to bundles
+
+457
+00:39:37.540 --> 00:39:39.330
+Anthony Taylor: and you look under books.
+
+458
+00:39:40.860 --> 00:39:46.209
+Anthony Taylor: you will see here data, science, like, okay, does this book look familiar to you?
+
+459
+00:39:48.320 --> 00:39:53.060
+Anthony Taylor: These are the same books that he just showed you the same company. In fact, they might even have that book.
+
+460
+00:39:53.170 --> 00:39:53.960
+Anthony Taylor: See?
+
+461
+00:39:56.010 --> 00:39:58.779
+Anthony Taylor: Python, flashcards would be helpful for many of you.
+
+462
+00:40:01.380 --> 00:40:05.980
+michael mcpherson: Right? Column.
+
+463
+00:40:06.250 --> 00:40:09.130
+michael mcpherson: Keep going. Keep going.
+
+464
+00:40:10.930 --> 00:40:18.469
+Anthony Taylor: No, it's alright. There's a bunch of them here. And actually, this is the kind of stuff you guys need for your thing. So I want you to notice the price.
+
+465
+00:40:20.190 --> 00:40:23.279
+Anthony Taylor: All 18 books, $36
+
+466
+00:40:24.900 --> 00:40:25.690
+Anthony Taylor: total.
+
+467
+00:40:26.260 --> 00:40:32.340
+Anthony Taylor: You do it. You'll get Pdfs or Epubs, which let me give you guys an advantage of Pdfs and Epubs.
+
+468
+00:40:32.360 --> 00:40:37.430
+Anthony Taylor: One. You can search them all at the same time.
+
+469
+00:40:38.940 --> 00:40:40.890
+Anthony Taylor: Okay, 2.
+
+470
+00:40:40.980 --> 00:40:44.520
+Anthony Taylor: In this class. I am going to teach you
+
+471
+00:40:45.490 --> 00:40:50.430
+Anthony Taylor: how to create a chatbot that will read
+
+472
+00:40:50.690 --> 00:40:55.630
+Anthony Taylor: all of those books and answer any question you can come up with
+
+473
+00:40:56.870 --> 00:40:58.620
+Anthony Taylor: from those books.
+
+474
+00:41:01.110 --> 00:41:09.950
+Anthony Taylor: Okay. So I don't get anything for this. I'm just showing you. It's actually for charity, believe it or not. So when you do this, see, this one's raised 21,000
+
+475
+00:41:10.190 --> 00:41:17.219
+Anthony Taylor: for charity  And and almost every week, like, here's the security one.
+
+476
+00:41:18.430 --> 00:41:21.090
+there's some other. Here's a programming, Megabundall.
+
+477
+00:41:21.990 --> 00:41:23.420
+Anthony Taylor: This one might have
+
+478
+00:41:24.300 --> 00:41:27.610
+Anthony Taylor: this one's just like on on programming.
+
+479
+00:41:28.040 --> 00:41:32.889
+Anthony Taylor: But there's a lot of good stuff in here. See? I don't buy all of them actually buy them.
+
+480
+00:41:33.770 --> 00:41:38.259
+Anthony Taylor: And then one more thing in here, some in here under software.
+
+481
+00:41:39.370 --> 00:41:47.830
+Anthony Taylor:  Where's it at? Oh, they don't have any today. Well, if you're into
+
+482
+00:41:48.150 --> 00:41:51.319
+Anthony Taylor: home, repair our home. Decorating.
+
+483
+00:41:51.510 --> 00:41:59.750
+Anthony Taylor: This is those software programs. Or you can like, put your house in it and change it. See what it would look like if you did it. but they they the other day they had
+
+484
+00:42:01.060 --> 00:42:04.429
+Anthony Taylor: some. I don't know. It was some school.
+
+485
+00:42:04.680 --> 00:42:09.149
+Anthony Taylor: and they had like tons of classes
+
+486
+00:42:10.520 --> 00:42:13.270
+Anthony Taylor: that you could take like you did me type classes.
+
+487
+00:42:13.810 --> 00:42:14.740
+For
+
+488
+00:42:15.390 --> 00:42:20.649
+Anthony Taylor: 18 bucks or whatever. So, anyway. very, very cool.
+
+489
+00:42:21.220 --> 00:42:27.899
+Anthony Taylor:  changes all the time. By the way, if I do 3D. Printing.
+
+490
+00:42:28.480 --> 00:42:32.310
+Raugewitz, Tania: Oh, so where'd you type in to get all of those books for $36?
+
+491
+00:42:32.740 --> 00:42:43.370
+Anthony Taylor: So go to humble bundle.com go to bundles and then books. But if you guys see this, these are, this is a bundle for 25 bucks.
+
+492
+00:42:43.380 --> 00:42:46.949
+Anthony Taylor: These are all 3D models that you can print on your 3D printer.
+
+493
+00:42:48.110 --> 00:42:49.579
+Anthony Taylor: That's freaking. Amazing.
+
+494
+00:42:50.730 --> 00:42:57.799
+Anthony Taylor: I might I might actually buy it.  But yeah, so you go to humble bundle
+
+495
+00:42:58.060 --> 00:42:59.670
+Anthony Taylor: and then go to books
+
+496
+00:43:01.110 --> 00:43:04.800
+Anthony Taylor: and then find. And then the data science ones right there. It's relatively.
+
+497
+00:43:06.290 --> 00:43:10.430
+Anthony Taylor: And as you like games, you can also get like bunch of games.
+
+498
+00:43:12.240 --> 00:43:14.609
+Anthony Taylor: This 1 $10. You get all.
+
+499
+00:43:16.050 --> 00:43:20.740
+Anthony Taylor: anyway. So free marketing for my group.
+
+500
+00:43:21.520 --> 00:43:24.560
+Anthony Taylor: if you like. Books. That is the way to go.
+
+501
+00:43:26.220 --> 00:43:30.199
+Anthony Taylor: Not paper books. Obviously. though you could print it like Mike
+
+502
+00:43:32.460 --> 00:43:34.410
+Anthony Taylor: Mike's gonna print all the books I get.
+
+503
+00:43:38.010 --> 00:43:43.589
+Anthony Taylor: He's not joking. Alright. Let's go
+
+504
+00:43:45.090 --> 00:43:47.300
+Anthony Taylor: back to work. Oh, wait not back to work.
+
+505
+00:43:47.350 --> 00:43:51.470
+Anthony Taylor: We added, our centers and getters, we're good. Yeah. So
+
+506
+00:43:52.030 --> 00:43:56.130
+Anthony Taylor: break time. I will see you guys at.
+
+507
+00:43:56.800 --> 00:43:57.590
+Anthony Taylor: So now.
+
+508
+00:43:58.850 --> 00:44:03.289
+Anthony Taylor: okay, you 19 min for your break today, cause you're doing so. Damn good.
+
+509
+00:44:04.230 --> 00:44:06.889
+Anthony Taylor: Alright, I'll see you in in 19 min.
+
+510
+00:44:11.290 --> 00:44:16.319
+Anthony Taylor: Okay, so what's next? Well, not this. We already did this. So.
+
+511
+00:44:17.270 --> 00:44:19.380
+oh.
+
+512
+00:44:19.890 --> 00:44:21.739
+Anthony Taylor: oh, yeah, we did that.
+
+513
+00:44:22.550 --> 00:44:28.219
+Anthony Taylor:  we did all this. We did this. We did this.
+
+514
+00:44:28.440 --> 00:44:32.180
+Anthony Taylor: They did getters. We did setters.
+
+515
+00:44:33.020 --> 00:44:35.760
+Anthony Taylor: Yeah, okay, here we go
+
+516
+00:44:37.570 --> 00:44:39.190
+Anthony Taylor: modules. So
+
+517
+00:44:39.280 --> 00:44:41.310
+Anthony Taylor: let's talk about the higher
+
+518
+00:44:41.910 --> 00:44:45.149
+Anthony Taylor: of what we've learned so far. Okay.
+
+519
+00:44:45.390 --> 00:44:46.880
+Anthony Taylor: the smallest
+
+520
+00:44:48.440 --> 00:44:52.639
+Anthony Taylor: piece of code is basically just a line of code. That's it.
+
+521
+00:44:52.700 --> 00:44:57.189
+Anthony Taylor: So let's go to a python. 5 python script.py.
+
+522
+00:44:57.660 --> 00:45:00.950
+Anthony Taylor: That will be our smallest piece of code.
+
+523
+00:45:01.410 --> 00:45:02.290
+Anthony Taylor: Okay.
+
+524
+00:45:02.990 --> 00:45:07.199
+Anthony Taylor:  above that would have a class.
+
+525
+00:45:09.030 --> 00:45:10.100
+Anthony Taylor: Okay?
+
+526
+00:45:10.260 --> 00:45:21.349
+Anthony Taylor: So a class would be like the next level up. So we can create a class, we can import classes. We can do all this stuff. Okay, now, you guys have imported Wi-fi
+
+527
+00:45:23.670 --> 00:45:35.710
+Anthony Taylor: which can have multiple functions in them. Alright. And you can import class files which can have multiple functions and methods and all of this stuff.
+
+528
+00:45:36.250 --> 00:45:43.800
+Anthony Taylor: The next level up is a module and a module is pretty much multiple classes.
+
+529
+00:45:45.780 --> 00:45:49.450
+Anthony Taylor: Alright, does it have to be multiple classes. No
+
+530
+00:45:49.650 --> 00:45:54.700
+Anthony Taylor: canopy. Yes.  So.
+
+531
+00:45:55.100 --> 00:45:56.820
+Anthony Taylor: for instance.
+
+532
+00:45:57.400 --> 00:46:05.069
+Anthony Taylor: And when we store classes and modules, we're able to really organize our stuff. So maybe there's multiple classes related to the car.
+
+533
+00:46:06.800 --> 00:46:11.139
+Anthony Taylor: Okay? So we're gonna put all of those in a module. Maybe we'll call it the Karma
+
+534
+00:46:12.490 --> 00:46:14.180
+Anthony Taylor: whatever.
+
+535
+00:46:14.560 --> 00:46:20.820
+Anthony Taylor: Okay. And in there we'll have multiple classes related to a car. So we would import that class
+
+536
+00:46:21.330 --> 00:46:22.390
+Anthony Taylor: file
+
+537
+00:46:23.170 --> 00:46:28.189
+Anthony Taylor: into our program. And from there we can instantiate all of these classes.
+
+538
+00:46:29.730 --> 00:46:34.459
+Anthony Taylor: Alright. So that's really it. I mean, there's do not let them get hard.
+
+539
+00:46:35.020 --> 00:46:38.689
+Anthony Taylor: that's all it is. So when you guys import from Pipi.
+
+540
+00:46:39.010 --> 00:46:46.160
+Anthony Taylor: okay, and you're importing a whole package. You're typically importing a whole bunch of functions, probably a whole bunch of classes.
+
+541
+00:46:46.300 --> 00:46:49.400
+Anthony Taylor: just a whole bunch of stuff that all goes with that
+
+542
+00:46:49.520 --> 00:46:51.740
+Anthony Taylor: specific library.
+
+543
+00:46:52.880 --> 00:46:53.660
+Anthony Taylor: Aye.
+
+544
+00:46:53.780 --> 00:46:55.440
+Anthony Taylor: don't complicate it.
+
+545
+00:46:56.000 --> 00:46:57.359
+Anthony Taylor: that's all there is to
+
+546
+00:46:58.170 --> 00:47:07.099
+Anthony Taylor:  yeah. And you import it same way as we did yesterday or yeah, yesterday, when we were importing the libraries we made
+
+547
+00:47:07.270 --> 00:47:12.560
+Anthony Taylor: right. You just import the name of the file. Not that py, just the name of the file.
+
+548
+00:47:12.750 --> 00:47:14.150
+Anthony Taylor: and you get the whole thing
+
+549
+00:47:15.040 --> 00:47:18.860
+Anthony Taylor: I mean, and that's it. That's literally the module thing.
+
+550
+00:47:19.140 --> 00:47:22.799
+Anthony Taylor: Let me show you. We'll do it once here.
+
+551
+00:47:25.150 --> 00:47:28.930
+Anthony Taylor: so we have our r.py.
+
+552
+00:47:29.550 --> 00:47:34.989
+Anthony Taylor: We can see in here is a class, and that's all that's in here. Now, do you guys see what I just did? There.
+
+553
+00:47:35.060 --> 00:47:37.890
+Anthony Taylor: I just did something that I you know now that I think about it.
+
+554
+00:47:37.910 --> 00:47:43.620
+Anthony Taylor: maybe you didn't know what I just did, I said, there's a class now I can't see the whole code right?
+
+555
+00:47:44.910 --> 00:47:59.469
+Anthony Taylor: It's not all on the screen. So I went over here to the left, and there's this little arrow here by clicking that I collapse the code. and if there was more than just that class I would see more than one line.
+
+556
+00:48:00.840 --> 00:48:05.250
+Anthony Taylor: So by doing that I could tell right away that this. All that's in here is this class. And that's it.
+
+557
+00:48:06.830 --> 00:48:07.610
+Anthony Taylor: Okay.
+
+558
+00:48:07.890 --> 00:48:11.920
+Anthony Taylor: so yeah, so we can see it has getters
+
+559
+00:48:12.380 --> 00:48:14.310
+Anthony Taylor: has some setters.
+
+560
+00:48:14.980 --> 00:48:18.310
+Anthony Taylor: and that's it doesn't even have a method or doesn't have like any actions.
+
+561
+00:48:18.550 --> 00:48:20.530
+Anthony Taylor: Okay, so this is just a class.
+
+562
+00:48:20.910 --> 00:48:27.769
+Anthony Taylor: But we're going to treat it as a module. It's just a single class. So in this car data solution.
+
+563
+00:48:27.830 --> 00:48:40.590
+Anthony Taylor: we're going to say from car import car, which is the class alright. And then we now can instantiate it, just like it was in this program. That's it.
+
+564
+00:48:41.200 --> 00:48:45.530
+Anthony Taylor: I mean, that's it. That's I know you expected this to be way harder. Right?
+
+565
+00:48:46.970 --> 00:48:54.290
+Anthony Taylor: Is everyone following. Is anyone like, all right, he thinks we're getting it. But we're really not getting it. Anybody there. Okay.
+
+566
+00:48:54.610 --> 00:49:01.780
+Anthony Taylor: all right, Tanya. So let's look at it again, everybody. Let's look at it again. Here's our car, Dot p wifi. It's just.
+
+567
+00:49:02.380 --> 00:49:05.230
+Anthony Taylor: It's just a python file
+
+568
+00:49:05.660 --> 00:49:11.660
+Anthony Taylor: that has a class defined. and that's it. That's all that's in you.
+
+569
+00:49:12.840 --> 00:49:17.880
+Anthony Taylor: Okay, there's no nothing's being called nothing. It's just a module.
+
+570
+00:49:18.050 --> 00:49:21.940
+Anthony Taylor: because it's a file with voted.
+
+571
+00:49:22.230 --> 00:49:35.919
+Anthony Taylor: Now, we could put more than one class in here. Other classes related to car. They didn't in this example, but they could, and that would be the point of a month.  to use this in a program.
+
+572
+00:49:36.130 --> 00:49:44.380
+Anthony Taylor: We have another python file here. and we're going to import it using our import statements that we learned yesterday.
+
+573
+00:49:44.890 --> 00:49:48.030
+Anthony Taylor: Okay, so we're saying from here.
+
+574
+00:49:48.620 --> 00:49:54.749
+Anthony Taylor: I want you to import the car class. Do do not need to do that. You could have just said
+
+575
+00:49:55.900 --> 00:49:58.620
+Anthony Taylor: import cot. That would work too.
+
+576
+00:49:59.610 --> 00:50:03.719
+Anthony Taylor: Okay. The reason we're gonna do from for now
+
+577
+00:50:05.210 --> 00:50:10.230
+Anthony Taylor: is we want to be very specific. Now, if there was more than one class in here.
+
+578
+00:50:11.030 --> 00:50:12.190
+Anthony Taylor: would we get it
+
+579
+00:50:13.220 --> 00:50:20.610
+Anthony Taylor: with this method way, we're doing it right. The second. we would not. Clayton. This snake book is right.
+
+580
+00:50:21.640 --> 00:50:30.230
+Anthony Taylor: Okay. you would not get it. You would only get the one you specifically imported unless you did
+
+581
+00:50:32.260 --> 00:50:41.439
+Anthony Taylor: that. And then you would get everything that's available inside of this file. Okay? Or of course, you could call the other ones in
+
+582
+00:50:41.670 --> 00:50:43.269
+Anthony Taylor: after this, and they would come.
+
+583
+00:50:44.000 --> 00:50:45.750
+Anthony Taylor: Okay, so
+
+584
+00:50:46.040 --> 00:50:47.080
+Anthony Taylor: this
+
+585
+00:50:47.770 --> 00:50:54.299
+Anthony Taylor: is the same. And and I and I really want you guys to visualize this in your day. So if I took this code
+
+586
+00:50:54.850 --> 00:50:58.730
+Anthony Taylor: when in here. went to the bottom of this class and pasted.
+
+587
+00:50:59.730 --> 00:51:02.760
+Anthony Taylor: okay. that's exactly what we're doing.
+
+588
+00:51:04.800 --> 00:51:08.689
+Anthony Taylor: Okay, it is basically injecting
+
+589
+00:51:09.690 --> 00:51:10.670
+Anthony Taylor: this
+
+590
+00:51:10.790 --> 00:51:15.859
+Anthony Taylor: into the code. So in the background, all of that code is being injected into this file
+
+591
+00:51:18.020 --> 00:51:21.279
+Anthony Taylor: and made available to the code. That's it. That's all you're doing.
+
+592
+00:51:22.510 --> 00:51:23.789
+Anthony Taylor: Okay, does that help
+
+593
+00:51:24.690 --> 00:51:28.490
+Anthony Taylor: everybody? Okay? Good. Alright. So
+
+594
+00:51:28.960 --> 00:51:31.820
+Anthony Taylor: so for the exercise on this
+
+595
+00:51:32.540 --> 00:51:41.739
+Anthony Taylor: and and this one's we're going to be building up. So everyone wants to do this because what's gonna happen to next? Like 1, 2.
+
+596
+00:51:42.880 --> 00:51:51.170
+Anthony Taylor: Oh, the next 2 or 3 exercises we're gonna build up on this class. It's gonna be a new class. So you guys have
+
+597
+00:51:51.930 --> 00:51:56.490
+Anthony Taylor: banking. PY, which is, you're going to create a class.
+
+598
+00:51:57.250 --> 00:52:03.749
+Anthony Taylor: From? Oh, no, okay. I like bank account is your class.
+
+599
+00:52:04.620 --> 00:52:13.290
+Anthony Taylor: and it looks like they gave you the whole class, which is cool, or at least enough of a class to to use it.
+
+600
+00:52:13.630 --> 00:52:22.089
+Anthony Taylor: Okay? And in this banking, py, you're going to import it. And then you're going to follow these little, these little prompts
+
+601
+00:52:22.590 --> 00:52:25.350
+Anthony Taylor: to basically call
+
+602
+00:52:25.400 --> 00:52:26.809
+Anthony Taylor: the bank account
+
+603
+00:52:28.740 --> 00:52:32.060
+Anthony Taylor: class and and use it. Okay.
+
+604
+00:52:32.210 --> 00:52:37.559
+Anthony Taylor: so let me look at this. Let's see what we got here import. Well, we just talked about that. Create an instance.
+
+605
+00:52:37.670 --> 00:52:39.170
+Anthony Taylor: We all know how to do that.
+
+606
+00:52:39.330 --> 00:52:48.109
+Anthony Taylor: Pass users pay to the deposit method, using the instance of the bank account class. So to do that, that means you got to go into the class.
+
+607
+00:52:48.330 --> 00:52:51.559
+Anthony Taylor: look at the deposit method and see what it takes
+
+608
+00:52:53.370 --> 00:52:57.019
+Anthony Taylor: okay, self. You don't pass in, but amount you would pass.
+
+609
+00:52:58.600 --> 00:53:01.950
+Anthony Taylor: and I keep going close these ones. I have open
+
+610
+00:53:02.280 --> 00:53:03.680
+Anthony Taylor: my way.
+
+611
+00:53:04.140 --> 00:53:17.679
+Anthony Taylor:  display the ballot, so afterwards you display it. Okay, that's just a here's some more of the inputs. And then it says, pass the user's amount. They want to withdraw
+
+612
+00:53:18.740 --> 00:53:26.580
+Anthony Taylor: in. So again, you're gonna go back here. You're gonna look up withdrawal. What do I need to pass in? And then you're gonna print the balance?
+
+613
+00:53:27.590 --> 00:53:29.080
+Anthony Taylor: Okay? I would bet.
+
+614
+00:53:29.170 --> 00:53:32.729
+Anthony Taylor: is there? Yeah, look. And there's a get balance. So
+
+615
+00:53:32.850 --> 00:53:40.330
+Anthony Taylor: guys import instantiate deposit. Get balanced.
+
+616
+00:53:40.380 --> 00:53:42.900
+Anthony Taylor: Withdraw. Get balance.
+
+617
+00:53:45.300 --> 00:53:46.769
+Anthony Taylor: Okay, that's it.
+
+618
+00:53:47.670 --> 00:53:49.639
+Anthony Taylor: Alright. So for this.
+
+619
+00:53:52.950 --> 00:54:00.939
+Anthony Taylor: Wow! 1 min. I can't imagine it's gonna take your point, but if it does, it does, if it doesn't come back and see.
+
+620
+00:54:01.180 --> 00:54:08.620
+Anthony Taylor: we'll all be sitting in the main room. Just deal chit chatting, or whatever record first. Hey? How did it go
+
+621
+00:54:10.150 --> 00:54:13.150
+Anthony Taylor: if I struggle? Go ahead
+
+622
+00:54:14.680 --> 00:54:16.860
+Gebrekristos, Hafton: if you're asking me? No, we didn't struggle.
+
+623
+00:54:17.620 --> 00:54:20.600
+Anthony Taylor: I love that. I'm asking everybody. But I love that. You answer.
+
+624
+00:54:21.230 --> 00:54:28.420
+Anthony Taylor: I love that awesome. Well, let's take a look see if I did it basically the same. So we had our
+
+625
+00:54:29.050 --> 00:54:30.120
+Anthony Taylor: who laugh.
+
+626
+00:54:30.740 --> 00:54:38.140
+Anthony Taylor: That was created for us. Okay, which is kind of cool. And it had. You know, I needed a balance to get started.
+
+627
+00:54:38.680 --> 00:54:42.679
+Anthony Taylor: It had a deposit which all it did was add to the balance.
+
+628
+00:54:43.470 --> 00:54:48.080
+Anthony Taylor:  it's kind of interesting.
+
+629
+00:54:49.080 --> 00:54:53.300
+Anthony Taylor: Is this a good method. What do you guys anybody think that's a good method.
+
+630
+00:54:58.200 --> 00:55:02.069
+Anthony Taylor: the deposit one, I mean, I guess that is purely what a deposit is.
+
+631
+00:55:02.500 --> 00:55:04.630
+Anthony Taylor: But what if someone put in a negative number
+
+632
+00:55:08.060 --> 00:55:10.279
+Clayton Graves: that would be lower your balance?
+
+633
+00:55:10.730 --> 00:55:14.820
+Anthony Taylor: Well, no cause you're passing in deposit. So technically
+
+634
+00:55:15.350 --> 00:55:21.940
+Anthony Taylor: right. But you're right. I mean I would put a check in probably a little error handling. But we'll we'll get an error handling link
+
+635
+00:55:22.590 --> 00:55:25.319
+Anthony Taylor: withdrawal. You have your amount
+
+636
+00:55:25.410 --> 00:55:27.360
+Anthony Taylor: now. What if this was a negative number.
+
+637
+00:55:32.190 --> 00:55:34.190
+Anthony Taylor: That's an interesting idea. Huh?
+
+638
+00:55:35.200 --> 00:55:38.420
+Anthony Taylor: I can say, withdraw negative 5. And then my balance goes.
+
+639
+00:55:39.500 --> 00:55:40.590
+Anthony Taylor: what?
+
+640
+00:55:41.940 --> 00:55:43.489
+Anthony Taylor: Okay? So anyway.
+
+641
+00:55:43.720 --> 00:55:44.959
+Anthony Taylor: things to look at
+
+642
+00:55:45.890 --> 00:55:53.450
+Anthony Taylor: actually, let's see if if the balance is greater than the amount. So if I said the amount was negative, 5,
+
+643
+00:55:53.760 --> 00:55:57.729
+Anthony Taylor: it would add negative 5 to my amount. So yeah, my balance would go up.
+
+644
+00:55:59.130 --> 00:56:02.380
+Anthony Taylor: So that's that's clearly a poor design.
+
+645
+00:56:02.720 --> 00:56:08.769
+Anthony Taylor: Okay? And then, last, not least, get the balance. Okay, so let's go look at our cylinders. So we imported it.
+
+646
+00:56:10.880 --> 00:56:12.310
+We
+
+647
+00:56:12.370 --> 00:56:16.919
+Anthony Taylor: we're gonna start with like we have a hundred bucks or whatever.
+
+648
+00:56:17.020 --> 00:56:22.930
+Anthony Taylor: Then we're going to instantiate our cool little class passing in our starting balance.
+
+649
+00:56:24.570 --> 00:56:28.290
+Anthony Taylor: We're gonna get paid. How much did you get paid this week?
+
+650
+00:56:29.020 --> 00:56:36.930
+Anthony Taylor: And then we're going to deposit it. So we're going to start with. I will deposit this into your account, and then we're going to call
+
+651
+00:56:37.030 --> 00:56:43.669
+Anthony Taylor: whatever we called our class savings the deposit method and pass in the amount of pay.
+
+652
+00:56:46.290 --> 00:56:49.149
+Anthony Taylor: Then we're gonna return the balance.
+
+653
+00:56:51.920 --> 00:56:54.859
+Anthony Taylor: Is this line of code for pretty good for everybody.
+
+654
+00:56:56.000 --> 00:56:56.990
+Anthony Taylor: What was that
+
+655
+00:56:58.290 --> 00:57:06.479
+Clayton Graves: this was we. We struggled. This was one of those instances where you see it, and it's like, Oh, that makes way more sense than what we were trying to do
+
+656
+00:57:06.720 --> 00:57:08.320
+Clayton Graves: so, gotcha.
+
+657
+00:57:09.380 --> 00:57:13.439
+Clayton Graves: I mean, even though we struggle, we get it, or at least I do.
+
+658
+00:57:14.070 --> 00:57:20.949
+Anthony Taylor: I like it. Well, no, that's what it's about right. I mean it was. If you already knew it, it'd be too easy, or it'd be pointless to be here
+
+659
+00:57:21.110 --> 00:57:25.379
+Anthony Taylor: right. And if you if it was all easy. Then it'd be
+
+660
+00:57:25.620 --> 00:57:27.069
+Anthony Taylor: no point being here either.
+
+661
+00:57:27.260 --> 00:57:30.399
+Anthony Taylor: Okay, so next, how much do you want to withdraw?
+
+662
+00:57:30.650 --> 00:57:32.170
+Anthony Taylor: Put it in the variable
+
+663
+00:57:32.300 --> 00:57:37.760
+Anthony Taylor: run? The withdrawal method from your class and then return the balance again.
+
+664
+00:57:39.310 --> 00:57:41.219
+Anthony Taylor: That's it. That was the whole exercise
+
+665
+00:57:42.560 --> 00:57:43.810
+Anthony Taylor: question
+
+666
+00:57:47.660 --> 00:57:50.179
+Anthony Taylor: that did not take me 10 min to go through this.
+
+667
+00:57:51.650 --> 00:57:53.289
+Anthony Taylor: So any other questions?
+
+668
+00:57:54.880 --> 00:57:57.450
+Anthony Taylor: No, let's go back to the Slideshome
+
+669
+00:58:00.520 --> 00:58:10.330
+Anthony Taylor: inheritance. No, this is not what you get from your family members. Okay. inheritance.
+
+670
+00:58:10.940 --> 00:58:14.550
+Anthony Taylor: So let's go back to our car class.
+
+671
+00:58:14.830 --> 00:58:15.650
+Anthony Taylor: Okay?
+
+672
+00:58:15.950 --> 00:58:22.630
+Anthony Taylor:  we have a car is a golf car to car.
+
+673
+00:58:27.170 --> 00:58:29.720
+Clayton Graves: An electric car is a car.
+
+674
+00:58:30.550 --> 00:58:33.139
+Anthony Taylor: Well, which is pretty much right.
+
+675
+00:58:33.290 --> 00:58:38.019
+Clayton Graves: Electric guitar or electric car is going to inherit
+
+676
+00:58:38.260 --> 00:58:39.660
+Clayton Graves: all of the
+
+677
+00:58:40.110 --> 00:58:43.390
+Clayton Graves: same attributes except for engine.
+
+678
+00:58:43.830 --> 00:58:48.149
+Anthony Taylor: Yeah. Well, you could do engine type set of engine. But yeah.
+
+679
+00:58:48.790 --> 00:58:54.330
+Clayton Graves: and it would have it would have its own unique attributes as well, like battery.
+
+680
+00:58:56.330 --> 00:58:58.610
+Anthony Taylor: Yeah. Cars have batteries.
+
+681
+00:58:59.300 --> 00:59:10.269
+Anthony Taylor: I don't know. I see what you're going with it, and I don't disagree with you. I would get it go a little more drastic, so it'd be a little more obvious. So a car, the car, as we've defined it thus far
+
+682
+00:59:10.760 --> 00:59:12.829
+Anthony Taylor: has a certain set of attributes.
+
+683
+00:59:13.290 --> 00:59:17.070
+Anthony Taylor: Okay, but let's say we wanted to define golf cart.
+
+684
+00:59:18.250 --> 00:59:26.879
+Anthony Taylor: and in our design session, somebody said, you know, all the attributes that you want to put in this golf cart are actually also in call.
+
+685
+00:59:29.410 --> 00:59:31.420
+Anthony Taylor: It's like, oh, yeah, huh!
+
+686
+00:59:32.010 --> 00:59:38.779
+Anthony Taylor: They kind of. But we're gonna add some additional ones. maybe stuff like what Clayton said.
+
+687
+00:59:39.010 --> 00:59:41.610
+Anthony Taylor: Batteries are different. Motor is different.
+
+688
+00:59:41.840 --> 00:59:51.199
+Anthony Taylor: How many people it holds. Is it street legal or not? There could be additional attributes and methods that we want to add. But
+
+689
+00:59:52.530 --> 01:00:01.710
+Anthony Taylor: there's enough similarity to the car class that we're like, hey, here's what we're gonna do. We're gonna create a new class called Golf Park.
+
+690
+01:00:01.920 --> 01:00:09.760
+Anthony Taylor: And so that we don't have to repeat all of those attributes we're going to inherit call.
+
+691
+01:00:11.020 --> 01:00:16.110
+Anthony Taylor: which will automatically add all of the attributes from car
+
+692
+01:00:16.290 --> 01:00:19.470
+Anthony Taylor: to golf cart without you having to retype them.
+
+693
+01:00:21.560 --> 01:00:26.430
+Anthony Taylor: Remember, hold dry. Remember, dry. Do do not repeat yourself. Don't repeat yourself.
+
+694
+01:00:27.070 --> 01:00:41.509
+Anthony Taylor: Okay? So that's what that is. Alright. So a new class is called subclass or child existing is the base or the super or the parent.
+
+695
+01:00:41.630 --> 01:00:45.140
+Anthony Taylor: It will inherit attributes and methods
+
+696
+01:00:45.340 --> 01:00:48.069
+Anthony Taylor: from the parent or base class.
+
+697
+01:00:48.440 --> 01:00:51.710
+Anthony Taylor: But the subclass can have more than that.
+
+698
+01:00:52.370 --> 01:00:53.300
+Anthony Taylor: so
+
+699
+01:00:53.420 --> 01:00:55.729
+Anthony Taylor: I don't know what in a golf cart would be.
+
+700
+01:00:56.630 --> 01:01:05.790
+Anthony Taylor: not in a car. It's probably not the greatest example. We'll see if we have another example. But like. see this one, they're just calling it car extra.
+
+701
+01:01:06.450 --> 01:01:12.099
+Anthony Taylor: Okay, I guess. So you have car, our normal car class that we've been running all day.
+
+702
+01:01:12.110 --> 01:01:18.500
+Anthony Taylor: And then they said, Okay, so we're gonna create a subclass of car. So we're gonna say, car extras
+
+703
+01:01:19.050 --> 01:01:21.189
+Anthony Taylor: and then pass in
+
+704
+01:01:22.040 --> 01:01:24.959
+Anthony Taylor: car, which is this class.
+
+705
+01:01:25.720 --> 01:01:31.879
+Anthony Taylor: Now. this now contains everything in here.
+
+706
+01:01:32.050 --> 01:01:40.490
+Anthony Taylor: plus whatever we make it here. Now, there's a couple of gotchas here, and I want you to stress too much about this. But just try to follow along
+
+707
+01:01:42.360 --> 01:01:48.340
+Anthony Taylor: in a subclass. If you create an init which you do not have to.
+
+708
+01:01:49.890 --> 01:01:54.820
+Anthony Taylor: because it's a subclass, it already has an emit from the parent.
+
+709
+01:01:56.180 --> 01:01:58.330
+Anthony Taylor: But if you create your own.
+
+710
+01:01:59.120 --> 01:02:12.620
+Anthony Taylor: you basically overwrite the parent. Now, the parent itself will still have its class, if you call it by itself. But if you call the subclass, you now have to call the init for the subclass, not init for the parent.
+
+711
+01:02:12.940 --> 01:02:17.290
+Anthony Taylor: However. if you intentionally
+
+712
+01:02:17.580 --> 01:02:23.099
+Anthony Taylor: call the admit from the parent within the subclass, you now have both.
+
+713
+01:02:23.960 --> 01:02:33.709
+Anthony Taylor: and must meet the requirements of both. So in this example make model anti-theft and extended warranty.
+
+714
+01:02:34.620 --> 01:02:43.700
+Anthony Taylor: Okay. you have to do to call this to create this class. You have to pass in those values. but because they also
+
+715
+01:02:45.260 --> 01:02:59.479
+Anthony Taylor: added car index make and model you all so well. The good news is, is making models in both of these. So it's going to work for both of the the advantage of this is by by doing this
+
+716
+01:02:59.850 --> 01:03:01.860
+Anthony Taylor: you get everything in here
+
+717
+01:03:02.940 --> 01:03:05.350
+Anthony Taylor: and everything over here.
+
+718
+01:03:06.810 --> 01:03:10.920
+Anthony Taylor: Okay, if you didn't do this, but you did this.
+
+719
+01:03:11.310 --> 01:03:14.390
+Anthony Taylor: you would not necessarily get the attributes.
+
+720
+01:03:14.400 --> 01:03:17.939
+Anthony Taylor: You can still get the methods, but not necessarily all of the attributes.
+
+721
+01:03:18.940 --> 01:03:20.080
+Anthony Taylor: Yes, click!
+
+722
+01:03:21.890 --> 01:03:26.119
+Clayton Graves: And do they duplicate themselves here because they got make and model.
+
+723
+01:03:26.870 --> 01:03:31.450
+Clayton Graves: and they've got
+
+724
+01:03:32.100 --> 01:03:37.470
+Anthony Taylor: the the reason they're doing that is, they want to get. And and we'll we'll cover this in the lecture part of it, I think, but
+
+725
+01:03:37.540 --> 01:03:51.669
+Anthony Taylor: what they're trying to do like, I said. When you create an init in the subclass, it effectively overwrites the init in parent that it's related to. So they're calling the init again so that you get the init from the parent.
+
+726
+01:03:52.030 --> 01:03:56.999
+Anthony Taylor: That's what's happened. and because it uses the same values it just gets passed through.
+
+727
+01:03:57.420 --> 01:04:00.740
+Anthony Taylor: It's okay. But here, let's let's look at some more stuff.
+
+728
+01:04:00.920 --> 01:04:08.339
+Anthony Taylor: Why did we not include instant methods because they were included, because this is inheriting them from parent
+
+729
+01:04:08.900 --> 01:04:13.899
+Anthony Taylor: alright. Well, that wasn't very helpful. So let's go and look at this in code.
+
+730
+01:04:15.910 --> 01:04:18.410
+Anthony Taylor: Alright. So here's our
+
+731
+01:04:19.110 --> 01:04:19.840
+Anthony Taylor: car.
+
+732
+01:04:20.750 --> 01:04:23.579
+Anthony Taylor: Okay, same car. We've been running most of the day.
+
+733
+01:04:23.720 --> 01:04:28.060
+Anthony Taylor: Okay, all the getters, all the setters. We're good. Here's car extras.
+
+734
+01:04:28.320 --> 01:04:33.229
+Anthony Taylor: So you can see if we call this init. It's an init. Okay.
+
+735
+01:04:33.280 --> 01:04:36.749
+Anthony Taylor: the me see where it says this.
+
+736
+01:04:45.640 --> 01:04:48.399
+Anthony Taylor: and it's looking for where it said that. But anyway.
+
+737
+01:04:48.430 --> 01:04:55.930
+Anthony Taylor: when. So when you call this and this, when you instantiate our extras, you must pass in all of this.
+
+738
+01:04:57.090 --> 01:05:02.829
+Anthony Taylor: Okay, if you stop there. If you didn't include this. You would not have these attributes.
+
+739
+01:05:03.740 --> 01:05:10.360
+Anthony Taylor: Now, if you ignored this init, and then you would just then you could get away with just passing in
+
+740
+01:05:10.390 --> 01:05:12.170
+Anthony Taylor: the attributes of the parents.
+
+741
+01:05:14.130 --> 01:05:16.620
+Anthony Taylor: Why would you do that? And it could happen?
+
+742
+01:05:17.000 --> 01:05:17.910
+Anthony Taylor: Okay.
+
+743
+01:05:18.070 --> 01:05:22.030
+Anthony Taylor: but the point of this is, I want
+
+744
+01:05:22.100 --> 01:05:26.799
+Anthony Taylor: all of these methods that are in the parent
+
+745
+01:05:26.820 --> 01:05:32.630
+Anthony Taylor: to be in my subclass without me having to rewrite it. That's it.
+
+746
+01:05:33.040 --> 01:05:36.629
+Anthony Taylor: that's all we're doing. It's the DRY. Principle.
+
+747
+01:05:36.750 --> 01:05:41.110
+Anthony Taylor: We do not want to rewrite stuff. So what do we do? We simply
+
+748
+01:05:41.640 --> 01:05:43.479
+Anthony Taylor: add it to our subcastle.
+
+749
+01:05:43.680 --> 01:05:48.290
+Anthony Taylor: Okay, this only works for objects that are similar. You don't, do.
+
+750
+01:05:48.460 --> 01:05:57.169
+Anthony Taylor: you know? And and I mean, I used to another example I used to use with my my other classes is like, say, you have an object that's just a human.
+
+751
+01:05:57.740 --> 01:06:00.279
+Anthony Taylor: Okay, we all have similar attributes.
+
+752
+01:06:00.730 --> 01:06:06.399
+Anthony Taylor: Alright. Then you can have subclasses. You can have like job roles. You could have
+
+753
+01:06:07.240 --> 01:06:09.699
+even even as far as gender.
+
+754
+01:06:10.980 --> 01:06:17.090
+Anthony Taylor: Okay? I mean, there could be 16 classes for gender vicinity of these days. It's possible.
+
+755
+01:06:18.260 --> 01:06:29.190
+Anthony Taylor: right? So there's all kinds of fun stuff you could do in there with that. Okay. So doing. So good. So here's
+
+756
+01:06:31.350 --> 01:06:43.090
+Anthony Taylor: I want you to check this out. So we have the accounts. So we have a savings account class. It is not all there. You're going to have to fill this in. Okay?
+
+757
+01:06:44.930 --> 01:06:46.580
+Anthony Taylor: And we have
+
+758
+01:06:48.550 --> 01:06:51.529
+Anthony Taylor: the the actual file we're going to call.
+
+759
+01:06:51.730 --> 01:06:54.799
+Anthony Taylor: I want you to know we have a parent.
+
+760
+01:06:55.970 --> 01:07:01.029
+Anthony Taylor: and we have a subclass inherited class, and this makes sense right.
+
+761
+01:07:01.470 --> 01:07:03.009
+Anthony Taylor: A savings account
+
+762
+01:07:03.860 --> 01:07:10.279
+Anthony Taylor: will have attributes, and the CD. Will have very similar attributes, but not exactly the same.
+
+763
+01:07:10.390 --> 01:07:13.659
+Anthony Taylor: Those of you that don't know what a Ce. Is, or how that all works.
+
+764
+01:07:15.070 --> 01:07:16.939
+Anthony Taylor: Somebody in your group probably lists.
+
+765
+01:07:17.370 --> 01:07:24.270
+Anthony Taylor: Okay, so pretty extensive instructions. Here, let's just go through them.
+
+766
+01:07:24.420 --> 01:07:30.169
+Anthony Taylor: So you're gonna create savings account. And CD class. It's going to tell you what to do.
+
+767
+01:07:30.790 --> 01:07:36.200
+Anthony Taylor: You need to get balance and get interest. The CD will get everything from the parent.
+
+768
+01:07:36.740 --> 01:07:40.980
+Anthony Taylor: and if you're going to add month parameter
+
+769
+01:07:43.020 --> 01:07:49.940
+Anthony Taylor: at the month parameter and attribute for length of CD. So a month and a length will be added
+
+770
+01:07:50.410 --> 01:07:53.730
+Anthony Taylor: for the CD part. Okay?
+
+771
+01:07:53.850 --> 01:07:58.149
+Anthony Taylor: Then, in the account inheritance, you're going to import it.
+
+772
+01:07:58.390 --> 01:08:03.500
+Anthony Taylor: prompt the user for a savings balance. Create an instance of savings account
+
+773
+01:08:03.590 --> 01:08:06.880
+Anthony Taylor: prompt user for a CD balance interest rate and months
+
+774
+01:08:07.760 --> 01:08:10.929
+Anthony Taylor: prop them, create an instance display. That's it.
+
+775
+01:08:11.850 --> 01:08:13.490
+Anthony Taylor: It's a lot of stuff. But
+
+776
+01:08:14.710 --> 01:08:17.150
+Anthony Taylor: big hints. We have quite a bit of time.
+
+777
+01:08:18.020 --> 01:08:23.210
+Anthony Taylor: and this is extremely similar to the module challenge this time.
+
+778
+01:08:24.290 --> 01:08:27.169
+Anthony Taylor: So if you haven't looked at the module challenge.
+
+779
+01:08:27.960 --> 01:08:32.899
+Anthony Taylor: I know Tanya has. She wrote a whole outline. Is this pretty much covered? Most of it? Tanya.
+
+780
+01:08:34.040 --> 01:08:41.349
+Anthony Taylor: Yeah. okay, so you guys can get this and understand it. Then the module challenge is going to be, take one
+
+781
+01:08:42.529 --> 01:08:43.840
+Anthony Taylor: very similar.
+
+782
+01:08:44.630 --> 01:08:46.279
+Anthony Taylor: Okay, okay.
+
+783
+01:08:46.590 --> 01:08:51.829
+Anthony Taylor: questions. Before I send you away. You're going to get. how much time am I gonna give you for this like 20 min of
+
+784
+01:08:53.590 --> 01:08:58.129
+Anthony Taylor: it says 15. But since we're a little early, I'll give you 20 if you get done early. Come back.
+
+785
+01:08:59.460 --> 01:09:01.490
+Anthony Taylor: Okay. okay.
+
+786
+01:09:10.460 --> 01:09:12.869
+Anthony Taylor: was it me? Or did that one seem to go quick?
+
+787
+01:09:14.729 --> 01:09:18.209
+Anthony Taylor: Feel quick? Huh? But it was 20 min, I promise.
+
+788
+01:09:18.830 --> 01:09:21.169
+Anthony Taylor: So how did we do?
+
+789
+01:09:23.340 --> 01:09:26.979
+Anthony Taylor: I see some thumbs I see a lot of
+
+790
+01:09:27.370 --> 01:09:29.630
+Anthony Taylor: I got in there. No way.
+
+791
+01:09:29.640 --> 01:09:30.790
+Anthony Taylor: Okay, Mike.
+
+792
+01:09:31.210 --> 01:09:40.179
+Anthony Taylor: you literally have an extension with pretty colors. There's no way you should be still having in den er
+
+793
+01:09:41.220 --> 01:09:44.020
+Anthony Taylor: good. good.
+
+794
+01:09:44.290 --> 01:09:47.520
+Anthony Taylor: awesome, alright. Well, let's let's go through it.
+
+795
+01:09:47.840 --> 01:09:54.430
+Anthony Taylor: I'm sure you were part of that. A. So
+
+796
+01:09:54.570 --> 01:09:56.150
+Anthony Taylor: here's our accounts
+
+797
+01:09:56.450 --> 01:09:59.650
+Anthony Taylor: class and subclass.
+
+798
+01:09:59.930 --> 01:10:06.100
+Anthony Taylor: So we have balance the interest rate. Got a getter for both. That's it.
+
+799
+01:10:06.370 --> 01:10:17.059
+Anthony Taylor: Then, savings account, we're adding an interest rate and months. Actually, we're adding, just months, are you sure? Okay? No. I thought I was, Yeah, I am.
+
+800
+01:10:18.040 --> 01:10:21.089
+Anthony Taylor: You need. Am I shared? I am sure I don't have it
+
+801
+01:10:22.340 --> 01:10:23.620
+Anthony Taylor: does everybody else have it.
+
+802
+01:10:25.410 --> 01:10:27.109
+Anthony Taylor: It sounds like a map bump.
+
+803
+01:10:27.430 --> 01:10:28.790
+Dipinto, Matt: It is a map problem.
+
+804
+01:10:29.190 --> 01:10:30.140
+Anthony Taylor: Ha!
+
+805
+01:10:31.370 --> 01:10:36.550
+Anthony Taylor: No, look for it. I'll wait. You'll meet here. I'll turn off back on.
+
+806
+01:10:36.700 --> 01:10:42.199
+Dipinto, Matt: No, you're good. I I've minimized and unminimized and got
+
+807
+01:10:42.660 --> 01:10:48.880
+Anthony Taylor: okay. Yeah. And so now we have our CD passing in savings account.
+
+808
+01:10:48.900 --> 01:10:58.040
+Anthony Taylor: We have an init here. And we were pulling in ballot. Well, actually, we're just going to pull in everything from our parent class.
+
+809
+01:10:58.060 --> 01:11:00.799
+Anthony Taylor: But we're adding a method for get months.
+
+810
+01:11:01.490 --> 01:11:09.710
+Anthony Taylor: Alright. So let's go look at what that looks like. So here, you see, we're from the accounts module.
+
+811
+01:11:10.520 --> 01:11:17.209
+Anthony Taylor: It's a module. Now, right? That's point one class. Technically, even with one class, it can be about. But
+
+812
+01:11:17.440 --> 01:11:18.949
+Anthony Taylor: for sure it is. Now.
+
+813
+01:11:19.720 --> 01:11:24.669
+Anthony Taylor: Then, we're gonna input our balances and our interests.
+
+814
+01:11:25.480 --> 01:11:27.719
+Create a class with that.
+
+815
+01:11:28.210 --> 01:11:32.769
+Anthony Taylor: get our CD information, initiate that class
+
+816
+01:11:33.050 --> 01:11:34.939
+Anthony Taylor: and then just print everything up.
+
+817
+01:11:36.270 --> 01:11:37.420
+Anthony Taylor: It's beautiful.
+
+818
+01:11:38.960 --> 01:11:39.960
+Anthony Taylor: it's beautiful.
+
+819
+01:11:44.060 --> 01:11:46.750
+Anthony Taylor: So does everybody get it is this is this, like.
+
+820
+01:11:48.390 --> 01:11:51.890
+Anthony Taylor: actually feel like today has gone fairly well.
+
+821
+01:11:52.110 --> 01:11:55.050
+Anthony Taylor: I see a lot of confident faces today.
+
+822
+01:11:56.560 --> 01:12:01.509
+Anthony Taylor: There's always a difference. always a difference. This is this is the normal.
+
+823
+01:12:03.450 --> 01:12:05.780
+Anthony Taylor: That's that's the normal. right?
+
+824
+01:12:07.700 --> 01:12:09.720
+Anthony Taylor: Okay? But today, it's more like.
+
+825
+01:12:10.840 --> 01:12:12.150
+Anthony Taylor: everybody's happy.
+
+826
+01:12:13.380 --> 01:12:16.400
+Anthony Taylor: Okay? Questions.
+
+827
+01:12:17.890 --> 01:12:22.499
+Sihong Zhou: questions, questions, what's the result.
+
+828
+01:12:23.340 --> 01:12:25.119
+Anthony Taylor: Oh, you want me to run mine?
+
+829
+01:12:25.300 --> 01:12:27.540
+Sihong Zhou: Yeah. Oh, my goodness, okay.
+
+830
+01:12:27.650 --> 01:12:31.019
+Anthony Taylor: what is your savings account? Balance? 7.
+
+831
+01:12:32.050 --> 01:12:35.490
+Anthony Taylor: What is the Apr. One.
+
+832
+01:12:36.780 --> 01:12:39.550
+Anthony Taylor: What is your initial CD account balance.
+
+833
+01:12:41.310 --> 01:12:43.950
+Anthony Taylor: What is the Apr. To?
+
+834
+01:12:45.160 --> 01:12:47.710
+Anthony Taylor: What is the length and months?
+
+835
+01:12:49.090 --> 01:12:50.030
+Anthony Taylor: There you go.
+
+836
+01:12:54.160 --> 01:12:57.830
+Anthony Taylor: Pretty cool, Cindy. is that what's happening on yours?
+
+837
+01:12:58.180 --> 01:13:08.629
+Sihong Zhou: Yeah, because my problem kind of everything goes good. But it is said, line 25 to.
+
+838
+01:13:08.730 --> 01:13:18.950
+Sihong Zhou: and it is line 26 on your 26. Yeah. But mine is 25. So it said, the
+
+839
+01:13:19.180 --> 01:13:23.490
+Sihong Zhou: the module prints. The balance is dollar
+
+840
+01:13:23.790 --> 01:13:29.070
+Sihong Zhou: sign format saving data. Dog. Get, get, get a balance
+
+841
+01:13:29.680 --> 01:13:34.730
+Sihong Zhou: value error unknown format. Yeah, yeah, it's kind of like that.
+
+842
+01:13:35.750 --> 01:13:39.460
+Anthony Taylor: I think I know what this is. Let's see if the class can help you find.
+
+843
+01:13:39.660 --> 01:13:42.130
+Sihong Zhou: Yeah, can you see my screen.
+
+844
+01:13:43.040 --> 01:13:44.060
+Anthony Taylor: Not yet.
+
+845
+01:13:48.260 --> 01:13:50.880
+Sihong Zhou: No, not now. Oh, okay.
+
+846
+01:13:50.920 --> 01:13:57.249
+Sihong Zhou: so this is unknown, for mat called F for object of type string.
+
+847
+01:13:57.570 --> 01:13:59.349
+Sihong Zhou: So it means
+
+848
+01:13:59.390 --> 01:14:01.360
+Sihong Zhou: this is a string.
+
+849
+01:14:01.400 --> 01:14:07.370
+Clayton Graves: Yeah, you've got a variable somewhere that you're trying to do a function with.
+
+850
+01:14:08.000 --> 01:14:15.030
+Clayton Graves: And it said as a string, you should probably set it as an integer float. Line 25,
+
+851
+01:14:15.510 --> 01:14:23.870
+Sihong Zhou: 9, 20, yeah. 25. So this is the balance. So maybe here I should inde, or what like here?
+
+852
+01:14:24.600 --> 01:14:25.559
+Sihong Zhou: Oh, what?
+
+853
+01:14:27.440 --> 01:14:28.160
+Anthony Taylor: No.
+
+854
+01:14:28.700 --> 01:14:30.229
+Sihong Zhou: no, no, that's not it.
+
+855
+01:14:30.730 --> 01:14:35.449
+Anthony Taylor: Look at that. Anybody see it missing a space
+
+856
+01:14:35.560 --> 01:14:41.499
+Sihong Zhou: where self interest enter space interest?
+
+857
+01:14:41.640 --> 01:14:44.690
+Anthony Taylor: No, no, that's not it. It's in line 25,
+
+858
+01:14:45.130 --> 01:14:51.420
+Sihong Zhou: 25. Here, go back to the line that was erroring out, not on the other page. This one.
+
+859
+01:14:51.920 --> 01:14:54.400
+Anthony Taylor: yeah. So let's look at this for a second
+
+860
+01:14:56.440 --> 01:14:57.900
+Sihong Zhou: format.
+
+861
+01:15:01.750 --> 01:15:03.849
+Sihong Zhou: Yeah, the balance.
+
+862
+01:15:04.520 --> 01:15:17.820
+Dipinto, Matt: You gotta do it on the input.
+
+863
+01:15:18.040 --> 01:15:19.000
+Sihong Zhou: 7.
+
+864
+01:15:19.490 --> 01:15:31.210
+Dipinto, Matt: Yeah. So you're currently feeding strings all the way through the process. And you have to convert, convert them to floats at that point, and then you should be able to cause you can't put 2 decimal points on it. There you go
+
+865
+01:15:31.340 --> 01:15:32.459
+Sihong Zhou: like this.
+
+866
+01:15:33.270 --> 01:15:35.730
+Anthony Taylor: And then on the next one, too.
+
+867
+01:15:36.650 --> 01:15:40.069
+Sihong Zhou: Next one, where this one.
+
+868
+01:15:41.060 --> 01:15:45.470
+Sihong Zhou: 16, 9, 8 actually all of them beautiful, all of them.
+
+869
+01:15:45.910 --> 01:15:48.829
+Anthony Taylor: all of the inputs should be float.
+
+870
+01:15:50.500 --> 01:15:53.369
+Anthony Taylor: Well, the the maturity one can be.
+
+871
+01:15:54.830 --> 01:15:58.229
+Anthony Taylor: The months went could be in it, but the rest of them should be floats.
+
+872
+01:15:59.300 --> 01:16:01.090
+Anthony Taylor: You were super close
+
+873
+01:16:03.100 --> 01:16:04.620
+Anthony Taylor: super codes.
+
+874
+01:16:06.700 --> 01:16:09.140
+Anthony Taylor: and then the CD month make that. It
+
+875
+01:16:10.190 --> 01:16:11.830
+Sihong Zhou: City Mouse
+
+876
+01:16:12.290 --> 01:16:13.130
+Anthony Taylor: can't
+
+877
+01:16:14.420 --> 01:16:19.319
+Anthony Taylor: perfect natural. save it first. Yeah.
+
+878
+01:16:20.300 --> 01:16:23.790
+Sihong Zhou: Balance. Try. Wow. So.
+
+879
+01:16:24.180 --> 01:16:32.230
+Sihong Zhou: And Apr is 8, and the balance is 2,000 and Apr is 5.
+
+880
+01:16:33.390 --> 01:16:34.110
+Tell.
+
+881
+01:16:34.940 --> 01:16:37.000
+Sihong Zhou: oh, it worked.
+
+882
+01:16:37.020 --> 01:16:40.179
+Sihong Zhou: Thank you. No problem.
+
+883
+01:16:40.820 --> 01:16:47.239
+Anthony Taylor: Alright. Good job. Everybody. Okay. So before we end the day
+
+884
+01:16:47.900 --> 01:16:52.959
+Anthony Taylor: we I know we only have 5 min, and and I'll tell you what, at the end of the 5 min.
+
+885
+01:16:53.410 --> 01:16:59.779
+Anthony Taylor: if you want to leave, you can leave. I am going to quickly go over the homework.
+
+886
+01:17:00.720 --> 01:17:04.150
+Anthony Taylor: the module challenge for the homework.
+
+887
+01:17:04.640 --> 01:17:07.280
+Anthony Taylor: so that maybe we'll have a little less
+
+888
+01:17:08.360 --> 01:17:09.630
+Anthony Taylor: excitement.
+
+889
+01:17:11.350 --> 01:17:12.500
+Anthony Taylor: Okay.
+
+890
+01:17:15.270 --> 01:17:18.849
+Anthony Taylor: Hi. except for we also need the read segment.
+
+891
+01:17:31.580 --> 01:17:35.410
+Clayton Graves: Sitting here in silence, we got 4 min. Why don't we go over the homework? Now.
+
+892
+01:17:38.640 --> 01:17:44.330
+Anthony Taylor: what do you think we're doing, Clayton? I just said that I have to open it first.
+
+893
+01:17:44.540 --> 01:17:54.210
+Anthony Taylor:  yeah. But can't you see my screen? Oh, you guys can't see my screen. Okay, alright, that comment makes sense. Now, I was like.
+
+894
+01:17:54.240 --> 01:17:56.929
+Anthony Taylor: I was literally opening it. But here.
+
+895
+01:17:57.080 --> 01:18:01.020
+Anthony Taylor: okay, so module 3
+
+896
+01:18:02.120 --> 01:18:03.720
+Anthony Taylor: student view.
+
+897
+01:18:05.130 --> 01:18:08.240
+Anthony Taylor: So we've got some module, 3 files.
+
+898
+01:18:08.740 --> 01:18:17.430
+Anthony Taylor: and they are account. Py CD, account VY. Customer account. VR banking and savings account. Okay.
+
+899
+01:18:17.720 --> 01:18:27.440
+Anthony Taylor: you guys should already have your repository at this point. If you don't knock that out. Look! There's that stupid menu that py again doesn't work here.
+
+900
+01:18:27.860 --> 01:18:30.010
+Anthony Taylor: Alright, here's your starter files
+
+901
+01:18:30.420 --> 01:18:34.330
+Anthony Taylor: for module 3. That's what we're in. Right? That's what you guys need. Yeah.
+
+902
+01:18:34.710 --> 01:18:38.860
+Anthony Taylor: count savings accounts. Get all that stuff in there
+
+903
+01:18:39.110 --> 01:18:46.380
+Anthony Taylor: and get it started or get it just in your repo.  so
+
+904
+01:18:46.530 --> 01:18:54.329
+Anthony Taylor: seriously, do not start right here and start doing. I know it says. And it's obvious that you guys could do it.
+
+905
+01:18:54.580 --> 01:19:04.350
+Anthony Taylor: but read the whole thing all the way down. including what's required. and then come back up
+
+906
+01:19:04.620 --> 01:19:10.449
+Anthony Taylor: and say, Okay, in the savings account. BY, you're going to import the account class and create create savings. Count.
+
+907
+01:19:10.480 --> 01:19:13.219
+Anthony Taylor: We literally did that exact same thing today.
+
+908
+01:19:14.270 --> 01:19:16.049
+Anthony Taylor: I think it was even the same names.
+
+909
+01:19:17.450 --> 01:19:18.390
+Anthony Taylor: Okay?
+
+910
+01:19:18.770 --> 01:19:24.710
+Anthony Taylor: In the CD account, Dwi file import account class
+
+911
+01:19:25.650 --> 01:19:33.839
+Anthony Taylor: and create a create CD account function to calculate interest earned based on user. Input there's those inputs again
+
+912
+01:19:34.510 --> 01:19:40.429
+Anthony Taylor: and update the balance with the earned interest and return the updated balance and interest earned.
+
+913
+01:19:40.930 --> 01:19:47.530
+Anthony Taylor: Okay, a lot of these things aren't even related to what we did in class. They're like, Oh, you guys forgot how to calculate balances and interests.
+
+914
+01:19:49.220 --> 01:19:54.639
+Anthony Taylor:  and customer banking dot P. Wide.
+
+915
+01:19:54.660 --> 01:19:57.130
+Anthony Taylor: You'll import savings account
+
+916
+01:19:58.130 --> 01:20:01.930
+Anthony Taylor: and create CD, and then create functions
+
+917
+01:20:02.090 --> 01:20:06.239
+Anthony Taylor: for those to calculate interest and balance
+
+918
+01:20:06.550 --> 01:20:07.790
+Anthony Taylor: and display.
+
+919
+01:20:08.550 --> 01:20:19.580
+Anthony Taylor: And so the cool thing is is this is like the whole thing. This is the whole thing. This is a general instruction. You you could probably based on what we've done in the last 2 days. Work with this and be done.
+
+920
+01:20:20.100 --> 01:20:26.040
+Anthony Taylor: Okay, but don't. If you read through all the instructions, you know. Oh, wait! It's going to tell me exactly
+
+921
+01:20:26.060 --> 01:20:29.239
+Anthony Taylor: what to do, step by step.
+
+922
+01:20:31.800 --> 01:20:39.059
+Anthony Taylor: So I'm gonna create that instance. I'm gonna calculate interest. Learn? Oh, look at that, that it shows me how to calculate interest. Learn?
+
+923
+01:20:40.330 --> 01:20:43.820
+Anthony Taylor: Okay. update the balance.
+
+924
+01:20:46.640 --> 01:20:56.359
+Anthony Taylor: Remember, you have to have some kind of value in there. Something that's all that's telling. Pass that balance back to our, to the class.
+
+925
+01:20:56.440 --> 01:21:01.120
+Anthony Taylor: pass the interest earned to the class, return the updated balance and interest rate.
+
+926
+01:21:02.480 --> 01:21:04.320
+Anthony Taylor: Alright, that's I mean.
+
+927
+01:21:04.610 --> 01:21:08.670
+Anthony Taylor: honestly. that's a lot of detail.
+
+928
+01:21:09.590 --> 01:21:14.070
+Anthony Taylor: In this one. You're gonna do the same thing except you're gonna you're gonna bring in your accounts.
+
+929
+01:21:14.110 --> 01:21:15.659
+Anthony Taylor: You're going to
+
+930
+01:21:15.970 --> 01:21:28.060
+Anthony Taylor: use the create CD function. Oh, it says in it. So we're going to create an instance of account, calculate interest, earn update the balance and show what it is. Let's see what they had said
+
+931
+01:21:28.420 --> 01:21:40.410
+Anthony Taylor: again, you're gonna need to make sure, you at least have a 0. Basically, what's happening guys, you can't do math with nothing. So you have to at least have a 0. When you're doing math. Okay.
+
+932
+01:21:41.650 --> 01:21:46.650
+Anthony Taylor: pass that balance, pass that interest, return the toll main function.
+
+933
+01:21:47.280 --> 01:21:55.769
+Anthony Taylor: It's you're gonna open this main banking py import. CD account savings account in the main function. You're gonna ask the user
+
+934
+01:21:56.140 --> 01:22:05.560
+Anthony Taylor: to set their savings account balance interest rate in months. We just did that a few seconds ago. Make sure the values are the appropriate data type. Cindy.
+
+935
+01:22:07.160 --> 01:22:11.340
+Anthony Taylor: Remember the floats in the inch you just did. This is telling you to. Don't forget to do that.
+
+936
+01:22:12.760 --> 01:22:14.269
+Anthony Taylor: It's almost like a new.
+
+937
+01:22:15.350 --> 01:22:21.279
+Anthony Taylor: Okay. Here, you're gonna create that function, pass the variable from the user. So with inputs.
+
+938
+01:22:21.330 --> 01:22:23.170
+Anthony Taylor: print out the interest earned
+
+939
+01:22:23.520 --> 01:22:28.900
+Anthony Taylor: prompt the user for CD balance interest rate in months. Again, don't forget data types.
+
+940
+01:22:29.740 --> 01:22:33.270
+Anthony Taylor: Call the create CD print it out, call the main function.
+
+941
+01:22:38.850 --> 01:22:43.150
+Anthony Taylor: Now they got some cool hits. Consider what you've learned so far.
+
+942
+01:22:43.480 --> 01:22:47.969
+Anthony Taylor:  you've learned how to create and import function test arguments.
+
+943
+01:22:48.150 --> 01:22:50.999
+Anthony Taylor: class methods. If you're struggling with help start
+
+944
+01:22:51.050 --> 01:22:58.290
+Anthony Taylor: creating a python file, do the functions, first, test them, and then do the python file or go back into the activities.
+
+945
+01:22:58.360 --> 01:23:01.999
+Anthony Taylor: Always commit your work after each day. So you don't lose it.
+
+946
+01:23:03.650 --> 01:23:15.160
+Anthony Taylor: This is actually important. And we used to give like an actual like rubric rubric. Okay, like the kind of formal, you know, grids that. You see this is still pretty important. because, remember.
+
+947
+01:23:15.540 --> 01:23:21.250
+Anthony Taylor: and and I never am going to encourage you not to get the best grade you can, but this is a past. Fail horse.
+
+948
+01:23:23.160 --> 01:23:27.929
+Anthony Taylor: Alright. he just said the past just for the record.
+
+949
+01:23:28.210 --> 01:23:35.249
+Anthony Taylor:  most of this stuff as as you go through this you could guess your grade
+
+950
+01:23:35.760 --> 01:23:44.810
+Anthony Taylor: because you can check these off one at a time. Did I do that? Yep, did I do that. Yep. Did I do that? Well, maybe you did that right. Maybe I didn't. Okay, so that's a me.
+
+951
+01:23:45.740 --> 01:23:59.489
+Anthony Taylor: okay. But in the end. I mean. you just gotta get better than that. I don't want anybody to get this. But I always tell people this because here's what happens.
+
+952
+01:24:00.630 --> 01:24:03.560
+Anthony Taylor: Usually around week 16.
+
+953
+01:24:04.060 --> 01:24:09.170
+Anthony Taylor: We've been telling certain people, get your homework done, get your homework done, and they're not.
+
+954
+01:24:09.820 --> 01:24:15.479
+Anthony Taylor: And all of a sudden they have 16 homeworks to do. and we're like dude.
+
+955
+01:24:16.500 --> 01:24:23.840
+Anthony Taylor: Just get enough done they pass. That's it. You gotta do it. You can't. You are not allowed to miss homework. You're allowed to miss like 2
+
+956
+01:24:24.540 --> 01:24:26.580
+Anthony Taylor: more than 2. You don't get a certificate.
+
+957
+01:24:28.360 --> 01:24:31.640
+Anthony Taylor: Okay? So anyway. Hi.
+
+958
+01:24:33.030 --> 01:24:33.730
+Anthony Taylor: aye.
+
+959
+01:24:35.680 --> 01:24:39.720
+Anthony Taylor: I think that's enough. Does everybody agree? Or do you want any clarification?
+
+960
+01:24:41.280 --> 01:24:45.130
+Anthony Taylor: This one seems to be well done other than it does. Also have
+
+961
+01:24:45.220 --> 01:24:49.130
+Anthony Taylor: that stupid import. menu.py life.
+
+962
+01:24:49.910 --> 01:24:50.740
+Anthony Taylor: this one
+
+963
+01:24:52.670 --> 01:24:55.550
+Anthony Taylor: you gotta love, that. I wish I could edit it. But I can.
+
+964
+01:24:57.000 --> 01:24:59.710
+Anthony Taylor: and just submit a ticket, and they'll get to it when they get to
+
+965
+01:25:02.140 --> 01:25:11.520
+Anthony Taylor: questions. Thoughts. Anybody concerned about this one, this one. You should all feel like. yeah. knocking this out over the weekend
+
+966
+01:25:12.670 --> 01:25:16.519
+Anthony Taylor: veterans day. How many veterans we got?
+
+967
+01:25:19.050 --> 01:25:20.040
+Anthony Taylor: Just me?
+
+968
+01:25:20.140 --> 01:25:24.000
+Anthony Taylor: Oh, oh, Matt, of course, and mike and hat. Okay, good.
+
+969
+01:25:24.400 --> 01:25:26.740
+Anthony Taylor: Good. We got a few of us. Thank you all.
+
+970
+01:25:27.360 --> 01:25:30.130
+Gebrekristos, Hafton: So in this homework there is no inheritance.
+
+971
+01:25:31.550 --> 01:25:38.699
+Anthony Taylor:  They might be wanting you to do inheritance with CD account and savings that make sense
+
+972
+01:25:39.740 --> 01:25:42.350
+Anthony Taylor: right? They're not saying you. But
+
+973
+01:25:42.430 --> 01:25:54.149
+Anthony Taylor: I mean it would make sense that you could actually let's see if they have it in the in 3. This is like I said. In the old days I would just go to the rubric and look at what they wanted in the rubric. And then just say, Okay, this is.
+
+974
+01:25:54.920 --> 01:25:56.060
+Anthony Taylor: But
+
+975
+01:25:58.450 --> 01:26:00.600
+Anthony Taylor: it actually does not mention
+
+976
+01:26:03.240 --> 01:26:07.360
+Anthony Taylor: inheritance anywhere. So technically, you don't have to do inheritance.
+
+977
+01:26:09.690 --> 01:26:15.280
+Anthony Taylor: feel free to do it if you like, but it is not. I do not see it in the instructions or in the greeting.
+
+978
+01:26:15.430 --> 01:26:19.010
+Anthony Taylor: so you don't have to. You could just create a function for each
+
+979
+01:26:19.380 --> 01:26:20.080
+Anthony Taylor: thing.
+
+980
+01:26:20.630 --> 01:26:22.440
+michael mcpherson: Would it make it easier?
+
+981
+01:26:24.570 --> 01:26:32.009
+Anthony Taylor: If you understand inheritance? I would say yes, if you're even mildly. Not sure, I would say no.
+
+982
+01:26:35.150 --> 01:26:37.879
+Anthony Taylor: you'll get opportunities to do it in the future.
+
+983
+01:26:37.970 --> 01:26:49.490
+Anthony Taylor: Well, probably. I mean, when we get to the application development stuff in the AI stuff. You will have the options to create classes and all of that kind of stuff.
+
+984
+01:26:49.520 --> 01:26:52.350
+Anthony Taylor: I probably won't force you to do it.
+
+985
+01:26:52.640 --> 01:26:55.099
+Anthony Taylor: But you you I mean good
+
+986
+01:26:55.850 --> 01:26:58.340
+Anthony Taylor: practice. It would be. Yeah, you should probably do.
+
+987
+01:27:02.180 --> 01:27:11.799
+Anthony Taylor: and we'll look for opportunities. In fact, I'll maybe I'll make that my own little challenge to all of you. You guys tell me when you think this should be a class or a module.
+
+988
+01:27:12.940 --> 01:27:21.159
+Anthony Taylor: But right now don't worry about I mean worry about it for this whole. anyway, that's all I got. If you have no more questions, you're good.
+
+989
+01:27:21.540 --> 01:27:27.080
+Anthony Taylor: Have a great weekend. Have a nice holiday. I guess we're work. We are. We do have classical day. Right?
+
+990
+01:27:28.770 --> 01:27:35.700
+Anthony Taylor: Yeah. okay. I will be in Florida Monday. so that'll be exciting for
+
+991
+01:27:36.890 --> 01:27:40.139
+Anthony Taylor: cause I'll be up to what I'm teaching yet.
+
+992
+01:27:42.080 --> 01:27:47.219
+Anthony Taylor: anyway. Alright, gang have fun weekend, and we'll be here for 30 min.
+

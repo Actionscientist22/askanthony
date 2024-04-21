@@ -1,0 +1,27 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# The data is given in dictionaries
+row1 = {"Painting": "Mona Lisa (Knockoff)", "Price": 25,
+     "Popularity": "Very Popular"}
+row2 = {"Painting": "Van Gogh (Knockoff)", "Price": 20, "Popularity": "Popular"}
+row3 = {"Painting": "Starving Artist", "Price": 10, "Popularity": "Average"}
+row4 = {"Painting": "Toddler Drawing", "Price": 1, "Popularity": "Not Popular"}
+
+# Create a list containing the dictionaries
+
+# Create a dataframe using the list of dictionaries
+
+##--CODE--##
+# The data is given in lists
+frame_column = ["Ornate", "Classical", "Modern", "Wood", "Cardboard"]
+price_column = [15.00, 12.50, 10.00, 5.00, 1.00]
+sales_column = [100, 200, 150, 300, "N/A"]
+
+# Create a dictionary containing the lists
+
+# Create a dataframe using the dictionary of lists
+
+

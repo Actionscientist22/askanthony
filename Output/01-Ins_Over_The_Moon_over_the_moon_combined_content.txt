@@ -1,0 +1,65 @@
+##--CODE--##
+# Import our dependencies
+import pandas as pd
+import sklearn as skl
+import tensorflow as tf
+from sklearn.model_selection import train_test_split
+
+# Read the dataset
+df_moons = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_2/datasets/moons-data-1.csv")
+
+# Plot the nonlinear dummy data
+df_moons.plot.scatter(x="Feature 1",y="Feature 2", c="Target",colormap="winter")
+
+##--CODE--##
+# Separate data into X and y
+X = df_moons.drop("Target", axis=1)
+y = df_moons["Target"]
+
+# Use sklearn to split dataset
+
+
+# Create scaler instance
+
+
+# Fit the scaler
+
+
+# Scale the data
+
+
+# Create the Keras Sequential model
+
+
+# Set input nodes to the number of features
+
+
+# Add our first Dense layer, including the input layer
+
+
+# Add the output layer that uses a probability activation function
+
+
+# Check the structure of the Sequential model
+
+
+##--CODE--##
+# Compile the Sequential model together and customize metrics
+
+
+##--CODE--##
+# Fit the model to the training data
+
+
+##--CODE--##
+# Evaluate the model using the test data
+
+
+##--CODE--##
+# Create a new neural network model with 6 neurons
+
+
+##--CODE--##
+# Evaluate the model using the test data
+
+

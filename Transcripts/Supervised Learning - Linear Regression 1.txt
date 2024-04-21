@@ -1,0 +1,4222 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:01.970
+That's why you guys have a credit card.
+
+2
+00:00:02.830 --> 00:00:03.590
+Anthony Taylor: Yeah.
+
+3
+00:00:05.210 --> 00:00:08.229
+Anthony Taylor: okay, hold on. We're doing linear regression and multi linear regression.
+
+4
+00:00:08.830 --> 00:00:11.459
+Anthony Taylor: Okay, so we're all cut.
+
+5
+00:00:11.870 --> 00:00:18.080
+Anthony Taylor: Let's get started  supervised learning concepts.
+
+6
+00:00:21.720 --> 00:00:26.260
+Anthony Taylor: Seems like we've covered this. But I'm going to cover it very briefly for you again.
+
+7
+00:00:26.690 --> 00:00:32.089
+Anthony Taylor: Supervised learning. What what's the difference between supervised learning and unsupervised learning?
+
+8
+00:00:32.430 --> 00:00:33.420
+Anthony Taylor: Anybody
+
+9
+00:00:33.630 --> 00:00:34.970
+Masarirambi, Rodney: go back
+
+10
+00:00:35.240 --> 00:00:38.010
+Masarirambi, Rodney: label labeled data.
+
+11
+00:00:39.970 --> 00:00:42.639
+Anthony Taylor: Okay? If it's got labels.
+
+12
+00:00:42.660 --> 00:00:48.929
+Anthony Taylor: it means we already know the answer. Well, we have an answer to compare the trends to.
+
+13
+00:00:49.350 --> 00:01:02.190
+Anthony Taylor: and therefore we can try to predict that label. If we don't know it, we're just breaking it up, based on life patterns. Boom. supervise
+
+14
+00:01:02.330 --> 00:01:06.990
+Anthony Taylor: apples, bananas, pears, and oranges. Those are not oranges.
+
+15
+00:01:10.500 --> 00:01:12.470
+Anthony Taylor: Glad they didn't use egg plants.
+
+16
+00:01:13.030 --> 00:01:15.549
+Anthony Taylor: Okay? Supervised learning requires
+
+17
+00:01:17.960 --> 00:01:20.549
+Anthony Taylor: us to feed the correct answers to the model.
+
+18
+00:01:22.920 --> 00:01:23.990
+Anthony Taylor: Okay.
+
+19
+00:01:25.890 --> 00:01:29.310
+Anthony Taylor: that's what it means. The correct answers are the leaders.
+
+20
+00:01:30.280 --> 00:01:38.809
+Anthony Taylor:  so basically, we're gonna pass in data where we have said, this is
+
+21
+00:01:38.940 --> 00:01:39.959
+Anthony Taylor: a pair
+
+22
+00:01:42.000 --> 00:01:44.550
+Anthony Taylor: I wanted to say, peach an orange.
+
+23
+00:01:45.040 --> 00:01:47.399
+Anthony Taylor: an apple, a lemon, an apple.
+
+24
+00:01:47.880 --> 00:01:50.490
+Anthony Taylor: green app. Oh, they're both apples.
+
+25
+00:01:50.830 --> 00:01:52.349
+Anthony Taylor: Okay, this is interesting.
+
+26
+00:01:52.450 --> 00:01:57.700
+Anthony Taylor: They labeled the pear and Apple, too. whatever. Anyway.
+
+27
+00:01:57.740 --> 00:01:59.759
+Anthony Taylor: they're different labels. Just pretend
+
+28
+00:01:59.780 --> 00:02:05.459
+Anthony Taylor:  And what it'll do is look at all of the features we pass in
+
+29
+00:02:05.690 --> 00:02:07.650
+Anthony Taylor: related to that label
+
+30
+00:02:08.229 --> 00:02:11.069
+Anthony Taylor: and come up with an algorithm
+
+31
+00:02:11.080 --> 00:02:14.639
+Anthony Taylor: that says, Hey, when I get features like this.
+
+32
+00:02:15.260 --> 00:02:18.810
+Anthony Taylor: I'm going to say it's this. Now.
+
+33
+00:02:18.870 --> 00:02:25.179
+Anthony Taylor: you might be asking, well, wouldn't that be really simple? Well, yeah, if you had every single feature of an apple.
+
+34
+00:02:27.030 --> 00:02:33.519
+Anthony Taylor: and you passed in every single feature of an apple, you should get apple 100%.
+
+35
+00:02:36.060 --> 00:02:39.969
+Anthony Taylor: The point of machine learning is to learn to generalize.
+
+36
+00:02:41.590 --> 00:02:47.790
+Anthony Taylor: Okay, I want to pass in an apple red. It's got seeds. It's got a stem. It's shaped like this.
+
+37
+00:02:49.130 --> 00:02:55.290
+Anthony Taylor: of course. But is there any other fruit that has all of those same factors?
+
+38
+00:02:56.860 --> 00:03:00.140
+Anthony Taylor: Probably. Right? Yeah, son.
+
+39
+00:03:00.580 --> 00:03:08.300
+sonja baro: So will you cover on this earlier you've talked about. We have features at. But we also have descriptors.
+
+40
+00:03:08.800 --> 00:03:16.770
+Anthony Taylor: Same thing in this case. Same thing. Yeah, yeah, it's just it's the data that's not the label.
+
+41
+00:03:17.370 --> 00:03:19.829
+Anthony Taylor: But you're gonna hear me call it features all day today.
+
+42
+00:03:20.010 --> 00:03:21.050
+sonja baro: Okay.
+
+43
+00:03:21.220 --> 00:03:30.870
+Anthony Taylor: yeah, So the the whole idea behind this is is that we we want to get to the point where our machine learning model
+
+44
+00:03:30.880 --> 00:03:34.360
+Anthony Taylor: can get enough data
+
+45
+00:03:36.020 --> 00:03:41.369
+Anthony Taylor: that its algorithm recognizes that that matches this pattern.
+
+46
+00:03:41.980 --> 00:03:49.789
+Anthony Taylor: and therefore gives us an accurate prediction. Now, all of our predictions, except linear regression, except regression in general
+
+47
+00:03:50.320 --> 00:03:52.710
+Anthony Taylor: right, are probabilistic.
+
+48
+00:03:53.090 --> 00:03:54.500
+Anthony Taylor: In other words.
+
+49
+00:03:55.240 --> 00:04:01.859
+Anthony Taylor: When it makes a prediction of a label, there's a probability in the background. It'll just say, that's a banana.
+
+50
+00:04:02.930 --> 00:04:06.190
+Anthony Taylor: Okay. it's long. It's yellow.
+
+51
+00:04:07.910 --> 00:04:10.420
+Anthony Taylor: has very small edible seeds.
+
+52
+00:04:12.650 --> 00:04:16.620
+Anthony Taylor: Okay, is there other fruit like that? Yeah, how about a plantain?
+
+53
+00:04:18.810 --> 00:04:21.290
+Anthony Taylor: Okay. so
+
+54
+00:04:21.970 --> 00:04:27.959
+Anthony Taylor: it will say so. If it had both of those in there, it might say, well, this is like 80%
+
+55
+00:04:28.210 --> 00:04:32.760
+Anthony Taylor: a banana. And since I think it's 80%, I'm just gonna say it's a banana.
+
+56
+00:04:34.510 --> 00:04:49.950
+Anthony Taylor: Alright. So that's how this all works in the background. You're gonna see all of this. When we get into classification.  supervised learning, it says needed human intervention. What that means is the data needs to be labeled
+
+57
+00:04:51.390 --> 00:04:53.470
+Anthony Taylor: alright. Somebody had to a label.
+
+58
+00:04:54.840 --> 00:04:59.850
+Anthony Taylor: linear logistic decisions. There's so many models
+
+59
+00:05:00.050 --> 00:05:05.600
+Anthony Taylor: for supervised learning. There's a few for unsupervised.
+
+60
+00:05:05.860 --> 00:05:07.179
+Anthony Taylor: but a lot less
+
+61
+00:05:07.530 --> 00:05:17.240
+Anthony Taylor: regression and classification is what we use supervised learning for.  they're trained on known results, forecast predictions.
+
+62
+00:05:17.360 --> 00:05:22.759
+Anthony Taylor: They're their their idea is to get to the point where you can generalize data.
+
+63
+00:05:23.060 --> 00:05:24.920
+Anthony Taylor: Yeah.
+
+64
+00:05:25.200 --> 00:05:27.929
+Anthony Taylor: label data is always required
+
+65
+00:05:29.110 --> 00:05:31.490
+Anthony Taylor: and moving on. So
+
+66
+00:05:31.940 --> 00:05:42.800
+Anthony Taylor: today this week. we are going to discuss regression. Now, what makes regression different than classification. Very simple.
+
+67
+00:05:43.180 --> 00:05:47.770
+Anthony Taylor: Regression is predicting continuous numbers.
+
+68
+00:05:48.570 --> 00:05:54.420
+Anthony Taylor: fake prices. salaries. temperatures.
+
+69
+00:05:56.120 --> 00:05:57.530
+Anthony Taylor: stock prices.
+
+70
+00:05:59.190 --> 00:06:01.350
+Anthony Taylor: Okay, continuous number
+
+71
+00:06:03.860 --> 00:06:07.440
+Anthony Taylor: continues out. or variables either. One.
+
+72
+00:06:07.850 --> 00:06:14.940
+Anthony Taylor: Okay, so just continued stuff. A variable of distance
+
+73
+00:06:14.950 --> 00:06:21.559
+Anthony Taylor: is continuous. So that's very important to understand what a continuous variable is versus
+
+74
+00:06:21.720 --> 00:06:22.940
+Anthony Taylor: not continues.
+
+75
+00:06:23.190 --> 00:06:26.070
+Anthony Taylor: Continuous, variable is measured.
+
+76
+00:06:26.150 --> 00:06:27.540
+Anthony Taylor: you know, like.
+
+77
+00:06:29.420 --> 00:06:32.440
+Anthony Taylor: like a catacle. okay.
+
+78
+00:06:33.850 --> 00:06:35.610
+Anthony Taylor: a equals
+
+79
+00:06:37.610 --> 00:06:40.990
+Anthony Taylor: mail. B equals glasses.
+
+80
+00:06:42.470 --> 00:06:44.629
+Anthony Taylor: Okay. C equals pencil.
+
+81
+00:06:46.170 --> 00:06:53.600
+Anthony Taylor: A continuous one is a number is something that could continue, that the number could be infinite in either direction.
+
+82
+00:06:54.920 --> 00:06:56.440
+Anthony Taylor: Okay, so
+
+83
+00:06:57.320 --> 00:07:13.399
+Anthony Taylor: B equals $4 and 93 cents, while you might be able to argue well, that could be a stable number. Well, yeah, it could even be a category. But the reality is is that the volume in the data is continuous and could go on forever in either direction.
+
+84
+00:07:13.860 --> 00:07:16.419
+Anthony Taylor: and our job is to try to come up with
+
+85
+00:07:16.460 --> 00:07:22.439
+Anthony Taylor: a model that will predict that number as close to the actual number as possible.
+
+86
+00:07:22.970 --> 00:07:23.990
+Anthony Taylor: Okay.
+
+87
+00:07:25.070 --> 00:07:27.510
+Anthony Taylor: what is classification? I think I just explained.
+
+88
+00:07:27.650 --> 00:07:33.560
+Anthony Taylor: it's okay. Classification is a method to predict discrete value variables discrete.
+
+89
+00:07:37.440 --> 00:07:38.860
+Anthony Taylor: It's pair glasses.
+
+90
+00:07:40.320 --> 00:07:45.970
+Anthony Taylor: It's a bad credit risk. But if you want to do. predict the
+
+91
+00:07:46.990 --> 00:07:48.289
+Anthony Taylor: credit rating
+
+92
+00:07:50.620 --> 00:07:55.510
+Anthony Taylor: that's continuous. even though technically, there is a top and a bottom.
+
+93
+00:07:55.840 --> 00:07:59.850
+Anthony Taylor: It's still a continuous number. It could be any number between 0 and 850.
+
+94
+00:08:01.030 --> 00:08:01.970
+Anthony Taylor: Okay.
+
+95
+00:08:02.440 --> 00:08:07.200
+Anthony Taylor: a discrete, variable has no middle, and its values cannot be divided.
+
+96
+00:08:08.670 --> 00:08:11.290
+Anthony Taylor: Okay? Classification. Joan Carr. Yes.
+
+97
+00:08:12.520 --> 00:08:13.470
+Anthony Taylor: classification.
+
+98
+00:08:14.820 --> 00:08:15.640
+Anthony Taylor: Okay.
+
+99
+00:08:16.070 --> 00:08:24.440
+Anthony Taylor:  when we discuss regression, what we're typically going to do is try to fit a line
+
+100
+00:08:25.200 --> 00:08:29.130
+Anthony Taylor: so. And and this goes back to what we've talked about regression in the past.
+
+101
+00:08:29.460 --> 00:08:33.849
+Anthony Taylor: right? We have an X variable. We have a Y variable, dependent, variable, and independent, variable.
+
+102
+00:08:34.240 --> 00:08:37.550
+Anthony Taylor: Okay, we are going to try to fit a line
+
+103
+00:08:37.610 --> 00:08:41.559
+Anthony Taylor: as close to the center of those points
+
+104
+00:08:41.750 --> 00:08:44.300
+Anthony Taylor: as possible. That line
+
+105
+00:08:44.330 --> 00:08:47.290
+Anthony Taylor: is our predictor. It's our prediction.
+
+106
+00:08:48.950 --> 00:08:53.710
+Anthony Taylor: And that's how we will make predictions for this data. Now
+
+107
+00:08:53.990 --> 00:09:03.570
+Anthony Taylor: and then a classification. We're trying to split the data into multiple groups kind of like clustering, except for we already know what clusters are.
+
+108
+00:09:05.170 --> 00:09:06.140
+Anthony Taylor: Alright.
+
+109
+00:09:07.260 --> 00:09:15.079
+Anthony Taylor: Now, looking at these 2 things. what's a distinction? And I'll be specific about accuracy.
+
+110
+00:09:17.030 --> 00:09:18.989
+Anthony Taylor: which one looks like. It would be more accurate.
+
+111
+00:09:24.290 --> 00:09:30.470
+Mason, Natalie: The second one classification classification, right? Because, I mean, look, you could see that's a pretty
+
+112
+00:09:30.520 --> 00:09:37.630
+Anthony Taylor: pretty divisive line. Well, look at linear regression. There's all kinds of dots off that.
+
+113
+00:09:38.720 --> 00:09:49.880
+Anthony Taylor: Okay, this is the thing about regression regression. We don't typically get really high accuracy rates because they count every penny.
+
+114
+00:09:51.260 --> 00:09:57.860
+Anthony Taylor: So what you'll have to do when you when you do regression is. consider that while
+
+115
+00:09:57.930 --> 00:10:03.130
+Anthony Taylor: you know your prediction said $44,472.
+
+116
+00:10:03.280 --> 00:10:08.500
+Anthony Taylor: And the actual value was $44,010.
+
+117
+00:10:09.570 --> 00:10:11.770
+Anthony Taylor: Okay, it's wrong. It's a fail.
+
+118
+00:10:12.840 --> 00:10:20.599
+Anthony Taylor: however. is it useful for what you're trying to accomplish? Was 44,000 good enough.
+
+119
+00:10:22.010 --> 00:10:27.560
+Anthony Taylor: Okay? Or should it have been more? Or should it have been closer sometimes. That's just not possible.
+
+120
+00:10:27.990 --> 00:10:30.610
+Anthony Taylor: Alright. So let's look at Code.
+
+121
+00:10:30.690 --> 00:10:34.250
+Anthony Taylor: some basic stuff to see how we do this.
+
+122
+00:10:34.530 --> 00:10:40.539
+Anthony Taylor: Now, again, you've seen all of what I'm about to show you. To some degree.
+
+123
+00:10:40.660 --> 00:10:41.680
+Anthony Taylor: Okay.
+
+124
+00:10:42.210 --> 00:10:48.780
+Anthony Taylor:  but we're going to do it a little differently this time in the past. We plotted
+
+125
+00:10:49.190 --> 00:10:57.169
+Anthony Taylor: our line. We fit it using our slope function right? And by member Mx, plus. B,
+
+126
+00:10:57.880 --> 00:11:00.329
+Anthony Taylor: okay. Well, now, we don't have, do they?
+
+127
+00:11:00.400 --> 00:11:01.850
+Anthony Taylor: We're data scientists.
+
+128
+00:11:02.150 --> 00:11:05.500
+Anthony Taylor: We don't actually know anything. Wait a minute. That's wrong.
+
+129
+00:11:05.580 --> 00:11:13.909
+Anthony Taylor: No, anyway. So we're going to import a model called linear Regression
+
+130
+00:11:14.320 --> 00:11:16.729
+Anthony Taylor: member, model fit predict?
+
+131
+00:11:17.630 --> 00:11:20.449
+Anthony Taylor: Okay. we're gonna import some data.
+
+132
+00:11:21.700 --> 00:11:30.180
+Anthony Taylor: Now, basically, we have our X and a Y, so if we were to plot this out which we will. it looks like this.
+
+133
+00:11:31.210 --> 00:11:35.399
+Anthony Taylor: Okay, very clear. We have some kind of correlation here.
+
+134
+00:11:35.550 --> 00:11:39.980
+Anthony Taylor: We're going to have a linear relationship. This is a great candidate.
+
+135
+00:11:41.360 --> 00:11:43.760
+Anthony Taylor:  to prep
+
+136
+00:11:43.920 --> 00:11:46.920
+Anthony Taylor: our data for the model.
+
+137
+00:11:47.130 --> 00:11:52.289
+Anthony Taylor: we need to reshape it. So right now, our data looks like this, a row with 2 columns.
+
+138
+00:11:52.940 --> 00:11:59.239
+Anthony Taylor: What I want to do is reshape it so that it is an array of values
+
+139
+00:12:00.590 --> 00:12:01.929
+Anthony Taylor: for each row.
+
+140
+00:12:04.750 --> 00:12:11.479
+Anthony Taylor: Alright. And this is actually, this is just years experience. So this array of values, one value
+
+141
+00:12:12.240 --> 00:12:13.210
+Anthony Taylor: interrupt.
+
+142
+00:12:13.670 --> 00:12:20.050
+Anthony Taylor: Okay? And this for simple linear regression, just an X and a y. This is what it'll look.
+
+143
+00:12:20.280 --> 00:12:25.849
+Anthony Taylor: Okay. So this shape says, we now have 30 rows, one value each
+
+144
+00:12:26.700 --> 00:12:28.360
+Anthony Taylor: same thing as we add up about
+
+145
+00:12:29.250 --> 00:12:33.090
+Anthony Taylor: now, we're going to take our
+
+146
+00:12:33.310 --> 00:12:37.489
+Anthony Taylor: target value, are label well, not of linear depression.
+
+147
+00:12:37.620 --> 00:12:43.020
+Anthony Taylor: Our target value dependent is solid.
+
+148
+00:12:43.030 --> 00:12:47.889
+Anthony Taylor: So based on this value, we want to predict solid.
+
+149
+00:12:49.470 --> 00:12:50.220
+Anthony Taylor: okay.
+
+150
+00:12:51.220 --> 00:12:52.220
+Anthony Taylor: model
+
+151
+00:12:52.650 --> 00:12:55.370
+Anthony Taylor: equals this. So we're going to
+
+152
+00:12:55.480 --> 00:13:00.240
+Anthony Taylor: instantiate our model. We're going to fit x and y.
+
+153
+00:13:02.780 --> 00:13:12.159
+Anthony Taylor: and then we can see the smoke right. The y equals mx plus b. You can see the slope value. There it is.
+
+154
+00:13:13.380 --> 00:13:16.280
+Anthony Taylor:  we can see the intercept
+
+155
+00:13:16.540 --> 00:13:19.149
+Anthony Taylor: oops. That's funny.
+
+156
+00:13:20.750 --> 00:13:28.160
+Anthony Taylor: We can see the intercept. Okay. so you could technically print out
+
+157
+00:13:29.410 --> 00:13:30.500
+Anthony Taylor: your function.
+
+158
+00:13:32.690 --> 00:13:34.979
+Anthony Taylor: This is B plus Mx.
+
+159
+00:13:36.120 --> 00:13:37.290
+Anthony Taylor: But there you go.
+
+160
+00:13:37.620 --> 00:13:42.139
+Anthony Taylor: So with this. This here, if you said X equals 7
+
+161
+00:13:42.700 --> 00:13:43.670
+Anthony Taylor: alright
+
+162
+00:13:44.900 --> 00:13:46.380
+Anthony Taylor: looks like that.
+
+163
+00:13:46.660 --> 00:13:48.930
+Anthony Taylor: we can actually print
+
+164
+00:13:49.600 --> 00:13:52.750
+Anthony Taylor: the predicted salary.
+
+165
+00:13:54.660 --> 00:14:01.620
+Anthony Taylor: That's the manual way. That's the way we did it when we didn't know when we weren't data scientists.
+
+166
+00:14:01.820 --> 00:14:05.280
+Anthony Taylor: But we are all budding data scientists.
+
+167
+00:14:05.300 --> 00:14:11.400
+Anthony Taylor: We don't have to do anything manual. We can simply write. predict.
+
+168
+00:14:13.760 --> 00:14:16.959
+Anthony Taylor: And then we're going to copy the data.
+
+169
+00:14:17.030 --> 00:14:22.409
+Anthony Taylor: take our predicted values, add them to the table. We can see the original value.
+
+170
+00:14:22.610 --> 00:14:26.179
+Anthony Taylor: the actual value. and what we predicted
+
+171
+00:14:29.840 --> 00:14:34.680
+Anthony Taylor: pretty straightforward. Now we can even take our years, experience.
+
+172
+00:14:34.760 --> 00:14:40.170
+Anthony Taylor: and plot it to what we predicted. This will give us that cool fitted line.
+
+173
+00:14:40.910 --> 00:14:50.490
+Anthony Taylor: If we add on our original data. we can see the fitted line through the original data.
+
+174
+00:14:53.840 --> 00:14:57.270
+Anthony Taylor: So all of this we've done before, but in a different way.
+
+175
+00:14:57.410 --> 00:15:01.499
+Anthony Taylor: This is much simpler. Okay, and let me back up a little bit
+
+176
+00:15:02.130 --> 00:15:10.899
+Anthony Taylor: because you're gonna do this yourself. But I'm gonna give you the important stuff. Maybe in the exercise they'll have you do it. The main. Okay. But in reality
+
+177
+00:15:11.190 --> 00:15:12.969
+Anthony Taylor: you need to import your data.
+
+178
+00:15:13.970 --> 00:15:15.650
+Anthony Taylor: You need to reshape it.
+
+179
+00:15:17.890 --> 00:15:21.030
+Anthony Taylor: and you need to fit it to the model. That's it.
+
+180
+00:15:22.030 --> 00:15:24.260
+Anthony Taylor: It's like 4 or 5 lines told.
+
+181
+00:15:26.060 --> 00:15:31.860
+Anthony Taylor: Okay, there's a lot of other stuff in here because we want to remind you. You have x plus P. Blah, blah, blah.
+
+182
+00:15:32.260 --> 00:15:35.599
+Anthony Taylor: alright. Okay. Any questions.
+
+183
+00:15:39.080 --> 00:15:47.680
+Anthony Taylor: You wanna just go try it. This is another wonderful example of keep the instructor example up next to
+
+184
+00:15:47.920 --> 00:15:49.849
+Anthony Taylor: the student thing.
+
+185
+00:15:57.300 --> 00:15:58.709
+Anthony Taylor: Oh, wait! What's this?
+
+186
+00:16:03.800 --> 00:16:09.450
+Anthony Taylor: Is this in here? Oh, I like this. Okay, never mind. We're gonna do this first. Okay?
+
+187
+00:16:10.650 --> 00:16:13.800
+Anthony Taylor: So
+
+188
+00:16:16.870 --> 00:16:19.519
+Anthony Taylor: using your raise name. Button.
+
+189
+00:16:21.680 --> 00:16:22.760
+Anthony Taylor: Okay?
+
+190
+00:16:24.080 --> 00:16:25.980
+Anthony Taylor: Different person. Every time
+
+191
+00:16:28.000 --> 00:16:33.650
+Anthony Taylor: I'm going to give you some scenarios, your job. Tell me if it's regression or classification.
+
+192
+00:16:34.700 --> 00:16:36.740
+Anthony Taylor: Okay? Ready. First scenario.
+
+193
+00:16:37.570 --> 00:16:38.680
+Anthony Taylor: Spamford
+
+194
+00:16:41.200 --> 00:16:42.819
+Anthony Taylor: spam filtering.
+
+195
+00:16:47.790 --> 00:16:49.880
+Anthony Taylor: Somebody raise your hand, Derek.
+
+196
+00:16:51.070 --> 00:16:52.470
+Derek Rikke: Classification.
+
+197
+00:16:52.850 --> 00:16:59.680
+Anthony Taylor: Absolutely okay. Predicting whether a company will go bankrupt.
+
+198
+00:17:03.290 --> 00:17:04.589
+Anthony Taylor: Yes, Natalie.
+
+199
+00:17:05.140 --> 00:17:06.579
+Mason, Natalie: Regression.
+
+200
+00:17:07.300 --> 00:17:08.190
+Anthony Taylor: Why.
+
+201
+00:17:10.990 --> 00:17:16.280
+Mason, Natalie: well, I just can't imagine it be any classification. It would be a negative regression.
+
+202
+00:17:17.720 --> 00:17:21.319
+Anthony Taylor: Maybe. Meredith, do you agree? Or do you disagree?
+
+203
+00:17:23.700 --> 00:17:26.040
+Meredith McCanse (she/her): I agree. I was going to say, regression.
+
+204
+00:17:26.920 --> 00:17:29.149
+Anthony Taylor: Anybody disagree with regression?
+
+205
+00:17:31.170 --> 00:17:41.149
+Anthony Taylor: Well, you should, because the question was predicting whether a company will go bankrupt. Well, you could use a regression to say they're heading that direction.
+
+206
+00:17:41.230 --> 00:17:48.800
+Anthony Taylor: You could use a regression to show that they did go bankrupt. but the actual model would be a classifier.
+
+207
+00:17:49.000 --> 00:17:52.339
+Anthony Taylor: Okay? Are they gonna go bankrupt? Yes or no?
+
+208
+00:17:53.380 --> 00:18:01.229
+Anthony Taylor: Okay, yes or no is classification. It's good, though. That's a good discussion stock price, prediction.
+
+209
+00:18:06.590 --> 00:18:07.520
+Anthony Taylor: curry
+
+210
+00:18:08.600 --> 00:18:09.590
+Gardner, Curry: progression.
+
+211
+00:18:10.210 --> 00:18:20.220
+Anthony Taylor: regression, absolutely continuous value. Okay. predicting age.
+
+212
+00:18:26.100 --> 00:18:26.910
+Anthony Taylor: Matt
+
+213
+00:18:27.530 --> 00:18:28.640
+Dipinto, Matt: regression.
+
+214
+00:18:29.130 --> 00:18:32.400
+Anthony Taylor: It is regression. Absolutely.
+
+215
+00:18:32.570 --> 00:18:35.679
+Anthony Taylor: If you were to do the number 100% regression
+
+216
+00:18:36.040 --> 00:18:41.929
+Anthony Taylor: predicting solar energy production. That's a tough
+
+217
+00:18:46.360 --> 00:18:47.260
+Anthony Taylor: Sonya
+
+218
+00:18:48.830 --> 00:18:50.100
+sonja baro: regression.
+
+219
+00:18:50.660 --> 00:18:59.810
+Anthony Taylor: Absolutely. Okay. Production is a number. How much energy are you producing. predicting the price of used car?
+
+220
+00:19:02.600 --> 00:19:05.390
+Anthony Taylor: I think we've heard from a lot. Actually, I haven't heard from Cindy.
+
+221
+00:19:07.130 --> 00:19:08.609
+Anthony Taylor: She's like what wait.
+
+222
+00:19:12.300 --> 00:19:13.730
+Anthony Taylor: you're muted, though.
+
+223
+00:19:17.460 --> 00:19:24.480
+Sihong Zhou: The prediction of use! The car should be regression.
+
+224
+00:19:24.960 --> 00:19:26.799
+Anthony Taylor: It is excellent.
+
+225
+00:19:27.020 --> 00:19:34.909
+Anthony Taylor: Thank you. Predicting e-commerce sales revenue. Who might not heard from Mike?
+
+226
+00:19:37.080 --> 00:19:38.770
+Anthony Taylor: I know you had your hand up earlier
+
+227
+00:19:39.180 --> 00:19:40.260
+michael mcpherson: aggression
+
+228
+00:19:40.770 --> 00:19:49.180
+Anthony Taylor: regression predicting if a crowdfunding campaign will succeed. Clayton.
+
+229
+00:19:53.050 --> 00:19:55.130
+Anthony Taylor: Oh, he was busy doing something else.
+
+230
+00:19:55.320 --> 00:19:56.540
+Clayton Graves: Regression?
+
+231
+00:19:57.100 --> 00:20:04.239
+Anthony Taylor: That's close. Why do you think regression classification? Oh, Cindy just corrected you, sir.
+
+232
+00:20:06.930 --> 00:20:13.610
+Anthony Taylor: But yeah, in this case, predicting, if it will succeed, is a Yes, no answer. Will it succeed? Yes, no.
+
+233
+00:20:13.890 --> 00:20:18.789
+Anthony Taylor: Okay. Could you use regression as well to determine if it will succeed.
+
+234
+00:20:19.250 --> 00:20:20.390
+Anthony Taylor: Yes, you could.
+
+235
+00:20:20.620 --> 00:20:24.159
+Anthony Taylor: But that wasn't the question. So good. Answer, both of you.
+
+236
+00:20:24.330 --> 00:20:25.630
+Anthony Taylor: Regional
+
+237
+00:20:25.650 --> 00:20:31.290
+Anthony Taylor: temperature prediction who might not heard from Jennifer
+
+238
+00:20:32.570 --> 00:20:33.600
+Jennifer Dahlgren: Regression.
+
+239
+00:20:34.030 --> 00:20:35.890
+Anthony Taylor: So easy. Huh?
+
+240
+00:20:36.200 --> 00:20:37.300
+Anthony Taylor: Okay.
+
+241
+00:20:37.720 --> 00:20:42.519
+Anthony Taylor:  who am I not heard from Ryan? Have I heard from you?
+
+242
+00:20:43.600 --> 00:20:48.660
+Anthony Taylor: Okay, you're this one's yours predicting if it will rain
+
+243
+00:20:50.990 --> 00:20:52.700
+Masarirambi, Rodney: classification.
+
+244
+00:20:53.210 --> 00:20:57.239
+Anthony Taylor: Very good. Alright, Brandon, I know I haven't heard from you this one's for you
+
+245
+00:20:58.060 --> 00:21:01.800
+Anthony Taylor: predicting. If an animal is a cat or a dog
+
+246
+00:21:03.740 --> 00:21:04.950
+Mckimmy, Brandon: classification
+
+247
+00:21:05.580 --> 00:21:08.809
+Anthony Taylor: 100% last one. And I think.
+
+248
+00:21:09.340 --> 00:21:12.639
+Anthony Taylor: Christine, are you the only one I haven't heard from
+
+249
+00:21:15.080 --> 00:21:18.840
+Anthony Taylor: here. It is identifying
+
+250
+00:21:20.530 --> 00:21:23.630
+Anthony Taylor: digits in a photo.
+
+251
+00:21:26.520 --> 00:21:27.920
+Anthony Taylor: That's a hard
+
+252
+00:21:31.840 --> 00:21:34.400
+Kanouff, Christine: classification.
+
+253
+00:21:35.830 --> 00:21:37.190
+Anthony Taylor: That is correct.
+
+254
+00:21:37.780 --> 00:21:44.179
+Anthony Taylor: Okay? And that is not we're gonna do. By the way, we're gonna have, we're gonna load photos of numbers
+
+255
+00:21:44.660 --> 00:21:48.549
+Anthony Taylor: later and have a machine learning model that
+
+256
+00:21:49.090 --> 00:21:55.260
+Anthony Taylor: takes that image and creates a model that will identify new images. Tell you what number is in
+
+257
+00:21:56.250 --> 00:22:01.840
+Anthony Taylor: so very cool, absolutely classification. so cool. awesome.
+
+258
+00:22:02.680 --> 00:22:10.820
+Anthony Taylor:  and so there's all the answers. Yay, okay.
+
+259
+00:22:13.610 --> 00:22:14.360
+Anthony Taylor: aye.
+
+260
+00:22:15.160 --> 00:22:18.789
+Anthony Taylor: II I'm not ready to show you anything just yet. I thought I was
+
+261
+00:22:18.980 --> 00:22:21.889
+Anthony Taylor: so more supervised. Terminology.
+
+262
+00:22:22.200 --> 00:22:25.330
+Anthony Taylor: Okay, features, labels.
+
+263
+00:22:25.410 --> 00:22:34.790
+Anthony Taylor: So features are our independent variables. In almost every model we will work with, we will refer to features as the variable
+
+264
+00:22:34.910 --> 00:22:38.800
+Anthony Taylor: X. It'll be a capital X,
+
+265
+00:22:40.580 --> 00:22:42.160
+Anthony Taylor: but it will be X.
+
+266
+00:22:42.960 --> 00:22:49.649
+Anthony Taylor: Alright, they're used to predict changes in the target or the label.
+
+267
+00:22:50.970 --> 00:22:57.629
+Anthony Taylor: So we're looking for patterns in the features that lead us to the label.
+
+268
+00:22:59.030 --> 00:23:09.980
+Anthony Taylor: Some features. as we saw with Pca. When we did Pca. And unsupervised some of the features we can actually almost eliminate. They don't help it up
+
+269
+00:23:10.900 --> 00:23:12.709
+Anthony Taylor: if you don't need em, don't use em.
+
+270
+00:23:14.610 --> 00:23:15.380
+Okay.
+
+271
+00:23:15.800 --> 00:23:19.590
+Anthony Taylor: the labels are our dependent variables.
+
+272
+00:23:20.850 --> 00:23:25.560
+Anthony Taylor: and that's because they depend on the features. Okay.
+
+273
+00:23:25.670 --> 00:23:30.179
+Anthony Taylor: the outcome is what we want to predict. They will be
+
+274
+00:23:30.430 --> 00:23:34.480
+Anthony Taylor: the variable Y in almost all of our demonstrations.
+
+275
+00:23:36.910 --> 00:23:41.580
+Anthony Taylor: Lower case wide and they're sometimes called the target.
+
+276
+00:23:43.600 --> 00:23:44.420
+Anthony Taylor: Okay.
+
+277
+00:23:45.880 --> 00:23:53.650
+Anthony Taylor: fun information. So if we have some data look like this, we could have an outcome column. This will say, this is our label.
+
+278
+00:23:53.970 --> 00:23:55.960
+Anthony Taylor: and these are all of the features.
+
+279
+00:23:57.460 --> 00:24:00.970
+Anthony Taylor: So this would be Y and x would be this entire world
+
+280
+00:24:02.130 --> 00:24:03.260
+Anthony Taylor: without. Why.
+
+281
+00:24:05.020 --> 00:24:11.360
+Anthony Taylor: alright. it's still model fit. Predict? Nothing's going to change there
+
+282
+00:24:11.570 --> 00:24:14.439
+Anthony Taylor: except we're gonna have a little bit of prep before Mall.
+
+283
+00:24:16.550 --> 00:24:18.820
+Anthony Taylor: Okay. Now, I already showed you that one
+
+284
+00:24:21.380 --> 00:24:33.110
+Anthony Taylor: dependent variable because it's value depends on the others independent. And talk about that. So our dependent variable is going to be Y, our independent variable is going to be XX is our feature
+
+285
+00:24:33.550 --> 00:24:36.900
+Anthony Taylor: in linear regression. Okay?
+
+286
+00:24:37.580 --> 00:24:53.799
+Anthony Taylor:  Yup. So this is all the linear regression stuff we talked about before.  it doesn't. So like, if you guys
+
+287
+00:24:54.050 --> 00:25:05.779
+Anthony Taylor: plot the data and it's not linear. it's like, maybe a skewed or exponential or a curve. There's no point in using linear regression. Okay, it's not the right mall.
+
+288
+00:25:06.090 --> 00:25:09.169
+Anthony Taylor: You will learn others. That will be the right mom.
+
+289
+00:25:09.920 --> 00:25:14.190
+Anthony Taylor: Okay. But for now, just understand, if the data is not
+
+290
+00:25:14.280 --> 00:25:15.580
+Anthony Taylor: mostly
+
+291
+00:25:15.850 --> 00:25:23.020
+Anthony Taylor:  correlated when you plot it out. Probably don't even want to bother with linear progression.
+
+292
+00:25:23.730 --> 00:25:29.749
+Anthony Taylor: Hey? It's gonna give you really bad results. So we're gonna use Psyche learn we did in a demo.
+
+293
+00:25:30.060 --> 00:25:31.590
+Anthony Taylor: And that's that all right.
+
+294
+00:25:31.930 --> 00:25:36.589
+Anthony Taylor: So now we did our demo. Let's look at the exercise
+
+295
+00:25:38.430 --> 00:25:44.110
+Anthony Taylor: you guys created the ultimate child suite. Blah blah, blah. Read all that.
+
+296
+00:25:44.280 --> 00:25:46.680
+Anthony Taylor: You're gonna load and visualize sales data
+
+297
+00:25:46.700 --> 00:25:49.769
+Anthony Taylor: fit a linear regression model plot. It
+
+298
+00:25:50.150 --> 00:25:53.569
+Anthony Taylor: make predictions. that's all you gotta do.
+
+299
+00:25:54.000 --> 00:25:56.470
+Anthony Taylor: Okay, they give you.
+
+300
+00:25:58.740 --> 00:26:00.719
+Anthony Taylor: They gave you a pretty fair amount here.
+
+301
+00:26:02.180 --> 00:26:05.160
+Anthony Taylor: All you really gotta do is these last few. Okay
+
+302
+00:26:06.020 --> 00:26:12.470
+Anthony Taylor:  time. Wise.
+
+303
+00:26:16.180 --> 00:26:23.590
+Anthony Taylor: almost. There. Promise I'm getting there. Holy, Moly. Okay, 20 min seems excessive.
+
+304
+00:26:24.430 --> 00:26:27.250
+Anthony Taylor: But take your time. Quick. Question.
+
+305
+00:26:30.490 --> 00:26:33.610
+Masarirambi, Rodney: Why do they call it. Regression cause
+
+306
+00:26:34.440 --> 00:26:40.769
+Masarirambi, Rodney: everything else in software. Just kind of seems like regression is going to be something else. And this I'm like.
+
+307
+00:26:43.950 --> 00:26:45.830
+Masarirambi, Rodney: yeah, why.
+
+308
+00:26:46.760 --> 00:26:53.630
+Anthony Taylor: I am asking our friend bias regression used for
+
+309
+00:26:53.900 --> 00:26:56.340
+Anthony Taylor: continuous because I don't know.
+
+310
+00:26:59.920 --> 00:27:04.620
+Anthony Taylor: That's right. Jen's my stats person absolutely. There you go.
+
+311
+00:27:05.130 --> 00:27:08.800
+Anthony Taylor: Predictions. Alright. Well, finish typing it. Now.
+
+312
+00:27:09.200 --> 00:27:10.140
+Anthony Taylor: let's see.
+
+313
+00:27:14.130 --> 00:27:22.139
+Anthony Taylor: see? And it just it didn't actually describe it as well as you did. It's going into the whole wide. Use it? What different types are there?
+
+314
+00:27:23.930 --> 00:27:29.689
+Anthony Taylor: Yeah. you know what I love that Jen is smarter than chapter
+
+315
+00:27:30.080 --> 00:27:35.409
+Anthony Taylor: I have decided. I've deemed that true. Okay, so that's
+
+316
+00:27:39.930 --> 00:27:40.840
+Anthony Taylor: yeah. With that
+
+317
+00:27:42.960 --> 00:27:46.580
+Anthony Taylor: who fell out, somebody just fell out and said he fell out again. No.
+
+318
+00:27:48.220 --> 00:27:50.359
+Anthony Taylor: everybody's here according to this.
+
+319
+00:27:53.620 --> 00:27:56.290
+Anthony Taylor: All right. Gang! How'd it go? How'd it go? How'd it go.
+
+320
+00:27:58.020 --> 00:28:01.290
+Anthony Taylor: You guys were done early, weren't you? You just didn't come back and know what happened.
+
+321
+00:28:02.720 --> 00:28:03.730
+Anthony Taylor: No.
+
+322
+00:28:05.790 --> 00:28:07.409
+Anthony Taylor: Hi, well, let's take a look.
+
+323
+00:28:07.810 --> 00:28:11.049
+Anthony Taylor: Okay. I know they gave you a little bit. I know they gave you this.
+
+324
+00:28:11.910 --> 00:28:13.960
+Anthony Taylor: and they gave you this.
+
+325
+00:28:15.780 --> 00:28:17.590
+Anthony Taylor: I believe they gave you this
+
+326
+00:28:19.600 --> 00:28:20.490
+Anthony Taylor: aye.
+
+327
+00:28:20.660 --> 00:28:26.269
+Anthony Taylor: so cool clearly. We have some kind of linear relationship here. So this is a good candidate
+
+328
+00:28:26.630 --> 00:28:31.589
+Anthony Taylor: for linear regression. Alright. So here we're going to reshape our data
+
+329
+00:28:32.300 --> 00:28:35.680
+Anthony Taylor: to get it into the single column arrays.
+
+330
+00:28:36.460 --> 00:28:41.050
+Anthony Taylor: We're going to set our Y variable to our
+
+331
+00:28:41.590 --> 00:28:42.710
+Anthony Taylor: sales.
+
+332
+00:28:44.100 --> 00:28:55.020
+Anthony Taylor: I always, I'm gonna be honest with you guys right now, I wanted to say, independent or dependent. I can see it there, but I never which one's dependent. But, anyway, why is our dependents in this case?
+
+333
+00:28:55.240 --> 00:28:59.800
+Anthony Taylor: Now we're going to call our model. We're going to fit X and y.
+
+334
+00:29:00.040 --> 00:29:05.979
+Anthony Taylor: and then we can look, I mean again, are these necessary? These 3 cells? Absolutely not.
+
+335
+00:29:06.330 --> 00:29:16.410
+Anthony Taylor: Okay, these are just so you guys can understand that the model itself is basically creating that Mx plus B function in the back.
+
+336
+00:29:16.880 --> 00:29:25.920
+Anthony Taylor: That's what it's doing. And it, you can actually get the pieces of it by simply looking at these properties of the model. Okay?
+
+337
+00:29:26.640 --> 00:29:31.519
+Anthony Taylor: But we don't actually need that. We can just do predict.
+
+338
+00:29:31.780 --> 00:29:36.759
+Anthony Taylor: And this predicts every value in our X,
+
+339
+00:29:36.780 --> 00:29:38.959
+Anthony Taylor: not just one, all of them
+
+340
+00:29:40.820 --> 00:29:49.539
+Anthony Taylor: doing it like this. So now we can create a copy of a data frame, and then put this new predicted values into a column.
+
+341
+00:29:50.270 --> 00:29:52.930
+Anthony Taylor: And we see what it actually predicts.
+
+342
+00:29:54.840 --> 00:30:00.869
+Anthony Taylor: And again, we can do, we can use that predicted value to create a nice, pretty line.
+
+343
+00:30:00.940 --> 00:30:04.209
+Anthony Taylor: And if we combine that with the original data.
+
+344
+00:30:04.250 --> 00:30:06.680
+Anthony Taylor: you can see how the line fit
+
+345
+00:30:07.610 --> 00:30:09.970
+Anthony Taylor: into the model
+
+346
+00:30:12.090 --> 00:30:13.550
+Anthony Taylor: questions.
+
+347
+00:30:13.960 --> 00:30:16.949
+Anthony Taylor: Oh, yeah, if you want to. Manual, there's a manual.
+
+348
+00:30:18.500 --> 00:30:24.569
+Anthony Taylor: Oh, okay. Now, this is actually cool. So here we're taking an array of value
+
+349
+00:30:24.960 --> 00:30:28.670
+Anthony Taylor: that we want to predict. So this is the number of ads.
+
+350
+00:30:30.190 --> 00:30:37.320
+Anthony Taylor: Okay, so we're gonna pass this number of ads in, we're gonna reshape them to one column. Take a look at it.
+
+351
+00:30:37.620 --> 00:30:43.859
+Anthony Taylor: and then we can do model predict by just passing in ads. Now, the reason this works
+
+352
+00:30:44.020 --> 00:30:46.290
+Anthony Taylor: is that we trained them out.
+
+353
+00:30:46.690 --> 00:30:50.329
+Anthony Taylor: The model already has the the Mx plus B.
+
+354
+00:30:50.400 --> 00:30:53.080
+Anthony Taylor: All we're doing is giving it new. X's to calculate.
+
+355
+00:30:55.190 --> 00:30:57.210
+Anthony Taylor: Okay, once we do that.
+
+356
+00:30:57.480 --> 00:31:02.999
+Anthony Taylor: we can see how it. What predictions it came up with for those? Now, why isn't there
+
+357
+00:31:03.380 --> 00:31:04.840
+Anthony Taylor: an actual here?
+
+358
+00:31:05.900 --> 00:31:09.429
+Anthony Taylor: Because we don't have it. We passed in new values.
+
+359
+00:31:11.010 --> 00:31:21.410
+Anthony Taylor: right? And those new values. These are the predictions it came up with. Now we might be able to look at. you know, here and see more or less what they were. But still
+
+360
+00:31:22.180 --> 00:31:23.550
+Anthony Taylor: okay. Now
+
+361
+00:31:23.600 --> 00:31:24.650
+Anthony Taylor: any questions?
+
+362
+00:31:26.480 --> 00:31:36.400
+Meredith McCanse (she/her): I have a question. Yes, Meredith. when you do reshape, and then in the parentheses the negative 1 one is it always negative 1 1.
+
+363
+00:31:36.650 --> 00:31:40.120
+Anthony Taylor: If you're trying to create a one column array. Yes.
+
+364
+00:31:42.840 --> 00:31:48.159
+Meredith McCanse (she/her): so if it was a if you were wanting to do it, 2 columnari. Would it be negative? 2. 2. No.
+
+365
+00:31:48.310 --> 00:31:53.260
+Anthony Taylor: it would still be 1 one. But you would have
+
+366
+00:31:53.510 --> 00:31:57.690
+Anthony Taylor: like if you had 2 columns you were passing in from here.
+
+367
+00:31:57.720 --> 00:32:03.439
+Anthony Taylor: Okay, then it would. It would create like an array of with 2 valuing.
+
+368
+00:32:05.430 --> 00:32:10.699
+Anthony Taylor: So like, if there were 2 columns here. And we're gonna see this before the days over.
+
+369
+00:32:10.720 --> 00:32:14.609
+Anthony Taylor: But you would see 100 comma, the other guy.
+
+370
+00:32:14.830 --> 00:32:18.249
+Anthony Taylor: If there were 10 columns, you would see 10 columns in this array.
+
+371
+00:32:19.430 --> 00:32:24.829
+Anthony Taylor: Basically, we want to feed in this case, we want to feed an array of values into our model.
+
+372
+00:32:26.090 --> 00:32:30.889
+Anthony Taylor: That's basically. And in this case there's only one value. So it's pretty simple.
+
+373
+00:32:31.540 --> 00:32:33.189
+Anthony Taylor: But yeah, yes, I'm
+
+374
+00:32:33.580 --> 00:32:38.399
+sonja baro: I know. Sorry, my dog. Somebody's coming to our door.
+
+375
+00:32:38.830 --> 00:32:39.920
+Anthony Taylor: Love that.
+
+376
+00:32:39.990 --> 00:32:45.459
+sonja baro: Yeah, I don't know if you can hear him or not. But the question I have is, I need help
+
+377
+00:32:45.490 --> 00:32:59.989
+sonja baro: with eyes. See what I did wrong with a data frame? Do you guys, I share my screen. Everyone loves to do this debug, and this is like everybody's favorite thing. Oh, I'm glad I can help
+
+378
+00:33:01.890 --> 00:33:05.819
+Anthony Taylor: Matt. Here goes. Watch Matt Watson. He's got the Eagle eye.
+
+379
+00:33:06.910 --> 00:33:08.100
+sonja baro: Alright.
+
+380
+00:33:09.010 --> 00:33:16.979
+Anthony Taylor: What's the error message? Go down. Show me the error message for you. Error message is it doesn't like sales predicted. Okay?
+
+381
+00:33:17.220 --> 00:33:20.459
+sonja baro: Which I defined up here
+
+382
+00:33:20.610 --> 00:33:24.020
+sonja baro: right? And then we're plotting it
+
+383
+00:33:24.080 --> 00:33:32.120
+sonja baro: to say, Okay, what is the Val? The values? And then why does it say I would. Never mind.
+
+384
+00:33:33.280 --> 00:33:43.839
+Dipinto, Matt: That's right. You want your projections. So in your second one, where you've got y equals Ds sales projected, you want that to be the column. Name not the full data frame.
+
+385
+00:33:44.080 --> 00:33:45.170
+Anthony Taylor: Here you go.
+
+386
+00:33:46.110 --> 00:33:48.830
+Anthony Taylor: So let's see y equals sales.
+
+387
+00:33:48.840 --> 00:33:54.549
+Dipinto, Matt: It's for your live. Gonna be your predicted sales call, and whatever you named it. Yes, to scroll up.
+
+388
+00:33:54.770 --> 00:34:03.240
+sonja baro: Yeah. Sales predicted.
+
+389
+00:34:03.970 --> 00:34:10.780
+sonja baro: Alright. Thank you. He's used to debugging, I think.
+
+390
+00:34:11.480 --> 00:34:15.000
+Anthony Taylor: I'm I'm digging it. Dude digging it?
+
+391
+00:34:15.800 --> 00:34:16.750
+Anthony Taylor: Okay?
+
+392
+00:34:19.320 --> 00:34:20.589
+Anthony Taylor: Any other questions?
+
+393
+00:34:22.139 --> 00:34:28.279
+Masarirambi, Rodney: Yeah. Can you go down to the where? Where you
+
+394
+00:34:30.239 --> 00:34:34.530
+Masarirambi, Rodney: just go actually go up just a little bit on the section right before that.
+
+395
+00:34:34.800 --> 00:34:35.710
+Masarirambi, Rodney: So
+
+396
+00:34:35.870 --> 00:34:43.730
+Masarirambi, Rodney: why didn't? Why was that gonna work? I don't know why that didn't work. The print model formula. It didn't work for me
+
+397
+00:34:44.060 --> 00:34:54.040
+Masarirambi, Rodney: well, I removed it so cause it didn't work in there, but it's like, but I just if I take a look at again, cause I'm like.
+
+398
+00:34:54.210 --> 00:34:55.540
+Masarirambi, Rodney: what did I mess up?
+
+399
+00:34:56.070 --> 00:34:57.700
+Anthony Taylor: Well, now, I don't know.
+
+400
+00:34:58.110 --> 00:35:03.519
+Masarirambi, Rodney: Oh, no, I'll figure I'll figure it out. Just give me
+
+401
+00:35:04.210 --> 00:35:07.170
+Masarirambi, Rodney: Michael's model, and plus
+
+402
+00:35:07.320 --> 00:35:11.060
+Anthony Taylor: any other questions while you figure that out, or do you have it?
+
+403
+00:35:11.720 --> 00:35:13.879
+Anthony Taylor: If you haven't, you wanna show us, you can see
+
+404
+00:35:14.620 --> 00:35:18.439
+Masarirambi, Rodney: if you didn't do the array here.
+
+405
+00:35:20.380 --> 00:35:32.269
+Masarirambi, Rodney: II figured it out. I hadn't done this second and third line in order to do it, and I just ran with the first line, so that totally broke it cause there was nothing else to do it. And I just realized that. So I was on my way. I would just
+
+406
+00:35:32.470 --> 00:35:36.889
+Clayton Graves: didn't finish at all. Okay, thank you.
+
+407
+00:35:38.230 --> 00:35:40.690
+Clayton Graves: Can I see the last cell?
+
+408
+00:35:41.330 --> 00:35:42.319
+Anthony Taylor: Yes, sir.
+
+409
+00:35:53.990 --> 00:35:56.270
+Meredith McCanse (she/her): Can you talk about what's happening
+
+410
+00:35:57.290 --> 00:35:59.960
+Meredith McCanse (she/her): in the yep.
+
+411
+00:36:01.210 --> 00:36:06.999
+Anthony Taylor: So all it's doing is it's taking this this array.
+
+412
+00:36:07.370 --> 00:36:16.060
+Anthony Taylor: okay and reshaping it to one negative one. right? Which is different than negative 1 1.
+
+413
+00:36:16.540 --> 00:36:19.679
+Anthony Taylor: So it's basically kind of putting it back into this.
+
+414
+00:36:21.240 --> 00:36:22.250
+Anthony Taylor: Okay.
+
+415
+00:36:22.350 --> 00:36:33.179
+Anthony Taylor: so that it can add. So it creates an array of those values to put here. Because, remember, when we create a data frame, this is a dictionary of lists.
+
+416
+00:36:33.730 --> 00:36:43.970
+Anthony Taylor: right? So this is got to take it from that vertical one row per or one array per row into one array
+
+417
+00:36:44.240 --> 00:36:46.050
+Anthony Taylor: for the whole cult.
+
+418
+00:36:46.910 --> 00:36:53.830
+Anthony Taylor: So it basically took this and turned it back into this.
+
+419
+00:36:55.440 --> 00:36:57.420
+Anthony Taylor: do you see? Took this.
+
+420
+00:36:57.460 --> 00:36:59.550
+Anthony Taylor: turned it back into this.
+
+421
+00:37:00.860 --> 00:37:07.400
+Anthony Taylor: which really means they could have just put ex ads here. And then we whatever.
+
+422
+00:37:08.580 --> 00:37:09.570
+Anthony Taylor: Okay.
+
+423
+00:37:11.960 --> 00:37:18.710
+Meredith McCanse (she/her): yeah, just the 0 inside the square brackets. Tell it. Let's look and see. Let's do this.
+
+424
+00:37:19.050 --> 00:37:21.620
+Anthony Taylor: So we'll do this. And we'll get rid of the 0
+
+425
+00:37:23.620 --> 00:37:25.990
+Anthony Taylor: and you can see see how there's
+
+426
+00:37:27.510 --> 00:37:29.449
+Anthony Taylor: an array, around it
+
+427
+00:37:30.350 --> 00:37:35.839
+Meredith McCanse (she/her):  right so that 0 gives us the value inside of you.
+
+428
+00:37:38.410 --> 00:37:39.610
+Anthony Taylor: Does that make sense.
+
+429
+00:37:44.220 --> 00:37:45.090
+Anthony Taylor: Meredith?
+
+430
+00:37:45.200 --> 00:37:45.990
+Meredith McCanse (she/her): The
+
+431
+00:37:46.790 --> 00:37:50.520
+Anthony Taylor: so so so here, let me say it this way. So if I said
+
+432
+00:37:51.080 --> 00:37:56.529
+Anthony Taylor: one come to come? 3 comma. 4. And I wanted the second value. How would I do?
+
+433
+00:37:57.290 --> 00:38:00.109
+Anthony Taylor: Right? Let's see, this is this, is
+
+434
+00:38:00.250 --> 00:38:01.500
+Anthony Taylor: this is a good
+
+435
+00:38:01.960 --> 00:38:05.259
+Anthony Taylor: line of question. So I want to output
+
+436
+00:38:05.310 --> 00:38:08.789
+Anthony Taylor: the second value. Which index would I put in
+
+437
+00:38:10.220 --> 00:38:11.280
+Meredith McCanse (she/her): one
+
+438
+00:38:12.030 --> 00:38:15.670
+Anthony Taylor: one? Correct? Okay. So now.
+
+439
+00:38:15.920 --> 00:38:17.920
+Anthony Taylor: if I do this
+
+440
+00:38:25.380 --> 00:38:26.130
+Anthony Taylor: oops.
+
+441
+00:38:27.360 --> 00:38:32.190
+Anthony Taylor: now, if I wanted this array. what value would I put in?
+
+442
+00:38:33.290 --> 00:38:33.990
+sonja baro: Sure.
+
+443
+00:38:38.100 --> 00:38:39.530
+Meredith McCanse (she/her): also one.
+
+444
+00:38:39.780 --> 00:38:43.939
+Anthony Taylor: also one. right? But now I'm only going to get this red.
+
+445
+00:38:44.230 --> 00:38:47.209
+Anthony Taylor: Okay, so let's get rid of this.
+
+446
+00:38:48.750 --> 00:38:51.340
+Anthony Taylor: Now, I only want this array.
+
+447
+00:38:52.090 --> 00:38:53.740
+Anthony Taylor: What value am I going to put in
+
+448
+00:38:53.850 --> 00:38:55.620
+Meredith McCanse (she/her): 0? Okay.
+
+449
+00:38:56.420 --> 00:38:57.730
+Anthony Taylor: cats.
+
+450
+00:38:58.070 --> 00:39:00.310
+Meredith McCanse (she/her): That's that. Okay.
+
+451
+00:39:01.490 --> 00:39:02.430
+Anthony Taylor: I taught
+
+452
+00:39:03.260 --> 00:39:05.760
+Meredith McCanse (she/her): good there. Thank you.
+
+453
+00:39:07.120 --> 00:39:09.459
+Anthony Taylor: Every once in a while I had that moment of
+
+454
+00:39:10.210 --> 00:39:14.190
+Anthony Taylor: okayness. Alright. Let's continue.
+
+455
+00:39:16.800 --> 00:39:21.389
+Anthony Taylor: So we've done a linear regression model. We've seen this exact
+
+456
+00:39:22.790 --> 00:39:25.670
+Anthony Taylor: function before our way to do it.
+
+457
+00:39:25.860 --> 00:39:28.800
+Anthony Taylor:  but
+
+458
+00:39:30.300 --> 00:39:31.949
+Anthony Taylor: how can we
+
+459
+00:39:33.750 --> 00:39:35.250
+Anthony Taylor: determine if it's good?
+
+460
+00:39:37.800 --> 00:39:43.300
+Anthony Taylor: Right? So we can observe the errors which gives us mean squared error.
+
+461
+00:39:43.460 --> 00:39:48.589
+Anthony Taylor: which is the average of the square of the errors of the data set, is the variance of the errors in the data set.
+
+462
+00:39:49.440 --> 00:39:56.349
+Anthony Taylor: That's a good one. Sometimes we use that root mean squared error is the square root of the Msc.
+
+463
+00:39:57.300 --> 00:39:59.650
+Anthony Taylor: Also not bad.
+
+464
+00:39:59.960 --> 00:40:03.030
+Anthony Taylor: but the one you will see the most often
+
+465
+00:40:03.310 --> 00:40:06.230
+Anthony Taylor: is the R 2 score. Yeah.
+
+466
+00:40:06.940 --> 00:40:18.169
+Anthony Taylor: okay. And this is the square of the correlation coefficient, and it describes to the extent to which change in one variable is associated with the change in another.
+
+467
+00:40:18.790 --> 00:40:22.440
+Anthony Taylor: Alright, the cool thing about
+
+468
+00:40:22.590 --> 00:40:29.850
+Anthony Taylor:  Well, let let me talk about this line right here. It says a low Msb. And a low Rms
+
+469
+00:40:29.960 --> 00:40:34.850
+Anthony Taylor: indicate a more accurate model. The problem with this is is what's low.
+
+470
+00:40:35.690 --> 00:40:38.000
+Anthony Taylor: very vague.
+
+471
+00:40:39.200 --> 00:40:43.939
+Anthony Taylor: Okay, we do a model if we do it, and the Msd. Is
+
+472
+00:40:44.230 --> 00:40:46.420
+Anthony Taylor: 500. Is that low?
+
+473
+00:40:47.410 --> 00:40:48.430
+sonja baro: We don't know.
+
+474
+00:40:49.090 --> 00:40:54.580
+Anthony Taylor: I don't know. Right. 500 might be incredibly high if low is point 0 1.
+
+475
+00:40:55.250 --> 00:40:59.309
+Anthony Taylor: But if low is the 1,005 hundred's really low.
+
+476
+00:41:00.170 --> 00:41:04.659
+Anthony Taylor: so because of that, it's a little harder to use that r 2, though
+
+477
+00:41:05.030 --> 00:41:07.160
+Anthony Taylor: it's between 0 and one
+
+478
+00:41:07.350 --> 00:41:12.069
+Anthony Taylor: with one being the best model you could get a hundred per cent.
+
+479
+00:41:12.260 --> 00:41:13.050
+Anthony Taylor: Accuracy.
+
+480
+00:41:14.780 --> 00:41:15.730
+Anthony Taylor: Alright.
+
+481
+00:41:15.980 --> 00:41:17.930
+Anthony Taylor: So
+
+482
+00:41:18.120 --> 00:41:27.049
+Anthony Taylor: typically, you'll see like point something. And and if you just translate it into a percentage. It's 0 point 8 2 82
+
+483
+00:41:27.620 --> 00:41:43.890
+Anthony Taylor: accurate. Okay. so closer to one better. Alright. So let's look at how we calculate those measures. Okay, so here we're gonna bring in linear regression. Again.
+
+484
+00:41:44.160 --> 00:41:51.999
+Anthony Taylor: we're gonna look at some data. This is the same salary data. We're going to reshape it. None of this is different. We've done all of this.
+
+485
+00:41:52.400 --> 00:41:53.390
+Anthony Taylor: Okay.
+
+486
+00:41:53.910 --> 00:41:56.070
+Anthony Taylor: now, we're going to build our model.
+
+487
+00:41:56.170 --> 00:42:00.000
+Anthony Taylor: We're gonna fit our model. And we're going to predict our model.
+
+488
+00:42:01.580 --> 00:42:07.449
+Anthony Taylor: And we're going to output the data frame with us all of this. You've seen every single thing I just showed
+
+489
+00:42:07.970 --> 00:42:09.439
+Anthony Taylor: just a few minutes ago.
+
+490
+00:42:10.430 --> 00:42:17.270
+Anthony Taylor: Okay. now to assess it. we get. So we're going to use asking learn metrics package.
+
+491
+00:42:17.760 --> 00:42:26.409
+Anthony Taylor: And we're gonna bring in mean, squared error. Just so you can see it and R, 2 score. Okay, I will tell you right now you're gonna see R. 2 score.
+
+492
+00:42:26.490 --> 00:42:33.460
+Anthony Taylor: Probably like the next month. Almost everything we do will use our true score. Okay, but
+
+493
+00:42:34.610 --> 00:42:35.429
+Anthony Taylor: there you go.
+
+494
+00:42:35.850 --> 00:42:40.610
+Anthony Taylor:  So we're going to score our model
+
+495
+00:42:41.500 --> 00:42:50.560
+Anthony Taylor: and write it into this score value. And it's going to. All it's gonna do is take X and Y
+
+496
+00:42:51.040 --> 00:42:54.049
+Anthony Taylor: and round it to 5 digits.
+
+497
+00:42:54.100 --> 00:42:55.799
+Anthony Taylor: Now let me show you something.
+
+498
+00:42:56.540 --> 00:42:58.640
+Anthony Taylor: So when you see
+
+499
+00:42:59.900 --> 00:43:01.979
+Anthony Taylor: this notice what
+
+500
+00:43:03.610 --> 00:43:05.300
+Anthony Taylor: it says. It's going to use
+
+501
+00:43:07.700 --> 00:43:08.890
+Anthony Taylor: the R 2 school.
+
+502
+00:43:09.670 --> 00:43:12.949
+Anthony Taylor: So with that being said, we're gonna score
+
+503
+00:43:13.280 --> 00:43:19.069
+Anthony Taylor: just score model score. We're gonna do an which is R 2 score.
+
+504
+00:43:19.810 --> 00:43:25.180
+Anthony Taylor: And we're going to use the the actual label and the predicted labels.
+
+505
+00:43:26.300 --> 00:43:30.799
+Anthony Taylor: We're gonna do an Msc which is mean squared error, actual label predicted label.
+
+506
+00:43:31.880 --> 00:43:36.279
+Anthony Taylor: and then RM. Sd. Which is just the square root of MS.
+
+507
+00:43:36.710 --> 00:43:39.259
+Anthony Taylor: And then we're gonna print it all out. So let's take a look.
+
+508
+00:43:39.540 --> 00:43:52.209
+Anthony Taylor: Voila! What did I say? Score does does score. So when we do, we get exactly so any model dot score in sk learn
+
+509
+00:43:53.290 --> 00:43:55.499
+Anthony Taylor: is going to be an R 2. School.
+
+510
+00:43:56.600 --> 00:43:57.630
+Anthony Taylor: Okay?
+
+511
+00:43:57.790 --> 00:44:02.230
+Anthony Taylor: And then mean squared error. Yeah, is this good? I don't know.
+
+512
+00:44:03.830 --> 00:44:08.180
+Anthony Taylor: I mean, this tells me the model is like 96% after
+
+513
+00:44:09.420 --> 00:44:11.380
+Anthony Taylor: that number don't look small. Me?
+
+514
+00:44:13.030 --> 00:44:15.040
+Anthony Taylor: So you see why Msey concepts
+
+515
+00:44:16.140 --> 00:44:18.340
+Anthony Taylor: kind of does. Okay?
+
+516
+00:44:18.810 --> 00:44:22.460
+Anthony Taylor: It's not that there's anything wrong with it. I mean, you just have to.
+
+517
+00:44:23.020 --> 00:44:25.030
+Anthony Taylor: Yeah, they'd have to experiment with it.
+
+518
+00:44:25.350 --> 00:44:27.580
+Anthony Taylor: Okay, so
+
+519
+00:44:27.860 --> 00:44:33.680
+Anthony Taylor: next exercise. guess what you're going to do. You're going to do an art Jew school.
+
+520
+00:44:34.750 --> 00:44:35.930
+Anthony Taylor: Basically.
+
+521
+00:44:37.240 --> 00:44:45.910
+Anthony Taylor: if they give you 20 min to do, I'm gonna lose my mind 10 min. Okay, that's better.  So it's basically the same thing as before.
+
+522
+00:44:45.990 --> 00:44:50.430
+Anthony Taylor: They're even giving you most of it all. You really gotta do.
+
+523
+00:44:51.870 --> 00:44:55.760
+Anthony Taylor: Oh, my God, you'd fill up oneself in 10 min.
+
+524
+00:45:00.120 --> 00:45:04.020
+Anthony Taylor: How about 5? I'll give you 10 if you get done early. Come back.
+
+525
+00:45:05.490 --> 00:45:06.940
+sonja baro: There are
+
+526
+00:45:07.580 --> 00:45:09.319
+sonja baro: the for us.
+
+527
+00:45:09.860 --> 00:45:10.860
+sonja baro: Yeah.
+
+528
+00:45:12.160 --> 00:45:21.480
+Anthony Taylor: Okay, so let's go through this. I'm recording. I'm sharing
+
+529
+00:45:25.720 --> 00:45:33.610
+Anthony Taylor: alright. So you guys had all this up to
+
+530
+00:45:35.330 --> 00:45:36.170
+Anthony Taylor: here.
+
+531
+00:45:37.410 --> 00:45:38.480
+Anthony Taylor: Okay?
+
+532
+00:45:46.930 --> 00:45:59.900
+Anthony Taylor: And then in here, we're going to do model score. We were just talking about sample weights. By the way. if you Google, this, it explains it to you. If you chat Gpta, it says it has to do with imbalanced data.
+
+533
+00:46:00.750 --> 00:46:06.530
+Anthony Taylor: Okay? Or you can map, gpt it. And it'll tell you in balance data.
+
+534
+00:46:07.410 --> 00:46:15.730
+Anthony Taylor: Like as I'm at Gpt. it's a mad Gp we got. Gen. Gpt. this is pretty cool
+
+535
+00:46:15.960 --> 00:46:19.169
+Derek Rikke: using the Api.
+
+536
+00:46:19.790 --> 00:46:23.089
+Anthony Taylor: Maybe good. He's got it now.
+
+537
+00:46:23.340 --> 00:46:27.860
+Anthony Taylor: just attach it to your Alexa you've done. Do you ever start charging for Alexa?
+
+538
+00:46:30.220 --> 00:46:33.189
+Anthony Taylor: You're thinking about because they're gonna put an Llm. On her
+
+539
+00:46:33.380 --> 00:46:40.790
+Anthony Taylor: so that she replies like an Lm instead of like she does. Now, which I'll be honest with. You guys think twice about that.
+
+540
+00:46:41.350 --> 00:46:43.499
+Anthony Taylor: Llms are very wordy.
+
+541
+00:46:44.630 --> 00:46:49.010
+Anthony Taylor: very wordy, anyway. Okay, so modeled up score.
+
+542
+00:46:49.270 --> 00:46:53.999
+Anthony Taylor:  Then there are 2 score. You have to have been
+
+543
+00:46:54.070 --> 00:47:00.410
+Anthony Taylor: the. The one thing about model that score is you're passing in an exit while you don't have to have already done the predicted
+
+544
+00:47:02.360 --> 00:47:08.669
+Anthony Taylor: okay, to do. R. 2 and Msd, you have to have the predicted values saved off
+
+545
+00:47:09.720 --> 00:47:14.380
+Anthony Taylor: alright, and then we're just going to print them out helps if you wait.
+
+546
+00:47:17.780 --> 00:47:19.489
+Anthony Taylor: Oh, after Vanessa.
+
+547
+00:47:20.000 --> 00:47:22.510
+Anthony Taylor: we're gonna print them out. And there you go.
+
+548
+00:47:23.650 --> 00:47:24.620
+Anthony Taylor: Okay.
+
+549
+00:47:25.650 --> 00:47:28.029
+Anthony Taylor: Pretty fun. I think that's fun.
+
+550
+00:47:30.180 --> 00:47:31.040
+Anthony Taylor: Okay.
+
+551
+00:47:32.060 --> 00:47:38.980
+Anthony Taylor:  we have 2 min. Jennifer.
+
+552
+00:47:41.460 --> 00:47:48.200
+Anthony Taylor: can you share with us statistical definition. R. 2. Like you did, Meredith and Simon. In 2 min
+
+553
+00:47:49.220 --> 00:48:00.850
+Jennifer Dahlgren: we were just talking about what was a good one, and what versus what was a bad one. and like. when you think about it. point 6 is pretty good.
+
+554
+00:48:00.980 --> 00:48:09.069
+Jennifer Dahlgren: But in survey metrics, so if you have like overall satisfaction, or you're trying to predict something in terms of feelings.
+
+555
+00:48:09.360 --> 00:48:26.889
+Jennifer Dahlgren: We actually don't like something that's a really really high r, 2. So a point 9 is suspect. It means that your variance explained is basically multiclinear. And so you have tons and tons of variables that are explaining the exact same thing. And it's ruining your model.
+
+556
+00:48:27.730 --> 00:48:30.100
+Anthony Taylor: Well, that's if you're doing multi linear, though. Yeah.
+
+557
+00:48:30.420 --> 00:48:40.379
+Anthony Taylor: yeah, yeah, right? Right? And then I completely agree that that is something that we would consider when we're doing that in a linear one. Higher fees are more accurate.
+
+558
+00:48:40.990 --> 00:48:46.710
+Anthony Taylor: But but you're right. And and and I will tell you guys, and we won't talk about this this minute.
+
+559
+00:48:47.770 --> 00:48:54.379
+Anthony Taylor: What you guys are gonna find out, especially when you get into classification is the concept called overfit.
+
+560
+00:48:54.700 --> 00:48:59.489
+Anthony Taylor: Not exactly what Jennifer is talking about, but pretty similar. And that is
+
+561
+00:49:00.090 --> 00:49:05.500
+Anthony Taylor: basically we've trained the model so well that it knows every possible variation.
+
+562
+00:49:06.600 --> 00:49:10.169
+Anthony Taylor: Is it a model? Is it generalizing at that point.
+
+563
+00:49:12.860 --> 00:49:21.090
+Anthony Taylor: Okay, there's like 10 data point or no. Let's say, 5 data points. Okay, 5 data points. Well, 5 to the fifth power.
+
+564
+00:49:22.460 --> 00:49:25.559
+Anthony Taylor: That's not really that much in the world of confusion.
+
+565
+00:49:26.700 --> 00:49:35.689
+Anthony Taylor: Okay, so is it easy for a model to come up with every possible variation? 100%? Yes. which means, no matter what
+
+566
+00:49:35.710 --> 00:49:46.500
+Anthony Taylor: features you put in, you'll always get it right well when you're like, oh, isn't that good? Not necessarily, because the whole idea behind machine learning is to be able to generalize.
+
+567
+00:49:47.300 --> 00:49:51.480
+Anthony Taylor: What if just one of those features were different? Well.
+
+568
+00:49:51.590 --> 00:49:56.109
+Anthony Taylor: if your model is over fit one feature different bang! It'll fail.
+
+569
+00:49:58.300 --> 00:50:08.259
+Anthony Taylor: cause it knows. The answer knows all the answers. There's no probability anymore. It's a hundred percent, or it's 0. That's over fit.
+
+570
+00:50:09.690 --> 00:50:15.559
+Anthony Taylor: and you'll see it. It doesn't represent quite that way. But what you'll see is when you train the data.
+
+571
+00:50:15.630 --> 00:50:21.510
+Anthony Taylor: The value will be like a 1.0 r 2 score, and then, when you test it, it'll be like 50
+
+572
+00:50:22.340 --> 00:50:25.400
+Anthony Taylor: or 60. You're like what the heck went wrong.
+
+573
+00:50:25.950 --> 00:50:34.129
+Anthony Taylor: That's over fit. It's not exactly what Jen was talking about. But it is a situation where a hierarchy score. Not necessarily right?
+
+574
+00:50:35.070 --> 00:50:37.660
+Anthony Taylor: Alright. So I love that. Thank you, Jen.
+
+575
+00:50:38.030 --> 00:50:43.580
+Anthony Taylor: I like using you guys's experience to get real world examples like.
+
+576
+00:50:44.190 --> 00:50:46.370
+Anthony Taylor: okay, you guys hear enough of mine.
+
+577
+00:50:51.950 --> 00:51:00.919
+sonja baro: James, did you know that one that I was talking about? Oh, yeah, yeah, they're they're really bigubers. They're funny. Yeah, I enjoy their show. So
+
+578
+00:51:03.540 --> 00:51:08.449
+Anthony Taylor: I'm on back, Meredith. Rodney Cindy Curry have to.
+
+579
+00:51:08.800 --> 00:51:09.769
+Anthony Taylor: I've done.
+
+580
+00:51:10.840 --> 00:51:12.510
+Anthony Taylor: We need to get your name fixed.
+
+581
+00:51:15.350 --> 00:51:17.080
+Anthony Taylor: don't we, sir?
+
+582
+00:51:19.980 --> 00:51:25.299
+Anthony Taylor: Is that? Did I hear correctly that your name is Misspell half in our system
+
+583
+00:51:26.670 --> 00:51:33.499
+Gebrekristos, Hafton: correct? Was an N should be definitely, you know what reach out wait. Is it an in or him in the system?
+
+584
+00:51:33.740 --> 00:51:37.749
+Gebrekristos, Hafton: And as in May on the system, I think it's N. As in Nancy.
+
+585
+00:51:38.670 --> 00:51:46.009
+Anthony Taylor: So right right now it's spelled wrong also in your in your zoom. Alright, do me a favor. Reach out to
+
+586
+00:51:46.150 --> 00:51:51.220
+Anthony Taylor:  whatever the admin or whatever whoever just got us.
+
+587
+00:51:51.380 --> 00:51:57.939
+Anthony Taylor: Let me talk to him and let him know, because when this is over, you get a certificate. I sure don't want the wrong name on it.
+
+588
+00:52:00.250 --> 00:52:01.320
+Anthony Taylor: Okidoki.
+
+589
+00:52:03.390 --> 00:52:12.080
+Anthony Taylor: Hi, let's get started, hey? We're gonna jump right into another activity. So I took a look at this activity while you guys were chit chatting about switchers.
+
+590
+00:52:13.450 --> 00:52:20.869
+Anthony Taylor: And yeah, it's like everything that you've done so far today.
+
+591
+00:52:21.220 --> 00:52:23.999
+Anthony Taylor:  and and it's
+
+592
+00:52:24.560 --> 00:52:27.120
+Anthony Taylor: I'll give you 17 min.
+
+593
+00:52:27.330 --> 00:52:32.750
+Anthony Taylor: It says, Give you 15. But since there's a lot more to this one, I'm gonna give you 7 people.
+
+594
+00:52:33.290 --> 00:52:34.770
+Anthony Taylor: and
+
+595
+00:52:35.700 --> 00:52:44.850
+Anthony Taylor: if and because I know I would give you a full 25. But I want to get to the end of all the stuff today, because later we're going to do some really cool stuff.
+
+596
+00:52:45.280 --> 00:52:48.440
+Anthony Taylor: Alright, alright. So 17 min
+
+597
+00:52:49.130 --> 00:52:50.090
+Anthony Taylor: reset.
+
+598
+00:52:51.520 --> 00:52:52.230
+Anthony Taylor: Yeah.
+
+599
+00:56:29.610 --> 00:56:33.939
+Anthony Taylor: Welcome back how we do, how we do, how we do
+
+600
+00:56:38.550 --> 00:56:39.679
+Anthony Taylor: pretty good.
+
+601
+00:56:41.020 --> 00:56:44.870
+Anthony Taylor: Just okay. Anybody finish.
+
+602
+00:56:46.600 --> 00:56:58.280
+Anthony Taylor: No. almost that was a big one. That's why I was like 15 doesn't seem like enough for that. But we'll just go through it. I mean, it is the good news is, it's all stuff you've done.
+
+603
+00:56:58.370 --> 00:57:03.279
+Anthony Taylor: So when you see what the answer is, you're gonna be like, oh, yeah, we did that. Yeah, we did
+
+604
+00:57:04.320 --> 00:57:08.589
+Anthony Taylor: alright. So we pull in our electricity data. Now, this one's interesting because
+
+605
+00:57:08.790 --> 00:57:13.459
+Anthony Taylor:  it has multiple columns in it.
+
+606
+00:57:14.220 --> 00:57:27.319
+Anthony Taylor: right? It wasn't as simple as the other. So here we're gonna create a standard plot on year in total. There we go. That's probably the that's gonna be our indicator of what we're gonna try to do. Most likely.
+
+607
+00:57:27.810 --> 00:57:34.800
+Anthony Taylor: We're gonna filter. We only want year greater than or equal to 2,003. And we only went year in total.
+
+608
+00:57:36.210 --> 00:57:37.130
+Anthony Taylor: Okay.
+
+609
+00:57:37.430 --> 00:57:42.860
+Anthony Taylor: so we end up with. Now we have something that looks a little more like what we're used to seeing today.
+
+610
+00:57:44.150 --> 00:57:47.400
+Anthony Taylor: Okay. so that we can reshape our year.
+
+611
+00:57:49.360 --> 00:57:52.349
+Anthony Taylor: But it didn't do it, reshape our year.
+
+612
+00:57:52.520 --> 00:57:54.540
+Anthony Taylor: set our Y variable.
+
+613
+00:57:55.090 --> 00:57:58.290
+Anthony Taylor: select our model, fit our model
+
+614
+00:57:58.630 --> 00:58:02.150
+Anthony Taylor: correct. quit our coefficient
+
+615
+00:58:02.540 --> 00:58:06.260
+Anthony Taylor: print our inter set. Slow me down. If you need me to, folks.
+
+616
+00:58:09.410 --> 00:58:11.819
+Anthony Taylor: And then here's the whole function.
+
+617
+00:58:12.970 --> 00:58:14.360
+Anthony Taylor: Pretty exciting.
+
+618
+00:58:16.470 --> 00:58:20.710
+Anthony Taylor: Now we're going to run our predict, which will allow us to
+
+619
+00:58:21.160 --> 00:58:23.190
+Anthony Taylor: ultimately create.
+
+620
+00:58:23.390 --> 00:58:26.530
+Anthony Taylor: Alright. Now, look at these. These numbers are actually really good.
+
+621
+00:58:28.740 --> 00:58:31.800
+Anthony Taylor: You guys agree that's pretty damn close
+
+622
+00:58:31.830 --> 00:58:33.280
+Anthony Taylor: this one. Maybe not
+
+623
+00:58:33.440 --> 00:58:36.549
+Anthony Taylor: this one. Maybe that looks like it's steadily getting worse. But
+
+624
+00:58:36.760 --> 00:58:38.260
+Anthony Taylor: the top here looks pretty good.
+
+625
+00:58:38.700 --> 00:58:41.450
+Anthony Taylor: So let's look at the predicted. But yeah.
+
+626
+00:58:41.580 --> 00:58:48.120
+Meredith McCanse (she/her): so the total column there, the actual numbers, and we're kind of able to see. Then what did it predict? And how close was it?
+
+627
+00:58:48.710 --> 00:59:02.720
+Anthony Taylor: I didn't slow down enough to realize that's what we're doing. Okay, that's helpful. Yes, ma'am, that is exact. So we're we're getting the predicted value, putting it in this variable. And then we create a new column with those predicted values. So this is what
+
+628
+00:59:02.750 --> 00:59:04.490
+Anthony Taylor: it thought. It should be
+
+629
+00:59:05.060 --> 00:59:08.020
+Meredith McCanse (she/her): based on the data that's there.
+
+630
+00:59:08.530 --> 00:59:17.389
+Anthony Taylor: But and we can see when we add it all together in plot that? Yeah, I mean it. It kind of has this interesting pattern. It's like up, down.
+
+631
+00:59:17.440 --> 00:59:19.130
+Anthony Taylor: up, up.
+
+632
+00:59:19.200 --> 00:59:22.649
+Anthony Taylor: and and a linear regression is not picking up that pattern.
+
+633
+00:59:23.920 --> 00:59:29.790
+Anthony Taylor: It's picking up the general direction of the data. But not that. Does that make sense
+
+634
+00:59:30.940 --> 00:59:41.250
+Anthony Taylor: to everybody. Linear regression is for a straight pad or a mostly straight pad. and I mean we could argue. This was mostly strict, but
+
+635
+00:59:42.280 --> 00:59:50.000
+Anthony Taylor: alright, if you wanted to do the manual, you would use the function that we had before, so you could put the year 2,023 in there
+
+636
+00:59:50.120 --> 00:59:55.310
+Anthony Taylor: and run it, and you'll see the value. And of course we don't know if that's right or not
+
+637
+00:59:55.910 --> 00:59:58.119
+Anthony Taylor: could have been added Dip. We don't know.
+
+638
+00:59:58.700 --> 01:00:01.910
+Anthony Taylor: But yeah. okay.
+
+639
+01:00:03.890 --> 01:00:09.190
+Anthony Taylor: now, here we're gonna pass in a bunch of values. reshape them
+
+640
+01:00:09.970 --> 01:00:15.599
+Anthony Taylor: and then ask it to predict just the data for those values with our trained model
+
+641
+01:00:15.800 --> 01:00:17.840
+Anthony Taylor: and then output them back out.
+
+642
+01:00:21.960 --> 01:00:25.030
+Anthony Taylor:  yeah.
+
+643
+01:00:26.410 --> 01:00:27.670
+Anthony Taylor: And then
+
+644
+01:00:28.900 --> 01:00:30.320
+Anthony Taylor: we can score it
+
+645
+01:00:31.780 --> 01:00:34.339
+Anthony Taylor: and see that our score's not terrible.
+
+646
+01:00:36.660 --> 01:00:38.830
+Anthony Taylor: So that's all. Good.
+
+647
+01:00:40.100 --> 01:00:42.530
+Anthony Taylor: Alright questions.
+
+648
+01:00:51.580 --> 01:00:52.340
+Anthony Taylor: Nope.
+
+649
+01:00:53.560 --> 01:00:58.500
+Anthony Taylor: Then let's move on to my favorite topic of the day
+
+650
+01:00:59.050 --> 01:01:01.609
+Anthony Taylor: data, preprocessing.
+
+651
+01:01:03.520 --> 01:01:06.049
+Anthony Taylor: alright data, preprocessing.
+
+652
+01:01:06.990 --> 01:01:09.010
+Anthony Taylor: Real world data.
+
+653
+01:01:10.030 --> 01:01:12.930
+Anthony Taylor: And I've said this to you guys before, I'll say it again
+
+654
+01:01:13.580 --> 01:01:17.770
+Anthony Taylor: almost always requires preprocessing.
+
+655
+01:01:18.000 --> 01:01:19.660
+Anthony Taylor: It's just the thing
+
+656
+01:01:23.640 --> 01:01:28.549
+Anthony Taylor:  it's just the thing that has to be done.
+
+657
+01:01:30.180 --> 01:01:41.299
+Anthony Taylor: Okay. so what kind of things do we do? Well, there's converting which this is encoding guys. I don't know why they didn't just call it categorical data in the numbers.
+
+658
+01:01:42.140 --> 01:01:53.029
+Anthony Taylor: Alright, there's a couple of ways to do it. One hot coating is one there's encoding. There's a couple of things to do scaling. We talked about scaling extensively the other day.
+
+659
+01:01:53.430 --> 01:01:56.510
+Anthony Taylor: It's no different here. Okay.
+
+660
+01:01:56.990 --> 01:02:03.359
+Anthony Taylor:  so and so label encoding is different than one hot encoding
+
+661
+01:02:03.570 --> 01:02:05.250
+Anthony Taylor: label encoding
+
+662
+01:02:05.300 --> 01:02:08.060
+Anthony Taylor: is, we have all these labels.
+
+663
+01:02:08.380 --> 01:02:10.499
+Anthony Taylor: and we're just going to give them a number
+
+664
+01:02:11.240 --> 01:02:15.070
+Anthony Taylor: alright. Now, the problem with this is that you kind of see here
+
+665
+01:02:15.950 --> 01:02:17.880
+Anthony Taylor: that like
+
+666
+01:02:18.240 --> 01:02:25.830
+Anthony Taylor: well, there's all kinds of interesting things. But you know, perhaps Saturday would carry more weight than a Sunday
+
+667
+01:02:26.040 --> 01:02:29.479
+Anthony Taylor: or a Monday. because the value is larger.
+
+668
+01:02:30.080 --> 01:02:39.019
+Anthony Taylor: which is one of the reasons why we're not always thrilled with labeling code. Now, if this is like the predictive label.
+
+669
+01:02:40.720 --> 01:02:45.960
+Anthony Taylor: so like, we wanted to predict what day of the week a certain event would be on. This would be fine.
+
+670
+01:02:48.090 --> 01:02:53.840
+Anthony Taylor: Okay, cause, all we're trying to do is get this value. We're not using it in the function itself.
+
+671
+01:02:54.230 --> 01:02:55.510
+Anthony Taylor: Does that make sense?
+
+672
+01:02:57.890 --> 01:03:03.320
+Anthony Taylor: So the one hot encoding we're basically just going to say, what day is it?
+
+673
+01:03:03.890 --> 01:03:08.990
+Anthony Taylor: And whatever day it is, it's gonna be marked with one. The rest of them be marked with a 0.
+
+674
+01:03:11.350 --> 01:03:12.230
+Anthony Taylor: Got it
+
+675
+01:03:13.650 --> 01:03:14.320
+easy.
+
+676
+01:03:15.210 --> 01:03:22.549
+Anthony Taylor: And that's one hot coat. So you guys have seen that already. Not a whole lot of reason to get too excited about that
+
+677
+01:03:22.780 --> 01:03:23.610
+Anthony Taylor: I
+
+678
+01:03:24.700 --> 01:03:37.270
+Anthony Taylor: what's happened here? His it used to be that regression was first and unsupervised this second. And so what you're seeing is them repeating some of the stuff they sent in unsupervised.
+
+679
+01:03:38.190 --> 01:03:39.390
+Anthony Taylor: So anyway.
+
+680
+01:03:39.440 --> 01:03:42.290
+Anthony Taylor: the only thing that's new here
+
+681
+01:03:42.880 --> 01:03:52.450
+Anthony Taylor: is drop first. Okay, because there is this thing called the dummy trap. and the dummy trap. We talked about it briefly.
+
+682
+01:03:52.840 --> 01:03:55.160
+Anthony Taylor: But basically.
+
+683
+01:03:56.370 --> 01:03:58.360
+Anthony Taylor: it's kind of like the
+
+684
+01:04:01.290 --> 01:04:02.560
+Anthony Taylor: smoker
+
+685
+01:04:02.790 --> 01:04:04.700
+Anthony Taylor: variable or column.
+
+686
+01:04:05.060 --> 01:04:05.950
+Anthony Taylor: right?
+
+687
+01:04:06.290 --> 01:04:09.630
+Anthony Taylor: You can have non-smoker and smoker.
+
+688
+01:04:10.810 --> 01:04:18.199
+Anthony Taylor: Now, if we do get dummies without any variable, it'll create 2 columns, non-smoker smoker.
+
+689
+01:04:18.930 --> 01:04:30.619
+Anthony Taylor: and you'll give a one and a 0. And that's not always a good thing. So what we would do is say, you know what drop one, drop the first one and just put one or 0.
+
+690
+01:04:31.530 --> 01:04:35.539
+Anthony Taylor: So now you just have smoker, one or 0, true or false.
+
+691
+01:04:35.820 --> 01:04:36.840
+Anthony Taylor: make sense.
+
+692
+01:04:37.560 --> 01:04:40.080
+Anthony Taylor: That helps us a lot.
+
+693
+01:04:40.820 --> 01:04:46.170
+Anthony Taylor:  with label encoding, we can do as type
+
+694
+01:04:46.790 --> 01:04:49.880
+Anthony Taylor: and then do a gap codes. Method.
+
+695
+01:04:50.420 --> 01:04:51.590
+Anthony Taylor: Okay?
+
+696
+01:04:51.680 --> 01:04:57.790
+Anthony Taylor: And this will create numerical labels from our category. And I'll show you that
+
+697
+01:04:58.130 --> 01:04:59.900
+Anthony Taylor: the code
+
+698
+01:04:59.980 --> 01:05:01.750
+Anthony Taylor: it's non-binary.
+
+699
+01:05:01.950 --> 01:05:07.250
+Anthony Taylor: So it's it's again, it's better for target variables.
+
+700
+01:05:08.090 --> 01:05:11.240
+Anthony Taylor: you know, always want to do this if it's a feature.
+
+701
+01:05:12.370 --> 01:05:15.309
+Anthony Taylor: Alright, and everybody understands why. Right?
+
+702
+01:05:15.780 --> 01:05:18.690
+Anthony Taylor: Think of the Saturday, Monday or Sunday to Saturday thing.
+
+703
+01:05:19.000 --> 01:05:23.279
+Anthony Taylor: If Saturday's 6 Sunday 0 in math.
+
+704
+01:05:23.910 --> 01:05:26.010
+Anthony Taylor: Saturday's gonna carry a lot more weight.
+
+705
+01:05:27.020 --> 01:05:34.080
+Anthony Taylor: Alright as a label, we don't care. It's not part of the function. It's not part of the algorithm. It's the answer
+
+706
+01:05:35.200 --> 01:05:37.070
+Anthony Taylor: are okay with numbers in the answer.
+
+707
+01:05:38.070 --> 01:05:43.859
+Anthony Taylor: Okay. alright. The other thing that's really important
+
+708
+01:05:45.820 --> 01:05:49.680
+Anthony Taylor: to evaluate a model. We need testing data.
+
+709
+01:05:51.570 --> 01:06:05.040
+Anthony Taylor: Now, it's not practical to think that you're going to get testing data after training your model or to get enough to actually train or sorry to actually test very many variations.
+
+710
+01:06:07.100 --> 01:06:15.709
+Anthony Taylor: Okay, so the way we solve this problem is, there is this function inside, Kit learn, called train test
+
+711
+01:06:15.870 --> 01:06:17.010
+Anthony Taylor: split.
+
+712
+01:06:18.260 --> 01:06:22.309
+Anthony Taylor: And while it all it does is randomly select
+
+713
+01:06:22.660 --> 01:06:24.799
+Anthony Taylor: a percentage of the data
+
+714
+01:06:25.320 --> 01:06:29.429
+Anthony Taylor: and splits it out into multiple variables
+
+715
+01:06:30.120 --> 01:06:36.400
+Anthony Taylor: so that you can have training data, which is typically like 70 to 80% of your data
+
+716
+01:06:36.760 --> 01:06:39.890
+Anthony Taylor: and testing data, which is the rest.
+
+717
+01:06:41.140 --> 01:06:47.430
+Anthony Taylor: So you train your model with the training variables. And then, when you go test it.
+
+718
+01:06:47.490 --> 01:06:50.520
+Anthony Taylor: test it with the testing variables.
+
+719
+01:06:50.540 --> 01:06:53.720
+Anthony Taylor: What does this do? This gives you
+
+720
+01:06:53.820 --> 01:06:58.279
+Anthony Taylor: 20%, 30% of your data that the model has never seen
+
+721
+01:06:59.280 --> 01:07:00.589
+Anthony Taylor: has no idea.
+
+722
+01:07:02.100 --> 01:07:05.060
+Anthony Taylor: So it does its prediction.
+
+723
+01:07:05.090 --> 01:07:08.349
+Anthony Taylor: But because you have labeled data.
+
+724
+01:07:09.250 --> 01:07:18.039
+Anthony Taylor: it can actually compare that prediction to the original to the correct answer and give you a very accurate score.
+
+725
+01:07:19.090 --> 01:07:29.189
+Anthony Taylor: Does that make sense to everybody? So I'm going to teach it with 70% of my data. And then I'm going to test it with the other 30%.
+
+726
+01:07:31.430 --> 01:07:34.600
+Anthony Taylor: And that's how I get. Is this model any good?
+
+727
+01:07:34.870 --> 01:07:39.720
+Anthony Taylor: Now, all kinds of variations to this. But this is the basic
+
+728
+01:07:40.130 --> 01:07:42.210
+Anthony Taylor: way we do this in. Ml.
+
+729
+01:07:42.990 --> 01:07:44.569
+Anthony Taylor: okay, yes, Mayor.
+
+730
+01:07:45.480 --> 01:07:48.900
+Meredith McCanse (she/her): and when you say it can give you an accurate score.
+
+731
+01:07:49.020 --> 01:08:04.369
+Meredith McCanse (she/her): meaning it will kick back and say it'll kick back a number and say, this model is 85, accurate, or whatever, and that that 85 and that that 85 will be very, very accurate.
+
+732
+01:08:04.630 --> 01:08:12.860
+Meredith McCanse (she/her): or the the model itself, or but the the fact that it's able to rate itself in an accurate way, I guess I'm trying to say
+
+733
+01:08:12.970 --> 01:08:21.330
+Anthony Taylor: right exactly. Now keep in mind. And I mean it is possible that even with train test split, you don't have a great.
+
+734
+01:08:21.700 --> 01:08:24.749
+Anthony Taylor: you know, test set, and and
+
+735
+01:08:24.770 --> 01:08:30.909
+Anthony Taylor: there are strategies where we will like, do a trade test split in like different
+
+736
+01:08:31.350 --> 01:08:32.840
+Anthony Taylor: randomizers.
+
+737
+01:08:33.080 --> 01:08:41.480
+Anthony Taylor: So, for instance, we take a thousand rows. We do a 70, 30 split, and let's say the first one. It grabs the first 700 rows
+
+738
+01:08:42.590 --> 01:08:49.319
+Anthony Taylor: you train with those first 7 on roads you test with the next 30. Well, what if there was stuff in the first 700 never shows up in the third?
+
+739
+01:08:49.920 --> 01:08:53.839
+Anthony Taylor: So how do we solve that. Well, we changed the the random state.
+
+740
+01:08:54.460 --> 01:08:57.430
+Anthony Taylor: we say, pick a different 700 rows.
+
+741
+01:08:59.029 --> 01:09:02.090
+Anthony Taylor: pick a different 30 trade and test again.
+
+742
+01:09:02.569 --> 01:09:16.860
+Anthony Taylor: Train some more train some more. Let's iterate through and keep trying these different things to try to get as many possibilities. Now you can go too far. Give it every possibility. Then you're back to that over fit scenario that we talked about earlier.
+
+743
+01:09:17.399 --> 01:09:19.469
+Anthony Taylor: There's a fine line between.
+
+744
+01:09:19.710 --> 01:09:22.179
+Anthony Taylor: And and and I got you, Buddy.
+
+745
+01:09:22.210 --> 01:09:27.330
+Anthony Taylor: I will give you guys this, and we'll talk about it. Given, we get to neural networks. Okay.
+
+746
+01:09:27.529 --> 01:09:34.149
+Anthony Taylor: it's there are times when we intentionally stop the model from learning
+
+747
+01:09:35.890 --> 01:09:38.809
+Anthony Taylor: because it can learn the whole thing.
+
+748
+01:09:39.819 --> 01:09:42.749
+Anthony Taylor: You got enough compute power that can do it.
+
+749
+01:09:42.910 --> 01:09:45.260
+Anthony Taylor: But then it can't generalize.
+
+750
+01:09:46.080 --> 01:09:52.640
+Anthony Taylor: So what we do is we stop. We go. Okay? When it gets to about 95, we're gonna stop the training right then.
+
+751
+01:09:54.130 --> 01:09:57.140
+Anthony Taylor: because we need it to be able to generalize
+
+752
+01:09:58.310 --> 01:10:04.960
+Anthony Taylor: alright. That's a very important thing. I want you guys to take away from all of this in that stuff. Yeah, Ron.
+
+753
+01:10:07.140 --> 01:10:12.699
+Masarirambi, Rodney: so you answered my question. Part of my second part of my question. There. But
+
+754
+01:10:13.430 --> 01:10:16.380
+Masarirambi, Rodney: the first part still, I think, might be important.
+
+755
+01:10:17.830 --> 01:10:22.609
+Masarirambi, Rodney: Why use this method, though? Isn't there? Is there? Isn't. Isn't there like
+
+756
+01:10:22.710 --> 01:10:28.590
+Masarirambi, Rodney: like, are there different options? Or is this like the only option that people use for for splitting
+
+757
+01:10:28.720 --> 01:10:39.739
+Anthony Taylor: or for training and testing, for training and testing. No, I mean that I, your goal is always this, you want to train with as much data as possible.
+
+758
+01:10:40.470 --> 01:10:43.149
+Masarirambi, Rodney: Right? Right? So we always start with
+
+759
+01:10:43.730 --> 01:10:48.980
+Anthony Taylor: a data set of some type. Okay, it could be a million rows of sales data.
+
+760
+01:10:49.270 --> 01:10:51.320
+Anthony Taylor: Alright. So
+
+761
+01:10:51.950 --> 01:11:00.100
+Anthony Taylor: I mean, if you have data constantly being made, you could probably just train with that 1 million rows, and then, by the time it's done you'll have another.
+
+762
+01:11:00.150 --> 01:11:02.359
+Anthony Taylor: You know. 100,000 rows to go testing.
+
+763
+01:11:02.790 --> 01:11:09.079
+Anthony Taylor: That's fine most of the time. That's not the case. As you guys saw in your projects, you have a a.
+
+764
+01:11:09.910 --> 01:11:12.359
+Anthony Taylor: a definite set of data.
+
+765
+01:11:13.240 --> 01:11:16.559
+Anthony Taylor: right? You have 10,000 rows of B+B data.
+
+766
+01:11:17.270 --> 01:11:21.550
+Anthony Taylor: You're not gonna get more. So what do you do? Train test? Split.
+
+767
+01:11:23.210 --> 01:11:29.449
+Anthony Taylor: The problem is is when you have, like a hundred groups. Now, you don't have enough data to really train any.
+
+768
+01:11:30.860 --> 01:11:31.940
+Anthony Taylor: But
+
+769
+01:11:33.780 --> 01:11:35.160
+Anthony Taylor: there are strengths.
+
+770
+01:11:36.880 --> 01:11:37.690
+Anthony Taylor: Okay.
+
+771
+01:11:38.770 --> 01:11:50.049
+Anthony Taylor: that's a good question. I like it run. So is there other ways? Yeah, there's other ways. But you'll see this one. Yeah, everyone does it this way that I've seen. I've never seen by do it any other way, though you could.
+
+772
+01:11:50.980 --> 01:11:51.880
+Anthony Taylor: you'll need to
+
+773
+01:11:52.640 --> 01:12:00.070
+Anthony Taylor: alright. So the training data set is the first set. We're gonna use it to train testing. We're gonna use that when we test.
+
+774
+01:12:00.220 --> 01:12:03.709
+Anthony Taylor: we're gonna score the predictions against the actual.
+
+775
+01:12:04.410 --> 01:12:09.070
+Anthony Taylor: Okay? So this is what it looks like. If you were doing this
+
+776
+01:12:09.680 --> 01:12:14.680
+Anthony Taylor: the that the thing is is because train tests lit right here.
+
+777
+01:12:15.060 --> 01:12:17.630
+Anthony Taylor: does it with a random state.
+
+778
+01:12:18.170 --> 01:12:19.250
+Anthony Taylor: Okay.
+
+779
+01:12:19.420 --> 01:12:21.760
+Anthony Taylor: it could be any row.
+
+780
+01:12:22.160 --> 01:12:33.529
+Anthony Taylor: And then this, the default is 75, 25 so I mean it could be anything. any one of them. Every time you run it it could be a different set unless you set the random state.
+
+781
+01:12:34.570 --> 01:12:37.120
+Anthony Taylor: Okay? Normally, we don't set the random state
+
+782
+01:12:38.390 --> 01:12:41.740
+Anthony Taylor: unless we're in class. And we want you guys to see the same thing.
+
+783
+01:12:42.170 --> 01:12:51.549
+Anthony Taylor: Now we're gonna see this. But before I show it to you, we're gonna talk about a much better regression model than linear regression.
+
+784
+01:12:51.710 --> 01:12:53.290
+Anthony Taylor: It's still linear regression.
+
+785
+01:12:53.310 --> 01:12:56.829
+Anthony Taylor: But it's called multiple linear regression. Yeah, right?
+
+786
+01:12:58.970 --> 01:13:01.360
+Masarirambi, Rodney: Taking this, the train test split.
+
+787
+01:13:01.650 --> 01:13:05.420
+Masarirambi, Rodney: Just one other step. No, no. Go ahead.
+
+788
+01:13:06.730 --> 01:13:11.749
+Masarirambi, Rodney: Is this something that we will add to profit like later on
+
+789
+01:13:12.650 --> 01:13:14.270
+Masarirambi, Rodney: or no.
+
+790
+01:13:14.660 --> 01:13:16.350
+Masarirambi, Rodney: that's wouldn't be
+
+791
+01:13:16.650 --> 01:13:19.739
+Masarirambi, Rodney: like with with profit. Oh, yeah, you put
+
+792
+01:13:19.830 --> 01:13:21.229
+Anthony Taylor: you could profit.
+
+793
+01:13:21.340 --> 01:13:28.670
+Anthony Taylor: Yes, you could. You could absolutely add it in there and then test it out profits a little different in the way it does things
+
+794
+01:13:28.680 --> 01:13:35.760
+Anthony Taylor: right, cause it scores differently than most of our machine learning models. But I mean.
+
+795
+01:13:35.870 --> 01:13:41.330
+Anthony Taylor: right? You could see you could run it, have it, predict out like, say, another month
+
+796
+01:13:41.700 --> 01:13:49.620
+Anthony Taylor: or 2, and then have your testing set. Only be in that month or 2, and then compare the value so score at that.
+
+797
+01:13:50.220 --> 01:13:55.020
+Anthony Taylor:  but I mean in this case it as you're going to see.
+
+798
+01:13:55.130 --> 01:13:58.730
+Anthony Taylor: You know it. It takes this. It builds an X-train Y train.
+
+799
+01:13:59.130 --> 01:14:01.410
+Anthony Taylor: which is all of your features.
+
+800
+01:14:01.570 --> 01:14:03.060
+Anthony Taylor: and then your target.
+
+801
+01:14:03.310 --> 01:14:12.810
+Anthony Taylor: X test y test. And then it's just another function. You do model predict. And then you do score passing in the testing results.
+
+802
+01:14:13.620 --> 01:14:17.580
+Anthony Taylor: And and you end up getting. It's it's very simple to use, as you'll see.
+
+803
+01:14:18.440 --> 01:14:24.360
+Anthony Taylor: So basically, we're gonna call this method train test split, it's gonna output 4 variables.
+
+804
+01:14:24.910 --> 01:14:27.910
+Anthony Taylor: x-train, y train X test flight list
+
+805
+01:14:28.990 --> 01:14:30.240
+Anthony Taylor: and then
+
+806
+01:14:31.320 --> 01:14:34.420
+Anthony Taylor: and then we're gonna use. So let's go see this work.
+
+807
+01:14:34.490 --> 01:14:37.710
+Anthony Taylor: So first we're gonna quickly go through
+
+808
+01:14:37.950 --> 01:14:39.419
+Anthony Taylor: like I said, you guys have.
+
+809
+01:14:43.460 --> 01:14:46.390
+Anthony Taylor: I don't. I have no idea why, that's even there.
+
+810
+01:14:46.740 --> 01:14:53.909
+Anthony Taylor:  we're going to. Okay. So I have 2 demos. So we're going to talk about print desk split.
+
+811
+01:14:56.750 --> 01:15:01.369
+Anthony Taylor: So notice, it's again as K learn. But this time it's model selection.
+
+812
+01:15:02.150 --> 01:15:05.789
+Anthony Taylor: We're gonna do train test. Split. Got some data here.
+
+813
+01:15:06.160 --> 01:15:09.669
+Anthony Taylor: It's a fair amount, 205 rows, 26 colors.
+
+814
+01:15:11.000 --> 01:15:16.970
+Anthony Taylor: Okay. we're gonna get rid of the price column, because that is basically our target. I'm guessing
+
+815
+01:15:18.220 --> 01:15:26.080
+Anthony Taylor: and put that in X, so price is what we want to predict. When we load our X
+
+816
+01:15:26.430 --> 01:15:30.930
+Anthony Taylor: features, we do not want to include our target
+
+817
+01:15:32.620 --> 01:15:36.610
+Anthony Taylor: right, because that would make it really wait a lot
+
+818
+01:15:36.620 --> 01:15:42.640
+Anthony Taylor: if you had the answer and your features. So we drop that we end up with
+
+819
+01:15:43.320 --> 01:15:47.470
+Anthony Taylor: just fibro. Low had fibros, 25 bucks.
+
+820
+01:15:48.480 --> 01:15:53.580
+Anthony Taylor: Okay? And then for Y, we want just the price.
+
+821
+01:15:54.730 --> 01:15:56.500
+Anthony Taylor: because that's what we're gonna try
+
+822
+01:15:56.810 --> 01:15:58.510
+Anthony Taylor: to get to predict.
+
+823
+01:16:00.690 --> 01:16:07.309
+Clayton Graves: So here's how you run train test split. I'm I'm confused here because I thought to be random.
+
+824
+01:16:08.700 --> 01:16:12.650
+Clayton Graves: It is we haven't got there yet.
+
+825
+01:16:12.760 --> 01:16:13.840
+Clayton Graves: Data
+
+826
+01:16:14.440 --> 01:16:15.380
+Anthony Taylor: correct.
+
+827
+01:16:16.260 --> 01:16:21.539
+Anthony Taylor: but we haven't got to the random part. Yet. This is, we want to predict price.
+
+828
+01:16:22.610 --> 01:16:27.619
+Anthony Taylor: And here we need to get rid of price, cause it's we're creating our feature set.
+
+829
+01:16:28.250 --> 01:16:31.720
+Clayton Graves: And how was, how was this particular column chosen?
+
+830
+01:16:33.310 --> 01:16:36.879
+Anthony Taylor: It's just what we've decided to predict. We're gonna predict the price.
+
+831
+01:16:37.140 --> 01:16:37.940
+That's right.
+
+832
+01:16:38.270 --> 01:16:43.880
+Anthony Taylor: Yeah, yeah, it's just the the exercise is to predict the price based on these features.
+
+833
+01:16:45.070 --> 01:16:49.240
+Anthony Taylor: Okay, so these 25 columns, we want to try to predict the price.
+
+834
+01:16:49.560 --> 01:16:56.419
+Anthony Taylor: So we've dropped the price from the feature set. We've grabbed the price. Put it into our target variable.
+
+835
+01:16:57.370 --> 01:17:02.599
+Anthony Taylor: Now we're going to run X, our train train test split. And here
+
+836
+01:17:02.730 --> 01:17:07.140
+Anthony Taylor: Clayton is where it's going to do brand. it's going to randomly grab
+
+837
+01:17:08.360 --> 01:17:11.829
+Anthony Taylor: 75% of the original
+
+838
+01:17:12.260 --> 01:17:24.700
+Anthony Taylor: 205 rows. Put those in X train and Y train the other 25%. It'll put it extests. Why test.
+
+839
+01:17:25.310 --> 01:17:32.869
+Anthony Taylor: So now, after we've read that. and we look at X-train, we can see there's a hundred 53 rows. Now
+
+840
+01:17:33.980 --> 01:17:35.770
+Anthony Taylor: we look at X test.
+
+841
+01:17:37.400 --> 01:17:40.519
+Anthony Taylor: It showed us all of them. There's 52 rows.
+
+842
+01:17:42.360 --> 01:17:44.760
+Anthony Taylor: Okay? And then why train
+
+843
+01:17:45.520 --> 01:17:46.639
+Anthony Taylor: by text?
+
+844
+01:17:47.950 --> 01:17:48.920
+Anthony Taylor: Alright.
+
+845
+01:17:50.720 --> 01:17:57.970
+Anthony Taylor: So now that we have that. we are going to do feature selection. Now.
+
+846
+01:17:58.170 --> 01:17:59.879
+Anthony Taylor: feature, selection
+
+847
+01:18:01.810 --> 01:18:02.979
+Anthony Taylor: is a bit.
+
+848
+01:18:04.030 --> 01:18:08.130
+Anthony Taylor: There's a lot of things we could talk about with feature selection. Okay.
+
+849
+01:18:08.560 --> 01:18:16.360
+Anthony Taylor: when looking at this, what we're going to look at is all these values, you know. Are any of them just jump.
+
+850
+01:18:16.980 --> 01:18:26.519
+Anthony Taylor: Okay? And some of them are looks like engine location might be  maybe fuel system. I don't know. Maybe not.
+
+851
+01:18:27.790 --> 01:18:31.739
+Anthony Taylor: Yeah. I mean, there could be values that are not helpful
+
+852
+01:18:31.980 --> 01:18:36.830
+Anthony Taylor: to our motto, we can drop out. This is feature selection. Now, what
+
+853
+01:18:37.750 --> 01:18:41.410
+Anthony Taylor: have we talked about that could possibly help us
+
+854
+01:18:41.760 --> 01:18:43.300
+Anthony Taylor: with feature selection.
+
+855
+01:18:46.770 --> 01:18:50.109
+Anthony Taylor: Derek did the Y.M.C.A. Thing for Pca.
+
+856
+01:18:50.170 --> 01:18:53.140
+Anthony Taylor: Pretty damn cool. Okay.
+
+857
+01:18:53.280 --> 01:19:00.250
+Anthony Taylor: Alright, Pca, right? It can tell us how valuable each column is to the end result.
+
+858
+01:19:00.730 --> 01:19:20.129
+Anthony Taylor: So that is a method to do it. But sometimes you just eyeball it because you're you know, you're just eyeballing it. Or and you know the data, and you know what you want. In this case, they're telling us what we are going to use. So we're going to use it. So for features, we're gonna create this array of
+
+859
+01:19:20.250 --> 01:19:26.230
+Anthony Taylor: column headers that we want to put into our X variable.
+
+860
+01:19:27.310 --> 01:19:28.760
+Anthony Taylor: That's our features.
+
+861
+01:19:29.840 --> 01:19:36.399
+Anthony Taylor: So once we do that call the data frame pass in our list of columns, and we end up with
+
+862
+01:19:36.510 --> 01:19:37.330
+Anthony Taylor: oops.
+
+863
+01:19:38.460 --> 01:19:39.919
+Anthony Taylor: We end up with
+
+864
+01:19:40.080 --> 01:19:43.679
+Anthony Taylor: just these columns, we've decided are going to be
+
+865
+01:19:43.850 --> 01:19:47.430
+Anthony Taylor: are features for our model. Okay?
+
+866
+01:19:49.830 --> 01:20:02.459
+Anthony Taylor:  Oh, now, I'd say, let's do it again. And why? Because we didn't need all those columns up above. So we're gonna do it again with just the columns we're gonna use.
+
+867
+01:20:02.700 --> 01:20:06.369
+Anthony Taylor: We're gonna resplit and take a look at our date.
+
+868
+01:20:06.800 --> 01:20:08.530
+Anthony Taylor: Alright. So
+
+869
+01:20:09.190 --> 01:20:16.690
+Anthony Taylor: train test split splits the data feature, selection. You're just honest to God. You're just looking at this
+
+870
+01:20:16.730 --> 01:20:21.210
+Anthony Taylor: to to determine which features you feel will be helpful
+
+871
+01:20:21.820 --> 01:20:24.820
+Anthony Taylor: to the activity. Okay.
+
+872
+01:20:25.970 --> 01:20:32.950
+Anthony Taylor: just so you guys are clear. There may not even be any rhyme or reason to this. In this example.
+
+873
+01:20:34.140 --> 01:20:38.360
+Anthony Taylor: when you're doing this in a real model you will have.
+
+874
+01:20:38.480 --> 01:20:43.160
+Anthony Taylor: You will either know your data or you will have somebody that knows your data.
+
+875
+01:20:43.320 --> 01:20:46.970
+Anthony Taylor: And they would tell you these are the columns that make sense.
+
+876
+01:20:47.370 --> 01:20:52.159
+Anthony Taylor: or you can try it with all the problems and then start eliminating ones that
+
+877
+01:20:52.190 --> 01:20:53.230
+Anthony Taylor: aren't helping.
+
+878
+01:20:54.920 --> 01:20:57.380
+Anthony Taylor: All right. We're kind of giving you the answer.
+
+879
+01:20:59.640 --> 01:21:01.590
+Anthony Taylor: Okay, so train test, split
+
+880
+01:21:01.840 --> 01:21:06.919
+Anthony Taylor: feature selection, which is really just selecting the columns you want. You've done that before.
+
+881
+01:21:07.930 --> 01:21:14.780
+Anthony Taylor: Now we get to get into the cool model of the day. Okay. multi
+
+882
+01:21:14.920 --> 01:21:20.639
+Anthony Taylor: linear regression. So we've done linear regression.
+
+883
+01:21:21.630 --> 01:21:28.200
+Anthony Taylor: which is X and y, and that's it. One x one y. Well, now.
+
+884
+01:21:29.720 --> 01:21:31.790
+Anthony Taylor: we're going to use this data
+
+885
+01:21:32.890 --> 01:21:34.759
+Anthony Taylor: and predict the price.
+
+886
+01:21:36.050 --> 01:21:39.600
+Anthony Taylor: Not going to use one column. We're going to use all of
+
+887
+01:21:41.820 --> 01:21:46.180
+Anthony Taylor: now, could you imagine trying to graph, this not gonna happen.
+
+888
+01:21:46.600 --> 01:21:51.739
+Anthony Taylor: Okay, you can actually create a 3 graph, that kind of works. But you won't be able to draw the line.
+
+889
+01:21:52.150 --> 01:22:01.600
+Anthony Taylor: So first, we're to get rid of all the null data. and then we're going to pick our columns, which we already did earlier. These are the columns we want.
+
+890
+01:22:02.450 --> 01:22:05.220
+Anthony Taylor: Our y value is
+
+891
+01:22:05.760 --> 01:22:06.730
+Anthony Taylor: price.
+
+892
+01:22:07.130 --> 01:22:10.620
+Anthony Taylor: Now we're going to train test split. We just learned how to do that.
+
+893
+01:22:10.970 --> 01:22:16.420
+Anthony Taylor: And here's the difference, guys, this is the only thing we've really changed since earlier today.
+
+894
+01:22:17.680 --> 01:22:20.340
+Anthony Taylor: we're going to still use linear regression.
+
+895
+01:22:21.220 --> 01:22:30.100
+Anthony Taylor: But instead of X and Y, we're going to pass in our training values. X-train. Why, tree
+
+896
+01:22:33.190 --> 01:22:45.669
+Anthony Taylor: once that's done and we've already fitted. So we we fit it. It's trained. It's good to go. Okay. Now we're going to predict. Look at what we're doing for the predict
+
+897
+01:22:47.530 --> 01:22:49.080
+Anthony Taylor: X test.
+
+898
+01:22:51.390 --> 01:22:54.939
+Anthony Taylor: So we're going to run the predict and get the
+
+899
+01:22:55.140 --> 01:22:59.820
+Anthony Taylor: the predicted value for each of our testing rows.
+
+900
+01:23:00.750 --> 01:23:08.539
+Anthony Taylor: and we'll we'll do all our. And then we're gonna get mean squared error for y test against the predicted data
+
+901
+01:23:09.010 --> 01:23:13.639
+Anthony Taylor: and our 2 score for y test against the predicted data.
+
+902
+01:23:13.690 --> 01:23:16.719
+Anthony Taylor: Could we have done this quicker, easier?
+
+903
+01:23:21.380 --> 01:23:24.750
+Anthony Taylor: What would have been an option to get R. 2 without all of this?
+
+904
+01:23:28.510 --> 01:23:37.129
+Anthony Taylor: Just do the score. Yes, there it is. You, Brock, you just do model dot score and pass in the R test or the X test.
+
+905
+01:23:37.840 --> 01:23:42.529
+Anthony Taylor: Okay? Access white test. Alright. But we didn't. So let's run this.
+
+906
+01:23:42.750 --> 01:23:53.210
+Anthony Taylor: So we can see Msc, whatever we got about 73 percent accuracy. Okay? And there you go.
+
+907
+01:23:53.620 --> 01:23:55.020
+Anthony Taylor: There's your model score.
+
+908
+01:23:55.270 --> 01:23:57.570
+Anthony Taylor: Okay, without that. Yeah.
+
+909
+01:23:57.590 --> 01:24:01.519
+Dipinto, Matt: I think there's kinda also a cool demonstration. You could pull out of this if you
+
+910
+01:24:01.700 --> 01:24:09.379
+Dipinto, Matt: do a model dot score of the training data to see how it fits the training data better than the test data.
+
+911
+01:24:09.900 --> 01:24:18.499
+Dipinto, Matt: which, if you look at the training score, it's 86 point 8 6 as compared to the testing data, which was the other point 7 3.
+
+912
+01:24:19.130 --> 01:24:29.560
+Anthony Taylor: Right? So keep in mind that 100%. This is something you can look at, and sometimes you will look at this. But
+
+913
+01:24:30.110 --> 01:24:35.189
+Anthony Taylor:  obviously, it's going to do better against the training data.
+
+914
+01:24:35.730 --> 01:24:37.340
+Anthony Taylor: because it has the answer
+
+915
+01:24:37.930 --> 01:24:44.109
+Anthony Taylor: right now the fact that it it's so, you would think well, if it has the answer, why is it? 100?
+
+916
+01:24:45.320 --> 01:24:46.120
+Anthony Taylor: Aye.
+
+917
+01:24:46.400 --> 01:24:47.680
+Dipinto, Matt: people can hear
+
+918
+01:24:48.140 --> 01:24:55.130
+Anthony Taylor: it would be overfit if it did, and it would be very overfit. All right. And this will be the same for classification as well.
+
+919
+01:24:56.280 --> 01:25:00.670
+Anthony Taylor: Okay, but we absolutely in classification. We almost always teach
+
+920
+01:25:01.390 --> 01:25:07.139
+Anthony Taylor: cause we want to watch for overfitting what was the definition of overfitting. I told you guys a little earlier
+
+921
+01:25:11.780 --> 01:25:20.740
+Masarirambi, Rodney: where you know, you ran through all the data that you'd have. And therefore it's not generalizing, it's not making predictions. It's just
+
+922
+01:25:21.000 --> 01:25:27.680
+Anthony Taylor: that's true. Okay, so that is the definition. But looking at these 2 values. I mentioned earlier
+
+923
+01:25:28.550 --> 01:25:32.470
+Anthony Taylor: that if this one's very high.
+
+924
+01:25:32.560 --> 01:25:40.780
+Anthony Taylor: if it was a high and this one's low, it doesn't even be a hundred, it could be 90 something. And then this guy comes back like in the seventies
+
+925
+01:25:41.090 --> 01:25:46.169
+Anthony Taylor: or something. This is an overfit mall. and it's pretty much garbage.
+
+926
+01:25:46.960 --> 01:25:50.230
+Anthony Taylor: Okay, it'll mess you up. Did you have a question, Simon?
+
+927
+01:25:50.450 --> 01:25:52.129
+sonja baro: I did. But I forgot it.
+
+928
+01:25:52.870 --> 01:25:56.319
+sonja baro: Okay, that
+
+929
+01:25:56.360 --> 01:25:58.630
+Anthony Taylor: Ronnie has one in your place. Yes, right?
+
+930
+01:25:58.710 --> 01:26:02.690
+Masarirambi, Rodney: Actually suggest on that. Say, if you have an overfit model.
+
+931
+01:26:06.270 --> 01:26:17.240
+Masarirambi, Rodney: what do you do then? What I mean like, do you start again? Do you get other data? Do you like? What? What do you? I mean? We'll we'll go into all of that. But I'll tell you first to try to get more data.
+
+932
+01:26:17.380 --> 01:26:23.309
+Anthony Taylor: If that's not practical. You start doing strategies to reprocess the same data, but in different ways.
+
+933
+01:26:24.080 --> 01:26:26.200
+Anthony Taylor: Okay, if that's not possible.
+
+934
+01:26:26.270 --> 01:26:30.409
+Anthony Taylor: you depending on the type model, you run less epics.
+
+935
+01:26:30.420 --> 01:26:33.300
+Anthony Taylor: which, in other words, you kind of shorten training time.
+
+936
+01:26:34.300 --> 01:26:37.470
+Anthony Taylor: Okay? So it doesn't have as much time to get the answer.
+
+937
+01:26:38.590 --> 01:26:42.649
+Anthony Taylor: Okay, so there are a lot of strategies that we use in business every day.
+
+938
+01:26:43.490 --> 01:26:46.190
+Anthony Taylor: Okay? But yeah, yes, I'm
+
+939
+01:26:46.630 --> 01:26:52.210
+sonja baro: I think I remembered it, and it was kind of related to Rodney's question
+
+940
+01:26:52.570 --> 01:27:00.970
+sonja baro: the way, so is it because we've run so many tests. too many tests
+
+941
+01:27:01.040 --> 01:27:04.650
+sonja baro: that we get an overtrained model, or
+
+942
+01:27:05.760 --> 01:27:09.989
+sonja baro: it it just means that. So for too many? Again.
+
+943
+01:27:10.340 --> 01:27:13.920
+Anthony Taylor: in in neural network? Well, usually it's too few feature.
+
+944
+01:27:15.190 --> 01:27:17.430
+Anthony Taylor: Okay, and too little dating.
+
+945
+01:27:19.550 --> 01:27:23.159
+Anthony Taylor: Does that make sense? That's usually what leads to overfitting
+
+946
+01:27:23.370 --> 01:27:29.150
+Anthony Taylor: you said too little, too many features or too little, too few features.
+
+947
+01:27:29.220 --> 01:27:30.819
+Anthony Taylor: I have too little data.
+
+948
+01:27:30.870 --> 01:27:38.420
+Anthony Taylor: Alright, I'll give you my favorite story of I was teaching at Uci on campus.
+
+949
+01:27:38.660 --> 01:27:41.000
+Anthony Taylor: and I have this.
+
+950
+01:27:42.180 --> 01:27:56.560
+Anthony Taylor: these 2 tas from another class they used to like come over my class because I did the extra reviews and stuff right? So they came over and they were talking about projects. And they said, Yeah, we did this project on
+
+951
+01:27:56.690 --> 01:27:58.640
+Anthony Taylor: male fertility.
+
+952
+01:28:00.310 --> 01:28:04.190
+Anthony Taylor: and they said, we have been able to predict
+
+953
+01:28:04.340 --> 01:28:07.140
+Anthony Taylor: 100%
+
+954
+01:28:08.640 --> 01:28:11.039
+Anthony Taylor: whether or not a male is fertile or not.
+
+955
+01:28:12.830 --> 01:28:18.190
+Anthony Taylor: That's like that's pretty impressive. I said.
+
+956
+01:28:18.900 --> 01:28:22.550
+Anthony Taylor: let me see your date. So they show me they have like 6 columns there.
+
+957
+01:28:23.080 --> 01:28:24.620
+Anthony Taylor: and it was stuff like.
+
+958
+01:28:24.800 --> 01:28:32.360
+Anthony Taylor: you know, previous injury temperature all these different things. I mean, like 6 different things. But there wasn't much.
+
+959
+01:28:32.950 --> 01:28:38.980
+Anthony Taylor: And I said. I said, What if they had a deceptive? And they go well, that's not in our data
+
+960
+01:28:39.120 --> 01:28:42.340
+Anthony Taylor: like. But you said a hundred percent of the time
+
+961
+01:28:43.400 --> 01:28:44.490
+Anthony Taylor: you could do that.
+
+962
+01:28:44.990 --> 01:28:55.230
+Anthony Taylor: And they said, Well, that's not in our data. So you can't claim you could do it 100% of the time. What else isn't in your data? And we said, and I just started just rattling off things like crazy. So
+
+963
+01:28:55.350 --> 01:29:00.189
+Anthony Taylor: in the end, and then on top of it, they only had 6 columns, 6 features.
+
+964
+01:29:00.360 --> 01:29:02.220
+Anthony Taylor: and a hundred rows of data.
+
+965
+01:29:02.440 --> 01:29:05.560
+Anthony Taylor: Instantly it was able to train on
+
+966
+01:29:05.860 --> 01:29:17.610
+Anthony Taylor: instant and guarantee, no matter how you put those 6 features in. it, would give you the same answer every time. So, while it looked really great
+
+967
+01:29:17.860 --> 01:29:25.240
+Anthony Taylor: on paper. It was a mess. It was literally ridiculous. Alright.
+
+968
+01:29:25.690 --> 01:29:28.529
+Anthony Taylor: there was a lot of fun to teach them about that.
+
+969
+01:29:31.540 --> 01:29:33.820
+Anthony Taylor: Caroline answered.
+
+970
+01:29:33.960 --> 01:29:35.360
+sonja baro: This was
+
+971
+01:29:35.590 --> 01:29:42.580
+sonja baro: too few features, and too little or or too few rows or too much training.
+
+972
+01:29:44.660 --> 01:29:50.410
+Anthony Taylor: Now you won't see that as much until we get to neural networks, because the neural networks you control
+
+973
+01:29:50.750 --> 01:30:03.149
+Anthony Taylor: like, how long you're going to let it trade. because in a neural network. most of the time we could pretty much solve any problem. But if you let it go too long, can't generalize.
+
+974
+01:30:03.880 --> 01:30:10.370
+Anthony Taylor: and generalization is key to good machine learning. But you don't want it to over generalize.
+
+975
+01:30:11.710 --> 01:30:17.810
+Anthony Taylor: Remember what I told you. Data. Science is an art. It's not if it was a slam dunk.
+
+976
+01:30:18.300 --> 01:30:19.550
+Anthony Taylor: anybody could do
+
+977
+01:30:19.610 --> 01:30:23.549
+Anthony Taylor: alright. It's not a slammed up.
+
+978
+01:30:23.830 --> 01:30:25.629
+Anthony Taylor: Okay. So
+
+979
+01:30:25.890 --> 01:30:30.190
+Anthony Taylor: we do have a little exercise for you guys for the rest of class. Pretty much
+
+980
+01:30:30.740 --> 01:30:43.170
+Anthony Taylor: good news is, don't think it's too tough a. You gotta look at some different things cool for giving it to you all the scatters
+
+981
+01:30:44.010 --> 01:30:45.700
+Anthony Taylor: in the end.
+
+982
+01:30:46.600 --> 01:30:53.510
+Anthony Taylor:  okay, so they're gonna make you think about it.
+
+983
+01:30:53.970 --> 01:31:03.629
+Anthony Taylor: They want you to figure out the 2 columns that have the most linear trend. And it's pretty obvious when you look at those scattered.
+
+984
+01:31:04.580 --> 01:31:15.199
+Anthony Taylor: Okay, that's going to go in your X variable. Remember to use reshape. And then you're going to do your train test split.
+
+985
+01:31:15.340 --> 01:31:19.699
+Anthony Taylor: You're going to create your model fit model. Do your metrics?
+
+986
+01:31:20.390 --> 01:31:21.420
+Anthony Taylor: I'll do
+
+987
+01:31:22.540 --> 01:31:23.410
+Anthony Taylor: okay.
+
+988
+01:31:24.520 --> 01:31:26.050
+Anthony Taylor: Does that feel good to everybody?
+
+989
+01:31:30.940 --> 01:31:36.219
+Anthony Taylor: So just for the record, the reshape will be negative. One comma 2
+
+990
+01:31:40.570 --> 01:31:41.430
+Anthony Taylor: got it.
+
+991
+01:31:43.350 --> 01:31:45.140
+Anthony Taylor: Okay. cool.
+
+992
+01:31:47.940 --> 01:31:51.430
+Anthony Taylor: you guys, excited. Let's go. This one you get.
+
+993
+01:31:51.880 --> 01:31:52.730
+Anthony Taylor: See?
+
+994
+01:31:53.880 --> 01:31:55.050
+Anthony Taylor: 10 min.
+
+995
+01:31:56.420 --> 01:31:59.670
+Anthony Taylor: That's so ridiculous. You know what? We have enough time. I'll give you 15.
+
+996
+01:32:00.200 --> 01:32:02.109
+Anthony Taylor: Alright, 15 min.
+
+997
+01:32:02.250 --> 01:32:06.970
+Anthony Taylor: Not right. But it's still something you'd want to evaluate and be sure.
+
+998
+01:32:08.130 --> 01:32:17.460
+Anthony Taylor: Okay. and I can give. I'll try to give you some explanation as to when that can happen and why? Okay. Hi.
+
+999
+01:32:18.760 --> 01:32:20.560
+Anthony Taylor: so
+
+1000
+01:32:20.760 --> 01:32:25.440
+Anthony Taylor: we got all of this stuff. So you know, we're loading data.
+
+1001
+01:32:25.450 --> 01:32:29.349
+Anthony Taylor: We're doing the different scatters. We can see that one's not linear.
+
+1002
+01:32:30.520 --> 01:32:39.700
+Anthony Taylor: that one is so. Displacement. No, I guess I forgot. But it was really pretty. What I was looking at.
+
+1003
+01:32:40.970 --> 01:32:48.340
+Anthony Taylor: Let's go back up real quick. So we loaded the data. We start writing these scatters to see which ones are ideal.
+
+1004
+01:32:48.410 --> 01:32:55.570
+Anthony Taylor: I will tell you. In the old days. We just used to run all of these. But you can see displacement definitely has a linear
+
+1005
+01:32:57.950 --> 01:33:03.559
+Anthony Taylor: relationship going on this one. You could argue, maybe, but probably not.
+
+1006
+01:33:04.010 --> 01:33:05.110
+Anthony Taylor: Okay.
+
+1007
+01:33:05.220 --> 01:33:12.910
+Anthony Taylor: This one. Yeah, yeah, it definitely does. Okay, this one, probably not.
+
+1008
+01:33:13.560 --> 01:33:28.450
+Anthony Taylor: But since it told us to only pick 2, we're gonna pick the 2 that definitely did so wait and displacement. Okay? So we select, wait displacement, reshade it, reshape it to negative 1, 2.
+
+1009
+01:33:28.670 --> 01:33:29.770
+Anthony Taylor: We
+
+1010
+01:33:30.990 --> 01:33:39.250
+Anthony Taylor: get the leaders per 100 kilometers reshape it to one. Write that to X and Y, okay.
+
+1011
+01:33:40.270 --> 01:33:44.850
+Anthony Taylor: so now we have all of our data. We're going to do our train test split.
+
+1012
+01:33:46.060 --> 01:33:49.980
+Anthony Taylor: We're gonna have our model. and we're going to fit. It
+
+1013
+01:33:50.240 --> 01:33:56.990
+Anthony Taylor: never changes model, fit, predict. or in our case, model fit score
+
+1014
+01:33:57.660 --> 01:34:07.480
+Anthony Taylor: alright. So here we have our predicted data. We're gonna do our mean squared error, our R 2 score and see what the output is.
+
+1015
+01:34:08.090 --> 01:34:15.319
+Anthony Taylor: Now, this is on our test values. Okay? And we can see we got about 81
+
+1016
+01:34:16.180 --> 01:34:19.149
+Anthony Taylor: pretty good, not great, but for regression.
+
+1017
+01:34:19.250 --> 01:34:22.540
+Anthony Taylor: Pretty good. And then we do model support.
+
+1018
+01:34:22.880 --> 01:34:34.700
+Anthony Taylor: Okay? So you, Resta, did that on the train data didn't. Which is why you ask that question. Yeah, not a ton of value here. But you can take a look at it. Why not?
+
+1019
+01:34:37.150 --> 01:34:37.950
+Anthony Taylor: Okay?
+
+1020
+01:34:39.060 --> 01:34:41.809
+Anthony Taylor: So why could this app? Well.
+
+1021
+01:34:43.530 --> 01:34:48.240
+Anthony Taylor:  while it's generalized? Or while it's training?
+
+1022
+01:34:48.440 --> 01:34:50.870
+Anthony Taylor: Okay, you can see
+
+1023
+01:34:52.220 --> 01:34:54.950
+Anthony Taylor: my problem with regression and doing that.
+
+1024
+01:34:55.300 --> 01:35:00.190
+Anthony Taylor: Okay, one of the reasons why we usually wouldn't is because, look at what it's predicting.
+
+1025
+01:35:01.260 --> 01:35:04.170
+Anthony Taylor: It's predicting a number with 4 digits in.
+
+1026
+01:35:04.680 --> 01:35:07.419
+Anthony Taylor: If it misses one number
+
+1027
+01:35:09.050 --> 01:35:13.730
+Anthony Taylor: 13.8 2 instead of 13.8 4,
+
+1028
+01:35:13.890 --> 01:35:14.900
+Anthony Taylor: it's wrong.
+
+1029
+01:35:16.220 --> 01:35:23.449
+Anthony Taylor: Alright. Now, the fact that we got 81, even 80% went with that in consideration is a pretty good score.
+
+1030
+01:35:24.120 --> 01:35:33.080
+Anthony Taylor: But it's really really hard to say why it would do that. And, to be honest with you. You'll probably change the random state.
+
+1031
+01:35:33.260 --> 01:35:37.110
+Anthony Taylor: and you know whole different thing, and it might be exactly the opposite.
+
+1032
+01:35:37.490 --> 01:35:39.220
+Anthony Taylor: But we could come in here.
+
+1033
+01:35:39.910 --> 01:35:44.649
+Anthony Taylor: I don't know. Change this to 4 alright, run the same thing
+
+1034
+01:35:51.420 --> 01:35:54.320
+Anthony Taylor: and the opposite. But it's closer to being the same.
+
+1035
+01:35:54.690 --> 01:35:56.230
+Anthony Taylor: Okay, we
+
+1036
+01:35:57.530 --> 01:36:00.609
+Anthony Taylor: yeah. So I mean a good reason.
+
+1037
+01:36:00.830 --> 01:36:01.709
+Anthony Taylor: I don't know
+
+1038
+01:36:02.330 --> 01:36:07.039
+Anthony Taylor: my personal opinion. I just wouldn't do this on regressors, on regressions.
+
+1039
+01:36:07.540 --> 01:36:14.600
+Clayton Graves: because it does it. There's just no logic behind classification. It makes more sense. If you were to do it.
+
+1040
+01:36:14.680 --> 01:36:21.840
+Clayton Graves: Is there a margin that that would be within acceptable limits, that we were thinking? Maybe like 10%.
+
+1041
+01:36:23.460 --> 01:36:24.550
+Honestly.
+
+1042
+01:36:25.220 --> 01:36:37.659
+Anthony Taylor: I mean, if this was 90 and this was 80, I'd be pleased. Now, what would I do? I would do what I just did. I would go change the random state and get different mixes of the data to see if that maintained.
+
+1043
+01:36:37.820 --> 01:36:40.760
+Anthony Taylor: But if it maintain, that's fine good.
+
+1044
+01:36:41.010 --> 01:36:43.480
+Anthony Taylor: Now, the other direction
+
+1045
+01:36:43.510 --> 01:36:58.339
+Anthony Taylor: is more concerning if this was 95, this was 80, then I'd be a little more work. But going this direction, I'm not so upset about that it's like good. It was able to generalize and find the data
+
+1046
+01:36:58.740 --> 01:36:59.560
+Anthony Taylor: excellent.
+
+1047
+01:37:00.620 --> 01:37:04.870
+Anthony Taylor: Alright, this is a score I care about when I send this to production.
+
+1048
+01:37:07.020 --> 01:37:08.220
+Anthony Taylor: Does that make sense?
+
+1049
+01:37:12.970 --> 01:37:16.540
+Anthony Taylor: That's it. Gang? Tomorrow
+
+1050
+01:37:17.580 --> 01:37:30.580
+Anthony Taylor: we are going, is it? Tomorrow? Wednesday. we are going to get a little more advanced with our regressions. We're gonna do some cross validation. And we're gonna talk about bias and variance
+
+1051
+01:37:31.300 --> 01:37:33.989
+Anthony Taylor: more with feature selection.
+
+1052
+01:37:34.880 --> 01:37:36.960
+Anthony Taylor: Yeah, whole bunch.
+
+1053
+01:37:37.290 --> 01:37:45.280
+Anthony Taylor: A very cool regression step. So sounds very staticky. statistically.
+
+1054
+01:37:45.800 --> 01:37:48.940
+Anthony Taylor: statistically. Anyway. Have a great Tuesday.
+
+1055
+01:37:49.400 --> 01:37:51.820
+Anthony Taylor: We will be here for 30 shh.
+

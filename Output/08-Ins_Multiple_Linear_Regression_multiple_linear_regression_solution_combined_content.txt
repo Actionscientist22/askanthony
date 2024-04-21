@@ -1,0 +1,66 @@
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
+##--CODE--##
+# Import the data
+car_data = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_1/datasets/car-data-encoded.csv")
+car_data
+
+##--CODE--##
+# Drop na rows
+car_data = car_data.dropna()
+
+## Split into training and testing sets
+
+##--CODE--##
+# Features to include: "make", "fuel-type", "num-of-doors", "drive-wheels",
+# "length", "width", "height", "engine-size", "fuel-system", "city-mpg"
+features = ["make", "fuel-type", "num-of-doors", "drive-wheels", 
+            "length", "width", "height", "engine-size", 
+            "fuel-system", "city-mpg"]
+X = car_data[features]
+X.head()
+
+##--CODE--##
+# Set the target variable y
+y = car_data["price"]
+
+##--CODE--##
+# Now split the data into training and testing sets again
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+## Train the model
+
+##--CODE--##
+# Create the model
+model = LinearRegression()
+
+# Fit the model to the training data. 
+model.fit(X_train, y_train)
+
+## Evaluate the model
+
+##--CODE--##
+# Calculate the mean_squared_error and the r-squared value
+# for the testing data
+
+# Use our model to make predictions
+predicted = model.predict(X_test)
+
+# Score the predictions with mse and r2
+mse = mean_squared_error(y_test, predicted)
+r2 = r2_score(y_test, predicted)
+
+print(f"mean squared error (MSE): {mse}")
+print(f"R-squared (R2): {r2}")
+
+##--CODE--##
+# Call the `score()` method on the model to show the R2 score
+model.score(X_test, y_test)
+
+##--CODE--##
+
+

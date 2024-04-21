@@ -1,0 +1,32 @@
+##--CODE--##
+import pandas as pd
+import numpy as np
+from PIL import Image
+
+##--CODE--##
+path = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_1/datasets/csvs/fungi_files.csv"
+
+# Read the csv into a DataFrame
+
+# Display the first few rows
+
+
+##--CODE--##
+# First, remove the .jpg file extension, 
+# then split into three new columns: 'class', 'sample', and 'image'
+
+
+
+##--CODE--##
+from google.colab import drive
+import pickle
+drive.mount('/content/drive')
+# For our purposes, we'll select the class column as 'y'
+
+
+# And we'll export this as another pkl file
+
+
+##--CODE--##
+
+

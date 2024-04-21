@@ -1,0 +1,93 @@
+##--CODE--##
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+from tensorflow.keras.optimizers import Adam
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+import numpy as np
+import requests
+import pickle
+import io
+
+# Import the preprocessed data
+X_preprocessed_url = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_2/datasets/pickles/face_images_preprocessed.pkl"
+y_url = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_2/datasets/pickles/sunglasses_y.pkl"
+
+X = pickle.load(io.BytesIO(requests.get(X_preprocessed_url).content))
+y = pickle.load(io.BytesIO(requests.get(y_url).content))
+
+print(X[0])
+print(y.head())
+
+
+This is merely an example of a CNN model; note that we only have one Conv2D layer and one MaxPooling layer. To create the first layer (Conv2D) we must pass the shape of our images. The first value is the height of the image, the second is the width, and the third is the number of channels the image has for color. For RGB images, there are three channels; red, green, and blue. For grayscale images (like our faces data) there is only 1 channel.
+
+Convolutional Layer (Conv2D):
+
+layers.Conv2D(32, (3, 3), activation='relu', input_shape=(250, 250, 3))
+This layer applies convolution to the input images. The settings are as follows:
+32: This represents the number of filters (or kernels) that will be used in the convolution. It means there are 32 different filters to learn different patterns.
+(3, 3): This specifies the size of the convolutional kernel. A kernel of size (3, 3) means the convolution operation will use a 3x3 filter.
+activation='relu': Rectified Linear Unit (ReLU) is used as the activation function, introducing non-linearity to the model.
+input_shape=(250, 250, 3): This defines the shape of the input data. In this case, it's set to (250, 250, 3), indicating a 250x250 image with three color channels (RGB).
+MaxPooling Layer (MaxPooling2D):
+
+layers.MaxPooling2D((2, 2))
+This layer performs max pooling, which reduces the spatial dimensions of the input volume. The settings are:
+(2, 2): This specifies the size of the pooling window. A window of (2, 2) means the operation will take the maximum value over a 2x2 window.
+Flatten Layer (Flatten):
+
+layers.Flatten()
+This layer flattens the output from the previous layer into a one-dimensional array. It prepares the data for the subsequent fully connected layers.
+Dense Layer (Dense):
+
+layers.Dense(64, activation='relu')
+This fully connected layer has 64 neurons. The settings are:
+64: Number of neurons or units in the layer.
+activation='relu': ReLU is again used as the activation function.
+Output Layer (Dense):
+
+layers.Dense(2, activation='sigmoid')
+This is the output layer with two neurons, suitable for binary classification tasks. The settings are:
+2: Two output neurons, one for each class in binary classification.
+activation='sigmoid': Sigmoid activation is used for binary classification to produce probabilities.
+These settings are typical choices for a simple CNN architecture. Adjustments might be made based on the specific characteristics of the dataset and the objectives of the model.
+
+In the end, our validation score is 92% accuracy, which is pretty good! What might we do to improve this model though?
+
+##--CODE--##
+# Label encode the y data
+y_encoder = LabelEncoder().fit(y)
+y = y_encoder.transform(y)
+
+# Convert values to numpy arrays
+X = np.array(X)
+
+# Split the training dataset into training and validation sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Define a CNN model
+model = keras.Sequential([
+    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(60, 64, 1)),
+    layers.MaxPooling2D((2, 2)),
+    layers.Flatten(),
+    layers.Dense(64, activation='relu'),
+    layers.Dense(2, activation='sigmoid')
+])
+
+# Compile the model
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+# Train the model
+batch_size = 32
+epochs = 10
+history = model.fit(
+    X_train, y_train,
+    validation_data=(X_test, y_test),
+    epochs=epochs
+)
+
+##--CODE--##
+
+

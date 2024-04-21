@@ -1,0 +1,41 @@
+##--CODE--##
+# Dependencies
+import requests
+import json
+
+##--CODE--##
+# Base URL for GET requests to retrieve number/date facts
+
+
+##--CODE--##
+# Ask the user what kind of data they would like to search for
+
+
+##--CODE--##
+# Create code to return a number fact
+# If the kind of search is "date" take in two numbers
+
+  # Collect the month to search for
+
+  # Collect the day to search for
+
+
+  # Make an API call to the "date" API and convert response object to JSON
+
+  # Print the fact stored within the response
+
+
+# If the kind of search is anything but "date" then take one number
+
+
+  # Collect the number to search for
+
+
+  # Make an API call to the API and convert response object to JSON
+
+  # Print the fact stored within the response
+
+
+##--CODE--##
+
+

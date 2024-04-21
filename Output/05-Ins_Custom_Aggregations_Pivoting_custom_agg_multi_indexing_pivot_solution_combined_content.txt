@@ -1,0 +1,121 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read file into DataFrame
+ufo_df = pd.read_csv('Resources/ufoSightings.csv', low_memory=False)
+
+# Remove the rows with missing data
+clean_ufo_df = ufo_df.dropna(how="any")
+
+# Converting the "duration (seconds)" column's values to numeric
+converted_ufo_df = clean_ufo_df.copy()
+converted_ufo_df["duration (seconds)"] = converted_ufo_df.loc[:, "duration (seconds)"].astype(float)
+
+# Display the DataFrame
+converted_ufo_df.head()
+
+##--CODE--##
+# Get the columns.
+converted_ufo_df.columns
+
+##--CODE--##
+# Create a custom function that will calculate the average of DataFrame column
+def custom_avg(x):
+    return x.mean()
+
+##--CODE--##
+# Use the custom_avg function to show the average seconds for each country and state and round to one decimal place
+ufo_country_state = pd.pivot_table(converted_ufo_df, 
+                                   index=['country','state'],
+                                   values='duration (seconds)',
+                                   aggfunc=custom_avg).round(1)
+ufo_country_state.head(20)
+
+##--CODE--##
+# Rename the columns to reflect the results. 
+ufo_country_state = ufo_country_state.rename(columns={'duration (seconds)': 'Avg. Seconds'})
+ufo_country_state.head(20)
+
+##--CODE--##
+# Create two more custom functions. 
+# 1) Returns the number of items from a DataFrame column.
+def custom_count(x):
+    return x.count()
+
+# 2) Returns the total from a DataFrame column.
+def custom_sum(x):
+    return x.sum()
+
+##--CODE--##
+# Show the total number of sighting, and the avg and total number of seconds  of UFOs
+# for each country, state, and city.  
+country_state_total_avg = pd.pivot_table(converted_ufo_df, 
+                                           index=['country','state'],
+                                           values='duration (seconds)',
+                                           aggfunc=(custom_count,
+                                                    custom_avg,
+                                                    custom_sum)).round(1)
+# Display the top 25 results
+country_state_total_avg.head(25)
+
+##--CODE--##
+# Get the column names 
+country_state_total_avg.columns
+
+##--CODE--##
+# Rename the columns to reflect the results. 
+country_state_total_avg = country_state_total_avg.rename(columns={'custom_avg': 'Avg. Seconds',
+                                                        'custom_count': 'Number Sightings',
+                                                        'custom_sum': 'Total Seconds'})
+# Display the top 20 results
+country_state_total_avg.head(20)
+
+##--CODE--##
+# Create a function the column value of a DataFrame if the value is greater than 20.
+def custom_count(x):
+    if x.count()>20:
+        return x.count()
+
+##--CODE--##
+# Show the number of UFOs for each city, state, and country. 
+# And, sort in ascending order. 
+ufo_country_state_metrics = pd.pivot_table(converted_ufo_df, 
+                                           index=['country','state'],
+                                           values='duration (seconds)',
+                                           aggfunc=(custom_count,
+                                                    custom_avg,
+                                                    custom_sum)).round(1)
+
+# Display the results.
+ufo_country_state_metrics
+
+##--CODE--##
+# Drop the null values
+ufo_country_state_metrics.dropna(how="any")
+
+##--CODE--##
+# Show the total number of UFO sightings for each city, state, and country. 
+# Limit the number of sightings to 20 or more by using the updated custom function.
+ufo_country_state_city_cnt = pd.pivot_table(converted_ufo_df, 
+                                           index=['country','state','city'],
+                                           values='shape',
+                                           aggfunc=custom_count)
+
+# Drop the null values
+ufo_country_state_city_cnt.dropna(how="any")
+
+# Show the top 25 results
+ufo_country_state_city_cnt.head(25)
+
+##--CODE--##
+# Rename the column to reflect the results. 
+ufo_country_state_city_cnt = ufo_country_state_city_cnt.rename(columns={'shape': 'Number of Sightings'})
+
+# Sort the pivot table to show the highest number of UFO sightings by country, state, and city.
+ufo_country_state_city_cnt.sort_values(by=["Number of Sightings"], ascending=False)
+
+##--CODE--##
+
+

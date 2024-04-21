@@ -1,0 +1,66 @@
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+
+# Import the data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m13/lesson_2/datasets/crowdfunding-data.csv")
+df.info()
+
+##--CODE--##
+# Create an X and y variable
+X = df.drop(columns=['outcome'])
+y = df['outcome']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+##--CODE--##
+# Create a Random Forest model
+classifier = RandomForestClassifier()
+
+# Fit (train) or model using the training data
+classifier.fit(X_train, y_train)
+
+# Calculate the accuracy of the model on the testing data
+classifier.score(X_test, y_test)
+
+##--CODE--##
+# Calculate the accuracy of the model on the training data
+classifier.score(X_train, y_train)
+
+##--CODE--##
+# Create a loop to vary the max_depth parameter
+# Make sure to record the train and test scores 
+# for each pass.
+
+# Depths should span from 1 up to 15 in steps of 1
+depths = range(1, 15)
+
+# The scores dataframe will hold depths and scores
+# to make plotting easy
+scores = {'train': [], 'test': [], 'depth': []}
+
+# Loop through each depth
+for depth in depths:
+    clf = RandomForestClassifier(max_depth=depth)
+    clf.fit(X_train, y_train)
+
+    train_score = clf.score(X_train, y_train)
+    test_score = clf.score(X_test, y_test)
+
+    scores['depth'].append(depth)
+    scores['train'].append(train_score)
+    scores['test'].append(test_score)
+
+# Create a dataframe from the scores dictionary and
+# set the index to depth
+scores_df = pd.DataFrame(scores).set_index('depth')
+
+##--CODE--##
+# Plot the scores dataframe with the plot method
+scores_df.plot()
+
+##--CODE--##
+
+

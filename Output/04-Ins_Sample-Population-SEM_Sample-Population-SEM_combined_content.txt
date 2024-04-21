@@ -1,0 +1,45 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+import random
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import sem
+
+# Set the seed so our data is reproducible
+random.seed(42)
+
+##--CODE--##
+# Sample versus population example fuel economy
+fuel_economy = pd.read_csv('../Resources/2019_fuel_economy.csv')
+
+# First overview the data set - how many factors, etc.
+print(fuel_economy.head())
+
+##--CODE--##
+# Calculate the summary statistics and plot the histogram of the entire population data
+
+##--CODE--##
+# Calculate the summary statistics and plot the histogram of the sample data using iloc
+
+
+##--CODE--##
+# Calculate the summary statistics and plot the histogram of the sample data using random sampling
+
+
+##--CODE--##
+# Generate a new 30 vehicle sample and calculate the SEM of the sample
+
+
+##--CODE--##
+# Create a sample set of 10, each with 30 vehicles
+
+
+##--CODE--##
+# Generate the plot data for each sample 
+
+
+##--CODE--##
+# Setting up the plot
+
+

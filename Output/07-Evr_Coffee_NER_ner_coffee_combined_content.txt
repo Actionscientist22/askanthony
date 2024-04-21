@@ -1,0 +1,84 @@
+##--CODE--##
+# Import the dependencies
+import spacy
+from nltk.corpus import reuters
+from spacy import displacy
+from collections import Counter
+import pandas as pd
+
+# Load the small English language model for spacy
+nlp = spacy.load("en_core_web_sm")
+
+##--CODE--##
+# Analyze a sentence using spacy
+doc = nlp(u"""Patrick Mahomes is a quarterback for the Kansas City Chiefs in the American Conference, 
+which is one of two conferences in the National Football League.""")
+
+# Access the tagged entities with .text and .label_
+
+
+##--CODE--##
+# Get all the categories in the Reuters corpus. 
+
+
+##--CODE--##
+# Locate and store a single article from the Reuters stories with the category "coffee".
+
+
+##--CODE--##
+# Analyze the article with spacy
+
+
+# Render NER visualization with displacy to determine entities for extraction
+
+
+##--CODE--##
+# Store all reuters articles with category "coffee".
+
+
+# Set articles to be analyzed with spacy
+
+
+##--CODE--##
+# Extract geopolitical "GPE" and organizational entities "ORG" using a list comprehension.
+
+# Print the first 20 entities.
+
+
+##--CODE--##
+# Using a list comprehension convert each entity to lowercase and remove the newline character. 
+
+
+# Print the entities
+
+
+##--CODE--##
+# Create a variable, most_freq_entities, that stores the most frequent entities 
+# using the most_common() function from the Counter module.
+
+
+# Print the first 10 most frequent entities
+
+
+##--CODE--##
+# Use list comprehensions to retrieve each entity and the number of occurrences for each entity in separate lists.
+
+
+##--CODE--##
+# Create a DataFrame called, adjs_df, that has columns to hold the
+# inaugural addresses, the common adjective, and the number of times each adjective appears.
+
+
+# Sort the DataFrame
+
+
+# Display the first ten rows. 
+
+
+##--CODE--##
+# Display the last ten rows. 
+
+
+##--CODE--##
+
+

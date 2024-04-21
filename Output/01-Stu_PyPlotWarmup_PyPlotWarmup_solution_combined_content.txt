@@ -1,0 +1,48 @@
+##--CODE--##
+%matplotlib notebook
+
+##--CODE--##
+# Dependencies
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+##--CODE--##
+# Load in csv
+rain_df = pd.read_csv("../Resources/avg_rain_state.csv")
+rain_df.head()
+
+##--CODE--##
+# Set x axis and tick locations
+x_axis = np.arange(len(rain_df))
+tick_locations = [value+0.4 for value in x_axis]
+
+##--CODE--##
+# Create a list indicating where to write x labels and set figure size to adjust for space
+plt.figure(figsize=(20,4))
+plt.bar(x_axis, rain_df["Inches"], color='r', alpha=0.5, align="edge")
+plt.xticks(tick_locations, rain_df["State"], rotation="vertical")
+plt.show()
+
+##--CODE--##
+# Set x and y limits
+plt.xlim(-0.25, len(x_axis))
+plt.ylim(0, max(rain_df["Inches"])+10)
+plt.show()
+
+##--CODE--##
+# Set a Title and labels
+plt.title("Average Rain per State")
+plt.xlabel("State")
+plt.ylabel("Average Amount of Rainfall in Inches")
+plt.show()
+
+##--CODE--##
+# Save our graph and show the graph
+plt.tight_layout()
+plt.savefig("../Images/avg_state_rain.png")
+plt.show()
+
+##--CODE--##
+
+

@@ -1,0 +1,132 @@
+##--CODE--##
+# Initial imports
+import requests
+from dotenv import load_dotenv
+import os
+import json
+
+### Use the `load_dotenv()` method from the `dotenv` package to load and export the environment variables
+
+##--CODE--##
+
+
+### Use the `os.getenv` function to retrieve the environment variable named `TMDB_API_KEY`. Store as a Python variable named `api_key`
+
+##--CODE--##
+
+
+### Use the `type` function to confirm the retrieval of the API key.
+
+##--CODE--##
+
+
+### Concatenate `request_url` with the `api_key` variable
+
+##--CODE--##
+# Search The Movie Database for a movie title
+# Documentation: https://developer.themoviedb.org/docs/search-and-query-for-details
+
+
+# Save a movie title to search for as a variable
+
+
+# Concatenate request_url, title, and api_key. Store as new variable
+
+
+### Execute GET request with API key
+
+##--CODE--##
+# Execute get request
+
+
+### Display JSON to screen using `json.dumps()`
+
+##--CODE--##
+# Print the JSON results
+
+
+### Bonus: Retrieve Movie Credits Data
+
+##--CODE--##
+# Create a function that retrieves a movie's credits
+
+    # Prepare the API URL
+
+    
+    # Execute get request
+
+
+    # Print results
+
+
+##--CODE--##
+# Retrieve the movie ID for Elemental
+
+
+##--CODE--##
+# Use get_credits function for Elemental movie_id
+
+
+##--CODE--##
+# House of Flying Daggers request
+
+# Concatenate request_url, title, and api_key. Store as new variable
+
+
+# Execute get request
+
+
+# Get movie ID
+
+
+# Call get_credits function
+
+
+##--CODE--##
+# Howl's Moving Castle request
+
+# Concatenate request_url, title, and api_key. Store as new variable
+
+
+# Execute get request
+
+
+# Get movie ID
+
+
+# Call get_credits function
+
+
+##--CODE--##
+# The Adventures of Priscilla: Queen of the Desert request
+
+# Concatenate request_url, title, and api_key. Store as new variable
+
+
+# Execute get request
+
+
+# Get movie ID
+
+
+# Call get_credits function
+
+
+##--CODE--##
+# Moana request
+
+# Concatenate request_url, title, and api_key. Store as new variable
+
+
+# Execute get request
+
+
+# Get movie ID
+
+
+# Call get_credits function
+
+
+##--CODE--##
+
+

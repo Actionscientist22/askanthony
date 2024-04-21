@@ -1,0 +1,56 @@
+##--CODE--##
+# Import dependencies
+import numpy as np
+import pandas as pd
+import scipy.stats as sts
+
+##--CODE--##
+# Create a DataFrame from the cups_of_coffee data
+cups_of_coffee = [1, 1, 0, 0, 3, 1, 3, 0, 2, 3, 2, 3, 0, 3, 2, 0, 3, 0, 2, 3, 2, 3, 0, 2, 0, 0, 1]
+coffee_consumed = pd.DataFrame(cups_of_coffee, columns=["cups"])
+
+##--CODE--##
+# Calculate the mean, median, and mode of cups of coffee consumed daily
+print("Mean: ", np.mean(coffee_consumed.cups))
+print("Median: ", np.median(coffee_consumed.cups))
+print("Mode: ", sts.mode(coffee_consumed.cups))
+
+##--CODE--##
+# Read in the California housing data set from the Resources folder
+california_data = pd.read_csv('../Resources/California_Housing.csv')
+len(california_data)
+
+##--CODE--##
+# Determine the most appropriate measure of central tendency to describe the Population column
+print("Population Mean: ", california_data["Population"].mean())
+print("Population Median: ", california_data["Population"].median())
+print("Population Mode: ", california_data["Population"].mode())
+
+##--CODE--##
+# Determine if there are any potential outliers in the AveOccup column
+avg_occup = california_data["AveOccup"]
+Q1 = avg_occup.quantile(0.25)
+median = avg_occup.quantile(0.5)
+Q3 = avg_occup.quantile(0.75)
+IQR = Q3 - Q1
+
+print(f"The lower quartile of occupancy is: {Q1}")
+print(f"The upper quartile of occupancy is: {Q3}")
+print(f"The interquartile range of occupancy is: {IQR}")
+print(f"The the median of occupancy is: {median} ")
+
+lower_bound = Q1 - (1.5 * IQR)
+upper_bound = Q3 + (1.5 * IQR)
+print(f"Values below {lower_bound} could be outliers.")
+print(f"Values above {upper_bound} could be outliers.")
+
+##--CODE--##
+# Create a new DataFrame by filtering the original DataFrame to show only the outliers
+outlier_occupancy = california_data.loc[(avg_occup < lower_bound) | (avg_occup > upper_bound)]
+outlier_occupancy
+
+##--CODE--##
+# Find the lowest and highest median income in the potential outliers
+print(f"The minimum median income of the potential outliers is {outlier_occupancy['MedInc'].min()}")
+print(f"The maximum median income of the potential outliers is {outlier_occupancy['MedInc'].max()}")
+

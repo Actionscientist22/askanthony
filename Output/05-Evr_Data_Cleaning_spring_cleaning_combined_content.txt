@@ -1,0 +1,68 @@
+# Spring Cleaning!
+
+Harold's stock data is a mess! Help him clean up his data before the auditors arrive!
+
+##--CODE--##
+# Import Libraries
+import pandas as pd
+
+### Load CSV data into Pandas using `read_csv`
+
+##--CODE--##
+
+
+### Identify the number of rows and columns (shape) in the DataFrame.
+
+##--CODE--##
+
+
+### Generate a sample of the data to visually ensure data has been loaded in correctly.
+
+##--CODE--##
+
+
+### Identify the number of records in the DataFrame, and compare it with the number of rows in the original file.
+
+##--CODE--##
+
+
+### Identify nulls records
+
+##--CODE--##
+
+
+### Drop Null Records
+
+##--CODE--##
+
+
+### Validate nulls have been dropped
+
+##--CODE--##
+
+
+### Default null `ebitda` values to 0. Then, validate no records are null for ebitda.
+
+##--CODE--##
+
+
+### Drop Duplicates
+
+##--CODE--##
+
+
+### Clean `price` Series by replacing `$`
+
+##--CODE--##
+
+
+### Confirm data type of `price`
+
+##--CODE--##
+
+
+### Cast `price` Series as float and then validate using `dtype`
+
+##--CODE--##
+
+

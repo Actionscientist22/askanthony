@@ -1,0 +1,46 @@
+# Stemming
+
+## Porter Stemmer
+
+##--CODE--##
+# Import NLTK and the full PorterStemmer library
+from nltk.stem.porter import PorterStemmer
+# Import the word tokenizer
+from nltk.tokenize import word_tokenize
+
+##--CODE--##
+# Instantiate the PorterStemmer() class
+p_stemmer = PorterStemmer()
+
+##--CODE--##
+# Create a list of words with different tenses.
+words = ['drive', 'driven','driver','driving','drove','easily','fairly']
+
+##--CODE--##
+# Print the word and the stem of the word.
+stem_words = [word+' --> '+p_stemmer.stem(word) for word in words]
+stem_words
+
+## Snowball Stemmer
+
+##--CODE--##
+# Import the SnowballStemmer class
+from nltk.stem.snowball import SnowballStemmer
+# Instantiate the Snowball Stemmer and pass in the "english" language parameter.
+s_stemmer = SnowballStemmer(language='english')
+
+##--CODE--##
+# Print the word and the stem of the word.
+[word+' --> '+s_stemmer.stem(word) for word in words]
+
+##--CODE--##
+# Tokenize the sentence 
+sentence = "The foxes walked into the boxes."
+words = word_tokenize(sentence)
+# Apply the Porter Stemmer to the list of words.
+s_result = [p_stemmer.stem(word) for word in words]
+print(s_result)
+
+##--CODE--##
+
+

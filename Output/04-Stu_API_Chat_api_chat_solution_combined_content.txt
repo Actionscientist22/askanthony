@@ -1,0 +1,92 @@
+##--CODE--##
+# Imports for loading environment variables.
+from dotenv import load_dotenv
+import os
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+##--CODE--##
+# Additional imports for API chain.
+from langchain_openai import ChatOpenAI
+from langchain.chains import APIChain
+
+##--CODE--##
+# Text description of API spec.
+spec_str = """Open Library provides an experimental API to search.
+
+WARNING: This API is under active development and may change in future.
+
+Overview & Features
+The Open Library Search API is one of the most convenient and complete ways to retrieve book data on Open Library. The API:
+
+Is able to return data for multiple books in a single request/response
+Returns both Work level information about the book, as well as Edition level information (such as)
+Author IDs are returned which you can use to fetch the author's image, if available
+Options are available to return Book Availability along with the response.
+Powerful sorting options are available, such as star ratings, publication date, and number of editions.
+Endpoint
+The endpoint for this API is:
+https://openlibrary.org/search.json
+
+Examples
+The URL format for API is simple. Take the search URL and add .json to the end. Eg:
+
+https://openlibrary.org/search.json?q=the+lord+of+the+rings
+https://openlibrary.org/search.json?title=the+lord+of+the+rings
+https://openlibrary.org/search.json?author=tolkien&sort=new
+https://openlibrary.org/search.json?q=the+lord+of+the+rings&page=2
+https://openlibrary.org/search/authors.json?q=twain
+Using Thing IDs to get Images
+You can use the olid (Open Library ID) for authors and books to fetch covers by olid, e.g.:
+https://covers.openlibrary.org/a/olid/OL23919A-M.jpg
+
+URL Parameters
+Parameter	Description
+q	The solr query. See Search HowTo for sample queries
+fields	The fields to get back from solr. Use the special value * to get all fields (although be prepared for a very large response!).
+To fetch availability data from archive.org, add the special value, availability. Example: /search.json?q=harry%20potter&fields=*,availability&limit=1. This will fetch the availability data of the first item in the `ia` field.
+sort	You can sort the results by various facets such as new, old, random, or key (which sorts as a string, not as the number stored in the string). For a complete list of sorts facets look here (this link goes to a specific commit, be sure to look at the latest one for changes). The default is to sort by relevance.
+lang	The users language as a two letter (ISO 639-1) language code. This influences but doesn't exclude search results. For example setting this to fr will prefer/display the French edition of a given work, but will still match works that don't have French editions. Adding language:fre on the other hand to the search query will exclude results that don't have a French edition.
+offset / limit	Use for pagination.
+page / limit	Use for pagination, with limit corresponding to the page size. Note page starts at 1."""
+
+##--CODE--##
+# Initialize the model.
+llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.0)
+
+##--CODE--##
+# Create the API chain from the spec, using the LLM.
+chain = APIChain.from_llm_and_api_docs(
+    llm,
+    spec_str,
+    #verbose = True,
+    limit_to_domains=["https://openlibrary.org/"],
+)
+
+##--CODE--##
+# Loop until the user enters "exit".
+while(True):
+    # Get the user's input as a string.
+    user_string = input('Ask a question about a book or author. Enter "exit" to quit.')
+
+    # Test whether user entered "exit", and break if so.
+    if user_string == "exit":
+        break
+
+    # Define a query as a dictionary using the user's input.
+    query = {"question": user_string}
+
+    try:
+        # Run the chain using the query, and print the response.
+        response = chain.invoke(query)
+        print(response["output"])
+    except:
+        print("Sorry, that query generated too large of a result. Please try a different question.")
+

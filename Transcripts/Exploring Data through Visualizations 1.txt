@@ -1,0 +1,3490 @@
+WEBVTT
+
+1
+00:00:07.340 --> 00:00:10.760
+Anthony Taylor: Well, everybody. Today's an exciting day.
+
+2
+00:00:13.170 --> 00:00:14.649
+Anthony Taylor: We got a whole new topic.
+
+3
+00:00:15.260 --> 00:00:19.420
+Anthony Taylor:  it's a pretty good one.
+
+4
+00:00:19.710 --> 00:00:24.859
+Anthony Taylor: Okay. It's a pretty good one.
+
+5
+00:00:28.890 --> 00:00:35.750
+Anthony Taylor: Putting on your thing. I won't comment on it more than this. If if you disagree with it, and and
+
+6
+00:00:35.780 --> 00:00:43.349
+Clayton Graves: you can't understand it, then let me and and I'll get one of the da's to look at it. Okay, no, I'll look at it. I went through it.
+
+7
+00:00:46.190 --> 00:00:47.540
+Anthony Taylor: You muted yourself.
+
+8
+00:00:47.820 --> 00:00:52.659
+Clayton Graves: You said I went through it. I said. I went through it again. I went through it. They're they're right.
+
+9
+00:00:53.110 --> 00:00:55.460
+Anthony Taylor: Okay? Well, but the good news is
+
+10
+00:00:55.570 --> 00:00:58.609
+Anthony Taylor: you don't have to redo it unless you just want. So okay.
+
+11
+00:00:58.850 --> 00:00:59.800
+Anthony Taylor: so
+
+12
+00:01:03.710 --> 00:01:04.959
+Anthony Taylor: visualizations.
+
+13
+00:01:05.379 --> 00:01:11.720
+Anthony Taylor: Okay, so the reason so so today, we're gonna do visualization.
+
+14
+00:01:11.840 --> 00:01:16.419
+Anthony Taylor: why do we do visualizations? This is not a data analytics course. There visualizations are typically.
+
+15
+00:01:16.530 --> 00:01:23.169
+Anthony Taylor: you know, people think, oh, data analytics, or they're going to do dashboards that they're going to do this. They're going to do that. And that's not what we're going to learn
+
+16
+00:01:23.220 --> 00:01:33.140
+Anthony Taylor: that we're going to learn enough visualizations so that we can identify patterns and trends in the data by looking at
+
+17
+00:01:33.330 --> 00:01:40.200
+Anthony Taylor: we will that. And and that gives us a qualitative view or qualitative
+
+18
+00:01:40.330 --> 00:01:42.220
+Anthony Taylor: like decision.
+
+19
+00:01:42.950 --> 00:01:51.859
+Anthony Taylor: Alright. So we can look at the data and go. Okay, well, look, that looks like it correlates. and that's fine. And you can have a visualization that shows that.
+
+20
+00:01:52.290 --> 00:01:54.779
+Anthony Taylor: But I would still expect you
+
+21
+00:01:54.870 --> 00:01:58.700
+Anthony Taylor: to do the quantitative check to confirm
+
+22
+00:01:59.420 --> 00:02:12.729
+Anthony Taylor: most of the time. It's gonna be obvious and quantitative checks gonna be fine for like correlation. But there are other things where that's not so today, we learned a lot of like how to get some, some fairly basic
+
+23
+00:02:12.920 --> 00:02:15.040
+Anthony Taylor: visualizations
+
+24
+00:02:15.060 --> 00:02:16.450
+Anthony Taylor: with python
+
+25
+00:02:17.310 --> 00:02:30.889
+Anthony Taylor: you can save them as images so like, if you wanted to create a report or something or a paper, you can actually, you'll learn today how to save the visualization as as Png files.
+
+26
+00:02:31.300 --> 00:02:34.809
+Anthony Taylor: and then you could paste them into a word Doc, or excel or anything.
+
+27
+00:02:35.030 --> 00:02:41.750
+Anthony Taylor: Okay, and I will tell you, by the way excel is actually really good for visualization. It has a limitation of thought.
+
+28
+00:02:42.580 --> 00:02:48.550
+Anthony Taylor: while pandas and python limitation of size is based on a bigger computer.
+
+29
+00:02:49.620 --> 00:02:50.550
+Anthony Taylor: Okay.
+
+30
+00:02:50.790 --> 00:02:57.410
+Anthony Taylor: alright. So what else? We're going to create line plots, bar charts, scatterplots today using a library called map plot live.
+
+31
+00:02:58.040 --> 00:03:03.940
+Anthony Taylor: And we're gonna do some after we create those we're gonna do some basic
+
+32
+00:03:04.200 --> 00:03:04.990
+Anthony Taylor: like
+
+33
+00:03:05.320 --> 00:03:09.839
+Anthony Taylor: customizations modifications to the charts that we create.
+
+34
+00:03:10.880 --> 00:03:12.750
+Anthony Taylor: And that's really it. For today.
+
+35
+00:03:13.250 --> 00:03:17.729
+Anthony Taylor: It's not a whole lot. I don't think any of the concepts are horribly difficult.
+
+36
+00:03:18.320 --> 00:03:21.180
+Anthony Taylor: Okay, so we're gonna do that
+
+37
+00:03:21.650 --> 00:03:24.350
+Anthony Taylor: with python first tomorrow.
+
+38
+00:03:26.880 --> 00:03:31.169
+Anthony Taylor: Sorry. What is today? Say, Thursday, no, today's Wednesday. So tomorrow
+
+39
+00:03:31.240 --> 00:03:36.810
+Anthony Taylor: we're going to use pandas. Because the people who made Pandas
+
+40
+00:03:36.880 --> 00:03:40.350
+Anthony Taylor: said, You know what everybody's using. Map, Potlip.
+
+41
+00:03:41.040 --> 00:03:45.570
+Anthony Taylor: So why don't we just kind of roll it up inside a pen.
+
+42
+00:03:46.400 --> 00:03:54.520
+Anthony Taylor: So we're going to be able to play with data frames tomorrow. And those data frames, will be able to chart using pandas.
+
+43
+00:03:55.730 --> 00:03:58.660
+Anthony Taylor: Okay? So which is really kind of convenient
+
+44
+00:03:58.920 --> 00:04:06.799
+Anthony Taylor: today, we're mostly gonna be working with arrays. All right. So the arrays will be our data that we're going to chart.
+
+45
+00:04:07.400 --> 00:04:12.269
+Anthony Taylor: Okay? So then, these are some examples. Tables can be visual.
+
+46
+00:04:12.920 --> 00:04:21.499
+Anthony Taylor: Pie charts don't even get me started. It's funny problem with pie charts. My rule of thumb pie chart, if you have more than like
+
+47
+00:04:21.680 --> 00:04:27.369
+Anthony Taylor: maybe 6, and this depends on the size of the 5 charts, but like 6 slices.
+
+48
+00:04:27.390 --> 00:04:29.219
+Anthony Taylor: Don't use a pie chart.
+
+49
+00:04:30.410 --> 00:04:31.510
+Anthony Taylor: Okay.
+
+50
+00:04:31.520 --> 00:04:35.869
+Anthony Taylor: people who put like 40 slices by chart. It's ridiculous, silly.
+
+51
+00:04:36.510 --> 00:04:38.709
+Anthony Taylor: But there are people that are like
+
+52
+00:04:40.950 --> 00:04:44.430
+Anthony Taylor: crazy about not using. It's it's it's
+
+53
+00:04:44.550 --> 00:04:48.759
+Anthony Taylor: way beyond bar charts, maps. Oh.
+
+54
+00:04:49.300 --> 00:04:54.719
+Anthony Taylor: I would be surprised if we do much maps today or in this class. but we could
+
+55
+00:04:55.170 --> 00:05:10.549
+Anthony Taylor: and then these are some other cool ones. And I will show you how to find these. When we're done, you will know how to code them. Not that we'll do them in class, but I will show you. Here's where you find the code, the sample code.
+
+56
+00:05:11.320 --> 00:05:22.040
+Anthony Taylor: You can plug this into anything you want, and you can make like the most. In fact, I'll show you. I don't think show you today, so I will show you right now.
+
+57
+00:05:26.130 --> 00:05:31.249
+Anthony Taylor: So here's some examples of things you'll be able to make with the map plot live.
+
+58
+00:05:31.360 --> 00:05:34.720
+Anthony Taylor: Which is what we're going to learn today. Simple bar charts.
+
+59
+00:05:34.880 --> 00:05:37.790
+Anthony Taylor: We're gonna do simple bar charts. We're gonna do line charts
+
+60
+00:05:37.910 --> 00:05:40.239
+Anthony Taylor: like these more or less. Okay.
+
+61
+00:05:40.770 --> 00:05:43.690
+Anthony Taylor: we're gonna do scatterplots
+
+62
+00:05:44.380 --> 00:05:49.449
+Anthony Taylor: which will be will show up eventually. But you can see some of the other things you can do.
+
+63
+00:05:49.590 --> 00:05:51.890
+Anthony Taylor: They're gonna do a lot of very cool
+
+64
+00:05:52.910 --> 00:05:59.790
+Anthony Taylor: of things, and you can see it gets like cooler and cooler as you go. Okay, this one's funny.
+
+65
+00:06:02.230 --> 00:06:10.290
+Anthony Taylor:  basically, all this is, it's like a full size image and based on the data. It makes the image smaller or larger. It's kind of.
+
+66
+00:06:10.560 --> 00:06:11.690
+Anthony Taylor: But
+
+67
+00:06:12.960 --> 00:06:13.720
+yeah.
+
+68
+00:06:14.550 --> 00:06:16.909
+Anthony Taylor: so all of these are things you can do with map up.
+
+69
+00:06:17.690 --> 00:06:18.989
+Anthony Taylor: Okay? Quite a bit.
+
+70
+00:06:23.280 --> 00:06:24.780
+Anthony Taylor: This one's one of my favorites.
+
+71
+00:06:28.600 --> 00:06:33.260
+Anthony Taylor: Some other examples, another another one that
+
+72
+00:06:34.070 --> 00:06:38.400
+Anthony Taylor: maybe we'll touch on. I know. Brando. See, look at this, they just it just goes on and on.
+
+73
+00:06:38.770 --> 00:06:44.829
+Anthony Taylor: Okay, these are all things you can learn to do. And you're like, Well, Anthony, how would we do that? Well, let's just pick one.
+
+74
+00:06:46.010 --> 00:06:48.690
+Anthony Taylor: Here we go. And there's your code.
+
+75
+00:06:50.580 --> 00:06:57.750
+Anthony Taylor: Okay, so this looks like a lot. You guys are actually in code all of this today. Everything you see on the screen, you're gonna know by the end to do it
+
+76
+00:06:58.810 --> 00:07:09.539
+Anthony Taylor: all right. So you could actually take this figure out where they're getting their data, throw it into your own python, pull your data in, and you would be able to make this exact same thing. But to your date.
+
+77
+00:07:10.610 --> 00:07:11.350
+Anthony Taylor: okay.
+
+78
+00:07:11.510 --> 00:07:15.700
+Anthony Taylor: another very cool library that I don't believe we're gonna cover
+
+79
+00:07:16.130 --> 00:07:19.630
+Anthony Taylor: but I want you to know about it, because it's awesome
+
+80
+00:07:20.080 --> 00:07:21.639
+Anthony Taylor: is plot. Leave
+
+81
+00:07:24.980 --> 00:07:27.510
+Anthony Taylor:  partly.
+
+82
+00:07:27.550 --> 00:07:34.170
+Anthony Taylor: But some of this looks like similar to the map flatlift. The difference is, these are all like interactive.
+
+83
+00:07:35.930 --> 00:07:39.810
+Anthony Taylor: Okay? You can. So you can like zoom in you can.
+
+84
+00:07:40.630 --> 00:07:42.890
+Anthony Taylor: We could do all kinds of fun stuff with these.
+
+85
+00:07:43.730 --> 00:07:48.870
+Anthony Taylor: Alright. So these are very cool. Platley basically is like making Javascript in the background.
+
+86
+00:07:49.470 --> 00:07:54.509
+Anthony Taylor: And it allows you to do some very cool stuff really, quickly, really, easily.
+
+87
+00:07:56.070 --> 00:08:00.789
+Anthony Taylor: And those are like the 2 big python libraries
+
+88
+00:08:02.970 --> 00:08:04.250
+Anthony Taylor: that you will see.
+
+89
+00:08:04.660 --> 00:08:06.430
+Anthony Taylor: Okay. So
+
+90
+00:08:08.410 --> 00:08:11.790
+Anthony Taylor: the whole point of a data visualization
+
+91
+00:08:12.100 --> 00:08:20.490
+Anthony Taylor: is for either you to look at the data and say. I now understand the better the data better than I did a few decades ago.
+
+92
+00:08:21.230 --> 00:08:26.730
+Anthony Taylor: or for you to show somebody else and say, Look.
+
+93
+00:08:26.750 --> 00:08:28.600
+Anthony Taylor: this is what our data looks like.
+
+94
+00:08:29.800 --> 00:08:34.080
+Anthony Taylor: So the primary goal of data. Visualization
+
+95
+00:08:34.330 --> 00:08:36.030
+Anthony Taylor: is to make it easy to read.
+
+96
+00:08:36.400 --> 00:08:43.129
+Anthony Taylor: easy to interpret, and it should be relatively, aesthetically pleasing. That is very much.
+
+97
+00:08:44.110 --> 00:08:45.500
+Anthony Taylor: you know, subjective
+
+98
+00:08:45.990 --> 00:08:50.469
+Anthony Taylor: right? But you interpret is is a little
+
+99
+00:08:50.650 --> 00:08:57.779
+Anthony Taylor: less so. I mean, obviously, somebody who does this every day could make something kind of complex. Go walking. That's fine, all right.
+
+100
+00:08:58.120 --> 00:09:03.950
+Anthony Taylor: But we're you're gonna see the stuff we're gonna do in this class. The idea is simply to show
+
+101
+00:09:04.270 --> 00:09:08.140
+Anthony Taylor: patterns or trends in our data vision. Okay.
+
+102
+00:09:09.540 --> 00:09:15.709
+Anthony Taylor: so we have explanatory visualization and exploratory visualization.
+
+103
+00:09:15.820 --> 00:09:20.039
+Anthony Taylor: These explanatory is basically reports.
+
+104
+00:09:20.920 --> 00:09:23.639
+Anthony Taylor: Okay, you're not trying to
+
+105
+00:09:23.760 --> 00:09:29.730
+Anthony Taylor: you. You're you're trying to explain a trend or a pattern or something like that.
+
+106
+00:09:29.850 --> 00:09:34.919
+Anthony Taylor: Okay? But the idea is is you are trying to show your findings
+
+107
+00:09:35.120 --> 00:09:42.830
+Anthony Taylor: exploratory visualizations. And we will do these also are basically, I'm doing this to learn about my D,
+
+108
+00:09:44.510 --> 00:09:50.780
+Anthony Taylor: I mean, and in in the end you might be able to explain stuff with your exploratory visualization. But
+
+109
+00:09:51.250 --> 00:09:57.509
+Anthony Taylor: the goal is to understand your data as data scientists and AI professionals. That
+
+110
+00:09:58.160 --> 00:09:59.950
+Anthony Taylor: is the most important thing.
+
+111
+00:10:00.980 --> 00:10:03.840
+Anthony Taylor: If you need to do a
+
+112
+00:10:04.650 --> 00:10:08.430
+Anthony Taylor: presentation to management or to your.
+
+113
+00:10:09.020 --> 00:10:10.669
+Anthony Taylor: you know, customer.
+
+114
+00:10:10.880 --> 00:10:19.870
+Anthony Taylor: Even if that's internal, you may jump back over to explain its way cause you want something that you can explain. This is why we think this is a good idea.
+
+115
+00:10:21.220 --> 00:10:22.120
+Anthony Taylor: Okay.
+
+116
+00:10:22.660 --> 00:10:26.880
+Anthony Taylor: this is kind of a subtle difference most of the time. But
+
+117
+00:10:27.580 --> 00:10:30.390
+Anthony Taylor: just yeah. Hi. so
+
+118
+00:10:32.320 --> 00:10:38.640
+Anthony Taylor: first. actually, the very first thing we're gonna do is a is a
+
+119
+00:10:41.830 --> 00:10:45.830
+Anthony Taylor: a student exercise. Now, the interesting thing about this student exercise
+
+120
+00:10:45.930 --> 00:10:47.800
+Anthony Taylor: is, there is nothing to do.
+
+121
+00:10:49.330 --> 00:10:52.869
+Anthony Taylor: Okay. So I'm gonna put you in your groups. What you're gonna do
+
+122
+00:10:52.980 --> 00:10:56.109
+Anthony Taylor: is you're gonna come in here. And you could basically just do a runoff.
+
+123
+00:10:56.560 --> 00:10:59.890
+Anthony Taylor: Okay? And it's going to show you some data.
+
+124
+00:11:00.420 --> 00:11:05.049
+Anthony Taylor: And then and so this is a table visualization
+
+125
+00:11:05.760 --> 00:11:08.300
+Anthony Taylor: alright. And then it's going to say
+
+126
+00:11:09.260 --> 00:11:11.100
+Anthony Taylor: so, just some basic questions.
+
+127
+00:11:11.330 --> 00:11:18.340
+Anthony Taylor: All right, actually, is what the interesting thing is, I'm not sure why they did this. They put like, the salute, like my notes
+
+128
+00:11:18.360 --> 00:11:21.870
+Anthony Taylor: are in your notebook.
+
+129
+00:11:22.270 --> 00:11:35.499
+Anthony Taylor: Okay? So yes, these are possible answers. But if you guys come up with other answers to you know, what patterns and relationships are you interested in exploring. How might you use visualizations to gain insight on global app?
+
+130
+00:11:36.940 --> 00:11:37.970
+Anthony Taylor: Okay?
+
+131
+00:11:38.060 --> 00:11:48.180
+Anthony Taylor: So you look at this data and you guys could talk about it for a few seconds, few minutes. Okay, and that's all this is, here's a bar chart, what? It's gonna ask you similar questions.
+
+132
+00:11:48.390 --> 00:11:51.630
+Anthony Taylor: Couple of bar charts. You don't have to code them yet.
+
+133
+00:11:51.710 --> 00:11:54.189
+Anthony Taylor: But then it's gonna ask some questions about.
+
+134
+00:11:54.540 --> 00:11:58.880
+Anthony Taylor: you know, does this change or help? You know what you're trying to do?
+
+135
+00:11:59.130 --> 00:12:02.359
+Anthony Taylor: Okay? And then, lastly, a line chart.
+
+136
+00:12:03.260 --> 00:12:05.320
+Anthony Taylor: You're gonna learn how to make this today.
+
+137
+00:12:07.920 --> 00:12:13.329
+Anthony Taylor: Tell us what this, what this means to you, based on the happiness over time. And then a scatter point.
+
+138
+00:12:15.870 --> 00:12:16.730
+Anthony Taylor: Okay.
+
+139
+00:12:17.980 --> 00:12:27.019
+Anthony Taylor: so just real quick couple of points about all of these things. So a bar chart is typically some categorical value
+
+140
+00:12:28.420 --> 00:12:34.380
+Anthony Taylor: and the numeric representation of that. Now, what does that mean? So that means
+
+141
+00:12:34.820 --> 00:12:38.770
+Anthony Taylor: the category is down. Here is your Xx.
+
+142
+00:12:38.940 --> 00:12:47.529
+Anthony Taylor: I mean, you could have a horizontal. You could have a horizontal bar chart. But we're going to stay with this guy. So our X-axis, our our categorical variable.
+
+143
+00:12:47.550 --> 00:12:49.069
+Anthony Taylor: In this case it's country.
+
+144
+00:12:50.000 --> 00:12:56.140
+Anthony Taylor: The value in this case is this happiness value.
+
+145
+00:12:57.480 --> 00:13:01.690
+Anthony Taylor: So bar charts are univariate. One variable
+
+146
+00:13:03.630 --> 00:13:08.870
+Anthony Taylor: got it? The variable is whatever the bar itself is represented.
+
+147
+00:13:10.190 --> 00:13:11.160
+Anthony Taylor: Okay.
+
+148
+00:13:11.300 --> 00:13:16.480
+Anthony Taylor: when we get into line charts, we are also still
+
+149
+00:13:16.530 --> 00:13:22.789
+Anthony Taylor: in the univariate range. But you can have multiple lines on a line chart which is kind of interesting.
+
+150
+00:13:22.800 --> 00:13:27.450
+Anthony Taylor: But see here again, we basically have a category in this case here
+
+151
+00:13:28.040 --> 00:13:29.960
+Anthony Taylor: running across the X-axis.
+
+152
+00:13:30.150 --> 00:13:33.820
+Anthony Taylor: And then we have average global happiness over time.
+
+153
+00:13:35.380 --> 00:13:37.850
+Anthony Taylor: Okay. Now.
+
+154
+00:13:38.090 --> 00:13:41.910
+Anthony Taylor: well, yeah, in this case you would have to do average because you're doing a whole year at a time.
+
+155
+00:13:42.720 --> 00:13:43.660
+Anthony Taylor: Okay?
+
+156
+00:13:45.420 --> 00:13:49.650
+Anthony Taylor:  and then scatter plots are multivariate.
+
+157
+00:13:49.990 --> 00:13:56.540
+Anthony Taylor: There is no such thing as a unit variant scatterplot. You must have an X, and you must have a Y
+
+158
+00:13:56.580 --> 00:13:57.819
+Anthony Taylor: at a minimum.
+
+159
+00:13:59.430 --> 00:14:05.050
+Anthony Taylor: Eventually, when we talk about multilinear regression. we will talk about other
+
+160
+00:14:05.210 --> 00:14:08.159
+Anthony Taylor: axes. We're not gonna have to plot them, thank God.
+
+161
+00:14:08.680 --> 00:14:13.440
+Anthony Taylor: okay, but you will always have an X and y, so
+
+162
+00:14:13.650 --> 00:14:16.590
+Anthony Taylor: this is comparing wealth and happiness.
+
+163
+00:14:17.160 --> 00:14:19.570
+Anthony Taylor: more wealth. more happiness.
+
+164
+00:14:22.130 --> 00:14:23.649
+Anthony Taylor: That's what this chart said.
+
+165
+00:14:23.750 --> 00:14:26.150
+Anthony Taylor: and there is clearly
+
+166
+00:14:26.700 --> 00:14:38.710
+Anthony Taylor: a correlation for those that don't know what a correlation is if both sides are going up. that's a correlation. if both sides are going down. that's also a correlation.
+
+167
+00:14:39.810 --> 00:14:49.149
+Anthony Taylor: If the if the plot. If the dots they're all over the map, and you can't see you can't really draw a line through the middle of it that goes up or down.
+
+168
+00:14:49.440 --> 00:14:51.110
+Anthony Taylor: Probably not a correlation.
+
+169
+00:14:52.580 --> 00:14:55.980
+Anthony Taylor: Okay, correlations are vital
+
+170
+00:14:56.080 --> 00:15:03.620
+Anthony Taylor: for us as machine learning professionals. Let's let's just remember what the definition of machine learning
+
+171
+00:15:04.360 --> 00:15:09.359
+Anthony Taylor: we are going to attempt to make predictions based on path history.
+
+172
+00:15:09.920 --> 00:15:15.850
+Anthony Taylor: If nothing is correlated. everything was random. cannot make a prediction.
+
+173
+00:15:18.660 --> 00:15:26.820
+Anthony Taylor: got it. But just because things appear to be correlated does not also mean that you can make a prediction.
+
+174
+00:15:27.260 --> 00:15:33.919
+Anthony Taylor: There are lots of things, and this is where science gets crazy. And you see, like you hear? You know people well.
+
+175
+00:15:34.850 --> 00:15:44.930
+Anthony Taylor: euro people who wear baseball caps and buy ice cream are correlated. So therefore.
+
+176
+00:15:45.480 --> 00:15:48.970
+Anthony Taylor: best place to sell ice cream is where people wear baseball
+
+177
+00:15:49.650 --> 00:15:52.520
+Anthony Taylor: right? Ridiculous.
+
+178
+00:15:52.800 --> 00:15:56.159
+Anthony Taylor: Okay, but there might be a correlation that we don't know.
+
+179
+00:15:56.860 --> 00:16:02.840
+Anthony Taylor: So the explanation of that correlation so like this one just says, for instance, does this appear to be a correlation
+
+180
+00:16:03.940 --> 00:16:05.980
+Anthony Taylor: just looking at it? The answer's no.
+
+181
+00:16:06.470 --> 00:16:08.079
+Anthony Taylor: okay. We did
+
+182
+00:16:08.350 --> 00:16:14.969
+Anthony Taylor: quantitatively touch this. Maybe that's a little bit one. But it'd be minor if it
+
+183
+00:16:16.570 --> 00:16:19.180
+Anthony Taylor: okay. But anyway.
+
+184
+00:16:20.600 --> 00:16:27.399
+Anthony Taylor: okay, so that's what you guys are. Gonna do kind of went over the last part of it already. Now, but you guys can do it.
+
+185
+00:16:28.270 --> 00:16:36.830
+Anthony Taylor:  yeah, it's just 15 min. So we'll do this one. This is a good one.
+
+186
+00:16:37.420 --> 00:16:39.170
+Anthony Taylor: Aye, well, bye.
+
+187
+00:16:39.940 --> 00:16:41.440
+michael mcpherson: hey, where's everybody at?
+
+188
+00:16:42.510 --> 00:16:46.389
+Baro, Sonja: Because it was just so.
+
+189
+00:16:47.130 --> 00:16:51.120
+michael mcpherson: because because this computer does some really, really crappy crap.
+
+190
+00:16:52.400 --> 00:16:55.389
+Masarirambi, Rodney: Well, there are today. That's your new one.
+
+191
+00:16:55.770 --> 00:17:01.110
+michael mcpherson: Is this your new one. Michael. Yeah, yeah. Me and windows 11. We're not friends right now.
+
+192
+00:17:01.220 --> 00:17:05.920
+michael mcpherson: We're I've been having fights with one drive for 3 days.
+
+193
+00:17:06.069 --> 00:17:11.550
+michael mcpherson: and I finally got rid of one drive today.
+
+194
+00:17:12.250 --> 00:17:14.659
+Baro, Sonja: The windows biased.
+
+195
+00:17:15.000 --> 00:17:22.069
+Anthony Taylor: No problem beyond computer at all.
+
+196
+00:17:22.930 --> 00:17:27.729
+Anthony Taylor: Say what that at all. I don't doubt that Linda's is having an issue with Dion
+
+197
+00:17:27.800 --> 00:17:30.589
+Anthony Taylor: the whole different processor architecture. So.
+
+198
+00:17:30.840 --> 00:17:44.499
+michael mcpherson: But anyway, moving on, I can run about 40 different virtual machines on 40 different things. With this well, then run a virtual machine on windows with windows on it, and try to use stuff
+
+199
+00:17:45.410 --> 00:17:48.859
+Anthony Taylor: or run docker even better. You learn, docker man.
+
+200
+00:17:49.660 --> 00:17:51.430
+Anthony Taylor: that's some big box right there.
+
+201
+00:17:51.490 --> 00:17:55.479
+Anthony Taylor: Alright. So let's talk about sorry, Doc.
+
+202
+00:17:56.370 --> 00:18:04.829
+Anthony Taylor: let's talk about that exercise. There's not a whole lot we can converse about. But let's hear what some people have some thoughts on.
+
+203
+00:18:04.870 --> 00:18:06.710
+Anthony Taylor: So let's talk about the first question.
+
+204
+00:18:06.760 --> 00:18:17.149
+Anthony Taylor: After reviewing data set, what patterns of relationships are you interested in exploring? And how might you use visualizations to do so? So don't give me the answers that are at the bottom.
+
+205
+00:18:17.980 --> 00:18:23.370
+Anthony Taylor: Well, I mean, unless that's your answer. So somebody anybody unmute? Tell me what
+
+206
+00:18:23.580 --> 00:18:25.370
+Anthony Taylor: what your group came up with.
+
+207
+00:18:31.920 --> 00:18:34.670
+michael mcpherson: I usually let let Syndic go over that.
+
+208
+00:18:34.730 --> 00:18:36.410
+michael mcpherson: She she was rocking it.
+
+209
+00:18:36.440 --> 00:18:38.310
+Anthony Taylor: Cindy, talk to me.
+
+210
+00:18:39.160 --> 00:18:41.970
+Anthony Taylor: She's like, what stop it.
+
+211
+00:18:42.190 --> 00:18:43.280
+Sihong Zhou: Okay? So
+
+212
+00:18:43.850 --> 00:18:52.399
+Sihong Zhou: no, she was doing really, really? Well, yeah, after our kind of discussion, I think.
+
+213
+00:18:52.820 --> 00:18:58.729
+Sihong Zhou: the most kind of happiness. Country are Europe.
+
+214
+00:18:58.850 --> 00:19:06.319
+Sihong Zhou: you know, and and we think the happiness
+
+215
+00:19:06.760 --> 00:19:08.780
+Sihong Zhou: among people kind of
+
+216
+00:19:09.340 --> 00:19:20.709
+Sihong Zhou: Ver pretty kind of high cause almost the majority of people feel happy between 4 between the range of 4 to 7,
+
+217
+00:19:21.320 --> 00:19:27.280
+Sihong Zhou: and we discussed a little bit about how to form the X
+
+218
+00:19:27.830 --> 00:19:33.080
+Sihong Zhou: X plot and a Y plot and change the roles.
+
+219
+00:19:33.160 --> 00:19:38.240
+Sihong Zhou: And yeah, that's our result.
+
+220
+00:19:38.280 --> 00:19:43.360
+Sihong Zhou: That sounds good. Alright. Let's go to the second question. Then I like that
+
+221
+00:19:43.460 --> 00:19:45.150
+Anthony Taylor: second one.
+
+222
+00:19:46.130 --> 00:19:50.580
+Anthony Taylor: What do these charts? So, referring to the block, the blar charts actually
+
+223
+00:19:50.800 --> 00:19:58.390
+Anthony Taylor: think, Cindy kind of said some of this. But that's okay. what what about on the bar charts? Anybody want to say what they see or what they're thinking
+
+224
+00:19:59.020 --> 00:20:08.350
+Clayton Graves: based on the bar charts? People that wake up in countries and then have to tell their families. Oh, Crap! Are cutting up all our heads today
+
+225
+00:20:08.390 --> 00:20:10.300
+Clayton Graves: tend to be less happy
+
+226
+00:20:10.730 --> 00:20:14.249
+Clayton Graves: then those of us that don't have to worry about that.
+
+227
+00:20:15.000 --> 00:20:18.470
+Anthony Taylor: That is probably true. I'm guessing
+
+228
+00:20:18.500 --> 00:20:22.869
+Anthony Taylor: sure there is a correlation to beheadings and low happiness.
+
+229
+00:20:23.910 --> 00:20:25.130
+I'm pretty sure
+
+230
+00:20:25.800 --> 00:20:36.279
+Gebrekristos, Hafton: if you look at the Scandinavian and
+
+231
+00:20:36.410 --> 00:20:37.240
+michael mcpherson: and
+
+232
+00:20:37.410 --> 00:20:41.400
+michael mcpherson: the orange ones. All of these countries have a
+
+233
+00:20:41.790 --> 00:20:46.500
+michael mcpherson: a per capita Gdp, relatively high.
+
+234
+00:20:46.980 --> 00:21:02.170
+michael mcpherson: You know, like the United States is in in the fifties, Denmark, Finland, in Norway, in the $60,000 a year you go down to South Sudan, Togo, the Central African, Burundi, and Rwanda.
+
+235
+00:21:02.770 --> 00:21:08.940
+michael mcpherson: Half the population in those countries are are most of the population and all of the countries right there are
+
+236
+00:21:08.950 --> 00:21:13.050
+michael mcpherson: are at or around the International
+
+237
+00:21:13.330 --> 00:21:14.929
+michael mcpherson: that the global
+
+238
+00:21:14.970 --> 00:21:16.320
+michael mcpherson: poverty level.
+
+239
+00:21:16.500 --> 00:21:20.289
+michael mcpherson: which is 2 ter $2 per day.
+
+240
+00:21:21.340 --> 00:21:29.659
+Anthony Taylor: And and I would say, if you look at like these first 5, maybe 10 countries, they probably all have excessive drinking and legalized pot.
+
+241
+00:21:30.510 --> 00:21:38.489
+michael mcpherson: So that might also be a reason. They're happier again. Correlation, not causation.
+
+242
+00:21:52.810 --> 00:22:06.499
+michael mcpherson: Yeah, I think we're just in the top 10 top 5, just by myself.
+
+243
+00:22:06.920 --> 00:22:09.390
+Anthony Taylor: There you go, because you're so bang happy.
+
+244
+00:22:09.520 --> 00:22:19.610
+Baro, Sonja: I love that, I think what's interesting, too, is. But with both the the groupings right highest and lowest. You don't see dramatic shifts
+
+245
+00:22:19.870 --> 00:22:21.170
+Baro, Sonja: between them.
+
+246
+00:22:21.620 --> 00:22:33.140
+Baro, Sonja: Remember, on the previous one we only had 2 that were really dramatically different on either end
+
+247
+00:22:33.700 --> 00:22:35.950
+Baro, Sonja: right if we look there right? So
+
+248
+00:22:36.090 --> 00:23:00.729
+Baro, Sonja: so what's interesting? What we were talking about there was not only was the that it wasn't big swings. But we're also looking at like, what more do we need to know about the source of the data to see? Are there inherent biases in the information like, you know how may and what percentage of the data is coming from these different
+
+249
+00:23:00.890 --> 00:23:21.860
+Baro, Sonja: sources, like, if the Scandinavian or you know the makeup of the data is skewed to have more coming from the industrialized or European, or whatever grouping we wanna call them? Does that influence it, or vice versa? So about that.
+
+250
+00:23:22.600 --> 00:23:26.879
+Anthony Taylor: Well, even just looking at the data, I mean, one thing that that jumps out at me
+
+251
+00:23:27.310 --> 00:23:32.189
+Anthony Taylor: right is they. They talk about wealth.
+
+252
+00:23:32.560 --> 00:23:35.009
+Anthony Taylor: but they don't talk about wealth, distribution.
+
+253
+00:23:35.310 --> 00:23:37.900
+Anthony Taylor: right countries like
+
+254
+00:23:37.930 --> 00:23:39.250
+Anthony Taylor: Arabia.
+
+255
+00:23:39.940 --> 00:23:46.259
+Anthony Taylor: There are. There's tremendous amount of wealth like, you know, 40 people that have
+
+256
+00:23:46.610 --> 00:23:50.589
+michael mcpherson: right. There's something I mean, I know that's and nobody else is brought up either
+
+257
+00:23:50.740 --> 00:23:54.680
+michael mcpherson: in the Orange countries from left to right.
+
+258
+00:23:55.500 --> 00:23:59.100
+michael mcpherson: Denmark is the most free.
+
+259
+00:24:00.310 --> 00:24:11.919
+michael mcpherson: Ireland is a little less free than we are in the United States. If you go down to the blue. these countries are all excessively not only poor.
+
+260
+00:24:12.050 --> 00:24:14.120
+michael mcpherson: but their people are are
+
+261
+00:24:14.860 --> 00:24:17.360
+michael mcpherson: subjugated severely.
+
+262
+00:24:18.060 --> 00:24:19.059
+Anthony Taylor: There you go!
+
+263
+00:24:19.410 --> 00:24:31.010
+Anthony Taylor: III don't know. I mean I don't. I don't know all the those type thing. What I will say this the one for 1, one observation I wouldn't say about this is, almost every one of these measures
+
+264
+00:24:31.130 --> 00:24:34.330
+Anthony Taylor: are completely your opinion
+
+265
+00:24:35.230 --> 00:24:38.669
+Anthony Taylor: right? Do you feel positive or negative
+
+266
+00:24:38.820 --> 00:24:41.709
+Anthony Taylor: you, I mean, and that could change by the day.
+
+267
+00:24:42.890 --> 00:24:46.409
+Anthony Taylor: Right? You know. Corruption. Okay.
+
+268
+00:24:46.890 --> 00:24:59.870
+Anthony Taylor: that one is a measurable measure. right? But generosity. I mean? You could say, Oh, well, you know people give to more charities, you know, so it's a more generous place. But then again.
+
+269
+00:24:59.950 --> 00:25:05.629
+Anthony Taylor: I mean almost everywhere in this country right now. There's a homeless person on a red light.
+
+270
+00:25:05.650 --> 00:25:08.719
+Anthony Taylor: and maybe you give to that person every single day. But that's not measured
+
+271
+00:25:09.030 --> 00:25:10.600
+Baro, Sonja: right? Right.
+
+272
+00:25:10.620 --> 00:25:21.899
+Anthony Taylor: you know freedom, I mean. Come on. Yes. you know. But I mean, here in the United States we have, you know, the highest number of incarcerated individuals on the planet.
+
+273
+00:25:23.060 --> 00:25:28.960
+Baro, Sonja: Well, remember, you gotta reference their definitions right? Not what we think these things mean.
+
+274
+00:25:29.370 --> 00:25:40.060
+Baro, Sonja: So in this case, yeah, if you're incarcerated, yeah, you don't get to make you don't. You're not very satisfied with your individual freedom to make a life choices
+
+275
+00:25:40.150 --> 00:25:46.569
+Anthony Taylor: included in this survey.
+
+276
+00:25:46.880 --> 00:26:02.349
+Baro, Sonja: Right? But it's also my whole point was just to say, Hey, you gotta make sure you look at what they're defining it to mean and to be, not to make, not for us to assume what it meant, cause that came up when we were talking about generosity.
+
+277
+00:26:02.350 --> 00:26:27.289
+Baro, Sonja: And one thing they don't capture, I just wanna put a underline. What you just said, Anthony, is that this is very biased from a Western civilization type of evaluation. Natalie brought out some great points in our conversation around the value of culture and community. And what does that look like and mean? And that's not being measured here.
+
+278
+00:26:28.820 --> 00:26:29.900
+Baro, Sonja: So anyway.
+
+279
+00:26:30.280 --> 00:26:36.029
+michael mcpherson: I can tell you that almost all of the these types of data sets are run by
+
+280
+00:26:36.150 --> 00:26:55.179
+michael mcpherson: banks, economists and government organizations. And they're all they're all based off people taking, you know. How do you feel about your job while you're walking into the grocery store?
+
+281
+00:26:55.450 --> 00:27:00.789
+michael mcpherson:  this is life's true major part of mind. You're gonna you're going like economics
+
+282
+00:27:00.980 --> 00:27:10.070
+michael mcpherson: is about economic development. So alright. So let's keep going. I mean, I love. Actually, I could do this for the whole class. But
+
+283
+00:27:10.360 --> 00:27:17.230
+Anthony Taylor: now we have to keep moving. So in this one, there's really only one. There's average global happiness and average global wealth.
+
+284
+00:27:17.480 --> 00:27:24.580
+Anthony Taylor: And they want you to tell us, what do you think about these 2 line charts? I can't get them on the same screen. But
+
+285
+00:27:25.650 --> 00:27:30.349
+Anthony Taylor: that's what they look like. So basically, they look identical, right or anything close.
+
+286
+00:27:32.520 --> 00:27:40.860
+Anthony Taylor: Okay? So that's basically, you know, is this proving that money can, in fact. thy happiness?
+
+287
+00:27:41.880 --> 00:27:45.699
+Mason, Natalie: We were wondering what the plummet was.
+
+288
+00:27:46.500 --> 00:27:49.950
+Anthony Taylor: That's cause it started at some weird number. Nothing.
+
+289
+00:27:50.790 --> 00:27:52.950
+Anthony Taylor: Yeah, this is the first.
+
+290
+00:27:52.960 --> 00:27:57.039
+Anthony Taylor: This is the first data point. So it's really just a badly done chart.
+
+291
+00:27:57.690 --> 00:27:59.469
+Anthony Taylor: It should have started right here.
+
+292
+00:27:59.650 --> 00:28:02.570
+Mason, Natalie: Gotcha. So it's always riz. It's always been rising.
+
+293
+00:28:03.700 --> 00:28:04.400
+Anthony Taylor: So.
+
+294
+00:28:04.600 --> 00:28:09.230
+Clayton Graves: Bill, I love. I would have loved to have seen what Covid did to those numbers.
+
+295
+00:28:10.080 --> 00:28:16.910
+Anthony Taylor: Yeah, these these particular ones don't include Covid. but I don't know, I think
+
+296
+00:28:17.550 --> 00:28:23.980
+Anthony Taylor: didn't. As a country, anyway, the United States, I'm pretty sure they said that our wealth actually went up during Covid
+
+297
+00:28:24.010 --> 00:28:26.020
+Anthony Taylor: because we weren't out spending money.
+
+298
+00:28:26.840 --> 00:28:36.930
+Anthony Taylor: you know, which is checked up is the question. Same people that had jobs. There you go. I like it. Okay, that's a good point, Mike.
+
+299
+00:28:37.050 --> 00:28:41.580
+Anthony Taylor: Savings not wealth. They're not spending it. That messes up everybody else.
+
+300
+00:28:42.320 --> 00:28:44.050
+Anthony Taylor: So yeah.
+
+301
+00:28:44.290 --> 00:28:46.839
+Anthony Taylor: we are in a country, we we must spend.
+
+302
+00:28:47.520 --> 00:28:49.540
+Anthony Taylor: Okay? And then last.
+
+303
+00:28:50.120 --> 00:29:00.369
+Anthony Taylor: we have some correlations. What do you notice about the relationship between happiness and wealth? How does this relate to what you learned about how happiness and wealth vary over time? Well, this
+
+304
+00:29:00.600 --> 00:29:05.499
+Anthony Taylor: agrees with this. With the statement we made here. they seem very much
+
+305
+00:29:05.820 --> 00:29:07.760
+Anthony Taylor: related, correlated
+
+306
+00:29:07.840 --> 00:29:12.580
+Anthony Taylor: right, and this definitely appears to be a correlation. a positive correlation.
+
+307
+00:29:12.910 --> 00:29:15.370
+Anthony Taylor: Wealthy equates to happy.
+
+308
+00:29:16.390 --> 00:29:20.580
+Anthony Taylor: at least with this data, right or wrong. That's what the data says.
+
+309
+00:29:20.960 --> 00:29:21.960
+Anthony Taylor: Okay.
+
+310
+00:29:22.290 --> 00:29:27.009
+Anthony Taylor:  what do you notice about the relationship between happiness and generosity?
+
+311
+00:29:28.740 --> 00:29:33.650
+Mason, Natalie: Well, they're only talking about? What was it?
+
+312
+00:29:34.880 --> 00:29:37.300
+Mason, Natalie: Donating to charitable causes
+
+313
+00:29:38.380 --> 00:29:40.790
+Anthony Taylor: so like Salvation Army and
+
+314
+00:29:41.290 --> 00:29:42.420
+Anthony Taylor: goodwill. And
+
+315
+00:29:44.060 --> 00:29:49.579
+Clayton Graves: yeah, I mean saving an extra large chip for for a waitress could be
+
+316
+00:29:49.750 --> 00:29:50.850
+Clayton Graves: generous.
+
+317
+00:29:51.070 --> 00:30:00.170
+Anthony Taylor: But that's not that is paying for service. But yeah, I mean, I follow where you're going that somebody who does that consistently I would consider generous.
+
+318
+00:30:00.300 --> 00:30:08.009
+Anthony Taylor: you know. But but I and I follow. I agree. But I mean this. So when that was just pointing out that this is only measuring.
+
+319
+00:30:08.090 --> 00:30:09.190
+Anthony Taylor: basically
+
+320
+00:30:09.410 --> 00:30:23.159
+Clayton Graves: donations that are taxed to the guy on the corner.
+
+321
+00:30:23.630 --> 00:30:25.880
+Clayton Graves: It's not taxes.
+
+322
+00:30:25.950 --> 00:30:27.960
+Anthony Taylor: You can't prove. The point is
+
+323
+00:30:54.180 --> 00:31:06.589
+Baro, Sonja: we did in our group, too. We start like applying our own thing like. Here's what I think this is, but that's not what the data was measured to communicate.
+
+324
+00:31:06.670 --> 00:31:09.389
+Anthony Taylor: The measure has to have something measurable
+
+325
+00:31:09.580 --> 00:31:26.180
+Anthony Taylor: donating or giving money to somebody at a red light is not measurable. That's right. So the only thing that we can use to measure donations to a charity would be tax refund tax reports, and those are deceptible like clothing to goodwill and
+
+326
+00:31:26.350 --> 00:31:30.480
+Anthony Taylor: cash to, you know. Yeah, the cancer society and stuff like that.
+
+327
+00:31:30.860 --> 00:31:37.950
+Anthony Taylor: So so I I'm not arguing with you. I love this conversation. All I'm saying is
+
+328
+00:31:37.990 --> 00:31:39.140
+Anthony Taylor: is that
+
+329
+00:31:39.300 --> 00:31:52.629
+Anthony Taylor: to me that is yet another bias. right? Because not all countries even track these things right? And not all people think that giving to good will is a good idea, because
+
+330
+00:31:52.680 --> 00:31:56.340
+Anthony Taylor: you know, 80% of what you give them is going to go to running the company.
+
+331
+00:31:57.400 --> 00:32:06.670
+Anthony Taylor: you know, or I don't know if that's true. It's just a number I just made up. But we could Google it. But anyway, okay, so let's keep going. So happiness, generosity.
+
+332
+00:32:07.460 --> 00:32:13.349
+Anthony Taylor: apparently I don't have any correlation whatsoever. If you're more, you know, just because the country has more
+
+333
+00:32:13.810 --> 00:32:18.559
+Anthony Taylor: quote. Unquote, generous people does not mean they are happier or vice versa.
+
+334
+00:32:18.670 --> 00:32:25.870
+Anthony Taylor: just because you're happy. Don't mean, I think that's interesting, because I know if financially everything's going well.
+
+335
+00:32:25.880 --> 00:32:30.850
+Anthony Taylor: I'm certainly more likely to be more generous. But whatever
+
+336
+00:32:31.600 --> 00:32:34.959
+Anthony Taylor:  wealth and generosity.
+
+337
+00:32:35.360 --> 00:32:36.190
+Anthony Taylor: huh!
+
+338
+00:32:38.310 --> 00:32:39.430
+Anthony Taylor: Correlated
+
+339
+00:32:42.090 --> 00:32:46.690
+Clayton Graves: suggestion or correlation there, it's just easy.
+
+340
+00:32:47.220 --> 00:32:51.179
+Baro, Sonja: Well, the more you keep it.
+
+341
+00:32:51.550 --> 00:32:58.900
+Anthony Taylor: it's I mean, that line line through the middle of this line. But it's gonna be very low.
+
+342
+00:32:59.250 --> 00:33:02.710
+Baro, Sonja: Yeah, this this would definitely qualify as
+
+343
+00:33:02.730 --> 00:33:04.980
+Anthony Taylor: no reasonable correlation.
+
+344
+00:33:05.680 --> 00:33:11.799
+Anthony Taylor: But but I mean, it's a straight line doesn't. Okay, that's it. So fun.
+
+345
+00:33:11.950 --> 00:33:13.010
+Anthony Taylor: alright. So
+
+346
+00:33:13.830 --> 00:33:20.249
+Anthony Taylor: what we just talked about is really more of a data analytics exercise. Okay, so we have data
+
+347
+00:33:20.560 --> 00:33:28.170
+Anthony Taylor: and we chart it. We visualize it. And we talk about what these visualizations mean. this is a data analyst's job.
+
+348
+00:33:29.200 --> 00:33:30.230
+Anthony Taylor: Alright
+
+349
+00:33:30.470 --> 00:33:36.940
+Anthony Taylor: this is this particular one has some explanatory and some exploratory
+
+350
+00:33:37.040 --> 00:33:38.160
+Anthony Taylor: situations.
+
+351
+00:33:38.650 --> 00:33:49.150
+Anthony Taylor: Okay, primarily, the exploratory is more down here in this caterpillar, you can argue well, is it this exploratory? Yes, but it also explains
+
+352
+00:33:49.610 --> 00:33:55.870
+Anthony Taylor: this average. You know, moving across these categories. Same with the spars. Okay.
+
+353
+00:33:56.070 --> 00:33:58.300
+Anthony Taylor: so interesting stuff.
+
+354
+00:33:59.090 --> 00:34:02.040
+So let's learn how to make these charts ourselves.
+
+355
+00:34:02.470 --> 00:34:11.110
+Anthony Taylor: So everybody go to my solution. Because the first thing you're gonna oh, like, no, this one. We're not gonna do it in a minute. I'm gonna make you guys change the first cell on every single notebook.
+
+356
+00:34:11.310 --> 00:34:14.509
+Anthony Taylor: But for right now. this one you don't need to.
+
+357
+00:34:14.670 --> 00:34:21.779
+Anthony Taylor: So we're going to import a brand new library. If if you get module not found, what are you gonna do?
+
+358
+00:34:23.870 --> 00:34:25.759
+Meredith McCanse (she/her): You won't. Tippin's call
+
+359
+00:34:26.100 --> 00:34:36.019
+Anthony Taylor: hip, install. Matt plot lid. Okay, not meant plot. Iplt. Just map plot. Thin. alright. So we're gonna run this guy.
+
+360
+00:34:37.080 --> 00:34:46.849
+Anthony Taylor: We've used this before. This is numpy. If you don't remember, I'm happy to explain. This is going to create an array or list.
+
+361
+00:34:46.969 --> 00:34:57.110
+Anthony Taylor: It will start with 0. It will end with 5. It will increment in one tenth of a point increments. And it will look
+
+362
+00:34:57.480 --> 00:34:58.460
+Anthony Taylor: like that
+
+363
+00:34:59.750 --> 00:35:02.020
+Anthony Taylor: 0 5
+
+364
+00:35:04.470 --> 00:35:06.890
+Anthony Taylor: death point increments. Okay.
+
+365
+00:35:07.290 --> 00:35:09.989
+Anthony Taylor: now, we're going to take this list.
+
+366
+00:35:10.200 --> 00:35:13.800
+Anthony Taylor: We're gonna run it through a list comprehension and
+
+367
+00:35:13.950 --> 00:35:17.020
+Anthony Taylor: create an exponential series of values.
+
+368
+00:35:17.100 --> 00:35:22.040
+Anthony Taylor: So basically for each one of these, it's gonna run the X method
+
+369
+00:35:22.250 --> 00:35:25.310
+Anthony Taylor: and give us those?
+
+370
+00:35:26.970 --> 00:35:27.970
+Anthony Taylor: Okay?
+
+371
+00:35:30.150 --> 00:35:38.610
+Meredith McCanse (she/her): And are those, how did the exponential values get calculated? Is it just. or do we care? Is that not relevant?
+
+372
+00:35:38.620 --> 00:35:45.329
+Anthony Taylor: I mean, we can see if it comes up. There you go. Calculates the exponential of all elements in the get. Put array.
+
+373
+00:35:46.630 --> 00:35:49.610
+Anthony Taylor: and there's the documentation for it.
+
+374
+00:35:53.140 --> 00:35:53.870
+Anthony Taylor: Yep.
+
+375
+00:35:55.160 --> 00:35:59.709
+Anthony Taylor: So that's what that is. So it's I mean for this. It's just generating data.
+
+376
+00:35:59.720 --> 00:36:02.869
+Anthony Taylor: It's it's both. I mean, it's just random data at this point.
+
+377
+00:36:03.000 --> 00:36:04.940
+Meredith McCanse (she/her): So once we have
+
+378
+00:36:05.040 --> 00:36:10.650
+Anthony Taylor: our X, so these will be our layer. X, okay.
+
+379
+00:36:10.890 --> 00:36:13.600
+Anthony Taylor: and these are going to be our values. Our why.
+
+380
+00:36:14.380 --> 00:36:18.090
+Anthony Taylor: X goes along the bottom of the chart. Y goes up and down.
+
+381
+00:36:19.020 --> 00:36:24.080
+Anthony Taylor: Okay, so we're going to do Plt, which is
+
+382
+00:36:24.890 --> 00:36:27.419
+Anthony Taylor: the alias we use for map Flatlib
+
+383
+00:36:29.830 --> 00:36:31.190
+Anthony Taylor: Dot plot
+
+384
+00:36:32.690 --> 00:36:38.300
+Anthony Taylor: and then pass in X and Y. That's it. Then tell it to show.
+
+385
+00:36:39.410 --> 00:36:48.669
+Anthony Taylor: And that's what we made. We made a line chart where X is 0 1, 2, 3, 4, 5, and are exponential diaries. Of this.
+
+386
+00:36:48.870 --> 00:36:56.379
+Anthony Taylor: One of the reasons we use that ext just so, you know, is that this curve is very clearly an exponential curve.
+
+387
+00:36:57.530 --> 00:37:00.140
+Anthony Taylor: Okay, that's what they will always look like if they have
+
+388
+00:37:00.300 --> 00:37:07.159
+Anthony Taylor: exact exponential. Alright, do you need to remember that. Nope, you don't remember that.
+
+389
+00:37:07.440 --> 00:37:10.150
+Anthony Taylor: Just understand, that's the curve we were trying to make.
+
+390
+00:37:11.250 --> 00:37:18.859
+Anthony Taylor: Okay. we can add things to this. So the line chart by itself. Fine.
+
+391
+00:37:18.900 --> 00:37:24.749
+Anthony Taylor: We in this room only understand it because we coded it. We made up the data.
+
+392
+00:37:25.270 --> 00:37:28.849
+Anthony Taylor: but if you were to show this to somebody they'd be like, what the heck is that
+
+393
+00:37:29.450 --> 00:37:34.070
+Anthony Taylor: so we can add a label by putting PLT.
+
+394
+00:37:34.810 --> 00:37:38.350
+Anthony Taylor: Dot X label. That's going to be the label on the bottom.
+
+395
+00:37:38.960 --> 00:37:43.260
+Anthony Taylor: but in a text a string Y label that would be the vertical
+
+396
+00:37:44.470 --> 00:37:46.919
+Anthony Taylor: label put in string.
+
+397
+00:37:47.470 --> 00:37:51.859
+Anthony Taylor: Then we can plot. So you would do this, and then you would create a new plot.
+
+398
+00:37:52.860 --> 00:37:54.550
+Anthony Taylor: and it would look like that
+
+399
+00:37:55.930 --> 00:38:02.300
+michael mcpherson: pretty cool. So now we're gonna do some trigonometric
+
+400
+00:38:02.760 --> 00:38:04.440
+michael mcpherson: signs themselves.
+
+401
+00:38:04.520 --> 00:38:06.939
+Baro, Sonja: Hey, Michael, do you wanna mute?
+
+402
+00:38:07.260 --> 00:38:10.629
+Baro, Sonja: You got some kids in the background. But some kids nice.
+
+403
+00:38:11.900 --> 00:38:13.360
+Baro, Sonja: Thank you.
+
+404
+00:38:13.680 --> 00:38:19.869
+Anthony Taylor: Okay, so here, we're going 0 to 6 at point one increments. That's our X.
+
+405
+00:38:20.370 --> 00:38:22.580
+Anthony Taylor: Then we're going to run sign
+
+406
+00:38:22.680 --> 00:38:25.839
+Anthony Taylor: on all the values in our X
+
+407
+00:38:26.060 --> 00:38:33.260
+Anthony Taylor: list and put those in a new list called Sign. or I do the same thing with Cosi.
+
+408
+00:38:34.350 --> 00:38:41.560
+Anthony Taylor: Okay, now, this is important for the next activity. You could put 2 lines on a single chart
+
+409
+00:38:43.220 --> 00:38:46.170
+Anthony Taylor: the way you do it. Do plt plot.
+
+410
+00:38:46.430 --> 00:38:51.739
+Anthony Taylor: You have to have the same X axes. but you could have a different y axis.
+
+411
+00:38:53.120 --> 00:38:59.150
+Anthony Taylor: So if you do this. when you show. you will have 2 lines
+
+412
+00:38:59.530 --> 00:39:04.990
+Anthony Taylor: on the same chart, and this could be 4 lines, 6 lines instead lines. How many lines?
+
+413
+00:39:06.270 --> 00:39:07.310
+Anthony Taylor: Okay.
+
+414
+00:39:07.440 --> 00:39:13.040
+Anthony Taylor: we will learn how to customize these colors. But before I leave this, how would I put
+
+415
+00:39:15.310 --> 00:39:19.219
+Anthony Taylor: a label on this pet's absence?
+
+416
+00:39:20.730 --> 00:39:23.410
+Meredith McCanse (she/her): PLT. Dot X label
+
+417
+00:39:23.580 --> 00:39:27.129
+Anthony Taylor: perfect, somebody else on the vertical axis that would I do?
+
+418
+00:39:31.700 --> 00:39:33.830
+Mason, Natalie: TLT dot X label.
+
+419
+00:39:34.420 --> 00:39:37.160
+Anthony Taylor: That was so close but wily
+
+420
+00:39:38.500 --> 00:39:43.010
+Anthony Taylor: for going up and down. Is y going across is X. Oh.
+
+421
+00:39:43.780 --> 00:39:50.610
+Anthony Taylor: but you still do fine. That's good. Okay. alright, that's it, guys, that's how you do it.
+
+422
+00:39:50.860 --> 00:39:54.080
+Anthony Taylor: That is how we make live charts. You could do this all day long
+
+423
+00:39:54.200 --> 00:39:56.750
+Anthony Taylor: tomorrow. Yeah.
+
+424
+00:39:56.940 --> 00:40:05.350
+Baro, Sonja: I was, gonna say, II wanna just put a shout out, do you ever have the humor to put the labels on that exponential graph
+
+425
+00:40:05.490 --> 00:40:07.570
+Baro, Sonja: time with map plot lib.
+
+426
+00:40:07.780 --> 00:40:19.780
+Baro, Sonja: Versus how cool it may seem the longer you're with it. That's pretty funny. I think that's good. Yeah. You know what? They're not usually that humorous. So that's good.
+
+427
+00:40:19.850 --> 00:40:26.630
+Anthony Taylor:  Okay. So with the Oh, yeah, I'm Arizona.
+
+428
+00:40:28.120 --> 00:40:30.810
+Anthony Taylor: Oh, I just II did the wrong. But
+
+429
+00:40:30.880 --> 00:40:51.939
+Meredith McCanse (she/her): nice. No worries. Question about this like, how common is like when you have in your professional experience, when you have data that you need to visualize, do you do it through python? Or do you do it? I mean, there's so many additional programs out there that can help you visualize data? Is python your first Goto, or would you work in table or somewhere else?
+
+430
+00:40:52.360 --> 00:40:55.930
+Anthony Taylor: Well, and no, not that either. So
+
+431
+00:40:56.400 --> 00:41:01.390
+Anthony Taylor: for exploratory analysis. I would do quantitative. And that's just my thing
+
+432
+00:41:01.430 --> 00:41:14.389
+Anthony Taylor: if I had to demonstrate it to like management. I'm not gonna throw them like our 2 scores and and say, Well, this score represents this data. I'm not gonna do right. Then I'll throw together some visuals.
+
+433
+00:41:14.650 --> 00:41:15.610
+Anthony Taylor: and
+
+434
+00:41:17.180 --> 00:41:24.940
+Anthony Taylor: there are some cool ones that I would use them partly that very quickly sum up. and can be used to explain to management.
+
+435
+00:41:25.380 --> 00:41:31.310
+Anthony Taylor:  there. But there's also some way easier ones to do. And like
+
+436
+00:41:31.380 --> 00:41:32.849
+Anthony Taylor: a power bi or
+
+437
+00:41:34.070 --> 00:41:36.309
+Anthony Taylor: a tableau, there are tools
+
+438
+00:41:36.510 --> 00:41:37.370
+Anthony Taylor: that
+
+439
+00:41:37.970 --> 00:41:46.949
+Anthony Taylor: just like this notebook, we have this ability to do visualization. But there are also tools. Most tools these days have at least some built in visualization.
+
+440
+00:41:47.210 --> 00:41:49.580
+Anthony Taylor: And you can do things like that.
+
+441
+00:41:49.590 --> 00:41:53.060
+Anthony Taylor: So it's yeah. But no, I mean
+
+442
+00:41:55.160 --> 00:41:59.320
+Anthony Taylor: this, you know, this kind of goes back to my discussion with you guys before.
+
+443
+00:42:00.550 --> 00:42:08.290
+Anthony Taylor: when these curriculums are created, they're not created with the idea of huge enterprises. We can't be that commercial.
+
+444
+00:42:09.410 --> 00:42:14.689
+Anthony Taylor: Okay, we can tell you how Rbi and tableau are. The best are the tools that
+
+445
+00:42:14.770 --> 00:42:16.430
+Anthony Taylor: most of the market are using
+
+446
+00:42:16.750 --> 00:42:21.120
+Anthony Taylor: alright. But the reality is is, you might not have access to those. Move on your first job.
+
+447
+00:42:21.440 --> 00:42:27.159
+Anthony Taylor: So here's how to make charts. Now the good news is, once you learn how to make them. Python.
+
+448
+00:42:27.550 --> 00:42:32.149
+Anthony Taylor: it's so much harder to do than it is in power, Vi or tableau.
+
+449
+00:42:32.200 --> 00:42:34.510
+Anthony Taylor: that when you get into those schools. It's really easy.
+
+450
+00:42:35.780 --> 00:42:41.740
+Anthony Taylor: Okay, it's like, Oh, all right, as long as you in here learn what X and Y is.
+
+451
+00:42:42.880 --> 00:42:44.320
+Anthony Taylor: you'll be able to do this anyway.
+
+452
+00:42:45.410 --> 00:42:49.550
+Anthony Taylor: Okay, it's again, just learning how we do alright. So let's move on.
+
+453
+00:42:49.580 --> 00:42:59.350
+Anthony Taylor:  So you have an exercise. Not too bad. You're gonna have this array of temperature values in Fahrenheit.
+
+454
+00:42:59.530 --> 00:43:02.320
+Anthony Taylor: You're going to assign that to an X-axis.
+
+455
+00:43:02.750 --> 00:43:07.730
+Anthony Taylor: Okay? Actually, sorry. An X-axis with month of year. How would we do that?
+
+456
+00:43:08.050 --> 00:43:11.900
+Anthony Taylor: Would we actually type out a list 1, 2, 3, 4, 5, 6, 7, 8, 9, 1112.
+
+457
+00:43:12.300 --> 00:43:14.270
+Anthony Taylor: No, what would we do? Jennifer?
+
+458
+00:43:16.380 --> 00:43:19.680
+Jennifer Dahlgren: Just NNP. Arrange.
+
+459
+00:43:20.300 --> 00:43:25.019
+Anthony Taylor: Yeah. One to 13. Yeah, there you go.
+
+460
+00:43:25.130 --> 00:43:29.950
+Anthony Taylor:  And then here's the formula to convert Fahrenheit Celsius
+
+461
+00:43:30.600 --> 00:43:33.229
+Anthony Taylor: to me. I just assume
+
+462
+00:43:33.270 --> 00:43:39.200
+Anthony Taylor: you know, when they say it's 20°C. I'm like. that's really
+
+463
+00:43:40.040 --> 00:43:40.900
+Anthony Taylor: comfortable.
+
+464
+00:43:41.080 --> 00:43:48.029
+Anthony Taylor: that's all I know to say. I had lots of people in my life that talked about Celsius.
+
+465
+00:43:48.050 --> 00:43:52.290
+Anthony Taylor: Okay? So you're gonna plot. The Fahrenheit points based on month
+
+466
+00:43:52.370 --> 00:43:59.130
+Anthony Taylor: plot. The Celsius points in the same plot. If you have 2 visuals. Fahrenheit Celsius.
+
+467
+00:43:59.390 --> 00:44:01.419
+Anthony Taylor: Okay, in one plot. That's it.
+
+468
+00:44:03.400 --> 00:44:05.040
+Anthony Taylor: Okay? All right.
+
+469
+00:44:06.310 --> 00:44:09.139
+Anthony Taylor: Here we go. Everybody!
+
+470
+00:44:09.250 --> 00:44:12.989
+Anthony Taylor: So how'd that go? I'm assuming that went smooth.
+
+471
+00:44:13.390 --> 00:44:15.379
+Anthony Taylor: Anybody struggled at all.
+
+472
+00:44:16.340 --> 00:44:21.960
+Mason, Natalie: I'm just having trouble getting my. And I'm part of work, apparently.
+
+473
+00:44:22.080 --> 00:44:27.789
+Mason, Natalie: I'm just. I'm just having trouble getting anything work today.
+
+474
+00:44:28.340 --> 00:44:29.580
+Anthony Taylor: But show me.
+
+475
+00:44:33.550 --> 00:44:34.929
+Mason, Natalie: okay. So
+
+476
+00:44:37.790 --> 00:44:45.639
+Masarirambi, Rodney: I'm just trying to run these sales, and it doesn't want to work for me.
+
+477
+00:44:45.770 --> 00:44:48.229
+Masarirambi, Rodney: Arrange? Arrange? Yeah.
+
+478
+00:44:48.400 --> 00:44:51.120
+Masarirambi, Rodney: And then one also spelled a range rot.
+
+479
+00:44:51.790 --> 00:44:54.050
+Mason, Natalie: Gosh, you guys, okay.
+
+480
+00:44:57.820 --> 00:45:01.939
+Mason, Natalie:  look at the instructor. Example.
+
+481
+00:45:04.330 --> 00:45:07.740
+Anthony Taylor: Oh, the extractor example there, yeah, that one works.
+
+482
+00:45:08.600 --> 00:45:10.800
+Mason, Natalie: Just go to the solution.
+
+483
+00:45:12.570 --> 00:45:15.719
+Anthony Taylor: Become the one at the top.
+
+484
+00:45:17.210 --> 00:45:19.580
+Mason, Natalie: Here, there you go. Yes, now.
+
+485
+00:45:21.380 --> 00:45:23.359
+Anthony Taylor: and scroll down.
+
+486
+00:45:23.760 --> 00:45:24.750
+Mason, Natalie: Yeah.
+
+487
+00:45:25.780 --> 00:45:30.129
+Mason, Natalie: that's the one. See little things. Alright.
+
+488
+00:45:31.120 --> 00:45:44.019
+Anthony Taylor: Those are the things you're gonna want to watch for going forward, because if they catch you. that's okay. Nothing wrong with that. Just realize that you got it fixed and watch for them. If you know that you get caught on that sometimes.
+
+489
+00:45:44.050 --> 00:45:55.949
+Kanouff, Christine: Hey? Hi! Sorry! I was just gonna comment that she also has that base python thing at her bases. Python 3 like mine was.
+
+490
+00:45:55.960 --> 00:45:59.669
+Anthony Taylor: Well, as long as it says base, you're okay. I don't care what version
+
+491
+00:46:00.240 --> 00:46:05.200
+Kanouff, Christine: it just needs to be base. Yeah, that's your main environment.
+
+492
+00:46:06.080 --> 00:46:17.100
+Anthony Taylor: Well, mine doesn't say base. So what do I need to do to change that
+
+493
+00:46:17.240 --> 00:46:22.850
+Anthony Taylor: click. select another kernel python environments base
+
+494
+00:46:23.660 --> 00:46:25.559
+Anthony Taylor: or just do anaconda.
+
+495
+00:46:28.520 --> 00:46:36.849
+Anthony Taylor: That'll just keep things easier. We will eventually talk more about environments. We talked about them once before. We'll talk about it more, but
+
+496
+00:46:37.920 --> 00:46:38.910
+Mason, Natalie: not right now.
+
+497
+00:46:39.350 --> 00:46:40.110
+Anthony Taylor: Hi.
+
+498
+00:46:40.320 --> 00:46:43.140
+Anthony Taylor: so get an Empire Map plot live in.
+
+499
+00:46:43.330 --> 00:46:49.610
+Anthony Taylor: We're gonna make our one to 13 by ones, which gives us one to 12.
+
+500
+00:46:50.640 --> 00:46:55.759
+Anthony Taylor: We have our fare and high points. They gave us those we can plot those they will be beautiful.
+
+501
+00:46:59.270 --> 00:47:01.569
+Anthony Taylor: Is this normally distributed?
+
+502
+00:47:08.410 --> 00:47:11.080
+Meredith McCanse (she/her): Pretty much? Pretty close mostly.
+
+503
+00:47:11.430 --> 00:47:14.810
+Anthony Taylor: Yeah. It would. It would come across as considered normally distributed.
+
+504
+00:47:15.270 --> 00:47:18.660
+Anthony Taylor: But yet it's not perfect. But it's pretty close.
+
+505
+00:47:19.090 --> 00:47:27.570
+Anthony Taylor: Okay? So here's the this. If you did list, comprehension. Did everybody do list comprehension? Or did anybody do like a for loop? What kind of options did you guys come up with
+
+506
+00:47:27.630 --> 00:47:29.099
+Anthony Taylor: for loop, Meredith?
+
+507
+00:47:31.180 --> 00:47:35.230
+Baro, Sonja: See that one, too? Cause?
+
+508
+00:47:35.280 --> 00:47:41.529
+Baro, Sonja: Yeah. We were bouncing around the for loop. And then this defining a function.
+
+509
+00:47:44.030 --> 00:47:44.950
+Baro, Sonja: can't
+
+510
+00:47:47.510 --> 00:47:51.209
+Meredith McCanse (she/her): I find list conference?
+
+511
+00:47:52.670 --> 00:47:55.049
+Anthony Taylor: So if you're gonna do this, you have to have like.
+
+512
+00:47:55.110 --> 00:47:58.889
+Baro, Sonja: you have to have something to reference. Right? You have to have something to put it in.
+
+513
+00:47:59.050 --> 00:47:59.760
+Anthony Taylor: So
+
+514
+00:48:00.610 --> 00:48:04.410
+Anthony Taylor: I mean, you don't have to do all this. But that's all right. We're gonna do it because it's consistent.
+
+515
+00:48:04.550 --> 00:48:09.580
+Anthony Taylor: Thank you. So value start a pen.
+
+516
+00:48:09.620 --> 00:48:14.090
+Anthony Taylor: And then you would basically do this math right and run it. Yeah.
+
+517
+00:48:15.420 --> 00:48:24.050
+Baro, Sonja: Cause we were, we were discussing which way to go like. And then we probably tried to Matt and to both of them.
+
+518
+00:48:26.120 --> 00:48:27.450
+Baro, Sonja: yeah, okay.
+
+519
+00:48:28.510 --> 00:48:29.250
+Baro, Sonja: okay.
+
+520
+00:48:29.580 --> 00:48:38.020
+Anthony Taylor: so yeah, so just remember when we talked about this comprehension, it's just a for loop, basically sideways. Okay?
+
+521
+00:48:38.610 --> 00:48:41.890
+Anthony Taylor: but yeah. So there you go. So either way, this works.
+
+522
+00:48:42.540 --> 00:48:45.549
+Anthony Taylor:  then we can plot
+
+523
+00:48:45.620 --> 00:48:50.399
+Anthony Taylor: X and Celsius. We get that. Now, the interesting thing is, look at that.
+
+524
+00:48:54.240 --> 00:48:55.690
+Anthony Taylor: They're identical, right?
+
+525
+00:48:58.210 --> 00:48:59.670
+Anthony Taylor: They absolutely are.
+
+526
+00:48:59.750 --> 00:49:01.899
+Anthony Taylor: except the Y axis.
+
+527
+00:49:03.550 --> 00:49:06.060
+Anthony Taylor: that one goes to 80, that one goes to 30.
+
+528
+00:49:07.680 --> 00:49:08.560
+Anthony Taylor: Okay.
+
+529
+00:49:09.000 --> 00:49:18.140
+Anthony Taylor: alright. But we could do like we talked about. Once we do this. The Y-axis is gonna change a little bit right to give us
+
+530
+00:49:19.080 --> 00:49:19.750
+up.
+
+531
+00:49:20.080 --> 00:49:27.180
+Anthony Taylor: You know well where everything starts and finishes. Looks like this. The distribution is still more or less the same.
+
+532
+00:49:27.250 --> 00:49:32.560
+Anthony Taylor: But clearly Celsius is a much smaller range of numbers than the Faraday.
+
+533
+00:49:34.080 --> 00:49:34.960
+Anthony Taylor: Okay.
+
+534
+00:49:35.990 --> 00:49:37.160
+Anthony Taylor: pretty exciting.
+
+535
+00:49:38.670 --> 00:49:54.230
+Anthony Taylor: Okay. So when you come back from break we're gonna configure our line charts. Which just means we're gonna put X's and y's and horizontal lines grids. And they're just gonna make them party.
+
+536
+00:49:55.190 --> 00:49:56.280
+Anthony Taylor: Okay.
+
+537
+00:49:56.330 --> 00:50:02.609
+Anthony Taylor: we're also gonna do some bar charts. And before the days over we're going to create a scatter ball.
+
+538
+00:50:02.810 --> 00:50:10.609
+Anthony Taylor: You guys are going to be horribly disappointed in how difficult it is to make these into a bar chart.
+
+539
+00:50:11.890 --> 00:50:13.070
+Anthony Taylor: Okay.
+
+540
+00:50:23.220 --> 00:50:25.030
+Anthony Taylor: yeah, exactly. Curry.
+
+541
+00:50:25.880 --> 00:50:28.869
+Anthony Taylor: Did you guys see what I did?
+
+542
+00:50:31.880 --> 00:50:33.390
+Anthony Taylor: I just changed that word.
+
+543
+00:50:34.740 --> 00:50:35.870
+Anthony Taylor: has it?
+
+544
+00:50:36.150 --> 00:50:39.680
+Anthony Taylor: Okay? So yeah, you guys will see that
+
+545
+00:50:39.950 --> 00:50:41.800
+Anthony Taylor: in an example in a few minutes.
+
+546
+00:50:41.820 --> 00:50:48.609
+Anthony Taylor:  yeah. So I'll see you. Let's just come back. Add
+
+547
+00:50:49.030 --> 00:50:53.510
+Anthony Taylor: 8, 10. Okay.
+
+548
+00:50:53.960 --> 00:50:55.820
+Anthony Taylor: parking. Have fun. Break.
+
+549
+00:50:57.650 --> 00:51:00.499
+Anthony Taylor: Brenda, do you need this answered before break.
+
+550
+00:51:02.810 --> 00:51:11.529
+Mckimmy, Brandon: I installed everything before this, and it's not showing any data on my, on my graph. And I'm not sure why. Cause II ran everything prior to this.
+
+551
+00:51:12.850 --> 00:51:14.839
+Anthony Taylor: But sure show us
+
+552
+00:51:16.890 --> 00:51:17.979
+Anthony Taylor: or show me.
+
+553
+00:51:23.520 --> 00:51:24.970
+Anthony Taylor: Okay. So
+
+554
+00:51:27.150 --> 00:51:32.989
+Anthony Taylor: alright. That's fine. Well, Ransom. don't run that first step.
+
+555
+00:51:33.470 --> 00:51:34.170
+Mckimmy, Brandon: son.
+
+556
+00:51:34.990 --> 00:51:37.810
+Anthony Taylor: Okay, you can't start there. You gotta run the data first. But
+
+557
+00:51:41.120 --> 00:51:44.450
+Anthony Taylor: okay, I was having the same issue. I was gonna ask about that.
+
+558
+00:51:44.520 --> 00:51:50.730
+Mckimmy, Brandon: I don't get why this keeps happening. I install these prior. And then I'm running into issues doing the class.
+
+559
+00:51:51.180 --> 00:51:54.039
+Mckimmy, Brandon: Did you stop? Scroll up?
+
+560
+00:51:54.550 --> 00:52:04.430
+Anthony Taylor: Don't okay. But I need to see the error message. Slow down. Stop! Xy must have first mentioned, but have shapes 13 and 12 go up.
+
+561
+00:52:06.660 --> 00:52:10.100
+Dipinto, Matt: You got a 0. You did a 0 in your months.
+
+562
+00:52:11.310 --> 00:52:14.750
+Mckimmy, Brandon: Yeah, cause python starts at 0, and then you ignore the thirteenth.
+
+563
+00:52:15.370 --> 00:52:17.050
+Anthony Taylor: Is there a 0 month?
+
+564
+00:52:17.900 --> 00:52:20.390
+Mckimmy, Brandon: Oh, we're doing it like that. Oh.
+
+565
+00:52:20.500 --> 00:52:22.219
+Raugewitz, Tania: that's why. Yeah.
+
+566
+00:52:23.370 --> 00:52:26.239
+Raugewitz, Tania: I'll run that run the next one.
+
+567
+00:52:26.830 --> 00:52:27.940
+Anthony Taylor: and there you go.
+
+568
+00:52:29.580 --> 00:52:32.690
+Anthony Taylor: So their message is pretty clear, Brando.
+
+569
+00:52:33.100 --> 00:52:37.779
+Mckimmy, Brandon: I didn't get it either, for what it's worth.
+
+570
+00:52:38.960 --> 00:52:39.990
+Anthony Taylor: Well.
+
+571
+00:52:40.190 --> 00:52:48.119
+Anthony Taylor: Python starts with your Celsius. Your calculations are under. But yeah, Celsius absolutely starts 0. I'm sorry
+
+572
+00:52:49.420 --> 00:52:58.159
+Anthony Taylor: python indexes started 0, but in this case we wanted to label for each month, and there is no 0 month. So you needed to start at one, that's all.
+
+573
+00:52:58.790 --> 00:53:08.430
+Anthony Taylor: But you're fine. You're both fine. You did good. That's why we're here to learn. Okay, can I ask a question about that?
+
+574
+00:53:09.470 --> 00:53:11.519
+Raugewitz, Tania: How does it know if it's 0?
+
+575
+00:53:11.680 --> 00:53:26.809
+Anthony Taylor: How does it know that 0 isn't okay? Because if we say that we wanted it 0? Well, it didn't. It really didn't. What if we kind of glossed over the error? But the error said that the the X and the Y were different sizes.
+
+576
+00:53:26.930 --> 00:53:28.370
+Raugewitz, Tania: Oh, okay.
+
+577
+00:53:28.420 --> 00:53:44.560
+Anthony Taylor: So there were only 12 values in Y to us. And so we needed 12 months. And if you put the 0 and you ended up 13 that answers, that's logical.
+
+578
+00:53:44.750 --> 00:53:51.729
+Raugewitz, Tania: It's not that it was 0. It was that it didn't match up the values. Did 14 right? You could have did one to 14. You would get the same.
+
+579
+00:53:52.500 --> 00:54:02.670
+Raugewitz, Tania: So anything other than one to one to 13 would give you that same error. Yeah.
+
+580
+00:54:03.240 --> 00:54:04.850
+Anthony Taylor: so cool.
+
+581
+00:54:04.860 --> 00:54:07.600
+Raugewitz, Tania: awesome guys. Go have your break.
+
+582
+00:54:08.670 --> 00:54:10.689
+Anthony Taylor: Wait! You only wait. You got more.
+
+583
+00:54:15.120 --> 00:54:30.130
+Raugewitz, Tania: Well, I'm just trying to make 1,300,
+
+584
+00:54:30.420 --> 00:54:45.459
+Raugewitz, Tania: and and you would have gotten, you know, 100 200 300 for it. So it doesn't care what the. That's not the issue.
+
+585
+00:54:45.610 --> 00:54:49.950
+Raugewitz, Tania: Okay, I'm leaving my camera on so that
+
+586
+00:54:50.020 --> 00:54:59.839
+Raugewitz, Tania: it doesn't like not show up. Yes, so that's why I leave it on
+
+587
+00:55:00.770 --> 00:55:08.879
+Anthony Taylor:  What I want you to use is IPYM. L. Wait. Is that right? No, I don't think that's right.
+
+588
+00:55:09.930 --> 00:55:14.870
+Anthony Taylor: What's it called IPY. IP. One.
+
+589
+00:55:16.570 --> 00:55:19.720
+Anthony Taylor: I literally just had it up just a little while ago.
+
+590
+00:55:20.100 --> 00:55:24.430
+Anthony Taylor: and I closed it. That pot live.
+
+591
+00:55:24.560 --> 00:55:28.430
+Anthony Taylor: IP YMPM. There we go.
+
+592
+00:55:29.880 --> 00:55:32.069
+Anthony Taylor: This is the one I'm gonna have everybody.
+
+593
+00:55:32.560 --> 00:55:35.320
+Anthony Taylor: So now that everybody's back.
+
+594
+00:55:36.510 --> 00:55:44.140
+Anthony Taylor: let me show you what we were just talking about. Clayton tried to jump ahead. which there's nothing wrong with that. By the way.
+
+595
+00:55:44.510 --> 00:55:49.400
+Anthony Taylor:  In this next notebook the first line
+
+596
+00:55:49.550 --> 00:55:50.940
+Anthony Taylor: says.
+
+597
+00:55:51.990 --> 00:55:57.839
+Anthony Taylor: map, plotlid notebook. It may actually run. But it doesn't actually work in Vs code.
+
+598
+00:55:58.950 --> 00:56:04.549
+Anthony Taylor: Okay, so I want you to instead type IPY.
+
+599
+00:56:04.820 --> 00:56:11.280
+Anthony Taylor: Mpl. Now, you will most likely need to pip, install this. So
+
+600
+00:56:11.300 --> 00:56:15.019
+Anthony Taylor: go to code and do Pip, install.
+
+601
+00:56:16.580 --> 00:56:18.240
+Anthony Taylor: IPY. And PL.
+
+602
+00:56:19.630 --> 00:56:21.310
+Anthony Taylor: Run that cell.
+
+603
+00:56:24.030 --> 00:56:30.589
+Anthony Taylor: let it close, or once it's done you can just close it. You don't need it ever again. And then you can run
+
+604
+00:56:30.800 --> 00:56:35.560
+Anthony Taylor: map potlay by Pym. Yeah. And I like show you what this does. Just thing
+
+605
+00:56:36.960 --> 00:56:38.320
+Anthony Taylor: versus in love.
+
+606
+00:56:39.770 --> 00:56:41.749
+Anthony Taylor: Alright, everybody with me.
+
+607
+00:56:46.440 --> 00:56:55.470
+Anthony Taylor: So every notebook has map, plotlift, notebook. You're going to change it to IPYM. PF. When you get there and then run it.
+
+608
+00:56:56.850 --> 00:57:00.420
+Anthony Taylor: Okay. If you don't want this little warning, just restart your kernel.
+
+609
+00:57:03.280 --> 00:57:05.230
+Anthony Taylor: run it again, and then it goes away.
+
+610
+00:57:06.790 --> 00:57:17.530
+michael mcpherson: How do you know what you're supposed to hip in plot? Install when you come to an error, cause it says module enough out right, whatever the error message says, module enough out.
+
+611
+00:57:18.170 --> 00:57:21.740
+michael mcpherson: and it tells you the name of it. That's usually what you want to pick. So.
+
+612
+00:57:22.130 --> 00:57:26.769
+michael mcpherson: okay, thank you. If not you. You might have to Google it. Sometimes they are different.
+
+613
+00:57:26.800 --> 00:57:31.330
+Anthony Taylor: but for the most part, with whatever module enough out says is usually what you work with
+
+614
+00:57:33.760 --> 00:57:35.300
+Anthony Taylor: hoof there. So
+
+615
+00:57:36.330 --> 00:57:38.540
+Anthony Taylor: we're gonna load our libraries.
+
+616
+00:57:38.700 --> 00:57:50.810
+Anthony Taylor: And here you can see we're doing all the steps we did in that earlier one. When we did signing Cosine, we're just doing in this one cell. Okay? And then, actually, I'm gonna be all out.
+
+617
+00:57:51.400 --> 00:57:53.800
+Anthony Taylor: Now, I'm going to do plot dot plot.
+
+618
+00:57:54.520 --> 00:57:57.129
+Anthony Taylor: And we're gonna add some capabilities.
+
+619
+00:57:57.500 --> 00:58:01.249
+Anthony Taylor: Okay, so X and Stan, that's our X and Y, that doesn't change.
+
+620
+00:58:02.980 --> 00:58:11.019
+Anthony Taylor: We can give it a line width, which is how thick the line in our line chart will come out like brat will be.
+
+621
+00:58:11.440 --> 00:58:15.469
+Anthony Taylor: We can give it this marker value, and there's like 10 of these.
+
+622
+00:58:15.510 --> 00:58:25.719
+Anthony Taylor: and you'll see one. It's going to put little circles in the line at each data point. This one's going to put little triangles in the line at each data point.
+
+623
+00:58:26.480 --> 00:58:27.879
+Anthony Taylor: we can color it.
+
+624
+00:58:28.670 --> 00:58:34.999
+Anthony Taylor: and we can label it. Now, you might be thinking, well, is that the same as X and y labeling. No.
+
+625
+00:58:35.450 --> 00:58:36.380
+Anthony Taylor: it's not.
+
+626
+00:58:37.000 --> 00:58:40.669
+Anthony Taylor: So. Let's take a look at what that looks like. So when you run this
+
+627
+00:58:41.650 --> 00:58:52.730
+Anthony Taylor:  when you run this, you end up with this, you know. You see, it looks actually this one didn't even have the line. So this 10, because the line with 0,
+
+628
+00:58:53.800 --> 00:58:57.209
+Anthony Taylor: right? So we made this line with one run. This
+
+629
+00:58:57.820 --> 00:59:03.950
+Anthony Taylor: you'd see to be a lion fuel. all right. But say, we don't want the light, I think it looks pretty without light, don't you?
+
+630
+00:59:06.480 --> 00:59:08.779
+Anthony Taylor: But did I miss it? What I do wrong?
+
+631
+00:59:09.340 --> 00:59:15.579
+Anthony Taylor: Oh, hey! When this happens you literally have to like reset the whole thing. But
+
+632
+00:59:16.560 --> 00:59:19.390
+Anthony Taylor: Anyway, we'll get back to that. Okay, so
+
+633
+00:59:19.750 --> 00:59:25.729
+Anthony Taylor: plot that plot you have color, you have label. There's actually, if you hold your mouse over this guy.
+
+634
+00:59:26.190 --> 00:59:29.349
+Anthony Taylor: see if we can get it to pop up again. It came up just a second ago.
+
+635
+00:59:38.010 --> 00:59:38.960
+Anthony Taylor: Ger.
+
+636
+00:59:39.300 --> 00:59:52.569
+Anthony Taylor: Well, we can always go to the documentation, and you can see all the different markers, all the different colors that are available to. and labels. Now we did those labels, but you don't see them, do you?
+
+637
+00:59:54.850 --> 01:00:03.150
+Anthony Taylor: Well. they will show up eventually. Another thing we can do is
+
+638
+01:00:03.550 --> 01:00:06.289
+Anthony Taylor: create a like a line.
+
+639
+01:00:06.810 --> 01:00:13.320
+Anthony Taylor: so that it's a little more clear where it crosses the 0 axis. So we can say.
+
+640
+01:00:13.450 --> 01:00:17.929
+Anthony Taylor: Plot H line, which is horizontal line
+
+641
+01:00:19.070 --> 01:00:22.720
+0, 0. So that's 0 x 0, y.
+
+642
+01:00:23.960 --> 01:00:25.990
+Anthony Taylor: 10
+
+643
+01:00:26.500 --> 01:00:27.750
+Anthony Taylor: across.
+
+644
+01:00:28.530 --> 01:00:31.280
+Anthony Taylor: So it's going to go from here to here.
+
+645
+01:00:31.700 --> 01:00:34.229
+Anthony Taylor: and then Alpha, which is how
+
+646
+01:00:34.750 --> 01:00:39.469
+Anthony Taylor: transparent it is. So an alpha of one is not transparent at all.
+
+647
+01:00:40.520 --> 01:00:45.359
+Anthony Taylor: Okay, anything below one, it starts to become more and more transparent. Yeah, like
+
+648
+01:00:50.260 --> 01:00:51.360
+Anthony Taylor: you're muted.
+
+649
+01:00:53.860 --> 01:01:03.890
+michael mcpherson: I got an error. Widgets required us to download supporting files from third party. Yes, that's not an error. That's something. You go ahead, and when it asks you that go ahead and say yes, or okay, or whatever
+
+650
+01:01:04.580 --> 01:01:07.580
+Anthony Taylor: that is correct, thank you for bringing that up, because I forgot.
+
+651
+01:01:09.130 --> 01:01:12.109
+michael mcpherson: does it? Just download on that?
+
+652
+01:01:12.590 --> 01:01:14.800
+Anthony Taylor: Well, as soon as you push it, you won't ever have to.
+
+653
+01:01:15.970 --> 01:01:16.980
+Anthony Taylor: Okay.
+
+654
+01:01:17.180 --> 01:01:20.539
+Anthony Taylor: alright. So we created, sorry.
+
+655
+01:01:22.290 --> 01:01:23.730
+Anthony Taylor: said, Okay, thank you.
+
+656
+01:01:24.220 --> 01:01:29.559
+Anthony Taylor: Oh, you're very welcome. Alright. So when we run this. we're going to get
+
+657
+01:01:30.630 --> 01:01:35.819
+Anthony Taylor: well, you're not gonna see anything yet. Why is it just sitting here? Hold up! Something's wrong.
+
+658
+01:01:37.020 --> 01:01:38.640
+Anthony Taylor: It's taking its sweet time.
+
+659
+01:02:00.050 --> 01:02:01.990
+Anthony Taylor: That's weird. Time was going on.
+
+660
+01:02:03.890 --> 01:02:06.930
+Anthony Taylor: Restart. That real quick did that work for anybody else.
+
+661
+01:02:08.720 --> 01:02:10.240
+Anthony Taylor: Can't imagine why it would.
+
+662
+01:02:10.380 --> 01:02:11.569
+Meredith McCanse (she/her): I got it to work.
+
+663
+01:02:12.370 --> 01:02:18.180
+Anthony Taylor: Okay, good. So what you should see when you rerun there, when you run this line. There you go
+
+664
+01:02:18.430 --> 01:02:25.089
+Anthony Taylor: is in the same chart. Now, if you do inline right, what'll happen is it'll create
+
+665
+01:02:25.230 --> 01:02:29.379
+Anthony Taylor: a new chart right here with just a horizontal line.
+
+666
+01:02:30.860 --> 01:02:32.639
+Anthony Taylor: Okay, and nothing else.
+
+667
+01:02:32.660 --> 01:02:41.039
+Anthony Taylor: So what? This this thing at the top? This IPY. Mpl. it creates a widget, this big white box.
+
+668
+01:02:41.100 --> 01:02:45.979
+Anthony Taylor: and everything we do to this chart will actually happen
+
+669
+01:02:46.250 --> 01:02:48.700
+Anthony Taylor: it from multiple cells.
+
+670
+01:02:49.310 --> 01:02:56.460
+Anthony Taylor: Okay, now, I will tell you. If you leave plot that show in, it's going to create a new widget every time a second widget
+
+671
+01:02:56.770 --> 01:03:00.809
+Anthony Taylor: every time it says plot show. So here we're going to give it a title.
+
+672
+01:03:01.520 --> 01:03:03.700
+Anthony Taylor: an X label and a Y label.
+
+673
+01:03:06.850 --> 01:03:10.949
+Anthony Taylor: and it should show up up there what the heck is going on
+
+674
+01:03:11.490 --> 01:03:13.000
+Anthony Taylor: that is so weird
+
+675
+01:03:18.680 --> 01:03:20.350
+Anthony Taylor: and being impatient. But
+
+676
+01:03:23.500 --> 01:03:25.060
+Anthony Taylor: that's very strange.
+
+677
+01:04:03.430 --> 01:04:08.749
+Anthony Taylor: Okay, not sure what's going on. But I'm gonna stop pausing. Is that happening? Anybody else?
+
+678
+01:04:09.840 --> 01:04:23.759
+Anthony Taylor: Yeah, I ran this earlier today and I didn't have that problem, either. So I must have something weird anyway. So we've added a title and a label. And because we did plot show, it's gonna show the chart every time with everything applied to it.
+
+679
+01:04:23.870 --> 01:04:27.810
+Anthony Taylor:  So we have title.
+
+680
+01:04:28.000 --> 01:04:32.450
+Anthony Taylor: the Y label, X label. Now.
+
+681
+01:04:32.530 --> 01:04:33.880
+Anthony Taylor: one thing
+
+682
+01:04:34.040 --> 01:04:40.069
+Anthony Taylor: and you can't. You know what I'm gonna actually restart it again and show you guys
+
+683
+01:04:41.510 --> 01:04:50.889
+Anthony Taylor: something else. So notice the first time we did this. we can even add the horizontal line.
+
+684
+01:04:51.050 --> 01:04:57.039
+Anthony Taylor: Notice this little space here. Okay? And add, like, this white area all the way around.
+
+685
+01:04:57.220 --> 01:05:00.120
+Anthony Taylor: Okay, that's not very aesthetically pleasing.
+
+686
+01:05:00.300 --> 01:05:02.579
+Anthony Taylor: So we can actually.
+
+687
+01:05:02.990 --> 01:05:09.179
+Anthony Taylor: we can actually get rid of that. So there we okay, well, so far, it's still work. I'm going. So there's our titles.
+
+688
+01:05:09.710 --> 01:05:12.759
+Anthony Taylor: So here we can say, Xlim
+
+689
+01:05:12.940 --> 01:05:16.910
+Anthony Taylor: next line. I want you to go from 0 to 10, and that's it.
+
+690
+01:05:18.100 --> 01:05:25.100
+Anthony Taylor: Why, I want you to go negative 1 one. That's it. So we're going to get rid of this little extra stuff here.
+
+691
+01:05:26.390 --> 01:05:28.060
+Anthony Taylor: and it stopped again.
+
+692
+01:05:28.450 --> 01:05:38.880
+Anthony Taylor: I'm gonna fix it in just a second. and then we can also add a grid. Okay. so I'm going to
+
+693
+01:05:39.570 --> 01:05:42.099
+Anthony Taylor: click here and say.
+
+694
+01:05:42.950 --> 01:05:45.610
+Anthony Taylor: execute everything above
+
+695
+01:06:02.730 --> 01:06:03.760
+Anthony Taylor: weird.
+
+696
+01:06:04.770 --> 01:06:16.300
+Anthony Taylor: Okay? So in this last one, we added a grid. So we have. So now you can see the the extra space is gone. We have our horizontal line. Now, we also have a grid.
+
+697
+01:06:16.570 --> 01:06:22.350
+Anthony Taylor: Very cool. Okay. But notice, we still don't see those labels.
+
+698
+01:06:23.010 --> 01:06:26.900
+Anthony Taylor: remember up when we created it. We put labels on here. I don't see them.
+
+699
+01:06:27.750 --> 01:06:29.620
+Anthony Taylor: Those are 4.
+
+700
+01:06:30.100 --> 01:06:32.059
+Anthony Taylor: The work are legends.
+
+701
+01:06:33.800 --> 01:06:36.739
+Anthony Taylor: so if you want them to show up in the legend
+
+702
+01:06:36.780 --> 01:06:41.680
+Anthony Taylor: with the label of what it is you have to put it in when you create the axis.
+
+703
+01:06:42.720 --> 01:06:43.650
+Anthony Taylor: Okay?
+
+704
+01:06:43.950 --> 01:06:51.680
+Anthony Taylor: And then, last, but not least. If you wanted to save this as an image, save big, give it a path. run it.
+
+705
+01:06:51.710 --> 01:06:56.309
+Anthony Taylor: okay. And then over here you now have the image
+
+706
+01:06:58.110 --> 01:06:59.240
+Anthony Taylor: pretty cool.
+
+707
+01:07:01.410 --> 01:07:07.969
+Anthony Taylor: Another thing with this widget. Just so, you know. If you notice it has a little fade button right there.
+
+708
+01:07:08.530 --> 01:07:11.009
+Anthony Taylor: You can also save it. There, you can also.
+
+709
+01:07:11.190 --> 01:07:11.950
+Anthony Taylor: like
+
+710
+01:07:12.090 --> 01:07:14.000
+Anthony Taylor: click and zoom in.
+
+711
+01:07:16.160 --> 01:07:16.979
+Anthony Taylor: You can
+
+712
+01:07:17.700 --> 01:07:20.229
+Anthony Taylor: do all kinds of fun stuff. Yeah, sign.
+
+713
+01:07:21.230 --> 01:07:26.809
+Baro, Sonja: And I just check on. The last thing we did save fig. That was to export right?
+
+714
+01:07:27.310 --> 01:07:30.770
+Anthony Taylor: That all I did was create this this image, file right
+
+715
+01:07:31.440 --> 01:07:32.920
+Baro, Sonja: and place it
+
+716
+01:07:33.630 --> 01:07:36.820
+Baro, Sonja: in the images. Okay, great, great.
+
+717
+01:07:37.010 --> 01:07:43.179
+Baro, Sonja: Thank you. Cause I was like, why are we not when we have it right here? But we want to export it. Okay?
+
+718
+01:07:43.280 --> 01:07:54.509
+Baro, Sonja: Right cause. This was just in your notebook, and you want to be able to put it like in a report. Yeah, and then
+
+719
+01:07:55.530 --> 01:07:57.949
+Baro, Sonja: and you can change it to whatever you want.
+
+720
+01:07:58.060 --> 01:08:02.389
+Anthony Taylor: There's probably limits to what you can change it to. But I'm I.
+
+721
+01:08:02.400 --> 01:08:07.579
+Anthony Taylor: Yeah. Yeah. Png, probably.
+
+722
+01:08:07.790 --> 01:08:18.250
+Baro, Sonja: So save fig save fig is the command for exporting a graph. a plot that you've created with map plotlet. Yes, okay.
+
+723
+01:08:18.260 --> 01:08:20.849
+Baro, Sonja: a plot. Okay, thank you. Yes.
+
+724
+01:08:21.410 --> 01:08:25.139
+Anthony Taylor: Well, I only call it fact that that's what they call it. But yeah, a graph
+
+725
+01:08:25.310 --> 01:08:28.160
+Anthony Taylor: created with map out that either one is fine.
+
+726
+01:08:29.600 --> 01:08:31.590
+Anthony Taylor: Okay? So
+
+727
+01:08:32.670 --> 01:08:33.979
+Anthony Taylor: here's what you're gonna do.
+
+728
+01:08:34.330 --> 01:08:39.409
+Anthony Taylor: You're gonna take your same Fahrenheit Celsius chart
+
+729
+01:08:40.290 --> 01:08:42.710
+Anthony Taylor: graph lot.
+
+730
+01:08:43.930 --> 01:08:48.129
+Anthony Taylor: and you're going to but little crosses
+
+731
+01:08:49.470 --> 01:08:50.870
+Anthony Taylor: and square.
+
+732
+01:08:51.960 --> 01:08:56.729
+Anthony Taylor: Okay? And you could, if you wanted to.
+
+733
+01:09:00.220 --> 01:09:01.609
+Anthony Taylor: up over here
+
+734
+01:09:02.370 --> 01:09:09.670
+Anthony Taylor: and learn and figure out how to pick different ones. Oh, here's a cool little cheat sheet. Maybe it'll show
+
+735
+01:09:11.430 --> 01:09:12.500
+a
+
+736
+01:09:17.200 --> 01:09:18.330
+Anthony Taylor: I was hoping
+
+737
+01:09:20.060 --> 01:09:21.609
+Anthony Taylor: it might be in there somewhere.
+
+738
+01:09:21.870 --> 01:09:22.609
+Anthony Taylor: Huh?
+
+739
+01:09:22.840 --> 01:09:27.450
+Baro, Sonja: If this is using an output from the previous
+
+740
+01:09:27.460 --> 01:09:37.859
+Baro, Sonja: group activity, it's gonna give it to you. Don't worry or you can. If it doesn't, you feel free to copy it from your other.
+
+741
+01:09:38.020 --> 01:09:39.580
+Anthony Taylor: But
+
+742
+01:09:40.609 --> 01:09:45.049
+Anthony Taylor: I was hoping it gave you all of the different shape. I know it's in the documentation
+
+743
+01:09:45.270 --> 01:09:46.920
+Anthony Taylor: all the different shapes
+
+744
+01:09:47.850 --> 01:09:52.420
+Dipinto, Matt: like, whether it's a square or a circle. Did you find it, Matt? Yeah. I put it in the chat
+
+745
+01:09:54.670 --> 01:09:55.850
+Anthony Taylor: in the chat.
+
+746
+01:09:57.650 --> 01:09:58.790
+Anthony Taylor: Where did you put it?
+
+747
+01:10:01.240 --> 01:10:09.529
+Masarirambi, Rodney: Chat we in in the slack chat just a little bit above
+
+748
+01:10:10.020 --> 01:10:15.909
+Masarirambi, Rodney: Natalie being the little Captain, we found that we found a couple extras as we're playing around with them.
+
+749
+01:10:16.660 --> 01:10:20.460
+Anthony Taylor: Well, that's a great place to go get it. And like I said, you can also
+
+750
+01:10:20.770 --> 01:10:23.910
+Anthony Taylor: come in here and find where
+
+751
+01:10:24.930 --> 01:10:26.760
+they're adding that. And
+
+752
+01:10:26.830 --> 01:10:28.670
+Anthony Taylor: it's in here, I promise.
+
+753
+01:10:29.740 --> 01:10:30.490
+Okay.
+
+754
+01:10:31.490 --> 01:10:33.219
+Anthony Taylor: there's colors.
+
+755
+01:10:34.850 --> 01:10:37.530
+Anthony Taylor: Let's do it with Rc. Prams.
+
+756
+01:10:43.850 --> 01:10:44.780
+Anthony Taylor: hey? I
+
+757
+01:10:51.500 --> 01:10:53.989
+Anthony Taylor: we're going to get into ticks in just a little bit.
+
+758
+01:10:54.420 --> 01:10:57.600
+Anthony Taylor: Alright. So got your documentation.
+
+759
+01:10:57.750 --> 01:11:01.450
+Anthony Taylor: These aren't too bad. Actually, they might even give that to 1 s, let's see.
+
+760
+01:11:01.950 --> 01:11:03.160
+Anthony Taylor: let's see.
+
+761
+01:11:04.500 --> 01:11:07.710
+Anthony Taylor: Okay. So since they didn't, II signed, yeah, I lied.
+
+762
+01:11:08.260 --> 01:11:14.629
+Anthony Taylor: Just go grab it from your other exercise. They didn't give you the how they finally did it.
+
+763
+01:11:15.010 --> 01:11:24.839
+Anthony Taylor: So yeah. So if you, since you need to get your Celsius, I don't even care if you just go grab the Celsius Point values and bring that over to up to you.
+
+764
+01:11:25.390 --> 01:11:28.570
+Anthony Taylor: Okay. alright.
+
+765
+01:11:30.280 --> 01:11:34.130
+Anthony Taylor: welcome back everybody. Yeah.
+
+766
+01:11:36.390 --> 01:11:38.729
+Anthony Taylor: It really happened if it's not recorded
+
+767
+01:11:39.230 --> 01:11:39.959
+the question.
+
+768
+01:11:42.050 --> 01:11:42.890
+Anthony Taylor: okay.
+
+769
+01:11:43.350 --> 01:11:48.030
+Anthony Taylor: so here we are. So how do you guys do with that? Did you like it? Was it fun? Was it hard?
+
+770
+01:11:48.990 --> 01:11:55.020
+Raugewitz, Tania: Well, I couldn't get my graph to go to show outputs are collapsed.
+
+771
+01:11:56.860 --> 01:12:02.150
+Raugewitz, Tania: Did you do the IP L thing? Yeah, we did that in the beginning. Yup.
+
+772
+01:12:03.670 --> 01:12:05.040
+Anthony Taylor: interesting
+
+773
+01:12:05.500 --> 01:12:07.090
+Dipinto, Matt: show.
+
+774
+01:12:07.840 --> 01:12:13.929
+Anthony Taylor: Let's all troubleshoot together. I see Matt winding up. He's on mute. Do you know what the answer is, Matt?
+
+775
+01:12:14.480 --> 01:12:27.750
+Raugewitz, Tania: It it's just that cells particular output is collapsed. There should be like a ellipsis. You can click to expand. It should be a little error. We we can. Yeah, we can try that. Okay, so I need to share my screen.
+
+776
+01:12:28.160 --> 01:12:29.150
+Anthony Taylor: Yes,
+
+777
+01:12:29.870 --> 01:12:31.270
+Raugewitz, Tania: let's see.
+
+778
+01:12:32.210 --> 01:12:34.479
+Raugewitz, Tania: So right? So.
+
+779
+01:12:34.950 --> 01:12:37.650
+Raugewitz, Tania: damn it, Matt, I didn't want you to be correct.
+
+780
+01:12:38.490 --> 01:12:40.400
+Dipinto, Matt: I hate being right, too.
+
+781
+01:12:40.800 --> 01:12:43.089
+Raugewitz, Tania: Happens way too often, doesn't it?
+
+782
+01:12:43.170 --> 01:12:55.240
+Dipinto, Matt: II was just waiting, you know, I just wanted to have like my one today. And you guys show it because I also like mine. I don't. I ran it, and I don't see anything. So it was
+
+783
+01:12:55.590 --> 01:13:01.420
+Raugewitz, Tania: over here, not over here. Oh, gosh, darn it! I thought it was.
+
+784
+01:13:01.970 --> 01:13:08.880
+Raugewitz, Tania: It was over here, not over here, so the little dots were over like there.
+
+785
+01:13:10.660 --> 01:13:14.800
+Meredith McCanse (she/her): But I think that we have. I still can't get it to show.
+
+786
+01:13:15.400 --> 01:13:19.020
+Anthony Taylor: How about somebody? Show me
+
+787
+01:13:20.740 --> 01:13:23.199
+Anthony Taylor: Meredith or Sonia?
+
+788
+01:13:23.330 --> 01:13:24.410
+Meredith McCanse (she/her): Awesome.
+
+789
+01:13:37.220 --> 01:13:45.299
+Anthony Taylor: I realize that I didn't have appeared this still, said notebook. So I just updated it. But it's telling me.
+
+790
+01:13:46.170 --> 01:13:51.000
+Meredith McCanse (she/her): does that matter? Oh, wait! Is this using? No, you need to restart Colonel for that.
+
+791
+01:13:52.380 --> 01:13:53.140
+Anthony Taylor: Yeah.
+
+792
+01:13:54.550 --> 01:13:57.039
+Meredith McCanse (she/her): But even when I do that it's still.
+
+793
+01:13:57.330 --> 01:13:59.579
+Meredith McCanse (she/her): Oh, no, it worked okay. It works.
+
+794
+01:13:59.600 --> 01:14:01.720
+Anthony Taylor: But now run down to there.
+
+795
+01:14:02.380 --> 01:14:12.599
+Meredith McCanse (she/her): So maybe that was the issue. So Tanya, maybe cause on yours. We didn't make this. We did the pick install, but we didn't actually.
+
+796
+01:14:12.810 --> 01:14:19.620
+Meredith McCanse (she/her): on this cell where we had the map, poplib, we didn't change it from the word notebook to IPYN, PL. So maybe
+
+797
+01:14:19.640 --> 01:14:28.489
+Raugewitz, Tania: I just got rid of it. But it still worked. I was able to. Yeah. Once you done with the pip install. You don't need it
+
+798
+01:14:28.860 --> 01:14:29.690
+Anthony Taylor: right?
+
+799
+01:14:30.100 --> 01:14:36.210
+Dipinto, Matt: If you were to delete that box altogether, you just wind up with a non interactive plots.
+
+800
+01:14:36.550 --> 01:14:38.650
+Anthony Taylor: So we don't want that.
+
+801
+01:14:39.210 --> 01:14:40.280
+Raugewitz, Tania: That's what I did.
+
+802
+01:14:42.160 --> 01:14:43.840
+Anthony Taylor: Okay, are we ready?
+
+803
+01:14:45.680 --> 01:14:47.830
+Anthony Taylor: Awesome. So let's get back to.
+
+804
+01:14:51.200 --> 01:14:56.139
+Anthony Taylor: So we grab it. And we import our stuff
+
+805
+01:14:56.380 --> 01:15:03.959
+Anthony Taylor: one through 12 just like before. So this is what we did a minute ago. I'm not gonna spend a lot of time on this. Here's the Fahrenheit values.
+
+806
+01:15:04.260 --> 01:15:12.949
+Anthony Taylor: Here's our cool list. Comprehension convert Fahrenheit values into Celsius and then now we're gonna start making it Party
+
+807
+01:15:14.310 --> 01:15:15.840
+Anthony Taylor: X and y
+
+808
+01:15:16.450 --> 01:15:18.469
+Anthony Taylor: marker plus sign
+
+809
+01:15:18.800 --> 01:15:22.609
+Anthony Taylor: color blue line with one label Fahrenheit
+
+810
+01:15:22.680 --> 01:15:26.049
+Anthony Taylor: for the Celsius to get the little squares. It is an S.
+
+811
+01:15:28.160 --> 01:15:31.069
+Anthony Taylor: Red length, one Celsius show it.
+
+812
+01:15:31.220 --> 01:15:34.299
+Dipinto, Matt: Why are there commas after the variables?
+
+813
+01:15:35.380 --> 01:15:36.500
+Anthony Taylor: I'm sorry
+
+814
+01:15:37.550 --> 01:15:40.360
+Dipinto, Matt: it's Fahrenheit comma and Celsius comma.
+
+815
+01:15:42.900 --> 01:15:46.969
+Anthony Taylor: Oh, because this so this is the
+
+816
+01:15:48.620 --> 01:15:59.559
+Anthony Taylor: unpack, variable unpack. So there's actually more stuff that comes from plot plot right? But we're gonna use. I mean, well, do they use that at all?
+
+817
+01:16:00.210 --> 01:16:05.799
+Anthony Taylor: Yeah, they're using the handles there. So what this does is this simply creates a handle for the plot
+
+818
+01:16:06.160 --> 01:16:08.969
+Anthony Taylor: called Fahrenheit, and Celsius is just a variable
+
+819
+01:16:09.060 --> 01:16:15.760
+Anthony Taylor: right. And there's more that comes out of plot. So all we're asking for is the first, the first item that comes out of it.
+
+820
+01:16:15.850 --> 01:16:17.640
+Dipinto, Matt: They're talking. Cb, talk.
+
+821
+01:16:18.150 --> 01:16:20.289
+Raugewitz, Tania: CD, radio talk ham radio
+
+822
+01:16:21.560 --> 01:16:23.610
+Raugewitz, Tania: for your handle. That's your name, your call.
+
+823
+01:16:23.870 --> 01:16:32.009
+Anthony Taylor: Well, it's also what we call something that's stored in memory. No, it was a good one, though it was a good one.
+
+824
+01:16:32.530 --> 01:16:37.380
+Anthony Taylor: Okay. So here is for the legend
+
+825
+01:16:38.240 --> 01:16:43.430
+Anthony Taylor: for the legend. we're gonna use those handles that we created up above.
+
+826
+01:16:44.250 --> 01:16:52.289
+Anthony Taylor: Okay? And now notice, we also have low equals best. which means earlier. When we did it, it just showed up over the line
+
+827
+01:16:52.360 --> 01:17:00.159
+Anthony Taylor: with low equals best. It's going to try to find a space with nothing on it. so we'll end up with something like that.
+
+828
+01:17:01.560 --> 01:17:02.400
+Anthony Taylor: Okay?
+
+829
+01:17:04.720 --> 01:17:10.970
+Anthony Taylor: And then our X and Y label. And then, last, but not least, save it out 20
+
+830
+01:17:13.390 --> 01:17:14.480
+Anthony Taylor: pretty cool.
+
+831
+01:17:16.240 --> 01:17:27.509
+Raugewitz, Tania: How are you guys feeling about these charts? So far equals best?
+
+832
+01:17:27.790 --> 01:17:34.930
+Anthony Taylor: We had time to go to the documentation and do it. Absolutely not. No, no, maybe
+
+833
+01:17:35.400 --> 01:17:42.340
+Baro, Sonja: it doesn't take long to right. Click it and bring it up. But Jesus Christ
+
+834
+01:17:42.390 --> 01:17:43.880
+exactly.
+
+835
+01:17:43.980 --> 01:17:46.460
+Baro, Sonja: Oh, damn it, I'm off mute.
+
+836
+01:17:47.200 --> 01:17:53.129
+Anthony Taylor: What was the Jesus Christ for, Miss Sonya. I'm so sorry if I offended anyone.
+
+837
+01:17:53.230 --> 01:18:12.969
+Baro, Sonja: I'm not offended. I'm just putting it out. No, it it's just frustrating Anthony, because, like I don't know about you guys. But the 15 min goes by so fast and like, I don't have time to go and get I or I didn't know, to go and have that ready to pull the reference.
+
+838
+01:18:13.430 --> 01:18:30.640
+Baro, Sonja: Well, let me see, when I switch over to read the instructions. So so I'm sorry I just. I'm at moding right now, just from a frustration. I don't get the time to like. Do the stuff that you want us to do and get it. So that's why we do it again every morning. So
+
+839
+01:18:30.720 --> 01:18:31.760
+Anthony Taylor: exactly.
+
+840
+01:18:32.280 --> 01:18:43.889
+Anthony Taylor: Exactly. You can continue. I don't have to hold the entire class back so. No, no, no, there's nothing in there that says you need to do local best.
+
+841
+01:18:43.970 --> 01:18:47.299
+Anthony Taylor: Low key goes best. We're introducing it right here
+
+842
+01:18:47.700 --> 01:18:52.290
+Anthony Taylor: just like the handles. We introduced that right here
+
+843
+01:18:53.700 --> 01:18:58.430
+Raugewitz, Tania: right. We didn't tell you guys, you need to do that. We're showing it to you in solution.
+
+844
+01:18:59.590 --> 01:19:05.839
+Anthony Taylor: So don't let that get in your head. It's just. hey? Here's something cool you can do.
+
+845
+01:19:05.960 --> 01:19:10.069
+Anthony Taylor: But you could have done just like you we did in the demo.
+
+846
+01:19:11.260 --> 01:19:12.400
+Anthony Taylor: Am I here?
+
+847
+01:19:13.560 --> 01:19:15.719
+Anthony Taylor: If we go take this
+
+848
+01:19:16.850 --> 01:19:20.250
+Anthony Taylor: back to here and put it here.
+
+849
+01:19:23.160 --> 01:19:24.740
+Anthony Taylor: Hmm.
+
+850
+01:19:26.100 --> 01:19:29.779
+Anthony Taylor: it's probably not gonna work, cause I have weird issues. But yeah, see, it worked just fine.
+
+851
+01:19:31.810 --> 01:19:42.899
+Anthony Taylor: You understand. these are just additional capabilities. and if you were trying to duplicate the screen, of course that didn't work
+
+852
+01:19:43.160 --> 01:19:50.370
+Anthony Taylor:  you could. You could. You would have had to look this up and see which one gives you the lope that you want. But
+
+853
+01:19:53.610 --> 01:19:57.070
+Anthony Taylor: I'm gonna think, oh, maybe it's upper right. Aha!
+
+854
+01:19:58.410 --> 01:19:59.380
+Anthony Taylor: There you go.
+
+855
+01:20:00.840 --> 01:20:01.730
+Anthony Taylor: Okay
+
+856
+01:20:03.560 --> 01:20:06.200
+Anthony Taylor: in the solutions. We're just trying to introduce
+
+857
+01:20:06.250 --> 01:20:14.529
+Anthony Taylor: other ways to do things that you guys could have come up with which I would have expected that or not even upper right. I would have been fine. But just
+
+858
+01:20:14.850 --> 01:20:15.820
+Anthony Taylor: lower. Right?
+
+859
+01:20:16.860 --> 01:20:17.680
+Anthony Taylor: Okay.
+
+860
+01:20:19.700 --> 01:20:21.899
+Anthony Taylor: wait a minute. Could they give you this?
+
+861
+01:20:28.240 --> 01:20:29.799
+Raugewitz, Tania: No, I don't have. That
+
+862
+01:20:34.220 --> 01:20:37.620
+Dipinto, Matt: is also the first time we've seen handles. And
+
+863
+01:20:37.930 --> 01:20:39.060
+Anthony Taylor: exactly.
+
+864
+01:20:39.530 --> 01:20:42.860
+Anthony Taylor: But that's why we're showing it to you in the solution. This is how we can do it.
+
+865
+01:20:43.130 --> 01:20:48.669
+Raugewitz, Tania: Yeah, don't. Don't try and figure that out or give us to it before we try it that way.
+
+866
+01:20:49.620 --> 01:20:56.949
+Anthony Taylor: You know, I could just give it to you guys the way it was written. especially now with a time limit. You know what?
+
+867
+01:20:57.980 --> 01:20:59.329
+Anthony Taylor: Tell us ain't enough
+
+868
+01:21:00.810 --> 01:21:01.990
+Anthony Taylor: not joking.
+
+869
+01:21:03.540 --> 01:21:09.849
+Raugewitz, Tania: Oh, so we're not supposed to have. We don't need to complain about that material during
+
+870
+01:21:10.140 --> 01:21:17.910
+Anthony Taylor: lecture. If you want to complain, there's feedback system, or you can catch me offline. But we don't need to do it during lecture.
+
+871
+01:21:19.500 --> 01:21:25.860
+Anthony Taylor: I do understand that you don't have it, and I've explained it to you numerous times
+
+872
+01:21:25.870 --> 01:21:28.569
+Raugewitz, Tania: place, so that we're good.
+

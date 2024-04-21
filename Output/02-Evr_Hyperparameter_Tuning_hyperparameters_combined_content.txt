@@ -1,0 +1,96 @@
+##--CODE--##
+import pandas as pd
+import numpy as np
+import warnings
+warnings.filterwarnings("ignore")
+
+##--CODE--##
+df = pd.read_csv('https://static.bc-edx.com/mbc/ai/m5/datasets/numeric_bank.csv')
+df.head()
+
+##--CODE--##
+target = df["y"]
+target_names = ["negative", "positive"]
+
+##--CODE--##
+data = df.drop("y", axis=1)
+feature_names = data.columns
+data.head()
+
+##--CODE--##
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(data, target, random_state=42)
+
+##--CODE--##
+# Create three KNN classifiers
+from sklearn.neighbors import KNeighborsClassifier
+untuned_model = KNeighborsClassifier()
+grid_tuned_model = KNeighborsClassifier()
+random_tuned_model = KNeighborsClassifier()
+
+##--CODE--##
+from sklearn.metrics import classification_report
+## Train a model without tuning and print the classification report
+
+
+##--CODE--##
+# Create the grid search estimator along with a parameter object containing the values to adjust.
+# Try adjusting n_neighbors with values of 1 through 19. Adjust leaf_size by using 10, 50, 100, and 500.
+# Include both uniform and distance options for weights.
+from sklearn.model_selection import GridSearchCV
+
+
+
+##--CODE--##
+# Fit the model by using the grid search estimator.
+# This will take the KNN model and try each combination of parameters.
+
+
+
+##--CODE--##
+# List the best parameters for this dataset
+
+
+
+##--CODE--##
+# Print the classification report for the best model
+
+
+
+##--CODE--##
+# Create the parameter object for the randomized search estimator.
+# Try adjusting n_neighbors with values of 1 through 19. 
+# Adjust leaf_size by using a range from 1 to 500.
+# Include both uniform and distance options for weights.
+
+
+
+##--CODE--##
+# Create the randomized search estimator
+from sklearn.model_selection import RandomizedSearchCV
+
+
+
+##--CODE--##
+# Fit the model by using the randomized search estimator.
+
+
+
+##--CODE--##
+# List the best parameters for this dataset
+
+
+
+##--CODE--##
+# Make predictions with the hypertuned model
+
+
+
+##--CODE--##
+# Calculate the classification report
+
+
+
+## Interpretations
+What were the best settings for the hyperparameters that were tested? How much improvement was made by tuning those hyperparameters?
+

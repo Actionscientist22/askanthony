@@ -1,0 +1,136 @@
+##--CODE--##
+# Install the required libraries
+!pip install prophet
+
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+import datetime as dt
+from prophet import Prophet
+
+%matplotlib inline
+
+##--CODE--##
+# Upload the scarf-google-trends-data.csv file
+from google.colab import files
+uploaded = files.upload()
+
+##--CODE--##
+# Read the data from the scarf-google-trends-data.csv file into a Pandas DataFrame
+df_alpaca = pd.read_csv("scarf-google-trends-data.csv")
+
+# Review the DataFrame
+df_alpaca.head()
+
+##--CODE--##
+# Plot the general trends
+ 
+
+##--CODE--##
+# Create a DataFrame for Canada to include the week and canada columns
+
+# Rename the columns to the Prophet model syntax 
+
+# Review the Canada DataFrame
+
+
+##--CODE--##
+# Create a DataFrame for Uruguay to include the week and uruguay columns
+
+# Rename the columns to the Prophet model syntax 
+
+# Review the Uruguay DataFrame
+
+
+##--CODE--##
+# Create a Prophet model for Canada
+
+
+##--CODE--##
+# Create a Prophet model for Uruguay
+
+
+##--CODE--##
+# Fit the Canada Prophet model
+
+
+##--CODE--##
+# Fit the Uruguay Prophet model
+
+
+##--CODE--##
+# Forecast one year of weekly future trends data for Canada 
+
+# Display the last five rows of the future_canada DataFrame
+
+
+##--CODE--##
+# Forecast one year of weekly future trends data for Uruguay 
+
+
+# Display the last five rows of the future_uruguay DataFrame
+
+
+##--CODE--##
+# Make predictions for Canada using the future_canada DataFrame
+
+
+# Display the first five rows of the forecast_canada DataFrame
+
+
+##--CODE--##
+# Make predictions for Uruguay using the future_uruguay DataFrame
+
+
+# Display the first five rows of the forecast_uruguay DataFrame
+
+
+##--CODE--##
+# Plot the Prophet predictions for Canada 
+
+
+##--CODE--##
+# Plot the Prophet predictions for Uruguay 
+
+
+##--CODE--##
+# Set the index in the forecast_canada DataFrame to the ds datetime column 
+
+
+# Display the forecast_canada DataFrame
+
+
+##--CODE--##
+# Plot predictions for our forecast_canada DataFrame for the 52 week period 
+
+
+##--CODE--##
+# Set the index in the forecast_uruguay DataFrame to the ds datetime column 
+
+
+# Display the forecast_uruguay DataFrame
+
+
+##--CODE--##
+# Plot predictions for our forecast_uruguay DataFrame for the 52 week period 
+
+
+##--CODE--##
+# Reset the index in the forecast_canada DataFrame
+
+
+# Use the plot_components function to visualize the forecast results 
+# for the forecast_canada DataFrame
+
+
+##--CODE--##
+# Reset the index in the forecast_uruguay DataFrame
+
+
+# Use the plot_components function to visualize the forecast results 
+# for the forecast_uruguay DataFrame
+
+
+##--CODE--##
+
+

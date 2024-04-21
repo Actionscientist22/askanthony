@@ -1,0 +1,78 @@
+##--CODE--##
+%matplotlib inline
+from matplotlib import pyplot as plt
+from sklearn.datasets import make_regression, make_swiss_roll
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+##--CODE--##
+def test_model(model, data):
+    X_train_scaled, X_test_scaled, y_train, y_test = data
+    reg = model.fit(X_train_scaled, y_train)
+    print(f'Model: {type(reg).__name__}')
+    print(f'Train score: {reg.score(X_train_scaled, y_train)}')
+    print(f'Test Score: {reg.score(X_test_scaled, y_test)}\n')
+    plt.show()    
+
+##--CODE--##
+# Create data
+X, y = make_regression(random_state=1)
+X = pd.DataFrame(X)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+scaler = StandardScaler().fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+data = [X_train_scaled, X_test_scaled, y_train, y_test]
+
+##--CODE--##
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.ensemble import RandomForestRegressor, ExtraTreesRegressor, AdaBoostRegressor
+from sklearn.svm import SVR
+
+##--CODE--##
+test_model(LinearRegression(), data)
+
+test_model(KNeighborsRegressor(), data)
+test_model(RandomForestRegressor(), data)
+test_model(ExtraTreesRegressor(), data)
+test_model(AdaBoostRegressor(), data)
+test_model(SVR(C=1.0, epsilon=0.2), data)
+
+##--CODE--##
+# Create data
+X, y = make_swiss_roll(random_state=1, n_samples=500, noise=1)
+X = pd.DataFrame(X)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+scaler = StandardScaler().fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+data = [X_train_scaled, X_test_scaled, y_train, y_test]
+
+##--CODE--##
+X_train_scaled
+
+##--CODE--##
+# Plot the result
+ax = plt.figure().add_subplot(projection='3d')
+ax.view_init(7, -80)
+ax.scatter(X[0], X[1], X[2],
+           color=plt.cm.jet(y/y.max()),
+           s=20, edgecolor='k')
+plt.savefig("swiss_roll.png")
+plt.show()
+
+##--CODE--##
+test_model(LinearRegression(), data)
+
+test_model(KNeighborsRegressor(), data)
+test_model(RandomForestRegressor(), data)
+test_model(ExtraTreesRegressor(), data)
+test_model(AdaBoostRegressor(), data)
+test_model(SVR(C=1.0, epsilon=0.2), data)
+
+##--CODE--##
+
+

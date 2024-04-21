@@ -1,0 +1,68 @@
+##--CODE--##
+import requests
+
+##--CODE--##
+# Create variable to hold request url
+url = "http://api.worldbank.org/v2/country/us/indicator/NY.GDP.MKTP.CD"
+
+##--CODE--##
+# Add format specifier to request url
+url = url + "?format=json"
+
+### Execute GET request with URL
+
+##--CODE--##
+# Execute get request
+
+
+##--CODE--##
+# Example 404 error response
+
+
+##--CODE--##
+# Get the text of the 404 status code page
+
+
+##--CODE--##
+# Example 500 error response
+
+
+##--CODE--##
+# Get the text of the 500 status code page
+
+
+### Store response as variable
+
+##--CODE--##
+# Execute GET request and store response
+
+
+### Retrieve API output using `content` attribute
+
+##--CODE--##
+# Get content
+
+
+### Use `json` function from `json` library to format
+
+##--CODE--##
+import json
+
+# Formatting as json
+
+
+### Format JSON with indents
+
+##--CODE--##
+# Add indents to JSON and output to screen
+
+
+### Identify country and GDP value second row
+
+##--CODE--##
+# Select country and GDP value for second row
+
+
+##--CODE--##
+
+

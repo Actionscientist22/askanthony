@@ -1,0 +1,123 @@
+##--CODE--##
+# Required imports
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+## Load the Data Into a Pandas DataFrame
+
+##--CODE--##
+# Read in the CSV file as a Pandas Dataframe
+ccinfo_default_df = pd.read_csv("Resources/ccinfo_transformed.csv")
+# Show the DataFrame.
+ccinfo_default_df.head()
+
+##--CODE--##
+# Plot the clusters using the "limit_bal" and "age" columns
+
+
+##--CODE--##
+# Plot the clusters using the "bill_amt" and "pay_amt" columns
+
+
+## Normalize and Transform the Data
+
+##--CODE--##
+# Drop the customer_segments column so it isn't considered a feature. 
+
+
+##--CODE--##
+# Import the PCA module
+
+
+##--CODE--##
+# Instantiate the PCA instance and declare the number of PCA variables
+
+
+##--CODE--##
+# Fit the PCA model on the transformed credit card DataFrame
+
+
+# Review the first 5 rows of list data
+
+
+## Get the Variance of Each Component
+
+##--CODE--##
+# Calculate the PCA explained variance ratio
+
+
+## Creating the PCA DataFrame
+
+##--CODE--##
+# Create the PCA DataFrame
+
+
+# Review the PCA DataFrame
+c
+
+## Determine the Optimal `k` Value
+
+##--CODE--##
+# Create a a list to store inertia values and the values of k
+
+
+# Append the value of the computed inertia from the `inertia_` attribute of teh KMeans model instance
+
+
+# Define a DataFrame to hold the values for k and the corresponding inertia
+
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Plot the Elbow Curve
+
+
+##--CODE--##
+# Determine the rate of decrease between each k value
+
+
+## Segmentation of the PCA data with K-means 
+
+##--CODE--##
+# Define the model with 3 clusters
+
+
+# Fit the model
+
+
+# Make predictions
+
+
+# Create a copy of the PCA DataFrame
+
+
+# Add a class column with the labels
+
+
+##--CODE--##
+# Plot the clusters
+
+
+##--CODE--##
+# What columns contribute the most to the explained variance?
+# Calculate the PCA explained variance ratio
+
+
+##--CODE--##
+# Determine which feature has the stronger influence on each principal component. 
+# Use the columns from the original DataFrame. FYI: The data has already been scaled and fitted.
+
+
+##--CODE--##
+
+
+### Which features have the strongest influence on each component?
+---
+
+
+##--CODE--##
+
+

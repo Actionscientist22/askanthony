@@ -1,0 +1,40 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install transformers
+
+##--CODE--##
+# Import the Autotokenizer class from the transformers module. 
+from transformers import AutoTokenizer
+# Create an instance of the Autotokenizer class using the t5-base model.
+tokenizer = AutoTokenizer.from_pretrained("t5-base", max_length=50)
+
+##--CODE--##
+# Define text we want to translate.
+english_text = "Hello, how are you today?"
+
+##--CODE--##
+# Retrieve the input IDs from the translation.
+input_ids = tokenizer(f"translate English to French: {english_text}", return_tensors="tf").input_ids
+input_ids
+
+##--CODE--##
+# Import the TFAutoModelForSeq2SeqLM class from the transformers module. 
+from transformers import TFAutoModelForSeq2SeqLM
+
+##--CODE--##
+# Generate the numerical outputs from the model. 
+translation_model = TFAutoModelForSeq2SeqLM.from_pretrained("t5-base", max_length=100)
+output_ids = translation_model.generate(input_ids, max_new_tokens=100)
+output_ids
+
+##--CODE--##
+# Decode the numerical outputs 
+tokenizer.decode(output_ids[0])
+
+##--CODE--##
+# Retrieve the text from the special characters.
+tokenizer.decode(output_ids[0], skip_special_tokens=True)
+
+##--CODE--##
+
+

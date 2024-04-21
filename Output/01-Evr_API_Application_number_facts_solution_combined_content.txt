@@ -1,0 +1,95 @@
+##--CODE--##
+# Dependencies
+import requests
+import json
+
+##--CODE--##
+# Base URL for GET requests to retrieve number/date facts
+url = "http://numbersapi.com/"
+
+##--CODE--##
+# Create a list of the search choice options
+search_options = ["trivia", "math", "date", "year"]
+
+##--CODE--##
+# Make a test request to check the JSON format
+response = requests.get(url + "45/" +  search_options[1].lower()+ "?json").json()
+
+# Use json.dumps with argument indent=4 to format data
+print(json.dumps(response, indent=4))
+
+##--CODE--##
+# Ask the user what kind of data they would like to search for
+question = ("What type of data would you like to search for? "
+            + str(search_options) + "\n")
+kind_of_search = input(question)
+
+##--CODE--##
+# Check that the user selection is in the search options
+if kind_of_search in search_options:
+    # If the kind of search is "date" take in two numbers
+    if(kind_of_search.lower() == "date"):
+        
+        # Create a continuous loop that exits when month is valid
+        while True:
+            # Collect the month to search for
+            month = input("What month would you like to search for? ")
+            
+            # Month needs to be digit and in range(1, 13)
+            if not month.isdigit():
+                # Print error and return month to empty string
+                print("Month input not valid. Must be between 1-12.")
+            elif int(month) not in range(1, 13):
+                # Print error and return month to empty string
+                print("Month input not valid. Must be between 1-12.")
+            else:
+                # Break from loop
+                break
+
+        # Create a continuous loop that exits when day is valid
+        while True:
+            # Collect the day to search for
+            day = input("What day would you like to search for? ")
+
+            # Day needs to be digit and in range(1, 32)
+            if not day.isdigit():
+                # Print error and return month to empty string
+                print("Month input not valid. Must be between 1-31.")
+            elif int(day) not in range(1, 32):
+                # Print error and return day to empty string
+                print("Day input not valid. Must be between 1-31.")
+            else:
+                # Break from loop
+                break
+
+        # Make an API call to the "date" API and convert response object to JSON
+        response = requests.get(f"{url}{month}/{day}/{kind_of_search.lower()}?json").json()
+        # Print the fact stored within the response
+        print(response["text"])
+
+    # If the kind of search is anything but "date" then take one number
+    else:
+
+        # Create a continuous loop that exits when input is number
+        while True:
+            # Collect the number to search for
+            number = input("What number would you like to search for? ")
+            
+            # Check if the input is a number with isdigit()
+            if number.isdigit():
+                # Break from the loop
+                break
+            else:
+                # Print an error
+                print("You must enter a number.")
+
+        # Make an API call to the API and convert response object to JSON
+        response = requests.get(url + number + "/" +  kind_of_search.lower()+ "?json").json()
+        # Print the fact stored within the response
+        print(response["text"])
+else:
+    print("Error: You didn't select a valid option.")
+
+##--CODE--##
+
+

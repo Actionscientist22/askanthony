@@ -1,0 +1,51 @@
+##--CODE--##
+# Import dependencies
+from matplotlib import pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn.datasets import fetch_california_housing
+from scipy.stats import sem
+
+##--CODE--##
+# Import the California housing data set and get description
+california_dataset = fetch_california_housing()
+
+print(california_dataset.DESCR)
+
+##--CODE--##
+# Read California housing data into a Pandas dataframe
+housing_data = pd.DataFrame(data=california_dataset.data,columns=california_dataset.feature_names)
+housing_data['MEDV'] = california_dataset.target
+housing_data.head()
+
+##--CODE--##
+# Create 25 samples, each with sample size of 20
+num_samples = 25
+sample_size = 20
+
+
+##--CODE--##
+# Calculate means
+
+# Calculate standard error on means
+
+
+##--CODE--##
+# Plot sample means with error bars
+
+
+##--CODE--##
+# Calculate the range of SEM values
+
+
+##--CODE--##
+# Determine which sample's mean is closest to the population mean
+
+
+##--CODE--##
+# Compare to the population mean
+
+
+##--CODE--##
+
+

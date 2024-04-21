@@ -1,0 +1,60 @@
+##--CODE--##
+# Uncomment the next line if you are using Google Colab
+# !pip install sentence-transformers
+
+##--CODE--##
+# Import the SentenceTransformer class and the utility function from the sentence_transformers library.
+from sentence_transformers import SentenceTransformer, util
+# Use the all-MiniLM-L6-v2 model.
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+##--CODE--##
+# Define a list of sentences to tokenize.
+sentences = ["I love my dog.", "I love my family.", "My dog is a lab."]
+
+##--CODE--##
+# Tokenize the sentences with the model.
+tokenized_documents = [model.tokenizer.tokenize(sentence) for sentence in sentences]
+
+# Get the numerical embeddings for all sentences.
+embeddings = model.encode(sentences)
+
+# Print the embeddings
+for i, sentence in enumerate(sentences):
+    print(f"Sentence {i+1}: {sentence}")
+    print(f"Embedding {i+1}: {embeddings[i][0:10]}")
+    print()
+
+##--CODE--##
+# Generate the cosine similarity scores using the embeddings.
+cosine_scores = util.cos_sim(embeddings, embeddings)
+cosine_scores
+
+##--CODE--##
+#Find the pairs with the highest cosine similarity scores
+pairs = []
+for i in range(len(cosine_scores)-1):
+    for j in range(i+1, len(cosine_scores)):
+        pairs.append({'index': [i, j], 'score': cosine_scores[i][j]})
+
+#Sort scores in decreasing order.
+pairs = sorted(pairs, key=lambda x: x['score'], reverse=True)
+print(pairs)
+
+##--CODE--##
+# Print out the pairs of sentences and their cosine similarity score.
+for pair in pairs:
+    i, j = pair['index']
+    print(f" {sentences[i]} \t{sentences[j]} \t Score: {pair['score']:.4f}")
+
+##--CODE--##
+# Create a DataFrame for the cosine similarity scores.
+import pandas as pd
+
+# Convert the cosine similarity matrix to a Pandas DataFrame.
+similarity_df = pd.DataFrame(cosine_scores, columns=['Sentence 1', 'Sentence 2', 'Sentence 3'], index=['Sentence 1', 'Sentence 2', 'Sentence 3'])
+similarity_df
+
+##--CODE--##
+
+

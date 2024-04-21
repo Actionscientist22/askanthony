@@ -1,0 +1,57 @@
+##--CODE--##
+# Import the required libraries and dependencies.
+import pandas as pd
+from path import Path
+
+##--CODE--##
+# Read the data from the tsla_historical.csv file into a Pandas DataFrame
+df_tsla = # YOUR CODE HERE
+
+
+##--CODE--##
+# Display the first five rows of the DataFrame
+# YOUR CODE HERE
+
+
+##--CODE--##
+# Inspect the DataFrame's data types using the info function
+# YOUR CODE HERE
+
+
+##--CODE--##
+# Transform the time column to a datetime data type
+df_tsla["time"] = # YOUR CODE HERE
+
+
+##--CODE--##
+# Display the first five rows of the DataFrame to confirm
+# changes to the time column
+# YOUR CODE HERE
+
+
+##--CODE--##
+# Use the info function to confirm the change in data type 
+# for the time column
+# YOUR CODE HERE
+
+
+##--CODE--##
+# Convert the time column to the Europe/Berlin timezone
+df_tsla["time"] = # YOUR CODE HERE
+
+
+##--CODE--##
+# View the first five rows of the DataFrame to confirm the
+# conversion of the time column
+# YOUR CODE HERE
+
+
+##--CODE--##
+# Use the info function to confirm the change in the time zone
+# associated with the time column
+# YOUR CODE HERE
+
+
+##--CODE--##
+
+

@@ -1,0 +1,101 @@
+##--CODE--##
+# Import libraries and dependencies
+import pandas as pd
+
+### Read CSV in as DataFrame
+
+##--CODE--##
+# Set the file path
+file_path = '../Resources/people.csv'
+
+# Read in the CSV as a DataFrame
+people_csv = pd.read_csv(file_path)
+people_csv.head()
+
+### Index Selection Using iloc
+
+##--CODE--##
+# Select the first row of the DataFrame
+people_csv.iloc[0]
+
+##--CODE--##
+# Select the second row of the DataFrame
+people_csv.iloc[1] 
+
+##--CODE--##
+# Select the first 10 rows of the DataFrame
+people_csv.iloc[0:10] 
+
+##--CODE--##
+# Select the last row of the DataFrame
+people_csv.iloc[-1]
+
+##--CODE--##
+# Select the first column of the DataFrame
+people_csv.iloc[:,0].head()
+
+##--CODE--##
+# Select the second column of the DataFrame, with all rows
+people_csv.iloc[:,1].head()
+
+##--CODE--##
+# Select the last column of the DataFrame, with all rows
+people_csv.iloc[:,-1].head()
+
+##--CODE--##
+# Select the first two columns of the DataFrame, with all rows
+people_csv.iloc[:, 0:2].head()
+
+##--CODE--##
+# Select the 1st, 5th, 8th, 22nd rows of the 1st 4th and 6th columns.
+people_csv.iloc[[0,4,7,21], [0,3,5]]
+
+##--CODE--##
+# Select the first 5 rows of the 3rd, 4th, and 5th columns of the DataFrame
+people_csv.iloc[0:5, 2:5] 
+
+### Assignment Using iLoc
+
+##--CODE--##
+# Modify the 'first_name' column value of the first row
+people_csv.iloc[0, people_csv.columns.get_loc('first_name')] = 'Arya'
+people_csv.head()
+
+### Index Selection Using Loc
+
+##--CODE--##
+# Indexing
+people_csv.set_index(people_csv['first_name'])
+people_csv.head()
+
+##--CODE--##
+# Set the index as the 'first_name' column
+people_csv.set_index(people_csv['first_name'], inplace=True)
+people_csv.head()
+
+##--CODE--##
+# Sort by the index
+people_csv = people_csv.sort_index()
+
+##--CODE--##
+# Select the row with the index 'Evan'
+people_csv.loc['Evan']
+
+##--CODE--##
+# Slice the data to output a range of rows based on the index
+people_csv.loc['Aleshia':'Svetlana'].head()
+
+##--CODE--##
+# Filter rows based on a column value conditional
+people_csv.loc[people_csv['age'] == 39].head()
+
+### Assignment Using Loc
+
+##--CODE--##
+# Modify the 'first_name' value of the row with the index 'Yun'
+people_csv.loc['Yun', 'first_name'] = 'Yuna'
+people_csv.head()
+
+##--CODE--##
+
+

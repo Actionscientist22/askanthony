@@ -1,0 +1,74 @@
+##--CODE--##
+# Import Libraries and Dependencies
+import pandas as pd
+from pathlib import Path
+
+##--CODE--##
+# Import data
+wheat_2018_path = Path('Resources/G20_wheat_production_2018.csv')
+wheat_2019_path = Path('Resources/G20_wheat_production_2019.csv')
+wheat_2020_path = Path('Resources/G20_wheat_production_2020.csv')
+
+# Read in data 
+wheat_2018_df = pd.read_csv(wheat_2018_path)
+wheat_2019_df = pd.read_csv(wheat_2019_path)
+wheat_2020_df = pd.read_csv(wheat_2020_path)
+
+##--CODE--##
+# Display the 2018 wheat data
+wheat_2018_df.head()
+
+##--CODE--##
+# Display the 2019 wheat data
+wheat_2019_df.head()
+
+##--CODE--##
+# Display the 2020 wheat data
+wheat_2020_df.head()
+
+### Merge the 2018 wheat data with the 2019 wheat data. 
+
+##--CODE--##
+# Perform an inner merge that combines the 2018 and 2019 DataFrames on the `Country` column.
+merged_2018_2019 = wheat_2018_df.merge(wheat_2019_df, on='Country', how='inner')
+merged_2018_2019.head(10)
+
+##--CODE--##
+# Merge the 2018 and 2019 wheat data with the 2020 wheat data so the 2020 data is added on the right side. 
+merged_2018_2020 = merged_2018_2019.merge(wheat_2020_df, on='Country', how='inner')
+merged_2018_2020.head(10)
+
+##--CODE--##
+# Get the column names.
+merged_2018_2020.columns
+
+##--CODE--##
+# Drop the "Crop_x", "Year_x", "Crop_y", "Year_y", "Crop" and "Year" columns. 
+merged_2018_2020_clean = merged_2018_2020.drop(["Crop_x", "Year_x", "Crop_y", "Year_y", "Crop", "Year"], axis=1)
+merged_2018_2020_clean
+
+##--CODE--##
+# Rename the remaining columns (Tonnes of Wheat HA)_2018, (Tonnes of Wheat HA)_2019, and (Tonnes of Wheat HA)_2020. 
+merged_2018_2020_clean = merged_2018_2020_clean.rename(columns={"Value(tonnes of HA)_x": "(Tonnes of Wheat HA)_2018",
+                                                                "Value(tonnes of HA)_y": "(Tonnes of Wheat HA)_2019",
+                                                                "Value(tonnes of HA)": "(Tonnes of Wheat HA)_2020"})
+
+# Display the DataFrame
+merged_2018_2020_clean.head(10)
+
+##--CODE--##
+# Get the columns
+merged_2018_2020_clean.columns
+
+##--CODE--##
+# Sort on the amount of tonnes of wheat for each year and reset the index. 
+sorted_by_amount_2018_2020 = merged_2018_2020_clean.sort_values(by=['(Tonnes of Wheat HA)_2018',
+                                                                    '(Tonnes of Wheat HA)_2019',
+                                                                    '(Tonnes of Wheat HA)_2020'], ascending=False).reset_index(drop=True)
+
+# Display the sorted DataFrame.
+sorted_by_amount_2018_2020
+
+##--CODE--##
+
+

@@ -1,0 +1,34 @@
+##--CODE--##
+%matplotlib notebook
+
+##--CODE--##
+import matplotlib.pyplot as plt
+import numpy as np
+
+##--CODE--##
+# Create an array that contains the number of users each language has
+users = [13000, 26000, 52000, 30000, 9000]
+x_axis = np.arange(len(users))
+
+##--CODE--##
+# Tell matplotlib that we will be making a bar chart
+# Users is our y axis and x_axis is, of course, our x axis
+# We apply align="center" to ensure our bars line up with our tick marks
+
+
+##--CODE--##
+# Tell matplotlib where we would like to place each of our x axis headers
+
+
+##--CODE--##
+# Sets the x limits of the current chart
+
+
+##--CODE--##
+# Sets the y limits of the current chart
+
+
+##--CODE--##
+# Give our chart some labels and a tile
+
+

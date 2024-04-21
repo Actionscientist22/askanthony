@@ -1,0 +1,47 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install transformers
+
+##--CODE--##
+# Import the pipeline class from the transformers module. 
+from transformers import pipeline
+# Instantiate the pipeline class for summarization using the facebook/bart-large-cnn model.
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+##--CODE--##
+# Read in the text file with the read_file function.
+# https://en.wikipedia.org/wiki/History_of_artificial_intelligence
+filepath = "Resources/AI_history.txt"
+with open(filepath) as f:
+    ai_text = f.read().replace('\n',' ')
+
+##--CODE--##
+# Print the first 1000 items in the AI history text 
+ai_text[0:1000]
+
+##--CODE--##
+len(ai_text)
+
+##--CODE--##
+# Get the most likely summary of the article using "False" for the `do_sample` parameter.
+most_likely_summary = summarizer(ai_text, 
+                     min_length=50, 
+                     max_length=150, 
+                     do_sample=False)
+
+# Display the summary
+most_likely_summary[0]["summary_text"]
+
+##--CODE--##
+# Get a more diverse summary of the article using "True" for the `do_sample` parameter.
+diverse_summary = summarizer(ai_text, 
+                     min_length=50, 
+                     max_length=150, 
+                     do_sample=True)[0]["summary_text"]
+
+# Display the summary
+diverse_summary
+
+##--CODE--##
+
+

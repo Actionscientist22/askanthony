@@ -1,0 +1,84 @@
+##--CODE--##
+# Uncomment the next line if you are using Google Colab
+# !pip install transformers 
+
+##--CODE--##
+# Import the BertTokenizer from the transformers package.
+from transformers import BertTokenizer
+
+##--CODE--##
+# Instantiate the BertTokenizer on the pre-trained data.
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+
+##--CODE--##
+# Define an input text.
+text = "I am learning about subword tokenization."
+
+# Tokenize the text into subwords.
+subwords = tokenizer.tokenize(text)
+subwords
+
+## NLTK tokenization
+
+##--CODE--##
+# Uncomment the next line if you are using Google Colab
+# !pip install nltk
+
+# Import Reuters database from the nltk corpus
+from nltk.corpus import reuters
+# Import tokenizers
+from nltk.tokenize import sent_tokenize, word_tokenize
+
+# Download the "punkt" sentence tokenizer.
+import nltk
+nltk.download("reuters")
+nltk.download('punkt')
+
+##--CODE--##
+# We'll find the first article about cocoa.
+print(reuters.categories())
+
+##--CODE--##
+# We'll find the first article about cocoa.
+reuters.fileids(categories = 'cocoa')[0]
+
+##--CODE--##
+article = reuters.raw('test/15095')
+print(article)
+
+##--CODE--##
+# NLTK tokenizes in similar way by using the `sent_tokenize` function
+sent_tokenize(article)
+
+##--CODE--##
+# Print the first  sentence.
+sent = sent_tokenize(article)[0]
+print(sent)
+
+##--CODE--##
+# Tokenize the first sentence with the `word_tokenize` function.
+word_tokenize(sent)
+
+## Tokenizing using spaCy
+
+##--CODE--##
+# Import the spaCy library
+import spacy
+# Load the small English language model for spaCy
+nlp = spacy.load("en_core_web_sm")
+
+##--CODE--##
+# Tokenize the first sentence using token.text
+spacy_sent = nlp(sent)
+[token.text for token in spacy_sent]
+
+## Tokenize the first sentence using bert-base-uncased.
+
+##--CODE--##
+# Tokenize the first sentence into subwords.
+sentence_subwords = tokenizer.tokenize(sent)
+sentence_subwords
+
+##--CODE--##
+
+

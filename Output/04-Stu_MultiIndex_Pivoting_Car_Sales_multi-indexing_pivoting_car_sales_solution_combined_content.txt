@@ -1,0 +1,76 @@
+##--CODE--##
+# Import dependencies
+import pandas as pd
+
+##--CODE--##
+# Read the CSV file into a DataFrame
+vehicles_df = pd.read_csv('Resources/vehicles.csv')
+vehicles_df
+
+##--CODE--##
+# Show the total number of vehicles for each model and make.
+make_model_sum = pd.pivot_table(vehicles_df, 
+                                 index=['model', 'make'],
+                                 values='count',
+                                 aggfunc='sum')
+# Show the top 20 results.
+make_model_sum.head(20)
+
+##--CODE--##
+# Rename the "count" column
+make_model_totals = make_model_sum.rename(columns={"count": "Total"})
+
+# Sort the renamed pivot table on the "Total" column to show the top 20 vehicles sold by model and make.
+make_model_totals.sort_values(by=["Total"], ascending=False).head(20)
+
+##--CODE--##
+# Show the total number of vehicles for each model, make, and year.
+make_model_yr_sum = pd.pivot_table(vehicles_df, 
+                                     index=['model','make','year'],
+                                     values='count',
+                                     aggfunc='sum')
+# Show the top 20 results.
+make_model_yr_sum.head(20)
+
+##--CODE--##
+# Rename the "count" column to "Total"
+make_model_yr_totals = make_model_yr_sum.rename(columns={"count": "Total"})
+
+# Sort the pivot table on the "year" index and "Total" column and show the top 20 vehicles sold by the year.
+make_model_yr_totals.sort_values(by=["year","Total"], ascending=False).head(20)
+
+##--CODE--##
+# Show the total number of vehicles for each category and year. 
+category_yr_sum = pd.pivot_table(vehicles_df, 
+                                     index=['category', 'year'],
+                                     values='count',
+                                     aggfunc='sum')
+# Show the top 20 results.
+category_yr_sum.head(20)
+
+##--CODE--##
+# Rename the "count" column to "Total"
+category_yr_totals = category_yr_sum.rename(columns={"count": "Total"})
+
+# Sort the pivot table on the "Total" column to show the top 20 vehicles sold by category and year.
+category_yr_totals.sort_values(by=["Total"], ascending=False).head(20)
+
+##--CODE--##
+# Show the total number vehicles for each category, model, and year.
+category_model_yr_sum = pd.pivot_table(vehicles_df, 
+                                     index=['category','model','year'],
+                                     values='count',
+                                     aggfunc='sum')
+# Show the top 20 results.
+category_model_yr_sum.head(20)
+
+##--CODE--##
+# Rename the "count" column to "Total"
+category_model_yr_totals = category_model_yr_sum.rename(columns={"count": "Total"})
+
+# Sort the pivot table on the "Total" column to show the top 20 vehicles sold by category, model, and year.
+category_model_yr_totals.sort_values(by=["Total"], ascending=False).head(20)
+
+##--CODE--##
+
+

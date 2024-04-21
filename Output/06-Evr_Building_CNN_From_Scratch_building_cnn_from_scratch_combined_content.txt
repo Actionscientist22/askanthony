@@ -1,0 +1,183 @@
+##--CODE--##
+from PIL import Image
+import pandas as pd
+import requests
+import numpy as np
+
+# Part 1: Importing Data
+
+##--CODE--##
+# Reading the meta file containing all image file names
+path = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_1/datasets/csvs/files_list.csv"
+
+filenames_df = pd.read_csv(path)
+filenames_df.head()
+
+##--CODE--##
+# Build a list of imported images
+base_path = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_1/datasets/faces_data/"
+images = []
+for i in range(len(filenames_df)):
+    filename = filenames_df.iloc[i,0]
+    path = base_path + filename
+    print(f'{i} of {len(filenames_df)}: Attempting to import {filename}')
+    try:
+        response = requests.get(path, stream=True).raw
+        images.append(Image.open(response))
+    except:
+        print(f'FAILED: {filename}')
+
+##--CODE--##
+# Print a random image from the list to ensure the import was successful
+images[40]
+
+## Part 2: Preprocessing
+
+##--CODE--##
+# Check the size of the second image
+
+
+##--CODE--##
+# Get all the sizes into a list, then convert to a set
+
+
+##--CODE--##
+# Use a for loop to resize all images to 64 by 60
+
+
+##--CODE--##
+# Verify the resizing of all images
+# Get all the sizes into a list, then convert to a set
+
+
+##--CODE--##
+# Convert all images to floating point numpy arrays
+
+# Display the pixel values of the first image
+
+
+##--CODE--##
+# To normalize images to a range between 0 and 1,
+# we need to divide all pixel values by the max of 255
+
+
+# Display the pixel values of the first image
+
+
+
+# Part 3: Labels
+
+##--CODE--##
+# Print the first few image filenames
+
+
+
+##--CODE--##
+# First, remove the .png file extension, then split into four new columns.
+
+
+
+##--CODE--##
+# Now we can call our preprocessed pixel data 'X'
+
+# For our purposes, we'll select the userid column as 'y'
+
+
+
+##--CODE--##
+# Now we'll split our data into training and testing sets
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+# Part 4: Augmentation
+
+##--CODE--##
+# Apply augmentation to the whole training dataset
+# Create an ImageDataGenerator
+
+# Create variables to hold the X and y training data
+
+
+# Loop through all the images.
+
+    # Select the image
+
+    # Select the label from the training data
+    
+    # Add a channel dimension for grayscale images
+
+    # Ensure that the input data has the correct shape
+
+    # Add 5 images for every original image
+
+        # Append a new image to the X list
+
+        # Append the label for the original image to the y list
+
+
+# Print the length of each list
+
+
+
+
+
+##--CODE--##
+# Reshape test data for the model
+
+    # Add a channel dimension for grayscale images
+
+    # Append the image to the list
+
+
+# Convert to numpy array
+
+# Check the shape of the first image
+
+
+# Part 5: Creating the Model
+
+##--CODE--##
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.optimizers import Adam
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder
+import numpy as np
+
+# One hot encode the y data
+
+
+# Convert values to numpy arrays
+
+
+# Load and preprocess your CMU Face Images dataset (Ensure each image is labeled as "with sunglasses" or "without sunglasses")
+# The following code assumes that you have already loaded and preprocessed your dataset into 'X' and 'y' (features and labels).
+
+# Split the training dataset into training and validation sets
+
+
+# Print the total number of one_hot_encoded columns
+
+
+
+##--CODE--##
+# Define a CNN model
+
+
+# Compile the model
+
+
+# Train the model
+
+
+
+##--CODE--##
+# Evaluate the model using the testing data
+
+
+##--CODE--##
+
+

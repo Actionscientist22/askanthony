@@ -1,0 +1,6430 @@
+WEBVTT
+
+1
+00:00:04.990 --> 00:00:11.850
+Anthony Taylor:  so I'm gonna start my day telling you guys that
+
+2
+00:00:13.950 --> 00:00:17.690
+Anthony Taylor: I went and started viewing this activity this afternoon
+
+3
+00:00:18.750 --> 00:00:21.630
+Anthony Taylor: and immediately went into pure panic mode
+
+4
+00:00:22.870 --> 00:00:30.060
+Anthony Taylor: as it occurred to me as I was reading through this, I've never actually use this model we're going to be discussing today. Now.
+
+5
+00:00:31.780 --> 00:00:38.589
+Anthony Taylor: I'm gonna be honest with you. The fact that I've used as many as I have is just pure luck. And because I've been around forever
+
+6
+00:00:39.080 --> 00:00:42.480
+Anthony Taylor: but this one. It's a good.
+
+7
+00:00:43.450 --> 00:00:52.220
+Anthony Taylor: it's a lot of fun. And it's a really good one. And it's really. really complicate.
+
+8
+00:00:54.500 --> 00:00:56.000
+Anthony Taylor: Yeah, so
+
+9
+00:00:56.100 --> 00:01:06.459
+Anthony Taylor: do my best try to be clear about this possible. We're gonna get into some deep concepts that we have not gotten into in any cohort previous to this.
+
+10
+00:01:06.810 --> 00:01:09.980
+Anthony Taylor:  and it's gonna be exciting.
+
+11
+00:01:10.760 --> 00:01:15.690
+Anthony Taylor: that's all I can say about it. It's gonna be fun. The good news is is.
+
+12
+00:01:16.090 --> 00:01:24.480
+Anthony Taylor: while this model does really interesting thing. I have worked with similar ones, not this specific one, and never one that was set up exactly this way.
+
+13
+00:01:26.260 --> 00:01:29.900
+Anthony Taylor: So we're gonna have some fun with this. We're gonna get through it.
+
+14
+00:01:30.570 --> 00:01:40.910
+Anthony Taylor: Conceptually, all of this stuff I'm aware of. It's just I haven't physically done this specific model. Unlike almost everything else you guys have done. I've done introduction fire
+
+15
+00:01:41.340 --> 00:01:47.780
+Anthony Taylor: so, and I didn't have to tell you that I just wanted to tell you that. So don't mark me off on instructor knowledge. I still know everything.
+
+16
+00:01:49.120 --> 00:01:50.040
+Anthony Taylor: Okay.
+
+17
+00:01:50.530 --> 00:01:56.109
+Anthony Taylor: I just this one particular thing I actually had to read about before telling you about
+
+18
+00:01:57.140 --> 00:02:01.029
+Anthony Taylor: alright. So we've talked about recommendation systems before.
+
+19
+00:02:02.430 --> 00:02:07.670
+Anthony Taylor: Okay, we have today, we're gonna go way deeper
+
+20
+00:02:08.080 --> 00:02:17.150
+Anthony Taylor: into a different kind of recommendation system. That is way more accurate than unclustered. Well, potentially way, more active.
+
+21
+00:02:18.920 --> 00:02:23.150
+Anthony Taylor: We're going to use the restricted Boltzmann machine
+
+22
+00:02:24.270 --> 00:02:27.470
+Anthony Taylor: anytime. You hear the term machine
+
+23
+00:02:27.850 --> 00:02:34.350
+Anthony Taylor: when they are talking about data, science be prepared for an interesting and complicated configuration.
+
+24
+00:02:35.510 --> 00:02:42.960
+Anthony Taylor: Alright machine implies. There are interactions taking place throughout your code
+
+25
+00:02:44.360 --> 00:02:48.200
+Anthony Taylor: in this particular case, as you guys are going to see later, it's
+
+26
+00:02:48.870 --> 00:02:54.989
+Anthony Taylor: built very similar to a neural network. It uses neural network components.
+
+27
+00:02:56.430 --> 00:03:00.850
+Anthony Taylor: but it does it in a different way than we've been shown so far.
+
+28
+00:03:02.100 --> 00:03:13.609
+Anthony Taylor: Okay, so we'll get to it. Let's get to it. Welcome! Well, help! Everyone had a great weekend. Sounds like we had a lot of people just trying to figure out how to deal with that at at our.
+
+29
+00:03:14.340 --> 00:03:26.830
+Anthony Taylor: And that's okay. Okay. Alright. So let's be reminded of our perceptron. Okay. oh, another thing about today's class. There are no student activities today.
+
+30
+00:03:28.150 --> 00:03:36.150
+Anthony Taylor: This is Anthony ducking for 3 flippin hours. I'm so excited. Okay.
+
+31
+00:03:38.200 --> 00:03:40.440
+Anthony Taylor: perceptron. So
+
+32
+00:03:41.550 --> 00:03:43.679
+Anthony Taylor: let's talk about something that's going to come up again.
+
+33
+00:03:45.000 --> 00:03:48.079
+Anthony Taylor: Anybody remember what these w's stand for?
+
+34
+00:03:51.220 --> 00:03:56.569
+Anthony Taylor: Wait, wait, thank you, Derek. Those are. How about
+
+35
+00:03:57.360 --> 00:04:08.510
+Anthony Taylor: with no, no weights. Right? Because remember what happens as the neuron, the neuro, the neural network works its way through the layers
+
+36
+00:04:08.760 --> 00:04:11.610
+Anthony Taylor: it adjusts. Go ahead, son.
+
+37
+00:04:12.110 --> 00:04:13.250
+sonja baro: the weights.
+
+38
+00:04:13.500 --> 00:04:19.940
+Anthony Taylor: it adjusts the weights. Okay. Now, if it needed to adjust all of the weights at once.
+
+39
+00:04:21.450 --> 00:04:24.919
+Anthony Taylor: What in this picture would it use to do that?
+
+40
+00:04:30.830 --> 00:04:32.070
+michael mcpherson: The summation
+
+41
+00:04:32.690 --> 00:04:34.000
+Derek Rikke: that's biased
+
+42
+00:04:34.410 --> 00:04:44.150
+Anthony Taylor: bias? Thank you, Derek, that Mike, that was a good guess. Thank you. Okay. The bias adjusts all of
+
+43
+00:04:44.710 --> 00:04:45.690
+output
+
+44
+00:04:45.940 --> 00:04:50.469
+Anthony Taylor: versus the weights are done at each individual neuron.
+
+45
+00:04:51.230 --> 00:04:55.900
+Anthony Taylor: Alright, that's important piece of information. That's what I want you to remember about Septon today.
+
+46
+00:04:56.830 --> 00:04:57.780
+Anthony Taylor: Okay.
+
+47
+00:04:58.450 --> 00:05:06.030
+Anthony Taylor: that should totally in your brain. Knowing me at this point, you should be like, he's gonna totally change. That before this day is over
+
+48
+00:05:06.560 --> 00:05:12.200
+Anthony Taylor: is exactly what's going to help. But for a normal neural network this is the case.
+
+49
+00:05:12.400 --> 00:05:13.180
+Anthony Taylor: So
+
+50
+00:05:13.640 --> 00:05:19.710
+Anthony Taylor: remember, we talked about one other thing, too, when we saved a neural network, what were we actually saving?
+
+51
+00:05:25.310 --> 00:05:28.860
+Anthony Taylor: And I remember the table and the weights and the configuration. Yeah.
+
+52
+00:05:29.020 --> 00:05:37.960
+Anthony Taylor: perfect the weights. So basically, we're saying, Hey, here's the configuration neural network. And here's the weight for every neuron that we came up with. That gives you the answer.
+
+53
+00:05:38.750 --> 00:05:39.550
+Anthony Taylor: okay?
+
+54
+00:05:40.560 --> 00:05:51.220
+Anthony Taylor: And so so that's important. So the point of a neural network is to come up with the weights for the network itself, I mean comes up with us an algorithm that does this. But
+
+55
+00:05:51.250 --> 00:05:55.459
+Anthony Taylor: ultimately the the you could take those weights and apply them.
+
+56
+00:05:55.530 --> 00:06:00.370
+Anthony Taylor: save them and send them to other people, and other people will get the same result as you're getting
+
+57
+00:06:02.610 --> 00:06:09.250
+Anthony Taylor: okay, get alright. Let us move forward.
+
+58
+00:06:11.970 --> 00:06:12.710
+Anthony Taylor: alright.
+
+59
+00:06:13.510 --> 00:06:20.400
+Anthony Taylor: So what are some examples? So it says, instructor demonstration, instructor, demonstration is me walking through these slides right now we will
+
+60
+00:06:21.670 --> 00:06:25.470
+Anthony Taylor: the the code, the initial code. I'm going to show you guys, you're going to hate it.
+
+61
+00:06:26.250 --> 00:06:36.170
+Anthony Taylor: The good news is we're gonna take it apart and do it in like 5. Everyone dues. But they're gonna have me show you all of it in the first demo.
+
+62
+00:06:37.070 --> 00:06:41.549
+Anthony Taylor: And the reason I'm explaining that to you is that I do not want you guys to stress
+
+63
+00:06:41.920 --> 00:06:49.879
+Anthony Taylor: or get all worried about what I'm showing or we're never gonna get. Don't worry about okay. We're gonna go through it in like 3 or 4 parts
+
+64
+00:06:50.000 --> 00:06:53.820
+Anthony Taylor: alright. But I am going to show it all to you at once
+
+65
+00:06:54.120 --> 00:06:55.969
+Anthony Taylor: in a second. Okay?
+
+66
+00:06:56.480 --> 00:06:58.279
+Recommendation systems.
+
+67
+00:06:58.670 --> 00:07:01.920
+Anthony Taylor: So what kind of recommendation systems? You guys work with all the time.
+
+68
+00:07:07.580 --> 00:07:08.700
+Anthony Taylor: Go ahead, Meredith.
+
+69
+00:07:09.570 --> 00:07:16.320
+Meredith McCanse (she/her): the first 2 that came to mind was my Netflix algorithm recommendations. And
+
+70
+00:07:16.330 --> 00:07:23.240
+Meredith McCanse (she/her): constantly feeding me job recommendations linked in constant, absolutely. What's some other? What's got? I mean, you guys.
+
+71
+00:07:23.260 --> 00:07:33.760
+Anthony Taylor: some of you probably are here because of a recommendation.
+
+72
+00:07:33.970 --> 00:07:42.290
+Anthony Taylor: There you go, or some browser, or whatever some email. Right? It was recommendation engine, that information.
+
+73
+00:07:42.370 --> 00:07:44.329
+Anthony Taylor: Pandora, big one.
+
+74
+00:07:44.360 --> 00:07:54.819
+Clayton Graves: Amazon's probably the biggest money maker and recommendations ever. Just about any day you can come up with.
+
+75
+00:07:55.720 --> 00:07:57.969
+Anthony Taylor: I mean almost. They're honestly
+
+76
+00:07:58.010 --> 00:08:01.339
+Anthony Taylor: I would have trouble finding things that have the recommendation.
+
+77
+00:08:02.310 --> 00:08:05.429
+Anthony Taylor: Alright, I mean. You can say, well, my Gmail. Oh, no, no!
+
+78
+00:08:06.610 --> 00:08:10.359
+Anthony Taylor: There's recommendations here. Where do you? Where do you think those ads are coming from all the time?
+
+79
+00:08:11.050 --> 00:08:15.279
+Anthony Taylor: Right, I mean, and and and they? They do a lot. There's a lot.
+
+80
+00:08:15.350 --> 00:08:18.729
+Anthony Taylor: Okay. So here's a video, Youtube, Netflix, Hulu Disney.
+
+81
+00:08:19.000 --> 00:08:20.359
+Anthony Taylor: Of course.
+
+82
+00:08:20.560 --> 00:08:30.270
+Anthony Taylor: Okay, spotify Youtube, music, Pandora. Amazon wayfare. Any online store. any online store.
+
+83
+00:08:30.830 --> 00:08:38.929
+Anthony Taylor: I cannot think of an online store that does not give you recommendations, or at the very least show you like. Here's what other people who, you know, bought.
+
+84
+00:08:39.640 --> 00:08:47.020
+Anthony Taylor: Okay? And then there's targeted ads. These are your Gmail ads. These are the ads you see on every freaking webpage.
+
+85
+00:08:47.370 --> 00:08:59.459
+Anthony Taylor: These are the ads. You see, when you go, you you went and looked at that one thing that you don't want anybody else to know you looked at, and it shows up on every web page for the next 6 months. Right?
+
+86
+00:09:00.750 --> 00:09:02.549
+Mason, Natalie: We're not gonna talk about that.
+
+87
+00:09:03.240 --> 00:09:07.089
+Anthony Taylor: We're not gonna talk about. They have incognito. Ha!
+
+88
+00:09:07.540 --> 00:09:26.000
+Anthony Taylor: You don't even have to go. You don't even have to go. Look at the web page. You can just say it in the proximity of your phone, and it will hear you. And that's how I ended up here. Instagram Instagram heard me talking. I was ready
+
+89
+00:09:26.570 --> 00:09:33.230
+Anthony Taylor: my my thought. Well, last time I heard. That's how I ended up here. It was like, you know, somebody talking about Prom
+
+90
+00:09:33.480 --> 00:09:38.799
+Anthony Taylor: and their parents being at the Prom, and so I mean. But you realize now
+
+91
+00:09:38.810 --> 00:09:53.579
+Mason, Natalie: that doesn't make sense for any of us. But you know, 1015 years from now it's like a recommendation engine cost me to be born graduation doesn't include a Prom. What did we pay all this money for? Not gonna have a Prom.
+
+92
+00:09:54.160 --> 00:09:57.149
+Anthony Taylor: Well, you guys can on video get like.
+
+93
+00:09:57.330 --> 00:10:02.130
+Anthony Taylor: I don't know. Never mind. Okay, the platform
+
+94
+00:10:04.230 --> 00:10:09.289
+Anthony Taylor: the platform recommend platforms recommend what they think you might be interested in.
+
+95
+00:10:09.770 --> 00:10:13.239
+Anthony Taylor: based on something you've done before. Now we talked about this with unplustered
+
+96
+00:10:13.260 --> 00:10:25.359
+Anthony Taylor: right? Looks at Natalie watched these movies. Derek watched one of the movies. Natalie watched. Okay, well, maybe we'll recommend some of the movies. Natalie watched also, since you both watched.
+
+97
+00:10:26.700 --> 00:10:35.570
+Anthony Taylor: and that's the simplest form of recommendation. And to be honest with you, it works pretty good. Okay? Because for the most part recommendation engines
+
+98
+00:10:37.650 --> 00:10:46.009
+Anthony Taylor: we'd love. We would love to say that we recommend perfectly every single time. but we obviously don't.
+
+99
+00:10:46.200 --> 00:10:56.639
+Anthony Taylor: And truthfully, what would we even notice if it did. I mean all of you, as you see, those recommend you ever just look! Oh, my God! It recommended exactly what I want.
+
+100
+00:10:57.700 --> 00:11:03.479
+Anthony Taylor: Sometimes sometimes it piques your interest and you click on it. Otherwise they wouldn't do it.
+
+101
+00:11:04.520 --> 00:11:07.120
+Anthony Taylor: Okay. so.
+
+102
+00:11:07.340 --> 00:11:14.640
+Anthony Taylor: but the thing is that they don't care. It's basically a marketing ploy. Remember what I say about marketing. They just want you to see it.
+
+103
+00:11:15.350 --> 00:11:18.390
+Anthony Taylor: Do they need you to buy it? Not immediately.
+
+104
+00:11:18.680 --> 00:11:24.530
+Anthony Taylor: Marketers are smart. they know once they plant the seed, it's just a matter of time.
+
+105
+00:11:25.810 --> 00:11:34.099
+Anthony Taylor: Okay, this shirt I'm wearing. This is one of those dad shirts where it's tight in the shoulders and chest, but loosen the belly area
+
+106
+00:11:34.330 --> 00:11:38.929
+Anthony Taylor: tick. Tock saw that Ad. 452 times.
+
+107
+00:11:39.170 --> 00:11:40.630
+Anthony Taylor: and I finally bought
+
+108
+00:11:43.260 --> 00:11:48.150
+Anthony Taylor: not first time. First time I'm like, that's stupid. Second time, whatever third time
+
+109
+00:11:48.630 --> 00:11:50.440
+Anthony Taylor: the dudes kind of built like me.
+
+110
+00:11:52.950 --> 00:11:57.370
+Anthony Taylor: right? Marketers. They don't care. They want you to see their stuff.
+
+111
+00:11:58.290 --> 00:12:02.590
+Anthony Taylor: Right? Christine. just just give me just just buy a bench.
+
+112
+00:12:03.680 --> 00:12:05.470
+Anthony Taylor: Okay? So
+
+113
+00:12:07.520 --> 00:12:08.580
+Anthony Taylor: here we go.
+
+114
+00:12:08.760 --> 00:12:17.899
+Anthony Taylor: Neural networks. Deeply models can be used to develop recommendations systems. Now, by the way, today, somebody once commented that sometimes I just read
+
+115
+00:12:18.030 --> 00:12:20.359
+Anthony Taylor: from this, they're gonna do a lot of reading today.
+
+116
+00:12:20.780 --> 00:12:27.130
+Anthony Taylor: Okay, I'm gonna try to summarize it for you. But there will be some reading today, because there is a lot of content.
+
+117
+00:12:27.190 --> 00:12:32.600
+Anthony Taylor: And I really wanna make sure you guys hear it all and not just me kinda summarizing it all.
+
+118
+00:12:33.700 --> 00:12:36.209
+Mason, Natalie: You have a great reading voice, Anthony.
+
+119
+00:12:36.650 --> 00:12:39.709
+Mason, Natalie: Great storyteller. So please.
+
+120
+00:12:39.730 --> 00:12:46.590
+Anthony Taylor: II today I am telling that you won't believe. Okay.
+
+121
+00:12:46.680 --> 00:12:49.450
+Anthony Taylor: Alright. So there's a whole bunch of them
+
+122
+00:12:49.720 --> 00:12:58.709
+Anthony Taylor: that can do recommendation edges. And these I mean, these are not even really notice. K, and n, yeah. K, and is not even in here.
+
+123
+00:12:59.970 --> 00:13:02.780
+Anthony Taylor: Okay, none of the on assigned.
+
+124
+00:13:02.970 --> 00:13:06.850
+Anthony Taylor: Well, where is it? I thought you said we could do it. You certainly can. And it works great.
+
+125
+00:13:07.340 --> 00:13:16.070
+Anthony Taylor: These are all deep learning variations that allow us to do this today, we're going to cover this guy.
+
+126
+00:13:17.430 --> 00:13:21.379
+Anthony Taylor: Okay? Restricted Boltzmann machines.
+
+127
+00:13:23.990 --> 00:13:29.910
+Anthony Taylor: Okay. alright. Now, I don't ever forget into all of this.
+
+128
+00:13:33.690 --> 00:13:36.270
+Anthony Taylor: So why.
+
+129
+00:13:36.340 --> 00:13:40.510
+Anthony Taylor: I mean, the question is, and and this would be the question. I would have about 6 years.
+
+130
+00:13:40.810 --> 00:13:44.530
+Anthony Taylor: If I can do this with unclustered data.
+
+131
+00:13:44.600 --> 00:13:48.080
+Anthony Taylor: Our unclustered. unsupervised
+
+132
+00:13:48.490 --> 00:13:54.740
+Anthony Taylor: clustering is what I'm trying to say.  why do I need these deep learning
+
+133
+00:13:56.530 --> 00:14:00.419
+Anthony Taylor: cause clustering is a fairly
+
+134
+00:14:00.560 --> 00:14:03.300
+Anthony Taylor: simple attempts.
+
+135
+00:14:03.600 --> 00:14:06.560
+Anthony Taylor: At trying to do this.
+
+136
+00:14:07.030 --> 00:14:13.100
+Anthony Taylor: Okay. it's is purely based on
+
+137
+00:14:14.140 --> 00:14:18.970
+Anthony Taylor: so on on what other people choose. But it's just that
+
+138
+00:14:22.380 --> 00:14:29.320
+Anthony Taylor: what we're going to be doing is tremendously accurate.
+
+139
+00:14:29.920 --> 00:14:36.900
+Anthony Taylor:  or or complete, I guess, is a better way to put it, because, remember, accuracy doesn't matter.
+
+140
+00:14:37.450 --> 00:14:48.050
+Anthony Taylor: But this will take into consideration things like. did they pause. think about this for a second guys when you're scrolling through Facebook.
+
+141
+00:14:49.360 --> 00:14:50.830
+Anthony Taylor: did they pause?
+
+142
+00:14:52.180 --> 00:14:53.999
+Anthony Taylor: Did you know they tracked that?
+
+143
+00:14:54.690 --> 00:14:56.660
+Anthony Taylor: Did you pause?
+
+144
+00:14:57.960 --> 00:15:03.770
+Anthony Taylor: So they have a base idea of how fast you scroll when you're not interested.
+
+145
+00:15:06.100 --> 00:15:10.270
+Anthony Taylor: But if you pause. they go up. Mark that.
+
+146
+00:15:11.460 --> 00:15:14.130
+Anthony Taylor: Obviously, if you click on it, mark that
+
+147
+00:15:14.460 --> 00:15:24.400
+Anthony Taylor: if you watch a video from start to end. mark that if you only watch the first minute. mark that.
+
+148
+00:15:25.700 --> 00:15:35.610
+Anthony Taylor: All of these things tell us about your interest in a specific topic, subject. marketing campaign, everything
+
+149
+00:15:35.690 --> 00:15:39.560
+Clayton Graves: that explains my entire Facebook
+
+150
+00:15:39.630 --> 00:15:44.510
+Clayton Graves: reels is populated by iron man
+
+151
+00:15:44.570 --> 00:15:48.549
+Clayton Graves: suiting up in different avengers movies all the time
+
+152
+00:15:49.270 --> 00:16:01.800
+Anthony Taylor: at. I'm not even tell you what mine's filled with it just. I'm just like, Oh, my God! I don't want anyone to see my Facebook. I think I watched like some sports videos once. That was the worst thing ever to do.
+
+153
+00:16:02.150 --> 00:16:05.579
+Anthony Taylor: like every reel is filled with sports videos and Dax.
+
+154
+00:16:06.110 --> 00:16:12.119
+Anthony Taylor: the guy, Dax, the singer, love that guy so he's really good. But I don't listen. Rap. So it's kind of weird.
+
+155
+00:16:12.310 --> 00:16:14.760
+Anthony Taylor: anyway.
+
+156
+00:16:14.790 --> 00:16:19.749
+Anthony Taylor: but yeah. everything. Just pause.
+
+157
+00:16:20.090 --> 00:16:23.440
+Anthony Taylor: Slow down. Read it, click! It don't click it.
+
+158
+00:16:23.580 --> 00:16:25.120
+Anthony Taylor: Everything is monitored.
+
+159
+00:16:25.310 --> 00:16:33.380
+Anthony Taylor: Those kind of activities is where these kind of models can get tremendously good at what they do.
+
+160
+00:16:34.900 --> 00:16:38.089
+Anthony Taylor: Okay? Cause. Remember, they're not dealing with 10 ads.
+
+161
+00:16:38.140 --> 00:16:48.170
+Anthony Taylor: They're not dealing with even the 100 or so ads that each of us see every week they might have hundreds of thousands of ads to choose from.
+
+162
+00:16:49.730 --> 00:16:55.910
+Anthony Taylor: and millions upon billions of interactions to look at.
+
+163
+00:16:56.920 --> 00:17:07.639
+Anthony Taylor: We're a small group. But I mean, imagine how many people are scrolling through Facebook every day. and how many times they pause or actually click.
+
+164
+00:17:08.970 --> 00:17:16.359
+Anthony Taylor: I mean, it's in the hundreds, maybe trillions, probably hundreds of billions of interactions a day.
+
+165
+00:17:17.540 --> 00:17:20.500
+Anthony Taylor: Alright. So exciting!
+
+166
+00:17:20.690 --> 00:17:27.440
+Anthony Taylor: The trade. So that user behavior preferences, interactions more, all of those things. That's what we just talked about.
+
+167
+00:17:28.060 --> 00:17:39.809
+Anthony Taylor: We're not going to actually have data that has all of this in it. But the reason we had to go down the path of deep learning to start doing recommendations in is because we just realized we got too much damn data.
+
+168
+00:17:40.570 --> 00:17:47.840
+Anthony Taylor: There's so much here that uncluster just takes too well, or unsupervised, just takes too long.
+
+169
+00:17:48.470 --> 00:17:58.320
+Anthony Taylor: and it can't really give us a good idea and take into account all of these things. Now, when you find out what this thing does, you're gonna understand why this is so complicated.
+
+170
+00:17:58.740 --> 00:17:59.660
+Anthony Taylor: Okay?
+
+171
+00:18:00.470 --> 00:18:05.009
+Anthony Taylor: Alright. So first type, collaborative filter it.
+
+172
+00:18:05.770 --> 00:18:07.649
+Anthony Taylor: Okay. So in this model.
+
+173
+00:18:08.460 --> 00:18:16.689
+Anthony Taylor: it's going to look at what do. Not just what they watched. But they're going to look at them as similar users.
+
+174
+00:18:16.710 --> 00:18:22.979
+Anthony Taylor: Similar users are people who have multiple interactions that we like or dislike.
+
+175
+00:18:23.290 --> 00:18:25.699
+Anthony Taylor: Okay, are there arseni sorry.
+
+176
+00:18:25.720 --> 00:18:32.890
+Anthony Taylor: And because they're similar, we're gonna go. Hmm! Well, maybe if this person we're gonna recommend it to that person pretty simple
+
+177
+00:18:33.720 --> 00:18:37.570
+Anthony Taylor: kind of like the clustering thing. But we're looking at a lot more measures.
+
+178
+00:18:38.070 --> 00:18:46.389
+Anthony Taylor: Okay? Because look, they got actors they've got. I mean, like in this one. It's not just the name of the movie. But it's who's in it.
+
+179
+00:18:46.610 --> 00:18:49.179
+Anthony Taylor: How long it is the genre?
+
+180
+00:18:49.730 --> 00:18:55.990
+Anthony Taylor: Okay, did it win any awards? I mean, it could be any of that, or all of that being taken into consideration.
+
+181
+00:18:56.690 --> 00:18:58.460
+Anthony Taylor: Okay?
+
+182
+00:18:58.820 --> 00:19:06.540
+Anthony Taylor: let's see if you're on Facebook or Instagram. Yeah. So any of those things, I mean, everybody gets friend recommendations. Right.
+
+183
+00:19:06.570 --> 00:19:14.199
+Anthony Taylor: Have friend recommendation, friend. Recommendations trip me out because most of the time I don't like. Who is that person?
+
+184
+00:19:14.220 --> 00:19:18.509
+Anthony Taylor: Oh, that's a friend to so and so well. I'm not going to friend that.
+
+185
+00:19:19.150 --> 00:19:23.070
+Anthony Taylor: But some people do. Some people like to have a lot of friends on this.
+
+186
+00:19:23.890 --> 00:19:37.269
+Anthony Taylor: Okay, which is fine, Instagram. Same thing. I don't know how many, how many of you guys use tick, tock. Everybody finally use tick, tock, right? Right? Okay, so how many of you get like a new friend like every day or 2 weeks, just like, who are these people
+
+187
+00:19:37.610 --> 00:19:41.520
+Anthony Taylor: that keep friending? I don't know. I don't know who they are.
+
+188
+00:19:41.620 --> 00:19:44.339
+Anthony Taylor: I don't friend them back, but I don't get it.
+
+189
+00:19:44.440 --> 00:19:46.799
+Anthony Taylor: I don't get it. But
+
+190
+00:19:47.570 --> 00:19:52.469
+Anthony Taylor: the more you have, the more likely you are to be recommended to get more.
+
+191
+00:19:53.010 --> 00:20:00.200
+Anthony Taylor: Okay, has nothing to do with your lives or dislikes. It has to do with your well sort of your friends. We assume you like your friends.
+
+192
+00:20:00.910 --> 00:20:01.780
+Anthony Taylor: Okay?
+
+193
+00:20:02.150 --> 00:20:08.750
+Anthony Taylor: So yeah. content based. So now we're look. So here we were looking at
+
+194
+00:20:08.900 --> 00:20:14.970
+Anthony Taylor: the similar users here, we're going to look at the content. And this is where we're looking at, you know, genre and
+
+195
+00:20:15.500 --> 00:20:24.700
+Anthony Taylor: actors and all that kind of stuff. If people like these genres, these actors or other people do. Or you've watched these genres. So like you like, action flips.
+
+196
+00:20:24.730 --> 00:20:31.799
+Anthony Taylor: Right? You watch all of the marble movies in a single weekend. You're gonna get lots of action. Flick recommendations.
+
+197
+00:20:32.570 --> 00:20:35.480
+Anthony Taylor: Okay? Maybe some comedy recommendations.
+
+198
+00:20:36.830 --> 00:20:37.890
+Anthony Taylor: Okay.
+
+199
+00:20:38.150 --> 00:20:43.750
+Anthony Taylor:  so these get, you know, sent over. And this might be similar to
+
+200
+00:20:44.020 --> 00:20:49.000
+Anthony Taylor: Amazon. you know. Offer you, hey? Other customers purchase this?
+
+201
+00:20:50.230 --> 00:20:54.100
+Anthony Taylor: Okay? How many? I've actually used that before anybody else ever use that
+
+202
+00:20:55.850 --> 00:21:01.680
+Anthony Taylor: right? You're like buying like, II love hobbies. I'm like I have done every craft pretty much you can imagine.
+
+203
+00:21:01.730 --> 00:21:10.730
+Anthony Taylor: And so when typically the way I do it is, I'm like, I want to learn how to do stained glass. and I'll go and I'll find
+
+204
+00:21:10.840 --> 00:21:13.540
+Anthony Taylor: a stained glass like an item.
+
+205
+00:21:13.930 --> 00:21:17.600
+Anthony Taylor: and then look at what other people bought when they bought it. And then
+
+206
+00:21:17.680 --> 00:21:21.749
+Anthony Taylor: basically build out my entire stained glass hobby toolkit.
+
+207
+00:21:22.040 --> 00:21:24.110
+Anthony Taylor: It's pretty cool. Yes, Mayor.
+
+208
+00:21:26.150 --> 00:21:40.060
+Meredith McCanse (she/her): And is that so? If it recommends products based on what another person bought is that wouldn't that be the collaborative filtering that we just talked about where it's like deeming you similar to another user?
+
+209
+00:21:41.390 --> 00:21:45.600
+Anthony Taylor: It. It's basic. This one is more along the lines of like
+
+210
+00:21:45.850 --> 00:21:46.990
+Anthony Taylor: I,
+
+211
+00:21:47.260 --> 00:21:55.589
+Anthony Taylor: I can see your point, but that they're trying to use this here is saying that even if no one had well, no, that would work right
+
+212
+00:21:55.790 --> 00:22:00.630
+Anthony Taylor: cause customers have also bought. But this customer may have no other similarities to you.
+
+213
+00:22:00.970 --> 00:22:05.569
+Meredith McCanse (she/her): Okay, and it's about the product. Yeah, I guess that's how I mean, II
+
+214
+00:22:05.580 --> 00:22:15.969
+Anthony Taylor: could argue it could go either way. But this customer, I mean, when I went by my stained glass stuff. right? I mean, every other person that's ever done. Stink glass. None of them might be like.
+
+215
+00:22:16.580 --> 00:22:17.960
+sonja baro: Okay.
+
+216
+00:22:18.550 --> 00:22:34.060
+sonja baro: yeah, go ahead. I was just gonna say, could also be related to what the object is used for right like. So if you're doing one thing, and you typically need to have these 3 other things to complete the job
+
+217
+00:22:34.150 --> 00:22:36.560
+sonja baro: that could have been marked.
+
+218
+00:22:37.050 --> 00:22:41.610
+Anthony Taylor: Well, that's context. So that that's and that that might go into. You may also like.
+
+219
+00:22:41.930 --> 00:22:45.719
+Anthony Taylor: right? So it says, you may also like or customers.
+
+220
+00:22:45.890 --> 00:22:47.160
+sonja baro: right? Yeah.
+
+221
+00:22:47.400 --> 00:22:52.859
+Anthony Taylor: So so yeah, that's that's good stuff. Good stuff. Alright. So we've had
+
+222
+00:22:53.870 --> 00:22:57.060
+Anthony Taylor: collaborative. That's other people like you.
+
+223
+00:22:57.100 --> 00:22:58.440
+Anthony Taylor: Context.
+
+224
+00:22:59.360 --> 00:23:01.810
+Anthony Taylor: content. Sorry context is coming.
+
+225
+00:23:02.500 --> 00:23:13.280
+Anthony Taylor: And now contacts. So this goes back to. Did you pause? How long did you watch it? What kind of system did you watch it on? Did you watch it on a laptop? Would you watch it on a PC.
+
+226
+00:23:14.150 --> 00:23:19.849
+Anthony Taylor: Did you watch it on a streaming service. All of these things matter.
+
+227
+00:23:21.070 --> 00:23:25.990
+Anthony Taylor: Okay, when they're doing a recommendation engine. So you know, they.
+
+228
+00:23:28.250 --> 00:23:35.100
+Anthony Taylor: it's funny, because to me, when I think of a recommendation engine. Well, yeah, as a. So let's say you're a business.
+
+229
+00:23:36.600 --> 00:23:39.039
+Anthony Taylor: Why do you want to do a recommendation, did you?
+
+230
+00:23:40.480 --> 00:23:45.390
+Anthony Taylor: Well, for Amazon? It's obvious, right Amazon. They want you to buy more.
+
+231
+00:23:45.670 --> 00:23:47.560
+Anthony Taylor: But do they care what you buy?
+
+232
+00:23:47.900 --> 00:23:53.630
+Anthony Taylor: Not really. They just want you to buy more. And but if you're a business. Let's say you sell tennis shoes.
+
+233
+00:23:53.930 --> 00:24:00.280
+Anthony Taylor: that's all you sell. What's the recommendation engine do for you? What's the purpose of it?
+
+234
+00:24:02.400 --> 00:24:04.029
+Anthony Taylor: You're still gonna use it right?
+
+235
+00:24:06.340 --> 00:24:07.520
+Anthony Taylor: What do you guys think
+
+236
+00:24:07.630 --> 00:24:09.610
+Mason, Natalie: like, does it help you?
+
+237
+00:24:09.670 --> 00:24:10.970
+Anthony Taylor: Oh, don't
+
+238
+00:24:11.030 --> 00:24:13.530
+Meredith McCanse (she/her): go ahead. Finish that. Yeah. Go ahead.
+
+239
+00:24:13.960 --> 00:24:15.870
+Mason, Natalie: Does it help you find
+
+240
+00:24:16.060 --> 00:24:21.629
+Mason, Natalie: like shoes that you would actually have an interest in more so than not.
+
+241
+00:24:21.700 --> 00:24:26.110
+Anthony Taylor: Maybe maybe I mean, why not? Yeah. Wha what were you guys say, Meredith?
+
+242
+00:24:26.430 --> 00:24:33.870
+Meredith McCanse (she/her): Maybe upselling if they've got like one that they want to push people towards.
+
+243
+00:24:34.220 --> 00:24:40.219
+Anthony Taylor: And and I think you, II absolutely definitely. But I would also think that this recommendation engine
+
+244
+00:24:40.260 --> 00:24:42.860
+Anthony Taylor: also help us clearing product
+
+245
+00:24:43.540 --> 00:24:53.439
+Anthony Taylor: right? We might not be necessarily recommending a better product. But hey, you know what if they like that? Let's see if we can get rid of these.
+
+246
+00:24:53.740 --> 00:24:58.190
+Anthony Taylor: and we'll recommend these, put them on sale, make it even better.
+
+247
+00:24:58.810 --> 00:25:23.150
+Anthony Taylor: Right? So I mean, this could really be used for an organization to not only sell new product but to help unload product cause. That's a hard thing for an Internet business and to increase the size of the basket if you will right like. So so increase the amount of purchases at one time, because it's better to get what you you can get. Then then.
+
+248
+00:25:23.220 --> 00:25:37.599
+sonja baro: you know, let something slip away so they could optimize the the purchasing experience by saying, Hey, and if you buy this now, we'll give you an additional 10% or something like that they could recommend
+
+249
+00:25:37.880 --> 00:25:40.249
+Anthony Taylor: this class would be
+
+250
+00:25:40.930 --> 00:25:47.639
+Clayton Graves: if I if I buy a new MoD they're gonna suggest batteries and a new St. A tank and
+
+251
+00:25:47.730 --> 00:25:50.069
+Clayton Graves: more juice, and all that stuff
+
+252
+00:25:51.110 --> 00:25:52.540
+Clayton Graves: right off the bat.
+
+253
+00:25:53.160 --> 00:26:04.870
+Anthony Taylor: Absolutely, absolutely and just. I'm sure most of you know this, but especially when those websites, they they trigger when you get close to the back button or the top, or late, like you're leaving.
+
+254
+00:26:04.900 --> 00:26:07.560
+Anthony Taylor: and they go right.
+
+255
+00:26:07.840 --> 00:26:09.969
+I need a big hint on those.
+
+256
+00:26:10.070 --> 00:26:20.660
+Anthony Taylor: Stop. Leave. Just leave your stuff in the cart and leave okay, almost for sure. Within 24 h you're gonna get another.
+
+257
+00:26:20.730 --> 00:26:23.440
+Anthony Taylor: Hey? Come on back. We'll do 20% off.
+
+258
+00:26:24.780 --> 00:26:26.570
+Anthony Taylor: Okay, almost for sure.
+
+259
+00:26:27.570 --> 00:26:29.850
+Anthony Taylor: That's just that's just good business.
+
+260
+00:26:30.130 --> 00:26:36.730
+Anthony Taylor: But most people are excited by now. Bye. Now, by now you're giving me 10% off. I'm gonna take it
+
+261
+00:26:36.960 --> 00:26:39.409
+Anthony Taylor: okay. Anyway.
+
+262
+00:26:40.820 --> 00:26:43.830
+Anthony Taylor: So alright.
+
+263
+00:26:52.560 --> 00:27:01.100
+Anthony Taylor: I wanna see if I'm supposed to do this notebook yet. Oh, no, not yet. Okay.  so let's look at rb, it.
+
+264
+00:27:01.720 --> 00:27:02.420
+Okay.
+
+265
+00:27:02.680 --> 00:27:04.850
+Anthony Taylor: this guy's pretty intense.
+
+266
+00:27:05.030 --> 00:27:10.519
+Anthony Taylor: It's a really cool way of doing things that can be used for supervised and unsupervised. Now
+
+267
+00:27:11.020 --> 00:27:16.060
+Anthony Taylor: before, when I showed you guys no networks, we only did supervise
+
+268
+00:27:16.340 --> 00:27:17.970
+Anthony Taylor: well, this
+
+269
+00:27:18.240 --> 00:27:25.390
+Anthony Taylor: variation on neural networks will allow us to do unsupervised, we will be effectively flustered.
+
+270
+00:27:26.440 --> 00:27:38.790
+Anthony Taylor: Okay, we can also do dimensionality, reduction classification, collaborative filtering, featured learning and topic modeling. Alright. It's all possible.
+
+271
+00:27:38.880 --> 00:27:43.480
+Anthony Taylor: Another thing that's kind of interesting about this one is
+
+272
+00:27:43.710 --> 00:27:47.650
+Anthony Taylor: this is gonna be our first generative.
+
+273
+00:27:48.260 --> 00:27:49.150
+Anthony Taylor: Mo.
+
+274
+00:27:51.260 --> 00:27:57.890
+Anthony Taylor: okay, we've done algorithmic A in N, this is technically a generative, A in it.
+
+275
+00:27:58.110 --> 00:28:04.469
+Anthony Taylor: Actually, the the proper term for the other ones is not. It is still algorithmic, but it's discriminative.
+
+276
+00:28:05.140 --> 00:28:10.899
+Clayton Graves: Can you can you pretend I'm sorry, second and
+
+277
+00:28:10.970 --> 00:28:14.599
+Clayton Graves: generative for me.
+
+278
+00:28:15.050 --> 00:28:18.640
+Anthony Taylor: In this case we will be creating something
+
+279
+00:28:19.550 --> 00:28:25.379
+Anthony Taylor: discriminative, looks at past and and says, Here's
+
+280
+00:28:25.740 --> 00:28:26.820
+Anthony Taylor: my answer.
+
+281
+00:28:27.180 --> 00:28:32.769
+Anthony Taylor: while generative will also look at the past. But it's going to create an answer that didn't exist.
+
+282
+00:28:33.410 --> 00:28:38.309
+Anthony Taylor: And that's the same with, I mean, generative is what Gpt stands for.
+
+283
+00:28:38.710 --> 00:28:41.650
+Anthony Taylor: Okay. Gpt, that first. G is generative.
+
+284
+00:28:42.190 --> 00:28:50.600
+Anthony Taylor: Okay, so we're you're this is our first kind of official. We're gonna create something from
+
+285
+00:28:51.520 --> 00:28:52.290
+Anthony Taylor: something.
+
+286
+00:28:52.560 --> 00:28:54.130
+Anthony Taylor: Okay.
+
+287
+00:28:54.280 --> 00:29:10.229
+Anthony Taylor:  let's see. So here, what? The way the way they explain it? Here, let me give it to you. We exploited the discriminative models. When we worked on classification problems, we even explored models that had nonlinear decision boundaries
+
+288
+00:29:10.800 --> 00:29:17.879
+Anthony Taylor: for certain problems, generative models which seek to model the input probability
+
+289
+00:29:19.250 --> 00:29:23.349
+Anthony Taylor: distribution in an unsupervised way are more appropriate.
+
+290
+00:29:23.860 --> 00:29:29.040
+Anthony Taylor: Okay, so we're going to create that probability. What the heck did. I just click on.
+
+291
+00:29:29.770 --> 00:29:32.249
+Anthony Taylor: I just clicked on brave. I like Sadie
+
+292
+00:29:32.890 --> 00:29:36.640
+Anthony Taylor: alright. Okay.
+
+293
+00:29:39.140 --> 00:29:40.710
+Anthony Taylor: Boltzmann machine.
+
+294
+00:29:44.030 --> 00:29:45.069
+Anthony Taylor: Too far.
+
+295
+00:29:47.180 --> 00:29:52.680
+Anthony Taylor: I'm trying to click between the the explanation of all of this and all of the other stuff.
+
+296
+00:29:52.870 --> 00:29:54.040
+Anthony Taylor: So
+
+297
+00:29:58.680 --> 00:30:04.710
+Anthony Taylor: I'm going to use their real-world example to explain this. And then we'll talk about what you're seeing on the screen.
+
+298
+00:30:05.090 --> 00:30:09.049
+Anthony Taylor: Okay. so think about choosing a song. To listen to
+
+299
+00:30:09.420 --> 00:30:20.810
+Anthony Taylor: alright. A user's preference is maybe motivated for a whole bunch of different reasons. Today their choice could be based on their mood while tomorrow could be a specific genre.
+
+300
+00:30:20.830 --> 00:30:26.740
+Anthony Taylor: We can make a guess about what the user is likely to choose, based on a host factors.
+
+301
+00:30:27.320 --> 00:30:38.480
+Anthony Taylor: Alright, but labeling. Each factor for each user is not practical. In this cases unsupervised learning models are appropriate, since they're and able to extract meaningful features
+
+302
+00:30:39.500 --> 00:30:45.730
+Anthony Taylor: from existing data. So rather than saying. Anthony's a country music listener.
+
+303
+00:30:46.610 --> 00:30:52.710
+Anthony Taylor: Okay? Because that's a label. We can do that. It's valid label. But I don't listen. Country music every day
+
+304
+00:30:53.280 --> 00:31:01.149
+Anthony Taylor: depends on what I'm doing where I'm at vehicle. I'm in all kinds of different things. Okay, am I driving late at night?
+
+305
+00:31:02.770 --> 00:31:07.729
+Anthony Taylor: All right. There's all kinds of different factors. Those factors make it less
+
+306
+00:31:09.210 --> 00:31:15.149
+Anthony Taylor: less of a strong use case for supervised learning. So we want to do something different.
+
+307
+00:31:15.850 --> 00:31:24.449
+Anthony Taylor:  so with an Rbm model. Imagine if their user just clicked on a discovery playlist of songs.
+
+308
+00:31:24.650 --> 00:31:28.639
+Anthony Taylor: just give me songs. You would think I might like.
+
+309
+00:31:28.950 --> 00:31:36.190
+Anthony Taylor: Okay, they interact with it. I like some of them not interacting with others, maybe skipping other ones.
+
+310
+00:31:36.210 --> 00:31:40.279
+Anthony Taylor: There's all of these variations with the discovery playlist.
+
+311
+00:31:40.430 --> 00:31:44.739
+Anthony Taylor: Those interactions are what we're going to record.
+
+312
+00:31:46.110 --> 00:31:49.559
+Anthony Taylor: Okay? So like, if you just say play me country music.
+
+313
+00:31:50.510 --> 00:31:52.059
+Anthony Taylor: it's gonna play you, Patrick
+
+314
+00:31:52.570 --> 00:31:57.940
+Anthony Taylor: alright, is he gonna play the same songs every time. Probably not. Are you gonna skip some. Yeah.
+
+315
+00:31:58.990 --> 00:32:04.209
+Anthony Taylor: Okay, are you gonna like some of them? Yeah. Alright, what's going on in chat?
+
+316
+00:32:05.320 --> 00:32:09.370
+Anthony Taylor: Save a Tesla, write account very nicely.
+
+317
+00:32:14.530 --> 00:32:15.660
+Anthony Taylor: Okay.
+
+318
+00:32:18.140 --> 00:32:22.930
+Anthony Taylor: Hi. okay. So
+
+319
+00:32:23.950 --> 00:32:28.540
+Anthony Taylor: now we'll get into some of the technical talk of an r of R, be it
+
+320
+00:32:28.550 --> 00:32:29.610
+Anthony Taylor: okay?
+
+321
+00:32:30.090 --> 00:32:37.830
+Anthony Taylor:  So we're gonna create
+
+322
+00:32:38.080 --> 00:32:44.689
+Anthony Taylor: multiple layers like we did with a neural network. But these have a different way of play.
+
+323
+00:32:46.270 --> 00:32:53.009
+Anthony Taylor: The visible layer, the first visible layer is our input layer good news that looks exactly the same
+
+324
+00:32:53.780 --> 00:32:54.910
+Anthony Taylor: as a neural net.
+
+325
+00:32:55.500 --> 00:33:08.960
+Anthony Taylor: Okay, we're not going to use kiras. So we're going to set it up a little differently do a little prework. But ultimately it looks the same as an input label. the first hidden layer. And they call this a forward pass.
+
+326
+00:33:09.400 --> 00:33:14.110
+Anthony Taylor: We're gonna send data to our hidden layer.
+
+327
+00:33:14.300 --> 00:33:20.390
+Anthony Taylor: Our hidden layer is going to look at what our visible layer did with the input.
+
+328
+00:33:20.970 --> 00:33:25.789
+Anthony Taylor: and say, Hey, here's our, here's your input here. And let's just go with the cap dog.
+
+329
+00:33:25.820 --> 00:33:29.960
+Anthony Taylor: Okay, hey? Here's a picture.
+
+330
+00:33:30.700 --> 00:33:39.920
+Anthony Taylor: and I towards Cat. And then the hidden layer looks at it does, does its assumptions, does whatever it's gonna do, and then sends it back
+
+331
+00:33:41.480 --> 00:33:44.100
+Anthony Taylor: to the input layer. What?
+
+332
+00:33:44.380 --> 00:33:50.110
+Anthony Taylor: Yet? It does a backwards pass. Okay, now.
+
+333
+00:33:51.770 --> 00:33:53.849
+Anthony Taylor: what it's trying to do
+
+334
+00:33:54.360 --> 00:34:15.639
+Anthony Taylor: is come up. They call it reconstruction. So the the input layer, the visible layer, comes up with an algorithm sends it to the hidden layer. The hidden layer takes that algorithm tries to reverse, tries to reconstruct it and send it back, and if it sends it back properly, the input, the visible layer goes.
+
+335
+00:34:15.870 --> 00:34:16.710
+Anthony Taylor: got it?
+
+336
+00:34:18.489 --> 00:34:24.060
+Anthony Taylor: Okay, that's what's happened. This back and forth come. But there's more. Yeah.
+
+337
+00:34:24.820 --> 00:34:31.900
+sonja baro: So is there anything that carries forward from the neural network on each of these nodes.
+
+338
+00:34:32.050 --> 00:34:33.860
+sonja baro: They're determining weights.
+
+339
+00:34:34.460 --> 00:34:52.530
+sonja baro: Yes, that's all we're doing is determining we're determining wait. So in this case there was a forward pass from the first the input, and then the hidden unit looks at what the last one did, and then does something to just the wait, then sends it back
+
+340
+00:34:54.219 --> 00:35:01.199
+Anthony Taylor: correct. Well, sort of. So this guy comes up, and visible units aren't just one way. I mean, this picture is simplified.
+
+341
+00:35:01.350 --> 00:35:04.230
+Anthony Taylor: But the visible unit says, here's
+
+342
+00:35:04.840 --> 00:35:08.000
+Anthony Taylor: my guess. The hidden unit
+
+343
+00:35:08.080 --> 00:35:16.870
+Anthony Taylor: tries to reconstruct that. Yes, and sends it back. Okay, when it's doing that is, it's doing it based on
+
+344
+00:35:17.050 --> 00:35:20.859
+Anthony Taylor: the information it got from all of the visible units.
+
+345
+00:35:21.850 --> 00:35:29.890
+Anthony Taylor: Okay, it tries to reconstruct that and then send it back. If it succeeds, it's a high score, it becomes
+
+346
+00:35:30.010 --> 00:35:35.270
+Anthony Taylor: the way we're going to do this. Now, there is an interesting thing that you may not have noticed
+
+347
+00:35:35.970 --> 00:35:42.590
+Anthony Taylor: in all of our other neural networks in neural networks. These guys here may talk to each other.
+
+348
+00:35:44.400 --> 00:35:47.209
+Anthony Taylor: not in a restricted spokesman machine.
+
+349
+00:35:47.490 --> 00:35:52.790
+Anthony Taylor: These guys do not talk to each other, and these guys do not talk to each other.
+
+350
+00:35:53.920 --> 00:35:54.960
+Anthony Taylor: They are
+
+351
+00:35:56.620 --> 00:35:57.620
+Anthony Taylor: restricted.
+
+352
+00:35:58.950 --> 00:36:07.960
+Anthony Taylor: Okay? So they do not get to build on information from other kid units. They all have to work based on what they've been given.
+
+353
+00:36:08.010 --> 00:36:09.840
+Clayton Graves: What's the advantage for that?
+
+354
+00:36:10.440 --> 00:36:12.999
+Anthony Taylor: It's it's data leakage.
+
+355
+00:36:14.250 --> 00:36:19.990
+Anthony Taylor: right? If I let all of them talk to each other, they might be able to find the answer.
+
+356
+00:36:20.080 --> 00:36:25.819
+Anthony Taylor: And if they find the answer in the data, then then you're just going to have problems with generalization link.
+
+357
+00:36:27.060 --> 00:36:35.850
+Anthony Taylor: Okay. So by doing it this way, this allows them to go back and forth, back and forth, forward, pass backwards, pass until they get as close to
+
+358
+00:36:36.180 --> 00:36:47.290
+Anthony Taylor: able to reconstruct what the visible units are coming up with. And then they output that result. Okay, so.
+
+359
+00:36:47.880 --> 00:36:57.670
+Anthony Taylor: And and here, I mean, you can see some more examples of this. We've got the visible nodes they're all sending to each hidden node separately, and each hidden node sends to every visible node.
+
+360
+00:36:59.020 --> 00:37:02.710
+Anthony Taylor: Okay? And actually, there's a little bit of an explanation of this. So
+
+361
+00:37:02.990 --> 00:37:04.770
+Anthony Taylor: so
+
+362
+00:37:05.410 --> 00:37:11.890
+Anthony Taylor: given, the probabilities of like said, this is where I want to be reading, because they get really heavy into the vernacular.
+
+363
+00:37:12.540 --> 00:37:13.310
+Right?
+
+364
+00:37:14.010 --> 00:37:20.280
+Anthony Taylor: Given the probability distribution determined during the forward pass. this p-value.
+
+365
+00:37:20.940 --> 00:37:29.730
+Anthony Taylor: Okay, the reconstructed input predicts a 91% chance that the user will enjoy. Put your records on by writ on me.
+
+366
+00:37:31.490 --> 00:37:32.450
+Anthony Taylor: Okay.
+
+367
+00:37:33.200 --> 00:37:48.929
+Anthony Taylor: in a more general sense, let's consider how it works by considering familiar components of an A and N inputs, weights and visible layers, hidden layers, biases and activations. Okay, so this is this is why I bugged. Oh, it was showing.
+
+368
+00:37:49.350 --> 00:37:50.780
+Anthony Taylor: Okay, there's that
+
+369
+00:37:50.860 --> 00:37:55.389
+Anthony Taylor: that this is 91. It's pretty good. Alright. So
+
+370
+00:37:56.790 --> 00:37:58.700
+Anthony Taylor: look at this now
+
+371
+00:38:01.730 --> 00:38:08.890
+Anthony Taylor: like a neural net that you're used to. Right, here's our X's our input layer.
+
+372
+00:38:09.150 --> 00:38:11.460
+Anthony Taylor: Okay, our first hidden layer.
+
+373
+00:38:11.920 --> 00:38:18.270
+Anthony Taylor: Except for this time, instead of them talking to all kinds of stuff, they only talk. They actually talk.
+
+374
+00:38:18.720 --> 00:38:20.999
+Anthony Taylor: So in neural network they only go forward.
+
+375
+00:38:22.570 --> 00:38:26.120
+Anthony Taylor: There is no communication back to the layer previous.
+
+376
+00:38:27.020 --> 00:38:40.029
+Anthony Taylor: Alright. So this guy is going to communicate back to here and then back to here. And they're going to adjust bias. They are going to adjust weights. They're going to have an activation function. And they're going to output
+
+377
+00:38:40.320 --> 00:38:41.470
+Anthony Taylor: different
+
+378
+00:38:41.790 --> 00:38:45.919
+Anthony Taylor: probabilities at the end of the of the process.
+
+379
+00:38:46.790 --> 00:38:49.920
+Anthony Taylor: Okay. a
+
+380
+00:38:50.310 --> 00:39:01.599
+Anthony Taylor: so overseas inputs, they are fed into the hidden layer. Therefore, after the bias is added, the activation function is applied. The activation function determines whether in the state is activated or not.
+
+381
+00:39:01.770 --> 00:39:04.020
+Anthony Taylor: Okay, now, notice
+
+382
+00:39:05.140 --> 00:39:06.100
+Anthony Taylor: goes back.
+
+383
+00:39:08.030 --> 00:39:09.240
+Anthony Taylor: Okay.
+
+384
+00:39:09.260 --> 00:39:14.369
+Anthony Taylor: if they activate. And so the activations are now new inputs
+
+385
+00:39:14.830 --> 00:39:17.159
+Anthony Taylor: that get fed back to
+
+386
+00:39:17.410 --> 00:39:23.570
+Anthony Taylor: the visible layer with the new biases, with the new weights. And it does it all again.
+
+387
+00:39:24.900 --> 00:39:38.680
+Anthony Taylor: Okay, it doesn't happen forever, but it does happen. So the back propagation phase is called reconstruction. So when it goes back, it's called the reconstruction phase. How does this not get caught up and removed?
+
+388
+00:39:39.300 --> 00:39:42.389
+Anthony Taylor: That's a good question. And we're gonna get there.
+
+389
+00:39:42.520 --> 00:39:50.240
+Anthony Taylor: Okay, the activations are fed into a hidden layer multiplied by the weights and fed into a visible layer where new biases are added.
+
+390
+00:39:50.570 --> 00:39:51.869
+Anthony Taylor: Okay, so it goes.
+
+391
+00:39:52.000 --> 00:40:10.159
+Anthony Taylor: Boot. Got no weights, hey? Here's some new weights. Oh, okay, now, we're gonna check our biases against that. Yeah. Okay. Now, send it back over with new bias. Okay, you adjust the weights to the activation function. Yep, that looks good. So Clayton asked a very good question. What's the one thing about neural networks
+
+392
+00:40:10.300 --> 00:40:13.580
+Anthony Taylor: that we control that would stop it going forever
+
+393
+00:40:20.320 --> 00:40:21.860
+sonja baro: the number of layers.
+
+394
+00:40:22.930 --> 00:40:34.619
+Anthony Taylor: Well, no, that doesn't stop it from going forever, especially in this case, it would. What is the one? The number of revolutions or cycles, or whatever it is. Epic.
+
+395
+00:40:35.240 --> 00:40:40.470
+Anthony Taylor: right? That's how we know it's never. Because, remember, in deep learning you could do
+
+396
+00:40:40.740 --> 00:40:43.380
+Anthony Taylor: 100 ethics and be completely overfit.
+
+397
+00:40:44.550 --> 00:40:46.870
+Anthony Taylor: Right? So what's our solution while we pull back?
+
+398
+00:40:47.540 --> 00:40:52.830
+Anthony Taylor: Okay, we do less epics. Well, basically, in this scenario, you have the same thing. Could you be over fit.
+
+399
+00:40:52.860 --> 00:40:55.310
+Anthony Taylor: I don't know how you over fit a recommendation.
+
+400
+00:40:56.460 --> 00:40:58.550
+Anthony Taylor: Okay? I mean, you can.
+
+401
+00:40:58.830 --> 00:41:03.959
+Anthony Taylor: I suppose. But the ideally you're just gonna pick you're gonna pick
+
+402
+00:41:04.100 --> 00:41:05.640
+Anthony Taylor: a number to get
+
+403
+00:41:05.680 --> 00:41:09.460
+Anthony Taylor: the best, the least, the lowest error which we'll get to.
+
+404
+00:41:09.650 --> 00:41:18.410
+Anthony Taylor: Okay that you can get. Because, remember, you can go and check and see what, even though this is done supervised, you can still say, hey.
+
+405
+00:41:19.150 --> 00:41:27.730
+Anthony Taylor: Tanya, you put in all of your your new labeled everything that you like. Here's some recommendations from our engine. Tell me what you think about each one of these
+
+406
+00:41:28.170 --> 00:41:30.710
+Anthony Taylor: boop, boop, boop, boop! And then we just grade it.
+
+407
+00:41:30.750 --> 00:41:32.630
+Anthony Taylor: How did she do, how did we do?
+
+408
+00:41:33.900 --> 00:41:39.270
+Anthony Taylor: Okay? So there is a way to test it. But it's it's less automate. Automated.
+
+409
+00:41:39.850 --> 00:41:41.920
+Anthony Taylor: Okay,
+
+410
+00:41:42.830 --> 00:41:46.690
+Anthony Taylor: so you can see why this one's different. The whole reconstruction thing is different.
+
+411
+00:41:47.150 --> 00:41:56.600
+Anthony Taylor: It's a different way of doing it. But it's still using the base concepts of neural network. If neural network didn't exist. this wouldn't have become a thing
+
+412
+00:41:57.870 --> 00:41:58.910
+Anthony Taylor: alright.
+
+413
+00:42:02.110 --> 00:42:04.230
+Anthony Taylor: Oh.
+
+414
+00:42:07.940 --> 00:42:18.690
+Anthony Taylor: I'm sorry I'm reading I want to make sure I got everything in here for you. So we talked about data leakage. That's why we do restricted nothing on the same layer is connected.
+
+415
+00:42:21.500 --> 00:42:24.360
+Anthony Taylor: Okay? Continuing forward
+
+416
+00:42:24.990 --> 00:42:31.630
+Anthony Taylor: alright. So here you can see a user with sets of songs. Some of the songs have been rated. Some of them have.
+
+417
+00:42:32.140 --> 00:42:37.079
+Anthony Taylor: Okay, can you guys identify similar users from looking at this just with your eyeballs.
+
+418
+00:42:44.800 --> 00:42:45.800
+Anthony Taylor: Anybody.
+
+419
+00:42:48.290 --> 00:42:49.750
+sonja baro: Iann Shiresh.
+
+420
+00:42:51.000 --> 00:42:55.150
+Anthony Taylor: Kia and Suresh look pretty similar. maybe.
+
+421
+00:42:56.630 --> 00:42:59.459
+Anthony Taylor: What about Kia and Yindi?
+
+422
+00:43:02.050 --> 00:43:04.859
+sonja baro: Just one. I have 2, yeah.
+
+423
+00:43:05.110 --> 00:43:07.219
+sonja baro: 3. They have 3. That match.
+
+424
+00:43:08.130 --> 00:43:11.660
+Anthony Taylor: Yeah, yeah, suresh has a lot. So does Tia.
+
+425
+00:43:12.590 --> 00:43:16.870
+Anthony Taylor: That's true suresh. And George, what about them? Yeah, maybe
+
+426
+00:43:18.290 --> 00:43:30.349
+sonja baro: I'm also looking at the values that they're using right? Because they both really like anti hero. Same rating for anti hero, same rating for lullaby.
+
+427
+00:43:31.950 --> 00:43:38.009
+Anthony Taylor: Right? And I need you. By bts, yeah, new, I have the same. So nd
+
+428
+00:43:38.360 --> 00:43:41.800
+Anthony Taylor: probably need some, some, some I need you. By bts.
+
+429
+00:43:43.290 --> 00:43:45.439
+Anthony Taylor: I would think, okay.
+
+430
+00:43:45.580 --> 00:43:51.199
+Anthony Taylor: So there's, you know. And so there's there's like those 3, you can look kind of get an idea
+
+431
+00:43:51.550 --> 00:44:00.760
+Anthony Taylor: of of what they like. Right?  so
+
+432
+00:44:02.130 --> 00:44:06.750
+Anthony Taylor: and then suresh. And George. okay, so collaborative filter.
+
+433
+00:44:10.180 --> 00:44:14.560
+Anthony Taylor: there's there's 2 ideas behind it. Explicit and implicit.
+
+434
+00:44:14.830 --> 00:44:20.509
+Anthony Taylor: Okay, explicit is straight up. They gave it. They gave it ratings. Okay.
+
+435
+00:44:21.650 --> 00:44:40.760
+Anthony Taylor: yeah. They gave them ratings, and we could see the ratings, and they're the same, and that's how we just did it when we were just talking about it. Implicit is a little different, and you can't really see it in this. These are both explicit. Implicit is a user watching video. This is what I was talking about. Where do they do it to the end.
+
+436
+00:44:40.780 --> 00:44:44.070
+Anthony Taylor: Did they pause? And so this is where I would've brought this up
+
+437
+00:44:44.260 --> 00:44:49.170
+Anthony Taylor: all of these things can express interest without necessarily
+
+438
+00:44:49.530 --> 00:44:54.470
+Anthony Taylor: them being completely into it. Maybe they rated it all, but they listen to the whole thing.
+
+439
+00:44:55.150 --> 00:45:00.190
+Anthony Taylor: Maybe they didn't rate it at all, and they only listed the first 60 s of it.
+
+440
+00:45:00.240 --> 00:45:02.530
+Clayton Graves: So interest and supply.
+
+441
+00:45:03.430 --> 00:45:08.480
+Anthony Taylor: with the implicit? Yes, with implicit, absolutely. Okay.
+
+442
+00:45:08.510 --> 00:45:18.179
+Anthony Taylor:  yeah. So so it's it's it definitely has more of effect on like music and videos than it would say on
+
+443
+00:45:18.370 --> 00:45:19.720
+Anthony Taylor: shopping stuff.
+
+444
+00:45:19.970 --> 00:45:25.830
+Anthony Taylor: Okay? Cause you don't really have, you know. Un, unless now, okay, so how you know what?
+
+445
+00:45:25.870 --> 00:45:31.210
+Anthony Taylor: What might be an implicit measure on Amazon
+
+446
+00:45:34.020 --> 00:45:40.259
+Clayton Graves: if I left a review left to review that that's pretty implicit. But
+
+447
+00:45:40.360 --> 00:45:45.589
+Anthony Taylor: II wanna say, there's another thing with reviews that might indicate interest, but maybe I didn't buy it
+
+448
+00:45:48.610 --> 00:45:50.350
+Clayton Graves: saves it to my wish list.
+
+449
+00:45:51.020 --> 00:45:54.279
+Anthony Taylor: That's a big one that's that might be ecstasy.
+
+450
+00:45:54.890 --> 00:46:01.390
+sonja baro: Maybe if you read the reviews, there you go, Meredith, if you start reading all the reviews.
+
+451
+00:46:01.630 --> 00:46:09.699
+Anthony Taylor: That's a pretty good indicator that you're interested. Does that mean you bought it? Oh. if you bought it after reading reviews, that's an explicit thing.
+
+452
+00:46:09.840 --> 00:46:15.420
+Anthony Taylor: But maybe you just read the reviews. Maybe you read the questions. You know, they all have that.
+
+453
+00:46:15.680 --> 00:46:32.840
+Anthony Taylor: Oh, yeah, questions and answers. Well, I mean, I guarantee you I read those questions. Why, especially if it's a big purchase. I buy my laser and stuff I go through. There's like 50 companies selling the same laser, and it's like, alright. Well, let's read about this.
+
+454
+00:46:33.160 --> 00:46:36.999
+Anthony Taylor: want to read the reviews, want to read the questions, want to read the stats?
+
+455
+00:46:38.060 --> 00:46:41.760
+Anthony Taylor: That's interesting. Right? Okay?
+
+456
+00:46:43.270 --> 00:46:44.110
+Anthony Taylor: Okay.
+
+457
+00:46:54.900 --> 00:46:56.620
+Anthony Taylor: okay. So
+
+458
+00:46:57.230 --> 00:47:01.199
+Anthony Taylor: when we are training with contrastive divergence.
+
+459
+00:47:02.800 --> 00:47:11.920
+Anthony Taylor: It's a good word. Okay, look! Somebody left after hearing that they're like, I'm out alright. We have. I think that was Matt Mack. While I got on his airplane.
+
+460
+00:47:12.350 --> 00:47:16.260
+Anthony Taylor: So we have weights, weights. We're good with weights. We know what weights are.
+
+461
+00:47:16.750 --> 00:47:31.630
+Anthony Taylor: Okay, visible inputs. That's our input. Lay. Well, it's not necessarily, our input layer visible inputs can be more than just an input layer. You can have multiple visible inputs. Hidden states. This is who gets the forward pass
+
+462
+00:47:31.960 --> 00:47:35.529
+Anthony Taylor: the reconstructed input, that's going
+
+463
+00:47:35.700 --> 00:47:38.780
+Anthony Taylor: back to the input layer.
+
+464
+00:47:39.910 --> 00:47:46.550
+Anthony Taylor: Okay, resample hidden states from the reconstructed input layer. Let's go back to the hidden layer again.
+
+465
+00:47:46.890 --> 00:47:53.580
+Anthony Taylor: And then last is learning rate. Learning rate is actually important. And this mode.
+
+466
+00:47:54.380 --> 00:47:59.459
+Anthony Taylor: okay, wasn't as big a deal in our neural network stuff that we were looking at before. But it is a big deal here.
+
+467
+00:48:03.610 --> 00:48:04.640
+Anthony Taylor: It's time.
+
+468
+00:48:05.480 --> 00:48:16.960
+Anthony Taylor: So today we're gonna do something. And it's funny. I like, like I might have mentioned this to begin class. I know I did during office hours. Remember, when I told you guys I did tensorflow back in the day before kiosk existed
+
+469
+00:48:17.290 --> 00:48:25.720
+Anthony Taylor: right? And I said it was horrible. Yeah, I didn't realize we were. Gonna ask you to do. Okay. But there's a reason cure us
+
+470
+00:48:25.760 --> 00:48:32.110
+Anthony Taylor: isn't designed to do backward passive. It's only designed to go forward.
+
+471
+00:48:33.380 --> 00:48:41.479
+Anthony Taylor: Okay, so to do this particular model, you either have to do this or pi torch, and we don't do pi torch.
+
+472
+00:48:41.900 --> 00:48:44.210
+Pi, George, by the way, is excellent.
+
+473
+00:48:44.590 --> 00:48:55.260
+Anthony Taylor: If you, if you want to expand your neural network capabilities like picking up a class on data camp on pi torch or chat. Tbt with pi torch. Great stuff!
+
+474
+00:48:59.080 --> 00:49:07.719
+Anthony Taylor: Alright! Let's let's let's go do it. Oh, wait! You know what let's talk about tensors first hold on, I got questions in
+
+475
+00:49:08.490 --> 00:49:12.919
+Anthony Taylor: which elements of an artificial neural networks this is a question for everybody
+
+476
+00:49:13.000 --> 00:49:19.510
+Anthony Taylor: which elements of an artificial neural network store information about the models learning we talked about that earlier today.
+
+477
+00:49:24.440 --> 00:49:25.390
+Anthony Taylor: Anybody.
+
+478
+00:49:28.060 --> 00:49:33.049
+Anthony Taylor: what does a model save what is a neural network when you save it? What's it saving. There you go, Simon.
+
+479
+00:49:33.680 --> 00:49:34.810
+sonja baro: the weights.
+
+480
+00:49:35.150 --> 00:49:42.650
+Anthony Taylor: the weights. Right? So, okay, so based on what we've talked about. how many biases.
+
+481
+00:49:43.540 --> 00:49:47.669
+Anthony Taylor: Well, recall, how many biases does an A and N have
+
+482
+00:49:47.850 --> 00:49:50.050
+Anthony Taylor: a normal neural network that we've done all it
+
+483
+00:49:52.670 --> 00:49:56.260
+Anthony Taylor: 1 one. How many does an Rbm have?
+
+484
+00:49:58.950 --> 00:50:00.130
+sonja baro: Multiple?
+
+485
+00:50:00.940 --> 00:50:04.400
+Anthony Taylor: That's a good answer. We're gonna say, one per layer.
+
+486
+00:50:05.340 --> 00:50:09.429
+Anthony Taylor: Okay? So there is a bias at every layer in your
+
+487
+00:50:09.660 --> 00:50:11.430
+Anthony Taylor: network. Alright.
+
+488
+00:50:11.790 --> 00:50:21.799
+Anthony Taylor: okay. And and again, they're still gonna make up the configuration. When we save these, we're still gonna save the weights and the biases. It's a little different than Kira's, but it's still gonna save them.
+
+489
+00:50:21.960 --> 00:50:26.520
+Anthony Taylor: and we'll just reload them when we're ready to run our ball. Okay?
+
+490
+00:50:28.780 --> 00:50:36.519
+Anthony Taylor: The shape of the bias vector, is determined by the number of nodes and the visible and hidden layers. Remember what shape is right
+
+491
+00:50:37.730 --> 00:50:44.530
+Anthony Taylor: like, we have threer 300 rows and 2 columns, 300 comma 2. Well, we're going to get into that little bit.
+
+492
+00:50:45.890 --> 00:50:55.149
+Anthony Taylor: We're gonna we're gonna start talking about matrix. Now, the good news is we're not going to get into matrix math. We'll leave that to the math.
+
+493
+00:50:56.550 --> 00:51:03.099
+Anthony Taylor: Okay? But we do need to understand what a matrix is in what a tensor
+
+494
+00:51:03.110 --> 00:51:08.640
+Anthony Taylor: is and how they relate to one another. So I
+
+495
+00:51:14.040 --> 00:51:16.279
+Anthony Taylor: I want to make sure I'm not jumping ahead on this.
+
+496
+00:51:19.840 --> 00:51:20.630
+Anthony Taylor: Okay?
+
+497
+00:51:20.820 --> 00:51:30.780
+Anthony Taylor:  oh.
+
+498
+00:51:31.970 --> 00:51:38.870
+Anthony Taylor: contrasted divergence, by the way, computes probability approximations using a method called Gibbs
+
+499
+00:51:39.040 --> 00:51:40.180
+Anthony Taylor: sampling.
+
+500
+00:51:40.790 --> 00:51:48.059
+Anthony Taylor: hey? I don't know that we mentioned that in the slideshow it's a gib sampling step is often only performed once.
+
+501
+00:51:48.070 --> 00:51:52.949
+Anthony Taylor: though, you could run it more than once. Okay, we talked about each of the
+
+502
+00:51:53.440 --> 00:51:59.460
+Anthony Taylor: the cool little variables. Alright. So let me explain. Tensors
+
+503
+00:52:03.110 --> 00:52:11.009
+Anthony Taylor: the idea. So so a tensor is part of tensorflow. It's literally in the word tensorflow.
+
+504
+00:52:11.660 --> 00:52:15.229
+Anthony Taylor: Okay? And it is nothing more than an array.
+
+505
+00:52:16.280 --> 00:52:18.109
+Anthony Taylor: at least at its simplest form.
+
+506
+00:52:20.790 --> 00:52:23.899
+Anthony Taylor: So in this particular case, you see, they have a variable.
+
+507
+00:52:23.970 --> 00:52:31.030
+Anthony Taylor: They have a tensorflow. Constant reason it is a constant is because they are putting the values in there.
+
+508
+00:52:32.290 --> 00:52:36.300
+Anthony Taylor: And this is a tensor.
+
+509
+00:52:37.580 --> 00:52:40.100
+Anthony Taylor: If you print it. It looks like this.
+
+510
+00:52:40.740 --> 00:52:42.110
+Anthony Taylor: It tells us
+
+511
+00:52:43.510 --> 00:52:45.010
+Anthony Taylor: the actual tensor.
+
+512
+00:52:45.200 --> 00:52:48.030
+Anthony Taylor: the shape. In this case it's just 3.
+
+513
+00:52:49.010 --> 00:52:56.550
+Anthony Taylor: Okay, and the type it will always store is a float. 32. For now we can do other types.
+
+514
+00:52:57.700 --> 00:53:00.870
+Anthony Taylor: But if you put numbers in, it'll store them as float. 32.
+
+515
+00:53:02.380 --> 00:53:11.709
+Anthony Taylor: Okay. And that's that's a tensor in its simplest form.  so you can create a vector
+
+516
+00:53:12.470 --> 00:53:17.019
+Anthony Taylor: into a tensor or a tensor with one line is a vector
+
+517
+00:53:18.210 --> 00:53:20.779
+Anthony Taylor: alright. This is terminology. You want to remember.
+
+518
+00:53:22.160 --> 00:53:31.160
+Anthony Taylor: Okay, just another reason. Okay, let me back up. You only want to remember this. If you want to have a deep conversation with somebody who's way into this stuff.
+
+519
+00:53:31.690 --> 00:53:37.169
+Anthony Taylor: Okay. understanding what a vector and a matrix and array is is important.
+
+520
+00:53:38.290 --> 00:53:45.869
+Anthony Taylor: But this really just 3 things. And and actually, I like they gave it a pretty nice explanation. Well, imagine you have a cabin.
+
+521
+00:53:48.130 --> 00:53:49.999
+Anthony Taylor: or you put your coffee cups.
+
+522
+00:53:51.190 --> 00:53:54.240
+Anthony Taylor: Okay? And that kind of that cabinet
+
+523
+00:53:54.250 --> 00:53:58.229
+Anthony Taylor: allows you to stack a coffee cup too high and 3D.
+
+524
+00:53:59.200 --> 00:54:04.750
+Anthony Taylor: So if I put one row and 2 across, so if I put one row of coffee cups in there.
+
+525
+00:54:04.900 --> 00:54:06.010
+Anthony Taylor: I have a vector.
+
+526
+00:54:07.240 --> 00:54:13.649
+Anthony Taylor: 1, 2, 3, that's all. If I put 2 rows on the bottom layer.
+
+527
+00:54:13.890 --> 00:54:15.260
+Anthony Taylor: I have a matrix
+
+528
+00:54:16.560 --> 00:54:19.419
+Anthony Taylor: 1, 2, 3, 4, 5, 6.
+
+529
+00:54:20.940 --> 00:54:26.739
+Anthony Taylor: Okay. but it's also possible to have a three-dimensional tensor.
+
+530
+00:54:28.480 --> 00:54:34.169
+Anthony Taylor: So I can have 1, 2, 3, 4, 5, 6, and on top of that 789-10-1112,
+
+531
+00:54:35.400 --> 00:54:36.979
+Anthony Taylor: which would look like this.
+
+532
+00:54:39.580 --> 00:54:46.740
+Anthony Taylor: everybody understand now. So one d. 2, d. 3D.
+
+533
+00:54:48.220 --> 00:54:49.979
+Anthony Taylor: Now what happens?
+
+534
+00:54:50.260 --> 00:54:57.100
+Anthony Taylor: So so note how it's pretty easy to understand how we store the data.
+
+535
+00:54:57.130 --> 00:55:03.799
+Anthony Taylor: When we look at a vector a matrix, right? It's 3, 2. That's pretty easy.
+
+536
+00:55:03.900 --> 00:55:09.940
+Anthony Taylor: But when you look at this, how the heck does it work with that? Well, basically, it works with it like this.
+
+537
+00:55:11.710 --> 00:55:19.019
+Anthony Taylor: it basically creates a whole bunch of twod arrays and then aligns them with each other.
+
+538
+00:55:21.230 --> 00:55:22.320
+Anthony Taylor: Understood?
+
+539
+00:55:24.400 --> 00:55:26.920
+Anthony Taylor: You don't have to worry about this. It's all happening in Beck.
+
+540
+00:55:27.320 --> 00:55:30.020
+Anthony Taylor: but I just want you to understand what it is
+
+541
+00:55:30.460 --> 00:55:32.270
+Anthony Taylor: when we talk about a tensor.
+
+542
+00:55:33.350 --> 00:55:36.349
+Anthony Taylor: Okay. can you have bigger? Yes.
+
+543
+00:55:37.700 --> 00:55:40.340
+Anthony Taylor: okay, if smaller. No, you can't do smaller than one.
+
+544
+00:55:41.970 --> 00:55:42.960
+Anthony Taylor: Alright.
+
+545
+00:55:43.330 --> 00:55:53.870
+Anthony Taylor: Is that relative is everybody fairly clear? Here's what I want to remember. What's tensor? Well, it is a representation of an array or a matrix
+
+546
+00:55:54.940 --> 00:55:55.990
+Anthony Taylor: good enough.
+
+547
+00:55:57.860 --> 00:55:58.830
+Anthony Taylor: Okay?
+
+548
+00:56:00.500 --> 00:56:10.309
+Anthony Taylor: Used in tensorflow. It's very important, the good news is is, it's pretty, even though you might hear people use this. I mean literally, it's in the word tensorflow. It was made for tensorflow.
+
+549
+00:56:11.380 --> 00:56:15.190
+Anthony Taylor: Okay, so tensor tensorflow pretty easy.
+
+550
+00:56:16.020 --> 00:56:16.920
+Anthony Taylor: Okay.
+
+551
+00:56:17.040 --> 00:56:21.659
+Anthony Taylor: alright. So what are some ways we can create attention. Well, you could convert.
+
+552
+00:56:22.510 --> 00:56:24.929
+Anthony Taylor: So if you have a an array already.
+
+553
+00:56:25.580 --> 00:56:29.530
+Anthony Taylor: Okay, you can convert it. You can convert data frames into tensors
+
+554
+00:56:31.190 --> 00:56:32.310
+Anthony Taylor: very common.
+
+555
+00:56:33.820 --> 00:56:38.690
+Anthony Taylor: constant. That's what you just saw. We just passed in some numbers in a list
+
+556
+00:56:39.580 --> 00:56:42.309
+Anthony Taylor: that gave us a new tensor.
+
+557
+00:56:43.860 --> 00:56:46.310
+Anthony Taylor: variable, so variable.
+
+558
+00:56:47.510 --> 00:57:02.539
+Anthony Taylor: We don't, we don't. We don't do this in pandas or anything where we like declare a variable as a variable. But in tensor we do tensorflow, we do, we say, tf, dot variable. And that's basically telling python tensors coming.
+
+559
+00:57:03.010 --> 00:57:04.620
+Anthony Taylor: But we don't know what it is yet.
+
+560
+00:57:06.020 --> 00:57:09.950
+Anthony Taylor: So it's basically initializing a variable
+
+561
+00:57:12.050 --> 00:57:16.150
+Anthony Taylor: okay for those who've done programming before. You've seen something like this almost for sure.
+
+562
+00:57:17.640 --> 00:57:18.560
+Anthony Taylor: Okay.
+
+563
+00:57:21.010 --> 00:57:28.250
+Anthony Taylor: now, what can we do with it? Well, we can multiply. You multiply the matrices together. That's pretty exciting.
+
+564
+00:57:28.340 --> 00:57:35.249
+Anthony Taylor: We can transpose them. Transpose them is exactly what I said before, or what we've done before with transpose
+
+565
+00:57:35.370 --> 00:57:38.780
+Anthony Taylor: takes it from going this direction, and makes it go this direction.
+
+566
+00:57:40.180 --> 00:57:44.520
+Anthony Taylor: or takes it from going. This direction makes it go this direction hit.
+
+567
+00:57:45.520 --> 00:57:48.270
+Anthony Taylor: basically. Okay.
+
+568
+00:57:50.740 --> 00:58:01.600
+Anthony Taylor:  as we create our neural network, it's a little different when we create our layers. We're actually going to do tf in in
+
+569
+00:58:01.890 --> 00:58:08.400
+Anthony Taylor: and then tell it what activation function we wanted to use and then build the layer inside of.
+
+570
+00:58:09.440 --> 00:58:17.940
+Anthony Taylor: Okay, so relu leaky relu sigmoid tan that should all look familiar to you. the syntax is going to be different, because we don't have cures to help us out
+
+571
+00:58:19.750 --> 00:58:23.720
+Anthony Taylor: with training models, massive amounts data. So another thing we do here.
+
+572
+00:58:23.940 --> 00:58:30.999
+Anthony Taylor: with rbm, in particular is we're going to use batches. So we're not going to train all the data at once.
+
+573
+00:58:31.160 --> 00:58:32.000
+Anthony Taylor: Now.
+
+574
+00:58:33.810 --> 00:58:47.160
+Anthony Taylor: that sounds interesting, right? Well, how are we when you? How are you gonna do? What do you mean? Yeah, I could train all day. How can you come up with pattern? You're not training it all at once. We're not saying we're only going to train it on a small batch. We're gonna train it in batched.
+
+575
+00:58:47.790 --> 00:58:54.910
+Anthony Taylor: So we're just like, all right, we're gonna do 200 rows. And then we're gonna hold on to what we get out of that, and then do the next tool
+
+576
+00:58:55.500 --> 00:59:03.189
+Anthony Taylor: hold on to that, combine those next to one, combine those next to it. So it's it's just doing it in smaller batches.
+
+577
+00:59:03.740 --> 00:59:07.210
+Anthony Taylor:  So here's an example
+
+578
+00:59:07.610 --> 00:59:15.310
+Anthony Taylor: converting our train of data data into batches. You can do something like this. This looks so complicated. But let's just break it down.
+
+579
+00:59:17.550 --> 00:59:23.949
+Anthony Taylor: We have our data set from tensor slices. We're going to pass in extrane.
+
+580
+00:59:25.280 --> 00:59:26.710
+Anthony Taylor: That's just a training date.
+
+581
+00:59:27.230 --> 00:59:29.769
+Anthony Taylor: That's it that we did with train test. Split
+
+582
+00:59:31.030 --> 00:59:35.260
+Anthony Taylor: the the float. That's because everything's a float batch size.
+
+583
+00:59:35.270 --> 00:59:41.440
+Anthony Taylor: This is the back size that we're talking about. This is just an integer that's could be pretty much any
+
+584
+00:59:41.910 --> 00:59:46.180
+Anthony Taylor: whatever we feel we'll we'll be most effective.
+
+585
+00:59:47.660 --> 00:59:52.310
+Anthony Taylor: The tensor slices creates data set. Given those tensors.
+
+586
+00:59:52.350 --> 00:59:55.530
+Anthony Taylor: And then the batch is, of course, the size. Okay?
+
+587
+00:59:55.570 --> 01:00:07.430
+Anthony Taylor: Or it's going to call the size and make them that size. We're gonna see this in code. In just a second. we're going to see it in code. Now. now.
+
+588
+01:00:07.610 --> 01:00:11.809
+Anthony Taylor: I guys do not get stressed out over this code. It's intense. Okay.
+
+589
+01:00:12.350 --> 01:00:15.460
+Anthony Taylor: we're going to break it down throughout the day.
+
+590
+01:00:18.760 --> 01:00:20.690
+So really, there's nothing new here.
+
+591
+01:00:21.480 --> 01:00:24.600
+Anthony Taylor: The only thing that's new here is we're not doing kiosks.
+
+592
+01:00:25.580 --> 01:00:29.510
+Anthony Taylor: Okay, we're using tensorflow but not cure us.
+
+593
+01:00:31.760 --> 01:00:34.830
+Anthony Taylor: We have this interesting data set.
+
+594
+01:00:38.510 --> 01:00:41.009
+Anthony Taylor: It's kind of a mess, really, but
+
+595
+01:00:41.260 --> 01:00:46.190
+Anthony Taylor: has all as 5,455 users.
+
+596
+01:00:48.080 --> 01:00:56.629
+Anthony Taylor: Okay, our 6, I guess. And then a bunch of categories, 25 categories. And they've rated the 25 categories.
+
+597
+01:00:57.770 --> 01:01:00.639
+Anthony Taylor: Okay, now, they haven't all rated them.
+
+598
+01:01:00.700 --> 01:01:03.020
+Anthony Taylor: They're not all rated. We're gonna get through that
+
+599
+01:01:03.430 --> 01:01:11.970
+Anthony Taylor:  unnamed 25. So we have one that's called unnamed. I'm not sure why they didn't bother to tell us that.
+
+600
+01:01:12.280 --> 01:01:22.610
+Anthony Taylor: but we'll drop that person we can see. Oh, there's something going on here. Sorry here. Okay, all the rest of these are floats looking good. But there's something wrong
+
+601
+01:01:23.000 --> 01:01:27.669
+Anthony Taylor: with that 11. Right? So let's go find out.
+
+602
+01:01:27.690 --> 01:01:30.339
+First, we're gonna set the index.
+
+603
+01:01:30.800 --> 01:01:34.710
+Anthony Taylor: So that user is the index. And then we're gonna say.
+
+604
+01:01:35.330 --> 01:01:38.139
+Anthony Taylor: convert Category 11
+
+605
+01:01:38.520 --> 01:01:47.799
+Anthony Taylor: into a flow. Now let's go what we're gonna we're gonna say, try to convert it and then accept and then show me the error if you get an error. Well, we know we're going to get it down
+
+606
+01:01:48.060 --> 01:01:53.149
+Anthony Taylor: right, because we saw it's actually an object. And so here, you see, could not convert string
+
+607
+01:01:53.300 --> 01:01:58.439
+Anthony Taylor: 2. We don't know what that is. So we can now filter
+
+608
+01:01:59.010 --> 01:02:10.769
+Anthony Taylor: to that value. And here's our row of data. Okay. still don't know what it is. Alright. So we're just going to assume that's bad data. Just drop that user
+
+609
+01:02:11.800 --> 01:02:16.869
+Anthony Taylor: guys. This is just normal pre process. This is all normal. We've done this a bunch now.
+
+610
+01:02:18.260 --> 01:02:23.200
+Anthony Taylor: So now let's see if we can convert after we do that. Yes, we can. We're good.
+
+611
+01:02:23.210 --> 01:02:27.130
+Anthony Taylor: These are the column names for the different categories.
+
+612
+01:02:27.760 --> 01:02:29.850
+Anthony Taylor: Alright. So
+
+613
+01:02:30.040 --> 01:02:31.860
+we're going to do that
+
+614
+01:02:33.310 --> 01:02:38.819
+Anthony Taylor: now. We didn't need to put users in there to remember, because users is the index. So this is just all of
+
+615
+01:02:39.050 --> 01:02:40.859
+Anthony Taylor: these categories.
+
+616
+01:02:42.020 --> 01:02:44.730
+Anthony Taylor: Okay. preprocessing.
+
+617
+01:02:45.360 --> 01:02:56.070
+Anthony Taylor: Alright. So here's where we're gonna start. Get crazy. Now, do we need to normalize answers. Yes, we need to normalize. Could we use standard scalar? Yes, you could use standard scalar.
+
+618
+01:02:56.080 --> 01:02:59.389
+Anthony Taylor: are we gonna hear? No. Why would we keep it simple?
+
+619
+01:03:00.120 --> 01:03:16.849
+Anthony Taylor: We're gonna show you the most complicated model yet. And then we're going to do everything different. Alright? So normalization factor, we're gonna say, Hey. between 0 and 5. Let's just call the normalization factor 5. And then let's divide every single value by 5
+
+620
+01:03:18.240 --> 01:03:21.360
+Anthony Taylor: and then show the new ratings. Okay.
+
+621
+01:03:21.490 --> 01:03:24.449
+Anthony Taylor: now they're all normalized. But truthfully, they are normal.
+
+622
+01:03:25.980 --> 01:03:26.880
+Anthony Taylor: Okay.
+
+623
+01:03:27.900 --> 01:03:31.500
+Anthony Taylor: they are between 0 and one right?
+
+624
+01:03:32.570 --> 01:03:33.620
+Anthony Taylor: Nonetheless.
+
+625
+01:03:34.280 --> 01:03:41.720
+Anthony Taylor:  without we could take all of our normalized ratings values and throw them into X train.
+
+626
+01:03:41.810 --> 01:03:48.310
+Anthony Taylor: So what did we do here? Well, we basically just created arrays of values for every single row.
+
+627
+01:03:49.720 --> 01:03:51.220
+Anthony Taylor: We won a raise right?
+
+628
+01:03:52.360 --> 01:03:54.760
+Anthony Taylor: Because we're gonna make tensors.
+
+629
+01:03:56.370 --> 01:03:57.330
+Anthony Taylor: Okay.
+
+630
+01:03:57.640 --> 01:04:03.480
+Anthony Taylor: now, here, we're gonna start actually building up our rbm.
+
+631
+01:04:04.380 --> 01:04:13.630
+Anthony Taylor: so we're gonna say, Hey, we want 15 hidden units. Why, I don't know, sounds like good number. Let's do 15 visible units. This is the input.
+
+632
+01:04:14.680 --> 01:04:28.880
+Anthony Taylor: so we're going to do a length of are inputs. Okay. our bias. Now, this is interesting, this, this looks really fancy, and you know what it's doing. It's just setting it to 0,
+
+633
+01:04:30.070 --> 01:04:33.540
+Anthony Taylor: but it's doing it for the for
+
+634
+01:04:34.680 --> 01:04:36.249
+Anthony Taylor: the as a tensor.
+
+635
+01:04:36.640 --> 01:04:43.260
+Anthony Taylor: So it's gonna do that for the visible. We're gonna do that for the hidden, our weights. We're also gonna send to 0.
+
+636
+01:04:43.590 --> 01:04:50.860
+Anthony Taylor: And we're gonna run this and you don't get to see it. But if you just let me, we could actually we'll use variables. We come in here and look
+
+637
+01:04:51.870 --> 01:04:58.600
+Anthony Taylor: didn't layer bias, you'll see it is a tensorflow variable
+
+638
+01:04:58.620 --> 01:04:59.779
+Anthony Taylor: of 0.
+
+639
+01:05:01.990 --> 01:05:07.580
+Anthony Taylor: Okay. our visible layer bias is also a tensorflow variable of 0.
+
+640
+01:05:08.690 --> 01:05:11.210
+Anthony Taylor: Got it. All we're doing is just
+
+641
+01:05:11.580 --> 01:05:13.270
+Anthony Taylor: just setting everything to 0.
+
+642
+01:05:13.280 --> 01:05:17.070
+Anthony Taylor: Because this is a starting point. Why do we have to do this? Well.
+
+643
+01:05:17.790 --> 01:05:21.360
+Anthony Taylor: because we don't have kuros to take care of this stuff for us.
+
+644
+01:05:22.880 --> 01:05:27.979
+Anthony Taylor: Okay, so we have to do it ourselves.  we're gonna set
+
+645
+01:05:28.030 --> 01:05:33.309
+Anthony Taylor: this variable. And it's just going to be a tensor of visible units.
+
+646
+01:05:33.670 --> 01:05:34.710
+Anthony Taylor: This guy.
+
+647
+01:05:34.940 --> 01:05:37.240
+Anthony Taylor: All set to 0.
+
+648
+01:05:38.720 --> 01:05:44.030
+Anthony Taylor: Okay. alright. Now. we're gonna start building.
+
+649
+01:05:44.080 --> 01:05:47.469
+Anthony Taylor: The first thing I'll do is build our input. Process.
+
+650
+01:05:47.790 --> 01:05:59.239
+Anthony Taylor: Okay, so we're gonna define a function return only generated in the States. So hidden layer, it's gonna be the V 0 state as we're gonna pass in the weight and the bias.
+
+651
+01:06:00.200 --> 01:06:09.869
+Anthony Taylor: The probability we're going to use this is the layer we're going to create. And we're gonna do an in insigmoid activation feature function.
+
+652
+01:06:10.300 --> 01:06:14.280
+Anthony Taylor: And it's gonna do matrix math.
+
+653
+01:06:15.240 --> 01:06:19.640
+Anthony Taylor: Alright, we're gonna pass into this vo state, whatever that is.
+
+654
+01:06:19.780 --> 01:06:21.480
+Anthony Taylor: The current weights
+
+655
+01:06:21.570 --> 01:06:32.639
+Anthony Taylor: are getting passed in and plus the hidden. I'm assuming that's hidden bias. But the HB. Okay, then we have another layer, which is a relu layer.
+
+656
+01:06:32.780 --> 01:06:36.639
+Anthony Taylor: We're doing the sign.
+
+657
+01:06:38.150 --> 01:06:41.070
+Anthony Taylor: We're actually looking to see if that sign is in sign.
+
+658
+01:06:41.510 --> 01:06:43.910
+Anthony Taylor: No, it's gonna flip it. I would assume
+
+659
+01:06:47.810 --> 01:06:50.849
+Anthony Taylor: the name of the operation. Da da
+
+660
+01:06:51.460 --> 01:06:56.639
+Anthony Taylor: returns an element. Okay, yeah. So it's gonna return, an element wise indication of the sign of the number.
+
+661
+01:06:57.070 --> 01:07:00.980
+Anthony Taylor: Okay, so side X equals one. If X, that's one X grade 2.
+
+662
+01:07:01.290 --> 01:07:03.660
+Anthony Taylor: Okay? So basically.
+
+663
+01:07:03.910 --> 01:07:08.740
+Anthony Taylor: if I'm reading that right, it's gonna flip the sign that what you get out of that, Jennifer.
+
+664
+01:07:09.730 --> 01:07:20.309
+Anthony Taylor: I'll pick up for Miss Jennifer. Okay, good. So we're gonna pass in probability, minus the uniform of the shape of the hidden probability.
+
+665
+01:07:20.750 --> 01:07:22.599
+Anthony Taylor: And that's going to give us our state.
+
+666
+01:07:23.500 --> 01:07:25.229
+Anthony Taylor: I know guys hanging.
+
+667
+01:07:25.550 --> 01:07:34.740
+Anthony Taylor: Okay, then we're gonna print output of zeros, input. So we got the didn't layer function
+
+668
+01:07:34.850 --> 01:07:39.830
+Anthony Taylor: pass in our zeros, our weight and our hidden layer biases.
+
+669
+01:07:40.040 --> 01:07:45.320
+Anthony Taylor: Okay. print the first 15 hidden states. Well, we know what? They're gonna be
+
+670
+01:07:46.300 --> 01:07:49.619
+Anthony Taylor: okay. Now, are they gonna all be 0? Not necessarily.
+
+671
+01:07:51.350 --> 01:07:57.790
+Anthony Taylor: Okay. So here's our reconstructed output. So this is after it gets the data.
+
+672
+01:07:57.900 --> 01:07:59.080
+Anthony Taylor: it's going to
+
+673
+01:07:59.480 --> 01:08:07.520
+Anthony Taylor: do. It's gonna apply. It's gonna transpose it. It's gonna apply the visible bias. It's gonna do a reroute. It's gonna flip the the bit again
+
+674
+01:08:07.660 --> 01:08:08.510
+Anthony Taylor: and
+
+675
+01:08:08.650 --> 01:08:16.780
+Anthony Taylor: output. this good stuff here. Okay, when a uniform distrib. That's interesting. Okay, here's what this looks like.
+
+676
+01:08:17.920 --> 01:08:21.490
+Anthony Taylor: So here, you see the first 15 hidden
+
+677
+01:08:21.649 --> 01:08:22.720
+Anthony Taylor: states.
+
+678
+01:08:24.890 --> 01:08:30.000
+Anthony Taylor: The hidden shape is one of 15. The state shape is 24. And the state shape is 24.
+
+679
+01:08:31.779 --> 01:08:42.140
+Anthony Taylor: That's interesting. Okay? But it's just it's it's all just the basic stuff. Okay. The good news is guys. Here's the good news you decide. You want to try to do one of these
+
+680
+01:08:43.540 --> 01:08:47.980
+Anthony Taylor: all reusable. None of this is specific to this example.
+
+681
+01:08:49.560 --> 01:08:54.049
+Anthony Taylor: Before this, the pre-processing that was specific to this example.
+
+682
+01:08:54.399 --> 01:08:56.940
+Anthony Taylor: and everything from about
+
+683
+01:08:57.140 --> 01:09:00.309
+Anthony Taylor: here down. You could reuse this with any date.
+
+684
+01:09:02.000 --> 01:09:08.050
+Anthony Taylor: Alright. But do keep in mind the data is fairly specific. You have to have like ratings, data or something. Okay.
+
+685
+01:09:08.240 --> 01:09:18.910
+Anthony Taylor: alright. So here, we're gonna do error. We're not going to get too heavily into error. But basically, this is going to be mean, squared error. Look at that, reduce mean, squared boom.
+
+686
+01:09:19.960 --> 01:09:23.850
+Anthony Taylor: Okay? And then we're going to print it. So currently.
+
+687
+01:09:24.060 --> 01:09:27.960
+Anthony Taylor: our mean squared error on the first iteration
+
+688
+01:09:28.670 --> 01:09:29.750
+Anthony Taylor: is
+
+689
+01:09:30.359 --> 01:09:33.999
+Anthony Taylor: 37. Now, I have a whole explanation, for
+
+690
+01:09:39.100 --> 01:09:45.389
+Anthony Taylor: I do want to give you guys this explanation. even though we're gonna go through all this and bits and pieces in just a minute. But
+
+691
+01:09:48.460 --> 01:09:49.829
+Anthony Taylor: okay, we'll pass that
+
+692
+01:09:53.979 --> 01:10:00.719
+Anthony Taylor: alright ways to test the function in layers generate hidden States store H. 0,
+
+693
+01:10:01.010 --> 01:10:07.169
+Anthony Taylor: we print out the first 15. So the whole point of this was just to test that our function is, in fact working.
+
+694
+01:10:07.520 --> 01:10:09.210
+Anthony Taylor: That's it. Okay?
+
+695
+01:10:11.850 --> 01:10:17.659
+Anthony Taylor: Then, we're going to create our reconstructed output. This is the one that does the back propagation.
+
+696
+01:10:19.640 --> 01:10:20.670
+Anthony Taylor: There you go.
+
+697
+01:10:21.750 --> 01:10:25.750
+Anthony Taylor: After doing that we're gonna test it.
+
+698
+01:10:25.970 --> 01:10:30.700
+Anthony Taylor: So that's what we're doing here to make sure everything is testing properly. Okay.
+
+699
+01:10:31.770 --> 01:10:39.530
+Anthony Taylor: the reason we do all these checks is because this stuff is complicated. Do you want to debug this? No.
+
+700
+01:10:39.580 --> 01:10:44.739
+Anthony Taylor: So if you do the checks as you go, you're not gonna have to go back and mess with this.
+
+701
+01:10:45.150 --> 01:10:51.159
+Anthony Taylor:  alright. So we're going to find a function called error. This is the mean, absolute error
+
+702
+01:10:51.220 --> 01:11:00.369
+Anthony Taylor: between the actual vo state and the V one state. So the Vo state is the input layer. V, one state is our
+
+703
+01:11:00.460 --> 01:11:01.510
+Anthony Taylor: hidden layer.
+
+704
+01:11:02.750 --> 01:11:08.989
+Anthony Taylor: Okay, our reconstructed layer. So these things come together. But we're going to come up with an error
+
+705
+01:11:09.060 --> 01:11:11.300
+Anthony Taylor: for this. Okay?
+
+706
+01:11:11.540 --> 01:11:17.250
+Anthony Taylor: So now we're gonna start putting together what we need to train them all
+
+707
+01:11:18.060 --> 01:11:21.450
+Anthony Taylor: again. Everything up here reusable.
+
+708
+01:11:22.250 --> 01:11:23.480
+Anthony Taylor: Make it happen.
+
+709
+01:11:23.920 --> 01:11:26.189
+Anthony Taylor: Anthony. Hi. Yes.
+
+710
+01:11:26.450 --> 01:11:36.039
+Meredith McCanse (she/her): So if it found, if the V one state came back, and it was the exact same as the Vo state that would mean like it. It did it right? So then, with the error be 0,
+
+711
+01:11:37.140 --> 01:11:39.670
+Meredith McCanse (she/her): I would. Here,
+
+712
+01:11:40.760 --> 01:11:42.140
+Anthony Taylor: I would say, yes.
+
+713
+01:11:42.380 --> 01:11:43.190
+Meredith McCanse (she/her): okay.
+
+714
+01:11:43.850 --> 01:11:48.459
+Anthony Taylor: yeah. Let me think about this.
+
+715
+01:11:48.860 --> 01:11:54.359
+Anthony Taylor: Well, yeah, I mean, based on this map. Yeah. yeah, because this would be 0. It'd be squaring 0.
+
+716
+01:11:54.590 --> 01:12:14.299
+Anthony Taylor: So we would want to move towards a lower score as we. We do want a lower score. Absolutely. So remember mean squared error. If you remember, from back, when we learned R. 2, and all that mean squared error. The lower value is considered better. My problem, mean squared error is as well, I mean is point, you know, 5 million
+
+717
+01:12:14.530 --> 01:12:18.560
+Anthony Taylor: or 5,000,001. Is that more than you know?
+
+718
+01:12:18.730 --> 01:12:30.030
+Anthony Taylor: Is that low, or is that really really hot? I don't know, because I have to right? So you have to train more than once to do that. Okay, so here we're gonna do one epic.
+
+719
+01:12:30.550 --> 01:12:46.230
+Anthony Taylor: a batch size of 200 vectors. We have an empty array for errors and empty array for weights. We have a K value. I wanna make sure I'm going through these with you guys, I said, I told you today to be a little more reading than I like to do, but
+
+720
+01:12:46.350 --> 01:12:50.879
+Anthony Taylor: I'd rather read it and get it to you right without having to repeat myself
+
+721
+01:12:52.180 --> 01:12:53.140
+a
+
+722
+01:12:53.740 --> 01:12:57.180
+Clayton Graves: for what it's worth, Anthony, if you made a mistake, I wouldn't
+
+723
+01:12:58.380 --> 01:13:05.429
+Anthony Taylor: like, I said, if I had done this model like as much as I've done all the others. I would probably be
+
+724
+01:13:05.910 --> 01:13:11.180
+Anthony Taylor: okay with it. But I'm I'm also kinda like. okay.
+
+725
+01:13:11.300 --> 01:13:14.679
+Anthony Taylor: so it's all good. It's all good.
+
+726
+01:13:14.700 --> 01:13:22.510
+Anthony Taylor:  okay, updated with the goal of reduced. So basically this model
+
+727
+01:13:22.560 --> 01:13:32.710
+Anthony Taylor: it's learning we're gonna refer to how the weights bias get updated. And these weights. Biases will just keep going. We're reducing error. That's our goal.
+
+728
+01:13:32.810 --> 01:13:34.879
+Anthony Taylor: All we're trying to do is reduce the error.
+
+729
+01:13:35.320 --> 01:13:39.469
+Anthony Taylor:  we're gonna trade it in batches.
+
+730
+01:13:39.930 --> 01:13:43.020
+Anthony Taylor: We begin by initializing some variables
+
+731
+01:13:43.580 --> 01:13:46.729
+Anthony Taylor: inside the loop. So here we go. We got all our variables.
+
+732
+01:13:47.320 --> 01:13:49.920
+Anthony Taylor: This is our data.
+
+733
+01:13:50.880 --> 01:14:02.259
+Anthony Taylor: Okay, so train Ds equals data set from tensor slices X train. That's like, the only thing in there we need to make sure we cover we get is that trained data training data
+
+734
+01:14:02.770 --> 01:14:07.309
+Anthony Taylor: we have, our V state is set to 0 now for each epic.
+
+735
+01:14:09.070 --> 01:14:11.070
+Anthony Taylor: Okay,
+
+736
+01:14:13.550 --> 01:14:15.970
+Anthony Taylor: wanna see if they're gonna walk us through it.
+
+737
+01:14:21.580 --> 01:14:28.679
+Anthony Taylor: It's really not. So what's gonna happen is we're gonna have a sample. We're going to grab
+
+738
+01:14:29.310 --> 01:14:35.380
+Anthony Taylor: you know, this is a sample from this bath. And then
+
+739
+01:14:35.550 --> 01:14:41.829
+Anthony Taylor: we're gonna start processing through it. So it's gonna gonna batch it and send it to the hidden layer. Run that up above.
+
+740
+01:14:42.130 --> 01:14:46.270
+Anthony Taylor: get the reconstructed output, send it back to the hidden leg.
+
+741
+01:14:46.310 --> 01:14:49.259
+Anthony Taylor: Gonna keep doing this. Gonna come up with
+
+742
+01:14:49.340 --> 01:14:51.209
+Anthony Taylor: a delta weight.
+
+743
+01:14:51.760 --> 01:14:59.300
+Anthony Taylor: So this is the wait that it came up with today. This is the way we're, you know, we got now and then it's gonna update them
+
+744
+01:14:59.980 --> 01:15:03.110
+Anthony Taylor: with the delta. So this is the amount difference.
+
+745
+01:15:03.650 --> 01:15:15.830
+Anthony Taylor: Remember where we were doing the cool stuff, and you could see the the lines moving around. Same idea here, except for now, what we're getting is is well, the line moved, you know, point 2 7 5.
+
+746
+01:15:15.990 --> 01:15:18.799
+Anthony Taylor: Okay, go. Put that on the weight.
+
+747
+01:15:19.020 --> 01:15:21.609
+Anthony Taylor: you know. Value. Go add that to it.
+
+748
+01:15:22.070 --> 01:15:32.270
+Anthony Taylor: because again, we don't have Kiras to help us with. All of this, Kiros usually does all this for us. Visible layer bias. So here's where we're basically going to do the math
+
+749
+01:15:32.910 --> 01:15:38.579
+Anthony Taylor: to get the new visible layer bias and the new hidden layer bias.
+
+750
+01:15:39.990 --> 01:15:43.699
+Anthony Taylor: And then we're going to assign state
+
+751
+01:15:44.050 --> 01:15:49.000
+Anthony Taylor: to the Vo state. That's the original state from up above. Okay.
+
+752
+01:15:50.400 --> 01:15:56.639
+Anthony Taylor: So now we're going to sample and do an error. So we're going to take a small sample of our batch
+
+753
+01:15:56.720 --> 01:16:07.719
+Anthony Taylor: and we're gonna check the error and see how we're doing. Okay? And then we're going to run the next batch. As we do this, we're going to plot it out. and it looks like.
+
+754
+01:16:13.680 --> 01:16:17.029
+Anthony Taylor: Fortunately, we're only doing one epic, or this could get really bad.
+
+755
+01:16:22.410 --> 01:16:27.260
+Anthony Taylor: What do you guys think about the complexity of this on CPU only mode.
+
+756
+01:16:27.760 --> 01:16:33.320
+Anthony Taylor: Okay? So this is why we end up with, see, we've got some pretty high errors. Look at that guy.
+
+757
+01:16:33.570 --> 01:16:36.010
+Anthony Taylor: That's a good good rate. Right? There.
+
+758
+01:16:36.460 --> 01:16:39.160
+Anthony Taylor: Okay. so that's not too bad.
+
+759
+01:16:39.480 --> 01:16:45.280
+Anthony Taylor: Okay, so now that we have it trained, we can create a test user id.
+
+760
+01:16:45.300 --> 01:16:50.620
+Anthony Taylor: we'll grab some data. So basically, this is the last record. Okay?
+
+761
+01:16:50.770 --> 01:16:54.230
+Anthony Taylor:  and jape it
+
+762
+01:16:54.410 --> 01:17:01.450
+Anthony Taylor: converted to a tenser. Because, remember, everything has to be a tenser. And then we're going to see what it looks like.
+
+763
+01:17:02.250 --> 01:17:08.430
+Anthony Taylor: That's pretty. That's pretty hard to read. But there you go. Okay, let's make it a little easier to read.
+
+764
+01:17:10.420 --> 01:17:14.680
+Anthony Taylor: And oh, wait! What are we doing here? Feed in the user to re? Oh.
+
+765
+01:17:14.920 --> 01:17:19.479
+Anthony Taylor: sorry. This was just creating the test sensor. So this is
+
+766
+01:17:20.540 --> 01:17:25.800
+Anthony Taylor: back up. This was just pulling the data out and putting it into a tensor.
+
+767
+01:17:26.140 --> 01:17:29.110
+Anthony Taylor: This is initializing
+
+768
+01:17:29.220 --> 01:17:41.560
+Anthony Taylor: the whole model. Here, we've got our layers. Okay. we're gonna run this guy. Interesting. Okay? So now we're gonna put that into a data frame.
+
+769
+01:17:42.250 --> 01:17:45.330
+Anthony Taylor: There's the recommendation scores we came up with
+
+770
+01:17:47.470 --> 01:17:51.170
+0 score indicates user hasn't rated anything yet.
+
+771
+01:17:52.220 --> 01:17:55.999
+Anthony Taylor: There's their scores. And now we're just going to pull these guys together.
+
+772
+01:17:56.310 --> 01:18:00.419
+Anthony Taylor: and we're gonna see that these are the ratings we gave
+
+773
+01:18:01.050 --> 01:18:02.370
+Anthony Taylor: this person
+
+774
+01:18:03.000 --> 01:18:06.940
+Anthony Taylor: to go look at. So we're highly recommend. What?
+
+775
+01:18:09.550 --> 01:18:15.810
+Anthony Taylor: Oh, it's sorted. So we recommend viewpoints. That's what this person needs to go. Look at.
+
+776
+01:18:17.830 --> 01:18:24.000
+Anthony Taylor: This is sad. We recommended you resorts, and they only gave it a point. 10. But
+
+777
+01:18:24.400 --> 01:18:26.440
+Anthony Taylor: monuments. And
+
+778
+01:18:26.520 --> 01:18:27.850
+Anthony Taylor: this one looks good.
+
+779
+01:18:30.530 --> 01:18:31.310
+Anthony Taylor: So
+
+780
+01:18:32.210 --> 01:18:36.729
+Anthony Taylor: okay, yes, anything you want.
+
+781
+01:18:37.150 --> 01:18:41.720
+Meredith McCanse (she/her): So the the data frame at the bottom that we're looking at is that
+
+782
+01:18:41.840 --> 01:18:53.710
+Meredith McCanse (she/her): is so is the normalized user score column. Essentially, this is this, the recommend is that the recommendation score converted to normalized like, are they supposed to represent the same thing? Or is one of them?
+
+783
+01:18:56.020 --> 01:19:04.009
+Anthony Taylor: It would be the value that came from the date, the normalized score. So it's after we've applied the normalization. Remember the divide by 5.
+
+784
+01:19:04.630 --> 01:19:13.279
+Meredith McCanse (she/her): They actually said, Yeah, so we're we're trying to compare what we came up with as a recommendation to what they've actually guessed.
+
+785
+01:19:13.430 --> 01:19:16.700
+Meredith McCanse (she/her): Got it. And they're both in like a normalized format.
+
+786
+01:19:17.510 --> 01:19:21.000
+Anthony Taylor: More well, recommendation, scores of probability between 0 and one.
+
+787
+01:19:22.150 --> 01:19:30.729
+Meredith McCanse (she/her): Okay. do you have to convert it back? Because the original data was on a point scale like one to 5, right? Do you have to eventually convert it back to that?
+
+788
+01:19:31.240 --> 01:19:36.100
+Anthony Taylor: Not necessarily, because all we really cared about in this case was that
+
+789
+01:19:37.160 --> 01:19:41.530
+Anthony Taylor: right? All we were trying to do is come up with a recommendation to give this user
+
+790
+01:19:42.040 --> 01:19:47.630
+Anthony Taylor: right? So we don't really care about what they did now, you, of course, would be calculated after they rate more
+
+791
+01:19:48.390 --> 01:19:54.330
+you'd wanna re-seend them through the recommendation model. See if they get the same recommendations.
+
+792
+01:19:54.850 --> 01:20:00.779
+Meredith McCanse (she/her): Got it? Cause we're not trying to predict how they rated something we're trying to recommend new things.
+
+793
+01:20:01.040 --> 01:20:06.469
+Anthony Taylor: Got it. Okay? Sorry I was mixing it up. No, I you know what
+
+794
+01:20:07.070 --> 01:20:11.990
+Anthony Taylor: I love. That question that makes me happy is, I knew the answer.
+
+795
+01:20:13.230 --> 01:20:21.269
+Anthony Taylor: Alright. How are we doing? How are we doing? We still got. We got time to go through this section. So this isn't everyone do.
+
+796
+01:20:21.990 --> 01:20:25.210
+Anthony Taylor: Good. News is easy. Everyone do.
+
+797
+01:20:25.730 --> 01:20:27.340
+Anthony Taylor: Guys are gonna like this.
+
+798
+01:20:28.570 --> 01:20:33.450
+Anthony Taylor: So let's do this together as much as you guys want to be involved.
+
+799
+01:20:34.770 --> 01:20:40.500
+Anthony Taylor: Basically, if you guys look at the activities, we're gonna pre-process here.
+
+800
+01:20:41.280 --> 01:20:44.689
+Anthony Taylor: I don't think we're saving. We might be.
+
+801
+01:20:44.700 --> 01:20:47.960
+Anthony Taylor: We're going to create some utilities that we could reuse.
+
+802
+01:20:49.270 --> 01:20:56.610
+Anthony Taylor: Then we're going to do an evaluation like a testing of our rbm. and then just
+
+803
+01:20:56.900 --> 01:20:59.199
+Anthony Taylor: a new one using our saved mall.
+
+804
+01:20:59.480 --> 01:21:01.779
+Anthony Taylor: So the hard one was that first.
+
+805
+01:21:02.180 --> 01:21:14.330
+Anthony Taylor: because that first one was the whole flippant thing done at once. And it was very difficult. Okay. we're going to make it. We're going to try to break it down and make it easier as we go. A.
+
+806
+01:21:14.650 --> 01:21:18.299
+Anthony Taylor: Am I in the wrong one? I'm in the wrong where you should be in this one.
+
+807
+01:21:19.720 --> 01:21:20.620
+Anthony Taylor: Okay.
+
+808
+01:21:26.970 --> 01:21:31.549
+Anthony Taylor: so we've got some data
+
+809
+01:21:33.940 --> 01:21:46.400
+Anthony Taylor: user, id movie id ratings, we're gonna do some movie recommendations. How exciting is that the first thing we need to do. Remove some duplicates. So somebody tell me how I would do this
+
+810
+01:21:48.760 --> 01:21:50.340
+Derek Rikke: drop duplicates.
+
+811
+01:21:51.680 --> 01:21:52.720
+Hmm!
+
+812
+01:21:53.540 --> 01:21:55.370
+Anthony Taylor: He gets an a for today.
+
+813
+01:21:56.110 --> 01:22:06.549
+Anthony Taylor:  am I going to drop all of them? It says on user, id movie id keeping the last row.
+
+814
+01:22:10.400 --> 01:22:15.250
+Anthony Taylor: So no, I just need to do bracket user, Id
+
+815
+01:22:17.460 --> 01:22:20.799
+Anthony Taylor: comma movie Id.
+
+816
+01:22:22.210 --> 01:22:25.530
+Anthony Taylor: and then by by keeping a last fur, what do I mean by that?
+
+817
+01:22:29.470 --> 01:22:30.760
+Anthony Taylor: Anybody remember
+
+818
+01:22:33.130 --> 01:22:34.020
+michael mcpherson: last?
+
+819
+01:22:35.090 --> 01:22:36.680
+michael mcpherson: But but what does that mean?
+
+820
+01:22:38.630 --> 01:22:39.800
+michael mcpherson: The the
+
+821
+01:22:39.860 --> 01:22:45.870
+Anthony Taylor: keeps the last of the duplicate so
+
+822
+01:22:47.000 --> 01:22:51.400
+Anthony Taylor: excellent, excellent, really lost 3 rows. So that didn't help us much.
+
+823
+01:22:52.520 --> 01:22:58.760
+Anthony Taylor: Okay. so now I need to pivot. Who wants to help me with that.
+
+824
+01:23:01.980 --> 01:23:05.160
+Anthony Taylor: Y'all know I don't know anything. Tell me. Come on, come on!
+
+825
+01:23:05.780 --> 01:23:07.580
+Anthony Taylor: How do you pivot the data
+
+826
+01:23:07.950 --> 01:23:09.000
+michael mcpherson: dot pivot.
+
+827
+01:23:09.600 --> 01:23:11.399
+Anthony Taylor: Oh, my God!
+
+828
+01:23:12.460 --> 01:23:25.009
+Anthony Taylor: How could it be that easy? Then we just need to do an index on the column. We're going to pivot on user id and then the column we want is our values, basically is gonna be
+
+829
+01:23:25.180 --> 01:23:29.350
+Anthony Taylor: well, no, our values will be rating. So this will be movie Id.
+
+830
+01:23:32.510 --> 01:23:35.510
+Anthony Taylor: and then values.
+
+831
+01:23:36.320 --> 01:23:38.540
+Anthony Taylor: who's ratings.
+
+832
+01:23:38.560 --> 01:23:43.219
+Anthony Taylor: Is it reading? Reading? Yeah. let's take a look at that.
+
+833
+01:23:46.570 --> 01:23:49.860
+Anthony Taylor: Oh, well, got a lot of data.
+
+834
+01:23:51.870 --> 01:23:57.609
+Anthony Taylor: Yeah, a lot of nols in there. Huh? Let's get them full. How do we fill in as with 0?
+
+835
+01:23:58.010 --> 01:23:59.330
+michael mcpherson: But, Filma?
+
+836
+01:24:00.360 --> 01:24:03.470
+Anthony Taylor: Oh, my God, don't take all the answers. Mike.
+
+837
+01:24:04.730 --> 01:24:06.240
+Anthony Taylor: Jeez man.
+
+838
+01:24:06.850 --> 01:24:09.089
+michael mcpherson: Mike, Mike, Mike.
+
+839
+01:24:10.440 --> 01:24:14.809
+Anthony Taylor:  oh, okay. So so, Natalie, what's next?
+
+840
+01:24:15.840 --> 01:24:24.919
+Mason, Natalie: Don't click on me. I'm tired. I did not say that I was cheering on Mike.
+
+841
+01:24:26.080 --> 01:24:30.309
+Anthony Taylor: So create a variable for normalization.
+
+842
+01:24:35.680 --> 01:24:39.609
+Anthony Taylor: Anybody anybody except Mike.
+
+843
+01:24:42.380 --> 01:24:51.590
+Clayton Graves: It's it's ratings are between 0 and 5. We picked 5 and the the last one. you know. See, I like it picked up again.
+
+844
+01:24:52.180 --> 01:24:58.580
+Anthony Taylor: I think that's freaking brilliant. So now we're gonna apply that to all of our data. So normalize
+
+845
+01:24:59.300 --> 01:25:05.329
+Anthony Taylor: ratings equals ratings, underscore matrix. That's our table
+
+846
+01:25:05.440 --> 01:25:06.780
+Anthony Taylor: divided by
+
+847
+01:25:08.260 --> 01:25:11.119
+Anthony Taylor: yeah, because we're gonna do everything. So normalization factor.
+
+848
+01:25:12.160 --> 01:25:14.710
+Anthony Taylor: oh, I just called it normalization.
+
+849
+01:25:16.340 --> 01:25:18.110
+Anthony Taylor: Let's call it normalization factor.
+
+850
+01:25:21.740 --> 01:25:23.860
+Anthony Taylor: Alrighty.
+
+851
+01:25:24.920 --> 01:25:28.580
+Anthony Taylor: So now we have our ratings. And now we're just going to save our training date.
+
+852
+01:25:29.240 --> 01:25:33.810
+Anthony Taylor: We've preprocessed it. I feel pretty good about it. X underscore train
+
+853
+01:25:33.930 --> 01:25:36.260
+Anthony Taylor: no other question.
+
+854
+01:25:36.390 --> 01:25:43.760
+Raugewitz, Tania: So on the ratings. The ratings are between 0 and 5. But you have a factor of 5. Would that be 6?
+
+855
+01:25:46.560 --> 01:25:49.200
+Anthony Taylor:  I think.
+
+856
+01:25:49.590 --> 01:25:53.829
+Anthony Taylor: Yeah. Theoretically, you could use any of that.
+
+857
+01:25:54.060 --> 01:26:02.569
+Raugewitz, Tania: Okay? Well, I know ratings are between 0 and 5, and you have it a factor. I was just thinking, if it's a factor. It means like how many
+
+858
+01:26:03.690 --> 01:26:08.029
+Raugewitz, Tania: like individual numbers there are. But if it's just normalization, then you could.
+
+859
+01:26:08.560 --> 01:26:11.879
+Anthony Taylor: I don't know. I'm just. It could literally be almost any
+
+860
+01:26:11.970 --> 01:26:16.930
+Anthony Taylor: right, because as long as it's consistently applied you'll be fine, but if you do.
+
+861
+01:26:17.000 --> 01:26:24.019
+Anthony Taylor: if if it, if the highest number could be 5, and you use 5, and then 5 will be a one.
+
+862
+01:26:24.650 --> 01:26:28.519
+Anthony Taylor: Right? 5 will be one. So that's easier to read.
+
+863
+01:26:28.890 --> 01:26:31.780
+Anthony Taylor: Oh, what's 0? 0.
+
+864
+01:26:32.340 --> 01:26:33.200
+Raugewitz, Tania: Okay?
+
+865
+01:26:33.300 --> 01:26:36.610
+Anthony Taylor: Right? Cause you're just dividing it by. So it'd be.
+
+866
+01:26:36.960 --> 01:26:41.620
+Anthony Taylor: you know. So the the number 0 be 0 and the number 5 would be one.
+
+867
+01:26:41.780 --> 01:26:53.100
+Anthony Taylor: So it's the best way to do it, but you could technically deal with it. but I would stick with them. II would stick with the number of the ratings like if it's 0 to 100.
+
+868
+01:26:53.390 --> 01:26:56.170
+Raugewitz, Tania: Okay? So the highest number is kind of what the
+
+869
+01:26:56.180 --> 01:27:06.970
+Anthony Taylor: I don't know.
+
+870
+01:27:09.490 --> 01:27:10.759
+Anthony Taylor: Yeah, yeah, Mike.
+
+871
+01:27:12.560 --> 01:27:15.909
+michael mcpherson: where did you enter in ratings, underscored me
+
+872
+01:27:18.500 --> 01:27:20.430
+Anthony Taylor: ratings underscore matrix
+
+873
+01:27:22.610 --> 01:27:24.110
+Anthony Taylor: when we did the fillonade.
+
+874
+01:27:27.110 --> 01:27:31.040
+Anthony Taylor: So now we have all these cool rays
+
+875
+01:27:32.530 --> 01:27:37.080
+Anthony Taylor: that we can use to train our mom.
+
+876
+01:27:38.320 --> 01:27:39.190
+Anthony Taylor: Okay.
+
+877
+01:27:39.630 --> 01:27:43.090
+Anthony Taylor:  your
+
+878
+01:27:45.430 --> 01:27:47.019
+Anthony Taylor: oh, my God.
+
+879
+01:27:48.300 --> 01:27:49.440
+Anthony Taylor: we're on time.
+
+880
+01:27:50.840 --> 01:27:52.100
+Anthony Taylor: That's hard to believe.
+
+881
+01:27:55.220 --> 01:27:58.599
+Anthony Taylor: Alright guys, so it's break time.
+
+882
+01:27:58.940 --> 01:28:02.520
+Anthony Taylor: So take 15. Come back at quarter after the hour.
+
+883
+01:28:03.530 --> 01:28:10.480
+Anthony Taylor: and we will continue. Slowly assembling this puma.
+
+884
+01:28:12.090 --> 01:28:13.769
+Anthony Taylor: Well, a lot of people missing.
+
+885
+01:28:14.940 --> 01:28:18.120
+Anthony Taylor: There's one Hampton Gabe, Cindy.
+
+886
+01:28:20.240 --> 01:28:22.379
+michael mcpherson: I'm hearing as beautiful as ever.
+
+887
+01:28:23.620 --> 01:28:25.970
+Anthony Taylor: You're looking smooth.
+
+888
+01:28:27.400 --> 01:28:33.519
+sonja baro: I just wanna go like that just just struck that cheek. I bet it's so soft.
+
+889
+01:28:34.620 --> 01:28:36.370
+Clayton Graves: smooth, like a porpoise.
+
+890
+01:28:36.680 --> 01:28:38.930
+sonja baro: It's a straight razor shave. Yeah.
+
+891
+01:28:39.170 --> 01:28:46.260
+michael mcpherson: yeah, yeah, every month for a ha hot towel shave.
+
+892
+01:28:46.430 --> 01:28:48.510
+michael mcpherson: It's an amazing experience.
+
+893
+01:28:50.430 --> 01:28:51.920
+Anthony Taylor: Alright gang.
+
+894
+01:28:52.020 --> 01:28:54.100
+sonja baro: Now let us continue.
+
+895
+01:28:54.520 --> 01:28:57.560
+sonja baro: Okay. So we're basically
+
+896
+01:28:57.790 --> 01:29:01.570
+Anthony Taylor: done with preprocessing. So I
+
+897
+01:29:03.130 --> 01:29:07.470
+Anthony Taylor: we're gonna try the the goal is to have guys.
+
+898
+01:29:07.670 --> 01:29:08.590
+Anthony Taylor: yeah.
+
+899
+01:29:09.590 --> 01:29:15.350
+Anthony Taylor: based on that first activity. what we should be doing. Okay.
+
+900
+01:29:16.470 --> 01:29:20.880
+Anthony Taylor: so let's get back to where we were.
+
+901
+01:29:23.350 --> 01:29:24.820
+Anthony Taylor: It's a way for it to run.
+
+902
+01:29:26.410 --> 01:29:28.000
+Anthony Taylor: It's flying right along.
+
+903
+01:29:29.370 --> 01:29:36.349
+Anthony Taylor: If super fast, something's going on. Okay. So we read in our file.
+
+904
+01:29:36.800 --> 01:29:40.930
+Anthony Taylor: We're gonna get rid of the dukes. Keep the last one.
+
+905
+01:29:41.450 --> 01:29:42.960
+Anthony Taylor: We're going to pivot.
+
+906
+01:29:44.820 --> 01:29:51.890
+Anthony Taylor: We are gonna normalize. I should've told you guys in the next unsolved if all the answers you were looking for were there.
+
+907
+01:29:52.860 --> 01:29:53.620
+Anthony Taylor: dang
+
+908
+01:29:54.790 --> 01:30:00.370
+Anthony Taylor: and then we're gonna take our extreme values and get it. So here we are
+
+909
+01:30:01.480 --> 01:30:05.699
+Anthony Taylor: at the beginning of the next section.
+
+910
+01:30:06.350 --> 01:30:09.729
+Anthony Taylor: So what do you guys think? How many
+
+911
+01:30:10.660 --> 01:30:15.209
+Anthony Taylor: neurons for the layers do you think we need?
+
+912
+01:30:21.640 --> 01:30:28.110
+Anthony Taylor: How about how about this? Let's back up. How many visible nodes should we initialize
+
+913
+01:30:30.810 --> 01:30:32.860
+sonja baro: the number of the features?
+
+914
+01:30:33.350 --> 01:30:38.040
+Clayton Graves: Perfect? There's 2,071 features, though.
+
+915
+01:30:40.530 --> 01:30:42.940
+michael mcpherson: That's a lot of features. Gotcha.
+
+916
+01:30:43.020 --> 01:30:46.950
+sonja baro: Oh, mom, just just math.
+
+917
+01:30:47.500 --> 01:30:54.979
+Anthony Taylor:  alright. So let's do that. So how? How would I make that into code?
+
+918
+01:30:57.530 --> 01:30:59.120
+michael mcpherson: Wait for you to type it up?
+
+919
+01:31:00.110 --> 01:31:01.840
+Anthony Taylor: No, what
+
+920
+01:31:02.850 --> 01:31:09.489
+Anthony Taylor: we did do it earlier. So we're here. Let's do this. Let's, isn't it? The it's the lang Len of the yeah columns. There you go.
+
+921
+01:31:09.660 --> 01:31:12.740
+Anthony Taylor: That's exactly right? So let's put in hidden units.
+
+922
+01:31:12.990 --> 01:31:17.469
+Anthony Taylor: That's just that could be a an arbitrary number at the moment. So we'll go with 20
+
+923
+01:31:17.720 --> 01:31:21.179
+Anthony Taylor: okay visible units. This is the first layer.
+
+924
+01:31:21.380 --> 01:31:25.109
+Anthony Taylor: This is the one we were just talking about. So we're gonna say, length
+
+925
+01:31:25.250 --> 01:31:30.170
+Anthony Taylor: and ratings matrix.
+
+926
+01:31:31.160 --> 01:31:43.160
+Anthony Taylor: So there's that 2,075. Okay, now we're gonna set our initial bias. our hidden layer and our weights to 0.
+
+927
+01:31:43.260 --> 01:31:50.230
+Anthony Taylor: Now we could go and look at the former code. We could even copy it if we wanted to. But
+
+928
+01:31:50.970 --> 01:31:55.759
+Anthony Taylor: we'll type it out just to get some memory in here. So first, it's tensorflow.
+
+929
+01:31:56.030 --> 01:32:01.660
+Anthony Taylor: It's a variable, which means we're going to create a a tensor that can change.
+
+930
+01:32:02.050 --> 01:32:05.479
+Anthony Taylor: Okay, we're gonna set it TF 0 S,
+
+931
+01:32:05.970 --> 01:32:07.830
+Anthony Taylor: and
+
+932
+01:32:09.030 --> 01:32:16.070
+Anthony Taylor: we're, gonna it's gonna be the visible unit. So for every visible unit there will be a 0.
+
+933
+01:32:16.490 --> 01:32:23.079
+Anthony Taylor: And then last, we'll say, it's gonna be a float. because we always want fruits.
+
+934
+01:32:25.720 --> 01:32:26.550
+Anthony Taylor: Good
+
+935
+01:32:27.670 --> 01:32:31.959
+Anthony Taylor: that looks good. Now we're gonna do the same thing for the hidden layer bias.
+
+936
+01:32:41.460 --> 01:32:48.219
+Anthony Taylor: It's almost exactly the same infected is exactly the same, except instead of visible units. We're going to type.
+
+937
+01:32:50.990 --> 01:32:52.250
+Anthony Taylor: He knew it.
+
+938
+01:32:55.530 --> 01:32:56.310
+Anthony Taylor: Whoa!
+
+939
+01:32:58.150 --> 01:33:00.770
+Anthony Taylor: That's kind of crazy. I'm not sure what I did. There.
+
+940
+01:33:01.830 --> 01:33:04.700
+Anthony Taylor: there we go. and the last one
+
+941
+01:33:05.450 --> 01:33:08.149
+Anthony Taylor: we're going to grab the same line.
+
+942
+01:33:09.230 --> 01:33:12.200
+Anthony Taylor: We're gonna do W equals
+
+943
+01:33:12.610 --> 01:33:18.910
+Anthony Taylor: paste that line. And inside of here we're going to put both visible units and hidden units
+
+944
+01:33:20.080 --> 01:33:21.740
+Anthony Taylor: so visible
+
+945
+01:33:24.700 --> 01:33:25.430
+Anthony Taylor: hit.
+
+946
+01:33:27.100 --> 01:33:28.010
+Anthony Taylor: Okay.
+
+947
+01:33:29.640 --> 01:33:32.949
+Anthony Taylor: so what have we done? We defined our layers
+
+948
+01:33:33.120 --> 01:33:38.020
+Anthony Taylor: and we've initialized our weights and biases to 0
+
+949
+01:33:39.250 --> 01:33:43.060
+Anthony Taylor: cool. Then they give us this cool thing. That's nice of them.
+
+950
+01:33:44.910 --> 01:33:47.199
+Anthony Taylor: Okay, we can see that it's working.
+
+951
+01:33:47.720 --> 01:33:56.570
+Anthony Taylor: Anthony, with this type of model, we always initialize it to 0. Is there ever a situation where you would not.
+
+952
+01:33:57.170 --> 01:34:12.029
+Anthony Taylor: The and the reasoning, I mean keep my like, I said. this is happening in your neural network models, basically to not this one. but effectively. This is kind of happening in the background, and curiosity is taking care of all this, for you
+
+953
+01:34:12.260 --> 01:34:17.649
+Anthony Taylor: takes care of so much of it that we don't have to stress too much about it. Right?
+
+954
+01:34:17.880 --> 01:34:21.010
+Anthony Taylor:  so can I?
+
+955
+01:34:21.160 --> 01:34:31.619
+sonja baro: Yeah. But on that point, I mean, if some of us wanted to do recommendation tools for our project.
+
+956
+01:34:32.100 --> 01:34:41.690
+sonja baro: and we're seeing this. But we keep hearing. Kiosk takes care of this in the background
+
+957
+01:34:41.920 --> 01:34:44.839
+sonja baro: here. Us can't actually do this.
+
+958
+01:34:45.440 --> 01:34:48.450
+sonja baro: Okay? So we would still need this. Okay.
+
+959
+01:34:48.470 --> 01:34:52.960
+Anthony Taylor: well, yeah. Or you can do a pi torch, a pi torch version of it.
+
+960
+01:34:53.010 --> 01:34:58.189
+Anthony Taylor: which I mean, I started to look at that just to see how hard that would be. Do I still have it open?
+
+961
+01:34:59.330 --> 01:35:01.790
+Anthony Taylor: I don't think I do. Oh, wait. Yeah, I do.
+
+962
+01:35:02.120 --> 01:35:11.959
+Anthony Taylor: I was looking at the pie torch version. But it's not really that much simple. right? I mean, you create some basic functions. And then from there you just run your mouth.
+
+963
+01:35:12.870 --> 01:35:13.640
+Anthony Taylor: But
+
+964
+01:35:13.940 --> 01:35:22.110
+Anthony Taylor: I mean, piedtorch is, if you guys are looking at data, science type of job searches, you'll see piedtorch quite a bit.
+
+965
+01:35:23.260 --> 01:35:26.930
+Anthony Taylor: Okay? And that right cat games.
+
+966
+01:35:29.250 --> 01:35:30.000
+I know
+
+967
+01:35:30.340 --> 01:35:31.470
+Kevin Nguyen: for sure. Yeah.
+
+968
+01:35:32.770 --> 01:35:41.560
+Anthony Taylor: see there. Okay. So th, they gave us these functions, which super cool of them. Actually, they gave us a lot. Okay, good.
+
+969
+01:35:41.640 --> 01:35:48.129
+Anthony Taylor: So they gave us these functions which I liked if they gave us. It's just like I said, not even I mean, this is not gonna change.
+
+970
+01:35:49.120 --> 01:35:58.680
+Anthony Taylor: If you do it in the same way, we're doing it here. This is just a quick. You're gonna create the inputs. And you're gonna do a quick test on them.
+
+971
+01:35:59.230 --> 01:36:02.189
+Anthony Taylor: And you're golden. no matter what they are.
+
+972
+01:36:03.850 --> 01:36:04.820
+Anthony Taylor: Okay.
+
+973
+01:36:05.400 --> 01:36:11.660
+Anthony Taylor: And then here we're gonna look at error. 49. Good. Okay? So now
+
+974
+01:36:12.100 --> 01:36:20.430
+Anthony Taylor: we're going to set the training variable. So these are the variables that we were talking about the epic starting with epic. Remember
+
+975
+01:36:20.630 --> 01:36:24.189
+Anthony Taylor: epics. we'll just do 5 x.
+
+976
+01:36:24.440 --> 01:36:28.090
+Anthony Taylor: Okay, we'll do a fairly small batch size.
+
+977
+01:36:29.060 --> 01:36:39.049
+Anthony Taylor: And again, the the reason we do this because this can take a long time to run errors. We're going to create an empty array.
+
+978
+01:36:40.350 --> 01:36:43.050
+Weights an empty array.
+
+979
+01:36:48.240 --> 01:36:52.149
+Anthony Taylor: We're gonna do. K, is that capital K capital K
+
+980
+01:36:52.230 --> 01:36:55.090
+Anthony Taylor: equals one and alpha.
+
+981
+01:36:55.440 --> 01:37:00.840
+Anthony Taylor: And these are just hyper parameters. Guys feel free to look them up. You're really excited about it.
+
+982
+01:37:02.190 --> 01:37:04.889
+Anthony Taylor: And then we're going to do
+
+983
+01:37:05.150 --> 01:37:12.200
+Anthony Taylor: our batches. So we're gonna say, train underscore Ds equals
+
+984
+01:37:12.240 --> 01:37:16.500
+Anthony Taylor: TF dot data dot dataset
+
+985
+01:37:17.540 --> 01:37:19.480
+Anthony Taylor: that from
+
+986
+01:37:20.660 --> 01:37:32.590
+Anthony Taylor: tensor slices pass in Np, dot float 32, and then our training data.
+
+987
+01:37:36.670 --> 01:37:40.980
+Anthony Taylor: so that many, really 2, 3. And then batchets
+
+988
+01:37:41.480 --> 01:37:42.880
+have patch size.
+
+989
+01:37:45.400 --> 01:37:47.019
+Anthony Taylor: And that's that.
+
+990
+01:37:48.610 --> 01:37:49.580
+Anthony Taylor: Okay.
+
+991
+01:37:54.270 --> 01:37:56.600
+Anthony Taylor: make sure we got everything in there.
+
+992
+01:37:58.320 --> 01:38:00.139
+Anthony Taylor: Oh, yeah, they gave us all the rest of it.
+
+993
+01:38:00.190 --> 01:38:05.180
+Anthony Taylor: see? And again, I love this because this is like I said, this is all reusable.
+
+994
+01:38:05.290 --> 01:38:07.120
+Anthony Taylor: so we should be able to run this.
+
+995
+01:38:22.340 --> 01:38:23.860
+Anthony Taylor: Oh, we got an error.
+
+996
+01:38:24.610 --> 01:38:31.710
+Anthony Taylor: Weights is not defying. Aha! See, Matt would have told me I did that right away.
+
+997
+01:38:32.250 --> 01:38:33.599
+Anthony Taylor: Dog got it.
+
+998
+01:38:38.360 --> 01:38:40.370
+Anthony Taylor: There we go. We're flying.
+
+999
+01:38:50.860 --> 01:38:53.269
+Anthony Taylor: So the new thing we're gonna do.
+
+1000
+01:39:02.490 --> 01:39:16.620
+Anthony Taylor: Interesting. exciting. So now we're going to save our mop. Okay. first, let's go ahead and print out everything so you can see what it looks like. Wait.
+
+1001
+01:39:18.670 --> 01:39:24.210
+Anthony Taylor: Colon space. and we'll pass W.
+
+1002
+01:39:26.180 --> 01:39:30.620
+Anthony Taylor: And then we can print out hidden layer by. You know what? When's the point?
+
+1003
+01:39:32.920 --> 01:39:38.700
+Anthony Taylor: I don't really sorry. I understand point of that. There's no reason to do that other than for your own personal entertainment.
+
+1004
+01:39:40.460 --> 01:39:43.240
+Anthony Taylor: Okay, if you want to print them out, you feel free.
+
+1005
+01:39:44.310 --> 01:39:50.279
+Anthony Taylor: So now let's convert it into a data. Okay, so
+
+1006
+01:39:51.200 --> 01:39:55.569
+Anthony Taylor: weight settings equals. Pd, dot data frame.
+
+1007
+01:39:56.660 --> 01:39:58.629
+Anthony Taylor: And you're just gonna pass in
+
+1008
+01:40:00.370 --> 01:40:02.560
+Anthony Taylor: the data variable
+
+1009
+01:40:03.620 --> 01:40:04.550
+Anthony Taylor: equals.
+
+1010
+01:40:05.360 --> 01:40:08.150
+W. Dot, and you're gonna use numpy
+
+1011
+01:40:08.540 --> 01:40:13.770
+Anthony Taylor: so that it converts the array into a row. Okay?
+
+1012
+01:40:15.130 --> 01:40:19.580
+Anthony Taylor: And from there, see now.
+
+1013
+01:40:19.630 --> 01:40:28.819
+Anthony Taylor: as opposed to this, up here, this would have been way. Better just to go. Oh, cool. Well, now, we have a data frame. Why don't we just do that? That's much more interesting than that, in my opinion.
+
+1014
+01:40:30.240 --> 01:40:33.489
+Anthony Taylor: if you guys, you know, are way easier to type.
+
+1015
+01:40:34.410 --> 01:40:35.320
+Anthony Taylor: Okay?
+
+1016
+01:40:36.060 --> 01:40:43.789
+Anthony Taylor: And the last part, we're just gonna save it as data frame, which we have all done in the early days of of Pandas
+
+1017
+01:40:44.220 --> 01:40:47.229
+Anthony Taylor: TO. Underscore Csv.
+
+1018
+01:40:47.330 --> 01:40:51.150
+Anthony Taylor: Give it a path and a name. Rbm.
+
+1019
+01:40:51.200 --> 01:40:52.300
+Anthony Taylor: weights
+
+1020
+01:40:53.910 --> 01:40:58.990
+Anthony Taylor: dot Csv. Don't put the index in there that will mess it up
+
+1021
+01:41:00.490 --> 01:41:02.129
+Anthony Taylor: equals false
+
+1022
+01:41:02.620 --> 01:41:05.479
+Anthony Taylor: run that. And we have our weights.
+
+1023
+01:41:08.030 --> 01:41:13.360
+Anthony Taylor: Now, we're going to do the biases. We're going to do exactly the same thing. Now, how many biases are there?
+
+1024
+01:41:15.650 --> 01:41:17.400
+Anthony Taylor: How many sets of biases.
+
+1025
+01:41:22.790 --> 01:41:26.190
+sonja baro: Was it? 27? The same number
+
+1026
+01:41:27.860 --> 01:41:30.469
+Anthony Taylor: same number as what? You're on the right track?
+
+1027
+01:41:30.800 --> 01:41:39.769
+Anthony Taylor: Yes, that's it. Same number of layers invisible, right? So we have
+
+1028
+01:41:39.860 --> 01:41:41.070
+Anthony Taylor: Hindu
+
+1029
+01:41:43.320 --> 01:41:46.410
+Anthony Taylor: bias settings.
+
+1030
+01:41:47.790 --> 01:41:53.059
+Anthony Taylor: And that's gonna be Pd dot data frame. And it's basically same as up above. Except for it's just
+
+1031
+01:41:53.670 --> 01:41:56.950
+Anthony Taylor: the hidden layer bias state of frame
+
+1032
+01:41:57.640 --> 01:42:00.980
+Anthony Taylor: data equals hidden
+
+1033
+01:42:01.780 --> 01:42:05.410
+Anthony Taylor: layer bias dot number.
+
+1034
+01:42:08.070 --> 01:42:08.970
+Anthony Taylor: Okay.
+
+1035
+01:42:10.810 --> 01:42:12.780
+sonja baro: and then visible.
+
+1036
+01:42:13.740 --> 01:42:18.889
+sonja baro: it did work. Okay, rbm, waits is not wait. It's
+
+1037
+01:42:20.270 --> 01:42:28.569
+sonja baro: but it worked. Did I mess up the spelling? Yeah. But it worked. It ran. So it matters. Well, yeah. Cause it's yeah. So it's just typed up.
+
+1038
+01:42:28.840 --> 01:42:30.770
+Anthony Taylor: That's bad. Don't do that.
+
+1039
+01:42:30.970 --> 01:42:33.279
+Anthony Taylor: That's okay. I actually had it already. So
+
+1040
+01:42:33.930 --> 01:42:37.149
+Anthony Taylor: I ran all this code earlier today. But I've gone through all this stuff.
+
+1041
+01:42:38.820 --> 01:42:42.899
+And so this one will be visible. Layer bias
+
+1042
+01:42:44.080 --> 01:42:45.190
+Anthony Taylor: dive number.
+
+1043
+01:42:47.200 --> 01:42:51.539
+Anthony Taylor: Okay? And then we're gonna convert them to
+
+1044
+01:42:51.900 --> 01:42:52.970
+Anthony Taylor: Csv.
+
+1045
+01:42:55.380 --> 01:42:59.930
+Anthony Taylor: so in this situation. we want.
+
+1046
+01:43:08.700 --> 01:43:14.100
+Anthony Taylor: we want to save all of these things. So, and Kiosk did all of this in a single
+
+1047
+01:43:14.560 --> 01:43:20.049
+Anthony Taylor: file, right in in without kiros, we're required
+
+1048
+01:43:20.710 --> 01:43:24.199
+Anthony Taylor: to do each one separately.
+
+1049
+01:43:25.350 --> 01:43:27.250
+Anthony Taylor: Otherwise it has to retrain
+
+1050
+01:43:34.030 --> 01:43:35.459
+Anthony Taylor: everybody. Understand that.
+
+1051
+01:43:38.520 --> 01:43:43.340
+Anthony Taylor: I think I'm typing slow enough because I really typing
+
+1052
+01:43:45.100 --> 01:43:47.329
+Anthony Taylor: my body's just not wanting to work.
+
+1053
+01:43:52.100 --> 01:43:53.210
+Anthony Taylor: Yay.
+
+1054
+01:43:54.570 --> 01:43:55.510
+Anthony Taylor: okay.
+
+1055
+01:43:56.540 --> 01:44:00.230
+Anthony Taylor: Now, I don't remember if we did this, did we retrieve it in the other exercise?
+
+1056
+01:44:01.360 --> 01:44:09.339
+Anthony Taylor: I don't remember, so we'll just walk through this one. So to get the weights we do. We can create a variable weight settings works.
+
+1057
+01:44:09.520 --> 01:44:13.020
+Anthony Taylor: We're gonna read in our Csv file.
+
+1058
+01:44:13.360 --> 01:44:23.799
+Anthony Taylor: So this is like assuming you're like, it's weeks later. And you need to do a recommendation engine. And you want to pass in some date.
+
+1059
+01:44:24.000 --> 01:44:27.270
+Anthony Taylor: So here we're going to pass in our weights.
+
+1060
+01:44:28.510 --> 01:44:32.090
+Anthony Taylor: Rbm, underscore weights.
+
+1061
+01:44:33.060 --> 01:44:34.050
+Anthony Taylor: Okay.
+
+1062
+01:44:35.090 --> 01:44:40.380
+Anthony Taylor:  now, we need to turn this back into a tensor.
+
+1063
+01:44:40.640 --> 01:44:48.800
+Anthony Taylor: Or if I understand that. okay, so to do that, because remember, it only works tensors. Why, it's tensorflow
+
+1064
+01:44:50.590 --> 01:44:52.410
+Anthony Taylor: weights. Tensor
+
+1065
+01:44:52.860 --> 01:44:59.399
+Anthony Taylor: equals TF dot. But you guys think this one's going to be a constant, a variable.
+
+1066
+01:45:04.160 --> 01:45:06.520
+Anthony Taylor: Derek said it. Anybody else want to say it
+
+1067
+01:45:10.340 --> 01:45:14.050
+Anthony Taylor: constant, right?
+
+1068
+01:45:14.230 --> 01:45:20.600
+Anthony Taylor: Because we already have that we're putting in values that we've already established. So
+
+1069
+01:45:21.810 --> 01:45:23.350
+Anthony Taylor: it's not going to be a variable
+
+1070
+01:45:26.110 --> 01:45:27.630
+Anthony Taylor: with doubles.
+
+1071
+01:45:28.990 --> 01:45:30.710
+Anthony Taylor: That's a word somewhere.
+
+1072
+01:45:31.610 --> 01:45:38.190
+Anthony Taylor: Okay? So the values comma TF dot, 32.
+
+1073
+01:45:38.990 --> 01:45:39.860
+Anthony Taylor: Okay?
+
+1074
+01:45:41.630 --> 01:45:43.520
+Anthony Taylor: And then we can print that out.
+
+1075
+01:45:49.150 --> 01:46:00.910
+Anthony Taylor: And there's our weights. So we're making progress. Now, we're going to read the hidden layer in. And honestly, guys, I'm gonna grab this exact same thing and just make some word changes.
+
+1076
+01:46:01.200 --> 01:46:06.369
+Anthony Taylor: Okay, so we're gonna change this everywhere where it says, wait or change it to hidden
+
+1077
+01:46:08.940 --> 01:46:09.980
+Anthony Taylor: pretty much.
+
+1078
+01:46:11.720 --> 01:46:13.470
+Anthony Taylor: I don't know if that's actually faster.
+
+1079
+01:46:15.460 --> 01:46:16.949
+Anthony Taylor: Wait. What did we call this?
+
+1080
+01:46:19.870 --> 01:46:23.520
+Oh, this is bias. So this, the whole Csv is gonna change.
+
+1081
+01:46:30.430 --> 01:46:32.969
+Anthony Taylor: This will change. To wait
+
+1082
+01:46:34.150 --> 01:46:35.330
+Anthony Taylor: are hidden.
+
+1083
+01:46:36.580 --> 01:46:40.319
+Anthony Taylor: and then this will change. To
+
+1084
+01:46:43.830 --> 01:46:46.409
+Anthony Taylor: rest is fine. And then.
+
+1085
+01:46:48.350 --> 01:46:50.250
+Anthony Taylor: okay on that.
+
+1086
+01:46:50.410 --> 01:46:55.780
+Anthony Taylor: And you've had your hidden layer biases. Now copy this one.
+
+1087
+01:46:57.550 --> 01:46:59.040
+Anthony Taylor: Guess what we're going to put here.
+
+1088
+01:47:01.710 --> 01:47:07.599
+Anthony Taylor: I wish you could do a finding place in one cell, you might be able to not even positive to be honest with you.
+
+1089
+01:47:23.860 --> 01:47:24.790
+Anthony Taylor: There you go.
+
+1090
+01:47:26.720 --> 01:47:27.570
+Anthony Taylor: Okay.
+
+1091
+01:47:28.650 --> 01:47:32.359
+Anthony Taylor: everybody with me. I can pause here.
+
+1092
+01:47:42.380 --> 01:47:46.220
+Anthony Taylor: Okay. nobody said, stop. So I'm gonna keep going.
+
+1093
+01:47:46.420 --> 01:47:50.439
+Anthony Taylor:  so we're gonna create a function.
+
+1094
+01:47:51.530 --> 01:47:59.780
+Anthony Taylor: And this function is to reconstruct, reconstruct our rigid grid in the ratings date, that.
+
+1095
+01:48:00.040 --> 01:48:04.040
+Anthony Taylor: So we're going to get user recommendation.
+
+1096
+01:48:07.520 --> 01:48:11.260
+Anthony Taylor: We're going to pass in a user id. okay.
+
+1097
+01:48:11.410 --> 01:48:14.789
+Anthony Taylor: inside of here. We're going to have an input user.
+
+1098
+01:48:15.440 --> 01:48:19.479
+Anthony Taylor: And for that we need to do a convert to tensor.
+
+1099
+01:48:22.280 --> 01:48:27.530
+Anthony Taylor: And what are we converting? Well, we're converting the normalized ratings
+
+1100
+01:48:27.610 --> 01:48:34.030
+Anthony Taylor: of a specific user id, so we're gonna do normalize ratings.
+
+1101
+01:48:34.410 --> 01:48:39.260
+Anthony Taylor: I'm sorry. The from the normalized ratings data frame.
+
+1102
+01:48:39.430 --> 01:48:41.730
+Anthony Taylor: we're going to grab a specific user right?
+
+1103
+01:48:42.370 --> 01:48:44.419
+Anthony Taylor: Okay, so user id
+
+1104
+01:48:46.480 --> 01:48:58.929
+Anthony Taylor: and get the values. And they're all gonna be float 32. And that's what that that's the input user. Then we're gonna say.
+
+1105
+01:48:59.410 --> 01:49:01.829
+Anthony Taylor: V, 0. So what is v, 0,
+
+1106
+01:49:08.490 --> 01:49:13.209
+Meredith McCanse (she/her): I think that's the input layer before it gets bounced back.
+
+1107
+01:49:13.970 --> 01:49:18.969
+Anthony Taylor: That is the input, layer. A 100%. Remember, back up in here.
+
+1108
+01:49:19.810 --> 01:49:24.130
+Anthony Taylor: We set V, 0,
+
+1109
+01:49:24.900 --> 01:49:37.150
+Anthony Taylor: that's somewhere in here. Yeah. So we set it to zeros, because that's the first. Well, that's the first input we're going to use. and then we do the hidden layers.
+
+1110
+01:49:37.260 --> 01:49:48.260
+Anthony Taylor: Then V, one is that first layer. here we go. This is what I was looking for. So V, 0, v, 0 state starts with V 0.
+
+1111
+01:49:48.700 --> 01:49:59.189
+Anthony Taylor: And then we start repopulating. Okay. so V, 0 state is the first batch at this point. So down here.
+
+1112
+01:50:01.730 --> 01:50:08.730
+Anthony Taylor: We're basically setting the first batch to be the input data.
+
+1113
+01:50:09.730 --> 01:50:11.890
+Anthony Taylor: because there's only one batch. We're gonna work
+
+1114
+01:50:11.980 --> 01:50:19.039
+Clayton Graves: quick, quick. Should there be an underscore? Should there be an underscore in between convert
+
+1115
+01:50:19.350 --> 01:50:20.410
+Clayton Graves: and 2?
+
+1116
+01:50:20.930 --> 01:50:21.860
+Anthony Taylor: Yes.
+
+1117
+01:50:22.390 --> 01:50:24.200
+Anthony Taylor: good catch.
+
+1118
+01:50:24.330 --> 01:50:26.770
+Clayton Graves: Well, you gotta put a T, yeah, that convert.
+
+1119
+01:50:30.940 --> 01:50:31.770
+Anthony Taylor: How's that?
+
+1120
+01:50:33.670 --> 01:50:37.850
+Anthony Taylor: Okay? So we've got our initial input user.
+
+1121
+01:50:37.980 --> 01:50:41.600
+Anthony Taylor: So now we can say, HH, 0
+
+1122
+01:50:42.350 --> 01:50:50.030
+Anthony Taylor: equals. And we're gonna say, and this is, we're gonna create our neural network players. We're gonna in dot sigmoid.
+
+1123
+01:50:51.840 --> 01:50:53.600
+Anthony Taylor: And we're gonna do
+
+1124
+01:50:54.020 --> 01:50:56.559
+Anthony Taylor: our matrix multiplication.
+
+1125
+01:50:59.500 --> 01:51:07.990
+Anthony Taylor: And in here you're going to have that E 0 state in an array. Okay? And
+
+1126
+01:51:08.540 --> 01:51:11.820
+Anthony Taylor: come up as in your weights tensor.
+
+1127
+01:51:21.520 --> 01:51:23.170
+Anthony Taylor: and then your hidden tensor.
+
+1128
+01:51:27.900 --> 01:51:32.110
+Anthony Taylor: Okay, so that should give us our HH 0 value.
+
+1129
+01:51:32.700 --> 01:51:35.229
+Which is basically just like our
+
+1130
+01:51:38.340 --> 01:51:40.270
+Anthony Taylor: it should be the hidden
+
+1131
+01:51:41.420 --> 01:51:47.529
+Anthony Taylor: layers output. So VV. One is our visual layer.
+
+1132
+01:51:48.970 --> 01:51:50.440
+Anthony Taylor: and it's
+
+1133
+01:51:50.580 --> 01:51:55.630
+Anthony Taylor: a whole bunch of stuff. So tf.in int dot sigmoid again.
+
+1134
+01:51:55.950 --> 01:51:57.050
+Anthony Taylor: Tf.
+
+1135
+01:51:58.030 --> 01:52:00.230
+Anthony Taylor: dot matrix model.
+
+1136
+01:52:00.840 --> 01:52:04.470
+Anthony Taylor: And inside of here you're gonna have HH 0,
+
+1137
+01:52:06.800 --> 01:52:10.720
+Anthony Taylor: and transpose it.
+
+1138
+01:52:19.550 --> 01:52:24.210
+Anthony Taylor: And then from there we're gonna add the transposed, visible tensor.
+
+1139
+01:52:28.760 --> 01:52:32.420
+Anthony Taylor: I really think they're not doing you a lot of favors with
+
+1140
+01:52:32.550 --> 01:52:35.139
+Anthony Taylor: transposing this in line like this.
+
+1141
+01:52:35.210 --> 01:52:40.640
+Anthony Taylor: Because if you look at what's happening here. We're basically just preparing the data again.
+
+1142
+01:52:41.450 --> 01:52:47.489
+Anthony Taylor: which is what you have to do right? If you're going to use an existing map, what are I told you guys, this is from the very beginning.
+
+1143
+01:52:47.540 --> 01:52:51.890
+Anthony Taylor: You create a model. And you have all these steps. You do to get the data ready.
+
+1144
+01:52:52.050 --> 01:53:01.740
+Anthony Taylor: Well, when you bring the data back in, you have to do the same steps. And all this is done now, truthfully, since we're using the finished data frame as our input.
+
+1145
+01:53:01.870 --> 01:53:10.150
+Anthony Taylor: all we really have to do is replay our weights and biases. And that's what this is doing. It's replaying them
+
+1146
+01:53:10.220 --> 01:53:13.010
+Anthony Taylor: so that we can get the output
+
+1147
+01:53:14.060 --> 01:53:18.970
+Anthony Taylor: of our A process.
+
+1148
+01:53:19.240 --> 01:53:25.119
+Meredith McCanse (she/her): Anthony in the the line does the HO. Need to be in brackets?
+
+1149
+01:53:25.440 --> 01:53:31.099
+Anthony Taylor: No, ma'am. because Hbo here is already is gonna be in that format.
+
+1150
+01:53:32.730 --> 01:53:37.200
+Meredith McCanse (she/her): In this case, it's not okay. Okay.
+
+1151
+01:53:38.510 --> 01:53:47.690
+Anthony Taylor: And so that's done. So now we can test. So if we do our test user. we'll pass in number 1024,
+
+1152
+01:53:50.220 --> 01:53:52.950
+which if we wanted to see what he looks like.
+
+1153
+01:53:53.790 --> 01:53:54.920
+Anthony Taylor: we could
+
+1154
+01:53:55.920 --> 01:53:57.250
+Anthony Taylor: grab this
+
+1155
+01:53:58.390 --> 01:53:59.770
+Anthony Taylor: and this.
+
+1156
+01:54:05.720 --> 01:54:07.489
+Anthony Taylor: and we can see what he looks like.
+
+1157
+01:54:08.340 --> 01:54:11.110
+Anthony Taylor: Okay, so this is what it looks like coming in.
+
+1158
+01:54:11.500 --> 01:54:20.440
+Anthony Taylor: And we're gonna pass it into this whole mess. And it's gonna prep and output what we want. So we're going to do. Recommendation
+
+1159
+01:54:23.710 --> 01:54:30.839
+Anthony Taylor: equals our cool function up there. And into that we're gonna pass in that test user variable.
+
+1160
+01:54:31.200 --> 01:54:34.640
+Anthony Taylor: And then output our recommendation.
+
+1161
+01:54:36.930 --> 01:54:39.159
+Anthony Taylor: Okay, that's not it. This is it?
+
+1162
+01:54:39.460 --> 01:54:42.210
+Anthony Taylor: Alright? So that's exciting.
+
+1163
+01:54:43.080 --> 01:54:46.119
+Anthony Taylor: But we want to be able to read it a little better.
+
+1164
+01:54:46.240 --> 01:54:53.209
+Anthony Taylor: So here's where we're going to do the data frame stuff. We're gonna say, Pd, dot data frame.
+
+1165
+01:54:54.790 --> 01:55:00.840
+Anthony Taylor: and we're gonna pass in a dictionary
+
+1166
+01:55:01.210 --> 01:55:03.319
+Anthony Taylor: with movie Id.
+
+1167
+01:55:08.040 --> 01:55:13.209
+Anthony Taylor: and the value will be ratings, matrix columns.
+
+1168
+01:55:20.460 --> 01:55:21.260
+Anthony Taylor: Ha.
+
+1169
+01:55:22.890 --> 01:55:23.850
+Anthony Taylor: wow!
+
+1170
+01:55:27.660 --> 01:55:31.630
+Anthony Taylor: And then after that user Id.
+
+1171
+01:55:34.440 --> 01:55:38.140
+Anthony Taylor: and that will be test user, because we're only doing the one.
+
+1172
+01:55:39.320 --> 01:55:40.370
+Anthony Taylor: And
+
+1173
+01:55:43.070 --> 01:55:44.980
+Anthony Taylor: that'll get us started.
+
+1174
+01:55:45.360 --> 01:55:49.799
+Anthony Taylor: and then not red. Df, by the way, it's Rec. Df.
+
+1175
+01:55:50.680 --> 01:55:52.130
+Anthony Taylor: otherwise it'll mess up
+
+1176
+01:55:52.730 --> 01:55:57.060
+Anthony Taylor: Rect. Df equals wreck
+
+1177
+01:55:58.300 --> 01:56:03.410
+Anthony Taylor: Df, dot assign recommendation score.
+
+1178
+01:56:05.640 --> 01:56:09.170
+Anthony Taylor: Oh, this is okay. Recommendation
+
+1179
+01:56:09.630 --> 01:56:14.010
+Anthony Taylor: score equals recommendation.
+
+1180
+01:56:14.980 --> 01:56:21.630
+Anthony Taylor: And this would. If you guys were to look into this, you would see it actually is an array. You want the first element.
+
+1181
+01:56:22.650 --> 01:56:26.260
+Anthony Taylor: Okay? And then last, but not least, we will sort it
+
+1182
+01:56:41.510 --> 01:56:43.809
+Anthony Taylor: and ascending.
+
+1183
+01:56:46.300 --> 01:56:48.999
+Anthony Taylor: But I did that wrong place tolling
+
+1184
+01:56:50.060 --> 01:56:51.300
+Anthony Taylor: by spelling
+
+1185
+01:56:51.470 --> 01:56:55.959
+Anthony Taylor: once you need a underscore. You're right. Look at you above that.
+
+1186
+01:56:57.400 --> 01:56:59.830
+Anthony Taylor: Thank you. Cause that would have been no fun.
+
+1187
+01:57:03.290 --> 01:57:05.290
+sonja baro: Been there many times.
+
+1188
+01:57:05.730 --> 01:57:08.579
+Anthony Taylor: Me! Too good!
+
+1189
+01:57:09.570 --> 01:57:13.590
+Anthony Taylor: II definitely find myself more and more
+
+1190
+01:57:13.670 --> 01:57:21.030
+Anthony Taylor: enjoying all of the tools out there that allow me to auto-correct. But there we go.
+
+1191
+01:57:22.400 --> 01:57:34.300
+Anthony Taylor: and there you go. Oh, wait! But there's more. Oh, we can do one more where we're going to merge these 2 together. and it's just merge df.
+
+1192
+01:57:35.640 --> 01:57:40.549
+Anthony Taylor: and we're gonna do Rec underscore, Df dot merge.
+
+1193
+01:57:41.550 --> 01:57:44.100
+Anthony Taylor: we're gonna merge with ratings. Df.
+
+1194
+01:57:46.300 --> 01:57:51.090
+on. And then we're gonna put in our brackets. We'll put movie Id
+
+1195
+01:57:53.340 --> 01:57:54.849
+Anthony Taylor: and User Id
+
+1196
+01:57:57.130 --> 01:57:59.210
+Anthony Taylor: and then out
+
+1197
+01:57:59.670 --> 01:58:06.640
+Anthony Taylor: so that we get everything, even if we don't have what we need for our data for that page.
+
+1198
+01:58:23.710 --> 01:58:27.229
+Anthony Taylor: Oh, I see why I'm doing that recommendation.
+
+1199
+01:58:39.300 --> 01:58:40.470
+Anthony Taylor: Something's wrong.
+
+1200
+01:58:45.330 --> 01:58:46.080
+Anthony Taylor: Oh.
+
+1201
+01:58:47.320 --> 01:58:50.259
+Clayton Graves: that's supposed to be a comma or a period at the end there.
+
+1202
+01:58:52.250 --> 01:58:53.090
+Well.
+
+1203
+01:58:55.240 --> 01:59:01.120
+Clayton Graves: my values recommendation score comma ascending equals false. Okay, never mind
+
+1204
+01:59:01.470 --> 01:59:05.899
+Anthony Taylor: now. Something's not right, because it didn't give me the auto fill. But we'll find out
+
+1205
+01:59:07.140 --> 01:59:11.040
+Anthony Taylor: gassy name on is not defined.
+
+1206
+01:59:12.350 --> 01:59:13.989
+sonja baro: It's in your
+
+1207
+01:59:14.400 --> 01:59:17.360
+sonja baro: go down. It's it's in your actual
+
+1208
+01:59:17.700 --> 01:59:18.800
+Anthony Taylor: oh, duh!
+
+1209
+01:59:18.980 --> 01:59:20.919
+Anthony Taylor: Oh, well, how'd that happen?
+
+1210
+01:59:28.750 --> 01:59:38.470
+Anthony Taylor: Oh, on. Okay, thank you. On equals. Yeah, that was it. There we go. Okay.
+
+1211
+01:59:39.650 --> 01:59:44.670
+Anthony Taylor: So now we have our rating, our recommendation score, our user Id and the movie Id.
+
+1212
+01:59:46.870 --> 01:59:50.459
+Clayton Graves: it's progressives are zeroes in the merge.
+
+1213
+01:59:52.490 --> 02:00:03.789
+Anthony Taylor: Well, well. because it's an outer. We didn't technically lose our zeros. These are. It's an outer joint. So that means we have a recommendation score. But they had no rating
+
+1214
+02:00:04.110 --> 02:00:05.450
+Anthony Taylor: in the
+
+1215
+02:00:06.690 --> 02:00:11.179
+Anthony Taylor: in the ratings. Df. so there was no value in
+
+1216
+02:00:12.030 --> 02:00:17.549
+Anthony Taylor: ratings. Df, but there, we did get recommendations for it, because we do it for every movie.
+
+1217
+02:00:17.760 --> 02:00:18.990
+Anthony Taylor: regardless
+
+1218
+02:00:19.290 --> 02:00:24.480
+Anthony Taylor: if they have a value. So I would say, if you were to do a next step I would go ahead and mark these.
+
+1219
+02:00:24.760 --> 02:00:29.029
+I don't know about marking these is 0, because they could have rated it as a 0.
+
+1220
+02:00:30.850 --> 02:00:36.870
+Anthony Taylor: Right? And so if you take these nulls and mark them as zeroes, how do you know they didn't rate it as a 0.
+
+1221
+02:00:38.830 --> 02:00:41.089
+Anthony Taylor: So I don't know that I would do that. Actually.
+
+1222
+02:00:41.920 --> 02:00:49.590
+Meredith McCanse (she/her): Anthony is so. The recommendation that it basically delivered to us is that
+
+1223
+02:00:50.020 --> 02:00:53.209
+Meredith McCanse (she/her): generative? AI cause? I know you said we were doing.
+
+1224
+02:00:53.700 --> 02:00:55.989
+Anthony Taylor: The the whole process is now general.
+
+1225
+02:00:56.280 --> 02:00:59.139
+Meredith McCanse (she/her): right? Because it's creating something
+
+1226
+02:00:59.470 --> 02:01:01.050
+Anthony Taylor: effectively from
+
+1227
+02:01:01.580 --> 02:01:07.480
+Anthony Taylor: you know, it's creating something new. I'm not gonna say from nothing, because nothing's not right, but it is creating something new
+
+1228
+02:01:07.660 --> 02:01:16.179
+Meredith McCanse (she/her): cause. Then the data set we trained it with. There was no recommendation score. There wasn't like an X and a Y, so we didn't give it the answer at any point.
+
+1229
+02:01:16.870 --> 02:01:20.070
+Meredith McCanse (she/her): It created the recommendation all on its own.
+
+1230
+02:01:20.750 --> 02:01:21.970
+Anthony Taylor: Basically. Yeah.
+
+1231
+02:01:23.760 --> 02:01:24.730
+Anthony Taylor: okay.
+
+1232
+02:01:25.980 --> 02:01:30.769
+Anthony Taylor: okay. See? Now, somehow or another. Now, we're running late. not sure how that happened.
+
+1233
+02:01:31.070 --> 02:01:34.580
+Anthony Taylor:  what I'll do.
+
+1234
+02:01:40.200 --> 02:01:47.169
+Anthony Taylor: See what we're doing here, because this utilities thing is cool and we need to go through it. I don't know that we need to hand code it
+
+1235
+02:01:48.960 --> 02:01:51.769
+Anthony Taylor: there we go. Couldn't find my mouse
+
+1236
+02:01:59.120 --> 02:02:01.639
+Anthony Taylor: alright. So what we're going to do.
+
+1237
+02:02:12.260 --> 02:02:15.220
+Anthony Taylor: Oh. oh, they're doing a lot of this thing
+
+1238
+02:02:15.290 --> 02:02:27.659
+Anthony Taylor: and Collab, which we didn't.  So you guys probably have noticed we're doing a lot of stuff over and over again aren't right. Which really means what
+
+1239
+02:02:28.170 --> 02:02:32.879
+Anthony Taylor: we need to package this up. So we don't have to type over and over again. Ain't typing.
+
+1240
+02:02:33.290 --> 02:02:36.639
+Anthony Taylor: Okay? So let's create
+
+1241
+02:02:36.860 --> 02:02:40.000
+Anthony Taylor: utilities. python.
+
+1242
+02:02:40.220 --> 02:02:45.279
+Anthony Taylor: that we can just reuse instead of having to do this every time.
+
+1243
+02:02:45.500 --> 02:02:49.170
+Anthony Taylor: Okay, so I will.
+
+1244
+02:02:50.890 --> 02:02:53.229
+Anthony Taylor: Is there an unsolved for the sea?
+
+1245
+02:02:54.000 --> 02:02:59.740
+Anthony Taylor: There is. But we're not going to go through all of those things. So I'll give you guys this in.
+
+1246
+02:03:00.960 --> 02:03:02.140
+Anthony Taylor: I'll give it to you now.
+
+1247
+02:03:03.860 --> 02:03:06.990
+Anthony Taylor: so that you don't have to hunt it down.
+
+1248
+02:03:21.210 --> 02:03:22.759
+Anthony Taylor: It is in life.
+
+1249
+02:03:25.930 --> 02:03:33.329
+Anthony Taylor: and so what we'll do is we'll walk through this. We've already done all of this. So that's why I'm kind of like, yeah, you know, it's not that big a deal.
+
+1250
+02:03:34.220 --> 02:03:39.749
+Anthony Taylor: I would say I would. Sure there's some improvements we could make to this that we'll touch on.
+
+1251
+02:03:40.230 --> 02:03:48.779
+Anthony Taylor:  alright. So this is so what we're going to do, and I want to make sure everyone's clear.
+
+1252
+02:03:48.960 --> 02:03:55.440
+Anthony Taylor: We have. You know what we've been doing over and over again. Is utilizing
+
+1253
+02:03:56.630 --> 02:04:00.410
+Anthony Taylor: are repeating our a lot of stuff.
+
+1254
+02:04:00.720 --> 02:04:04.680
+Anthony Taylor: Okay, it's not smart to do that. We don't want to do that every time
+
+1255
+02:04:04.730 --> 02:04:06.940
+Anthony Taylor: we want to do is create
+
+1256
+02:04:07.320 --> 02:04:16.599
+Anthony Taylor: anytime. This happens, create a function that you can. Run from afar if you will.
+
+1257
+02:04:17.000 --> 02:04:23.140
+Anthony Taylor: Okay. so this will be our utils. Dot P, y's could also be a notebook. By the way.
+
+1258
+02:04:23.370 --> 02:04:28.110
+Anthony Taylor: but we're gonna import pandas, import tensorflow. This get data.
+
+1259
+02:04:28.310 --> 02:04:33.349
+Anthony Taylor: If you go to the last job, we just did. Okay, last notebook.
+
+1260
+02:04:37.020 --> 02:04:39.130
+Anthony Taylor: We're basically just taking
+
+1261
+02:04:41.240 --> 02:04:42.530
+Anthony Taylor: this cell.
+
+1262
+02:04:43.730 --> 02:04:46.720
+Anthony Taylor: Okay? And we're gonna
+
+1263
+02:04:46.730 --> 02:04:48.669
+Anthony Taylor: I don't know where it went. There we go
+
+1264
+02:04:48.760 --> 02:04:54.310
+Anthony Taylor: and then we're gonna paste it in here. But we're gonna return the data frame.
+
+1265
+02:04:54.550 --> 02:05:00.819
+Anthony Taylor: So when we call get data, we're going to say, Df equals get data, and we're going to get all of this executed.
+
+1266
+02:05:02.180 --> 02:05:02.920
+Anthony Taylor: Done.
+
+1267
+02:05:03.470 --> 02:05:07.050
+Anthony Taylor: Okay, write it one time from now on. All we got to type is get date.
+
+1268
+02:05:08.760 --> 02:05:11.779
+Anthony Taylor: the normalized data. You could actually, if
+
+1269
+02:05:11.920 --> 02:05:15.109
+Anthony Taylor: if it were me, I would do something like.
+
+1270
+02:05:16.160 --> 02:05:16.990
+Fact.
+
+1271
+02:05:23.590 --> 02:05:29.769
+Anthony Taylor: yeah, how cool that is. Now, if the rating was 0 to a hundred, I could just pass in the data frame at a hundred.
+
+1272
+02:05:31.360 --> 02:05:34.959
+Anthony Taylor: Okay, so this now becomes even more reusable.
+
+1273
+02:05:35.500 --> 02:05:43.159
+Anthony Taylor: Okay, this one up here. I don't know if I would. I agree with the way they did this, because it's very, very specific.
+
+1274
+02:05:44.470 --> 02:05:56.579
+Anthony Taylor: right? You cannot reuse this function. But for right now we'll leave. Okay. Pivot data. We get the data from our data frame up above.
+
+1275
+02:05:56.600 --> 02:06:04.150
+Anthony Taylor: Now, this is another one where it's like, well, you know, how could you reuse this? Well, you technically, could, you could put
+
+1276
+02:06:04.300 --> 02:06:06.370
+Anthony Taylor: Index
+
+1277
+02:06:06.860 --> 02:06:08.720
+Anthony Taylor: Paul, comma.
+
+1278
+02:06:09.050 --> 02:06:12.270
+Anthony Taylor: you know, call call
+
+1279
+02:06:12.370 --> 02:06:13.550
+Anthony Taylor: and
+
+1280
+02:06:14.680 --> 02:06:15.920
+Anthony Taylor: values.
+
+1281
+02:06:17.260 --> 02:06:20.209
+Anthony Taylor: And now you could reuse this for multiple.
+
+1282
+02:06:21.510 --> 02:06:26.070
+Anthony Taylor: Okay? So that's another possibility.
+
+1283
+02:06:26.860 --> 02:06:29.369
+I'm sending it all back to the way it was. By the way.
+
+1284
+02:06:30.190 --> 02:06:36.700
+Anthony Taylor: not that I think it's wrong. I just I know you guys got this one? Is there suggestions? Okay?
+
+1285
+02:06:36.820 --> 02:06:46.780
+Anthony Taylor: The get normalized data. Notice, all it's doing is grabbing the pivoted data. And then it's running the normalized data function
+
+1286
+02:06:47.530 --> 02:06:56.099
+Anthony Taylor: that we created here and outputting that seems really worthless. But it is a function kind of cool.
+
+1287
+02:06:56.590 --> 02:06:57.410
+Anthony Taylor: Okay.
+
+1288
+02:06:57.720 --> 02:07:02.520
+Anthony Taylor: here, we're going to get our weight. So now, this time we're actually reading them in
+
+1289
+02:07:02.910 --> 02:07:09.690
+Anthony Taylor: and converting them back to tensor. I don't know that I would call this weights. I think I would call this weights to tensor.
+
+1290
+02:07:10.020 --> 02:07:11.450
+Anthony Taylor: That sounds good, me
+
+1291
+02:07:11.850 --> 02:07:17.520
+Anthony Taylor: right? And then put the name of the weights file as the variable as the argument. What do you guys think
+
+1292
+02:07:18.130 --> 02:07:21.910
+Anthony Taylor: that would be brilliant. You can reuse this over and over and over again.
+
+1293
+02:07:23.800 --> 02:07:26.170
+Anthony Taylor: Okay, hidden by a safe thing.
+
+1294
+02:07:27.650 --> 02:07:28.840
+Anthony Taylor: Name of the file
+
+1295
+02:07:30.250 --> 02:07:43.359
+Anthony Taylor: runs all this for you. You're dead. Okay? Visible bias. Same thing. User tensor. a. okay, this one actually works
+
+1296
+02:07:44.310 --> 02:07:46.769
+Anthony Taylor: because it's it's all completely unique.
+
+1297
+02:07:47.150 --> 02:07:49.700
+Anthony Taylor: are not unique. Generalized. If you will.
+
+1298
+02:07:50.270 --> 02:07:55.280
+Anthony Taylor: our hidden layer. this works can we use this all day long?
+
+1299
+02:07:56.300 --> 02:08:01.919
+Anthony Taylor: Can we use this one all day long for our reconstructed output and or generate recommendation.
+
+1300
+02:08:09.050 --> 02:08:11.730
+Anthony Taylor:  and that's it.
+
+1301
+02:08:13.360 --> 02:08:18.700
+Anthony Taylor: That's it for the utilities. They have a little tester here. If you want to go in, and
+
+1302
+02:08:18.820 --> 02:08:20.110
+Anthony Taylor: I mean, let's see.
+
+1303
+02:08:20.620 --> 02:08:26.529
+Anthony Taylor: they give you the whole tester here so you could come in here and run the whole test and just make sure it's all working.
+
+1304
+02:08:27.050 --> 02:08:30.050
+Anthony Taylor: But basically all it's doing is calling all of these
+
+1305
+02:08:31.290 --> 02:08:38.419
+Anthony Taylor: all of the utilities that we just created and outputting results. So instead of that really long notebook, you end up with just
+
+1306
+02:08:39.520 --> 02:08:45.179
+Clayton Graves: yeah, II ran that tester, and it's it's telling me that I have no such file or directory.
+
+1307
+02:08:45.360 --> 02:08:47.800
+Clayton Graves: Rbm, waits dot. Csv.
+
+1308
+02:08:51.080 --> 02:08:52.500
+Anthony Taylor: Well, that's what I got to.
+
+1309
+02:08:53.250 --> 02:08:56.350
+Anthony Taylor: I bet now I got named Df. Is not defined.
+
+1310
+02:08:56.360 --> 02:09:00.000
+Anthony Taylor: but that could be because my utils
+
+1311
+02:09:01.080 --> 02:09:02.570
+Anthony Taylor: let's do this
+
+1312
+02:09:06.950 --> 02:09:08.270
+Anthony Taylor: and save it.
+
+1313
+02:09:10.120 --> 02:09:14.960
+Anthony Taylor: and let's run that again. No, still got it. DF dot.
+
+1314
+02:09:22.600 --> 02:09:24.469
+Anthony Taylor: did we change something?
+
+1315
+02:09:31.680 --> 02:09:41.489
+Anthony Taylor: Oh. yeah, keep in mind. We we all of these Csv files. They probably are not where they so they're supposed to be for this particular
+
+1316
+02:09:41.880 --> 02:09:45.770
+Anthony Taylor: thing that's interesting. So yeah, they gave you this and said.
+
+1317
+02:09:46.790 --> 02:09:49.510
+Anthony Taylor: no, this should work. Get data.
+
+1318
+02:09:51.010 --> 02:09:52.430
+Anthony Taylor: Yeah, free
+
+1319
+02:09:53.960 --> 02:09:55.580
+Anthony Taylor: utils.
+
+1320
+02:10:03.020 --> 02:10:05.960
+Raugewitz, Tania: When I go look into my utils. Pie file
+
+1321
+02:10:06.350 --> 02:10:10.819
+Raugewitz, Tania: none of mine. none. None of my like variables are
+
+1322
+02:10:12.320 --> 02:10:15.880
+Raugewitz, Tania: to find. Well, I gave you. I gave you the the right way.
+
+1323
+02:10:15.900 --> 02:10:16.969
+Raugewitz, Tania: Oh, okay.
+
+1324
+02:10:17.430 --> 02:10:21.400
+Anthony Taylor: yeah, yeah. You have to put that one here. Let me run it from my.
+
+1325
+02:10:24.680 --> 02:10:28.730
+sonja baro: So just grab it from the slack channel
+
+1326
+02:10:29.480 --> 02:10:33.870
+sonja baro: and save. And then, yeah. there's a pie. Yeah.
+
+1327
+02:10:34.710 --> 02:10:36.640
+Anthony Taylor: okay, so it works there.
+
+1328
+02:10:38.540 --> 02:10:40.200
+Anthony Taylor: It's gotta be.
+
+1329
+02:10:46.220 --> 02:10:47.880
+Anthony Taylor: That's so interesting. Look at that.
+
+1330
+02:10:49.020 --> 02:10:53.509
+Clayton Graves: It's it's the problem is in the
+
+1331
+02:10:53.840 --> 02:10:55.040
+Clayton Graves: python.
+
+1332
+02:10:55.650 --> 02:10:58.440
+Under the the weights function.
+
+1333
+02:10:58.830 --> 02:11:11.489
+Clayton Graves: Where it's actually trying to read in the Csv rbm, rbm, Csv. well, yeah, those aren't there. Those aren't in your unself.
+
+1334
+02:11:14.140 --> 02:11:23.120
+Raugewitz, Tania: Okay? So when I put in your file, now, I don't have the same error that you have anymore. So it fixed my error. And I was
+
+1335
+02:11:24.370 --> 02:11:29.610
+Anthony Taylor: right. So look at, look at what you guys have in your unsolved, if not, have
+
+1336
+02:11:29.640 --> 02:11:31.010
+Anthony Taylor: the wake files.
+
+1337
+02:11:31.960 --> 02:11:49.089
+Anthony Taylor: So you either need to copy them in there from up above, or you'd have to. Yeah, you need to copy them from the last exercise if you want to run this. But I wouldn't. If it's getting to the weights problem, then you're good. Okay? Cause we're going to use that we're going to use this utilities now
+
+1338
+02:11:49.290 --> 02:11:51.429
+Anthony Taylor: in the next exercise.
+
+1339
+02:11:51.790 --> 02:12:01.150
+Anthony Taylor: and you are gonna save and reuse. So you'll be fine as long as it got to that where it says you're missing your wait file. You're okay.
+
+1340
+02:12:01.530 --> 02:12:02.430
+Anthony Taylor: Okay.
+
+1341
+02:12:02.690 --> 02:12:08.969
+Anthony Taylor: So let's do that. And then if we still have trouble after that, then don't worry.
+
+1342
+02:12:09.090 --> 02:12:10.320
+Anthony Taylor: But I'm not worried.
+
+1343
+02:12:11.710 --> 02:12:16.519
+Anthony Taylor: Okay. So we have this, we're going to import flow in our new tools.
+
+1344
+02:12:17.430 --> 02:12:19.200
+Anthony Taylor: We're going to grab some data.
+
+1345
+02:12:20.790 --> 02:12:26.720
+Anthony Taylor: It's working. Thank goodness. we're gonna get the normalized data and take a peek.
+
+1346
+02:12:27.020 --> 02:12:30.640
+Anthony Taylor: Look at that pivoted, normalized
+
+1347
+02:12:30.990 --> 02:12:32.080
+Anthony Taylor: good to go.
+
+1348
+02:12:32.450 --> 02:12:38.189
+Anthony Taylor: Okay, here we're gonna grab our weights, our hidden bias and our visible bias
+
+1349
+02:12:39.530 --> 02:12:40.620
+Anthony Taylor: just like that
+
+1350
+02:12:41.660 --> 02:12:42.920
+Anthony Taylor: pretty clean. Huh?
+
+1351
+02:12:43.360 --> 02:12:47.759
+Anthony Taylor: We're gonna get the users so we can send them back into the model.
+
+1352
+02:12:48.480 --> 02:12:49.480
+Anthony Taylor: Okay.
+
+1353
+02:12:50.250 --> 02:12:52.010
+1,500 item.
+
+1354
+02:12:53.490 --> 02:13:08.219
+Anthony Taylor: we're going to get our recommendation scores. And so again, this is just on the other side prepping things, getting it already. So now for user in users. We're gonna run through everything we just did in our utils functions.
+
+1355
+02:13:12.370 --> 02:13:16.429
+Anthony Taylor: And we're going to output the recommendation scores.
+
+1356
+02:13:17.240 --> 02:13:18.670
+Anthony Taylor: This might take a bit.
+
+1357
+02:13:22.270 --> 02:13:23.880
+Anthony Taylor: Is this working for everybody.
+
+1358
+02:13:26.420 --> 02:13:35.429
+Anthony Taylor: Everybody should have this already, which I should have thought about that. Yeah, go to the number 5 utils. It's already there. 44 s.
+
+1359
+02:13:36.460 --> 02:13:37.260
+Anthony Taylor: Okay.
+
+1360
+02:13:38.960 --> 02:13:40.490
+Derek Rikke: 3 million rows
+
+1361
+02:13:41.730 --> 02:13:43.230
+Anthony Taylor: dang.
+
+1362
+02:13:47.910 --> 02:13:49.529
+Anthony Taylor: This is good stuff, though.
+
+1363
+02:13:52.670 --> 02:14:00.240
+Anthony Taylor: Yes. So our point here is going to be getting to the evaluation of all this. So there we go. Yeah, look at that. That's a big one.
+
+1364
+02:14:00.500 --> 02:14:07.959
+Anthony Taylor: Okay? So now we can merge all of this together, we're gonna do an inter merge. Because when we're evaluating. We don't want to deal with the dolls and such
+
+1365
+02:14:08.480 --> 02:14:12.090
+Anthony Taylor:  and then we're going to
+
+1366
+02:14:12.380 --> 02:14:16.760
+Anthony Taylor: normalize the rating this this column here, or sorry.
+
+1367
+02:14:17.160 --> 02:14:23.690
+Anthony Taylor: It's kind of like regarding. Yeah. So we're gonna normalize this between 0 and one.
+
+1368
+02:14:25.270 --> 02:14:29.180
+Anthony Taylor: And then we're going to bring in mean, squared error.
+
+1369
+02:14:29.870 --> 02:14:44.859
+Anthony Taylor: And all we're gonna do is look at the rating and the recommendations for and output it. So mean, squared error. Remember, it doesn't care right? It doesn't. You don't need to show it like the prediction and all that we are, because we're showing the recommendation and the rate
+
+1370
+02:14:47.680 --> 02:14:49.469
+Anthony Taylor: this score. What does that tell us
+
+1371
+02:14:52.350 --> 02:14:54.529
+Anthony Taylor: who remembers mean, squared error.
+
+1372
+02:14:58.940 --> 02:15:07.380
+sonja baro: This is the one we wanted approaching down, not up right? That's like 75 accurate.
+
+1373
+02:15:07.810 --> 02:15:12.769
+Anthony Taylor: Actually, no, you don't know that. I mean, that's a good. I mean, it's okay.
+
+1374
+02:15:12.960 --> 02:15:14.479
+Anthony Taylor: I'm okay that you said that
+
+1375
+02:15:15.370 --> 02:15:18.199
+Anthony Taylor: because we don't know that that you couldn't, you could be right.
+
+1376
+02:15:18.680 --> 02:15:20.840
+Anthony Taylor: You may be right.
+
+1377
+02:15:21.340 --> 02:15:23.299
+sonja baro: I may be wrong.
+
+1378
+02:15:24.490 --> 02:15:26.699
+michael mcpherson: Crazy?
+
+1379
+02:15:27.130 --> 02:15:28.530
+Anthony Taylor: Ha, ha!
+
+1380
+02:15:29.470 --> 02:15:34.840
+Anthony Taylor: Okay, no member mean squared error is the one where we have no idea it's the lower score is better
+
+1381
+02:15:36.150 --> 02:15:44.319
+Anthony Taylor: right? So we don't know what the high score is right now, because we only have one thing to compare it to, so, as far as I'm concerned, that is both the lowest score
+
+1382
+02:15:44.630 --> 02:15:46.240
+Anthony Taylor: and the highest group.
+
+1383
+02:15:46.660 --> 02:15:54.650
+Anthony Taylor: But if we were comparing this to multiple runs or multiple trainings, we could at least say, this is better than this
+
+1384
+02:15:55.020 --> 02:15:59.020
+Anthony Taylor: with this score. Okay, right now, it doesn't really tell as much.
+
+1385
+02:16:00.780 --> 02:16:01.480
+Anthony Taylor: But
+
+1386
+02:16:01.680 --> 02:16:10.329
+Anthony Taylor: the cool thing is this is what you guys want to take away from this particular activity. We did all of this with our utils.py.
+
+1387
+02:16:10.570 --> 02:16:16.870
+Anthony Taylor: so with that utility stop py, and a couple of modifications. You can do this with any data.
+
+1388
+02:16:18.760 --> 02:16:21.920
+Anthony Taylor: alright or any rating state. How's that?
+
+1389
+02:16:22.260 --> 02:16:25.520
+Anthony Taylor: Alright one for everyone? Do?
+
+1390
+02:16:27.230 --> 02:16:28.530
+A.
+
+1391
+02:16:30.400 --> 02:16:41.190
+Anthony Taylor: And we have our utils in there. Okay? And I'm I'm not sure why you're having to do this one. But why not? That's all I had to say. Oh, wait! What is this?
+
+1392
+02:16:43.490 --> 02:16:49.280
+Anthony Taylor: You know what? Hold on! Let me see if this is even worth doing. Because this last part's way more important to me.
+
+1393
+02:16:55.129 --> 02:17:00.950
+Anthony Taylor: yeah, this is literally the same thing as we get up above with the utils.py, before we go there.
+
+1394
+02:17:00.959 --> 02:17:06.159
+Anthony Taylor: Think I'd rather show you guys this next thing because I'd rather spend more time on this next thing
+
+1395
+02:17:06.340 --> 02:17:10.580
+Anthony Taylor: than on reproducing or duplicating that other thing.
+
+1396
+02:17:11.379 --> 02:17:13.729
+Anthony Taylor: So let's see, where are we?
+
+1397
+02:17:15.820 --> 02:17:19.070
+Anthony Taylor: Real world considerations? Okay.
+
+1398
+02:17:20.520 --> 02:17:29.510
+Anthony Taylor:  it's
+
+1399
+02:17:30.590 --> 02:17:43.680
+Anthony Taylor: before we do that. Keep your keep keep thinking about real world considerations. I'm gonna go run the solution to this exercise real quick. because I want you guys to see it run.
+
+1400
+02:17:47.580 --> 02:17:49.940
+Anthony Taylor: And the one we care about.
+
+1401
+02:17:53.709 --> 02:17:54.859
+Anthony Taylor: Not that one
+
+1402
+02:17:56.590 --> 02:17:58.609
+Anthony Taylor: is the fit. Where's the fit?
+
+1403
+02:18:01.469 --> 02:18:05.199
+Anthony Taylor: Oh, okay, that one didn't do it. So it was. The fit from the last
+
+1404
+02:18:06.530 --> 02:18:09.560
+Anthony Taylor: is the one that took. How long did it take? 45 s?
+
+1405
+02:18:10.600 --> 02:18:12.780
+Anthony Taylor: Okay. so
+
+1406
+02:18:14.370 --> 02:18:19.159
+Anthony Taylor: one of the things we talk about a lot, I talk about a okay? And I run into this. A lot of work.
+
+1407
+02:18:19.510 --> 02:18:23.450
+Anthony Taylor: Okay, is the cost versus
+
+1408
+02:18:23.910 --> 02:18:28.649
+Anthony Taylor: model or the cost of a mall cost versus accuracy
+
+1409
+02:18:29.059 --> 02:18:33.609
+Anthony Taylor: cost versus a lot of things. My screen sharing is paused. How did that happen?
+
+1410
+02:18:36.320 --> 02:18:37.540
+Anthony Taylor: That's so weird.
+
+1411
+02:18:37.670 --> 02:18:40.239
+Anthony Taylor:  there we go.
+
+1412
+02:18:41.129 --> 02:18:42.409
+Anthony Taylor: That's so weird.
+
+1413
+02:18:42.840 --> 02:18:44.619
+Anthony Taylor: Okay, so
+
+1414
+02:18:48.219 --> 02:18:51.310
+Anthony Taylor: it's paused again. Oh, you know what I think. I know what's going on.
+
+1415
+02:18:57.740 --> 02:18:58.889
+Anthony Taylor: There we go.
+
+1416
+02:18:59.330 --> 02:19:11.110
+Anthony Taylor:  So the main things that we've been talking about is cost versus the the accuracy or the model itself, and it all comes down to computational expense.
+
+1417
+02:19:11.570 --> 02:19:22.040
+Anthony Taylor: Okay, model takes a large time to run. It cost more to train costs more to train. you know. And and again, you guys are seeing this at such a small scale
+
+1418
+02:19:22.209 --> 02:19:24.870
+Anthony Taylor: because we're trying to do it on your laptops.
+
+1419
+02:19:25.559 --> 02:19:33.680
+Anthony Taylor: Okay? In real world data. You're talking millions, if not billions of rows of data.
+
+1420
+02:19:33.959 --> 02:19:36.040
+Anthony Taylor: How much you know.
+
+1421
+02:19:38.040 --> 02:19:41.109
+Anthony Taylor: ratings, data. Do you think Netflix has
+
+1422
+02:19:42.610 --> 02:19:43.600
+Anthony Taylor: daily
+
+1423
+02:19:45.070 --> 02:19:47.859
+Anthony Taylor: forget the fact that they're not looking at daily.
+
+1424
+02:19:48.340 --> 02:19:50.040
+Anthony Taylor: but daily
+
+1425
+02:19:50.900 --> 02:19:54.689
+Anthony Taylor: they probably get in the hundreds of millions, if not more.
+
+1426
+02:19:55.990 --> 02:19:58.460
+Anthony Taylor: Okay. You know, Facebook
+
+1427
+02:19:58.650 --> 02:20:01.930
+Anthony Taylor: likes dislikes, comments.
+
+1428
+02:20:02.180 --> 02:20:05.149
+Anthony Taylor: scrolling information. Oh, they paused there.
+
+1429
+02:20:06.730 --> 02:20:11.020
+Anthony Taylor: all of these things. This data is massive.
+
+1430
+02:20:11.570 --> 02:20:20.280
+Anthony Taylor: Okay? So when you run these times, especially a model like Rbm, where it's going back and forth, and back and forth, and back and forth. The CPU is crazy.
+
+1431
+02:20:20.660 --> 02:20:24.380
+Anthony Taylor: and it's very long and it's very expensive.
+
+1432
+02:20:24.500 --> 02:20:28.299
+Anthony Taylor: So we always have to think about that. That's a real world challenge.
+
+1433
+02:20:29.010 --> 02:20:38.320
+Anthony Taylor:  there is another cool data set called movie lens. By the way.
+
+1434
+02:20:38.910 --> 02:20:40.719
+Anthony Taylor: and
+
+1435
+02:20:41.880 --> 02:20:42.740
+Anthony Taylor: it's
+
+1436
+02:20:42.960 --> 02:20:46.859
+Anthony Taylor: it's interesting. It's got more data like this that you guys can play with
+
+1437
+02:20:47.200 --> 02:20:47.890
+that.
+
+1438
+02:20:48.030 --> 02:20:51.429
+Anthony Taylor: So some of the problems that we might run into cold stark
+
+1439
+02:20:52.320 --> 02:20:54.400
+Anthony Taylor: I
+
+1440
+02:20:57.150 --> 02:20:58.950
+Anthony Taylor: you ever joined
+
+1441
+02:20:59.190 --> 02:21:04.309
+Anthony Taylor: anything really social network, a movie network, a book, club, anything.
+
+1442
+02:21:04.820 --> 02:21:08.480
+Anthony Taylor: And you get on there and look. And you're like.
+
+1443
+02:21:09.650 --> 02:21:11.029
+Anthony Taylor: there's nothing I like here.
+
+1444
+02:21:12.560 --> 02:21:21.140
+Anthony Taylor: Well, we refer to that as a cold start problem. Well, why is that? Why is it? When you went there? There was nothing you liked there.
+
+1445
+02:21:21.160 --> 02:21:28.629
+Anthony Taylor: I mean, they probably had 100,000 whatever you signed up for. maybe a million.
+
+1446
+02:21:29.760 --> 02:21:40.580
+Anthony Taylor: But you're telling me there's nothing you liked it. That's pretty unlikely, really right? The reality is because it doesn't know you doesn't know what you like.
+
+1447
+02:21:40.660 --> 02:21:46.599
+Anthony Taylor: It has no idea what to recommend you. So it goes. Well, this is what we recommend new users.
+
+1448
+02:21:47.390 --> 02:21:52.979
+Anthony Taylor: and it just assumes you're like every other new user with no idea who you are.
+
+1449
+02:21:54.860 --> 02:22:02.779
+Anthony Taylor: Okay. Now, it could pick by geography. If there is like. If you filled in an address or zip code it could pick by a lot of
+
+1450
+02:22:02.950 --> 02:22:12.700
+Clayton Graves: can you get on that like like when you join? I think it was Pandora. I don't remember. I mean, it'll ask you what genres of music you like or
+
+1451
+02:22:13.010 --> 02:22:22.529
+Clayton Graves: you go on a dating site it'll you know what? What are your preferences? And and yeah, absolutely 100. I mean, dating sites in particular, make their whole
+
+1452
+02:22:22.960 --> 02:22:30.600
+Anthony Taylor: income off of matching you. I mean, you know, if they match you with somebody that's totally not your thing, you know. You're not gonna stay there very well.
+
+1453
+02:22:30.670 --> 02:22:40.699
+Anthony Taylor: right. But if you go to a book club or a music thing, and they match you with some music you don't like. That doesn't necessarily mean they fail just means they don't know enough about you.
+
+1454
+02:22:40.940 --> 02:22:48.160
+Anthony Taylor: but and but some of that also is is that I mean, you don't mind if you're on a dating site, or even a social network
+
+1455
+02:22:48.240 --> 02:22:51.750
+Anthony Taylor: filling in more information. Because that's what you're there for.
+
+1456
+02:22:52.130 --> 02:23:01.300
+Anthony Taylor: Right? If you sign up for a music website, you know, maybe you'll put your preferences, but not maybe not very detailed. Necessarily.
+
+1457
+02:23:01.640 --> 02:23:02.590
+Anthony Taylor: Okay.
+
+1458
+02:23:02.780 --> 02:23:11.330
+Anthony Taylor: but yeah, that is the solution. The solution is, give them like a questionnaire at the beginning of you know, when they cite
+
+1459
+02:23:11.810 --> 02:23:20.420
+Anthony Taylor: data. Sparsen. hey? Data sparseness, I mean, we've talked about this before, too, but this mostly comes down to what if she's not enough baby
+
+1460
+02:23:21.640 --> 02:23:28.259
+Anthony Taylor: every time Amazon brings out a new product, and I would assume that's many times a day.
+
+1461
+02:23:30.490 --> 02:23:31.820
+Anthony Taylor: What do they recommend?
+
+1462
+02:23:33.360 --> 02:23:37.820
+Anthony Taylor: You know? What do they recommend? How do they recommend that new product? Now.
+
+1463
+02:23:37.950 --> 02:23:43.769
+Anthony Taylor: I mean, there's a trick to that, too. Right? They can go by category instead of specific.
+
+1464
+02:23:44.710 --> 02:23:49.160
+Anthony Taylor: They can make it an Amazon choice, which always for some reason, makes us pick
+
+1465
+02:23:50.120 --> 02:23:54.690
+Anthony Taylor: right. Oh, my God, did I just make a Brian specific ticket? No, not really.
+
+1466
+02:23:55.500 --> 02:24:05.240
+Anthony Taylor: Okay. But it is a problem. It's a serious problem. And you guys will run into this if you try to do a recommendation model. And you just don't have enough.
+
+1467
+02:24:06.020 --> 02:24:12.839
+Anthony Taylor: right ratings. Basically. you could have a hundred 1 million rows. But if they only rated like 4 categories.
+
+1468
+02:24:14.600 --> 02:24:18.880
+Anthony Taylor: Okay, that's pretty sparse out of, say, 4 out of 20
+
+1469
+02:24:19.160 --> 02:24:20.510
+Anthony Taylor: that's really sponsored
+
+1470
+02:24:21.640 --> 02:24:27.649
+Anthony Taylor: frequency and model training and updates. So this goes back to cost.
+
+1471
+02:24:28.280 --> 02:24:29.440
+Anthony Taylor: Okay.
+
+1472
+02:24:29.560 --> 02:24:34.590
+Anthony Taylor:  if your model takes a full day to train.
+
+1473
+02:24:34.960 --> 02:24:37.620
+Anthony Taylor: And you need to do. And you're getting data
+
+1474
+02:24:37.710 --> 02:24:46.400
+Anthony Taylor: quickly. So again, look at a Facebook, look at a Netflix. Look at an Amazon. Right? If I mean their data
+
+1475
+02:24:47.870 --> 02:24:50.239
+Anthony Taylor: is changing so fast.
+
+1476
+02:24:50.960 --> 02:24:56.330
+Anthony Taylor: Okay, so if they have a 24 h long model by the time they trained it, they're behind.
+
+1477
+02:24:58.480 --> 02:25:06.720
+Anthony Taylor: So this is another reason why we may not choose the the more accurate, stronger model. We might go with a faster.
+
+1478
+02:25:06.940 --> 02:25:13.099
+Anthony Taylor: slightly less accurate, and deal with the fail with the fails because we need it to be faster.
+
+1479
+02:25:14.470 --> 02:25:16.590
+Anthony Taylor: Okay?
+
+1480
+02:25:22.510 --> 02:25:27.980
+Anthony Taylor: so diversity of recommendations. So
+
+1481
+02:25:28.410 --> 02:25:34.279
+Anthony Taylor: I mean, the example they're talking about here is, if you like, rocky. Does that mean you like Rocky free?
+
+1482
+02:25:38.060 --> 02:25:43.850
+Anthony Taylor: Okay, if you like, Rambo, first, blood, does that mean you love the, you know.
+
+1483
+02:25:44.150 --> 02:25:46.160
+Anthony Taylor: like the latest rainbow?
+
+1484
+02:25:46.850 --> 02:25:50.689
+Anthony Taylor: Not necessary, but that's a really easy slam dunk
+
+1485
+02:25:51.430 --> 02:25:53.950
+Anthony Taylor: that throw away. We recommend this one
+
+1486
+02:25:54.290 --> 02:25:58.300
+Anthony Taylor: right and you know, that's just
+
+1487
+02:25:58.400 --> 02:26:00.810
+Anthony Taylor: not necessarily
+
+1488
+02:26:00.950 --> 02:26:08.590
+Anthony Taylor: the best way to use these tools, cause that's the plan done. That's easy. You don't need freaking our, you know. Fancy model to do that.
+
+1489
+02:26:08.710 --> 02:26:13.389
+Anthony Taylor: So one way you could solve. That is, you could just say, Don't recommend
+
+1490
+02:26:13.610 --> 02:26:14.570
+Anthony Taylor: sequels.
+
+1491
+02:26:17.090 --> 02:26:20.889
+Anthony Taylor: okay? Or limit sequels to like one recommendation or something.
+
+1492
+02:26:21.440 --> 02:26:25.010
+Anthony Taylor:  privacy and trust. Now.
+
+1493
+02:26:26.350 --> 02:26:30.279
+Anthony Taylor: we heard that today. Why am I seeing this? Ad.
+
+1494
+02:26:32.260 --> 02:26:34.959
+Anthony Taylor: I said it and my phone heard me.
+
+1495
+02:26:35.980 --> 02:26:37.659
+Anthony Taylor: Now I see it all the time.
+
+1496
+02:26:38.800 --> 02:26:44.789
+Anthony Taylor: privacy and trust. Okay, these are real world challenges with all of this stuff.
+
+1497
+02:26:45.210 --> 02:26:55.019
+Anthony Taylor:  so changing user interest. So here's an interesting thing.
+
+1498
+02:26:55.200 --> 02:26:58.820
+Anthony Taylor: How many of you have watched most of the marvel movies.
+
+1499
+02:27:00.340 --> 02:27:02.200
+Anthony Taylor: Okay. Lot of hands.
+
+1500
+02:27:02.280 --> 02:27:12.620
+Anthony Taylor: Many of the marvel movies, probably a lot more. Okay. Now, how many of you have watched them outside of your television or the movie theater.
+
+1501
+02:27:15.720 --> 02:27:17.359
+Anthony Taylor: Okay, one or 2,
+
+1502
+02:27:17.600 --> 02:27:22.479
+Anthony Taylor: 3, maybe alright. So you see where I'm going? Did you watch it on your phone watch on your phone like.
+
+1503
+02:27:23.800 --> 02:27:25.210
+Anthony Taylor: Oh, okay.
+
+1504
+02:27:25.740 --> 02:27:28.009
+Anthony Taylor: that's a true new fan right there.
+
+1505
+02:27:28.650 --> 02:27:35.030
+Anthony Taylor: Okay, so the whole point is is that we are different, based on where we're sitting.
+
+1506
+02:27:37.450 --> 02:27:42.859
+Anthony Taylor: Seriously. you're in a hotel. Are you more likely
+
+1507
+02:27:43.050 --> 02:27:46.840
+Anthony Taylor: to watch a movie based on what's available than what you like?
+
+1508
+02:27:49.160 --> 02:27:53.660
+Anthony Taylor: Oh, heck, yeah. Now, hopefully, one of the ones that available if you like.
+
+1509
+02:27:54.730 --> 02:28:00.230
+Anthony Taylor: Okay, but hotels have limited streaming Netflix. maybe Youtube.
+
+1510
+02:28:01.780 --> 02:28:07.969
+Anthony Taylor: Okay, if it's not on Netflix or Youtube. Well, you're either paying for it or streaming it from your phone.
+
+1511
+02:28:08.960 --> 02:28:13.319
+Anthony Taylor: And and so maybe you watch, you know. So where you are.
+
+1512
+02:28:13.700 --> 02:28:23.480
+Anthony Taylor: Scalability and robustness, this just comes back to these things are expensive. They're giant with billions of users in some of these social networks.
+
+1513
+02:28:24.090 --> 02:28:26.430
+Anthony Taylor: It just it just doesn't even make sense anymore.
+
+1514
+02:28:26.910 --> 02:28:35.269
+Anthony Taylor:  the other problem is this last one filter bubbles? Okay?
+
+1515
+02:28:35.590 --> 02:28:43.220
+Anthony Taylor:  let's
+
+1516
+02:28:44.760 --> 02:28:49.120
+Anthony Taylor: all of you are from Denver. Yeah, except Rodney. Rodney's not here where the heck is, Rodney.
+
+1517
+02:28:49.900 --> 02:28:54.980
+Mason, Natalie: Yeah. Where's Rodney Rodney had a friend. Show up on
+
+1518
+02:28:59.130 --> 02:29:02.039
+Anthony Taylor: hopefully. That friend knows how to show him how to do. Rv.
+
+1519
+02:29:04.220 --> 02:29:10.599
+michael mcpherson: I'm a I know he watches those videos. I know he watches the video. So we should all.
+
+1520
+02:29:12.260 --> 02:29:19.670
+Mason, Natalie: Rodney, don't let them get you down, Rodney. Where's Rodney?
+
+1521
+02:29:20.150 --> 02:29:29.869
+Anthony Taylor: Okay? So the filter bubble. So all of you are from Colorado, Denver area, more or less. Yeah, not anymore. I'm in Tennessee.
+
+1522
+02:29:30.040 --> 02:29:34.240
+Anthony Taylor: Well, actually, I'm gonna use that on the license.
+
+1523
+02:29:34.820 --> 02:29:41.689
+Anthony Taylor: Okay, so system knows nothing of Natalie except for her location location based on IP number.
+
+1524
+02:29:42.380 --> 02:29:48.699
+Anthony Taylor: which isn't pretty isn't bad, I mean, unless you use it like some crazy VPN. That's usually pretty good.
+
+1525
+02:29:48.960 --> 02:29:50.880
+Anthony Taylor: and but she's in Tennessee
+
+1526
+02:29:51.240 --> 02:29:55.570
+Anthony Taylor: now. Natalie, as we know, likes some pretty wild music
+
+1527
+02:29:56.690 --> 02:29:57.640
+Anthony Taylor: right?
+
+1528
+02:29:57.780 --> 02:30:01.059
+Anthony Taylor: And and there's nothing wrong with it. It's good.
+
+1529
+02:30:01.140 --> 02:30:02.410
+Anthony Taylor: very good news.
+
+1530
+02:30:02.730 --> 02:30:05.980
+Anthony Taylor: but in Tennessee they have a preference.
+
+1531
+02:30:06.990 --> 02:30:08.769
+Mason, Natalie: It's not my preference.
+
+1532
+02:30:09.190 --> 02:30:18.280
+Anthony Taylor: See, there you go. So if I, if you go to a site lying without filling out any forms. They're going to look at your IP number and guess what
+
+1533
+02:30:18.370 --> 02:30:21.550
+Anthony Taylor: you're going to get recommended to music
+
+1534
+02:30:21.770 --> 02:30:23.579
+Anthony Taylor: almost foreshore.
+
+1535
+02:30:24.680 --> 02:30:27.210
+Anthony Taylor: Okay, especially if you're anywhere of your password.
+
+1536
+02:30:27.880 --> 02:30:36.279
+Anthony Taylor: I mean literally, that just makes sense. Okay, now, music's a little different, because we all have preference. But let's say you want a pet.
+
+1537
+02:30:38.270 --> 02:30:45.650
+Anthony Taylor: Now, I'm not gonna say country folk prefer dogs. but country folk prefer dogs.
+
+1538
+02:30:45.940 --> 02:30:48.599
+Anthony Taylor: Okay, it's like they prefer sheep.
+
+1539
+02:30:49.160 --> 02:30:51.230
+Mason, Natalie: No use. Stuff is.
+
+1540
+02:30:51.690 --> 02:30:54.260
+Anthony Taylor: that's well.
+
+1541
+02:30:55.170 --> 02:30:56.469
+Anthony Taylor: Horses are not
+
+1542
+02:30:56.490 --> 02:31:00.430
+Anthony Taylor: domesticated unless they're phones.
+
+1543
+02:31:00.600 --> 02:31:15.330
+Anthony Taylor: Anyway. The the point is is like, say, you decided you wanted a pet, but you don't know what kind of pet? So you start searching well again, geographically speaking, or people, probably. And I don't know this system. I'm just pulling this out of my
+
+1544
+02:31:16.610 --> 02:31:21.069
+Anthony Taylor: rear end at the moment. But let's just pretend they prefer dogs.
+
+1545
+02:31:21.790 --> 02:31:28.239
+Anthony Taylor: Okay, you are going to get. But now she's closing. She just she went away while I'm talking about.
+
+1546
+02:31:28.650 --> 02:31:47.110
+Anthony Taylor: I'm dog sitting actually might be based on her location
+
+1547
+02:31:47.210 --> 02:31:49.810
+Anthony Taylor: around dogs. Now.
+
+1548
+02:31:50.030 --> 02:31:57.310
+Anthony Taylor: She wasn't sure what kind of animal she wanted, but 9 out of 10 articles that she's reading tell how wonderful dogs are.
+
+1549
+02:31:58.100 --> 02:32:03.490
+Anthony Taylor: Is that going to drive her to potentially dog.
+
+1550
+02:32:03.970 --> 02:32:04.860
+Anthony Taylor: maybe.
+
+1551
+02:32:05.080 --> 02:32:09.010
+Anthony Taylor: But that's the filter bubble. The filter bubble is basically.
+
+1552
+02:32:09.410 --> 02:32:17.840
+Anthony Taylor: So you sometimes get caught in a recommendation engine does not match you. but still
+
+1553
+02:32:18.080 --> 02:32:25.160
+Anthony Taylor: can influence you to go towards a direction. You didn't necessarily want to go
+
+1554
+02:32:25.870 --> 02:32:43.279
+Mason, Natalie: decided. I'm going to be a buffalo farmer when I retire. I'm going to be a buffalo herder and Scottish Highland cows, and that's all. All because of social media. This is all. I've totally been influenced.
+
+1555
+02:32:46.260 --> 02:32:51.799
+Anthony Taylor: We're not even going to ask how you kind of became that. I do tell you guys a funny story, though.
+
+1556
+02:32:51.880 --> 02:32:54.600
+Anthony Taylor: Okay, I have 8 min. Technically, I'm done.
+
+1557
+02:32:54.610 --> 02:32:56.529
+Anthony Taylor: But I have a funny story.
+
+1558
+02:32:56.680 --> 02:33:01.139
+Anthony Taylor: Okay? Funny story. Anybody know what Waggu beef is.
+
+1559
+02:33:02.640 --> 02:33:05.419
+Clayton Graves: Yeah, it's supposed to be really good. Yeah.
+
+1560
+02:33:05.510 --> 02:33:09.319
+Anthony Taylor: Anybody know that the the translation of Wagoo
+
+1561
+02:33:12.130 --> 02:33:14.729
+michael mcpherson: dumb enough to spend $200 a pound.
+
+1562
+02:33:15.860 --> 02:33:18.199
+Anthony Taylor: Come on. What's the translation? Where
+
+1563
+02:33:19.220 --> 02:33:29.299
+Anthony Taylor: I'll give it to you because I had to Google it beef, Japanese beef. That's what it is. Beef. Okay? So I was at so press.
+
+1564
+02:33:30.180 --> 02:33:32.170
+Anthony Taylor: Sunday, Saturday, Saturday.
+
+1565
+02:33:32.490 --> 02:33:41.250
+Anthony Taylor: and they came to my table and they said, Hi, we have a special today. It's wagyu sirloin strip. It's really great. So $3. It's fantastic.
+
+1566
+02:33:41.700 --> 02:33:46.729
+Anthony Taylor: I'm like, that's amazing. Oh, but this one's even better because it's made in America.
+
+1567
+02:33:49.060 --> 02:33:50.680
+Anthony Taylor: I said, hold ups
+
+1568
+02:33:51.070 --> 02:33:55.059
+Mason, Natalie: raised by Japanese people in America.
+
+1569
+02:33:55.770 --> 02:34:03.110
+Anthony Taylor: It's made by this Ida whole farm that learned how to make or how or learn the wagon process. And I went.
+
+1570
+02:34:03.210 --> 02:34:04.620
+Anthony Taylor: Stand by.
+
+1571
+02:34:04.950 --> 02:34:14.029
+Anthony Taylor: You're telling me. You have American Japanese beef that you're gonna sell me. Anyway, it turned out I'd rather have had a
+
+1572
+02:34:14.070 --> 02:34:22.219
+Anthony Taylor: but I have to tell you that story because I thought that was hilarious, that they had American Japanese beat. That was the literal translation.
+
+1573
+02:34:22.260 --> 02:34:25.920
+Anthony Taylor: Actually, I'll take it a step further. They called it
+
+1574
+02:34:26.010 --> 02:34:29.000
+Anthony Taylor: American Wagoo beef, which meant
+
+1575
+02:34:29.130 --> 02:34:31.860
+Anthony Taylor: literally American Japanese beef beef.
+
+1576
+02:34:32.910 --> 02:34:37.009
+Anthony Taylor: I had a beef with that. Okay, Curry. What's your what's your question, sir?
+
+1577
+02:34:37.580 --> 02:34:43.009
+Curry Gardner: It's not a question. It's just a comment on that. Apparently like there's only like
+
+1578
+02:34:43.540 --> 02:34:49.720
+Curry Gardner: 10 places in the Us that have real wagyu beef. So if you see something that says Wagyu.
+
+1579
+02:34:50.250 --> 02:34:55.440
+Curry Gardner: Yeah. So the cows came from Japan. But for it to be traditional
+
+1580
+02:34:55.670 --> 02:34:58.650
+Curry Gardner: wag, it has to be part of like a region.
+
+1581
+02:34:58.900 --> 02:35:00.020
+Curry Gardner: Japan.
+
+1582
+02:35:00.300 --> 02:35:08.090
+Curry Gardner: But there's only like 10 places in the Us that have real traditional. All the rest is kind of like a scam. So
+
+1583
+02:35:08.620 --> 02:35:13.939
+Clayton Graves: it was. That's not a low end restaurant. So
+
+1584
+02:35:14.030 --> 02:35:18.350
+Clayton Graves: let me go pull some cash out of the ATM machine, and we'll
+
+1585
+02:35:18.760 --> 02:35:22.449
+Clayton Graves: we'll we'll go have ourselves some American wagon beach
+
+1586
+02:35:23.240 --> 02:35:26.760
+Anthony Taylor: American Waggu beef beef. Okay, what's up, Mike?
+
+1587
+02:35:27.920 --> 02:35:32.229
+michael mcpherson: Right behind me, about 4 miles east.
+
+1588
+02:35:32.830 --> 02:35:40.350
+michael mcpherson: there is a ranch cattle ranch. It's 1,300 acres. It is owned by Japan
+
+1589
+02:35:41.050 --> 02:35:42.499
+michael mcpherson: for beef or Japan.
+
+1590
+02:35:43.050 --> 02:35:44.590
+Anthony Taylor: Is it wagga wagga beef?
+
+1591
+02:35:45.340 --> 02:35:47.190
+michael mcpherson: It's Japanese beef.
+
+1592
+02:35:47.450 --> 02:35:52.740
+michael mcpherson: but they own ranch, and they run cattle on it, and that's all. It is just
+
+1593
+02:35:53.130 --> 02:35:53.850
+michael mcpherson: yep.
+
+1594
+02:35:54.750 --> 02:36:08.280
+Anthony Taylor: alright gay! Alright enough of that. I just. I found that so funny as I was, you know, like American Japanese beef beef that's and like I said, this is a pretty funny. This is a landings restaurant. This is a nice restaurant.
+
+1595
+02:36:08.460 --> 02:36:11.529
+Anthony Taylor: but I tried it. I'll tell you I should've got the
+
+1596
+02:36:11.680 --> 02:36:12.899
+Anthony Taylor: would have been.
+
+1597
+02:36:13.390 --> 02:36:19.510
+Anthony Taylor:  that's it, guys. Next week we're gonna do more neural networks.
+
+1598
+02:36:19.600 --> 02:36:20.690
+Anthony Taylor: I
+
+1599
+02:36:20.830 --> 02:36:24.659
+Anthony Taylor: I can tell you. I don't know that any of them will be as complicated
+
+1600
+02:36:24.930 --> 02:36:33.280
+Anthony Taylor: as today's think. Next week we're gonna start doing visual. So we're gonna start looking at pictures with neural net
+
+1601
+02:36:33.610 --> 02:36:36.080
+Anthony Taylor: and training them
+
+1602
+02:36:36.270 --> 02:36:39.790
+Anthony Taylor: to identify and do things next week. Do. Wednesday.
+
+1603
+02:36:40.620 --> 02:36:45.310
+Anthony Taylor: Okay, so that's all I got for you guys. Thank you so much. You were awesome.
+
+1604
+02:36:46.510 --> 02:36:48.520
+Anthony Taylor: That was a rough one for me.
+
+1605
+02:36:50.750 --> 02:36:55.670
+Mason, Natalie: Have a good one. I'll see you with
+
+1606
+02:36:56.240 --> 02:36:57.600
+Anthony Taylor: bye, guys.
+
+1607
+02:36:59.970 --> 02:37:00.580
+michael mcpherson: I have a good.
+

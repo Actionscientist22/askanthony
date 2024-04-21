@@ -1,0 +1,130 @@
+##--CODE--##
+# Import reuters and stopwords 
+from nltk.corpus import reuters, stopwords
+# Import ngrams
+from nltk.util import ngrams
+# Import the WordNetLemmatizer class 
+from nltk.stem import WordNetLemmatizer 
+# Import the word tokenizer
+from nltk.tokenize import word_tokenize
+# Import regular expressions
+import re
+# Import pandas 
+import pandas as pd
+# Import the Counter class from the collections library.
+from collections import Counter
+
+# Download "punkt" sentence tokenizer and "wordnet" that the lemmatizer uses.
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+
+##--CODE--##
+# Instantiate the lemmatizer
+lemma = WordNetLemmatizer()
+
+##--CODE--##
+# List the articles about grains.
+ids = reuters.fileids(categories='grain')
+corpus = [reuters.raw(i) for i in ids]
+
+##--CODE--##
+# Define the process_text function that processes the words for the article and and lemmatizes the words to their root.
+def process_text(article):
+    """
+    Preprocesses a given text article by performing the following steps:
+    
+    1. Removes stopwords (common words in English language).
+    2. Uses regular expressions to remove non-alphabet characters (e.g., punctuation).
+    3. Tokenizes the cleaned text into words.
+    4. Lemmatizes the words to their base form.
+    5. Filters out words that are in the stopwords list.
+    
+    Parameters:
+        article (str): The input text article to be processed.
+
+    Returns:
+        list of str: A list of preprocessed words from the input article.
+    """
+    # Get the stopwords
+    sw = set(stopwords.words('english'))
+    # Use regex to substitute everything that is not a letter with an empty string.
+    regex = re.compile("[^a-zA-Z ]")
+    re_clean = regex.sub('', article)
+    # Tokenize the words 
+    words = word_tokenize(re_clean)
+    # Lemmatize the words
+    lem = [lemma.lemmatize(word) for word in words]
+    # Retrieve only the words that aren't in the stopwords
+    output = [word.lower() for word in lem if word.lower() not in sw]
+    return output
+
+##--CODE--##
+# Create a word_counter function that takes all the articles and processes them with the process_text function.
+def word_counter(corpus): 
+    """
+    Counts and returns the top ten most common words in a given corpus of text.
+
+    This function processes the text in the input corpus by:
+    1. Combining all articles into one large string.
+    2. Passing the combined text to the `process_text` function, which removes stopwords, 
+       non-alphabet characters, tokenizes the text, and lemmatizes words.
+    3. Counts the occurrences of each word and retrieves the top ten most common words.
+
+    Parameters:
+        corpus (list of str): A list of text articles to be analyzed.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the top ten words found in the corpus,
+        with two columns: "word" (the word itself) and "count" (the number of times it appears).
+    """
+    # Combine all articles in corpus into one large string
+    big_string = ' '.join(corpus)
+    # Pass the combined articles to the process_text function
+    processed = process_text(big_string)
+    # Get the top ten most common words.
+    top_10 = dict(Counter(processed).most_common(10))
+    # Create a DataFrame with the top ten words with "word" and "count" columns.
+    return pd.DataFrame(list(top_10.items()), columns=['word', 'count'])
+
+##--CODE--##
+# Pass the corpus of articles to the word_counter function.
+word_counter(corpus)
+
+##--CODE--##
+def bigram_counter(corpus): 
+    """
+    Counts and returns the top ten most common bigrams in a given corpus of text.
+
+    This function processes the text in the input corpus by:
+    1. Combining all articles into one large string.
+    2. Passing the combined text to the `process_text` function, which removes stopwords, 
+       non-alphabet characters, tokenizes the text, and lemmatizes words.
+    3. Creates bigrams (pairs of adjacent words) from the processed text.
+    4. Counts the occurrences of each bigram and retrieves the top ten most common bigrams.
+
+    Parameters:
+        corpus (list of str): A list of text articles to be analyzed.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the top ten bigrams found in the corpus,
+        with two columns: "bigram" (the pair of adjacent words) and "count" (the number of times it appears).
+    """
+    # Combine all articles in corpus into one large string
+    big_string = ' '.join(corpus)
+    # Pass the combined articles to the process_text function
+    processed = process_text(big_string)
+    # Create bigrams from the processed text.
+    bigrams = ngrams(processed, n=2)
+    # Get the top ten most common bigrams
+    top_10 = dict(Counter(bigrams).most_common(10))
+    # Create a DataFrame with the top ten bigrams with "bigram" and "count" columns.
+    return pd.DataFrame(list(top_10.items()), columns=['bigram', 'count'])
+
+##--CODE--##
+# Pass the corpus of articles to the bigram_counter function.
+bigram_counter(corpus)
+
+##--CODE--##
+
+

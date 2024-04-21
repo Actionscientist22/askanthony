@@ -1,0 +1,34 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+from pathlib import Path
+
+##--CODE--##
+# Load in file
+# Store filepath in a variable
+movie_file = Path("Resources/movie_scores.csv")
+
+##--CODE--##
+# Read and display the CSV with Pandas
+
+
+##--CODE--##
+# List all the columns in the table
+
+
+##--CODE--##
+# We only want IMDb data, so create a new table that takes the Film and all the columns relating to IMDB
+
+
+##--CODE--##
+# We only like good movies, so find those that scored over 7, and ignore the norm rating
+
+
+##--CODE--##
+# Find less popular movies--i.e., those with fewer than 20K votes
+
+
+##--CODE--##
+# Finally, export this file to a spread so we can keep track of out new future watch list without the index
+
+

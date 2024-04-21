@@ -1,0 +1,65 @@
+##--CODE--##
+# Imports for loading environment variables.
+from dotenv import load_dotenv
+import os
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+##--CODE--##
+# Additional imports for specific chains we'll use.
+from langchain_openai import ChatOpenAI
+from langchain.chains import LLMChain
+from langchain.chains.constitutional_ai.base import ConstitutionalChain
+from langchain.chains.constitutional_ai.models import ConstitutionalPrinciple
+from langchain.prompts import ChatPromptTemplate
+
+##--CODE--##
+# Ask the user for a main ingredient for each day.
+food1 = input("What main ingredient would you like in the first day's meal?")
+food2 = input("What main ingredient would you like in the second day's meal?")
+
+##--CODE--##
+# Ask the user for a dietary restriction.
+requirement = input("Please name your dietary type (vegan, omnivorous, kosher, etc.)?")
+
+##--CODE--##
+# Initialize the model.
+llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+##--CODE--##
+# Create a chat chain for creating the recipes.
+recipe_chain = LLMChain(llm=llm, prompt=ChatPromptTemplate.from_template("{query}"))
+
+##--CODE--##
+# Create the principle for our constitutional chain.
+principle = ConstitutionalPrinciple(
+    name="Dietary Requirements",
+    critique_request=f"The model should only offer recipes that fit a {requirement} diet.",
+    revision_request=f"Modify the recipes to fit a {requirement} diet",
+)
+
+##--CODE--##
+# Create a constitutional chain for ensuring the requested type of recipes.
+constitutional_chain = constitutional_chain = ConstitutionalChain.from_llm(
+    chain=recipe_chain,
+    constitutional_principles=[principle],
+    llm=llm,
+    #verbose=True
+)
+
+##--CODE--##
+# Set the input query for the first chain in the sequence.
+query = {"query": f"Give me two dinners to make this week, one has to have {food1} and the other {food2}."}
+
+##--CODE--##
+# Run the constitutional chain using the query as the first input.
+result = constitutional_chain.invoke(query)
+print(result["output"])
+

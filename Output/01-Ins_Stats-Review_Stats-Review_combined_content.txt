@@ -1,0 +1,34 @@
+# Stats Review
+
+##--CODE--##
+# Dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+import scipy.stats as st
+import numpy as np
+
+##--CODE--##
+# Read in the LAX temperature data
+temperature_df = pd.read_csv('../Resources/lax_temperature.csv')
+temperatures = temperature_df['HourlyDryBulbTemperature']
+
+##--CODE--##
+# Demonstrate calculating measures of central tendency
+
+
+##--CODE--##
+# Characterize the data set using matplotlib
+
+
+##--CODE--##
+# Demonstrate calculating the variance and standard deviation using the different modules
+
+
+##--CODE--##
+# Calculate the 68-95-99.7 rule using the standard deviation
+
+
+##--CODE--##
+# Demonstrate calculating the z-scores using SciPy
+
+

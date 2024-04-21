@@ -1,0 +1,156 @@
+##--CODE--##
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+# Model and API Key
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Roles
+
+##--CODE--##
+# Additional imports for human and system messages.
+from langchain.schema import HumanMessage, SystemMessage
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+# Create a list containing a system message and a human message.
+messages = [
+    SystemMessage(content="You are an athletic trainer."),
+    HumanMessage(content="Provide me with a summary of what to do this week for my workouts.")
+]
+
+# Provide the messages to the LLM and print the result.
+result = llm.invoke(messages)
+print(result.content)
+
+# Templates for Instructions
+
+##--CODE--##
+# Additional imports for prompt template and LLM chain.
+from langchain import PromptTemplate
+from langchain.chains import LLMChain
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+# Define the format for the template.
+format = """
+You are a history tutor. Answer only questions that would be covered in a history course.
+If the human asks questions not related to history, remind them that your job is to help
+them learn history, and ask them for a question on that topic. If they ask a question which
+there is not enough information to answer, tell them you don't know and don't make up an 
+answer.
+
+Question: {query}
+
+Answer: 
+"""
+
+# Construct the prompt template.
+prompt_template = PromptTemplate(
+    input_variables=["query"],
+    template=format
+)
+
+# Construct a chain using this template.
+chain = LLMChain(llm=llm, prompt=prompt_template)
+
+# Define the query as a string.
+query = {"query": "Why were the 1980 summer Olympics boycotted?"}
+
+# Run the chain using the query as input and print the result.
+result = chain.invoke(query)
+print(result["text"])
+
+print()
+
+# Define the query as a string.
+query = {"query": "Why is the sky blue?"}
+
+# Run the chain using the query as input and print the result.
+result = chain.invoke(query)
+print(result["text"])
+
+# Templates for Examples
+
+##--CODE--##
+# Additional import for the template.
+from langchain import PromptTemplate, FewShotPromptTemplate
+from langchain.chains import LLMChain
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+# Define a prefix that explains the prompt.
+prefix = """
+Here are examples between a human and AI. The human provides a word, and
+the AI provides a single sentence with easy to read words that mostly rhyme
+with the word the human provided. The sentence does not have to include the 
+original word. For example:
+"""
+
+# Create examples.
+examples = [
+    {
+        "query": "rat",
+        "answer": "The cat sat next to the bat."
+    }, {
+        "query": "frog",
+        "answer": "A dog hops a log in the bog."
+    }, {
+        "query": "ten",
+        "answer": "Ben sent ten hens to the glen."
+    }
+]
+
+# Define a format for the examples.
+example_format = """
+Human: {query}
+AI: {answer}
+"""
+
+# Create a prompt template for the examples.
+example_template = PromptTemplate(
+    input_variables=["query", "answer"],
+    template=example_format
+)
+
+# Provide a suffix that includes the query.
+suffix = """
+Human: {query}
+AI: 
+"""
+
+# Construct the few shot prompt template.
+prompt_template = FewShotPromptTemplate(
+    examples=examples,
+    example_prompt=example_template,
+    input_variables=["query"],
+    prefix=prefix,
+    suffix=suffix,
+    example_separator="\n\n"
+)
+
+# Construct a chain using this template.
+chain = LLMChain(llm=llm, prompt=prompt_template)
+
+# Define the query as a string.
+query = "grime"
+
+# Run the chain using the query as input and print the result.
+result = chain.run(query)
+print(result)
+

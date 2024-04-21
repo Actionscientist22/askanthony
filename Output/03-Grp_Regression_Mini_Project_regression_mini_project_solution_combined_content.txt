@@ -1,0 +1,25 @@
+##--CODE--##
+import pandas as pd
+import pipeline_utilities as p_util
+
+##--CODE--##
+# Create a list of DataFrames by using a list comprehension with read_csv
+days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Saturday']
+dfs = [pd.read_csv(f'https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_3/datasets/garments-worker-productivity-{day}.csv') for day in days]
+dfs[-1].head()
+
+##--CODE--##
+# Create a dictionary with the models
+model_dict = {}
+for df in dfs:
+    print(df.iloc[0,3])
+    model_dict[f"{df.iloc[0,3]}_model"] = p_util.prod_model_generator(df)
+    print("----------")
+
+##--CODE--##
+model_dict
+
+
+##--CODE--##
+
+

@@ -1,0 +1,47 @@
+##--CODE--##
+# Import the data
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import balanced_accuracy_score
+
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m14/datasets/bank_marketing.csv')
+df.head()
+
+##--CODE--##
+# Drop rows with null values
+df_clean = df.dropna().copy()
+
+# Convert y to numeric
+df_clean['y'] = pd.get_dummies(df_clean['y'], drop_first = True)
+
+# Drop all non-numeric columns
+df_clean = df_clean.select_dtypes(include='number')
+
+# Verify changes with the info method
+df_clean.info()
+
+##--CODE--##
+# Setup X and y variables
+X = df_clean.drop(columns='y')
+y = df_clean['y']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=13)
+
+##--CODE--##
+# Create and train a logistic regression model
+from sklearn.ensemble import RandomForestClassifier
+
+
+
+##--CODE--##
+# Check the model's balanced accuracy on the test set
+
+
+##--CODE--##
+# Check the model's balanced accuracy on the training set
+
+
+##--CODE--##
+
+

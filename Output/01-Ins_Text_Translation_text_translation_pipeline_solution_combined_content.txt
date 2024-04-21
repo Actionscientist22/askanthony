@@ -1,0 +1,30 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install transformers
+# Import the pipeline class from the transformers module. 
+from transformers import pipeline
+
+##--CODE--##
+# Initialize the pipeline to translate using the t5-base model. 
+translator = pipeline("translation", model="t5-base")
+
+##--CODE--##
+# Define a English text and translate it to German. 
+english_text = "I am celebrating my birthday."
+text = f"translate English to German: {english_text}"
+results = translator(text)
+# Display the translation JSON data. 
+print(results)
+# Get the translated text.
+results[0]['translation_text']
+
+##--CODE--##
+# Define a English text and translate it to French
+english_text = "I am celebrating my birthday."
+text = f"translate English to French: {english_text}"
+results = translator(text)
+results[0]['translation_text']
+
+##--CODE--##
+
+

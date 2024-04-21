@@ -1,0 +1,144 @@
+##--CODE--##
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+# Model and API Key
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Multiple Queries
+
+##--CODE--##
+# Initialize the model.
+
+
+# Define a query as a string.
+
+
+# Pass the query to the invoke method which will make a prediction based on the query, and print the result.
+
+
+print()
+
+# Define a query as a string.
+
+
+# Pass the query to the invoke method which will make a prediction based on the query, and print the result.
+
+
+# Memory
+
+##--CODE--##
+# Additional imports for conversational memory.
+
+
+##--CODE--##
+# Initialize the model.
+
+
+# Initialize an object for conversational memory.
+
+
+# Create the chain for conversation, using a ConversationBufferMemory object.
+
+
+# Define a query as a string.
+
+
+# Pass the query to the predict method and print the result.
+
+
+print()
+
+# Define a query as a string.
+
+
+# Pass the query to the predict method which will make a prediction based on the query, and print the result.
+
+
+# Summaries as memory
+
+##--CODE--##
+# Additional imports for summary-based memory.
+
+
+##--CODE--##
+# Initialize the model for summaries.
+
+
+# Initialize the model for output.
+
+
+# Initialize an object for conversational memory.
+
+
+# Create the chain for conversation, using a ConversationBufferMemory object.
+
+
+# Define a query as a string.
+
+
+# Pass the query to the predict method, and print the result.
+
+
+print()
+
+# Define a query as a string.
+
+
+# Pass the query to the predict method, and print the result.
+
+
+# Define a query as a string.
+
+
+# Pass the query to the predict method, and print the result.
+
+
+# Entity-based Memory
+
+##--CODE--##
+# Additional imports for entity-based memory.
+
+
+##--CODE--##
+# Initialize the model for entities.
+
+
+# Initialize the model for output.
+
+
+# Initialize an object for conversational memory.
+
+
+# Create the chain for conversation, using a ConversationBufferMemory object.
+
+
+# Define a query as a string.
+
+
+# Pass the query to the predict method.
+
+
+print()
+
+# Define a query as a string.
+
+
+# Pass the query to the predict method, and print the result.
+
+
+# Define a query as a string.
+
+
+# Pass the query to the predict method, and print the result.
+
+

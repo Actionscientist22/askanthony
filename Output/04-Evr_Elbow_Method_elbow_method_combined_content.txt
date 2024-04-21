@@ -1,0 +1,90 @@
+##--CODE--##
+# Initial imports
+import pandas as pd
+from sklearn.cluster import KMeans
+
+## Loading Scaled Customer Shopping Data into Pandas
+
+##--CODE--##
+# Load the data into a pandas DataFrame.
+
+
+##--CODE--##
+# Use the encodeMethod helper function to encode Hotel/Restuarant/Cafe purchases to 1 and Retail purchases to 2.
+def encodeMethod(purchase):
+    """
+    This function encodes the method of purchases to 1 for "HotelRestCafe"
+    and 2 for "Retail".
+    """
+    if purchase == "HotelRestCafe":
+        return 1
+    else:
+        return 2
+
+##--CODE--##
+# Edit the "Method" column using the encodeMethod function
+customers_shopping_df["Method"] = customers_shopping_df["Method"].apply(encodeMethod)
+
+# # Review the DataFrame
+customers_shopping_df.head()
+
+## Implementing the Elbow Method
+
+##--CODE--##
+# Create an empty list to store the inertia values
+
+
+# Create a list with the number of k-values to try
+
+
+##--CODE--##
+# Create a for loop to compute the inertia with each possible value of k and add the values to the inertia list.
+
+
+##--CODE--##
+# Create a dictionary with the data to plot the elbow curve
+
+
+# Create a DataFrame with the data to plot the elbow curve
+
+
+# Display the DataFrame
+
+
+##--CODE--##
+# Plot the Elbow curve
+
+
+##--CODE--##
+# Determine the rate of decrease between each k value. 
+
+
+ The rate of decrease in inertia **begins** to slow down between k=3 to k=4, which means that our elbow point is at k=4.
+
+##--CODE--##
+# Define the model with 4 clusters
+
+
+# Fit the model
+
+
+# Make predictions
+
+
+# Create a copy of the DataFrame
+
+
+# Add a class column with the labels
+
+
+##--CODE--##
+# Review the DataFrame
+
+
+##--CODE--##
+# Create a scatter plot with x="Frozen" and y="Grocery" with k=4 segments, use colormap='viridis'.
+
+
+##--CODE--##
+
+

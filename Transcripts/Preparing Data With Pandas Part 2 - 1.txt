@@ -1,0 +1,3238 @@
+WEBVTT
+
+1
+00:00:08.050 --> 00:00:09.289
+Anthony Taylor: I'm doing good here.
+
+2
+00:00:09.460 --> 00:00:16.159
+Anthony Taylor:  combining data frames with pandas. What does that mean? Well, first off.
+
+3
+00:00:17.050 --> 00:00:19.810
+Anthony Taylor: that's let's talk about data, real
+
+4
+00:00:19.940 --> 00:00:22.619
+Anthony Taylor: cause. Remember, pandas is our data
+
+5
+00:00:22.710 --> 00:00:26.130
+Anthony Taylor: library that we're going to use most of the time
+
+6
+00:00:26.590 --> 00:00:29.639
+Anthony Taylor: today. Microsoft was on
+
+7
+00:00:29.760 --> 00:00:46.000
+Anthony Taylor: we. They were doing a hands-on workshop with our company on Aiml their current features, and they use panels to do it. And the first thing I asked them I said, Well, what if your data is bigger than a red box, and they go well, you wouldn't use pandas.
+
+8
+00:00:46.510 --> 00:00:51.439
+Anthony Taylor: But pandas is still pretty good. Okay, it can do some pretty good sized data.
+
+9
+00:00:52.030 --> 00:00:53.080
+Anyway.
+
+10
+00:00:53.300 --> 00:01:03.289
+Anthony Taylor: when we talk about pandas, we're talking about tables. If you've never worked with a database, you may not understand concept of tables, but understand that tables are.
+
+11
+00:01:04.000 --> 00:01:15.869
+Anthony Taylor: It's basically data that describes an entity. So you may have a table for customer. You may have a table for product. You may have many tables that describe either one of those.
+
+12
+00:01:17.200 --> 00:01:20.800
+Anthony Taylor:  So when we are working in an organization
+
+13
+00:01:21.120 --> 00:01:28.969
+Anthony Taylor: that is normally the case, we'll have a table for customer, but that one table will connect to a table for customer address
+
+14
+00:01:29.120 --> 00:01:38.490
+Anthony Taylor: that will connect to one, maybe, with the States. That may all. The customer may also connect to one for phone number or sales.
+
+15
+00:01:39.850 --> 00:01:46.890
+Anthony Taylor: okay, or payment method. So you could have all of these different tables
+
+16
+00:01:47.040 --> 00:02:01.700
+Anthony Taylor: sitting out there. And as a data scientist as an Ai specialist or a data engineer, your job would be to bring those tables together into a single output that is usable.
+
+17
+00:02:02.870 --> 00:02:04.140
+Anthony Taylor: We do this
+
+18
+00:02:04.880 --> 00:02:07.120
+Anthony Taylor: by combining data frames.
+
+19
+00:02:08.440 --> 00:02:11.330
+Anthony Taylor: That was the intro groups.
+
+20
+00:02:12.050 --> 00:02:17.429
+Anthony Taylor: So today we are gonna understand the difference between merging, joining, and concatenating.
+
+21
+00:02:17.440 --> 00:02:20.630
+Anthony Taylor: They are subtle. Well, these 2 are so.
+
+22
+00:02:21.180 --> 00:02:25.270
+Anthony Taylor: But you will know the difference. We're going to concatenate data frames.
+
+23
+00:02:25.670 --> 00:02:33.610
+Anthony Taylor: We're going to join some data frames. We're going to merge some data frames. And then we're going to handle duplicate entries during merging
+
+24
+00:02:34.150 --> 00:02:35.050
+Anthony Taylor: data frames.
+
+25
+00:02:36.400 --> 00:02:44.480
+Anthony Taylor: I'm gonna be honest. this should go pretty smooth today. Okay. so concatenation.
+
+26
+00:02:45.970 --> 00:02:58.990
+Anthony Taylor: Alright concatenation is literally I'm going. Let's let's just think of concatenation as 2 strings when we did concatenation in Python.
+
+27
+00:02:59.090 --> 00:03:03.279
+Anthony Taylor: I said, concatenate these 2 strings together. What did we do? Boom?
+
+28
+00:03:03.510 --> 00:03:04.970
+Anthony Taylor: We made them one string.
+
+29
+00:03:05.430 --> 00:03:07.670
+Anthony Taylor: 2 strings became one street.
+
+30
+00:03:08.410 --> 00:03:13.969
+Anthony Taylor: Okay, that is exactly what concatenation does in a data frame.
+
+31
+00:03:14.450 --> 00:03:19.480
+Anthony Taylor: I have 2 data frames. They have similar column names. I'm going to put them together.
+
+32
+00:03:19.690 --> 00:03:25.020
+Anthony Taylor: And it's going to take this data frame. Put it here. And this data frame. Put it here.
+
+33
+00:03:26.100 --> 00:03:28.439
+Anthony Taylor: That's if we're doing it vertically.
+
+34
+00:03:28.750 --> 00:03:34.619
+Anthony Taylor: We can also put this data frame here and put this data frame here.
+
+35
+00:03:36.150 --> 00:03:38.890
+Anthony Taylor: We can do that perfectly reasonable.
+
+36
+00:03:39.300 --> 00:03:43.050
+Anthony Taylor: Alright, that is concatenation. It makes no difference
+
+37
+00:03:43.100 --> 00:03:57.810
+Anthony Taylor: if there is a matching column. And actually, if you're going this direction, it doesn't even matter if the column names are the same. Viewing this direction, it does. Okay. So it's process of combining 2 data frames across rows or columns.
+
+38
+00:03:58.960 --> 00:04:01.430
+Anthony Taylor: In this example.
+
+39
+00:04:01.940 --> 00:04:07.169
+Anthony Taylor: Okay, we. And here's here's how the code looks. We're saying.
+
+40
+00:04:09.020 --> 00:04:11.040
+Anthony Taylor: create this new data frame.
+
+41
+00:04:11.190 --> 00:04:15.830
+Anthony Taylor: It's concat. The state population data frame. You're going to see this in a second
+
+42
+00:04:15.990 --> 00:04:18.580
+Anthony Taylor: with state capitals.
+
+43
+00:04:19.220 --> 00:04:25.159
+Anthony Taylor: And then it's specifically pulling out the capitals column.
+
+44
+00:04:25.850 --> 00:04:27.340
+Anthony Taylor: So just this column.
+
+45
+00:04:28.670 --> 00:04:32.170
+Anthony Taylor: Okay on Axis one we've talked about that
+
+46
+00:04:32.280 --> 00:04:37.829
+Anthony Taylor: that's the roads. So now you end up with this table
+
+47
+00:04:37.950 --> 00:04:45.699
+Anthony Taylor: with the capital column added to it. Now, how does it know that Sacramento belongs to California
+
+48
+00:04:46.430 --> 00:04:50.790
+Anthony Taylor: and Austin belongs to Texas, and so on and so on. It actually doesn't.
+
+49
+00:04:51.180 --> 00:04:54.809
+Anthony Taylor: When you do a concat, it's just based on the index.
+
+50
+00:04:56.110 --> 00:05:00.070
+Anthony Taylor: So if 0 on this table would have been Texas, Austin.
+
+51
+00:05:00.200 --> 00:05:05.759
+Anthony Taylor: Then your other table would say, California, 2023, 39, middle road.
+
+52
+00:05:06.000 --> 00:05:08.810
+Anthony Taylor: Austin. not sacrament.
+
+53
+00:05:09.980 --> 00:05:13.110
+Anthony Taylor: All right. Concat is a dumb way
+
+54
+00:05:13.250 --> 00:05:15.880
+Anthony Taylor: to bring. And by dumb doesn't mean bad.
+
+55
+00:05:15.910 --> 00:05:21.069
+Anthony Taylor: It's just there's no logic behind joining the 2 data frames.
+
+56
+00:05:21.150 --> 00:05:24.550
+Anthony Taylor: It's basically just putting them together. Okay.
+
+57
+00:05:26.130 --> 00:05:29.380
+Anthony Taylor: alright. So let's go look at an example. We're gonna do
+
+58
+00:05:29.600 --> 00:05:31.029
+Anthony Taylor: one at a time.
+
+59
+00:05:31.690 --> 00:05:35.849
+Anthony Taylor:  and these are the yeah, these are all fairly straightforward.
+
+60
+00:05:37.300 --> 00:05:41.230
+Anthony Taylor: Okay, so here we're gonna import pandas. We've done this before.
+
+61
+00:05:41.890 --> 00:05:44.379
+Anthony Taylor: We're going to bring in 3 files.
+
+62
+00:05:45.370 --> 00:05:48.120
+Anthony Taylor: Alright. Now, I'm gonna bring them in. And
+
+63
+00:05:48.200 --> 00:05:51.540
+Anthony Taylor: oh, and we're going to peek at each one. So let's look at apple data head.
+
+64
+00:05:51.730 --> 00:05:55.080
+Anthony Taylor: Now, what I want you to notice is just this value.
+
+65
+00:05:55.280 --> 00:05:58.210
+Anthony Taylor: because the rest of them. They're gonna get all blurry real quick.
+
+66
+00:05:58.630 --> 00:06:02.210
+Anthony Taylor: Okay? So on January second.
+
+67
+00:06:02.910 --> 00:06:08.189
+Anthony Taylor: apple was at 1, 30 and 27, 9, 9, 9. Okay, just remember that for now.
+
+68
+00:06:09.860 --> 00:06:10.710
+Anthony Taylor: Google
+
+69
+00:06:13.260 --> 00:06:17.490
+Anthony Taylor: on that date, was it 89? So you can see, this is pretty much the same date.
+
+70
+00:06:18.370 --> 00:06:22.070
+Anthony Taylor: Okay? And then Meta. Facebook
+
+71
+00:06:22.510 --> 00:06:25.220
+Anthony Taylor: was at 1 22.8 2.
+
+72
+00:06:26.270 --> 00:06:27.080
+Anthony Taylor: Alright.
+
+73
+00:06:27.230 --> 00:06:30.550
+Anthony Taylor: So if I concatenate the rows.
+
+74
+00:06:31.720 --> 00:06:35.479
+Anthony Taylor: I'm going to take the 3 new data frames
+
+75
+00:06:35.580 --> 00:06:47.240
+Anthony Taylor: going to do it on rows. Now, notice, you don't have to access equals one on this talk about consistency. And then we're gonna do what's called an inner joy.
+
+76
+00:06:47.540 --> 00:06:51.829
+Anthony Taylor: Okay, so this is looking for.
+
+77
+00:06:52.050 --> 00:06:57.589
+Anthony Taylor: Some kind of match. Alright, and then we're going to output it.
+
+78
+00:06:59.400 --> 00:07:03.400
+Anthony Taylor: And this mostly applies to the fact that we're going up and down
+
+79
+00:07:04.100 --> 00:07:06.580
+Anthony Taylor: right? So by interjoin.
+
+80
+00:07:06.600 --> 00:07:13.919
+Anthony Taylor: let's be real clear, because we're going to talk about inner and outer joints in a minute. An inner join on Concat
+
+81
+00:07:14.120 --> 00:07:15.320
+Anthony Taylor: means that
+
+82
+00:07:15.510 --> 00:07:18.700
+Anthony Taylor: these column headers is what it's looking for.
+
+83
+00:07:19.880 --> 00:07:22.880
+Anthony Taylor: Okay? And that's how it's going to compact.
+
+84
+00:07:23.170 --> 00:07:25.479
+Anthony Taylor: So 1, 2,
+
+85
+00:07:25.760 --> 00:07:35.229
+Anthony Taylor: that's apple. Right? Go down a little further. look at this, there's 1, 2, 23 again. And there's Google.
+
+86
+00:07:36.120 --> 00:07:43.129
+Anthony Taylor: You see how it did that. This is all the apple data. Now, we have the Google data. And if, we continued, we would have the Meta data
+
+87
+00:07:43.680 --> 00:07:46.040
+Anthony Taylor: metadata.
+
+88
+00:07:46.570 --> 00:07:52.319
+Clayton Graves: Seems like a good way to confuse yourself if you
+
+89
+00:07:52.580 --> 00:08:04.959
+Anthony Taylor: okay. And actually, you're gonna see? Let me show you the other way, and you'll see so now we're gonna go by columns. So now we're going across. And it's the same idea. It's only gonna show matching.
+
+90
+00:08:05.210 --> 00:08:06.760
+Anthony Taylor: So if we do this
+
+91
+00:08:06.990 --> 00:08:11.229
+Anthony Taylor: now, this at first is very confusing. You have the date.
+
+92
+00:08:11.750 --> 00:08:15.860
+Anthony Taylor: Then you have open, high, low, close, just to close valid.
+
+93
+00:08:15.870 --> 00:08:19.929
+Anthony Taylor: Then open high, low. Jessica's value.
+
+94
+00:08:20.950 --> 00:08:31.809
+Anthony Taylor: Okay? So it's gonna go all the way across. Everything on this date is going to be in one row. This is kind of helpful kind of hard to understand when we have multiple columns with the exact same name.
+
+95
+00:08:33.679 --> 00:08:37.330
+Anthony Taylor: Okay, so we have a cool fix for that.
+
+96
+00:08:37.520 --> 00:08:40.419
+Anthony Taylor: Well, before we get to that is this pretty clear
+
+97
+00:08:41.480 --> 00:08:46.980
+Anthony Taylor: rows. We're gonna stack them on top of each other columns we're gonna go across.
+
+98
+00:08:47.570 --> 00:08:50.449
+Anthony Taylor: But we're just gonna keep just adding it to the mix.
+
+99
+00:08:50.840 --> 00:08:52.529
+Anthony Taylor: Is that pretty clear to everybody?
+
+100
+00:08:54.440 --> 00:09:03.669
+Baro, Sonja: Okay, that is, where are you gonna go over the inner versus outer Morse in this particular case, that when we get to joins yes.
+
+101
+00:09:04.350 --> 00:09:09.340
+Baro, Sonja: and this one we're it doesn't really matter in. I mean.
+
+102
+00:09:09.770 --> 00:09:14.740
+Anthony Taylor: II get. You know what I will say. This inner means it's gonna try to match these column headers.
+
+103
+00:09:14.920 --> 00:09:20.010
+Anthony Taylor: Okay, if you do outer, it's going to take the first one.
+
+104
+00:09:20.580 --> 00:09:22.359
+Anthony Taylor: Get the column headers
+
+105
+00:09:22.780 --> 00:09:28.269
+Anthony Taylor: okay, and only bring in the other ones with the same column.
+
+106
+00:09:28.690 --> 00:09:30.170
+Baro, Sonja: Oh, that won't work.
+
+107
+00:09:30.260 --> 00:09:33.260
+Baro, Sonja: Oh, well, it'll bring in.
+
+108
+00:09:33.650 --> 00:09:44.310
+Anthony Taylor: Sorry if if it doesn't have. So say, volume is in the apple one, but not in the Google one. There will be a volume one in the Google one now, but it will be empty.
+
+109
+00:09:44.830 --> 00:09:46.229
+Anthony Taylor: It'll be all in Am.
+
+110
+00:09:46.700 --> 00:09:54.880
+Anthony Taylor: And when again this will make more sense, we joins because you can see it better here. I don't think we have an example to show. Yeah.
+
+111
+00:09:55.930 --> 00:10:09.649
+michael mcpherson: at the top, it said open and then went. And then again open. Is that because it's doing multiple like one's Facebook. Then the next open is Meta. The next open is Google, because we're going across
+
+112
+00:10:09.830 --> 00:10:20.000
+Anthony Taylor: right because we're going columns. The first one is the first listed apple data. Then it over here. When it gets to here, we know
+
+113
+00:10:20.050 --> 00:10:23.830
+Anthony Taylor: that's Google data. Google, there'll be another one for metadata.
+
+114
+00:10:23.970 --> 00:10:26.749
+michael mcpherson: Yeah, that's what. That's what I thought. Thanks.
+
+115
+00:10:26.810 --> 00:10:31.479
+Anthony Taylor: Very good. Good clarification. Okay, so how can we make this a little more readable?
+
+116
+00:10:32.670 --> 00:10:33.869
+Anthony Taylor: Let's figure that out.
+
+117
+00:10:33.930 --> 00:10:38.490
+Anthony Taylor: So same command, except we're going to add
+
+118
+00:10:39.160 --> 00:10:40.990
+Anthony Taylor: this value here.
+
+119
+00:10:41.690 --> 00:10:47.780
+Anthony Taylor: Okay, now, this value could actually be anything. I mean, nowhere in here. Do you see the word Google.
+
+120
+00:10:49.450 --> 00:10:54.639
+Anthony Taylor: right? You'll see that word, anyway. So what this really means is by position.
+
+121
+00:10:55.030 --> 00:11:02.900
+Anthony Taylor: So this is going to get this name. This is, gonna get this name, and so on.
+
+122
+00:11:03.210 --> 00:11:06.210
+Anthony Taylor: So when we do this on by rows.
+
+123
+00:11:06.270 --> 00:11:10.050
+Anthony Taylor: you get this cool little offset. Let's change this to.
+
+124
+00:11:12.670 --> 00:11:20.960
+Anthony Taylor: So you can see there's apple. Google. Meta. Okay? Way. Easier to understand now. Right
+
+125
+00:11:22.680 --> 00:11:26.790
+Anthony Taylor: now. Check. Oh, and then there's the bottom.
+
+126
+00:11:27.020 --> 00:11:33.430
+Anthony Taylor: Now I'll check when we do it by columns. Same command. All we're changing is the axes.
+
+127
+00:11:33.560 --> 00:11:35.390
+Anthony Taylor: Now we get this cool little thing.
+
+128
+00:11:36.590 --> 00:11:47.450
+Anthony Taylor: Okay? So again, now, you can see there's apple, and you can see where Google starts, and if we scroll over you would see where Meta start. So both are are helpful. Both are interesting
+
+129
+00:11:48.790 --> 00:11:52.219
+Anthony Taylor: and they're good to know. Okay, I use merge.
+
+130
+00:11:53.370 --> 00:11:56.389
+Anthony Taylor: I wouldn't say daily, but I do use it quite often.
+
+131
+00:11:56.820 --> 00:11:59.750
+Anthony Taylor: so you should understand merge
+
+132
+00:12:00.280 --> 00:12:04.239
+Anthony Taylor: stacks. It's it's like, if you had blocks
+
+133
+00:12:04.380 --> 00:12:10.880
+Anthony Taylor: right, and you either want to stack them on top of each other or stack them beside each other. But it's you get the whole block.
+
+134
+00:12:11.950 --> 00:12:14.140
+Anthony Taylor: Okay. Hi, yes, Christine.
+
+135
+00:12:14.680 --> 00:12:21.440
+Kanouff, Christine: just looking on the date column. Did did those have the the same dates or not?
+
+136
+00:12:21.540 --> 00:12:29.889
+Anthony Taylor: They? It's it's basically merging on that. Eco, even though we never told it to do that. If you look
+
+137
+00:12:31.020 --> 00:12:34.110
+Anthony Taylor: here, where's it at? Here
+
+138
+00:12:34.820 --> 00:12:40.369
+Anthony Taylor: we set the index to date, and that's why it's merging on that call okay.
+
+139
+00:12:40.430 --> 00:12:43.010
+Anthony Taylor: Otherwise, I mean, you wouldn't. You don't actually have to.
+
+140
+00:12:44.550 --> 00:12:52.720
+Anthony Taylor: Okay. Cause like I showed you with the California and the capital one. If you didn't have an index. It would use the number index now
+
+141
+00:12:52.840 --> 00:12:55.870
+Anthony Taylor: that could definitely give you wrong data. If you have multiple tables.
+
+142
+00:12:56.040 --> 00:12:58.029
+Kanouff, Christine: Alright, yes, please
+
+143
+00:12:58.770 --> 00:13:00.119
+Clayton Graves: it.
+
+144
+00:13:00.590 --> 00:13:04.060
+Clayton Graves: the labels positional. If you were to say, Flip
+
+145
+00:13:04.520 --> 00:13:10.330
+Clayton Graves: Google and Apple? Yes, sir, keys, would it mislabel the data? Then?
+
+146
+00:13:10.410 --> 00:13:12.469
+Anthony Taylor: How about? Well, yes, a hundred percent.
+
+147
+00:13:12.670 --> 00:13:14.280
+Clayton Graves: Okay.
+
+148
+00:13:15.270 --> 00:13:18.799
+Anthony Taylor: Because I can, because these are variables. I can literally call them anything I want.
+
+149
+00:13:20.370 --> 00:13:28.300
+Anthony Taylor: Right? So. But so it's positional to the data frame. So the first one goes with the first 1 s, one goes second, third, one goes to.
+
+150
+00:13:29.720 --> 00:13:33.610
+Anthony Taylor: okay. Pretty cool. Okay.
+
+151
+00:13:34.070 --> 00:13:39.479
+Anthony Taylor: alright. So I'm gonna let you guys play with merge or with concat. If I can see emerge concat.
+
+152
+00:13:40.270 --> 00:13:43.970
+Anthony Taylor: it's it's you'll understand. By the time we're done today.
+
+153
+00:13:44.240 --> 00:13:48.260
+Anthony Taylor: all 3 of the things we're going to talk about are going to look incredibly similar.
+
+154
+00:13:48.300 --> 00:13:52.430
+Anthony Taylor: Which is why it's important that we do one understand it.
+
+155
+00:13:52.440 --> 00:13:55.940
+Anthony Taylor: then do the next. So concat. It's like stacking our data.
+
+156
+00:13:56.100 --> 00:13:58.550
+Anthony Taylor: Okay, that's what you need to. Aye.
+
+157
+00:13:59.340 --> 00:14:03.410
+Anthony Taylor: here's what you're gonna do. You're gonna import some Pandas stuff.
+
+158
+00:14:03.810 --> 00:14:12.009
+Anthony Taylor: create. Csv create the variables for Csvs, there's 1, 2, 3. There's a bunch of 1, 2, 3, 4, 5.
+
+159
+00:14:12.830 --> 00:14:13.680
+Anthony Taylor: Alright.
+
+160
+00:14:13.920 --> 00:14:18.939
+Anthony Taylor:  make sure you set the index column when you read it in.
+
+161
+00:14:19.640 --> 00:14:30.870
+Anthony Taylor: Okay, like we did in the example. display the first 5 rows of these 3 concatenate France, Uk, and Netherlands. And on Rose.
+
+162
+00:14:31.870 --> 00:14:33.600
+Anthony Taylor: Okay, and use inner
+
+163
+00:14:34.320 --> 00:14:42.680
+Anthony Taylor: and then do the same. But add these. So what that means? We didn't actually do that in hours. Okay, what?
+
+164
+00:14:42.950 --> 00:14:46.029
+Anthony Taylor: That you know, what? Now I want to check. Hold on
+
+165
+00:14:46.850 --> 00:14:48.870
+Anthony Taylor: cause for me that means
+
+166
+00:14:51.290 --> 00:14:56.669
+Anthony Taylor: something totally different. 1 Si don't want to.
+
+167
+00:15:03.940 --> 00:15:06.430
+Anthony Taylor: Really surprised. They don't have enough. Second.
+
+168
+00:15:07.430 --> 00:15:08.920
+Anthony Taylor: I don't have it up.
+
+169
+00:15:14.450 --> 00:15:16.080
+Anthony Taylor: I just don't want to tell you wrong.
+
+170
+00:15:18.000 --> 00:15:29.280
+Anthony Taylor: And then have you guys go and come back and be like, you're doing us wrong. You jerk. It's okay. Finally. I am here. Okay. So
+
+171
+00:15:40.300 --> 00:15:42.120
+Anthony Taylor: oh, let's see what
+
+172
+00:15:45.740 --> 00:15:49.689
+Anthony Taylor:  this is fun watching me, click on my screen
+
+173
+00:15:51.530 --> 00:15:53.670
+Anthony Taylor: apologize for that, all right
+
+174
+00:15:53.730 --> 00:15:56.549
+Anthony Taylor: so when they want you to combine them all.
+
+175
+00:16:01.340 --> 00:16:03.699
+Anthony Taylor: They say, do the first 3.
+
+176
+00:16:15.710 --> 00:16:24.460
+Anthony Taylor: Okay, they just want you to do like we did in the in the in the activity where we had the keys. Sorry. Let me turn my share back on
+
+177
+00:16:25.130 --> 00:16:29.959
+Anthony Taylor: so and actually they kind of give it to you in these. So you're good.
+
+178
+00:16:30.100 --> 00:16:38.820
+Anthony Taylor: Display the first 5 rows, and then at the end thing. Once you can make customer and products on columns.
+
+179
+00:16:39.060 --> 00:16:48.780
+Anthony Taylor: and in it alright, everything we just did in the activity. This will all be you. So let's see how much time you get.
+
+180
+00:16:51.830 --> 00:16:53.549
+Anthony Taylor: Okay, maybe not.
+
+181
+00:16:58.360 --> 00:16:59.320
+Anthony Taylor: There we go.
+
+182
+00:17:00.690 --> 00:17:02.210
+Anthony Taylor: I was winging all of it.
+
+183
+00:17:03.540 --> 00:17:12.730
+Anthony Taylor: I went through this this one. This one is very similar to the one we've done in the past. so I didn't need the lesson plan up 15 min.
+
+184
+00:17:13.260 --> 00:17:15.620
+Anthony Taylor: Alright. Let me set up the room
+
+185
+00:17:17.770 --> 00:17:23.480
+michael mcpherson: freaking out a hell of a lot of typing. Ci parentheses.
+
+186
+00:17:23.700 --> 00:17:36.450
+Baro, Sonja: colon period, slash resources. Customer. Info. Csv, okay, that is a lot of typing. I'm not gonna lie.
+
+187
+00:17:36.800 --> 00:17:39.789
+Anthony Taylor: Maybe that's why they gave you 15 min instead of 10.
+
+188
+00:17:39.800 --> 00:17:41.549
+Baro, Sonja: But it took
+
+189
+00:17:41.600 --> 00:17:43.159
+Clayton Graves: open the resources.
+
+190
+00:17:43.280 --> 00:17:46.859
+Baro, Sonja: half of them 40 resource.
+
+191
+00:17:48.670 --> 00:17:51.110
+michael mcpherson: I'll just tell you what it's supposed to look like.
+
+192
+00:17:51.510 --> 00:17:53.940
+Baro, Sonja: No, that's what I'm just saying. Yeah.
+
+193
+00:17:54.590 --> 00:17:59.609
+Anthony Taylor: let's take a look. Let's run through it. Let's see how long it takes, cause if it takes that long we're not go through it all.
+
+194
+00:18:00.990 --> 00:18:06.039
+michael mcpherson: Well, that's that's what we got done is right there. Block one and block 2.
+
+195
+00:18:06.980 --> 00:18:09.310
+Anthony Taylor: It took 15 min to type there.
+
+196
+00:18:09.430 --> 00:18:23.650
+Clayton Graves: We got a little bit further than that. But you have to remember you just flash these these commands at us, and we've got to go back and look up again to make sure we get the same. I agree alright. Well, you know what I will check the next time
+
+197
+00:18:23.760 --> 00:18:25.770
+Anthony Taylor: I'm gonna be honest.
+
+198
+00:18:25.850 --> 00:18:38.650
+Anthony Taylor: As soon as I sent you guys away, I ran in the other room and fed the dogs, cause I forgot to feed the dogs before class, so I did not go and look at what you guys are working on. So I probably would have just did that if I would've understood.
+
+199
+00:18:38.700 --> 00:18:39.790
+michael mcpherson: Anyway.
+
+200
+00:18:40.200 --> 00:18:45.620
+michael mcpherson: I even did it the fast way, copy and paste, and then just edit out the couple of letters I needed here and there.
+
+201
+00:18:45.730 --> 00:18:56.940
+Anthony Taylor: That's true. Well, let's let's go in and go through it. Then. I mean, it's the good news, is. It's pretty much a lot of repetition. So we're just doing a quick head and
+
+202
+00:18:57.230 --> 00:18:58.480
+Anthony Taylor: and hey.
+
+203
+00:18:58.860 --> 00:19:05.489
+Anthony Taylor: alright! We can see column names are all similar. Customer. Id is the index. We're looking good.
+
+204
+00:19:05.610 --> 00:19:13.360
+Anthony Taylor: So then, the Concatenate, since we already have our index, we can just say, Boom, do it by Rose, and let's take a look.
+
+205
+00:19:13.430 --> 00:19:16.340
+Anthony Taylor: and then, if we come down here.
+
+206
+00:19:16.410 --> 00:19:19.879
+Anthony Taylor: click on it! Oh, I hate it when it does this.
+
+207
+00:19:20.070 --> 00:19:31.229
+Anthony Taylor:  Oh, this is by Rose! So this is up and down, so we'd have to actually like memorize one of these to figure out what it is. But we'll see it better with the keys in just a moment.
+
+208
+00:19:31.370 --> 00:19:33.029
+Anthony Taylor: which is right. Now.
+
+209
+00:19:34.580 --> 00:19:35.779
+Anthony Taylor: Where did Tanya go?
+
+210
+00:19:36.630 --> 00:19:42.210
+Anthony Taylor: Alright? So now we can see the keys, and this is a lot easier to see, and all we change
+
+211
+00:19:42.280 --> 00:19:45.010
+Anthony Taylor: was, we added this list of keys.
+
+212
+00:19:46.060 --> 00:19:49.480
+Baro, Sonja: Right? How's this? Slow down right there, please.
+
+213
+00:19:49.530 --> 00:19:56.129
+Baro, Sonja: This is cause we where'd you put the so access row, join, and then Keys was just a list.
+
+214
+00:19:56.450 --> 00:20:00.210
+Baro, Sonja: That's it. Yep, okay. We got this far.
+
+215
+00:20:00.270 --> 00:20:07.080
+Baro, Sonja: Now. It does say, drop the country column. This is just because there's going to be 2
+
+216
+00:20:07.130 --> 00:20:13.299
+Anthony Taylor: are multiple. One. Well, is the reason that they drop the country column is because you put the country column out here in the key
+
+217
+00:20:13.460 --> 00:20:18.960
+Anthony Taylor: so it would have an extra column. So you just took this out. A,
+
+218
+00:20:19.580 --> 00:20:26.960
+Baro, Sonja: and one is column 0 is row access. One is going across. So we're dropping it out.
+
+219
+00:20:27.930 --> 00:20:30.460
+Baro, Sonja: So axis one is horizontal.
+
+220
+00:20:30.490 --> 00:20:37.149
+Anthony Taylor: correct, but it doesn't matter on this one, I mean, I guess it kind of does. But in this particular case, we just want to drop the country out
+
+221
+00:20:37.250 --> 00:20:39.270
+Anthony Taylor: because we put the country in the key.
+
+222
+00:20:39.830 --> 00:20:42.359
+Anthony Taylor: Okay, alright. So let's
+
+223
+00:20:42.420 --> 00:20:45.709
+Anthony Taylor: here's custom. So here's the last part it had 2 more.
+
+224
+00:20:46.680 --> 00:20:54.079
+Anthony Taylor: What do we keep losing? Is that Tanya? Again, they have customer Id this time. They want us to go across.
+
+225
+00:20:55.530 --> 00:20:58.660
+Anthony Taylor: So we end up with this really wide
+
+226
+00:20:59.710 --> 00:21:07.659
+Anthony Taylor: thing with all of the data in it from both. And that's it. I agree. That was probably a lot of typing, you know what? I will make sure and check the next one
+
+227
+00:21:07.990 --> 00:21:11.109
+Anthony Taylor: if there's anything like that. So you guys don't get stuck
+
+228
+00:21:11.320 --> 00:21:20.660
+Anthony Taylor: with tons of typing, and I'll just get it. Okay. I won't give you the whole activity, just the typing part. unless the typing part is the part that you need to be with.
+
+229
+00:21:21.660 --> 00:21:24.510
+Anthony Taylor: okay? So back to the slide show
+
+230
+00:21:25.790 --> 00:21:35.349
+Anthony Taylor: concat. What did we learn about concat is concat bringing data together? Or is it simply stacking the data. Let's make sure we're clear on this.
+
+231
+00:21:35.510 --> 00:21:38.540
+Anthony Taylor: Hey? Cat is stacking, stacking.
+
+232
+00:21:38.600 --> 00:21:41.630
+Anthony Taylor: either stacking on top or stacking next to each other.
+
+233
+00:21:43.170 --> 00:21:45.700
+Anthony Taylor: That's it. Okay.
+
+234
+00:21:46.040 --> 00:21:50.310
+Anthony Taylor: Joining is a little different. So joining.
+
+235
+00:21:50.870 --> 00:21:58.669
+Anthony Taylor:  why did it do that? Oh, I see, joining is used to combine data frames across columns
+
+236
+00:21:58.680 --> 00:22:06.050
+Anthony Taylor: on a common index. Sounds pretty similar. Alright. but
+
+237
+00:22:06.130 --> 00:22:12.079
+Anthony Taylor: in this case we can join. So we have 2 tables here. The same 2 tables we showed with the merge.
+
+238
+00:22:12.460 --> 00:22:19.060
+Anthony Taylor: The difference is with, whenever I told you guys that we looked at this index to 0,
+
+239
+00:22:19.370 --> 00:22:23.239
+Anthony Taylor: okay. it was basically position.
+
+240
+00:22:23.330 --> 00:22:29.730
+Anthony Taylor: So if this data was in a different order than this data. It would have just come across and matched up, even though it was wrong.
+
+241
+00:22:30.360 --> 00:22:35.289
+Anthony Taylor: Alright. what we're gonna do now, and if you've ever done SQL,
+
+242
+00:22:36.310 --> 00:22:38.740
+Anthony Taylor: or look up in excel.
+
+243
+00:22:39.220 --> 00:22:44.569
+Anthony Taylor: Okay, we're going to basically say, I want you to take the value of this column
+
+244
+00:22:44.580 --> 00:22:46.129
+Anthony Taylor: in this table
+
+245
+00:22:46.800 --> 00:22:51.309
+Anthony Taylor: and match it to the value of the column in this table
+
+246
+00:22:51.680 --> 00:22:54.660
+Anthony Taylor: and then bring over anything else
+
+247
+00:22:54.790 --> 00:22:56.040
+Anthony Taylor: that matches.
+
+248
+00:22:56.200 --> 00:23:00.269
+Anthony Taylor: So in this case, California, it's gonna bring over Sacramento.
+
+249
+00:23:02.640 --> 00:23:03.600
+Anthony Taylor: Alright.
+
+250
+00:23:05.620 --> 00:23:13.659
+Anthony Taylor: so this is just a normal, like a sequel joint like Santa. Don't think we ever actually cover SQL. But
+
+251
+00:23:13.940 --> 00:23:16.379
+Anthony Taylor: if anyone ever asks you, this is a sequel joke.
+
+252
+00:23:16.760 --> 00:23:17.600
+Anthony Taylor: Okay.
+
+253
+00:23:17.960 --> 00:23:23.460
+Anthony Taylor:  Now, the thing is yes, Ronnie.
+
+254
+00:23:25.020 --> 00:23:31.350
+Masarirambi, Rodney: just to make sure I'm not overthinking this. the assumption here is that
+
+255
+00:23:31.710 --> 00:23:50.680
+Masarirambi, Rodney: somebody's already vetted, and knows that the population is going to be of Sacramento. They just in 2 different files, and we just play them together. Right? That's right. So let's go back to the customer example. Let's pretend you have a table with like customer name birthday.
+
+256
+00:23:51.560 --> 00:23:53.600
+Anthony Taylor: So screened up. Okay?
+
+257
+00:23:53.810 --> 00:23:55.309
+Anthony Taylor: And it has an Id.
+
+258
+00:23:55.610 --> 00:23:58.679
+Anthony Taylor: and then you have another table that has address.
+
+259
+00:23:58.820 --> 00:23:59.670
+Anthony Taylor: Now.
+
+260
+00:24:00.040 --> 00:24:08.959
+Anthony Taylor: without getting into the whole data architecture. The reason we do this is that in our customer table. You know there could be 4 people living in a house.
+
+261
+00:24:09.800 --> 00:24:10.730
+Anthony Taylor: right?
+
+262
+00:24:10.850 --> 00:24:16.370
+Anthony Taylor: And we don't want to write the whole address 4 times, cause it'd be repeating data.
+
+263
+00:24:16.860 --> 00:24:18.950
+Anthony Taylor: So we'll write it one time
+
+264
+00:24:19.270 --> 00:24:25.350
+Anthony Taylor: and then create join. so that we could say, Hey, this address belongs to these 4 people.
+
+265
+00:24:26.200 --> 00:24:29.200
+Anthony Taylor: and that way. If those 4 people move, we don't have to change. You have this once.
+
+266
+00:24:30.420 --> 00:24:31.899
+Anthony Taylor: if they all move the same message
+
+267
+00:24:32.690 --> 00:24:40.860
+Anthony Taylor: alright, so that so yes, now I will tell you this actually is kind of a misrepresentation, because for a join.
+
+268
+00:24:41.310 --> 00:24:45.390
+Anthony Taylor: the key, the tape, the column you want to join on needs to be an index.
+
+269
+00:24:47.240 --> 00:24:54.329
+Anthony Taylor: Okay? So we can set the index to state we're gonna do it in place. So we don't have to copy it out.
+
+270
+00:24:55.280 --> 00:24:57.239
+Anthony Taylor: And now we can do this job
+
+271
+00:24:58.410 --> 00:25:02.440
+Anthony Taylor: alright. And this is what it would look like. State is only going to show up once.
+
+272
+00:25:03.690 --> 00:25:11.100
+Anthony Taylor: and then you're gonna have all of the columns from the first table and the column that wasn't state in the second table.
+
+273
+00:25:12.340 --> 00:25:13.330
+Anthony Taylor: Okay.
+
+274
+00:25:16.120 --> 00:25:16.850
+Anthony Taylor: okay.
+
+275
+00:25:17.650 --> 00:25:30.189
+Anthony Taylor: alright, Anthony. Will you say what the in place referred to again. Yeah, in place means we don't. You know how we have to do like df equals? Df. right if you do in place, you do not
+
+276
+00:25:30.250 --> 00:25:32.780
+Anthony Taylor: have to like, reset it to a new variable.
+
+277
+00:25:34.560 --> 00:25:37.840
+Anthony Taylor: You just can say it. And it happens to data from, I'll show you.
+
+278
+00:25:38.410 --> 00:25:40.820
+Anthony Taylor: Okay. Yes, I'm
+
+279
+00:25:42.190 --> 00:25:44.779
+Baro, Sonja: Meredith, did you have additional question?
+
+280
+00:25:44.800 --> 00:25:50.749
+Meredith McCanse (she/her): Go ahead. Yeah. But it's gonna it's I can. It's it's going down a rabbit hole that I will wait on.
+
+281
+00:25:51.120 --> 00:25:57.880
+Baro, Sonja: Okay. My question was on the order.
+
+282
+00:25:57.960 --> 00:26:09.370
+Baro, Sonja: and would you reference? The tables like that is is, I noticed on the first example we went. It was using
+
+283
+00:26:09.840 --> 00:26:16.450
+Baro, Sonja: what we were wanted to move the information into was listed first, but the from was second
+
+284
+00:26:17.290 --> 00:26:21.820
+Anthony Taylor: correct in this case. Okay, because we're doing inner joint. It won't
+
+285
+00:26:22.260 --> 00:26:32.540
+Anthony Taylor: it? Does for an inner join it does not matter. Join is, gonna say, if this State matches this state, give me all of the columns
+
+286
+00:26:33.060 --> 00:26:34.350
+Anthony Taylor: after that state
+
+287
+00:26:34.970 --> 00:26:37.239
+Baro, Sonja: because you've set the index
+
+288
+00:26:37.410 --> 00:26:38.380
+Anthony Taylor: correct.
+
+289
+00:26:38.570 --> 00:26:42.010
+Baro, Sonja: And it's cause it's doing that match. Okay? Correct?
+
+290
+00:26:43.140 --> 00:26:44.110
+Baro, Sonja: Okay.
+
+291
+00:26:44.260 --> 00:26:48.760
+Anthony Taylor: alright. So let's look at. Let's look at it in action and keep those questions coming. If you
+
+292
+00:26:48.960 --> 00:26:53.559
+Anthony Taylor: see something you're not sure about here. So we're gonna import same things as always.
+
+293
+00:26:53.580 --> 00:26:55.080
+Anthony Taylor: We have 3
+
+294
+00:26:55.490 --> 00:27:08.369
+Anthony Taylor: paths. We're going to bring in and 3 data frames and notice it's indexing on country for each of them. So if we look at each one can see country is the index we have crop year value
+
+295
+00:27:09.440 --> 00:27:14.410
+Anthony Taylor: crop your value. crop your value. Okay?
+
+296
+00:27:14.870 --> 00:27:18.139
+Anthony Taylor: So if we say, join
+
+297
+00:27:18.370 --> 00:27:22.690
+Anthony Taylor: now, there's a little extra thing here. This is new. And this is going to make sense in just a second.
+
+298
+00:27:22.930 --> 00:27:25.639
+Anthony Taylor: Okay, we're gonna join these
+
+299
+00:27:25.680 --> 00:27:27.680
+Anthony Taylor: this data frame
+
+300
+00:27:28.180 --> 00:27:33.250
+Anthony Taylor: with this data frame 2,019 with 2,018.
+
+301
+00:27:33.790 --> 00:27:38.639
+Anthony Taylor: Now the problem with a joint is, is, there is no vertical. There is no stack.
+
+302
+00:27:39.330 --> 00:27:45.159
+Anthony Taylor: It's always gonna go across. But as you just saw. They all have the same polymings.
+
+303
+00:27:46.950 --> 00:27:48.649
+Anthony Taylor: Okay, so that's gonna be problematic.
+
+304
+00:27:49.410 --> 00:27:56.929
+Anthony Taylor: So the way that Pandas allows us to fix this is, it says, Hey, you can make a left suffix and a right suffix.
+
+305
+00:27:58.080 --> 00:28:06.629
+Anthony Taylor: So this left suffix will append to the columns in this table. and the right suffix will append to the columns in this table.
+
+306
+00:28:07.010 --> 00:28:08.900
+Anthony Taylor: left. right?
+
+307
+00:28:10.250 --> 00:28:18.079
+Anthony Taylor: Now we can take a peek, and you'll see you can tell which ones belong to 2,019, and which ones belong to 2,018.
+
+308
+00:28:19.520 --> 00:28:20.520
+Anthony Taylor: Okay.
+
+309
+00:28:21.080 --> 00:28:25.809
+Anthony Taylor: if you don't do that, I'm gonna know if it'll work and join anymore. But let's find out.
+
+310
+00:28:28.390 --> 00:28:32.640
+Anthony Taylor: Yeah, it breaks. Okay, if with something in.
+
+311
+00:28:35.520 --> 00:28:37.260
+Anthony Taylor: there was a time when you could do that.
+
+312
+00:28:37.840 --> 00:28:46.320
+Anthony Taylor: Okay, now notice, there's only 2 tables here. You can't join multiple. You can't join more than 2 tables in pandas.
+
+313
+00:28:47.550 --> 00:28:48.580
+Anthony Taylor: Alright.
+
+314
+00:28:49.070 --> 00:28:53.200
+Anthony Taylor: So to join a third, we're going to take the one we just made.
+
+315
+00:28:54.270 --> 00:28:57.680
+Anthony Taylor: and we're gonna join it to the third table.
+
+316
+00:28:58.830 --> 00:29:08.970
+Anthony Taylor: Okay? So we're gonna call it this, we're going to join this. We're gonna add this suffix and join it to this table, which we don't need to add at suffix, because they're all different.
+
+317
+00:29:09.900 --> 00:29:11.900
+Anthony Taylor: Okay, we run that.
+
+318
+00:29:12.450 --> 00:29:15.569
+Anthony Taylor: And we get. Now, we also have 2020.
+
+319
+00:29:17.750 --> 00:29:19.199
+Anthony Taylor: Everyone with me. So far.
+
+320
+00:29:20.360 --> 00:29:25.100
+Anthony Taylor: So notice, it's joining on the country. And it's just adding the columns to the table.
+
+321
+00:29:26.560 --> 00:29:27.490
+Anthony Taylor: Okay?
+
+322
+00:29:28.510 --> 00:29:30.670
+Meredith McCanse (she/her): Alternative. Yeah.
+
+323
+00:29:30.930 --> 00:29:37.600
+Meredith McCanse (she/her): Alright, Anthony, for the adding the suffix part on the second one that you just did.
+
+324
+00:29:37.740 --> 00:29:40.039
+Meredith McCanse (she/her): you did it kind of a different way.
+
+325
+00:29:40.080 --> 00:29:44.589
+Anthony Taylor: Yeah, it. It looks a little different than this one, because there's no left and right.
+
+326
+00:29:44.710 --> 00:29:50.460
+Anthony Taylor:  I actually, you know what. Let's try something real quick.
+
+327
+00:29:58.330 --> 00:30:06.430
+Anthony Taylor: Okay? So that would work. So you you don't have to do it that way the way they're showing it there.  you can.
+
+328
+00:30:08.490 --> 00:30:19.579
+Anthony Taylor: You could have done like what we did up above like, did this dot join, and then did right suffix only or left suffix. Only in this case it's just another way to write. The same thing
+
+329
+00:30:20.030 --> 00:30:27.869
+Anthony Taylor: had suffix works the same as because this is just going to add a suffix to every column. So when you join, it's just gonna be there.
+
+330
+00:30:28.580 --> 00:30:33.690
+Anthony Taylor: If you do it in the join. It's going to add it to. It's kind of basically the same.
+
+331
+00:30:34.380 --> 00:30:39.140
+Meredith McCanse (she/her): Okay? So okay.
+
+332
+00:30:39.840 --> 00:30:43.779
+Baro, Sonja: so pick which one you like better and use that.
+
+333
+00:30:44.570 --> 00:30:46.470
+Baro, Sonja: can you review.
+
+334
+00:30:47.170 --> 00:30:58.610
+Baro, Sonja: Can you review the left and right like what is it left of? And what is it right now? It's just how it's listed. So left is here is the first one. Okay, right? Is the second.
+
+335
+00:31:00.420 --> 00:31:02.510
+Baro, Sonja: So 2018.
+
+336
+00:31:02.670 --> 00:31:08.670
+Anthony Taylor: So the the first one's here, 2019, and then the second one's the one inside the parentheses.
+
+337
+00:31:09.500 --> 00:31:11.790
+Anthony Taylor: So that's to the right of the first.
+
+338
+00:31:13.310 --> 00:31:14.389
+Anthony Taylor: So left.
+
+339
+00:31:15.340 --> 00:31:17.759
+Baro, Sonja: Right? Okay, gotcha.
+
+340
+00:31:17.910 --> 00:31:19.639
+Anthony Taylor: it's purely position.
+
+341
+00:31:19.660 --> 00:31:22.309
+Baro, Sonja: Gotcha. Okay. Now, I'm tracking. Thank you.
+
+342
+00:31:22.390 --> 00:31:23.440
+Anthony Taylor: Yes, Clayton.
+
+343
+00:31:25.770 --> 00:31:30.260
+Clayton Graves: my question got answered. I was gonna ask essentially.
+
+344
+00:31:30.480 --> 00:31:37.660
+Clayton Graves: defaults to left. But that's kind of what it does. But it's yeah. I'm there
+
+345
+00:31:38.590 --> 00:31:50.370
+Anthony Taylor: suffix on that second join instead of that suffix. Yeah, let's do it.
+
+346
+00:31:53.060 --> 00:31:57.240
+Dipinto, Matt: And I'm asking because I just tried and it didn't work. Oh, no.
+
+347
+00:31:57.870 --> 00:32:01.810
+Dipinto, Matt: doesn't mean I'm right. I'm just trying.
+
+348
+00:32:01.840 --> 00:32:04.440
+Anthony Taylor: It's you, Matt. It's all you
+
+349
+00:32:04.550 --> 00:32:08.219
+Dipinto, Matt: try to think of. Why it's possible.
+
+350
+00:32:09.110 --> 00:32:10.230
+Anthony Taylor: Let's see.
+
+351
+00:32:14.880 --> 00:32:17.349
+Anthony Taylor: maybe that's why they do it that way.
+
+352
+00:32:18.910 --> 00:32:20.290
+Anthony Taylor: Yeah, we're fine.
+
+353
+00:32:20.670 --> 00:32:23.470
+Dipinto, Matt:  But wait, or did it?
+
+354
+00:32:23.490 --> 00:32:26.210
+Anthony Taylor: Oh, look! It didn't! It didn't add it!
+
+355
+00:32:26.730 --> 00:32:33.830
+Dipinto, Matt: Is it because those suffixes are carried through from like earlier? And I oh, but left is over here.
+
+356
+00:32:35.130 --> 00:32:36.470
+Anthony Taylor: That's interesting.
+
+357
+00:32:37.750 --> 00:32:43.169
+Anthony Taylor: Wonder if we did a write also. the fact that it didn't fail is interesting to me, too.
+
+358
+00:32:48.460 --> 00:32:49.919
+Anthony Taylor: I don't actually know why?
+
+359
+00:32:51.580 --> 00:32:53.029
+Anthony Taylor: It's an interesting question.
+
+360
+00:32:55.690 --> 00:32:57.440
+Anthony Taylor: It seems like it should work.
+
+361
+00:33:01.580 --> 00:33:03.109
+Anthony Taylor: Let's let's try this.
+
+362
+00:33:05.340 --> 00:33:15.060
+Anthony Taylor: Yeah. See that for sure should work. So there's something weird going on. Let's see. we tell suffix blah blah blah. we
+
+363
+00:33:15.270 --> 00:33:17.429
+Anthony Taylor: I'll suffix. But
+
+364
+00:33:18.660 --> 00:33:23.340
+Anthony Taylor: I don't know that I'd have to play with it for a bit. Maybe I will. you know.
+
+365
+00:33:24.270 --> 00:33:27.139
+So you at least you know the one way to do it for sure works.
+
+366
+00:33:27.200 --> 00:33:32.120
+Anthony Taylor: I will see, or maybe Kevin and James, you want to see if you can find why that doesn't work.
+
+367
+00:33:34.060 --> 00:33:50.490
+Meredith McCanse (she/her): Is it? Because in the first set your all of your columns were identical? And so you had to specify left and right, but when you came into the second one, you had one set that already had suffixes, like every set of columns, was different. Is that why it would do it? Got it? That is exactly the reason.
+
+368
+00:33:50.830 --> 00:33:52.569
+Anthony Taylor: That is exactly the reason
+
+369
+00:33:52.780 --> 00:34:02.739
+Anthony Taylor: first one, and II hate to be the naysayer I if you on the set you're looking at right now, if you just delete right suffix, it'll still work.
+
+370
+00:34:03.910 --> 00:34:06.850
+Anthony Taylor: This will work. It just won't put 2,018.
+
+371
+00:34:07.430 --> 00:34:17.330
+Anthony Taylor: Yeah, Meredith.
+
+372
+00:34:18.060 --> 00:34:28.430
+Anthony Taylor: when you look at this one and this one, the columns are the same. So whatever you put in left or right. It's going to work whether you do just left, just right or both.
+
+373
+00:34:28.510 --> 00:34:30.529
+Anthony Taylor: Okay, down here.
+
+374
+00:34:30.790 --> 00:34:36.709
+Anthony Taylor: The reason that didn't work is because the columns in here are this.
+
+375
+00:34:39.150 --> 00:34:40.989
+Anthony Taylor: this is what's in 2020.
+
+376
+00:34:41.060 --> 00:34:44.769
+Anthony Taylor: None of these are duplicated in the rest of the table.
+
+377
+00:34:45.429 --> 00:34:55.369
+Anthony Taylor: And so, therefore it has no reason to put suffix. Okay, does it? Only suffix duplicate columns? That would be the answer. We were looking for Meredith. Freaking, brilliant.
+
+378
+00:34:56.239 --> 00:35:03.470
+Anthony Taylor: That's awesome. I love that that is very, very good. I'm so impressed I'm so excited about that
+
+379
+00:35:04.060 --> 00:35:13.400
+Baro, Sonja: the opposite of Brilliant for a minute. Oh, back to the one where we said it was different.
+
+380
+00:35:13.480 --> 00:35:30.639
+Baro, Sonja: so next one, right? That one 2020, the 2020 columns, right? Yeah. So crop in year and value, those are the same. That same that we had in the other file earlier, but not the same that are in there.
+
+381
+00:35:32.590 --> 00:35:39.810
+Baro, Sonja: Cause. This, to we 2,018 and 19, is referring to up here. Right?
+
+382
+00:35:41.710 --> 00:35:44.420
+Baro, Sonja: So now here. And you know what? Here you go. Watch this.
+
+383
+00:35:44.460 --> 00:35:46.479
+Anthony Taylor: I think I have an idea how we can do this.
+
+384
+00:35:47.720 --> 00:35:49.270
+Anthony Taylor: Okay, so
+
+385
+00:35:50.060 --> 00:35:54.460
+Anthony Taylor: this should give us okay, so 2,018 works.
+
+386
+00:36:00.260 --> 00:36:01.270
+Anthony Taylor: And there you go.
+
+387
+00:36:03.700 --> 00:36:05.139
+Anthony Taylor: Do you see why that worked?
+
+388
+00:36:07.820 --> 00:36:10.459
+Anthony Taylor: This is totally just proving Meredith's point.
+
+389
+00:36:10.760 --> 00:36:21.640
+Anthony Taylor: So up here. Look, I didn't. I only said, suffix 2,018. Well, both tables had duplicate columns, so it did suffix 2,018.
+
+390
+00:36:21.860 --> 00:36:31.470
+Anthony Taylor: But I said, don't suffix 2,019 at all. So now, when you come here 2020, and
+
+391
+00:36:31.630 --> 00:36:36.470
+Anthony Taylor: these first 3 columns are duplicates. So, putting the suffix here.
+
+392
+00:36:36.650 --> 00:36:40.870
+Anthony Taylor: It found the duplicates, and then suffixed everything. And there you go.
+
+393
+00:36:42.710 --> 00:36:44.040
+Anthony Taylor: Does that make sense? Now
+
+394
+00:36:45.590 --> 00:36:48.430
+Baro, Sonja: I'll need it. I'll need it to percolate.
+
+395
+00:36:48.820 --> 00:36:50.479
+Baro, Sonja: We can agree with that.
+
+396
+00:36:52.870 --> 00:36:54.819
+Anthony Taylor: Matt. Are you so excited now?
+
+397
+00:36:54.860 --> 00:36:58.360
+Dipinto, Matt: We solved that right here, stoked, and I'm happy. We did thank you.
+
+398
+00:36:59.240 --> 00:37:02.950
+Anthony Taylor: And here's another way to do it, just to throw in another wrench.
+
+399
+00:37:04.250 --> 00:37:12.929
+Anthony Taylor: So basically, they're doing it's they. They have a list where they're adding the suffixes. So this is similar to the way. This was the first time.
+
+400
+00:37:13.060 --> 00:37:14.130
+Anthony Taylor: Okay?
+
+401
+00:37:14.150 --> 00:37:17.960
+Anthony Taylor: And then they're adding, 2020. This is dumb. Don't do it this way.
+
+402
+00:37:18.280 --> 00:37:24.850
+Anthony Taylor: But you could. So, you know. So they made a new thing. And they did like this list
+
+403
+00:37:25.370 --> 00:37:35.209
+Anthony Taylor: like this, and it basically concatenated them. And then they did this one to join it. And it does basically, the same output is up above. I don't know.
+
+404
+00:37:35.430 --> 00:37:39.580
+Anthony Taylor: I guess it's more pythonic. Curry loves it when I say pythonic.
+
+405
+00:37:40.390 --> 00:37:46.800
+Dipinto, Matt: Okay, this format. Could you add 3 of them together in that first line? No.
+
+406
+00:37:47.400 --> 00:37:49.280
+Anthony Taylor: I'm pretty certain, cannot.
+
+407
+00:37:49.380 --> 00:37:54.040
+Anthony Taylor: It's not gonna say I'm not gonna try it. But I am like nearly certain, Kenneth.
+
+408
+00:37:54.350 --> 00:37:58.570
+Anthony Taylor: there's I've never come across. There's another one that I use a lot called Union.
+
+409
+00:37:58.800 --> 00:38:02.479
+Anthony Taylor: right when I'm dealing with lots of really large-scale data.
+
+410
+00:38:02.620 --> 00:38:09.650
+Anthony Taylor: And and II literally have to write a special function that will allow me to do more than one at a time
+
+411
+00:38:10.630 --> 00:38:12.970
+Anthony Taylor: are more than 2 at a time. Sorry.
+
+412
+00:38:13.380 --> 00:38:17.710
+Anthony Taylor: So, anyway, okay, so is that, go ahead.
+
+413
+00:38:17.750 --> 00:38:22.720
+Meredith McCanse (she/her): Is that first step in this alternative method is that actually just creating a list.
+
+414
+00:38:23.870 --> 00:38:28.380
+Anthony Taylor: It's it's really just putting these 2 whoops
+
+415
+00:38:29.140 --> 00:38:30.400
+Anthony Taylor: together.
+
+416
+00:38:30.850 --> 00:38:33.659
+Anthony Taylor: In fact. Here, let's do this.
+
+417
+00:38:33.790 --> 00:38:39.590
+Meredith McCanse (she/her): Oh, it's almost okay. So is it sort of like using the let's let's just take a look and see what it looks like when it comes out.
+
+418
+00:38:39.680 --> 00:38:46.640
+Anthony Taylor: That's probably the easiest. We can even do a type. So if you're ever unsure. you can do what we're doing here.
+
+419
+00:38:47.820 --> 00:38:49.340
+Anthony Taylor: Okay? So
+
+420
+00:38:50.150 --> 00:38:56.690
+Anthony Taylor: I don't even know what I would call that. Yeah, it looks like it's
+
+421
+00:38:57.080 --> 00:38:58.760
+Anthony Taylor: let's find out what it is.
+
+422
+00:39:02.210 --> 00:39:03.090
+Anthony Taylor: Darn it!
+
+423
+00:39:04.950 --> 00:39:08.490
+Anthony Taylor: So if we just do a type. it's a list.
+
+424
+00:39:09.460 --> 00:39:14.819
+Meredith McCanse (she/her): So it did stack the 2 on top of each other, and then we passed it into the next one.
+
+425
+00:39:15.540 --> 00:39:19.730
+Anthony Taylor: And that gave us our cool little data frame.
+
+426
+00:39:21.050 --> 00:39:22.359
+Anthony Taylor: Pretty exciting.
+
+427
+00:39:23.000 --> 00:39:28.129
+Anthony Taylor: Okay, so here we're gonna do some a little different. We're gonna read those same into
+
+428
+00:39:28.170 --> 00:39:32.480
+Anthony Taylor: back into these data frames. But now there's no index.
+
+429
+00:39:33.400 --> 00:39:36.010
+Anthony Taylor: Now I'm going to tell you right now.
+
+430
+00:39:36.400 --> 00:39:38.800
+Anthony Taylor: the difference between merge and joint
+
+431
+00:39:39.910 --> 00:39:41.350
+Anthony Taylor: is the index.
+
+432
+00:39:42.480 --> 00:39:49.560
+Anthony Taylor: Okay, we're not starting merge yet. So what are we going to do? We need to create the index, but we can do it
+
+433
+00:39:49.730 --> 00:40:02.640
+Anthony Taylor: in line. and I'll show you what I mean. This looks very wordy. Don't get afraid of this. Alright. The new data frame name right there. It's just a variable could be, Bob.
+
+434
+00:40:03.700 --> 00:40:04.590
+Anthony Taylor: Okay.
+
+435
+00:40:06.630 --> 00:40:09.230
+Anthony Taylor: the first data frame join
+
+436
+00:40:10.640 --> 00:40:14.250
+Anthony Taylor: the second data frame set index.
+
+437
+00:40:16.520 --> 00:40:19.100
+Anthony Taylor: Now, notice they're doing it on 2 columns.
+
+438
+00:40:25.580 --> 00:40:28.500
+Anthony Taylor: I know you guys are up to something in there. I'm scared to go look.
+
+439
+00:40:28.740 --> 00:40:32.109
+Anthony Taylor: okay. Then we're gonna say, I want you to join.
+
+440
+00:40:34.330 --> 00:40:35.810
+Anthony Taylor: Oh, they are up to something.
+
+441
+00:40:36.530 --> 00:40:39.309
+Sorry. All my Boxers just ran in here.
+
+442
+00:40:39.360 --> 00:40:42.409
+Anthony Taylor: looked at me panting, and then ran out the door.
+
+443
+00:40:45.200 --> 00:40:46.740
+Anthony Taylor: Okay, anyway.
+
+444
+00:40:46.850 --> 00:40:51.950
+Anthony Taylor: So we're going to set the index, and we're going to say on what columns we want you to join on.
+
+445
+00:40:53.010 --> 00:40:56.599
+Anthony Taylor: how we want you to do it. And then we're going to put in the suffix.
+
+446
+00:40:57.190 --> 00:40:59.949
+Anthony Taylor: Okay? And this will work
+
+447
+00:41:01.080 --> 00:41:02.249
+Anthony Taylor: just like so
+
+448
+00:41:03.850 --> 00:41:04.900
+Anthony Taylor: and notice
+
+449
+00:41:05.090 --> 00:41:07.669
+Anthony Taylor: nothing is indexed. It totally works
+
+450
+00:41:08.360 --> 00:41:14.970
+Anthony Taylor: alright. And they only did they? Oh, they only suffix, don't know. They suffix everything. So that's good.
+
+451
+00:41:15.320 --> 00:41:22.840
+Anthony Taylor: Okay. Now notice country and crop aren't suffix. But that's because those were the join key. They only show up once.
+
+452
+00:41:24.670 --> 00:41:26.609
+Anthony Taylor: even though they were in both tables.
+
+453
+00:41:27.950 --> 00:41:36.230
+Meredith McCanse (she/her): If you have something that doesn't key up between the 2 data sets, does that data just get dropped right now with an inter, join? Absolutely.
+
+454
+00:41:36.540 --> 00:41:37.270
+Meredith McCanse (she/her): Okay.
+
+455
+00:41:38.910 --> 00:41:47.299
+Anthony Taylor: Okay. So here, we're gonna do 2,018, 2,020. So we already have 2,018, 2,019 up here.
+
+456
+00:41:47.340 --> 00:41:51.430
+Anthony Taylor: Purdue, 20 enter, join, set index again
+
+457
+00:41:52.270 --> 00:41:55.500
+Anthony Taylor: on country crop, inner output.
+
+458
+00:41:56.650 --> 00:42:01.239
+Anthony Taylor: It's it's the only real difference in this one is we're setting the index in line.
+
+459
+00:42:01.310 --> 00:42:03.310
+Anthony Taylor: And we're doing multiple columns.
+
+460
+00:42:05.130 --> 00:42:08.490
+Anthony Taylor: Alright. This is an extremely useful thing.
+
+461
+00:42:10.450 --> 00:42:16.860
+Anthony Taylor: even if you're not a hundred percent sure what it's doing right now, or why it's doing it.
+
+462
+00:42:17.050 --> 00:42:19.250
+Anthony Taylor: Understand that it's good.
+
+463
+00:42:20.380 --> 00:42:23.010
+Anthony Taylor: Okay? So that when it comes up again.
+
+464
+00:42:24.710 --> 00:42:28.929
+Anthony Taylor:  you can. You can come. Look for this. Yes, honey.
+
+465
+00:42:29.490 --> 00:42:33.890
+Baro, Sonja: how come you? We have to. We have to tell it twice
+
+466
+00:42:34.110 --> 00:42:40.639
+Baro, Sonja: the index country crop the first time we set the index the on. What is that?
+
+467
+00:42:41.010 --> 00:42:44.459
+Anthony Taylor: So that's because we have no index on this data form.
+
+468
+00:42:46.390 --> 00:42:58.229
+Anthony Taylor: So you see how we have the first data frame. And we're doing dot join. And then here, this, the the second data frame, we're setting the index. And then the on basically
+
+469
+00:42:58.870 --> 00:43:03.699
+Anthony Taylor: confirms that we want to use that same index on this table
+
+470
+00:43:04.180 --> 00:43:05.919
+Baro, Sonja: because you could technically
+
+471
+00:43:06.920 --> 00:43:08.910
+Anthony Taylor: not use crop here
+
+472
+00:43:08.960 --> 00:43:11.450
+Anthony Taylor: should still work, not didn't work.
+
+473
+00:43:11.560 --> 00:43:12.940
+Anthony Taylor: Doggone. Join.
+
+474
+00:43:14.350 --> 00:43:15.180
+Baro, Sonja: Okay?
+
+475
+00:43:15.610 --> 00:43:18.990
+Anthony Taylor: So it has to be the same. So it's just redundant.
+
+476
+00:43:19.950 --> 00:43:21.080
+Baro, Sonja: Gotcha
+
+477
+00:43:23.080 --> 00:43:29.459
+Anthony Taylor: join. I'll be honest. They actually recently did like a whole thing with join. So we usually.
+
+478
+00:43:29.760 --> 00:43:38.230
+Anthony Taylor: And my, my area, we typically either use SQL to do joins or we use merge, which you're going to see in a few minutes.
+
+479
+00:43:39.030 --> 00:43:41.590
+Anthony Taylor: Okay, so that's it for joining.
+
+480
+00:43:42.490 --> 00:43:45.440
+Anthony Taylor: You're either gonna have it an index when you do the join
+
+481
+00:43:45.610 --> 00:43:49.779
+Anthony Taylor: and add suffixes, or you're gonna do it all in line.
+
+482
+00:43:51.020 --> 00:43:51.830
+Anthony Taylor: Okay.
+
+483
+00:43:53.130 --> 00:43:56.069
+Anthony Taylor: alright. Let's get you guys busy on this. Let me
+
+484
+00:43:56.110 --> 00:44:04.240
+Anthony Taylor: want to do a couple things here before I send you away. Let's look at the preview. You're gonna import. Csv's read each one
+
+485
+00:44:05.440 --> 00:44:13.890
+Anthony Taylor: index on field type combine. So it's going to basically have you do the same thing except note
+
+486
+00:44:13.920 --> 00:44:18.320
+Anthony Taylor: 2,016 and 17 next at 1819 and 20.
+
+487
+00:44:18.720 --> 00:44:19.920
+Anthony Taylor: Think about that.
+
+488
+00:44:21.100 --> 00:44:22.110
+Anthony Taylor: Alright?
+
+489
+00:44:22.550 --> 00:44:24.070
+Anthony Taylor: All right.
+
+490
+00:44:24.100 --> 00:44:27.200
+Anthony Taylor: I'm gonna stop share. But I'm gonna pause my share for a second.
+
+491
+00:44:28.450 --> 00:44:43.080
+Baro, Sonja: can we get a cheat on the importing cause? There's 1, 2, 3, 5 Csv files to import. That's exactly what I was looking at right now look at that. You're brilliant.
+
+492
+00:44:43.590 --> 00:44:47.819
+Baro, Sonja: I'm I'm II pause the share you can't see me looking at.
+
+493
+00:44:47.940 --> 00:44:55.120
+Baro, Sonja: But I am going to burn all our time on this. Yeah, I don't want that. So I want to go to live.
+
+494
+00:44:55.740 --> 00:44:59.290
+Anthony Taylor: And I just put all of the reads in.
+
+495
+00:45:00.290 --> 00:45:03.610
+Anthony Taylor: except for it had the index column which comes now. But that's okay.
+
+496
+00:45:08.840 --> 00:45:11.330
+Anthony Taylor: There's only one other
+
+497
+00:45:14.380 --> 00:45:16.200
+Anthony Taylor: I am.
+
+498
+00:45:16.500 --> 00:45:20.549
+Anthony Taylor: Yeah. You guys let me see how long I want me. I think you're gonna need more time for this one. Let me see.
+
+499
+00:45:27.130 --> 00:45:31.619
+Anthony Taylor: is that you, Sam. check and make sure the dogs didn't destroy Semple
+
+500
+00:45:32.970 --> 00:45:34.400
+Anthony Taylor: there, I don't know.
+
+501
+00:45:35.230 --> 00:45:44.049
+Anthony Taylor: They've been running around like maniacs. Okay? So I'm gonna give you guys 20 min for this. It does give you 15. But I think 20 would be more appropriate
+
+502
+00:45:44.140 --> 00:45:46.360
+Anthony Taylor: because there are some books. Don't look at me.
+
+503
+00:45:46.920 --> 00:45:52.030
+Anthony Taylor: There are some additional areas. We gotta write a lot. Alright.
+
+504
+00:45:53.690 --> 00:45:56.009
+Mason, Natalie: Okay, gang. Welcome back.
+
+505
+00:45:56.450 --> 00:46:01.700
+Anthony Taylor: I'm sure you guys were doing good. Of course you're doing good. You're just at that point right now.
+
+506
+00:46:02.330 --> 00:46:06.249
+Anthony Taylor: where things shouldn't be as tough as they were before.
+
+507
+00:46:07.390 --> 00:46:08.869
+Anthony Taylor: They're not easy yet.
+
+508
+00:46:09.640 --> 00:46:10.920
+Mason, Natalie: Not yet.
+
+509
+00:46:11.450 --> 00:46:22.619
+Anthony Taylor: Alright. So we're gonna import pandas and pay. Then here's that code I gave you. So don't really need to go too much into that. Basically, you're gonna create a path. And then you're gonna read the Csv and set the index column to fuel type.
+
+510
+00:46:23.700 --> 00:46:33.139
+Anthony Taylor: Then we're gonna look at each one saving. exciting. exciting. They all have the same columns
+
+511
+00:46:37.910 --> 00:46:41.209
+Anthony Taylor: pretty cool, alright, so remember, we had to do 2 at a time.
+
+512
+00:46:41.220 --> 00:46:47.890
+Anthony Taylor: The first one I'll deal with and left suffix, because this is the first one is the left one
+
+513
+00:46:47.960 --> 00:46:49.990
+Anthony Taylor: Wright suffix, the second one.
+
+514
+00:46:50.230 --> 00:47:03.389
+Anthony Taylor: 2,017. Blab. Got it. Now you have to do? you have to add the suffix to all of it. So they're doing it. That second method, which I guess is better. If you think of it for this?
+
+515
+00:47:03.490 --> 00:47:06.059
+Anthony Taylor: How did you guys did you guys do it same way, or did you do it this way
+
+516
+00:47:07.080 --> 00:47:10.059
+Anthony Taylor: this way? Well, good. I'm glad you did.
+
+517
+00:47:10.440 --> 00:47:14.189
+Anthony Taylor: So here we're gonna join all of those to that.
+
+518
+00:47:14.450 --> 00:47:17.410
+Anthony Taylor: and you end up with the whole thing.
+
+519
+00:47:18.520 --> 00:47:22.320
+Anthony Taylor: There is a column that you don't really need.
+
+520
+00:47:25.020 --> 00:47:33.120
+Anthony Taylor: And that's because we're adding  because every column has the year in it. You really don't need a year column.
+
+521
+00:47:33.770 --> 00:47:34.670
+Anthony Taylor: though
+
+522
+00:47:38.300 --> 00:47:39.910
+Anthony Taylor: we can drop that.
+
+523
+00:47:40.270 --> 00:47:41.749
+Anthony Taylor: Where was that right here?
+
+524
+00:47:43.100 --> 00:47:48.260
+Anthony Taylor: Oh, here, it's just listing them out. Okay? Yeah.
+
+525
+00:47:48.670 --> 00:47:55.199
+Anthony Taylor: So here we're going to say, Drop, we're supposed to send a list of columns in, and there you go, bam. They're gone.
+
+526
+00:47:55.680 --> 00:48:01.740
+Meredith McCanse (she/her): And then last, but not least, can I ask a question about the columns, one that you just did. So you don't have.
+
+527
+00:48:01.760 --> 00:48:04.840
+Meredith McCanse (she/her): You don't have to tell it. Columns equals
+
+528
+00:48:05.820 --> 00:48:09.849
+Meredith McCanse (she/her): here and drop part. Yeah, no cause. This is the drop
+
+529
+00:48:10.120 --> 00:48:11.899
+Anthony Taylor: columns equals is for a rename.
+
+530
+00:48:13.560 --> 00:48:19.059
+Meredith McCanse (she/her): Didn't we have an example in a previous exercise where we dropped a column and we said, column equals, and then
+
+531
+00:48:21.330 --> 00:48:25.930
+Meredith McCanse (she/her): put something there anybody remember that? I don't think so.
+
+532
+00:48:26.520 --> 00:48:38.260
+Dipinto, Matt: No, usually we only have to do column equals on Renates. So II guess I that was me. But you can use column equals and put a list in like that, and you don't have to put in an access, and it'll let you drop it.
+
+533
+00:48:38.670 --> 00:48:44.399
+Anthony Taylor: Oh, I got what you're saying. So you could do. Yeah, it's actually yeah. It's definitely one of those arguments
+
+534
+00:48:45.270 --> 00:48:50.899
+Anthony Taylor: I like that. Actually, me, personally, I think this is easier to understand than access equals one.
+
+535
+00:48:51.790 --> 00:48:53.080
+Anthony Taylor: Just for the record.
+
+536
+00:48:54.900 --> 00:49:10.569
+Anthony Taylor: Read your documentation cool. Okay? And then this last thing, all they're basically doing is sorting. All of these when they say sort they're sorting by index because they didn't give it a specific column. So when we do this.
+
+537
+00:49:10.700 --> 00:49:12.870
+Anthony Taylor: we'll get it all by index.
+
+538
+00:49:13.540 --> 00:49:20.910
+Sihong Zhou: Right? It should be ascending. But ascending is a force.
+
+539
+00:49:22.930 --> 00:49:23.940
+Anthony Taylor: I'm sorry
+
+540
+00:49:24.340 --> 00:49:33.210
+Sihong Zhou: it is said to sort of the data frame in ascending order, but so it's descending. It starts with the big one. It goes down.
+
+541
+00:49:33.410 --> 00:49:40.419
+Anthony Taylor: So yeah, it didn't actually sort the index. That's interesting. It sorted everything but the index. Alright, that's cool.
+
+542
+00:49:42.800 --> 00:49:48.780
+Anthony Taylor: So yeah. So a sending false would be what this is, Cindy. It starts with the big number and goes down.
+
+543
+00:49:49.350 --> 00:49:58.910
+Sihong Zhou: But did ask you to do a sending, not a sending. Yeah. So that's so funny. So let's change it.
+
+544
+00:50:00.850 --> 00:50:06.509
+Anthony Taylor: Awesome. Good eyes, Cindy. I didn't see that you should stuck with it. Anthony, shut up and listen to me.
+
+545
+00:50:06.650 --> 00:50:07.820
+Sihong Zhou: Another.
+
+546
+00:50:08.350 --> 00:50:11.840
+Anthony Taylor: Alright. Hi. that's that.
+
+547
+00:50:13.210 --> 00:50:18.080
+Anthony Taylor: So let's see what's next merging.
+
+548
+00:50:18.470 --> 00:50:26.180
+Anthony Taylor: Okay? So merging has been around for long time and fact. It's really how we've been doing it for
+
+549
+00:50:26.200 --> 00:50:27.339
+Anthony Taylor: a very long time.
+
+550
+00:50:27.740 --> 00:50:30.039
+Anthony Taylor: The cool thing about merging
+
+551
+00:50:30.260 --> 00:50:32.300
+Anthony Taylor: it doesn't have to be an index.
+
+552
+00:50:33.410 --> 00:50:40.250
+Anthony Taylor: Okay, that's probably the biggest difference now, because it doesn't have to be an index.
+
+553
+00:50:40.750 --> 00:50:45.659
+Anthony Taylor: So this is like the exact same example here, but because it doesn't have to be an index.
+
+554
+00:50:48.600 --> 00:50:51.000
+Anthony Taylor: which do you think would perform better.
+
+555
+00:50:51.250 --> 00:50:53.300
+Anthony Taylor: merge or join
+
+556
+00:51:02.110 --> 00:51:03.420
+michael mcpherson: everybody. Gap.
+
+557
+00:51:03.900 --> 00:51:05.200
+Anthony Taylor: emerge white?
+
+558
+00:51:07.460 --> 00:51:08.809
+You said, Guess.
+
+559
+00:51:09.220 --> 00:51:19.460
+Baro, Sonja: hmm! And when you say good answer. When you say platform, you mean render quickly. Or what
+
+560
+00:51:19.650 --> 00:51:25.300
+Anthony Taylor: think of what's happening in the background with all of this stuff? Right? It has to take this data, put it into memory.
+
+561
+00:51:25.360 --> 00:51:35.490
+Anthony Taylor: do something, and then output it back out. So how quickly? Right? So that do something which one you think would be more efficient one with an index or one without
+
+562
+00:51:36.490 --> 00:51:43.989
+Baro, Sonja: join is the better option. But
+
+563
+00:51:45.780 --> 00:51:50.180
+Anthony Taylor: let's think about this. If you join, you have to remember to set the index
+
+564
+00:51:50.450 --> 00:51:59.810
+Anthony Taylor: setting. The index is in itself an an activity. So here's the thing, and and I don't want you to worry too much about this statement. But this is a real world statement.
+
+565
+00:52:00.020 --> 00:52:00.840
+Anthony Taylor: Okay.
+
+566
+00:52:00.970 --> 00:52:03.650
+Anthony Taylor: if you only need to do it once
+
+567
+00:52:04.460 --> 00:52:08.840
+Baro, Sonja: like merge and get everything one time. Merge is fast.
+
+568
+00:52:10.230 --> 00:52:20.470
+Anthony Taylor: Okay? Or if it's hundreds of millions of pros, maybe join. But for the most part you only need to do once. Just do merge. If you're going to do multiple things with it.
+
+569
+00:52:20.640 --> 00:52:28.150
+Anthony Taylor: Then do set in, or then do join right because you want that index there to give you more efficiency.
+
+570
+00:52:29.150 --> 00:52:33.570
+Anthony Taylor: Alright. So just something to keep in your mind. So let's look at this.
+
+571
+00:52:34.130 --> 00:52:39.819
+Anthony Taylor: So we're important pandas. They just gave us some raw data here, kind of interesting.
+
+572
+00:52:40.000 --> 00:52:44.100
+Anthony Taylor: We're going to create a little data frame from it. There's our data frame.
+
+573
+00:52:46.900 --> 00:52:56.260
+Anthony Taylor: Oh, excuse me, and then we have another data frame. Here's I think we're going to get into inner an hour, I think, yeah, okay.
+
+574
+00:52:56.540 --> 00:53:05.489
+Anthony Taylor:  And with this data frame, you can see, we have customer Ids again. So customer, Id name email.
+
+575
+00:53:05.630 --> 00:53:08.870
+Anthony Taylor: here we have customer. Id item cost. That's what they bought.
+
+576
+00:53:09.610 --> 00:53:12.249
+Anthony Taylor: Okay, so we're gonna do a merge.
+
+577
+00:53:12.600 --> 00:53:16.540
+Anthony Taylor: We're gonna combine to on customer id, and then take a look
+
+578
+00:53:18.180 --> 00:53:19.310
+Anthony Taylor: pretty straightforward.
+
+579
+00:53:20.050 --> 00:53:21.390
+Anthony Taylor: Okay, but
+
+580
+00:53:22.290 --> 00:53:25.639
+Anthony Taylor: wait. There's something missing.
+
+581
+00:53:28.970 --> 00:53:30.750
+Anthony Taylor: Look at Babo up there
+
+582
+00:53:32.690 --> 00:53:36.740
+Anthony Taylor: and cooler down here. Do you see them in here?
+
+583
+00:53:40.680 --> 00:53:42.059
+Anthony Taylor: They're not there, are they?
+
+584
+00:53:42.470 --> 00:53:56.029
+Anthony Taylor:  okay? Because by default this is doing what's called an inner join an inner join. Say, will only return data that the key field is in both
+
+585
+00:53:56.190 --> 00:53:57.260
+Anthony Taylor: tables.
+
+586
+00:53:57.550 --> 00:54:04.129
+Anthony Taylor: So the key field was customer. Id, so you can see 4, 3, 1, 12, 5, 4, 3, 9, 9, 9, 6, 5, 4
+
+587
+00:54:04.250 --> 00:54:13.909
+Anthony Taylor: up here. 1, 1, 2, 4, 3, 9, 9, 9, 5, 4, 3, 1, 2, 3. So 1, 2, 3 is not here and 6, 5, 4, is not there. you guys see that.
+
+588
+00:54:14.510 --> 00:54:19.560
+Anthony Taylor: so we can't do it. But what if I need a list of all my customers?
+
+589
+00:54:20.920 --> 00:54:24.790
+Anthony Taylor: And I wanted whether or not they've made a purchase.
+
+590
+00:54:27.220 --> 00:54:30.590
+Anthony Taylor: and this is where the left join comes in.
+
+591
+00:54:31.340 --> 00:54:42.959
+Anthony Taylor: So a left join? Well, alright like, let's I'm gonna skip out or come back to it. So I left. Joy will show us every row in the table on the left.
+
+592
+00:54:43.200 --> 00:54:46.229
+Anthony Taylor: which would be the first table listed.
+
+593
+00:54:47.740 --> 00:54:50.629
+Anthony Taylor: even if it does not have a match.
+
+594
+00:54:52.290 --> 00:54:55.470
+Anthony Taylor: Alright. So when we run this, you'll see
+
+595
+00:54:55.710 --> 00:54:57.230
+Anthony Taylor: we have Babo.
+
+596
+00:54:58.470 --> 00:55:02.370
+Anthony Taylor: But notice is purchases or no.
+
+597
+00:55:03.970 --> 00:55:04.850
+Anthony Taylor: Okay.
+
+598
+00:55:05.740 --> 00:55:17.640
+Anthony Taylor: so there's one a right. I'm pretty sure you can imagine what a right's gonna do. Alright. We'll take every or take everything from the second table listed.
+
+599
+00:55:18.470 --> 00:55:20.429
+Anthony Taylor: even if it does not
+
+600
+00:55:21.600 --> 00:55:26.249
+Anthony Taylor: anything in the first tape. Now, why would this be beneficial?
+
+601
+00:55:27.660 --> 00:55:31.639
+Anthony Taylor: Because now we have this cooler sitting here.
+
+602
+00:55:32.680 --> 00:55:36.699
+Anthony Taylor: and it's got a null name and email
+
+603
+00:55:39.050 --> 00:55:40.340
+Anthony Taylor: kind of weird. Right?
+
+604
+00:55:41.260 --> 00:55:47.209
+Anthony Taylor: Well, let's assume this is a purchases discussion that these are all customers that purchase something
+
+605
+00:55:48.250 --> 00:55:55.500
+Anthony Taylor: in both of these situations we get value, because here we have this thing that was supposedly purchased. But we have no idea what's
+
+606
+00:55:55.980 --> 00:56:01.780
+Anthony Taylor: in this example. We have this customer that supposedly bought something, but we have no idea what he bought.
+
+607
+00:56:03.380 --> 00:56:05.960
+Anthony Taylor: So this is information that is helpful to us.
+
+608
+00:56:06.890 --> 00:56:09.640
+Anthony Taylor: Okay, now, I left one out
+
+609
+00:56:09.890 --> 00:56:10.990
+Anthony Taylor: outer Joel.
+
+610
+00:56:12.400 --> 00:56:25.140
+Anthony Taylor: An outer join will show you everything in the first table. even if it doesn't exist in the second table and everything in the second table. even if it doesn't exist in the first table
+
+611
+00:56:28.260 --> 00:56:34.720
+Anthony Taylor: you're like, but how? Well, let's take a peek. So here, you see. we got the customer
+
+612
+00:56:35.380 --> 00:56:41.749
+Anthony Taylor: with no items, and we got the item with a no customer. You can see it all.
+
+613
+00:56:42.950 --> 00:56:43.870
+Anthony Taylor: Okay?
+
+614
+00:56:44.360 --> 00:56:53.540
+Anthony Taylor: So that is an outer joint. Everything from both tables, regardless of whether they match. left everything from the left table.
+
+615
+00:56:55.750 --> 00:57:02.270
+Anthony Taylor: even if there's no match right? Everything from the right table. even if there's no match
+
+616
+00:57:03.440 --> 00:57:05.530
+Anthony Taylor: inner, only match
+
+617
+00:57:07.960 --> 00:57:12.270
+Anthony Taylor: everybody. Good with that, do we? Did I fry? I know. I've asked this before how many sequel people we got
+
+618
+00:57:14.520 --> 00:57:17.100
+Anthony Taylor: just curry game. Okay?
+
+619
+00:57:17.580 --> 00:57:22.860
+Anthony Taylor:  that's so hard for me. I gotta tell you guys that's so hard because I love C,
+
+620
+00:57:24.050 --> 00:57:26.090
+Anthony Taylor: I so wanna teach you guys sequel.
+
+621
+00:57:26.500 --> 00:57:31.839
+Anthony Taylor: But anyway, we're not here for data. Okay, one more thing.
+
+622
+00:57:31.980 --> 00:57:39.309
+Anthony Taylor: Here, we're gonna just do a quick clean like after we do it. So we have our merge. Df. we wanted to
+
+623
+00:57:39.360 --> 00:57:44.529
+Anthony Taylor: drop in a now this one's interesting drop in a subset
+
+624
+00:57:44.540 --> 00:57:48.230
+Anthony Taylor: name and email. What do you think that's going to do?
+
+625
+00:57:50.820 --> 00:57:57.409
+Anthony Taylor: We know dropping a drops, null fields? What do you think this subset naming email's? Gonna
+
+626
+00:57:58.830 --> 00:58:02.780
+Mason, Natalie: is it? Gonna make a separate list with the Nas?
+
+627
+00:58:03.110 --> 00:58:07.909
+Anthony Taylor: That's pretty good. Guess it's not correct. But I like that. You gave it a shot.
+
+628
+00:58:08.080 --> 00:58:10.149
+Anthony Taylor: Go, Mike, you unmuted.
+
+629
+00:58:10.160 --> 00:58:12.910
+michael mcpherson: It's good. It's gonna drop the
+
+630
+00:58:13.050 --> 00:58:18.510
+michael mcpherson: the any n's under name and email. I think you might be right if I agree with that.
+
+631
+00:58:19.680 --> 00:58:21.000
+Anthony Taylor: let's run it and see.
+
+632
+00:58:21.570 --> 00:58:28.100
+Anthony Taylor: And there you go. So what that did is they look we if we don't, if they don't have a customer, we don't want this right?
+
+633
+00:58:29.370 --> 00:58:35.710
+Anthony Taylor: Okay? But we do want it if they don't have. So you could have done the same thing with this doing the left outer. But what
+
+634
+00:58:36.610 --> 00:58:37.440
+Anthony Taylor: whatever.
+
+635
+00:58:38.210 --> 00:58:40.570
+Anthony Taylor: Okay, still, pretty cool. Right?
+
+636
+00:58:41.530 --> 00:58:46.639
+Mason, Natalie: So how does the I understand? Drop in a what is subset?
+
+637
+00:58:46.790 --> 00:58:49.240
+Anthony Taylor: It just means, only look at those 2 fields.
+
+638
+00:58:49.300 --> 00:58:51.369
+Mason, Natalie: Okay, thank you. That's it.
+
+639
+00:58:51.390 --> 00:58:52.700
+Anthony Taylor: It's a good question, though.
+
+640
+00:58:55.370 --> 00:58:58.309
+Anthony Taylor: Alright. Any other questions on Merge.
+
+641
+00:59:01.860 --> 00:59:07.790
+Anthony Taylor: You guys are going to be excited to know this is actually the last thing we're going to learn to do today. But you know what, before we do the activity?
+
+642
+00:59:07.950 --> 00:59:10.120
+Anthony Taylor: I guess we're well.
+
+643
+00:59:11.020 --> 00:59:14.090
+Anthony Taylor: Are we running nothing? Oh, I was supposed to send you on break already.
+
+644
+00:59:14.430 --> 00:59:18.780
+Anthony Taylor: Darn it, alright! So let's do break, and then when you come back.
+
+645
+00:59:18.970 --> 00:59:23.020
+Anthony Taylor: I will send you a way to do the merge activity. Alright.
+
+646
+00:59:25.320 --> 00:59:28.340
+Anthony Taylor: go to break. I see you at 25, after
+
+647
+00:59:31.470 --> 00:59:35.370
+Anthony Taylor: honestly, guys, it is rare until
+
+648
+00:59:35.730 --> 00:59:37.289
+Anthony Taylor: well, maybe an ML.
+
+649
+00:59:38.840 --> 00:59:45.690
+Anthony Taylor: It takes a while to get to the point where you actually finish these and the time allotted. And I'm actually giving you guys a few extra minutes each day
+
+650
+00:59:46.140 --> 00:59:51.070
+michael mcpherson: we got to the filters and poverty rate, and that's where we got
+
+651
+00:59:51.110 --> 00:59:52.290
+Anthony Taylor: so bad.
+
+652
+00:59:52.700 --> 00:59:55.079
+Anthony Taylor: Okay, so you did your imports.
+
+653
+00:59:56.760 --> 01:00:00.570
+Anthony Taylor: and I don't know why my curl is not on the right one.
+
+654
+01:00:00.770 --> 01:00:09.509
+Anthony Taylor: I am okay. And you got your file. And then you read them into a data frame and you peeked at it.
+
+655
+01:00:10.010 --> 01:00:11.319
+Anthony Taylor: They're pretty.
+
+656
+01:00:12.960 --> 01:00:16.430
+Anthony Taylor: Okay. So so far, so good.
+
+657
+01:00:18.490 --> 01:00:29.629
+Anthony Taylor: That's what I thought, now, we're gonna do a merge. We're gonna on the left side. We're gonna have state average data frame on the right side state totals, and we're gonna join on year and state
+
+658
+01:00:30.630 --> 01:00:32.240
+Anthony Taylor: and then take a look.
+
+659
+01:00:32.770 --> 01:00:37.250
+Anthony Taylor: So there we go. We have that looks so good. Right?
+
+660
+01:00:38.340 --> 01:00:39.889
+Anthony Taylor: Looks good so far.
+
+661
+01:00:40.530 --> 01:00:47.429
+Anthony Taylor: Now we're gonna add what we're gonna do here. Oh, we're gonna filter on the year 2,019.
+
+662
+01:00:47.740 --> 01:00:57.319
+Anthony Taylor: Take a look looking good. Add a new column. So the new column, remember, you just do data frame. And then in brackets the name of the column
+
+663
+01:00:57.440 --> 01:01:03.100
+Anthony Taylor: set that equal to what you want to do. In this case, we're simply dividing
+
+664
+01:01:03.410 --> 01:01:08.810
+Anthony Taylor: total population and poverty by total population. So we get a rate
+
+665
+01:01:11.860 --> 01:01:12.690
+right there.
+
+666
+01:01:13.190 --> 01:01:14.060
+Anthony Taylor: Okay.
+
+667
+01:01:14.330 --> 01:01:17.790
+Anthony Taylor:  And then
+
+668
+01:01:17.980 --> 01:01:19.800
+Anthony Taylor: we're going to sort values
+
+669
+01:01:20.000 --> 01:01:23.450
+Anthony Taylor: on that property that that poverty rate
+
+670
+01:01:24.250 --> 01:01:26.670
+Anthony Taylor: and re-index.
+
+671
+01:01:27.960 --> 01:01:31.519
+Anthony Taylor: And there you go. So that gives us the highest poverty rate
+
+672
+01:01:31.660 --> 01:01:34.209
+Anthony Taylor: by year by state.
+
+673
+01:01:35.510 --> 01:01:36.580
+Anthony Taylor: Pretty cool.
+
+674
+01:01:37.500 --> 01:01:44.280
+Anthony Taylor: Okay. So we just wanted one row. We could say, Hey, give me the first row. But all of the columns. We've done that before.
+
+675
+01:01:45.120 --> 01:01:49.930
+Anthony Taylor: and then, last, but not least. we can print it out
+
+676
+01:01:50.680 --> 01:01:58.079
+Anthony Taylor: the the other way of the the highest of the bottle. The last row I got it. I figured I'd get it out eventually.
+
+677
+01:02:01.800 --> 01:02:02.810
+Anthony Taylor: Questions.
+
+678
+01:02:12.250 --> 01:02:13.070
+Anthony Taylor: okay?
+
+679
+01:02:14.710 --> 01:02:16.589
+Moving forward. Yeah.
+
+680
+01:02:17.050 --> 01:02:20.380
+Anthony Taylor: We did. Concatenation.
+
+681
+01:02:22.090 --> 01:02:26.250
+Anthony Taylor: Oh, that's funny. There's additional ones. Okay. well, we're way past that.
+
+682
+01:02:28.210 --> 01:02:35.440
+Anthony Taylor: Oh. you guys have this slide show. By the way, did you guys use the slide show?
+
+683
+01:02:36.530 --> 01:02:38.169
+Anthony Taylor: Love that? Good. Okay.
+
+684
+01:02:38.220 --> 01:02:45.429
+Anthony Taylor: alright. So merging on duplicate columns. When we merge data frames, there will often be columns with the same name.
+
+685
+01:02:45.650 --> 01:02:47.470
+Anthony Taylor: like stock data.
+
+686
+01:02:47.930 --> 01:02:52.580
+Anthony Taylor:  this is what it will do. So in merging there. It's
+
+687
+01:02:52.830 --> 01:02:57.959
+Anthony Taylor: while we look at it as left and right. Python looks at it as x and y.
+
+688
+01:02:59.010 --> 01:03:02.639
+Anthony Taylor: okay, so the left one is X, the right one is, y
+
+689
+01:03:02.940 --> 01:03:06.230
+Anthony Taylor: don't get too hung up on that. It's not something to worry about.
+
+690
+01:03:06.630 --> 01:03:13.370
+Anthony Taylor: But if there are columns with the same name. So here, you see, they're merging on date
+
+691
+01:03:13.650 --> 01:03:16.930
+Anthony Taylor: the columns with the same name, and with x and y
+
+692
+01:03:19.780 --> 01:03:20.710
+Anthony Taylor: alright
+
+693
+01:03:20.850 --> 01:03:24.890
+Anthony Taylor: see open x open y pi XIY etc.
+
+694
+01:03:25.660 --> 01:03:30.549
+Anthony Taylor: so what do we do about that? Well, I wish I could give you something super simple. There's not.
+
+695
+01:03:30.570 --> 01:03:43.549
+Anthony Taylor: We rename the columns. Okay? So you would go through. You can run the dictionary. This is the big giant, one and rename all of the columns. Okay? And then they're gonna throw in an activity.
+
+696
+01:03:43.870 --> 01:03:48.690
+Anthony Taylor: So let's go do this in real stuff. We are like.
+
+697
+01:03:49.080 --> 01:04:01.560
+Anthony Taylor: perfect. Today, I love this.  okay.
+
+698
+01:04:02.940 --> 01:04:13.689
+Anthony Taylor: so we're going to bring in the files. This is the stock file as we had earlier. It's nothing to get too surprised. On same open, high, low, close adjusted in value.
+
+699
+01:04:14.300 --> 01:04:15.889
+Anthony Taylor: Alright. Nothing different.
+
+700
+01:04:16.340 --> 01:04:22.819
+Anthony Taylor: We're going to merge. Let's search just Apple and Google first and take a look. So here you can see
+
+701
+01:04:23.220 --> 01:04:27.010
+Anthony Taylor: Apple now has open. Xix, everything is X,
+
+702
+01:04:27.580 --> 01:04:28.470
+Anthony Taylor: okay.
+
+703
+01:04:28.720 --> 01:04:37.090
+Anthony Taylor:  interesting. Okay? So that's that.
+
+704
+01:04:37.250 --> 01:04:39.670
+Anthony Taylor: If we wanted to.
+
+705
+01:04:39.980 --> 01:04:43.319
+Anthony Taylor:  what are they doing here?
+
+706
+01:04:43.450 --> 01:04:50.749
+Anthony Taylor: Oh, another method of doing this you can do this is Pd merge, this one. You can do data frame dot merge
+
+707
+01:04:51.100 --> 01:04:55.959
+Anthony Taylor: looks like this. This is more similar to the join syntax. but it all works the same
+
+708
+01:04:56.400 --> 01:05:08.779
+Anthony Taylor: we can see the column names. So what you could do to make this a little easier. I'm gonna give it to you in the, in the activity. But you could actually copy this and then create your dictionary of renaming.
+
+709
+01:05:09.200 --> 01:05:20.429
+Anthony Taylor: Okay. But here you can see the renaming. There's the old name, new name. You guys have done this before. It shouldn't be too much of a surprise. And then it looks like that.
+
+710
+01:05:21.000 --> 01:05:23.819
+Anthony Taylor: Okay to merge all 3.
+
+711
+01:05:24.150 --> 01:05:26.340
+Anthony Taylor: You must do
+
+712
+01:05:26.420 --> 01:05:31.669
+Anthony Taylor: the same thing we did with the others. You merged the first 2, and then you merge the third.
+
+713
+01:05:32.270 --> 01:05:41.770
+Anthony Taylor: Okay? And then this will give you that notice. Now we have columns. They don't have X and Y, because none of these are called open, high, low closed.
+
+714
+01:05:42.130 --> 01:05:45.410
+Anthony Taylor: Right? So for here we need to.
+
+715
+01:05:45.660 --> 01:05:52.030
+Anthony Taylor:  Well, we're going to need to do a rename. And here's the alternative method like they showed before.
+
+716
+01:05:52.370 --> 01:05:59.300
+Anthony Taylor: Apprehensive. All the interesting thing is is put it at the end in the alternative method that's cool.
+
+717
+01:05:59.750 --> 01:06:01.389
+Anthony Taylor: So there's the rename.
+
+718
+01:06:04.070 --> 01:06:05.540
+Anthony Taylor: and then
+
+719
+01:06:05.810 --> 01:06:17.909
+Anthony Taylor: calculate the best day for each stock. So all they're doing here is we're taking the data frame the column, and we're asking for the Max. And we're going to put that in a variable. And then we're going to take the
+
+720
+01:06:19.310 --> 01:06:28.240
+Anthony Taylor: well, that was the best opening. Max. Now we're gonna take the best closing. Max. Okay, this is a summary data fright. So I want you guys to watch this.
+
+721
+01:06:28.260 --> 01:06:37.399
+Anthony Taylor: This is important. So we took a single value from each set and put it into a variable
+
+722
+01:06:38.060 --> 01:06:41.029
+Anthony Taylor: single value. Now we're doing closes
+
+723
+01:06:41.170 --> 01:06:42.550
+Anthony Taylor: into a variable
+
+724
+01:06:44.200 --> 01:06:48.960
+now, we're gonna round. Well, calculate the total value. So now we're gonna get the value
+
+725
+01:06:49.200 --> 01:06:50.929
+Anthony Taylor: and put it in.
+
+726
+01:06:51.340 --> 01:06:54.119
+Anthony Taylor:  rounded to 2 places.
+
+727
+01:06:54.400 --> 01:06:55.150
+Anthony Taylor: Okay.
+
+728
+01:06:55.960 --> 01:06:57.779
+Anthony Taylor: okay? So here's
+
+729
+01:06:58.170 --> 01:06:59.419
+Anthony Taylor: the weird part.
+
+730
+01:07:00.310 --> 01:07:05.489
+Anthony Taylor: All right, we're gonna create a data frame. This is the dictionary of lists.
+
+731
+01:07:06.730 --> 01:07:09.450
+Anthony Taylor: But how many values are in this lid?
+
+732
+01:07:15.790 --> 01:07:16.620
+Anthony Taylor: How many
+
+733
+01:07:20.210 --> 01:07:24.390
+Anthony Taylor: one? There's only one we ask for the Max value.
+
+734
+01:07:24.730 --> 01:07:27.270
+Anthony Taylor: Okay, so this list
+
+735
+01:07:27.280 --> 01:07:37.429
+Anthony Taylor: still has to be a list. It's just a list with one value. So when we run this. we will get a single row of data
+
+736
+01:07:38.580 --> 01:07:43.890
+Anthony Taylor: with all of our summary data that make sense to everybody.
+
+737
+01:07:44.010 --> 01:07:50.579
+Anthony Taylor: This looks like a whole bunch of stuff. It's really not this column header. And then the variable you created up here.
+
+738
+01:07:52.090 --> 01:07:53.040
+Anthony Taylor: Okay?
+
+739
+01:07:54.620 --> 01:07:55.540
+Anthony Taylor: Question.
+
+740
+01:07:57.760 --> 01:08:02.560
+Anthony Taylor: I'm actually gonna do something real quick. Because I am like 99% sure.
+
+741
+01:08:08.950 --> 01:08:13.189
+Anthony Taylor: Okay, I knew it. I knew it knew it. Why would they not give you that?
+
+742
+01:08:15.350 --> 01:08:18.690
+Anthony Taylor:  okay, so let's look at this again.
+
+743
+01:08:19.350 --> 01:08:25.750
+Anthony Taylor: Well, now, let's look at this one again. So here, you see this you can do.
+
+744
+01:08:29.960 --> 01:08:34.989
+Anthony Taylor: and you could, if you wanted to do something like
+
+745
+01:08:42.279 --> 01:08:44.749
+Anthony Taylor: it's not as pretty as the rename.
+
+746
+01:08:45.830 --> 01:08:48.870
+Anthony Taylor: But wait what I do wrong.
+
+747
+01:08:55.590 --> 01:09:00.510
+Anthony Taylor: Oh, can't do it on this one. Never mind, this one is, has the rename problems. 1 s.
+
+748
+01:09:00.689 --> 01:09:03.410
+Anthony Taylor: let's go up to the first time we merged
+
+749
+01:09:03.660 --> 01:09:11.809
+Anthony Taylor: this one. So this is the first time we merged with x and y. so here, instead of x and y, you can actually make it whatever you want it to.
+
+750
+01:09:12.700 --> 01:09:21.839
+Anthony Taylor: So me personally. unless there was some compelling reason why this needed to be apple low instead of low apple.
+
+751
+01:09:22.319 --> 01:09:24.569
+Anthony Taylor:  I would do this.
+
+752
+01:09:27.859 --> 01:09:28.689
+Anthony Taylor: Okay.
+
+753
+01:09:28.979 --> 01:09:33.429
+Anthony Taylor: this is another one of those moments where you know, if you went, and you Googled
+
+754
+01:09:33.470 --> 01:09:39.879
+Anthony Taylor: Panda's Df merge, you would see this, and which is exactly what I did. But I said, I want to check something. I just
+
+755
+01:09:40.180 --> 01:09:41.040
+Anthony Taylor: brought up
+
+756
+01:09:43.990 --> 01:09:50.879
+Anthony Taylor: the documentation and looked at the arguments that it took. Okay? And then I saw suffixes. I'm like, huh!
+
+757
+01:09:53.149 --> 01:09:54.149
+Anthony Taylor: Cool.
+
+758
+01:09:55.150 --> 01:09:57.850
+Anthony Taylor: I gotta send you to an activity your Matt still fall asleep.
+
+759
+01:10:00.110 --> 01:10:03.759
+Anthony Taylor: The the alright. Let's take a look.
+
+760
+01:10:04.040 --> 01:10:08.370
+Anthony Taylor: So this is gonna be another one. You're gonna get
+
+761
+01:10:08.830 --> 01:10:14.399
+Anthony Taylor: 2 data frames you're going to merge on country. You're going to get crop X crop y
+
+762
+01:10:14.680 --> 01:10:18.030
+Anthony Taylor: it says, rename em to
+
+763
+01:10:18.440 --> 01:10:25.110
+Anthony Taylor: these. See now, this is this would be a great example where I would just do suffix. Because, look X to 2,018,
+
+764
+01:10:25.320 --> 01:10:29.060
+Anthony Taylor: why the 2,019. But do keep in mind
+
+765
+01:10:29.400 --> 01:10:38.470
+Anthony Taylor: when you run into a problem when you get to the third one. because again, the third one won't have any matching column headers, so you might have to rename those in
+
+766
+01:10:40.000 --> 01:10:41.969
+Anthony Taylor: that. Make sense to everybody. What I just said
+
+767
+01:10:43.160 --> 01:10:47.430
+Anthony Taylor: when you, when you rename the first 2 right.
+
+768
+01:10:47.550 --> 01:10:52.570
+Anthony Taylor: that's going to get rid of all of the matching headers that would have been in the third.
+
+769
+01:10:53.430 --> 01:10:57.010
+Anthony Taylor: So it's not gonna match. So it's not gonna suffix.
+
+770
+01:10:57.200 --> 01:10:59.190
+Anthony Taylor: So you might have to rename that
+
+771
+01:11:00.170 --> 01:11:02.479
+Anthony Taylor: alright. And that's it, guys
+
+772
+01:11:02.560 --> 01:11:06.799
+Anthony Taylor: how we doing? Oh, my God, we're doing so good. Okay, so 20 min.
+
+773
+01:11:07.520 --> 01:11:11.039
+Anthony Taylor: There's let me just take a quick peek and see.
+
+774
+01:11:13.340 --> 01:11:15.969
+Anthony Taylor: So how did it go?
+
+775
+01:11:16.570 --> 01:11:17.580
+michael mcpherson: Better?
+
+776
+01:11:18.120 --> 01:11:21.669
+Anthony Taylor: Better? It's just getting easier all the time in it.
+
+777
+01:11:22.300 --> 01:11:24.329
+michael mcpherson: Yeah. No.
+
+778
+01:11:24.380 --> 01:11:27.229
+michael mcpherson: Just good group there.
+
+779
+01:11:27.700 --> 01:11:29.119
+Anthony Taylor: I see.
+
+780
+01:11:29.340 --> 01:11:32.959
+Anthony Taylor: it's the group dynamic that made it better. Okay.
+
+781
+01:11:33.020 --> 01:11:34.290
+Anthony Taylor: hey? Yeah.
+
+782
+01:11:35.310 --> 01:11:36.400
+michael mcpherson: Wasn't me?
+
+783
+01:11:43.170 --> 01:11:44.210
+Anthony Taylor: Okay?
+
+784
+01:11:46.480 --> 01:11:49.010
+Anthony Taylor: Imports.
+
+785
+01:11:50.530 --> 01:11:53.069
+Anthony Taylor: Then files gave you that.
+
+786
+01:11:53.480 --> 01:12:06.989
+Anthony Taylor: and then quick peek at files. Is this the right one? That is, isn't it? Okay? And there we go. Okay. So we're gonna do our merge first on country.
+
+787
+01:12:07.200 --> 01:12:20.679
+Anthony Taylor: We're gonna do an inner which I don't know if we're gonna lose any. But let's just do it because it told us to. So we got our x's and our y's. Did everybody do it that way, or did you do suffixes? Mention suffixes?
+
+788
+01:12:21.730 --> 01:12:23.790
+Anthony Taylor: Be there, and was right
+
+789
+01:12:25.740 --> 01:12:36.139
+Anthony Taylor: then we're gonna merge again. The only good thing about if you don't do suffixes, and you do double merge like this, then you know you just got more to work with there. But list out the columns.
+
+790
+01:12:37.350 --> 01:12:39.339
+Anthony Taylor: rename the columns.
+
+791
+01:12:39.780 --> 01:12:51.630
+Anthony Taylor: Well, I'm sorry we're not renaming yet. We're dropping the matching columns so the ones that are duplicated. We don't need those again. We don't need crop again. We don't need irrigate. We just need one copy if we need them at all.
+
+792
+01:12:52.090 --> 01:12:56.799
+Anthony Taylor: Okay, in this case we don't need them at all. All we want is country and the value.
+
+793
+01:12:57.270 --> 01:13:00.780
+Anthony Taylor: So that makes it easier for the renaming. Anyway. Right?
+
+794
+01:13:04.050 --> 01:13:07.290
+Anthony Taylor: And when we're on down. We're gonna look at the clean columns.
+
+795
+01:13:08.160 --> 01:13:11.949
+Anthony Taylor: So okay, what do they want us to do? Sort?
+
+796
+01:13:12.510 --> 01:13:21.340
+Anthony Taylor: So again, here, we're going to sort our new rick values sending looking good. And that's it.
+
+797
+01:13:23.210 --> 01:13:34.429
+Meredith McCanse (she/her): Can you, Anthony? Can you scroll over and show that reset the reset index part on the left? I think so. Yeah, over to the right.
+
+798
+01:13:35.120 --> 01:13:40.090
+Anthony Taylor: Oh, on the sort. Okay, remember. So do you remember what that does?
+
+799
+01:13:41.630 --> 01:13:54.780
+Meredith McCanse (she/her): I think it. Instead of having index numbers be all weird. It'll start over right. So when you sort this like, this is bigger than this. So this would be one. This would be 0. So it'd be 1 0
+
+800
+01:13:55.170 --> 01:14:02.169
+Anthony Taylor: right when you reset it at the end of the sort. It resets it back to 0, you know, in numeracy
+
+801
+01:14:06.690 --> 01:14:11.779
+Meredith McCanse (she/her): I just can't remember the syntax? Does the Drop eagle's faults go inside the
+
+802
+01:14:11.870 --> 01:14:21.429
+Anthony Taylor: parentheses after the reset index? Or does it go reset index drop equals? True? Which remember that means that the old index will be gotten rid of.
+
+803
+01:14:21.880 --> 01:14:22.650
+Meredith McCanse (she/her): Okay.
+
+804
+01:14:32.650 --> 01:14:33.990
+Anthony Taylor: any other questions.
+
+805
+01:14:39.280 --> 01:14:43.870
+Anthony Taylor: I'll pay that. So it's too early to go over the challenge for this week.
+
+806
+01:14:44.410 --> 01:14:53.379
+Anthony Taylor:  so yeah. So really, I got nothing. I've been keeping you late a couple of days, I guess I let you go earlier this time.
+
+807
+01:14:54.050 --> 01:14:55.540
+Anthony Taylor: Lucky dogs
+
+808
+01:14:56.510 --> 01:15:02.539
+Anthony Taylor: next class. We're going to get into grouping and writing aggregated outputs.
+
+809
+01:15:02.830 --> 01:15:12.150
+Anthony Taylor: Very exciting stuff. I will put up resources. and that's all. You guys have a wonderful night.
+

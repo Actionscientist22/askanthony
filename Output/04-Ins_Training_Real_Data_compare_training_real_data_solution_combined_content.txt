@@ -1,0 +1,101 @@
+##--CODE--##
+# Import our dependencies
+import pandas as pd
+from sklearn.model_selection import train_test_split
+import tensorflow as tf
+
+##--CODE--##
+# Import the speech recognition data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_1/datasets/voice.csv")
+df.head()
+
+##--CODE--##
+# Drop the label to create the X data
+X = df.drop('Class', axis=1)
+# Create the y set from the "Class" column
+y = df["Class"]
+
+# Use sklearn to split dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=78)
+
+##--CODE--##
+# Create the Keras Sequential model
+nn_model = tf.keras.models.Sequential()
+
+##--CODE--##
+# Set input nodes to the number of features
+input_nodes = len(X.columns)
+
+# Add our first Dense layer, including the input layer
+nn_model.add(tf.keras.layers.Dense(units=5, activation="relu", input_dim=input_nodes))
+
+##--CODE--##
+# Add the output layer that uses a probability activation function
+nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid"))
+
+##--CODE--##
+# Check the structure of the Sequential model
+nn_model.summary()
+
+##--CODE--##
+# Compile the Sequential model together and customize metrics
+nn_model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
+
+# Fit the model to the training data
+fit_model = nn_model.fit(X_train, y_train, epochs=100)
+
+##--CODE--##
+# Create a DataFrame containing training history
+history_df = pd.DataFrame(fit_model.history)
+
+# Increase the index by 1 to match the number of epochs
+history_df.index += 1
+
+# Plot the loss
+history_df.plot(y="loss")
+
+##--CODE--##
+# Plot the accuracy
+history_df.plot(y="accuracy")
+
+##--CODE--##
+# Evaluate the model using the test data
+model_loss, model_accuracy = nn_model.evaluate(X_test, y_test, verbose=2)
+print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
+
+##--CODE--##
+# Make predictions
+predictions = nn_model.predict(X_test,verbose=2)
+predictions
+
+##--CODE--##
+# Round predictions
+predictions_rounded = [round(prediction[0],0) for prediction in predictions]
+predictions_rounded
+
+##--CODE--##
+# Check the classification report
+from sklearn.metrics import classification_report
+print(classification_report(y_test, predictions_rounded))
+
+
+##--CODE--##
+# Compare with random forest model
+from sklearn.ensemble import RandomForestClassifier
+
+# Create the random forest classifier model
+# with n_estimators=128 and random_state=1
+rf_model = RandomForestClassifier(n_estimators=128, random_state=1)
+
+# Fit the model to the training data
+rf_model.fit(X_train, y_train)
+
+# Validate the model by checking the model accuracy with model.score
+print(f"Training Data Score: {rf_model.score(X_train, y_train)}")
+print(f"Testing Data Score: {rf_model.score(X_test, y_test)}")
+
+##--CODE--##
+# Make predictions and produce the classification report for the random forest model
+predictions = rf_model.predict(X_test)
+print(classification_report(y_test, predictions))
+

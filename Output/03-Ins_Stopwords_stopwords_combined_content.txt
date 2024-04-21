@@ -1,0 +1,61 @@
+##--CODE--##
+# Import the Gutenberg and stopwords databases from the nltk corpus 
+from nltk.corpus import gutenberg, stopwords
+# Import tokenizers
+from nltk.tokenize import word_tokenize, sent_tokenize
+
+# Import nltk and download the sentence tokenizer.
+import nltk
+nltk.download('punkt')
+
+##--CODE--##
+# Get all the fileids 
+
+
+##--CODE--##
+# Get Jane Austen's book, Persuasion.
+
+
+##--CODE--##
+# Use the sentence tokenizer on a random sentence in Persuasion.
+
+
+##--CODE--##
+# Get all the words in the sentence.
+
+
+## NLTK Stopwords
+
+##--CODE--##
+# Get all the nltk stopwords
+
+
+##--CODE--##
+# Filter out all the stopwords from the words in the sentence.
+
+
+##--CODE--##
+# We can define our own list of stopwords to add to the default nltk stopwords
+
+
+## Getting Rid of Non-Alpha Characters using Regular Expressions
+
+##--CODE--##
+# Import regular expressions library
+import re
+
+##--CODE--##
+# Substitute everything that is not a letter with an empty string
+
+
+##--CODE--##
+# Retrieve everything that is not a letter with an empty string
+
+
+##--CODE--##
+# Remove all the stopwords from our cleaned regular expression.
+
+
+##--CODE--##
+
+

@@ -1,0 +1,21 @@
+##--CODE--##
+import pandas as pd
+
+##--CODE--##
+# Import the data
+file = '../Resources/SFO_Airport_Utility_Consumption.csv'
+utilities_df = pd.read_csv(file)
+
+utilities_df.head()
+
+# Question: 
+### Which utility's usage changed the most from 2013 to 2018?
+
+##--CODE--##
+
+
+# Summary
+{Write your summary here.}
+
+
+

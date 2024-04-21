@@ -1,0 +1,53 @@
+##--CODE--##
+# Imports for loading environment variables.
+from dotenv import load_dotenv
+import os
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+##--CODE--##
+# Additional imports for agent with built-in tools.
+from langchain_openai import ChatOpenAI
+from langchain.agents import initialize_agent, load_tools
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+##--CODE--##
+# Set up the built-in wikipedia and open weather tools.
+tools = load_tools (["openweathermap-api"], llm=llm)
+
+##--CODE--##
+# Initialize the agent.
+agent = initialize_agent(tools, 
+                         agent="chat-zero-shot-react-description",
+                         handle_parsing_errors = True,
+                         max_iterations=10,
+                         #verbose=True, 
+                         llm=llm)
+
+##--CODE--##
+# Ask the user for their location.
+location = input("What city are you visiting today? Include country/state/province.")
+
+##--CODE--##
+# Define a format for our prompt template.
+query = {"input": f"""
+         Please suggest an activity for a tourist today in {location}. 
+         The activity should be appropriate to the current weather.
+         Try to name specific places whenever possible.
+         """}
+
+##--CODE--##
+# Run the agent and print the result.
+result = agent.invoke(query)
+print(result["output"])
+

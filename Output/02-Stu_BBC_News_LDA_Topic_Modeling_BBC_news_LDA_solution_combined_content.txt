@@ -1,0 +1,122 @@
+##--CODE--##
+# Import the dependencies
+import re 
+import pandas as pd
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.decomposition import LatentDirichletAllocation
+# Set the maximum column width to 200. 
+pd.set_option('max_colwidth', 200)
+
+##--CODE--##
+# Read the bbc_news_articles.csv file into a DataFrame.
+news_articles_df = pd.read_csv('Resources/bbc_news_articles.csv')
+# Display the first 20 rows. 
+news_articles_df.head(20)
+
+## Preprocessing
+
+##--CODE--##
+# Check for null values.
+news_articles_df.info()
+
+##--CODE--##
+# Remove numbers and non-alphabetic characters from the news_summary column.
+news_articles_df['news_summary'] = news_articles_df['news_summary'].apply(lambda x: re.sub(r'[^a-zA-Z\s ]', '', str(x)))
+news_articles_df.head(10)
+
+## Process the Text to Tokens and Counts.
+
+##--CODE--##
+# Create an instance of the CountVectorizer and set the max_df to 0.95 and min_df to 5, and use the "english" stopwords.
+cv = CountVectorizer(max_df=0.95, min_df=5, stop_words='english')
+cv
+
+##--CODE--##
+# Transform each row from the news_summary to a DTM.
+dtm = cv.fit_transform(news_articles_df['news_summary'])
+# Get the shape of the DTM.
+print(dtm.shape)
+
+## LDA
+
+##--CODE--##
+# Create and instance of the LatentDirichletAllocation() class with 5 topics.
+LDA = LatentDirichletAllocation(n_components=5,random_state=42)
+# Fit the model with our DTM data.
+LDA_data = LDA.fit(dtm)
+
+##--CODE--##
+# Check the length of the vocabulary 
+len(cv.get_feature_names_out())
+
+## Get the Top 15 Words Per Topic
+
+##--CODE--##
+# Print the top 15 words for each topic.
+for index,topic in enumerate(LDA.components_):
+    print(f'The Top 15 Words For Topic #{index+1}')
+    print([cv.get_feature_names_out()[i] for i in topic.argsort()[-15:]])
+    print('\n')
+
+### **Question:** What is the label for each topic? 
+---
+- TOPIC 1: Entertainment
+- TOPIC 2: Sports
+- TOPIC 3: Business
+- TOPIC 4: Politics
+- TOPIC 5: Technology
+
+## Assign the Topics and Labels to the News Summaries
+
+##--CODE--##
+# Transform our DTM so we get an array with the (number_of_documents, number_of_topics).
+topic_results = LDA.transform(dtm)
+
+# Get the shape of the topic results
+topic_results.shape
+
+##--CODE--##
+# Read the bbc_news_articles.csv file into a DataFrame.
+news_articles_df = pd.read_csv('Resources/bbc_news_articles.csv')
+# Display the DataFrame. 
+news_articles_df.head()
+
+##--CODE--##
+# Use the add_topic_labels function to add the topic and topic label to each news summary. 
+# Dictionary of  topics and topic label.
+topic_labels = {
+    1: 'Entertainment',
+    2: 'Sports',
+    3: 'Business',
+    4: 'Politics',
+    5: 'Technology'
+}
+
+# Define the function and pass in the DataFrame, the topic_results, and topic_labels dictionary.
+def add_topic_labels(df, topic_results, topic_labels):
+    # Find the dominant topic for each document and add the label to a new column
+    df['topic'] = topic_results.argmax(axis=1) + 1
+    # Use the map function to add the topic label to the news summary based on the topic number.
+    df['topic_label'] = df['topic'].map(topic_labels)
+
+
+##--CODE--##
+# Call the function to add topic labels to your DataFrame.
+add_topic_labels(news_articles_df, topic_results, topic_labels)
+
+##--CODE--##
+# Display the first 20 rows of the updated DataFrame. 
+news_articles_df.head(20)
+
+##--CODE--##
+# Display the last 20 rows of the updated DataFrame.
+news_articles_df.tail(10)
+
+**Question:** Did LDA do a good job at assigning the appropriate topic to the news summaries? 
+
+**Answer:** Yes. Most of the news summaries look like they have been appropriately assigned the correct topic and topic label.
+
+##--CODE--##
+
+

@@ -1,0 +1,147 @@
+##--CODE--##
+# Import nltk, numpy and pandas.
+import nltk
+import numpy as np
+import pandas as pd
+# Import Reuters
+from nltk.corpus import reuters
+# Import CountVectorizer, TfidfVectorizer from sklearn
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+
+# Download the Reuters dataset if you didn't install it.
+# nltk.download("reuters")
+
+##--CODE--##
+# Get the categories
+print(reuters.categories())
+
+##--CODE--##
+# Count the total number of documents in the collection
+doc_ids = reuters.fileids()
+# Retrieve the number of documents in the corpus.
+print(f"Total number of docs in the corpus: {len(doc_ids)}")
+
+## Count the occurrence of each word in the text.
+
+##--CODE--##
+# Select and print a single document of text.
+doc_text = reuters.raw(doc_ids[2])
+print(doc_text)
+
+##--CODE--##
+# Create an instance of the CountVectorizer and define the English stopwords to be ignored.
+vectorizer = CountVectorizer(stop_words="english")
+
+# Tokenize the text into numerical features and occurrence of each word.
+X = vectorizer.fit_transform([doc_text])
+
+##--CODE--##
+# X contains the occurrence of each term in the document.
+# We have 1 document, the first number in the tuple represents the document number, i.e., 0.
+# The second number in the tuple represents the index of the word in the vocabulary created by fit_transform.
+# The last number represents how many times the word appears.
+print(X)
+
+##--CODE--##
+# Retrieve unique words list
+words = vectorizer.get_feature_names_out()
+print(words)
+
+##--CODE--##
+# Get the length of the words and find a specific word or term.
+print(len(words))
+print(words[25])
+
+##--CODE--##
+# Print the number of times each word appears from the document. 
+occurrences = X.toarray()[0]
+print(occurrences)
+
+##--CODE--##
+# Convert the sparse matrix to a DataFrame to get our Bag-of-Words for the document. 
+bow_df = pd.DataFrame(X.toarray(), columns=vectorizer.get_feature_names_out())
+
+# Display some first 20 columns of the DataFrame.
+bow_df.iloc[:,0:20:]
+
+##--CODE--##
+# Melt the Bag-of-Words DataFrame to convert columns into rows.
+melted_bow = bow_df.melt(var_name='Word', value_name='Word_Counts')
+melted_bow.head()
+
+##--CODE--##
+# Sort the DataFrame by Word_Counts if needed
+sorted_bow = melted_bow.sort_values(by='Word_Counts', ascending=False).reset_index(drop=True)
+sorted_bow.head()
+
+##--CODE--##
+# Alternatively you can do the following:
+# Create a list to hold the words using the vectorizer.get_feature_names_out()
+words = list(vectorizer.get_feature_names_out())
+# Create a list to hold the frequency using np.ravel(X.sum(axis=0))
+frequency = list(np.ravel(X.sum(axis=0)))
+
+# Create a DataFrame of the TF–IDF weights for each word in the working corpus.
+words_df = pd.DataFrame({
+  "Word": words,
+  "Word_Count": frequency})
+
+# Alternatively you can use:
+# words_df = pd.DataFrame(list(zip(words, np.ravel(X.sum(axis=0)))), columns=["Word", "Word_Count"])
+
+# Sort the DataFrame on the Word_Count in descending order and reset the index.
+sorted_words= words_df.sort_values(by=["Word_Count"], ascending=False).reset_index(drop=True)
+sorted_words.head()
+
+## Calculate the TF-IDF score from a Corpus of Documents.
+
+##--CODE--##
+# Getting the first 1000 articles from Reuters.
+corpus_id = doc_ids[0:1000]
+corpus = [reuters.raw(doc) for doc in corpus_id]
+
+# Print sample document
+print(corpus[50])
+
+##--CODE--##
+# Create an instance of the TfidfVectorizer and define the English stopwords to be ignored.
+vectorizer = TfidfVectorizer(stop_words="english")
+# Tokenize the 1,000 articles into numerical features.
+X_corpus = vectorizer.fit_transform(corpus)
+
+##--CODE--##
+# Print the sparse matrix of the transformed data.
+# We have 1,000 documents, the first number in the tuple represents the document number.
+# The second number in the tuple represents the index of the word in the vocabulary created by fit_transform.
+# The last number represents the value of the TF-IDF score for the vocabulary word.
+print(X_corpus)
+
+##--CODE--##
+# Get the matrix info.
+print(f"Matrix shape: {X_corpus.shape}")
+print(f"Total number of documents: {X_corpus.shape[0]}")
+print(f"Total number of unique words (tokens): {X_corpus.shape[1]}")
+
+##--CODE--##
+# Retrieve words list from corpus
+words_corpus = vectorizer.get_feature_names_out()
+print(words_corpus)
+
+##--CODE--##
+# Get the TF-IDF weights of each word in corpus as DataFrame
+words_corpus_df = pd.DataFrame(
+    list(zip(words_corpus, np.ravel(X_corpus.mean(axis=0)))), columns=["Word", "TF-IDF"])
+
+# Sort the DataFrame to show the top TF-IDF values.
+sorted_words_corpus = words_corpus_df.sort_values(by=["TF-IDF"], ascending=False).reset_index(drop=True)
+
+# Highest 10 TF-IDF scores
+sorted_words_corpus.head(10)
+
+##--CODE--##
+# Lowest 10 TF-IDF scores
+sorted_words_corpus.tail(10)
+
+##--CODE--##
+
+

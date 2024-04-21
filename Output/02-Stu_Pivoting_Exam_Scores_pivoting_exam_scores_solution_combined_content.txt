@@ -1,0 +1,62 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Read file into DataFrame
+exam_scores_df = pd.read_csv('Resources/students_exam_scores.csv')
+exam_scores_df.head(10)
+
+##--CODE--##
+# Using the `pivot_table()` function show the average exam score for each subject.
+# The subject should be the columns. Round to one decimal place.
+avg_exam_scores = pd.pivot_table(exam_scores_df, 
+                                 values='exam_score',
+                                 columns='subject',
+                                 aggfunc='mean')
+
+# Rename the index: "Avg_Subject_Score" and round to one decimal place. 
+avg_exam_scores.rename(index={'exam_score': 'Avg. Subject Score'}).round(1)
+
+##--CODE--##
+# Using the `pivot_table()` function show the minimum and maximum score for each subject. 
+max_exam_scores = pd.pivot_table(exam_scores_df, 
+                                 values='exam_score',
+                                 columns='subject',
+                                 aggfunc=('min','max'))
+
+# Show the table
+max_exam_scores
+
+##--CODE--##
+# Using the `pivot_table()` function show the average score for each student across all subjects. 
+# Round to one decimal place.
+avg_student_scores = pd.pivot_table(exam_scores_df, 
+                                 values='exam_score',
+                                 columns='student_name',
+                                 aggfunc='mean').round(1)
+
+# Rename the index "Avg. Student Score" and show the table. 
+avg_student_scores.rename(index={'exam_score': 'Avg. Student Score'})
+
+##--CODE--##
+# Using the `pivot_table()` function get the minimum and maximum exam score for each student across all subjects. 
+min_max_student_scores = pd.pivot_table(exam_scores_df, 
+                                 values='exam_score',
+                                 columns='student_name',
+                                 aggfunc=('min','max'))
+
+# Rename the index "Avg. Student Score"
+min_max_student_scores
+
+##--CODE--##
+# Using the `pivot_table` or the `pivot` function show each students exam score for each subject.
+# The student names are the columns, the subject is the index, and the values are the exam scores.
+exam_scores_subject = exam_scores_df.pivot_table(index="subject", 
+                                                 columns="student_name",
+                                                 values="exam_score")
+exam_scores_subject
+
+##--CODE--##
+
+

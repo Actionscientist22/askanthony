@@ -1,0 +1,73 @@
+##--CODE--##
+# Import Dependencies
+import pandas as pd
+
+##--CODE--##
+# Create a reference the CSV file desired
+csv_path = "Resources/ufoSightings.csv"
+
+# Read the CSV into a Pandas DataFrame
+ufo_df = pd.read_csv(csv_path, low_memory = False)
+
+# Print the first five rows of data to the screen
+ufo_df.head()
+
+##--CODE--##
+# Remove the rows with missing data
+clean_ufo_df = ufo_df.dropna(how="any")
+clean_ufo_df.count()
+
+##--CODE--##
+clean_ufo_df.head()
+
+##--CODE--##
+clean_ufo_df.dtypes
+
+##--CODE--##
+# Converting the "duration (seconds)" column's values to numeric
+converted_ufo = clean_ufo_df.copy()
+converted_ufo["duration (seconds)"] = converted_ufo.loc[:, "duration (seconds)"].astype(float)
+
+##--CODE--##
+converted_ufo.dtypes
+
+##--CODE--##
+converted_ufo.head()
+
+##--CODE--##
+# Filter the data so that only those sightings in the US are in a DataFrame
+usa_ufo_df = converted_ufo.loc[converted_ufo["country"] == "us", :]
+usa_ufo_df.head()
+
+##--CODE--##
+# Count how many sightings have occured within each state
+state_counts = usa_ufo_df["state"].value_counts()
+state_counts.head()
+
+##--CODE--##
+# Using GroupBy in order to separate the data into fields according to "state" values
+grouped_usa_df = usa_ufo_df.groupby(['state'])
+
+# The object returned is a "GroupBy" object and cannot be viewed normally...
+print(grouped_usa_df)
+
+# In order to be visualized, a data function must be used...
+grouped_usa_df.count().head(10)
+
+##--CODE--##
+grouped_usa_df["duration (seconds)"].sum()
+
+##--CODE--##
+# Since "duration (seconds)" was converted to a numeric time, it can now be summed up per state
+state_duration = grouped_usa_df["duration (seconds)"].sum()
+state_duration.head()
+
+##--CODE--##
+# Creating a new DataFrame using both duration and count
+state_summary_table = pd.DataFrame({"Number of Sightings": state_counts,
+                                    "Total Visit Time": state_duration})
+state_summary_table.head()
+
+##--CODE--##
+
+

@@ -1,0 +1,82 @@
+##--CODE--##
+# Import the necessary dependencies
+import pandas as pd
+
+##--CODE--##
+# Read in the data as a DataFrame
+# Provide the dataset URL from an AWS S3 bucket. It's ~100 MB.
+delayed_flights_url = "https://static.bc-edx.com/ai/ail-v-1-0/m5/lesson_2/delayed_flights.csv"
+delayed_flights_df = pd.read_csv(delayed_flights_url)
+delayed_flights_df.head()
+
+##--CODE--##
+# Get the columns
+delayed_flights_df.columns
+
+##--CODE--##
+# Create a custom function that will calculate the average of DataFrame column
+def custom_avg(x):
+    return x.mean()
+
+# Use the custom_avg function to show the average arrival delay 
+# for each carrier, for the day of the month, and day of the week. Round to one decimal place. 
+delayed_flights_avg = pd.pivot_table(delayed_flights_df, 
+                                   index=['UniqueCarrier','DayofMonth', 'DayOfWeek' ],
+                                   values='ArrDelay',
+                                   aggfunc=custom_avg).round(1)
+
+
+# Rename the column to reflect the aggregation. 
+delayed_flights_avg = delayed_flights_avg.rename(columns={'ArrDelay': 'Avg. Arrival Delay'})
+
+# Sort the pivot table to show the top 25 largest average arrival delay by carrier, day of the month, and day of the week.
+delayed_flights_avg.sort_values(by=['Avg. Arrival Delay'], ascending=False).head(25)
+
+##--CODE--##
+# Use the custom_avg function to show the average delay of arrivals and departures
+# for each carrier, day of the months and day of the week. Round to one decimal place. 
+flights_arrival_dept_delay = pd.pivot_table(delayed_flights_df, 
+                                   index=['UniqueCarrier','DayofMonth', 'DayOfWeek' ],
+                                   values=["ArrDelay", "DepDelay"],
+                                   aggfunc=custom_avg).round(1)
+
+
+# Rename the columns to reflect the aggregation. 
+flights_arrival_dept_delay = flights_arrival_dept_delay.rename(columns={'ArrDelay': 'Avg. Arrival Delay',
+                                                                       "DepDelay": 'Avg. Dept. Delay'})
+
+# Sort the pivot table to show the greatest average arrival and departures delays
+# by carrier, day of the months and day of the week. Show the top 25 results
+flights_arrival_dept_delay.sort_values(by=['Avg. Arrival Delay','Avg. Dept. Delay' ], ascending=False).head(25)
+
+##--CODE--##
+# Show the bottom 25 results.
+flights_arrival_dept_delay.sort_values(by=['Avg. Arrival Delay','Avg. Dept. Delay' ]).head(25)
+
+##--CODE--##
+# Create a custom function that calculates the total of a DataFrame column.
+def custom_sum(x):
+    return x.sum()
+
+##--CODE--##
+# Show the total and average number of flights that were diverted for each carrier, the origin, and destination.
+# Use the custom functions you created above.
+total_avg_diverted = pd.pivot_table(delayed_flights_df, 
+                                   index=['UniqueCarrier',"Origin","Dest"],
+                                   values="Diverted",
+                                   aggfunc=(custom_sum, custom_avg))
+
+
+# Rename the columns to reflect the results. 
+total_avg_diverted = total_avg_diverted.rename(columns={'custom_sum': 'Total_Diverted',
+                                                        'custom_avg': 'Avg_Diverted'})
+
+total_avg_diverted
+
+# Sort the pivot table to show the greatest average and number of diverted flights
+# for each carrier, the origin, and destination.. Show the top 25 results
+total_avg_diverted.sort_values(by=['Total_Diverted','Avg_Diverted' ], ascending=False).head(25)
+
+##--CODE--##
+
+

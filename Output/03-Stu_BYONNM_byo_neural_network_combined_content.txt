@@ -1,0 +1,70 @@
+##--CODE--##
+# Import our dependencies
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+import tensorflow as tf
+
+##--CODE--##
+# Import the sample data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m18/lesson_1/datasets/sample-data-5000.csv")
+
+# Plot the sample data
+df.plot.scatter(x="Feature 1", y="Feature 2", c="Target", colormap="winter")
+
+##--CODE--##
+# Separate the X and y
+X = df.drop(columns="Target")
+y = df["Target"]
+
+# Use sklearn to split dataset
+
+
+##--CODE--##
+# Create scaler instance
+
+
+# Fit the scaler
+
+
+# Scale the data
+
+
+##--CODE--##
+# Create the Keras Sequential model
+
+
+##--CODE--##
+# Set input nodes to the number of features
+
+
+# Add our first Dense layer, including the input layer
+
+
+##--CODE--##
+# Add the output layer that uses a probability activation function
+
+
+##--CODE--##
+# Check the structure of the Sequential model
+
+
+##--CODE--##
+# Compile the Sequential model together and customize metrics
+
+
+##--CODE--##
+# Fit the model to the training data
+
+
+##--CODE--##
+# Evaluate the model using the test data
+
+
+##--CODE--##
+# Create a DataFrame containing training history
+
+
+# Plot the accuracy
+
+

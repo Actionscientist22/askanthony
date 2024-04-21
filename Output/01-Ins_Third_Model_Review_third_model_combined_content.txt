@@ -1,0 +1,359 @@
+##--CODE--##
+# Import the data
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import balanced_accuracy_score
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
+
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m14/datasets/bank_marketing.csv')
+df.head()
+
+##--CODE--##
+# Setup X and y variables
+X = df.drop(columns='y')
+y = df['y'].values.reshape(-1,1)
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=13)
+X_train.describe()
+
+# Missing Values
+
+##--CODE--##
+# Find the percentage of null values in each column
+
+
+
+##--CODE--##
+# Explore each column with missing values to determine the best fill strategy
+# First the job column
+
+
+
+##--CODE--##
+# The job column is varied and the number of missing values is small
+# It might suffice to fill the missing values with "unknown"
+# We'll make a function to handle this.
+
+
+
+##--CODE--##
+# Education is next
+
+
+
+##--CODE--##
+
+
+
+##--CODE--##
+
+
+
+##--CODE--##
+# The vast majority of rows missing an education value
+# have a job which wouldn't require a higher education
+# Lets fillna for education with 'primary', but 'unknown'
+# might be a good choice as well
+
+
+
+
+##--CODE--##
+# Now for the contact column
+
+
+
+##--CODE--##
+
+
+
+##--CODE--##
+
+
+
+##--CODE--##
+
+
+
+##--CODE--##
+# This one is harder to find; we'll just fillna
+# using 'unknown' for this one
+
+
+
+
+##--CODE--##
+# Next is pdays
+# This column says how many days it has been since the last 
+# marketing contact for this client
+
+
+
+##--CODE--##
+
+
+
+##--CODE--##
+# Hmm... previous has some interesting output, lets explore that
+
+
+
+##--CODE--##
+# According to the information about the dataset,
+# a zero in the 'previous' column means that this client
+# has not been contacted before! Lets put a -1 in place
+# of the NaNs to indicate this importance to the model.
+
+
+
+
+##--CODE--##
+# Lastly is poutcome
+
+
+
+
+##--CODE--##
+# The number of missing values in this column 
+# closely matched that of pdays
+# Lets check the 'previous' column
+
+
+
+##--CODE--##
+# Since the vast majority of missing data didn't have a previous
+# campaign, we can fill the data with 'nonexistent'. 
+
+
+
+
+##--CODE--##
+# Lets combine all our missing data functions into a single function
+
+
+
+##--CODE--##
+
+
+##--CODE--##
+# Lets apply this fill missing function to our data before 
+# moving on to encoding
+
+
+
+# Categorical Variables
+
+##--CODE--##
+
+
+
+##--CODE--##
+# First is job
+
+
+
+##--CODE--##
+# Lots of unique values, not ordinal data
+# Lets convert to no more than 5 categories
+
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Next is marital
+
+
+
+##--CODE--##
+# Only three values; lets use two OneHotEncoded columns
+# remembering to choose options for unknown values
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Next is education
+
+
+
+##--CODE--##
+# This is ordinal! Lets use the ordinal encoder
+# We'll set any unknown values to -1
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Next is default
+
+
+
+##--CODE--##
+# Lets make this an Ordinal column
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Next is housing
+
+
+
+##--CODE--##
+# Lets make this an Ordinal column
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Next is loan
+
+
+
+##--CODE--##
+# Lets make this an Ordinal column
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Next is contact
+
+
+
+##--CODE--##
+# Lets use two OneHotEncoded columns
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Next is month
+
+
+
+##--CODE--##
+# This month seems ordinal by may not behave that way...
+# Lets use ordinal for now, but consider experimenting with this!
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Next is the poutcome column
+
+
+
+##--CODE--##
+# Lets use OneHotEncoding for this
+
+
+# Train the encoder
+
+
+
+##--CODE--##
+# Combine the encoders into a function
+# Make sure to return a dataframe
+def encode_categorical(X_data):
+    # Separate numeric columns
+    X_data_numeric = X_data.select_dtypes(include='number').reset_index()
+
+    # Multicolumn encoders first
+    job_encoded_df = pd.DataFrame(encode_job.transform(X_data['job'].values.reshape(-1, 1)), columns=encode_job.get_feature_names_out())
+    marital_encoded_df = pd.DataFrame(encode_marital.transform(X_data['marital'].values.reshape(-1, 1)), columns=encode_marital.get_feature_names_out())
+    contact_encoded_df = pd.DataFrame(encode_contact.transform(X_data['contact'].values.reshape(-1, 1)), columns=encode_contact.get_feature_names_out())
+    poutcome_encoded_df = pd.DataFrame(encode_poutcome.transform(X_data['poutcome'].values.reshape(-1, 1)), columns=encode_poutcome.get_feature_names_out())
+
+    # Concat all dfs together
+    dfs = [X_data_numeric, job_encoded_df, marital_encoded_df, contact_encoded_df, poutcome_encoded_df]
+    X_data_encoded = pd.concat(dfs, axis=1)
+
+    # Add single column encoders
+    X_data_encoded['education'] = encode_education.transform(X_data['education'].values.reshape(-1, 1))
+    X_data_encoded['default'] = encode_default.transform(X_data['default'].values.reshape(-1, 1))
+    X_data_encoded['housing'] = encode_housing.transform(X_data['housing'].values.reshape(-1, 1))
+    X_data_encoded['loan'] = encode_loan.transform(X_data['loan'].values.reshape(-1, 1))
+    X_data_encoded['month'] = encode_month.transform(X_data['month'].values.reshape(-1, 1))
+    
+    return X_data_encoded
+
+##--CODE--##
+# Apply the encoding function to both training and testing
+
+
+
+##--CODE--##
+# Check the final X_train data
+
+
+
+##--CODE--##
+# Wait! Don't forget the y data!
+
+
+
+##--CODE--##
+# Create a OneHotEncoder
+
+
+# Train the encoder
+
+
+# Apply it to both y_train and y_test
+# Use np.ravel to reshape for logistic regression
+
+
+
+##--CODE--##
+# Create and train an SVC model
+from sklearn.ensemble import RandomForestClassifier
+
+
+
+##--CODE--##
+# Check the model's balanced accuracy on the test set
+
+
+
+##--CODE--##
+# Check the model's balanced accuracy on the training set
+
+
+
+##--CODE--##
+# We overfit! Lets try varying the max depth
+
+
+
+##--CODE--##
+
+
+##--CODE--##
+# it looks like the lines start to diverge a lot after 7
+# Create and train a RandomForest model
+from sklearn.ensemble import RandomForestClassifier
+
+
+##--CODE--##
+
+

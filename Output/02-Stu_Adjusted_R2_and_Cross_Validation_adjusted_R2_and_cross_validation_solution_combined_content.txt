@@ -1,0 +1,119 @@
+##--CODE--##
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
+##--CODE--##
+# Import the data
+car_data = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m12/lesson_1/datasets/car-data-encoded.csv")
+car_data.head()
+
+##--CODE--##
+# Drop rows with missing values
+car_data = car_data.dropna()
+
+## Split into training and testing sets
+
+##--CODE--##
+# Create a one column X variable with only horsepower
+X_one_col = pd.DataFrame(car_data['horsepower'], columns = ['horsepower'])
+X_one_col.head()
+
+##--CODE--##
+# Create another variable X__multi_col by creating columns
+# containing a single value, which are therefore useless to
+# the model
+import numpy as np
+np.random.RandomState(13)
+
+X_multi_col = X_one_col.copy()
+X_multi_col['ones'] = 1
+X_multi_col['twos'] = 2
+X_multi_col['threes'] = 3
+X_multi_col['fours'] = 4
+X_multi_col['fives'] = 5
+X_multi_col['sixes'] = 6
+X_multi_col['sevens'] = 7
+X_multi_col['eights'] = 8
+X_multi_col.head()
+
+##--CODE--##
+# Set the target variable y
+y = car_data["price"].values.reshape(-1, 1)
+
+##--CODE--##
+# Now split the data into training and testing sets again
+X_one_col_train, X_one_col_test, X_multi_col_train, X_multi_col_test, y_train, y_test = train_test_split(X_one_col, X_multi_col, y, random_state=13)
+
+## Train the models
+
+##--CODE--##
+# Create the models
+lr1 = LinearRegression()
+lr2 = LinearRegression()
+
+# Fit the first model to the full training data. 
+lr1.fit(X_one_col_train, y_train)
+
+# Fit the second model to the select training data.
+lr2.fit(X_multi_col_train, y_train)
+
+##--CODE--##
+# Use .coef_ to view the coefficients of the model
+# Note the coefficients; the added columns aren't being used!
+lr2.coef_
+
+## Evaluate the model
+
+##--CODE--##
+# Calculate the mean_squared_error and the r-squared value
+# for the testing data
+
+# Use our models to make predictions
+predicted1 = lr1.predict(X_one_col_test)
+predicted2 = lr2.predict(X_multi_col_test)
+
+# Score the predictions with mse and r2
+mse1 = round(mean_squared_error(y_test, predicted1), 2)
+r21 = round(r2_score(y_test, predicted1), 2)
+mse2 = round(mean_squared_error(y_test, predicted2), 2)
+r22 = round(r2_score(y_test, predicted2), 2)
+
+print(f"One Column Test:")
+print(f"mean squared error (MSE): {mse1}")
+print(f"R-squared (R2): {r21}")
+print("---------------------")
+print(f"Multi Column Test:")
+print(f"mean squared error (MSE): {mse2}")
+print(f"R-squared (R2): {r22}")
+print("---------------------")
+print(f"Difference: {r21-r22}")
+
+##--CODE--##
+# Provided code to create the adjusted r-squared function
+def r2_adj(x, y, model):
+    r2 = model.score(x,y)
+    n_cols = x.shape[1]
+    return 1 - (1 - r2) * (len(y) - 1) / (len(y) - n_cols - 1)
+
+##--CODE--##
+# Calculate the adjusted r-squared value of the model
+adj_score1 = round(r2_adj(X_one_col_test, y_test, lr1), 2)
+adj_score2 = round(r2_adj(X_multi_col_test, y_test, lr2), 2)
+print(f"One Column Adjusted R2: {adj_score1}")
+print(f"Multi Column Adjusted R2: {adj_score2}")
+print(f"Difference: {round(adj_score1-adj_score2, 2)}")
+
+##--CODE--##
+# Examine linear regression on the better training data using cross validation
+from sklearn.model_selection import cross_val_score
+cv_scores = cross_val_score(LinearRegression(), X_one_col_train, y_train, scoring = "r2")
+print(f"All scores: {cv_scores}")
+print(f"Mean score: {cv_scores.mean()}")
+print(f"Standard Deviation: {cv_scores.std()}")
+
+##--CODE--##
+
+

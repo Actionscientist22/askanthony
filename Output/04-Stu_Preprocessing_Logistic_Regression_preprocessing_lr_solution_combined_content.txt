@@ -1,0 +1,80 @@
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.linear_model import LogisticRegression
+
+##--CODE--##
+# Load in data
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m13/lesson_1/datasets/customer-churn.csv')
+df
+
+##--CODE--##
+# Drop the label to create the X data
+X = df.drop('Churn', axis=1)
+X
+
+##--CODE--##
+# Create the y set from the "Churn" column
+y = df["Churn"]
+y
+
+##--CODE--##
+# Split the data into training and testing sets using random_state=1
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+
+##--CODE--##
+# Scale the X data by using StandardScaler()
+scaler = StandardScaler().fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_train_scaled
+
+##--CODE--##
+# Transform the test dataset based on the fit from the training dataset
+X_test_scaled = scaler.transform(X_test)
+X_test_scaled
+
+##--CODE--##
+# Create a `LogisticRegression` function and assign it 
+# to a variable named `logistic_regression_model`.
+logistic_regression_model = LogisticRegression()
+
+# Fit the model
+logistic_regression_model.fit(X_train_scaled, y_train)
+
+##--CODE--##
+# Score the model
+print(f"Training Data Score: {logistic_regression_model.score(X_train_scaled, y_train)}")
+print(f"Testing Data Score: {logistic_regression_model.score(X_test_scaled, y_test)}")
+
+##--CODE--##
+# Alternatively, scale the data by using MinMaxScaler()
+scaler = MinMaxScaler().fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_train_scaled
+
+##--CODE--##
+# Transform the test dataset based on the fit from the training dataset
+X_test_scaled = scaler.transform(X_test)
+X_test_scaled
+
+##--CODE--##
+# Create a `LogisticRegression` function and assign it 
+# to a variable named `logistic_regression_model`.
+logistic_regression_model = LogisticRegression()
+
+# Fit the model
+logistic_regression_model.fit(X_train_scaled, y_train)
+
+##--CODE--##
+# Score the model
+print(f"Training Data Score: {logistic_regression_model.score(X_train_scaled, y_train)}")
+print(f"Testing Data Score: {logistic_regression_model.score(X_test_scaled, y_test)}")
+
+**Which scalar instance produces a better accuracy score on the scaled testing data?**
+
+Answer: `MinMaxScalar()`
+
+##--CODE--##
+
+

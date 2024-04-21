@@ -1,0 +1,116 @@
+##--CODE--##
+# Import the required libraries and dependencies
+import numpy as np
+import pandas as pd
+
+##--CODE--##
+# Read the data from the apple-price.csv file into a Pandas DataFrame
+df_stock = pd.read_csv(
+    "../Resources/aapl-price.csv", 
+    index_col="date", 
+    parse_dates=True, 
+    infer_datetime_format=True
+)
+
+# Review the DataFrame
+df_stock.head()
+
+##--CODE--##
+# Read the data from the apple-trends.csv file into a Pandas DataFrame
+df_trends = pd.read_csv(
+    "../Resources/apple-trends.csv", 
+    index_col="date", 
+    parse_dates=True, 
+    infer_datetime_format=True
+)
+
+# Review the DataFrame
+df_trends.head()
+
+#### Step 2: Concatenate the `df_stock` DataFrame to the `df_trends` DataFrame, creating a single DataFrame named `df_apple`.
+
+> **Rewind** Concatenation: Two DataFrames that have the same `datetime` index can be merged using `pd.concat`. The `axis=1` parameter means that we're bringing the columns of the two DataFrames together.
+
+##--CODE--##
+# Concatenate Apple's stock price and Google trends data
+# Use a parameter of axis=1 to ensure the concatenation by columns
+# Chain the dropna function to remove any rows of data that do not 
+# contain information in both columns
+df_apple=pd.concat([df_stock,df_trends],axis=1).dropna()
+
+# Review the df_apple DataFrame
+df_apple.head()
+
+
+### Step 3: Create a plot of the concatenated DataFrame and analyze any trends and correlations. Do you observe any seasonal patterns?
+
+> **Hint** You might find it useful to refer to the [Apple Events page](https://www.apple.com/apple-events/) and the [Timeline of Apple Inc. products](https://en.wikipedia.org/wiki/Timeline_of_Apple_Inc._products) to spotlight moments over time that could have triggered a particular pattern.
+
+##--CODE--##
+# Use hvplot to visualize the time series data in the df_apple DataFrame
+df_apple.plot()
+
+## Building Time Trends
+
+### Step 1: Note that on September 10, 2019, Apple organized an event where it presented the new iPhone 11 family, the Apple Watch Series 5, and a new iPad. This event gained worldwide attention.
+
+### Step 2: Closely examine the data from March 1, 2019 to January 31, 2020.
+
+##--CODE--##
+# Using the df_apple DataFrame, use the loc function to select a
+# range of data from March 1st, 2019 to January 31st, 2020
+df_spotlight=df_apple.loc["2019-03-01":"2020-01-31"]
+
+# Review the df_spotlight DataFrame
+df_spotlight
+
+### Step 3: Create a plot and identify whether both time series indicate a common trend that might correspond to this narrative.
+
+##--CODE--##
+# Visualize the df_spotlight DataFrame
+df_spotlight.plot()
+
+### Step 4: Before seeking any correlations between these time series, add columns to the `df_apple` DataFrame to analyze the impact of the Google Trends data on the weekly returns and stock volatility, as follows:
+
+1. Use the Pandas `shift` function to add a new column that lags the Google Trends data by one period.
+
+    > **Hint** Google Trends data is reported every week on Sunday, so you have a weekly period in this time series.
+
+2. Use the Pandas `pct_change` function to add a new column that has the weekly price returns.
+
+3. Compute the rolling stock volatility for Apple by using the following Pandas method:
+
+    `df_apple["weekly_volatility"] = df_apple["close"].pct_change().rolling(window=4).std()`
+
+
+##--CODE--##
+# Create a column which lags Google trends by one week
+# Use the shift function, and move the data down by one row
+df_apple['lagged_trends']=df_apple["trend-worldwide"].shift(1)
+df_apple
+
+##--CODE--##
+# Create a column that contains the Apple weekly return data
+# Use the pct_change function to calculate the weekly return values
+df_apple['weekly_returns']=df_apple['close'].pct_change()
+df_apple
+
+##--CODE--##
+# Create a column of Apple weekly rolling stock volatility 
+# Chain the pct_function, the rolling function and a 4 period window, and the std function 
+df_apple["weekly_volatility"]=df_apple['close'].pct_change().rolling(window=4).std()
+df_apple
+
+##--CODE--##
+# Display the df_apple DataFrame to confirm all columns are present
+
+
+### Step 5: Use the Pandas `corr` function to compute the correlations among the lagged Google Trends data, the price returns, and the stock volatility. Does any predictable relationship exist?
+
+##--CODE--##
+# Use the corr function to compute the correlation between the lagged Google Trends data, price returns, and stock volatility
+df_apple[["lagged_trends","weekly_returns","weekly_volatility"]].corr()
+
+##--CODE--##
+
+

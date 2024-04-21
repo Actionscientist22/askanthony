@@ -1,0 +1,66 @@
+##--CODE--##
+# Imports for loading environment variables.
+from dotenv import load_dotenv
+import os
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+##--CODE--##
+# Additional imports for the chain and templates.
+from langchain_openai import ChatOpenAI
+from langchain import PromptTemplate, FewShotPromptTemplate
+from langchain.chains import LLMChain
+
+##--CODE--##
+# Initialize the model.
+
+
+##--CODE--##
+# Create examples.
+examples = [
+    
+]
+
+##--CODE--##
+# Define a format for the examples.
+
+
+##--CODE--##
+# Create a prompt template for the examples.
+
+
+##--CODE--##
+# Define a prefix that explains the prompt.
+
+
+##--CODE--##
+# Provide a suffix that includes the query.
+
+
+##--CODE--##
+# Construct the few shot prompt template.
+
+
+##--CODE--##
+# Construct a chain using this template.
+
+
+##--CODE--##
+# Prompt the user for a topic.
+
+
+##--CODE--##
+# Define the query as a dictionary.
+
+
+##--CODE--##
+# Run the chain using the query as input and print the result.
+
+

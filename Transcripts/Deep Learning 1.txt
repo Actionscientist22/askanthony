@@ -1,0 +1,4062 @@
+WEBVTT
+
+1
+00:00:11.470 --> 00:00:12.740
+Anthony Taylor: To Mobile.
+
+2
+00:00:14.000 --> 00:00:15.270
+Anthony Taylor: Okay.
+
+3
+00:00:16.580 --> 00:00:25.299
+Anthony Taylor: welcome everybody. So this week's interesting. I mean, I've done image stuff. In fact, I've talked this many, many times.
+
+4
+00:00:25.360 --> 00:00:31.810
+Anthony Taylor:  But I like the way they did it the way they laid it out for you guys, it goes way in depth.
+
+5
+00:00:32.570 --> 00:00:39.340
+Anthony Taylor: We're gonna cover some other advanced concepts while we cover image processing.
+
+6
+00:00:39.370 --> 00:00:46.020
+Anthony Taylor: because I mean, honestly, image processing other than preprocessing. It's very similar to what you guys have done before.
+
+7
+00:00:46.080 --> 00:00:50.180
+Anthony Taylor: Okay, we're gonna preprocess some data. We're gonna model it fit it. Predict it.
+
+8
+00:00:50.520 --> 00:00:51.390
+Anthony Taylor: Next.
+
+9
+00:00:51.880 --> 00:00:56.360
+Anthony Taylor: okay. But preprocessing, the data is significant.
+
+10
+00:00:56.870 --> 00:00:59.749
+Anthony Taylor: So today's entire lesson
+
+11
+00:01:00.210 --> 00:01:03.610
+Anthony Taylor: is going to be preprocessing image data
+
+12
+00:01:04.260 --> 00:01:07.769
+Anthony Taylor: pretty exciting. We're going to use a new library
+
+13
+00:01:08.100 --> 00:01:09.930
+Anthony Taylor: called the Pillow Library.
+
+14
+00:01:10.440 --> 00:01:12.410
+Anthony Taylor: just saying it makes me tired.
+
+15
+00:01:14.610 --> 00:01:15.600
+Anthony Taylor: but
+
+16
+00:01:16.190 --> 00:01:18.830
+Anthony Taylor: it is not any. It's not soft at all.
+
+17
+00:01:18.900 --> 00:01:23.100
+Anthony Taylor: nor is it fluffy. It allows us to basically
+
+18
+00:01:23.130 --> 00:01:31.569
+Anthony Taylor: it. It facilitates importing images in a way that is nice to use with modeling?
+
+19
+00:01:31.970 --> 00:01:38.660
+Anthony Taylor:  we're gonna import an image data set. What's an image data set? Basically, it's a bunch of images.
+
+20
+00:01:39.530 --> 00:01:42.540
+Anthony Taylor: Okay, we got one image. And then we got a bunch of images.
+
+21
+00:01:42.600 --> 00:01:50.099
+Anthony Taylor: Then we're going to prepare the image for our model, which will be a neural network. Not when you guys have seen, for
+
+22
+00:01:50.160 --> 00:01:53.440
+Anthony Taylor: there'll be a convolutional neural network
+
+23
+00:01:55.150 --> 00:01:57.020
+Anthony Taylor: for Clayton. That's Cnn.
+
+24
+00:01:58.480 --> 00:02:00.550
+Anthony Taylor: okay,
+
+25
+00:02:00.750 --> 00:02:03.070
+Anthony Taylor: and then normalize image data
+
+26
+00:02:03.230 --> 00:02:10.270
+Anthony Taylor: so that we're normalizing very similar to how we normalized the data the other day for the restricted
+
+27
+00:02:10.400 --> 00:02:12.310
+Anthony Taylor: Boltzmann machine.
+
+28
+00:02:12.640 --> 00:02:16.030
+Anthony Taylor: And then we're going to label it. It's all we're doing today.
+
+29
+00:02:16.740 --> 00:02:18.730
+Anthony Taylor: Tomorrow
+
+30
+00:02:18.750 --> 00:02:28.509
+Anthony Taylor: we will actually start getting into how to plug this into our model, which is why I'm kind of like. I hope it doesn't cause y'all a problem out there
+
+31
+00:02:28.670 --> 00:02:29.860
+Anthony Taylor: in Colorado.
+
+32
+00:02:31.800 --> 00:02:33.840
+Anthony Taylor: So welcome welcome
+
+33
+00:02:36.770 --> 00:02:43.070
+Anthony Taylor: introduction to image data. So first off, what kind of data we use so far to train and validate our models.
+
+34
+00:02:52.270 --> 00:02:54.239
+Anthony Taylor: That's one of those not hypothetical.
+
+35
+00:02:56.350 --> 00:03:02.810
+Meredith McCanse (she/her): not images, non images. That's actually an accurate answer.
+
+36
+00:03:03.090 --> 00:03:12.609
+Anthony Taylor: It is. So I mean, basically, we've done. We've had categorical data. We've had string data. We've had integer data floats, lots of floats.
+
+37
+00:03:12.850 --> 00:03:16.759
+Anthony Taylor:  just all kinds of stuff. Let's see what they were hoping
+
+38
+00:03:17.240 --> 00:03:18.470
+Anthony Taylor: you would say
+
+39
+00:03:20.430 --> 00:03:21.829
+Anthony Taylor: numerical data.
+
+40
+00:03:22.300 --> 00:03:26.639
+Anthony Taylor: That's what they were looking for numerical data.
+
+41
+00:03:26.800 --> 00:03:31.260
+Anthony Taylor: Images, on the other hand, require a little bit different
+
+42
+00:03:31.790 --> 00:03:34.950
+Anthony Taylor: type of process, because our images numbers.
+
+43
+00:03:38.990 --> 00:03:40.370
+Baro, Sonja: Yes, aren't they?
+
+44
+00:03:40.390 --> 00:03:45.590
+Anthony Taylor: Ultimately that was a good answer. It's kind of a trick question, right?
+
+45
+00:03:45.690 --> 00:03:48.770
+Anthony Taylor: When we look at images. We don't see numbers
+
+46
+00:03:48.950 --> 00:04:07.369
+Anthony Taylor: right everybody here has an image on the screen right now showing it to. It's a video. It's a lot of images. But it is an image, right? So we see an image. But we're gonna talk about how to break it down into what the computer can see. Our computers can actually
+
+47
+00:04:07.480 --> 00:04:08.320
+Anthony Taylor: see.
+
+48
+00:04:09.430 --> 00:04:17.760
+Anthony Taylor: Okay. But they don't see. I mean, forget the camera for a minute. What they see for modeling is something different.
+
+49
+00:04:18.029 --> 00:04:27.700
+Anthony Taylor:  so what challenges might we face in processing image data? We've talked about this a little bit.
+
+50
+00:04:30.560 --> 00:04:39.890
+Baro, Sonja: So one of the things you talked about the other night when images came up was the edges, and the distinction
+
+51
+00:04:40.240 --> 00:04:53.659
+Anthony Taylor: problem with yes, contracts is is is how it sees, and you'll understand that as we dig a little deeper. But and and yes, that's definitely a challenge. Okay. But what about? I mean? How? What, Meredith, what you think
+
+52
+00:04:54.730 --> 00:05:02.649
+Meredith McCanse (she/her): you would imagine. The data itself is either super unstructured or structured in a different way that we've learned how to work with
+
+53
+00:05:02.950 --> 00:05:08.309
+Meredith McCanse (she/her): like, it's not gonna not easily set up in like columns with headers and stuff like that.
+
+54
+00:05:08.870 --> 00:05:28.409
+Anthony Taylor: It it's very much. Remember, we're talking about matrixes. The matrices the other day very much. It's going to be a matrix type of processing. But we have process matrices. So it's not completely different. Lots of like big big files, lots of data
+
+55
+00:05:28.630 --> 00:05:32.850
+Meredith McCanse (she/her): going lots, lots and lots lots of data
+
+56
+00:05:33.080 --> 00:05:36.020
+Anthony Taylor: images. Even the small image.
+
+57
+00:05:36.420 --> 00:05:41.299
+Anthony Taylor: Okay, it can. I mean it. It's it's basically 10 by 10
+
+58
+00:05:41.810 --> 00:05:42.880
+Anthony Taylor: was a hundred.
+
+59
+00:05:43.120 --> 00:05:47.859
+Anthony Taylor: Well, most of our images are running at 1,024
+
+60
+00:05:48.320 --> 00:05:55.050
+Anthony Taylor: or 4,000. If you're doing 4 K, okay, pixels across.
+
+61
+00:05:56.570 --> 00:06:05.249
+Anthony Taylor: So when you multiply that by how many you're going high. then take into account that there are how many different colors are there.
+
+62
+00:06:05.880 --> 00:06:13.389
+Anthony Taylor: The amount of data is staggering when it comes to an image. So first, let's just talk about a simple
+
+63
+00:06:14.350 --> 00:06:15.600
+Anthony Taylor: flat image.
+
+64
+00:06:15.810 --> 00:06:21.590
+Anthony Taylor: Okay, so we have pixels 123-45-6789,
+
+65
+00:06:22.390 --> 00:06:25.640
+Anthony Taylor: 1, 2, 3, 4, 5, 6, 7, 8.
+
+66
+00:06:25.960 --> 00:06:27.100
+Anthony Taylor: That's interesting.
+
+67
+00:06:29.080 --> 00:06:36.950
+Anthony Taylor: Okay, now, 8 by 8. So this is 8 by 8, alright, 64 possible inputs right?
+
+68
+00:06:38.710 --> 00:06:48.389
+Anthony Taylor: Well, that would be true. If this was black and white. It's not black and white, though, is it? Black and white's easy. 0 one done.
+
+69
+00:06:49.750 --> 00:06:55.379
+Anthony Taylor: Okay, but this is not black and white. So if we were just doing this, this would be 64
+
+70
+00:06:55.480 --> 00:07:00.739
+Anthony Taylor: inputs, all these white ones would be 0. And these color ones would be some.
+
+71
+00:07:01.120 --> 00:07:07.740
+Anthony Taylor: That's where it's going to get interesting. So we can get the position. That's pretty easy.
+
+72
+00:07:08.200 --> 00:07:12.680
+Anthony Taylor: We can tell this, hey? This is a bit of a rainbow. Okay?
+
+73
+00:07:13.370 --> 00:07:20.509
+Anthony Taylor: And there's the position we've started representing our data. Oh, but here we go.
+
+74
+00:07:22.260 --> 00:07:28.819
+Anthony Taylor: We're gonna use RGB, most of the time. Not always, but a good period of the time.
+
+75
+00:07:29.140 --> 00:07:30.959
+Anthony Taylor: and each
+
+76
+00:07:31.120 --> 00:07:32.190
+Anthony Taylor: pixel
+
+77
+00:07:33.430 --> 00:07:36.010
+Anthony Taylor: has 3 values
+
+78
+00:07:36.560 --> 00:07:39.630
+Anthony Taylor: between 0 and 255
+
+79
+00:07:40.740 --> 00:07:42.280
+Anthony Taylor: to make up a color.
+
+80
+00:07:43.530 --> 00:07:44.689
+Anthony Taylor: red, green, blue.
+
+81
+00:07:46.070 --> 00:07:55.719
+Anthony Taylor: Okay. so this green down here is red, 68 greens, 2, 55. Blue is 1, 37. So with that being said.
+
+82
+00:07:56.480 --> 00:08:02.200
+Anthony Taylor: you start thinking of it. So back up here, this is just a matrix 6, one, right? 2D.
+
+83
+00:08:02.270 --> 00:08:03.289
+Anthony Taylor: No problem.
+
+84
+00:08:03.530 --> 00:08:09.479
+Anthony Taylor: We all saw that the other day on Monday. Remember, when we filled the cabinet
+
+85
+00:08:10.370 --> 00:08:13.139
+Anthony Taylor: 2 rows too high, 5 deep.
+
+86
+00:08:14.470 --> 00:08:18.169
+Anthony Taylor: Okay. And that became like a 3 dimensional array.
+
+87
+00:08:18.390 --> 00:08:20.099
+Anthony Taylor: Well, that's what we're gonna do now
+
+88
+00:08:20.530 --> 00:08:30.099
+Anthony Taylor: we've got 6 and one but 6, and one is actually split into 3 separate layers, a red channel, a green channel, a blue channel.
+
+89
+00:08:30.260 --> 00:08:32.000
+Anthony Taylor: So what you end up with
+
+90
+00:08:32.080 --> 00:08:34.440
+Anthony Taylor: is something like this.
+
+91
+00:08:36.830 --> 00:08:38.710
+Anthony Taylor: everyone following so far.
+
+92
+00:08:40.299 --> 00:08:53.410
+Anthony Taylor: Alright. So the the idea behind this is is now we can represent a single pixel with a 3 layer
+
+93
+00:08:53.940 --> 00:08:57.979
+Anthony Taylor: matrix. So how do you think this would look?
+
+94
+00:08:58.420 --> 00:09:01.650
+Anthony Taylor:  in data?
+
+95
+00:09:05.280 --> 00:09:07.480
+Anthony Taylor: Anybody wanna take a wild guess?
+
+96
+00:09:08.930 --> 00:09:13.719
+Clayton Graves: How would this data look like if we were to type it out, I think you'd have
+
+97
+00:09:14.120 --> 00:09:21.770
+Clayton Graves: in in in like a regular data. I think you'd have a a red column, a green column, and a blue column.
+
+98
+00:09:21.990 --> 00:09:28.440
+Clayton Graves: and then each column for that row would have a specific value. I'm
+
+99
+00:09:28.600 --> 00:09:40.460
+Anthony Taylor: no, that's not bad. I mean, that's not bad. I mean, basically, yeah, something similar to like, it's the tensors that we looked at the other day
+
+100
+00:09:40.490 --> 00:09:53.140
+Anthony Taylor: very much like the tensors. Okay? I mean it will be a 10 scope. II don't want to get into that. Attention is technically the terminology for a, vector and it's the terminology that tensorflow uses. But
+
+101
+00:09:53.290 --> 00:09:59.360
+Anthony Taylor: it is, I mean, absolutely. This would be a stack of vectors. Sonya. Did you have something you wanted to add?
+
+102
+00:10:01.060 --> 00:10:04.890
+Baro, Sonja: I was thinking of how it would display as arrays.
+
+103
+00:10:05.410 --> 00:10:10.240
+Baro, Sonja: cause you just said that each one, each pixel, would have
+
+104
+00:10:10.530 --> 00:10:20.109
+Baro, Sonja: 3 arrays. So each one of these channels is gonna have in a bracket or an array of number of values.
+
+105
+00:10:21.530 --> 00:10:26.470
+Anthony Taylor: Yes. so effectively, there's going to be 3 arrays within an array.
+
+106
+00:10:26.930 --> 00:10:40.209
+Anthony Taylor: right? And that. And that's ultimately what you're gonna see. So an array with a bunch of arrays inside it for 2, depending on how we store the date. Okay? And see if we have a picture.
+
+107
+00:10:41.260 --> 00:11:00.220
+Anthony Taylor: Well, it it's cool right there we go. Let's see if they see they're not gonna show it to you. It's so funny, they tell you it, but they don't actually show it to you. But basically, yeah, this is, gonna be array of arrays effective. And once one pixel will be an array with 3
+
+108
+00:11:00.310 --> 00:11:05.900
+Anthony Taylor: sets inside of it, one for each layer. Alright. And that's
+
+109
+00:11:06.060 --> 00:11:12.799
+Anthony Taylor: how it works. Okay, so let's oh, I forgot to reboot it. Oh, good. I'm still in here.
+
+110
+00:11:13.520 --> 00:11:15.740
+Anthony Taylor: Alright. So let's go.
+
+111
+00:11:15.770 --> 00:11:19.970
+Anthony Taylor: and let's import our first image.
+
+112
+00:11:22.110 --> 00:11:26.150
+Anthony Taylor: Hold on. No, I don't think it's time for that yet.
+
+113
+00:11:28.530 --> 00:11:29.890
+Anthony Taylor: It says
+
+114
+00:11:31.840 --> 00:11:33.400
+Anthony Taylor: this is very strange.
+
+115
+00:11:34.030 --> 00:11:39.299
+Anthony Taylor: My slideshow ends here, but there's still more to talk about. So let's continue talking about it.
+
+116
+00:11:39.400 --> 00:11:48.059
+Anthony Taylor: So every pixel image is described in an enough detail that the model understands what it's looking at. So first, where is
+
+117
+00:11:48.910 --> 00:11:55.890
+Anthony Taylor: okay? Second. what color is. Now, we know color is represented in 3 separate layers.
+
+118
+00:11:56.880 --> 00:12:05.669
+Anthony Taylor: Okay, so yes, we know where it is. And these 3 layers red, is this green? Is this proof? Is this? So we have to have that
+
+119
+00:12:05.820 --> 00:12:07.990
+Anthony Taylor: all right?
+
+120
+00:12:09.550 --> 00:12:13.510
+Anthony Taylor: so it's an array entry. It needs multiple numbers to be described.
+
+121
+00:12:13.890 --> 00:12:18.190
+Anthony Taylor: The shape can change based on
+
+122
+00:12:18.420 --> 00:12:21.050
+Anthony Taylor: the the number of pixels in the image. How
+
+123
+00:12:21.540 --> 00:12:30.899
+Anthony Taylor: detailed the images, how, what the resolution of the image is. So to illustrate that, let's think about picture. It's 244 pixels in either direction.
+
+124
+00:12:31.090 --> 00:12:35.150
+Anthony Taylor: So it's 244 by 244
+
+125
+00:12:35.340 --> 00:12:39.409
+Anthony Taylor: times 3 to represent all of the RGB channels.
+
+126
+00:12:40.770 --> 00:12:45.419
+Anthony Taylor: Alright, that's a big number of inputs coming into our model.
+
+127
+00:12:46.580 --> 00:12:47.560
+Anthony Taylor: Okay?
+
+128
+00:12:47.880 --> 00:12:56.069
+Anthony Taylor:  so oh, it's 178,608 neurons.
+
+129
+00:12:57.380 --> 00:12:58.969
+Anthony Taylor: just for the input rate
+
+130
+00:13:00.820 --> 00:13:06.289
+Anthony Taylor:  And we're not going to get into that because we're not talking about that.
+
+131
+00:13:09.230 --> 00:13:19.980
+Anthony Taylor: Alright. That's good enough. So yeah, we're gonna do convolutional neural networks. But we're not gonna start those today, we're actually gonna do those next class.
+
+132
+00:13:20.220 --> 00:13:23.089
+Anthony Taylor: So today, though, we're going to start
+
+133
+00:13:23.330 --> 00:13:25.850
+Anthony Taylor: importing images. So we are going to go
+
+134
+00:13:26.830 --> 00:13:31.469
+Anthony Taylor: alright. So let's go to the top. Now, I'm gonna tell you guys.
+
+135
+00:13:32.490 --> 00:13:47.850
+Anthony Taylor: all of these have been designed to work with Google Colab. you don't need to use Google colab later, you're gonna see some where we actually have to make changes to not use Google Colam.
+
+136
+00:13:48.130 --> 00:13:56.729
+Anthony Taylor: So right now, I wouldn't worry too much about it if you want to use it. I mean, in fact, what we'll here's what we'll do.
+
+137
+00:13:57.870 --> 00:13:59.820
+Anthony Taylor: I'm going to run this in here.
+
+138
+00:14:00.030 --> 00:14:06.459
+Anthony Taylor: but I'm just gonna remind everybody how to do it in Google. Colab. Okay.
+
+139
+00:14:11.690 --> 00:14:15.579
+Anthony Taylor: does anybody need that reminder? I'm pretty sure you will. Right?
+
+140
+00:14:17.010 --> 00:14:30.580
+Anthony Taylor:  There we go. So you go in here. Let's just I'm gonna close that for a second. So you're in the welcome screen. First thing you wanna do is upload a notebook. So if you go
+
+141
+00:14:31.280 --> 00:14:35.050
+Anthony Taylor: upload browse to the notebook, we're in right now.
+
+142
+00:14:37.780 --> 00:14:40.249
+Anthony Taylor: Okay? And then just import that.
+
+143
+00:14:43.080 --> 00:14:44.090
+Anthony Taylor: You're good to go.
+
+144
+00:14:45.100 --> 00:14:49.149
+Anthony Taylor: Okay, this will work exactly the same
+
+145
+00:14:49.220 --> 00:15:02.119
+Anthony Taylor: as Vs code. We may like before we're done. Because convolutional networks are very computer intensive. We may have to come back to Google colab. So whatever you guys feel more comfortable in is fine.
+
+146
+00:15:02.970 --> 00:15:04.030
+Anthony Taylor: Okay?
+
+147
+00:15:05.200 --> 00:15:07.729
+Anthony Taylor: Anybody, anybody have a preference.
+
+148
+00:15:08.820 --> 00:15:18.089
+Anthony Taylor: If nobody has a preference, I'm just gonna flip back and forth. I'll show you guys how to run this? What changes you have to make to render the Vs code. But we'll oh, you know, and what you could do here.
+
+149
+00:15:18.530 --> 00:15:23.549
+Anthony Taylor: Alright. So let's go, and we'll run this one. Since I'm here. I'll show you this one in here. So
+
+150
+00:15:23.650 --> 00:15:31.969
+Anthony Taylor: our new dependency from Pill Import Image. You may have to pip, install that once we get started.
+
+151
+00:15:32.080 --> 00:15:34.290
+Anthony Taylor: pip, install, fail
+
+152
+00:15:34.880 --> 00:15:35.870
+Anthony Taylor: or pillow
+
+153
+00:15:36.240 --> 00:15:44.100
+Anthony Taylor:  So we're gonna run that guy. We're going to bring in this image. Now, we're doing image.
+
+154
+00:15:44.140 --> 00:15:57.359
+Anthony Taylor: This image dot open. And we're going to do this. Yeah, URL, and look at this boom. There's an error can't open an image from a yeah. URL, it's like it would have been easy just to tell you you can't open an image
+
+155
+00:15:57.380 --> 00:16:06.070
+Anthony Taylor: from a URL, but we wanted to show you you would get an error. What you have to do is basically bring it in
+
+156
+00:16:06.460 --> 00:16:08.869
+Anthony Taylor: and then open it. Now.
+
+157
+00:16:09.130 --> 00:16:22.689
+Anthony Taylor: these images are really really small, as you can see, you don't need stream true and raw, but get in the practice of this. If you're bringing in anything with Re, with request. Library, that is.
+
+158
+00:16:22.840 --> 00:16:30.469
+Anthony Taylor: could be large. Do stream equals true. If it's a file like a zip file, or
+
+159
+00:16:31.900 --> 00:16:33.140
+our picture.
+
+160
+00:16:33.380 --> 00:16:34.820
+Anthony Taylor: do raw.
+
+161
+00:16:35.050 --> 00:16:42.730
+Anthony Taylor: Okay? And I don't. I don't have it in here. But basically what this is gonna return is a binary
+
+162
+00:16:43.470 --> 00:16:45.549
+Anthony Taylor: binary is the picture itself.
+
+163
+00:16:46.200 --> 00:16:51.200
+Anthony Taylor: Okay? So we're gonna bring this in. And then you can actually see the picture.
+
+164
+00:16:51.550 --> 00:16:53.800
+Anthony Taylor: That's a really tiny picture.
+
+165
+00:16:54.010 --> 00:17:09.979
+Anthony Taylor: We could see the size of it. How did it know what picture to go get. It's still using this URL here. Oh, got it? I see. Okay, yeah, yeah. The request. And you can use this for any picture on the Internet.
+
+166
+00:17:33.230 --> 00:17:43.649
+Anthony Taylor: Yeah. Okay. Alright. Why? No cause? No. The reason. Because you were still on the Google, I did not actually grab the image. Today.
+
+167
+00:17:43.830 --> 00:17:47.790
+Anthony Taylor: I grabbed a picture of the image. Now the Google Link.
+
+168
+00:17:49.210 --> 00:17:54.399
+Anthony Taylor: of course. I specifically said. give me the image.
+
+169
+00:17:55.860 --> 00:17:59.249
+Masarirambi, Rodney: I think you have to go to Wikipedia in order to.
+
+170
+00:17:59.710 --> 00:18:03.469
+Anthony Taylor: and that's just giving me all kinds of grief. There it is, though.
+
+171
+00:18:05.770 --> 00:18:09.749
+Anthony Taylor: That link might work. This is totally unnecessary, but
+
+172
+00:18:09.780 --> 00:18:12.090
+Anthony Taylor: the point is, you can use
+
+173
+00:18:13.180 --> 00:18:15.990
+Anthony Taylor: any image if you have the correct. Yeah. URL,
+
+174
+00:18:21.780 --> 00:18:24.630
+Anthony Taylor: let's see, I know that's gonna fail, because
+
+175
+00:18:25.170 --> 00:18:26.680
+Anthony Taylor: there you go.
+
+176
+00:18:28.240 --> 00:18:31.929
+Anthony Taylor: And you can see the size. This one's 1 90 by 3 90.
+
+177
+00:18:31.990 --> 00:18:38.950
+Anthony Taylor: This is an Rgba, the other one that we originally this went here is grayscale, so they use L as mode
+
+178
+00:18:39.830 --> 00:18:50.080
+Anthony Taylor: format. This one's P. And G. We resized it to 1, 28, 1, 20. That was pretty easy. We can rotate it.
+
+179
+00:18:51.700 --> 00:18:53.510
+Anthony Taylor: and we can transpose it.
+
+180
+00:18:54.690 --> 00:18:57.709
+Anthony Taylor: He was facing that way now he's facing that way.
+
+181
+00:18:59.060 --> 00:19:01.210
+Anthony Taylor: Oh, don't!
+
+182
+00:19:02.210 --> 00:19:03.470
+Anthony Taylor: Okay.
+
+183
+00:19:04.480 --> 00:19:08.670
+Masarirambi, Rodney: Theoretically we could make our own
+
+184
+00:19:08.880 --> 00:19:12.060
+Masarirambi, Rodney:  image converter
+
+185
+00:19:12.230 --> 00:19:24.059
+Masarirambi, Rodney: with this little resizing like sometimes, like I wanna post a a new slack icon that work, and it's too large. And so I have to go find like one of those free websites. But I guess it could just be this thing
+
+186
+00:19:24.810 --> 00:19:26.020
+Masarirambi, Rodney: you could.
+
+187
+00:19:26.500 --> 00:19:28.349
+Anthony Taylor: There are some.
+
+188
+00:19:31.540 --> 00:19:37.749
+Masarirambi, Rodney: you know, for work purposes is why need those slack Emoji reactions. So, yeah, but
+
+189
+00:19:38.020 --> 00:19:46.980
+Anthony Taylor: best python image. But look at these. A pillow is one of them. There's another one called Opencv, which is Open computer Vision Library.
+
+190
+00:19:48.440 --> 00:19:49.649
+Anthony Taylor: There's a few of them.
+
+191
+00:19:51.940 --> 00:20:02.230
+Anthony Taylor: Just so, you know. libraries. You can do this. But yeah, you're right. So anyway. So the important thing to learn here we imported an image.
+
+192
+00:20:02.440 --> 00:20:15.590
+Anthony Taylor: Once we imported the image, we now have the ability to manipulate it. One of the things we're going to care about most is the size. But there we go. Okay.  so
+
+193
+00:20:15.600 --> 00:20:18.750
+Anthony Taylor: believe we're ready for your first active
+
+194
+00:20:20.770 --> 00:20:30.220
+Anthony Taylor: practice. Importing in this activity. Students will use pillow and the request library to import an image. Okay.
+
+195
+00:20:32.360 --> 00:20:35.050
+Anthony Taylor: yeah, there you go. So
+
+196
+00:20:36.020 --> 00:20:42.209
+Anthony Taylor: you're gonna use duper notebook, use request, image that open view, the image size, the image format, the image.
+
+197
+00:20:42.320 --> 00:20:45.530
+Anthony Taylor: resize the image, rotate the image.
+
+198
+00:20:45.760 --> 00:20:50.090
+Anthony Taylor: check out some other stuff. The documentation is in the read.
+
+199
+00:20:50.410 --> 00:20:51.470
+Anthony Taylor: alright.
+
+200
+00:20:51.720 --> 00:21:04.669
+Anthony Taylor: this is relatively easy. So they're not gonna give you a ton of time just 10 min. Okay, yeah. Well, I have a one boxer now.
+
+201
+00:21:04.900 --> 00:21:06.629
+Anthony Taylor: and my pit bull.
+
+202
+00:21:08.040 --> 00:21:14.389
+Anthony Taylor: The other 2 visit, but not very often. That's good. Yeah.
+
+203
+00:21:14.850 --> 00:21:17.610
+Anthony Taylor: okay. Good. How'd that go?
+
+204
+00:21:19.640 --> 00:21:20.670
+Anthony Taylor: Pretty good?
+
+205
+00:21:22.770 --> 00:21:24.419
+Anthony Taylor: Was it too easy?
+
+206
+00:21:26.390 --> 00:21:28.330
+Anthony Taylor: How many of you used to pull that?
+
+207
+00:21:30.000 --> 00:21:38.580
+Anthony Taylor: Did everybody use Co lab. Some use Vs code, some use pro lab you really like said that really matter? Right now.
+
+208
+00:21:38.750 --> 00:21:42.770
+Baro, Sonja: we went wild and picked a different image because we didn't want to look at fungus.
+
+209
+00:21:43.240 --> 00:21:46.559
+Anthony Taylor: and that it's and it's like, Oh, that's
+
+210
+00:21:47.870 --> 00:21:48.960
+Anthony Taylor: interesting!
+
+211
+00:21:50.890 --> 00:21:59.440
+Anthony Taylor: But you know so here you go. You just had to import pill. I think they gave you most of this first things here.
+
+212
+00:22:00.390 --> 00:22:06.989
+Anthony Taylor: This is a weird image. It is microscopic fungi.
+
+213
+00:22:07.860 --> 00:22:14.039
+Anthony Taylor: or is it fungi? Nope, it's fun, Guy. It's 500 by 500. That's pretty big.
+
+214
+00:22:14.560 --> 00:22:20.739
+Anthony Taylor: right? You can see it's a Jpeg and we can resize it down to a reasonable size, we can rotate it.
+
+215
+00:22:21.190 --> 00:22:22.880
+Anthony Taylor: How exciting is that!
+
+216
+00:22:23.150 --> 00:22:29.110
+Anthony Taylor: Look at this! We can even crop it. Now make sure you understand that cropping cropping is not resizing.
+
+217
+00:22:29.540 --> 00:22:36.450
+Anthony Taylor: Keep that in mind. and then we can also. Why would you wanna do a spread?
+
+218
+00:22:38.960 --> 00:22:46.270
+Anthony Taylor: Maybe you just need to expand it some so you can see it differently. Sharpen seemed to work pretty well, though
+
+219
+00:22:46.900 --> 00:22:48.490
+Anthony Taylor: there's the original
+
+220
+00:22:51.560 --> 00:22:52.480
+Anthony Taylor: not bad.
+
+221
+00:22:53.640 --> 00:22:58.410
+Anthony Taylor: Will you show the cropping the cropping code again.
+
+222
+00:23:00.440 --> 00:23:03.299
+Anthony Taylor: So what it expects?
+
+223
+00:23:03.620 --> 00:23:10.410
+Anthony Taylor: Tuples that describe the left, upper right and lower coordinates of the area to be kept.
+
+224
+00:23:12.200 --> 00:23:17.999
+Anthony Taylor: Does that make sense? So imagine you're drawing a box. This is the left
+
+225
+00:23:18.550 --> 00:23:24.149
+Anthony Taylor: point, the upper point, the right point, and the lower point
+
+226
+00:23:24.910 --> 00:23:26.370
+Anthony Taylor: of what you want to keep.
+
+227
+00:23:26.790 --> 00:23:35.590
+Meredith McCanse (she/her): How did the how did the where did the numbers start counting like? Does it on the does it start on the far left side of the image is 0 0. 0. Is this top left?
+
+228
+00:23:36.290 --> 00:23:41.689
+Meredith McCanse (she/her): Oh, it's the top left, not the bottom left. Yes, very top left. 0. 0.
+
+229
+00:23:41.750 --> 00:23:45.389
+Meredith McCanse (she/her): Okay. Thank you.
+
+230
+00:23:45.540 --> 00:23:46.960
+Anthony Taylor: Good question.
+
+231
+00:23:48.170 --> 00:23:55.480
+Anthony Taylor: Any other questions. Any thoughts. Anybody go to the link to see like some of the fun stuff you could do with the
+
+232
+00:23:55.840 --> 00:23:57.820
+Anthony Taylor: pillow image model.
+
+233
+00:23:59.690 --> 00:24:00.799
+Baro, Sonja: We did.
+
+234
+00:24:01.450 --> 00:24:04.380
+Anthony Taylor: Very nice. It's a lot you can actually do.
+
+235
+00:24:07.160 --> 00:24:08.199
+Anthony Taylor: It's pretty cool.
+
+236
+00:24:08.590 --> 00:24:13.930
+Anthony Taylor: Okay. But for the most part, right now, we're really just messing with the image itself.
+
+237
+00:24:13.980 --> 00:24:15.050
+Anthony Taylor: Alright.
+
+238
+00:24:15.190 --> 00:24:22.160
+Anthony Taylor:  so
+
+239
+00:24:23.240 --> 00:24:28.460
+Anthony Taylor: we now know how to grab a single image.
+
+240
+00:24:29.690 --> 00:24:38.009
+Anthony Taylor: Pretty simple. I don't think we're gonna have any issues with that. The next thing we're gonna do is is. Well, first, let's just talk about things.
+
+241
+00:24:38.260 --> 00:24:41.349
+Anthony Taylor: Okay, pickling is actually a thing
+
+242
+00:24:42.440 --> 00:24:43.639
+Anthony Taylor: in python.
+
+243
+00:24:44.750 --> 00:24:53.189
+Anthony Taylor: IIII don't know. We're pickling. I'm sure. There it comes from some crazy go ahead, Google it all you want Chat G. Ppt.
+
+244
+00:24:53.250 --> 00:24:55.279
+Anthony Taylor: Why is it called Pickling?
+
+245
+00:24:55.580 --> 00:25:08.749
+Anthony Taylor: I don't know. I know a lot of the funny words that come like in the big data space. It's like some dudes kids to way. I mean, there's all kinds of crazy reasons. But I do know what pickling does. Pickling will take
+
+246
+00:25:08.900 --> 00:25:11.660
+Anthony Taylor: any python object
+
+247
+00:25:12.220 --> 00:25:16.880
+Anthony Taylor: and store it so that you can call it back later.
+
+248
+00:25:17.750 --> 00:25:23.049
+Anthony Taylor: It's not uncommon, actually, that you know how we were storing the kiosk models
+
+249
+00:25:23.250 --> 00:25:30.759
+Anthony Taylor: right well. Kiosk was just storing that bottle as a model which is very convenient. But what if you needed to store like.
+
+250
+00:25:31.320 --> 00:25:39.979
+Anthony Taylor: I don't know a trained Svm mode or a trained random forest model. Right? You can. But you can also pickle it.
+
+251
+00:25:41.370 --> 00:25:49.269
+Anthony Taylor: Okay, you can pickle the trained model, save it, and then call it back later. Pretty much any python object
+
+252
+00:25:49.380 --> 00:25:50.790
+Anthony Taylor: can be pickled.
+
+253
+00:25:52.390 --> 00:25:53.210
+Anthony Taylor: Okay.
+
+254
+00:25:53.480 --> 00:25:55.369
+Anthony Taylor: but if any
+
+255
+00:25:56.420 --> 00:26:01.859
+Anthony Taylor: python object can be pickled. Could I pickle something bad.
+
+256
+00:26:03.880 --> 00:26:06.650
+Anthony Taylor: I could make you ready for it.
+
+257
+00:26:07.320 --> 00:26:08.550
+Anthony Taylor: A sour pickle.
+
+258
+00:26:10.930 --> 00:26:12.570
+Anthony Taylor: Okay, it's possible.
+
+259
+00:26:13.830 --> 00:26:17.420
+Anthony Taylor: Alright, most of your pickles that you make will be sweet pickles.
+
+260
+00:26:18.890 --> 00:26:28.430
+Anthony Taylor: Okay. that's just the way it is. So do be aware if you get a pickle from somebody else. make sure you know where they got the
+
+261
+00:26:30.830 --> 00:26:33.050
+Anthony Taylor: aye. alright.
+
+262
+00:26:35.590 --> 00:26:38.659
+Anthony Taylor: Okay, ready.
+
+263
+00:26:39.220 --> 00:26:44.389
+Anthony Taylor: That was II was all off off to. I didn't even plan that.
+
+264
+00:26:44.570 --> 00:26:45.550
+Anthony Taylor: Okay.
+
+265
+00:26:47.080 --> 00:26:52.680
+Anthony Taylor: alright. So let's go look at Pixley. I
+
+266
+00:26:57.370 --> 00:26:58.900
+Anthony Taylor: alright! Let's go look at Pixel.
+
+267
+00:26:59.180 --> 00:27:00.380
+Raugewitz, Tania: but I froze.
+
+268
+00:27:01.230 --> 00:27:02.920
+Anthony Taylor: No, it was me.
+
+269
+00:27:03.130 --> 00:27:08.549
+Anthony Taylor: I just look at it. Some of this. This is a like a really new
+
+270
+00:27:08.720 --> 00:27:16.910
+Anthony Taylor: module like, I said, we've done all this stuff before we haven't done. They haven't done pickling before, but I have. So I was totally excited to see that they are doing it.
+
+271
+00:27:17.520 --> 00:27:22.340
+Anthony Taylor:  I would say the timings are terrifically off.
+
+272
+00:27:22.770 --> 00:27:24.710
+Anthony Taylor: I think we're supposed to be at like
+
+273
+00:27:26.120 --> 00:27:39.980
+Anthony Taylor: 7, 37, 45 right now. I'm like. there's no way, man. and I'm trying to go slow. So I'm going as slow as I can.
+
+274
+00:27:40.710 --> 00:27:41.820
+Anthony Taylor: Alright.
+
+275
+00:27:43.250 --> 00:27:48.050
+Anthony Taylor: So in this particular one. We're going to do more than one image.
+
+276
+00:27:48.770 --> 00:27:54.550
+Anthony Taylor: Okay? So we're gonna bring in pandas this time. And we're gonna have a list
+
+277
+00:27:54.730 --> 00:27:56.200
+Anthony Taylor: of images.
+
+278
+00:27:56.520 --> 00:28:00.130
+Anthony Taylor: We're gonna read it in and just take a quick peek at it.
+
+279
+00:28:03.020 --> 00:28:04.700
+Anthony Taylor: It's a fairly long list.
+
+280
+00:28:04.750 --> 00:28:10.499
+Anthony Taylor: We can see. We have a list of images here so straight, angry sunglasses.
+
+281
+00:28:10.750 --> 00:28:15.839
+Anthony Taylor: Tamo, straight, natural sunglasses, straight, neutral, open.
+
+282
+00:28:17.100 --> 00:28:19.309
+Anthony Taylor: Okay, I don't know what these things are.
+
+283
+00:28:19.380 --> 00:28:22.120
+Anthony Taylor: but we have alright
+
+284
+00:28:22.560 --> 00:28:24.460
+base. Yeah. URL,
+
+285
+00:28:24.540 --> 00:28:29.110
+Anthony Taylor: so think of the yeah. URL. Well, here, let's let's see what happens if we click on this.
+
+286
+00:28:29.440 --> 00:28:30.610
+Anthony Taylor: Nothing
+
+287
+00:28:31.190 --> 00:28:33.689
+Anthony Taylor: right. But if
+
+288
+00:28:35.480 --> 00:28:37.209
+Anthony Taylor: we come in here
+
+289
+00:28:39.810 --> 00:28:41.860
+Anthony Taylor: and grab that.
+
+290
+00:28:43.900 --> 00:28:46.490
+Anthony Taylor: put that on the end of the base. Yeah. URL,
+
+291
+00:28:48.890 --> 00:28:53.260
+Anthony Taylor: we get a really, really big picture. Oh, somebody wearing sunglasses.
+
+292
+00:28:54.300 --> 00:28:55.250
+Anthony Taylor: Okay.
+
+293
+00:28:55.710 --> 00:29:00.970
+Anthony Taylor: so could. Considering this is the base. Yeah. URL,
+
+294
+00:29:00.990 --> 00:29:03.830
+Anthony Taylor: we're going to basically append
+
+295
+00:29:04.420 --> 00:29:12.449
+Anthony Taylor: the image URL or image, you know, name and type to the end. And that'll be our yeah URL for our picture.
+
+296
+00:29:13.790 --> 00:29:24.150
+Anthony Taylor: So we're going to create a list. And then we're going to loop through our data frame and grab the yeah URL
+
+297
+00:29:24.670 --> 00:29:29.510
+Anthony Taylor: for each one and append the base. Yeah, URL, plus the file name
+
+298
+00:29:29.760 --> 00:29:32.450
+Anthony Taylor: to that list. And we end up with
+
+299
+00:29:33.720 --> 00:29:34.570
+Anthony Taylor: that
+
+300
+00:29:36.390 --> 00:29:37.410
+Anthony Taylor: pretty cool.
+
+301
+00:29:38.650 --> 00:29:40.089
+Anthony Taylor: Everybody good. With that.
+
+302
+00:29:44.370 --> 00:29:50.610
+Anthony Taylor: Okay. we can see how many we have by doing the length we have 624 images.
+
+303
+00:29:51.320 --> 00:29:53.110
+lot of duck gun images.
+
+304
+00:29:53.750 --> 00:29:54.750
+Anthony Taylor: Okay.
+
+305
+00:29:55.780 --> 00:30:06.809
+Anthony Taylor:  so we're going to create an empty list for the images themselves. We're going to loop through only the first 5 and append each image
+
+306
+00:30:07.630 --> 00:30:11.109
+Anthony Taylor: to this list. Okay, so let's look at what's happening.
+
+307
+00:30:11.290 --> 00:30:23.789
+Anthony Taylor: We're gonna do a loop for every number of images. So 5 loops. we're going to say, give me the 0. So start at 0. Image. Yeah. URL,
+
+308
+00:30:24.010 --> 00:30:25.180
+Anthony Taylor: print it out.
+
+309
+00:30:25.660 --> 00:30:28.109
+Anthony Taylor: We're gonna do a request, get it.
+
+310
+00:30:28.290 --> 00:30:34.060
+Anthony Taylor: And then we're going to append the open image to our list.
+
+311
+00:30:35.210 --> 00:30:39.509
+Anthony Taylor: And then we're going to just look at the first image. So let's run this.
+
+312
+00:30:41.800 --> 00:30:44.070
+Anthony Taylor: Okay? And we look at the first image.
+
+313
+00:30:45.520 --> 00:30:57.330
+Anthony Taylor: Everybody follow that so far. How we did that nothing really new other than I mean. But we did this last exercise. Actually, this and all we're doing is wrapping it in a loop.
+
+314
+00:30:57.740 --> 00:31:06.330
+Anthony Taylor: Okay. not gonna do this yet. Don't run this cell yet. Takes like 4 and a half minutes to run this out.
+
+315
+00:31:07.620 --> 00:31:08.670
+Anthony Taylor: Okay.
+
+316
+00:31:10.500 --> 00:31:16.649
+Anthony Taylor: well, I go ahead. Everybody start it. Now, if you're running with me. I'm going to start it just to let it go. Okay.
+
+317
+00:31:16.780 --> 00:31:18.240
+Anthony Taylor: while that's going.
+
+318
+00:31:18.650 --> 00:31:21.239
+Anthony Taylor: We're gonna talk about this. So
+
+319
+00:31:21.790 --> 00:31:33.339
+Anthony Taylor: this is the first notebook we're going to come across where you'll see the Google Colab thing. I do want to show you guys what this, what this is doing in Google co-lab. It's kind of cool.
+
+320
+00:31:34.430 --> 00:31:36.250
+Anthony Taylor: So I'm gonna go grab this notebook.
+
+321
+00:31:41.830 --> 00:31:49.819
+Anthony Taylor: One of the things I really love about Google colab. is, it allows me to use my Google drive for data.
+
+322
+00:31:51.300 --> 00:31:57.910
+Anthony Taylor: Okay. Now, most of us probably don't have a ton of space on their drive. My personal drive. I buy the extra
+
+323
+00:31:58.030 --> 00:32:02.959
+Anthony Taylor: like, I think I get like 200 gigs on it, for it's like 5 bucks a month. It's super cheap.
+
+324
+00:32:03.420 --> 00:32:11.480
+Anthony Taylor:  so it's kind of cool, and if you come over here on the left. You'll see there's a little folder thing, remember, you can put data in here.
+
+325
+00:32:11.680 --> 00:32:14.780
+Anthony Taylor: but it goes away as soon as you leave.
+
+326
+00:32:15.520 --> 00:32:25.730
+Anthony Taylor: If you do this button. you'll see. Now they gave us a cell to mount hardened and drive.
+
+327
+00:32:27.330 --> 00:32:36.660
+Anthony Taylor: Okay. So I'm gonna throw this one away because this is actually in our notebook already. So let me get us. At least, I'm not gonna run the big one. I'm gonna run the smaller.
+
+328
+00:32:36.910 --> 00:32:39.819
+Anthony Taylor: So you guys can just see the Google Collab one.
+
+329
+00:32:40.910 --> 00:32:46.369
+Anthony Taylor: Okay? So blah, blah, blah, alright. So from here you can see they're gonna do the mount.
+
+330
+00:32:46.570 --> 00:32:48.689
+Anthony Taylor: Then they're going to store
+
+331
+00:32:49.060 --> 00:32:53.040
+Anthony Taylor: the pickle image pickle. Dry our object
+
+332
+00:32:53.090 --> 00:32:55.680
+Anthony Taylor: on the map. So if I run this.
+
+333
+00:32:57.320 --> 00:33:06.249
+Anthony Taylor: oh, okay. So once you do drive dot mount, it's gonna give you this. It's basically gonna ask you to log in to your Google drive and give it permissions
+
+334
+00:33:07.260 --> 00:33:09.059
+Anthony Taylor: to to access your drive.
+
+335
+00:33:10.180 --> 00:33:14.990
+Anthony Taylor: Okay, there's no harm in this. It only works. If you're logged in to both
+
+336
+00:33:15.110 --> 00:33:17.670
+Anthony Taylor: the notebook and your Google drive.
+
+337
+00:33:18.720 --> 00:33:19.650
+Anthony Taylor: Okay.
+
+338
+00:33:21.720 --> 00:33:22.540
+Anthony Taylor: happen there.
+
+339
+00:33:23.550 --> 00:33:26.369
+Anthony Taylor: did I do, did. I must have dismissed something.
+
+340
+00:33:26.770 --> 00:33:27.969
+Anthony Taylor: Let's try that again.
+
+341
+00:33:34.800 --> 00:33:37.180
+Anthony Taylor: Okay? Oh, there we go.
+
+342
+00:33:37.220 --> 00:33:43.409
+Anthony Taylor: So now you have a folder, and we're putting it in my drive, and you can see image pickle
+
+343
+00:33:44.240 --> 00:33:48.350
+Anthony Taylor: don't click on it. It's binary. You're not going to go see anything.
+
+344
+00:33:48.880 --> 00:33:51.530
+Anthony Taylor: Okay? Now, if you're doing this in Vs code.
+
+345
+00:33:52.080 --> 00:33:57.269
+Anthony Taylor: you can basically comment that out. Comment that out
+
+346
+00:33:57.510 --> 00:34:02.830
+Anthony Taylor: and just do that. And
+
+347
+00:34:03.310 --> 00:34:07.490
+Anthony Taylor: that's it. Now remember, mine's running 6 on 24 images.
+
+348
+00:34:07.890 --> 00:34:10.599
+Anthony Taylor: Okay, but you don't need all this other stuff
+
+349
+00:34:10.870 --> 00:34:12.559
+Anthony Taylor: if you're doing it in Bs code.
+
+350
+00:34:14.230 --> 00:34:25.350
+Anthony Taylor: Okay? So if you don't want to change it every time. go ahead and go and do these in Google colab. If you don't mind changing it, you can do it in here. I just wanted to give you guys the option to do both.
+
+351
+00:34:27.429 --> 00:34:38.400
+Anthony Taylor: So once this is created. In fact, I'll go back to the colab one, because I only did 5 once this pickle is created, we can actually open
+
+352
+00:34:38.760 --> 00:34:41.570
+Anthony Taylor: the pickle the same way, just just say without.
+
+353
+00:34:43.290 --> 00:34:50.349
+Anthony Taylor: and run it like a file. Remember, when we did this before, when did we do this before opening? What just regular old text files. Right?
+
+354
+00:34:50.909 --> 00:34:53.770
+Anthony Taylor: It's all you got to do. You don't even have to tell it. It's a picture.
+
+355
+00:34:55.429 --> 00:35:03.590
+Anthony Taylor: Okay, you open the file and then that file object. You're going to tell it, hey? News pickle to load this file
+
+356
+00:35:03.940 --> 00:35:05.450
+Anthony Taylor: once you've done that.
+
+357
+00:35:07.020 --> 00:35:11.410
+Anthony Taylor: you can call it. And do you know and see what's in there. So we can like
+
+358
+00:35:11.640 --> 00:35:13.579
+Anthony Taylor: and see a different image if we want.
+
+359
+00:35:14.900 --> 00:35:15.790
+Anthony Taylor: Okay.
+
+360
+00:35:16.570 --> 00:35:30.559
+Meredith McCanse (she/her): is the Anthony is the benefit of that that you? Because we got this from a big, long list of stuff is the benefit that then just calling it from the saved pickle version is just more accessible and a little faster.
+
+361
+00:35:31.280 --> 00:35:35.859
+Anthony Taylor: The the the 100%. Yes. But look at how long this is taking.
+
+362
+00:35:37.660 --> 00:35:39.010
+Anthony Taylor: See, I'm still running.
+
+363
+00:35:39.210 --> 00:35:43.779
+Anthony Taylor: It's like 4 and a half minutes. But once this is done.
+
+364
+00:35:43.950 --> 00:35:46.850
+Anthony Taylor: if I pickle it, I don't ever have to run this in.
+
+365
+00:35:49.570 --> 00:35:57.030
+Anthony Taylor: Okay, I've basically taken all of these images and save them into a single object that I can now open back up
+
+366
+00:35:57.270 --> 00:36:01.450
+Anthony Taylor: and not have to re-import. Now, if something changes, you'd have to re-import. Yes.
+
+367
+00:36:02.030 --> 00:36:10.050
+Meredith McCanse (she/her): is it gonna save it as 624 different images. There's one pickle, and it'll have all 624 images in.
+
+368
+00:36:10.830 --> 00:36:11.760
+Meredith McCanse (she/her): Okay.
+
+369
+00:36:12.110 --> 00:36:14.799
+Anthony Taylor: yeah, which is, that's the benefit
+
+370
+00:36:15.240 --> 00:36:19.640
+Anthony Taylor: right of doing it this way. In fact, it's almost done. So we'll let it finish up now.
+
+371
+00:36:23.900 --> 00:36:31.610
+Anthony Taylor: and I'll finish running it in Vs code, since there we go alright. So now we've got it. I've told it to just do it local
+
+372
+00:36:32.830 --> 00:36:36.710
+Anthony Taylor: and then I can open it locally.
+
+373
+00:36:38.130 --> 00:36:42.280
+Anthony Taylor: Okay, same way that works. And
+
+374
+00:36:42.990 --> 00:36:43.730
+and
+
+375
+00:36:44.710 --> 00:36:51.070
+Anthony Taylor: oh, so now, here's the real advantage of doing this. So this cool pickle that we just made look where it is.
+
+376
+00:36:51.890 --> 00:37:02.760
+Anthony Taylor: It's in this folder now to use that in the next one. I literally gotta copy it and paste it into the next folder. or I got a map all the way back to
+
+377
+00:37:03.170 --> 00:37:09.110
+Anthony Taylor: which isn't a problem. We all know how to do that. However, if you do it, the Google Colab way
+
+378
+00:37:09.140 --> 00:37:13.409
+Anthony Taylor: pretty much, you can use this exact path through all of your notebooks today.
+
+379
+00:37:14.590 --> 00:37:20.549
+Anthony Taylor: Does that make sense? So there is some advantage to it? But I just want you guys to know how to do both
+
+380
+00:37:21.770 --> 00:37:27.150
+Anthony Taylor: alright until we get to a point where many of your laptops won't be able to do it.
+
+381
+00:37:27.230 --> 00:37:30.059
+Anthony Taylor: I see no reason to force you into one or the other.
+
+382
+00:37:31.680 --> 00:37:32.590
+Anthony Taylor: Okay.
+
+383
+00:37:33.160 --> 00:37:36.669
+Meredith McCanse (she/her): do we have to install anything special to get it to
+
+384
+00:37:37.160 --> 00:37:39.719
+Meredith McCanse (she/her): import Google combined correctly
+
+385
+00:37:40.440 --> 00:37:45.229
+Anthony Taylor: the go in the in the Co lab, or in Co Lab itself. No.
+
+386
+00:37:45.560 --> 00:37:51.369
+Meredith McCanse (she/her): you can't run it. You can't run Google Co lab in here.
+
+387
+00:37:51.990 --> 00:37:54.540
+Anthony Taylor: can you? Yeah, I guess.
+
+388
+00:37:54.820 --> 00:38:01.020
+Baro, Sonja: Yeah, can you show us that? Because I get an error when I try to run? It vs by when I
+
+389
+00:38:01.810 --> 00:38:03.850
+Anthony Taylor: What are you trying to run
+
+390
+00:38:04.390 --> 00:38:08.819
+Baro, Sonja: the import pickle, and then I
+
+391
+00:38:10.060 --> 00:38:14.510
+Baro, Sonja: wait. There is no where did that go storing? I don't have.
+
+392
+00:38:15.480 --> 00:38:19.130
+Baro, Sonja: Sorry I'm just. I don't see people online.
+
+393
+00:38:20.060 --> 00:38:27.340
+Baro, Sonja: Where did it go? Oh, there, okay, so that's open. So I have that. And then II commented out, drive mount
+
+394
+00:38:27.840 --> 00:38:30.489
+Anthony Taylor: right, and then with open.
+
+395
+00:38:32.410 --> 00:38:39.520
+Anthony Taylor: So you change. You make your path like, well. right, you can put it anywhere you want, but has to be somewhere on your computer.
+
+396
+00:38:40.780 --> 00:38:43.699
+Baro, Sonja: Well, so even on my computer like
+
+397
+00:38:45.920 --> 00:38:54.899
+Baro, Sonja: II tried to do it the way you'd had it, and it didn't like it. So I must. Why, just 1 s
+
+398
+00:38:55.320 --> 00:38:57.130
+Anthony Taylor: I fixed it.
+
+399
+00:38:59.890 --> 00:39:03.870
+Masarirambi, Rodney: I fixed it, it ran, now
+
+400
+00:39:04.040 --> 00:39:09.199
+Masarirambi, Rodney: alright, show us yours. Show us yours. I'm trying to waste some time. Come on, show me yours.
+
+401
+00:39:14.060 --> 00:39:19.610
+Baro, Sonja: Oh, Ronnie's gone. Go, Rodney, you show first and I'll show mine.
+
+402
+00:39:20.360 --> 00:39:24.649
+Anthony Taylor: Okay, comment Google Co Lab, because there is, we're not in Google co-lab.
+
+403
+00:39:25.040 --> 00:39:33.770
+Baro, Sonja: Come on. Oh, I better put myself on mute tonight. I'm feeling a little spicy.
+
+404
+00:39:35.810 --> 00:39:36.610
+Masarirambi, Rodney: only
+
+405
+00:39:39.010 --> 00:39:41.160
+Anthony Taylor: all right. So I knew you read it.
+
+406
+00:39:41.420 --> 00:39:45.520
+Anthony Taylor: She needs a blizzard or something to cool her down. That's
+
+407
+00:40:00.110 --> 00:40:07.240
+Anthony Taylor: so yeah, that's pretty much it. So now we're on an activity. Let me see if there's anything.
+
+408
+00:40:08.240 --> 00:40:19.470
+Anthony Taylor: The probably the most exciting thing about people is like, I said, any objects. So if you create a dictionary, you can pickle it. You create a data frame. You can pick lip.
+
+409
+00:40:19.520 --> 00:40:22.619
+Anthony Taylor: Then you could go back and load it back into
+
+410
+00:40:22.630 --> 00:40:27.579
+Anthony Taylor: your python app as python objects that it was when it went in.
+
+411
+00:40:27.870 --> 00:40:34.449
+Anthony Taylor:  I don't believe you can do different types in a single pickle, and I've never tried.
+
+412
+00:40:34.640 --> 00:40:39.020
+Anthony Taylor: But I've never. I can't think of a good reason to do that. If you're gonna do that, just make an excuse.
+
+413
+00:40:39.470 --> 00:40:41.860
+Anthony Taylor: It's
+
+414
+00:40:44.720 --> 00:40:46.620
+Anthony Taylor: okay.
+
+415
+00:40:48.250 --> 00:41:01.530
+Anthony Taylor: So that's the reason we do. It simply is like we had 620. Whatever images took 4 and a half minutes. We don't want to do that every single time, so we pickle it so that now we can just use the pickle file
+
+416
+00:41:01.570 --> 00:41:05.249
+Anthony Taylor: to do to grab all of those images at once.
+
+417
+00:41:05.880 --> 00:41:11.570
+Anthony Taylor: And that's it. Alright. So you have an activity.
+
+418
+00:41:12.690 --> 00:41:14.079
+Anthony Taylor: It's not too tough.
+
+419
+00:41:14.400 --> 00:41:22.529
+Anthony Taylor: You define your base. Yeah. URL, create an empty list. Yeah, Urls, loop through the data frame and build and impend the full image. Yeah, Urls.
+
+420
+00:41:22.790 --> 00:41:28.170
+Anthony Taylor: Import the images. Save the list of image list of images as a pickle.
+
+421
+00:41:28.470 --> 00:41:29.670
+Anthony Taylor: And that's it.
+
+422
+00:41:30.190 --> 00:41:32.609
+Anthony Taylor: Okay? So you're gonna do more fungus
+
+423
+00:41:32.840 --> 00:41:34.310
+Anthony Taylor: fungi.
+
+424
+00:41:35.660 --> 00:41:39.960
+Anthony Taylor: Alright. alright for this one
+
+425
+00:41:40.480 --> 00:41:43.249
+Anthony Taylor: 15 entire minutes.
+
+426
+00:41:45.210 --> 00:41:48.780
+Masarirambi, Rodney: Welcome back one of those
+
+427
+00:41:50.640 --> 00:41:52.060
+Anthony Taylor: all right, gang.
+
+428
+00:41:54.000 --> 00:41:56.789
+Anthony Taylor: It was a cool helicopter, not combined.
+
+429
+00:42:03.550 --> 00:42:10.660
+Anthony Taylor: So how'd you guys do with that bitch pickle? It is everybody got a big O 250 pickle
+
+430
+00:42:12.900 --> 00:42:15.500
+Anthony Taylor: good dollar matters
+
+431
+00:42:15.750 --> 00:42:23.919
+Anthony Taylor: but still gonna go through. Make sure everybody's got it. Did they do this one at Google?
+
+432
+00:42:25.240 --> 00:42:27.370
+Anthony Taylor: They did. I'll do this one at Google
+
+433
+00:42:29.540 --> 00:42:34.549
+Anthony Taylor: unless someone just doesn't want me to. I don't feel I'll do it in both. We have enough time.
+
+434
+00:42:45.950 --> 00:42:49.139
+Anthony Taylor: I imagine, doing the pit, the 250 takes a minute. Huh!
+
+435
+00:42:52.460 --> 00:42:57.199
+Clayton Graves: It wasn't too bad we did it in co-lab, and it, it was nothing.
+
+436
+00:42:57.420 --> 00:43:04.310
+Clayton Graves:  I don't know. I don't know if Michael did use on full lab or not, but it didn't take long, either.
+
+437
+00:43:05.300 --> 00:43:13.570
+Masarirambi, Rodney: Yeah. Didn't take too long on a in python. Sorry in visual code. Either
+
+438
+00:43:14.330 --> 00:43:15.870
+Anthony Taylor: they must be small.
+
+439
+00:43:18.360 --> 00:43:27.109
+Anthony Taylor: Okay. so we import pill. We import pamph. we're going to get a list of files just like we did in the demo.
+
+440
+00:43:27.300 --> 00:43:30.460
+Anthony Taylor: Look, we even have view recommended plots. Nothing
+
+441
+00:43:30.730 --> 00:43:32.090
+Anthony Taylor: that was totally worthless.
+
+442
+00:43:32.580 --> 00:43:35.969
+Anthony Taylor:  so there's our base. Yeah. URL,
+
+443
+00:43:36.400 --> 00:43:43.590
+Anthony Taylor: we're just going to append each image to it. Build that out. That'll be fine. We can even click on these. Go look at them.
+
+444
+00:43:43.870 --> 00:43:45.360
+Anthony Taylor: That's a fungus
+
+445
+00:43:48.860 --> 00:43:55.369
+Anthony Taylor: that looks like a snake wrapped around a mermaid. Anybody tell you that you're pretty fun, Guy.
+
+446
+00:43:56.440 --> 00:43:58.840
+Anthony Taylor: I get that. II
+
+447
+00:43:59.850 --> 00:44:04.539
+Anthony Taylor: III get that a lot because I'm always in sorry.
+
+448
+00:44:09.630 --> 00:44:12.740
+Anthony Taylor: but then I look like a snake wrapped around a mermaid
+
+449
+00:44:14.510 --> 00:44:23.609
+Masarirambi, Rodney: salamander. I see her arm is kind of raising up for help.
+
+450
+00:44:23.690 --> 00:44:27.879
+Clayton Graves: or a very. The Salamanders got me?
+
+451
+00:44:28.070 --> 00:44:33.890
+Anthony Taylor: Or or it's a very out of focus picture of the Ebola virus.
+
+452
+00:44:34.280 --> 00:44:39.820
+Anthony Taylor: Okay? Just making sure. Okay, hey? Hey?
+
+453
+00:44:40.080 --> 00:44:43.140
+Anthony Taylor: 5 speakers. I was like, Oh, God, it's like my face.
+
+454
+00:44:43.150 --> 00:44:44.750
+Anthony Taylor: Okay, Eddie.
+
+455
+00:44:45.580 --> 00:44:49.540
+Anthony Taylor: So now we have how many, 250 images?
+
+456
+00:44:49.830 --> 00:44:57.819
+Anthony Taylor: I already ran. I ran this. oh, this is. we're just going to do the first 20. So why do we do the first 20 like this
+
+457
+00:45:00.700 --> 00:45:02.479
+Anthony Taylor: instead of just doing them all?
+
+458
+00:45:03.220 --> 00:45:05.929
+Anthony Taylor: Yeah. Well, cause it's been a long time.
+
+459
+00:45:05.990 --> 00:45:08.230
+Anthony Taylor: And that's it. This is just a Ted.
+
+460
+00:45:08.430 --> 00:45:21.670
+Clayton Graves: Yeah, we didn't even need to do 20 to test it. We probably could got away with 5, 10. But the idea is to make sure it does. What we expect exactly is the first 5 or 20 are gonna do what they're supposed to do, then the rest will, too.
+
+461
+00:45:22.700 --> 00:45:27.710
+Anthony Taylor: So after that, if you did it in Collab, you did your mount.
+
+462
+00:45:28.450 --> 00:45:34.549
+Anthony Taylor: and you saved it, and let's see if I have it. I have a funky pickle
+
+463
+00:45:36.880 --> 00:45:38.050
+Anthony Taylor: fungi
+
+464
+00:45:39.590 --> 00:45:46.349
+Anthony Taylor:  to read it back. We just open it as a file and then tell it to load the pickle.
+
+465
+00:45:46.660 --> 00:45:56.890
+Anthony Taylor: and we get it back, and we can see the same image as we saw up here. Right? And that, unfortunately.
+
+466
+00:45:57.040 --> 00:45:58.130
+Anthony Taylor: is it
+
+467
+00:46:00.300 --> 00:46:09.280
+Baro, Sonja: so? I have a question, Anthony, please ask as many questions as I show you.
+
+468
+00:46:09.550 --> 00:46:13.800
+Baro, Sonja: Oh. no, no, no, no, drum roll.
+
+469
+00:46:17.040 --> 00:46:19.269
+Baro, Sonja: are you, you guys? Did I share it.
+
+470
+00:46:19.650 --> 00:46:20.550
+Anthony Taylor: Yes.
+
+471
+00:46:20.670 --> 00:46:34.240
+Baro, Sonja: okay. So I was with everything all the way, except for I didn't. I didn't do it on Collab. I did it locally. But look in here when I go to recall the image. Nothing shows.
+
+472
+00:46:36.280 --> 00:46:37.720
+Anthony Taylor: Well, what's fail.
+
+473
+00:46:39.930 --> 00:46:48.760
+Masarirambi, Rodney: Where's the file name? Oh, wait! I see you did it there. Oh, it's supposed to be fungi, not image on that one.
+
+474
+00:46:49.660 --> 00:46:51.820
+Masarirambi, Rodney: Well, it doesn't matter. Wait
+
+475
+00:46:52.360 --> 00:46:58.659
+Masarirambi, Rodney: specifically as fungi or up above. So if you go through
+
+476
+00:46:58.800 --> 00:47:00.530
+Masarirambi, Rodney: you coming through.
+
+477
+00:47:00.600 --> 00:47:04.390
+Dipinto, Matt: it's in. It's in Ls cell. There's an eclipse where there doesn't need to be.
+
+478
+00:47:04.480 --> 00:47:08.530
+Dipinto, Matt: So back that equals out of there. There you go.
+
+479
+00:47:08.790 --> 00:47:09.900
+Baro, Sonja: Gotcha.
+
+480
+00:47:10.420 --> 00:47:17.050
+Baro, Sonja: Yeah, no, it didn't have to. No, no, no.
+
+481
+00:47:17.690 --> 00:47:24.460
+Baro, Sonja: no more spicy pickle alright. Didn't need, didn't need to. You could name it anything you want, Rodney. It's just a very.
+
+482
+00:47:26.470 --> 00:47:27.900
+Baro, Sonja: That's all. Thank you.
+
+483
+00:47:28.630 --> 00:47:32.420
+Anthony Taylor: Not a problem. Anybody else questions
+
+484
+00:47:33.770 --> 00:47:36.910
+Anthony Taylor: questions. How you guys feeling about pickling?
+
+485
+00:47:39.530 --> 00:47:41.130
+Anthony Taylor: It's pretty easy.
+
+486
+00:47:42.310 --> 00:47:52.829
+Anthony Taylor: I really like this one particular chef on Youtube, and he taught me how to do pickles like with like when I was making some some
+
+487
+00:47:53.400 --> 00:47:59.170
+Anthony Taylor: bow. I'm making some bow with Port belly. and he had me make pickles, and I'm like, Oh, my God!
+
+488
+00:47:59.230 --> 00:48:03.860
+Anthony Taylor: Like Alan made 5 min and they were delicious. They were the best pickers.
+
+489
+00:48:05.740 --> 00:48:17.260
+Baro, Sonja: Okay, that's all the starling. I can do all right, so make your own. Bon me, Anthony. you're making pork bow. You might as well make some bomb me.
+
+490
+00:48:17.430 --> 00:48:26.200
+Anthony Taylor: I do love to make port belly. III make the port belly burnt ends recipe. That's delicious. But anyway, alright! Alright! Alright!
+
+491
+00:48:26.300 --> 00:48:30.010
+Anthony Taylor:  thank you. Wait, Brad.
+
+492
+00:48:30.170 --> 00:48:36.800
+Dipinto, Matt: all of us. We all rally together, and all agree. Can we like convince them to give us a snow day tomorrow?
+
+493
+00:48:37.300 --> 00:48:38.000
+Now
+
+494
+00:48:39.420 --> 00:48:42.190
+Anthony Taylor: a snow day means I have to work an extra day.
+
+495
+00:48:42.940 --> 00:48:48.219
+Dipinto, Matt: You like us. It'll be one extra day. I do enjoy you guys a whole bunch.
+
+496
+00:48:48.280 --> 00:48:50.410
+Anthony Taylor: It's kind of interesting. The last
+
+497
+00:48:50.950 --> 00:48:57.950
+Meredith McCanse (she/her): I didn't mean to.
+
+498
+00:48:58.490 --> 00:49:01.660
+Anthony Taylor: Alright, guys, let's continue.
+
+499
+00:49:02.140 --> 00:49:04.140
+Anthony Taylor: I think
+
+500
+00:49:05.610 --> 00:49:12.039
+Anthony Taylor: it's very straight, and said, this module is interesting. I don't think there's any more slideshow to speak of.
+
+501
+00:49:17.060 --> 00:49:20.210
+Anthony Taylor: Let's find out. Let's find out.
+
+502
+00:49:21.600 --> 00:49:25.250
+Anthony Taylor: Okay, that's like, last week. where did that come from?
+
+503
+00:49:36.660 --> 00:49:37.669
+Anthony Taylor: There we go
+
+504
+00:49:39.250 --> 00:49:40.000
+to
+
+505
+00:49:40.440 --> 00:49:42.310
+Anthony Taylor: break. Okay.
+
+506
+00:49:44.270 --> 00:49:51.330
+Anthony Taylor: yeah. there's no more. There's no more. Alright, so we'll just jump right in.
+
+507
+00:49:51.670 --> 00:49:54.460
+Anthony Taylor: So the the next step
+
+508
+00:49:54.700 --> 00:50:01.520
+Anthony Taylor: in this process is to actually start processing our image or preparing it
+
+509
+00:50:01.550 --> 00:50:05.739
+Anthony Taylor: for the models we are about to be exposed to
+
+510
+00:50:05.870 --> 00:50:07.769
+Anthony Taylor: the Cnn model.
+
+511
+00:50:08.430 --> 00:50:23.430
+Anthony Taylor: Alright. So so far we've we can. We can download them. One picture. We can download hundreds of pictures store them off. That's really just because we don't want to have to pull them in every day when we start right. Or every time you guys start?
+
+512
+00:50:24.080 --> 00:50:26.260
+So that's why we're doing the pickles.
+
+513
+00:50:26.460 --> 00:50:27.210
+Anthony Taylor: Okay?
+
+514
+00:50:27.680 --> 00:50:33.140
+Anthony Taylor:  so
+
+515
+00:50:34.500 --> 00:50:37.899
+Anthony Taylor: recall when we did pre-processing before.
+
+516
+00:50:38.470 --> 00:50:48.160
+Anthony Taylor: it's not a whole lot different. We're going to take these pictures. We're going to gather up points, the data within those points.
+
+517
+00:50:48.180 --> 00:50:51.100
+Anthony Taylor: and then we're going to normalize it
+
+518
+00:50:52.080 --> 00:50:56.140
+Anthony Taylor: alright and get it to
+
+519
+00:50:57.260 --> 00:51:05.990
+Anthony Taylor: an output, if you will, that the model that would not only that helps us, but it helps the model do its gig. Okay.
+
+520
+00:51:07.020 --> 00:51:08.090
+Anthony Taylor: so
+
+521
+00:51:11.020 --> 00:51:16.710
+Anthony Taylor: we need to make sure all the other images are the same size. And that's important. Why is that important?
+
+522
+00:51:17.680 --> 00:51:23.339
+Anthony Taylor: Not just forget the all the same size. Why is it important that we control the size of the image.
+
+523
+00:51:27.220 --> 00:51:30.620
+Baro, Sonja: This wouldn't that introduce variability to your model?
+
+524
+00:51:31.140 --> 00:51:44.679
+Anthony Taylor: Well, that well, no matter what all of the images have to be the same size. But why would you think it's important that we control the size of the image? There's a bunch of reasons. But most importantly.
+
+525
+00:51:45.520 --> 00:51:46.400
+Anthony Taylor: time.
+
+526
+00:51:46.520 --> 00:51:53.640
+Anthony Taylor: right? A large image is going to take a tremendous amount of time, tremendous amount of computational
+
+527
+00:51:54.190 --> 00:52:00.760
+Anthony Taylor: ability. But now and and here I'm gonna go off the page here to previous experience.
+
+528
+00:52:03.540 --> 00:52:06.999
+Anthony Taylor: But what happens is we start resizing an image.
+
+529
+00:52:10.890 --> 00:52:16.019
+Anthony Taylor: I mean, how many of you work? How about this? How many of you work with photo photography or computer imaging
+
+530
+00:52:16.170 --> 00:52:20.719
+Baro, Sonja: ratio, your ratio
+
+531
+00:52:21.320 --> 00:52:27.599
+Masarirambi, Rodney: and also your the image quality is also gonna go down as what?
+
+532
+00:52:27.790 --> 00:52:37.919
+Anthony Taylor: Right? So if you take 100 is 768,000 pixels. and you reduce it down to 256 pixels.
+
+533
+00:52:39.150 --> 00:52:44.910
+Anthony Taylor: Okay, your image is, I mean, I mean, it could even be completely unrecognizable at that.
+
+534
+00:52:45.620 --> 00:52:48.889
+Anthony Taylor: But for sure you lost a lot of detail.
+
+535
+00:52:49.130 --> 00:52:50.060
+Anthony Taylor: So
+
+536
+00:52:50.200 --> 00:52:58.459
+Anthony Taylor: the smaller we make our image, though the more detail we're going to lose, the more detail we lose, the less accurate our model is.
+
+537
+00:52:59.120 --> 00:53:01.420
+Anthony Taylor: you can't. If you took a
+
+538
+00:53:01.510 --> 00:53:06.260
+Anthony Taylor: you know a 1,028 by 1,028 picture of a cat
+
+539
+00:53:06.570 --> 00:53:12.529
+Anthony Taylor: reduced it down to 1 28 by 1 28. You don't even know what that is anymore.
+
+540
+00:53:14.210 --> 00:53:18.589
+Anthony Taylor: Okay, you probably wouldn't be able to identify a cat as a human being.
+
+541
+00:53:19.670 --> 00:53:25.370
+Anthony Taylor: much less as a computer. So there's one big reason we need to control size.
+
+542
+00:53:25.440 --> 00:53:32.159
+Anthony Taylor: but we want it. So where we want to go with this is, we want to maintain as much detail
+
+543
+00:53:33.230 --> 00:53:38.240
+Anthony Taylor: without, you know, but keep it as small as practical.
+
+544
+00:53:39.760 --> 00:53:40.620
+Anthony Taylor: Okay?
+
+545
+00:53:40.990 --> 00:53:49.990
+Anthony Taylor:  other things color. Right? There's there's a lot of way color works.
+
+546
+00:53:50.660 --> 00:54:00.240
+Anthony Taylor: Okay. So you know, going back to some of the problems that we've seen. And and I'm gonna II am. Gonna and we touched on this once before the contrast issue.
+
+547
+00:54:00.530 --> 00:54:06.079
+Anthony Taylor: Okay, the the facial recognition software that has issues with contrast.
+
+548
+00:54:06.110 --> 00:54:07.360
+Anthony Taylor: And by the way.
+
+549
+00:54:07.490 --> 00:54:12.640
+Anthony Taylor: this also affects very pale people as well as very dark people.
+
+550
+00:54:13.730 --> 00:54:17.679
+Anthony Taylor: Okay, very, very pale. People tend to not have much contrast either.
+
+551
+00:54:19.680 --> 00:54:25.140
+Anthony Taylor: It's I mean, it's it's it that that's really what it comes down to. So when you think
+
+552
+00:54:25.340 --> 00:54:30.360
+Anthony Taylor: if we if we talk about. Let's go back, I mean, and this isn't a great picture. But
+
+553
+00:54:30.970 --> 00:54:39.419
+Anthony Taylor: II wish we had the number picture. That one was better. But what happens is is, imagine if if these were shades of gray.
+
+554
+00:54:40.390 --> 00:54:44.719
+Anthony Taylor: Okay, this first one was a very light gray. This red is a black.
+
+555
+00:54:45.070 --> 00:54:47.140
+Anthony Taylor: and then the blue is a dark brick.
+
+556
+00:54:48.150 --> 00:54:50.189
+Anthony Taylor: Okay, Mike, 50. It can
+
+557
+00:54:50.870 --> 00:54:51.849
+Anthony Taylor: like what
+
+558
+00:54:52.310 --> 00:54:56.860
+Masarirambi, Rodney: like 50 shapes could be 50 shades.
+
+559
+00:54:57.110 --> 00:55:00.770
+Anthony Taylor: But we're only looking at 3 shades right now.
+
+560
+00:55:01.220 --> 00:55:08.390
+Anthony Taylor: Okay, so these 3 things? You can very clearly delineate the line
+
+561
+00:55:08.630 --> 00:55:10.930
+Anthony Taylor: of where this image starts.
+
+562
+00:55:11.840 --> 00:55:20.219
+Anthony Taylor: Okay, the the the difference in the shade of gray here, and the shade of gray here allows us to delineate
+
+563
+00:55:20.250 --> 00:55:26.210
+Anthony Taylor: something else, some feature in the image in this case a lot.
+
+564
+00:55:26.940 --> 00:55:34.789
+Anthony Taylor: And then again, this shade changes. And yet now there's another line. Well, now, imagine if these shades of gray
+
+565
+00:55:35.260 --> 00:55:40.560
+Anthony Taylor: okay, which is, there's 255 of them in a grayscale image.
+
+566
+00:55:41.410 --> 00:55:45.910
+Anthony Taylor: if they were like this, shade is 200, and this shade is 2 40
+
+567
+00:55:47.480 --> 00:55:48.869
+Anthony Taylor: that is close.
+
+568
+00:55:49.530 --> 00:55:51.850
+Anthony Taylor: crazy. Close
+
+569
+00:55:51.990 --> 00:55:53.840
+Anthony Taylor: you and I might see it
+
+570
+00:55:54.110 --> 00:55:57.629
+Anthony Taylor: without issue, especially if you include
+
+571
+00:55:58.320 --> 00:55:59.150
+Anthony Taylor: depth.
+
+572
+00:56:00.510 --> 00:56:12.470
+Anthony Taylor: right? We have the ability to see that depth as well. So between the contrast of the image and the depth. We can identify these very similar
+
+573
+00:56:14.300 --> 00:56:20.600
+Anthony Taylor: features of the image when you start having very
+
+574
+00:56:21.090 --> 00:56:27.990
+Anthony Taylor: small changes between the cheeks and the nose or the nose and the eye.
+
+575
+00:56:29.690 --> 00:56:46.509
+Anthony Taylor: Okay? Or the lips and skin all of these different things the the image, especially facial recognition, starts to struggle with. I'm I'm struggling with finding the mouth. I'm struggling with finding the notes. So what's it start to do? What do we train our models to do?
+
+576
+00:56:47.720 --> 00:56:55.089
+Anthony Taylor: What's the one term you hear me say all the time, you don't want to do this. You don't want to over fit.
+
+577
+00:56:55.340 --> 00:56:57.030
+Anthony Taylor: because you won't
+
+578
+00:56:57.120 --> 00:56:58.640
+Baro, Sonja: for data rollers
+
+579
+00:56:58.900 --> 00:57:00.700
+Meredith McCanse (she/her): generalize.
+
+580
+00:57:01.460 --> 00:57:07.499
+Anthony Taylor: Okay? Why do we generalize even in facial recognition, because we get new faces all the damn time.
+
+581
+00:57:08.910 --> 00:57:13.390
+Anthony Taylor: right? New structure, new sizes. You think Curry grows a mustache.
+
+582
+00:57:15.850 --> 00:57:22.600
+Anthony Taylor: That's a big moment, right. So if he grows a mustache, we need to be able to generalize
+
+583
+00:57:23.080 --> 00:57:27.069
+Anthony Taylor: and see that he has a mustack. And still it's curry.
+
+584
+00:57:27.930 --> 00:57:40.210
+Anthony Taylor: That's generalization alright. All of the rest of the features that looks like a curry to me. Okay, but there's a new one. There's a mustache. It does. Does that disqualify the spatial image. No.
+
+585
+00:57:41.150 --> 00:57:42.979
+Anthony Taylor: all the rest of these points match
+
+586
+00:57:43.840 --> 00:57:49.840
+Anthony Taylor: alright. So we still have generalization, and that generalization combined with the lack of contrast.
+
+587
+00:57:50.050 --> 00:57:56.679
+Anthony Taylor: And, like I said, I have met many people with very hail skin, and they ran. They would. They would
+
+588
+00:57:56.780 --> 00:58:02.219
+Anthony Taylor: know that they do, because I don't have all those numbers, but they would run into the same. Oh.
+
+589
+00:58:02.910 --> 00:58:03.830
+Anthony Taylor: okay.
+
+590
+00:58:06.550 --> 00:58:09.790
+Anthony Taylor: So as data professionals.
+
+591
+00:58:10.870 --> 00:58:15.030
+Anthony Taylor: you know, we know how to handle this right? Do we know how to solve them
+
+592
+00:58:18.050 --> 00:58:19.090
+Anthony Taylor: sort of
+
+593
+00:58:19.420 --> 00:58:33.999
+Anthony Taylor: the new like the you know. I mean the pixel stuff these days. When you guys see all the commercials for the pixel stuff, what do they get? Really big selling point, Pixel 8. Right? That is able to capture dark
+
+594
+00:58:34.920 --> 00:58:37.240
+Anthony Taylor: tones better than ever before.
+
+595
+00:58:38.530 --> 00:58:41.480
+Anthony Taylor: What does that mean? That just means that they've gotten better at.
+
+596
+00:58:42.350 --> 00:58:51.929
+Anthony Taylor: and they will continue to get better at, and we will eventually solve the problem for the time being. We just have to acknowledge that there is a problem.
+
+597
+00:58:54.590 --> 00:58:55.520
+Anthony Taylor: And that's it.
+
+598
+00:58:56.080 --> 00:59:04.049
+Anthony Taylor: Okay, can you use this technology for facial recognition? The answer, yes. Can you 100% depend on it. The answer is, no.
+
+599
+00:59:05.470 --> 00:59:11.719
+Anthony Taylor: it's to me. It's kind of like the medical diagnosis models that we talked about.
+
+600
+00:59:12.730 --> 00:59:17.550
+Anthony Taylor: Right? It says, I have cancer. Does that mean, I have cancer.
+
+601
+00:59:19.260 --> 00:59:23.729
+Anthony Taylor: Not necessarily means I need to go and do more research.
+
+602
+00:59:25.300 --> 00:59:32.019
+Anthony Taylor: That's where these facial recognition things do provide benefit. They do catch criminals.
+
+603
+00:59:33.250 --> 00:59:35.990
+Anthony Taylor: Alright, but they're not the end. All
+
+604
+00:59:36.840 --> 00:59:38.309
+Anthony Taylor: DNA is the end, though.
+
+605
+00:59:39.470 --> 00:59:40.560
+Anthony Taylor: for the most part.
+
+606
+00:59:41.650 --> 00:59:42.400
+Anthony Taylor: But
+
+607
+00:59:42.590 --> 00:59:46.780
+Anthony Taylor: you know, video cameras haven't figured out how to capture DNA from afar.
+
+608
+00:59:47.850 --> 00:59:49.190
+Anthony Taylor: That would be impressive.
+
+609
+00:59:50.200 --> 00:59:54.220
+Anthony Taylor: Alright. So, anyway, I want to get out there because this is the section where
+
+610
+00:59:54.540 --> 01:00:01.889
+Anthony Taylor: we start actually talking about images and how to process them anytime, you know, even in these crazy fungus images.
+
+611
+01:00:02.230 --> 01:00:04.919
+Anthony Taylor: Okay? And and these aren't a bad example.
+
+612
+01:00:05.200 --> 01:00:11.619
+Anthony Taylor: I mean, let's let's pick a couple more. So it's fairly clear where the lines in this image are right
+
+613
+01:00:13.620 --> 01:00:17.030
+Anthony Taylor: as gray as this thing is. It's pretty clear.
+
+614
+01:00:18.960 --> 01:00:20.000
+Anthony Taylor: Okay?
+
+615
+01:00:21.000 --> 01:00:22.160
+Let's pick another.
+
+616
+01:00:25.250 --> 01:00:26.430
+Anthony Taylor: What about?
+
+617
+01:00:27.870 --> 01:00:29.019
+Anthony Taylor: Not so much.
+
+618
+01:00:30.460 --> 01:00:33.220
+Anthony Taylor: Okay. So this one we probably have to sharpen.
+
+619
+01:00:33.410 --> 01:00:38.020
+Anthony Taylor: Maybe we'll find something. Odds are good. This is not gonna find anything.
+
+620
+01:00:38.490 --> 01:00:40.729
+Anthony Taylor: Or if it does, it's gonna be very light.
+
+621
+01:00:40.810 --> 01:00:46.080
+Anthony Taylor: like, not very. The probability that it's right is gonna be really low.
+
+622
+01:00:47.680 --> 01:00:54.030
+Anthony Taylor: There are some different shades there. It could argue that. Yeah, there's something there, but we don't know what it is.
+
+623
+01:00:54.210 --> 01:00:57.659
+Anthony Taylor: II can almost guarantee you. That's what would come of this
+
+624
+01:00:58.740 --> 01:01:05.989
+Anthony Taylor: one of the things we're doing at work is we're looking at Ct. Scans. Well, ct, scans are a terrific resolution.
+
+625
+01:01:07.570 --> 01:01:11.959
+Anthony Taylor: Okay? And it's very clear until
+
+626
+01:01:13.750 --> 01:01:18.700
+Anthony Taylor: one of the things that that I don't know. II should probably try to find a an example of it.
+
+627
+01:01:19.100 --> 01:01:25.939
+Anthony Taylor: When someone gets like a metal part, you might got me metal parts, I know, I know. Was it time you have metal parts?
+
+628
+01:01:26.400 --> 01:01:32.529
+Anthony Taylor: Couple of us have metal parts. Did you ever get a ct. Of those metal parts after it was done.
+
+629
+01:01:33.100 --> 01:01:41.660
+Anthony Taylor: It causes this like weird, like sparkly effect. Okay. yeah, it's it's kind of an interesting look.
+
+630
+01:01:41.720 --> 01:01:56.999
+Anthony Taylor: Well, we are building models that remove that sparkly effect so that we can identify exactly what part was actually put into you while it's in you. But before we could do this. We had to get all these clean images
+
+631
+01:01:57.210 --> 01:02:03.219
+Anthony Taylor: of this, you know all the parts, and see how they looked with sparkly and without, so on, and so on.
+
+632
+01:02:03.450 --> 01:02:07.339
+Anthony Taylor: anyway. But again we ran into contrast issues.
+
+633
+01:02:07.490 --> 01:02:15.890
+Anthony Taylor: Some of the parts just blend it in with the bone. Some of them blend it in with the cartilage. Okay, some of them blend it in with muscle
+
+634
+01:02:16.980 --> 01:02:22.749
+Anthony Taylor: less splendid with muscle, but between the bones and the bones themselves we ran into that quite a bit.
+
+635
+01:02:23.960 --> 01:02:28.729
+Anthony Taylor: And it's just one of those things. You know what? Maybe we're not gonna be able to identify that part
+
+636
+01:02:29.510 --> 01:02:31.810
+Anthony Taylor: least, not with today's technology.
+
+637
+01:02:33.000 --> 01:02:38.259
+Anthony Taylor: But eventually. as we see with, like the Pixel 8 and its new photo chip.
+
+638
+01:02:38.410 --> 01:02:40.620
+Anthony Taylor: right? They're gonna get better.
+
+639
+01:02:41.230 --> 01:02:42.980
+Anthony Taylor: Once they get better.
+
+640
+01:02:44.050 --> 01:02:48.210
+Anthony Taylor: we will be able to solve and a lot. And the good news is is a lot of the
+
+641
+01:02:49.840 --> 01:03:00.680
+Anthony Taylor: well models and stuff that we trained previously. We will be able to provide them with this new data not have to necessarily change the model. It's just, hey, we got better data
+
+642
+01:03:01.220 --> 01:03:03.080
+Anthony Taylor: because the problem folks.
+
+643
+01:03:03.840 --> 01:03:06.799
+Anthony Taylor: it's not the models. It's the data.
+
+644
+01:03:08.330 --> 01:03:13.640
+Anthony Taylor: Okay, there's 255 shades gray in this picture right here in front of us.
+
+645
+01:03:13.760 --> 01:03:17.969
+Anthony Taylor: I would say there's probably 40 shades of gray.
+
+646
+01:03:19.700 --> 01:03:23.780
+Anthony Taylor: But if there were 4,000 shades of gray in this picture
+
+647
+01:03:25.260 --> 01:03:28.550
+Anthony Taylor: I might be able to identify the lines that we don't even see.
+
+648
+01:03:31.030 --> 01:03:31.870
+Anthony Taylor: Okay.
+
+649
+01:03:32.730 --> 01:03:34.310
+Anthony Taylor: But there just isn't.
+
+650
+01:03:34.610 --> 01:03:35.680
+Anthony Taylor: So we don't.
+
+651
+01:03:36.680 --> 01:03:38.060
+Anthony Taylor: So, anyway.
+
+652
+01:03:38.380 --> 01:03:40.900
+Anthony Taylor: let me jump off that ha! Horse.
+
+653
+01:03:41.610 --> 01:03:54.190
+Anthony Taylor: I don't say any of that. By the way, to make anybody feel better or worse, the idea there is that we as data scientists and as data professionals, we just have to understand what the problem is.
+
+654
+01:03:54.640 --> 01:03:55.610
+Anthony Taylor: Yes.
+
+655
+01:03:55.780 --> 01:03:59.320
+Anthony Taylor: it is partly because there isn't enough images
+
+656
+01:03:59.980 --> 01:04:02.599
+Anthony Taylor: of every possible skin tone.
+
+657
+01:04:03.790 --> 01:04:09.470
+Anthony Taylor: All right, that's part of the problem. We know that's part of the problem. But the other part of the problem is purely
+
+658
+01:04:09.490 --> 01:04:22.380
+Anthony Taylor: what we just talked. You could give me a bill. You can give me 10 times more dark skin or very light skin images, and it won't make a difference until we can fix the way we capture the data
+
+659
+01:04:23.820 --> 01:04:25.720
+Anthony Taylor: alright. And even then.
+
+660
+01:04:27.160 --> 01:04:29.240
+Anthony Taylor: where are we getting most of these images from
+
+661
+01:04:31.950 --> 01:04:37.400
+Anthony Taylor: the Internet? Do we put the highest resolution picture on the Internet? No.
+
+662
+01:04:38.700 --> 01:04:40.110
+Anthony Taylor: we do not
+
+663
+01:04:42.690 --> 01:04:43.770
+Anthony Taylor: enough on that
+
+664
+01:04:44.110 --> 01:04:52.340
+Anthony Taylor: alright. So we got to make sure all of our values. So so now we're starting to prep these pictures
+
+665
+01:04:52.450 --> 01:04:53.670
+Anthony Taylor: for
+
+666
+01:04:54.400 --> 01:04:59.849
+Anthony Taylor: our model, our Cnn model, we're gonna talk more about what a Cnn model is
+
+667
+01:05:02.270 --> 01:05:11.720
+Anthony Taylor: next class. Whenever that classes we need to make sure our RGB is between 0 and 255. But we're going to normalize that.
+
+668
+01:05:11.810 --> 01:05:14.190
+Anthony Taylor: Think about that, how we're gonna do that
+
+669
+01:05:14.470 --> 01:05:21.529
+Anthony Taylor:  So normalizing it is good.
+
+670
+01:05:23.390 --> 01:05:29.989
+Anthony Taylor: And then we're gonna pickle things. And yeah, okay, so let's go look at how this is actually done.
+
+671
+01:05:31.060 --> 01:05:32.670
+Anthony Taylor: Stalled long enough.
+
+672
+01:05:33.790 --> 01:05:39.420
+Anthony Taylor: Alright, and since my pickle stuff is on my Google drive, we're gonna go
+
+673
+01:05:40.870 --> 01:05:42.929
+Anthony Taylor: back to the Google drive.
+
+674
+01:05:46.420 --> 01:05:52.119
+Anthony Taylor: Where did I? Oh, that's right. Okay. and upload the.
+
+675
+01:05:52.950 --> 01:06:00.000
+Anthony Taylor: So I'm just doing this. So I don't have to copy and move my pickles around. Hate moving my pickles.
+
+676
+01:06:09.760 --> 01:06:13.790
+Anthony Taylor: Alright. So pandas. BIL
+
+677
+01:06:15.950 --> 01:06:16.920
+Anthony Taylor: numpy.
+
+678
+01:06:17.610 --> 01:06:27.570
+Anthony Taylor: we're going to grab our pickle now. They're actually giving us pickles. The technical. I didn't have to do note, they have this, I/O dot bytes bytes. I/O,
+
+679
+01:06:28.690 --> 01:06:32.180
+Anthony Taylor: this is because a pickle is basically a binary file.
+
+680
+01:06:32.810 --> 01:06:39.050
+Anthony Taylor: Okay, in this particular case, we're grabbing the content from this. Yeah. URL, which will give us
+
+681
+01:06:40.130 --> 01:06:43.449
+Anthony Taylor: our image. This is where all our images are sitting.
+
+682
+01:06:44.260 --> 01:06:54.770
+Anthony Taylor: Okay. we could check the size really small. We can check the size, or we can output the sizes of every image
+
+683
+01:06:56.110 --> 01:06:58.370
+Anthony Taylor: and then convert them to a set.
+
+684
+01:06:58.550 --> 01:07:02.799
+Anthony Taylor: So we have 32, 30, 64, 60, and 1, 28, 1, 20.
+
+685
+01:07:03.840 --> 01:07:11.980
+Anthony Taylor: We want to get them all to the middle. So we're going to make them all 64, 60. So we're going to say, here's our target size.
+
+686
+01:07:13.320 --> 01:07:17.119
+Anthony Taylor: And we want you to resize
+
+687
+01:07:17.210 --> 01:07:25.439
+Anthony Taylor: target size, resize image. And so this length, those.  it's an image resampling filter.
+
+688
+01:07:25.650 --> 01:07:37.420
+Anthony Taylor: Okay, it's used during resizing. And the idea is, it is it's trying to not lose detail. So this is when you would see if you go to the pillow
+
+689
+01:07:37.730 --> 01:07:47.530
+Anthony Taylor: documentation and look up the resize and resample and all that good stuff. Okay, so our idea here, we're gonna try it with one
+
+690
+01:07:47.570 --> 01:07:50.790
+Anthony Taylor: looks good, since that looks good.
+
+691
+01:07:51.370 --> 01:07:55.620
+Anthony Taylor: We're gonna try it with all of them.
+
+692
+01:07:57.490 --> 01:08:03.419
+Anthony Taylor: And this is using. I shouldn't even have to ask this anymore. But I will. What's this technique
+
+693
+01:08:08.690 --> 01:08:10.180
+Derek Rikke: list? Comprehension.
+
+694
+01:08:10.250 --> 01:08:22.859
+Anthony Taylor: this comprehension? Right? We're basically creating a list all in one line. So this just did all of the images, resize them to 64, 60.
+
+695
+01:08:23.660 --> 01:08:24.569
+Anthony Taylor: Okay.
+
+696
+01:08:25.609 --> 01:08:30.240
+Anthony Taylor: now. let's look at our data as numbers boop.
+
+697
+01:08:31.399 --> 01:08:42.769
+Anthony Taylor: Okay, so let's look at what we did to get these numbers, we said, Hey, give me the array of a resized image, so give me convert this resized image into an array.
+
+698
+01:08:42.779 --> 01:08:46.240
+Anthony Taylor: so you can see the outer array is right there.
+
+699
+01:08:47.359 --> 01:08:48.390
+Anthony Taylor: Okay.
+
+700
+01:08:48.729 --> 01:08:52.829
+Anthony Taylor: then print the pixel values out. And these are
+
+701
+01:08:53.620 --> 01:08:55.369
+Anthony Taylor: the pixel values
+
+702
+01:08:55.920 --> 01:08:59.100
+Anthony Taylor: of the image. Now, this is going across.
+
+703
+01:09:01.229 --> 01:09:04.620
+Anthony Taylor: Okay. So going across the top of the image is the first row.
+
+704
+01:09:04.740 --> 01:09:08.929
+Anthony Taylor: Then there's another one and then another. So there's 64
+
+705
+01:09:09.130 --> 01:09:11.319
+Anthony Taylor: values in this array.
+
+706
+01:09:11.640 --> 01:09:16.689
+Clayton Graves: So is that is that array. Just one photo.
+
+707
+01:09:17.430 --> 01:09:21.430
+Anthony Taylor: Yes, this is all. Just one photo. This is just the first photo.
+
+708
+01:09:22.859 --> 01:09:26.510
+Anthony Taylor: Okay, so and this is what's gonna get fed into the model.
+
+709
+01:09:27.490 --> 01:09:32.210
+Anthony Taylor: And now I will tell you guys, this is like, this is not a very
+
+710
+01:09:32.660 --> 01:09:34.240
+colorful picture.
+
+711
+01:09:34.490 --> 01:09:35.490
+Anthony Taylor: So
+
+712
+01:09:35.640 --> 01:09:39.780
+Anthony Taylor: it says, note the shape of the array. It's not telling us the shape of the array.
+
+713
+01:09:39.899 --> 01:09:42.500
+Anthony Taylor: So let's do.
+
+714
+01:09:47.729 --> 01:09:49.490
+Anthony Taylor: let's do.
+
+715
+01:09:51.750 --> 01:09:53.710
+Anthony Taylor: How do I get the shape of an array?
+
+716
+01:09:59.460 --> 01:10:00.629
+Anthony Taylor: We'll go with that
+
+717
+01:10:02.170 --> 01:10:04.309
+Anthony Taylor: not going to work, cause it's a tooth.
+
+718
+01:10:06.240 --> 01:10:07.670
+Anthony Taylor: Let's do the length.
+
+719
+01:10:14.810 --> 01:10:19.640
+Dipinto, Matt: If you do shape without parentheses, will it? Maybe
+
+720
+01:10:19.780 --> 01:10:24.190
+Anthony Taylor: so at 60 60 out. let's try.
+
+721
+01:10:29.180 --> 01:10:31.300
+Anthony Taylor: Yeah, 60 by 64.
+
+722
+01:10:32.940 --> 01:10:39.110
+Anthony Taylor: I like it. When you guys answer the questions, it's much easier than me having to try to drag it out.
+
+723
+01:10:41.140 --> 01:10:51.609
+Anthony Taylor: Okay, so we can see it's 60 rows. And there are 62 going across. Now, for the most part, this one's pretty easy.
+
+724
+01:10:51.790 --> 01:10:58.209
+Anthony Taylor: because what it's doing is, it's giving us a 0 to one or 0 to 255.
+
+725
+01:11:01.190 --> 01:11:03.320
+Anthony Taylor: To show 0 is black.
+
+726
+01:11:03.990 --> 01:11:08.449
+Anthony Taylor: 2, 55 is white in this case. So you can see like these corners.
+
+727
+01:11:09.350 --> 01:11:11.430
+Anthony Taylor: this bottom corner is black.
+
+728
+01:11:13.030 --> 01:11:13.950
+Anthony Taylor: Okay.
+
+729
+01:11:15.120 --> 01:11:16.270
+Anthony Taylor: alright.
+
+730
+01:11:17.660 --> 01:11:28.389
+Anthony Taylor: So what are we gonna do next? Well, now, we're gonna take all of those points convert them to float. So again, you see the list, comprehension. All we're gonna do is say for image and image
+
+731
+01:11:28.610 --> 01:11:37.810
+Anthony Taylor: array, image, dot S type float. and then we're going to display them again. Now you can see they all have a little decimal point at the end.
+
+732
+01:11:38.540 --> 01:11:39.850
+Anthony Taylor: Okay? Oh, yes, I.
+
+733
+01:11:41.940 --> 01:11:50.480
+Baro, Sonja: So I just wanted to confirm the conversion to an array we have to do in order to feed the model.
+
+734
+01:11:50.710 --> 01:11:51.960
+Baro, Sonja: So right
+
+735
+01:11:52.570 --> 01:12:02.870
+Anthony Taylor: well, to do all of the pre-processing we're gonna do. Yes. yeah, because you need to. Because we're gonna we're gonna do a whole bunch of stuff here with this image.
+
+736
+01:12:03.160 --> 01:12:07.060
+Baro, Sonja: Okay? And then we're gonna store it off again
+
+737
+01:12:07.230 --> 01:12:12.500
+Baro, Sonja: and you convert. Then you converted everything to a float
+
+738
+01:12:13.550 --> 01:12:21.820
+Anthony Taylor: because for normalization or well, one, our our neural network models expect floats.
+
+739
+01:12:22.370 --> 01:12:23.340
+Baro, Sonja: Okay?
+
+740
+01:12:23.480 --> 01:12:28.869
+Anthony Taylor: But more than that, we're about to Nat to normalize it down to.
+
+741
+01:12:29.590 --> 01:12:39.009
+Anthony Taylor: we're going to divide everything by 2, 55, because that's the range we're looking at so that we get. And the Cisco's just like the thing we were doing the other day with the 5.
+
+742
+01:12:39.100 --> 01:12:47.529
+Anthony Taylor: So this way everything will be, you know. Blacks will be 0. Whites will be one, and everything in between will be some number between. There
+
+743
+01:12:47.590 --> 01:12:51.070
+Baro, Sonja: you have to fit it between 0 and one right
+
+744
+01:12:51.850 --> 01:12:54.410
+Anthony Taylor: in this case. Yet don't have to.
+
+745
+01:12:54.440 --> 01:13:00.169
+Anthony Taylor: There's a black and white. Okay, just to be clear. You do not have to do that. We do that so that
+
+746
+01:13:00.190 --> 01:13:02.530
+Anthony Taylor: we it just makes the mathematical.
+
+747
+01:13:03.260 --> 01:13:07.029
+Anthony Taylor: Okay, so we're gonna normalize without easy math.
+
+748
+01:13:07.410 --> 01:13:08.550
+Anthony Taylor: There you go.
+
+749
+01:13:08.750 --> 01:13:14.060
+Anthony Taylor: And then we're just gonna do the same pickle that we did before. So I mean, we're gonna basically just
+
+750
+01:13:14.370 --> 01:13:17.220
+Anthony Taylor: get back to Google, blah, blah, blah.
+
+751
+01:13:17.750 --> 01:13:23.380
+Anthony Taylor: do this every flipping time. Alright, and we're just gonna take
+
+752
+01:13:23.530 --> 01:13:24.350
+Anthony Taylor: that
+
+753
+01:13:25.350 --> 01:13:30.339
+Anthony Taylor: that. Normal! Not the marmalize images, the images.
+
+754
+01:13:31.310 --> 01:13:36.039
+Anthony Taylor: Where are we? What are we putting in here as files? Pickle. Im. Gs.
+
+755
+01:13:37.820 --> 01:13:39.170
+Anthony Taylor: what are they putting in there?
+
+756
+01:13:42.590 --> 01:13:44.559
+Anthony Taylor: Oh, they're opening a new one
+
+757
+01:13:45.820 --> 01:13:49.499
+Anthony Taylor: as file pickle. No, but the heck are they putting in here
+
+758
+01:13:50.560 --> 01:13:52.109
+Anthony Taylor: that didn't make any sense.
+
+759
+01:13:56.700 --> 01:13:58.640
+Anthony Taylor: They're putting this original.
+
+760
+01:14:09.480 --> 01:14:13.729
+Anthony Taylor: That doesn't make any sense. Okay, here we go.
+
+761
+01:14:14.100 --> 01:14:18.729
+Anthony Taylor: All right. Open a new file name with image process pickle
+
+762
+01:14:20.080 --> 01:14:23.170
+Anthony Taylor: there. dump that.
+
+763
+01:14:24.720 --> 01:14:27.019
+Anthony Taylor: But then they do this here.
+
+764
+01:14:27.940 --> 01:14:43.449
+Anthony Taylor: This is what I would have expected to speak. trying to figure out. I guess this is just showing the images you've already processed. So this is the list of images that we did up above. Not sure why we need to do this again. Let's see, did we change anything?
+
+765
+01:14:44.690 --> 01:14:45.580
+Anthony Taylor: No.
+
+766
+01:14:46.220 --> 01:14:50.150
+Anthony Taylor: So we're gonna take this that we pulled in from a pickle and make a new pickle
+
+767
+01:14:50.740 --> 01:14:58.590
+Anthony Taylor: called images that we preprocessed. Then you're going to have the actual images that you preprocessed
+
+768
+01:14:59.900 --> 01:15:00.890
+Anthony Taylor: right here.
+
+769
+01:15:02.440 --> 01:15:06.969
+Anthony Taylor: The important thing, not sure why we did this, but this is what we were shooting, for
+
+770
+01:15:07.050 --> 01:15:11.399
+Anthony Taylor: we wanted the preprocessed images in a new pickle.
+
+771
+01:15:12.860 --> 01:15:14.900
+Anthony Taylor: Okay, that's what we were shooting
+
+772
+01:15:16.990 --> 01:15:18.100
+Anthony Taylor: alright
+
+773
+01:15:19.260 --> 01:15:21.659
+Anthony Taylor: and see if they explain why they did that.
+
+774
+01:15:26.110 --> 01:15:26.830
+Anthony Taylor: Nope.
+
+775
+01:15:29.440 --> 01:15:30.250
+Anthony Taylor: okay.
+
+776
+01:15:40.310 --> 01:15:44.240
+Anthony Taylor: So couple other things that you could have done here, not in this case.
+
+777
+01:15:44.530 --> 01:15:49.990
+Anthony Taylor: But you can flip it. You can convert images from RGB. To RGB. Alpha.
+
+778
+01:15:50.070 --> 01:15:59.360
+Anthony Taylor: You can convert them to Grayscale. You can augment them by flipping them, doing different things with the image themselves. There are. You can sharpen.
+
+779
+01:15:59.770 --> 01:16:05.539
+Anthony Taylor: Okay? You can crop all of these different things in the end. The key here, though.
+
+780
+01:16:05.620 --> 01:16:15.359
+Anthony Taylor: is that so? Let's say we have, you know, 500 images, and we decide to crop you left to crop it, and then size it to the same as the rest of the images.
+
+781
+01:16:15.630 --> 01:16:19.479
+Anthony Taylor: In the end you want all of the images to be the same size.
+
+782
+01:16:21.210 --> 01:16:23.449
+Anthony Taylor: Okay? So even if you crop it.
+
+783
+01:16:24.110 --> 01:16:31.490
+Anthony Taylor: yeah, and also think about it, everything we do to these images, we have to be able to do to incoming images
+
+784
+01:16:32.420 --> 01:16:37.680
+Anthony Taylor: right? Because the whole point of this is to create a model that can identify an image.
+
+785
+01:16:39.610 --> 01:16:47.150
+Anthony Taylor: So when this is all done. All of these steps have to be applied to the incoming image. so you can't crop
+
+786
+01:16:47.260 --> 01:16:50.499
+Anthony Taylor: every image in the same place is the point. Yes, and
+
+787
+01:16:51.330 --> 01:16:56.560
+Baro, Sonja: so we've we've converted everything into
+
+788
+01:16:56.580 --> 01:16:59.519
+Baro, Sonja: the numeric values of the image.
+
+789
+01:16:59.690 --> 01:17:02.810
+Baro, Sonja: Right? We've saved it off as a pickle.
+
+790
+01:17:03.240 --> 01:17:07.880
+Baro, Sonja: If we wanted to reproduce it as an image.
+
+791
+01:17:08.930 --> 01:17:10.160
+Anthony Taylor: We have this pickle
+
+792
+01:17:11.260 --> 01:17:12.620
+Anthony Taylor: or the original one.
+
+793
+01:17:13.300 --> 01:17:14.200
+Baro, Sonja: Okay.
+
+794
+01:17:14.580 --> 01:17:18.299
+Anthony Taylor: yeah. Cause eventually, what's gonna happen is is we're gonna line all of these up.
+
+795
+01:17:18.330 --> 01:17:21.529
+Anthony Taylor: Because right now, do we have labels for these images?
+
+796
+01:17:22.510 --> 01:17:23.380
+Baro, Sonja: No.
+
+797
+01:17:23.600 --> 01:17:25.369
+Anthony Taylor: we have no idea what they are. Right?
+
+798
+01:17:26.460 --> 01:17:27.890
+Anthony Taylor: So that's still coming.
+
+799
+01:17:28.180 --> 01:17:29.060
+Baro, Sonja: Okay.
+
+800
+01:17:29.380 --> 01:17:38.510
+Anthony Taylor: alright. So you guys get to process your fun guy. Now, there's no reading. So basically.
+
+801
+01:17:40.510 --> 01:17:41.720
+Anthony Taylor: there must be a reading.
+
+802
+01:17:43.130 --> 01:17:45.629
+Anthony Taylor: Oh, yeah, it's a huge reading. It's just not in my step.
+
+803
+01:17:45.750 --> 01:17:51.380
+Anthony Taylor:  yeah. So go through these steps. Everything should be okay.
+
+804
+01:17:51.570 --> 01:17:55.609
+Anthony Taylor: You do have 20 min for this home.
+
+805
+01:17:56.810 --> 01:17:58.450
+Anthony Taylor: You should be fine.
+
+806
+01:18:02.370 --> 01:18:11.110
+Anthony Taylor: Yeah, I think that's what they're doing here, guys. So you know that part that I'm like, I don't understand why they did. This is what they're saying is is they're creating a new pickle
+
+807
+01:18:11.850 --> 01:18:22.949
+Anthony Taylor: with all of the images we process. Now we happen to have processed every image. So it's kind of redundant. But you, as you're doing preprocessing, you may drop images.
+
+808
+01:18:23.540 --> 01:18:42.109
+Anthony Taylor: Okay, you may side that. Some of the images aren't gonna meet quality standards or whatever. So this isn't necessarily a bad practice. I mean this is, you know, our our to save it again. Here they're they're they're actually not saving it again after I just went through all that. But in the other one, where they saved it twice.
+
+809
+01:18:42.370 --> 01:18:44.429
+Anthony Taylor: Okay, that's not a bad practice.
+
+810
+01:18:45.430 --> 01:18:49.810
+Anthony Taylor: Alright. You want to save what you actually normalize. And then
+
+811
+01:18:49.900 --> 01:18:55.659
+Anthony Taylor: the normalized data because that allows you to get back to the original picture.
+
+812
+01:18:56.480 --> 01:18:58.100
+Anthony Taylor: Okay, Hi.
+
+813
+01:18:58.210 --> 01:19:02.220
+Anthony Taylor: this is what you gotta do. You got 20 min. The
+
+814
+01:19:03.170 --> 01:19:05.760
+Anthony Taylor: yeah. I know the people.
+
+815
+01:19:06.410 --> 01:19:11.780
+Anthony Taylor: Okay. in the
+
+816
+01:19:12.940 --> 01:19:16.270
+Anthony Taylor: this one. Did anybody have any problems at all with this?
+
+817
+01:19:17.420 --> 01:19:28.999
+Clayton Graves: That's fairly straightforward? No, that's not entirely true. So at the very last cell. II had a hard time verifying that the last cell worked
+
+818
+01:19:29.880 --> 01:19:38.370
+Clayton Graves: but we went back and we asked Chat Cpg. But first of all. We went back to the the picnic images set up
+
+819
+01:19:38.460 --> 01:19:42.019
+Clayton Graves: so that we could add a call to pickle again.
+
+820
+01:19:42.130 --> 01:19:52.219
+Clayton Graves: and then I asked Chat Gp, how to check the data. And it turns out it did work. So reload it. Yeah. And that's that's what we
+
+821
+01:19:52.980 --> 01:20:00.700
+Anthony Taylor: it didn't have you reloaded at the end? I guess not. Because you're really saving it for a future you would have found out then.
+
+822
+01:20:00.850 --> 01:20:06.550
+Anthony Taylor: Okay, so I've loaded in a check size 2 50
+
+823
+01:20:06.880 --> 01:20:10.100
+Anthony Taylor: which is probably fine
+
+824
+01:20:10.770 --> 01:20:19.119
+Baro, Sonja: so we're gonna leave. Oh, well, no, we have. Oh, I thought it was, I'm sorry.
+
+825
+01:20:19.500 --> 01:20:27.189
+Anthony Taylor: Okay, so the size of the first one is 250. We have various sizes throughout. So we're gonna resize them all.
+
+826
+01:20:27.300 --> 01:20:31.030
+Anthony Taylor: 2, 2, 50 to 2, 50
+
+827
+01:20:31.530 --> 01:20:40.150
+Anthony Taylor:  hmm! And once we see that that works we'll do it to all of them.
+
+828
+01:20:40.760 --> 01:20:42.779
+Anthony Taylor: Takes just a second longer.
+
+829
+01:20:43.510 --> 01:20:48.689
+Here we're going to convert one to an array and take a look at it.
+
+830
+01:20:49.290 --> 01:20:50.800
+Anthony Taylor: Beautiful thing!
+
+831
+01:20:52.000 --> 01:20:56.090
+Anthony Taylor: Once that's done, we're going to convert them all
+
+832
+01:20:56.260 --> 01:20:57.650
+Anthony Taylor: to an array.
+
+833
+01:20:58.260 --> 01:21:01.339
+Anthony Taylor: Take a look at the first one should look the same
+
+834
+01:21:01.800 --> 01:21:07.210
+Anthony Taylor: actually looks like they did their flow. Oh, they converted it to float. 32 while they did that.
+
+835
+01:21:07.800 --> 01:21:09.989
+Anthony Taylor: Okay? Which is a good thing.
+
+836
+01:21:11.130 --> 01:21:17.289
+Anthony Taylor: Because these are grayscale, we're able to do 255 actually
+
+837
+01:21:19.860 --> 01:21:21.389
+Anthony Taylor: looks like they are
+
+838
+01:21:22.620 --> 01:21:24.020
+Anthony Taylor: earlier. They weren't.
+
+839
+01:21:24.800 --> 01:21:27.210
+Meredith McCanse (she/her): I think there's some.
+
+840
+01:21:28.750 --> 01:21:39.370
+Anthony Taylor: Yeah. So basically, all of the colors would be. I mean, no matter what color it is, it's 0 to 2 55 right now, because we do an RGB,
+
+841
+01:21:39.740 --> 01:21:42.910
+Anthony Taylor: okay, so this would work, even if it's not basically.
+
+842
+01:21:43.100 --> 01:21:48.540
+Anthony Taylor: So you're okay. So we'll do that, convert him normalize.
+
+843
+01:21:49.150 --> 01:21:59.139
+Anthony Taylor: And then we'll save it. I see what you're saying, Yeah, you're right. And yeah, I would have told you the same thing. Probably that chat, Gp said, which is.
+
+844
+01:21:59.280 --> 01:22:01.900
+Anthony Taylor: just try loading it back up and see if it worked.
+
+845
+01:22:04.510 --> 01:22:08.680
+Anthony Taylor: and that's that any questions?
+
+846
+01:22:12.690 --> 01:22:13.840
+Anthony Taylor: Nay.
+
+847
+01:22:14.770 --> 01:22:17.670
+Anthony Taylor: let us continue all right. So
+
+848
+01:22:19.100 --> 01:22:21.409
+Anthony Taylor: mentioned, I mentioned it earlier.
+
+849
+01:22:22.030 --> 01:22:27.110
+Anthony Taylor:  and
+
+850
+01:22:31.170 --> 01:22:34.059
+Anthony Taylor: make sure I'm opening the right one. I don't wanna open your
+
+851
+01:22:36.740 --> 01:22:39.450
+Anthony Taylor: 7 image label.
+
+852
+01:22:42.790 --> 01:22:46.349
+Anthony Taylor: I also make sure I'm opening the right one. I don't want to open. Give it away.
+
+853
+01:22:47.570 --> 01:22:49.409
+Anthony Taylor: I'll just go back and read up
+
+854
+01:22:51.780 --> 01:22:59.979
+Anthony Taylor: alright. So I mentioned earlier that we're doing great right? We've got all this data. We got it all normalized. It's pretty much ready to go.
+
+855
+01:22:59.990 --> 01:23:05.780
+Anthony Taylor: But we're trying to do a supervised model. So we're missing something
+
+856
+01:23:05.920 --> 01:23:13.300
+Anthony Taylor: rather important. And I kind of gave it away. When I opened this notebook. what are we missing?
+
+857
+01:23:14.270 --> 01:23:15.439
+Clayton Graves: The X
+
+858
+01:23:16.480 --> 01:23:21.049
+Anthony Taylor: well, actually, the Y, we created the X, but now we need the Y
+
+859
+01:23:21.260 --> 01:23:30.590
+Anthony Taylor: right? We need our Y variable, which is our yeah, we need something that says what each picture is. Now
+
+860
+01:23:31.700 --> 01:23:40.510
+Anthony Taylor: in this particular case. If you ever get this, by the way, just do manage sessions and close the other stuff you have open.
+
+861
+01:23:44.020 --> 01:23:49.550
+Anthony Taylor:  In this particular case these images are actually named
+
+862
+01:23:49.880 --> 01:23:54.529
+Anthony Taylor: to be helpful. All right. So if we just take a look
+
+863
+01:23:55.030 --> 01:24:02.470
+Anthony Taylor: at some of them, I will tell you. And you could read through this documentation if you like, but here's how they named it.
+
+864
+01:24:03.490 --> 01:24:08.580
+Anthony Taylor: There's a user Id, there's a pose, an expression.
+
+865
+01:24:08.680 --> 01:24:10.620
+Anthony Taylor: And then eyes.
+
+866
+01:24:11.980 --> 01:24:13.060
+Anthony Taylor: Okay.
+
+867
+01:24:13.250 --> 01:24:18.650
+Anthony Taylor: so with that, we can create a column for each of those values.
+
+868
+01:24:18.990 --> 01:24:23.949
+Anthony Taylor: And then from our data frame that we just created. Oh.
+
+869
+01:24:24.860 --> 01:24:30.490
+Anthony Taylor: what did I, miss? Oh, I didn't run the first step. not health. There we go.
+
+870
+01:24:30.670 --> 01:24:35.340
+Anthony Taylor: So from our data frame that we just created. We can split
+
+871
+01:24:35.450 --> 01:24:38.969
+Anthony Taylor: on this underscore
+
+872
+01:24:39.380 --> 01:24:47.099
+Anthony Taylor: and get rid of the P. And G, because we don't need it. And then, when it's all said and done. We'll get a data frame
+
+873
+01:24:47.140 --> 01:24:48.809
+Anthony Taylor: that looks like this.
+
+874
+01:24:50.160 --> 01:24:51.789
+Anthony Taylor: It's the name of the picture.
+
+875
+01:24:51.980 --> 01:24:57.289
+Anthony Taylor: the user, id, the pose, the expression, and the eyes
+
+876
+01:24:58.490 --> 01:24:59.850
+Anthony Taylor: pretty cool, right?
+
+877
+01:25:01.780 --> 01:25:03.270
+Anthony Taylor: Everybody following that.
+
+878
+01:25:05.570 --> 01:25:06.380
+Anthony Taylor: Okay.
+
+879
+01:25:06.490 --> 01:25:16.749
+Meredith McCanse (she/her): so the lesson is, name your files wisely. Maybe if you could get them, I mean, this one's particularly neat. Well.
+
+880
+01:25:16.880 --> 01:25:23.950
+Anthony Taylor:  I mean, it's, you know. This was just really well made. but I would not count on this.
+
+881
+01:25:24.270 --> 01:25:31.280
+Anthony Taylor: But the point is is, even if this wasn't based. Then you add another data frame that labeled all the picture
+
+882
+01:25:31.570 --> 01:25:34.680
+Anthony Taylor: right? As long as they're in the same order. This will work.
+
+883
+01:25:35.950 --> 01:25:38.450
+Anthony Taylor: Okay. This particular one's awesome.
+
+884
+01:25:38.610 --> 01:25:48.249
+Anthony Taylor: But since they're in the same quarter, we can now create a pickle, we'll just call this one Y for the Y data, basically.
+
+885
+01:25:48.350 --> 01:25:50.239
+Anthony Taylor: And we'll create a pickle
+
+886
+01:25:51.300 --> 01:25:56.420
+Anthony Taylor: on our Google drive. By the way, you know what? Now that I think about it.
+
+887
+01:25:56.960 --> 01:26:08.479
+Anthony Taylor: you may want to do at least the last few exercises in colab. Because when we come back we're probably gonna use these pickles. We just made
+
+888
+01:26:08.810 --> 01:26:18.480
+Anthony Taylor: to do the next steps. So unless you wanna reprocess and wait for everything again. You may want to do that before tomorrow night.
+
+889
+01:26:18.760 --> 01:26:27.409
+Anthony Taylor:  that's it. That's it for creating the labels. So let's look at the student activity for this
+
+890
+01:26:28.570 --> 01:26:35.230
+Anthony Taylor: and see how they say to do it. So here. these are labels.
+
+891
+01:26:37.180 --> 01:26:41.790
+Anthony Taylor: Alright. So you're basically gonna grab those you're gonna break them into these
+
+892
+01:26:43.060 --> 01:26:51.490
+Anthony Taylor: 3 parts. Basically the same way we did ours, or just not as meaningful and then save it off as a pickle. And guys, you're done.
+
+893
+01:26:53.010 --> 01:26:54.060
+Anthony Taylor: Okay?
+
+894
+01:26:55.130 --> 01:26:59.589
+Anthony Taylor: So yeah, so I'm gonna give you 10 min to do that. Think that's enough.
+
+895
+01:27:00.040 --> 01:27:04.190
+Anthony Taylor: Again, I would do this in Co web, so that you have these for tomorrow?
+
+896
+01:27:05.330 --> 01:27:09.780
+Anthony Taylor: Alright? Well. so
+
+897
+01:27:11.390 --> 01:27:14.590
+Anthony Taylor: so are we labeled.
+
+898
+01:27:16.330 --> 01:27:17.950
+Anthony Taylor: Let's find out.
+
+899
+01:27:19.610 --> 01:27:26.219
+Anthony Taylor: Keep going long life here we go. So I'm am I sharing? I'm not
+
+900
+01:27:30.060 --> 01:27:33.550
+Anthony Taylor: anybody having trouble with that one just while I'm loading it up
+
+901
+01:27:38.560 --> 01:27:41.009
+Masarirambi, Rodney: last cell. But I'm looking into it right now.
+
+902
+01:27:42.620 --> 01:27:50.010
+Meredith McCanse (she/her): Figure out which boxes I need to check, to give permissions to let it use the Google drive
+
+903
+01:27:50.020 --> 01:27:52.990
+Anthony Taylor: just both of them. Just everything. Just say, okay.
+
+904
+01:27:53.240 --> 01:27:55.530
+Meredith McCanse (she/her): I have like a million options. Perfectly. Okay.
+
+905
+01:27:55.970 --> 01:27:57.780
+Meredith McCanse (she/her): really, yeah.
+
+906
+01:27:58.880 --> 01:28:05.389
+Masarirambi, Rodney: yeah, II have like photos like all that stuff. Everything. I just told you the files. And that was it.
+
+907
+01:28:07.180 --> 01:28:08.110
+Anthony Taylor: Okay?
+
+908
+01:28:11.880 --> 01:28:12.990
+Anthony Taylor: But
+
+909
+01:28:13.010 --> 01:28:18.409
+Anthony Taylor: so we got same imports. We're gonna import the fungi file.
+
+910
+01:28:18.880 --> 01:28:29.689
+Anthony Taylor: We can see. Here's all the names we're gonna do the split. This is basically the same display. Except for it's a Jpeg instead of a Png and different column names.
+
+911
+01:28:30.940 --> 01:28:35.180
+Anthony Taylor: Okay? So when you run that, get this cool little data frame
+
+912
+01:28:35.650 --> 01:28:39.230
+Anthony Taylor: from that, it's just a pickle. So here, watch me do it again.
+
+913
+01:28:40.310 --> 01:28:41.470
+Anthony Taylor: Connect.
+
+914
+01:28:42.600 --> 01:28:45.699
+Anthony Taylor: Tell it. Which account, if you have more than one.
+
+915
+01:28:46.210 --> 01:28:47.920
+Anthony Taylor: Say, continue
+
+916
+01:28:50.090 --> 01:28:52.220
+Anthony Taylor: and continue
+
+917
+01:28:53.720 --> 01:28:54.900
+Anthony Taylor: pretty much it.
+
+918
+01:28:58.350 --> 01:29:00.390
+Anthony Taylor: Have you guys got more options than that?
+
+919
+01:29:01.870 --> 01:29:02.870
+Meredith McCanse (she/her): Yeah.
+
+920
+01:29:04.760 --> 01:29:05.480
+Anthony Taylor: huh?
+
+921
+01:29:05.860 --> 01:29:08.209
+Raugewitz, Tania: I think my initial time. I had
+
+922
+01:29:08.380 --> 01:29:13.569
+Raugewitz, Tania: list of what to give it access to. But every time since I've had this sign back in.
+
+923
+01:29:14.450 --> 01:29:17.199
+Raugewitz, Tania: And it was the same process she went through Anthony.
+
+924
+01:29:17.690 --> 01:29:23.619
+Anthony Taylor: Just like I said, just remember, it's it's only giving access to your Google account.
+
+925
+01:29:24.110 --> 01:29:26.300
+Anthony Taylor: It's not like anybody else can get you.
+
+926
+01:29:27.630 --> 01:29:33.400
+Anthony Taylor: If you're logged into Co lab, you're basically saying, my colab account has access to my Google. But
+
+927
+01:29:35.150 --> 01:29:39.299
+Anthony Taylor: that's it. So it's all the same inter. So don't worry too much.
+
+928
+01:29:40.460 --> 01:29:42.870
+Anthony Taylor: You can always retract it later.
+
+929
+01:29:43.530 --> 01:29:45.270
+Anthony Taylor: So any questions, guys.
+
+930
+01:29:47.660 --> 01:29:53.200
+michael mcpherson: this is all we're doing today. Can you display the data. the the Y value
+
+931
+01:29:54.550 --> 01:29:55.360
+Anthony Taylor: right here.
+
+932
+01:30:00.210 --> 01:30:03.660
+Anthony Taylor: This is what you should have. So name, class sample image.
+
+933
+01:30:04.400 --> 01:30:06.490
+Anthony Taylor: And then from there. We're going to
+
+934
+01:30:08.910 --> 01:30:15.939
+Anthony Taylor: do more with that. So let's see, actually. So we're a little early. I have some. I have some recap points
+
+935
+01:30:16.680 --> 01:30:24.170
+Anthony Taylor: ready for some recap. Thanks. How has your understanding of working with image data changed
+
+936
+01:30:24.210 --> 01:30:26.600
+Anthony Taylor: or evolved today?
+
+937
+01:30:29.330 --> 01:30:37.980
+Anthony Taylor: Has it? Most of you have never worked with image data correct? So the answer is a lot.
+
+938
+01:30:40.020 --> 01:30:42.009
+Anthony Taylor: yeah. Any surprises
+
+939
+01:30:42.410 --> 01:30:44.520
+Mason, Natalie: it feels so evolved.
+
+940
+01:30:45.100 --> 01:30:50.840
+Mason, Natalie: Do you feel evolved now? I have evolved in the last few hours
+
+941
+01:30:51.610 --> 01:30:57.400
+Anthony Taylor: what was the thing that was the most surprising to you about how image data is represented.
+
+942
+01:31:01.450 --> 01:31:13.049
+Anthony Taylor: Each each color is a separate layer that's awesome
+
+943
+01:31:13.550 --> 01:31:15.339
+Clayton Graves: described and encoded.
+
+944
+01:31:15.980 --> 01:31:21.669
+Anthony Taylor: Yeah, that's fantastic, Meredith, did you want to add to that? Yeah, no, I was gonna say the same things
+
+945
+01:31:22.610 --> 01:31:24.930
+Anthony Taylor: good answers. Then.
+
+946
+01:31:25.000 --> 01:31:29.379
+Anthony Taylor: is there anything about today's less that's still unclear to you.
+
+947
+01:31:29.720 --> 01:31:30.500
+Anthony Taylor: That's
+
+948
+01:31:30.810 --> 01:31:41.460
+Anthony Taylor: question, I think. What kind of real world applications this can have. Oh, my God, really! No, no! To hear me out.
+
+949
+01:31:41.510 --> 01:31:48.839
+Clayton Graves: So if you know it, do I? Yeah, handwriting, recognition or or stuff like that? Sure. But
+
+950
+01:31:49.310 --> 01:31:51.690
+Clayton Graves: I mean. can I?
+
+951
+01:31:52.570 --> 01:31:59.489
+Clayton Graves: Can I guess that the value of a car based on a photo of it, or what kind of car? That's something I can do.
+
+952
+01:32:00.170 --> 01:32:01.050
+Anthony Taylor: Why not?
+
+953
+01:32:01.270 --> 01:32:11.609
+Anthony Taylor: I mean, for, like your in the stuff you're like, like the stuff you were doing. It would have to be a lot of images of the car. But if you train the model, sure.
+
+954
+01:32:12.620 --> 01:32:23.969
+Anthony Taylor: if you had 10,000 images of cars with price tag information. Yes. Why not? You know it's entirely possible you could pull that off.
+
+955
+01:32:26.350 --> 01:32:30.630
+Anthony Taylor: maybe even some, but what you would probably be able to do that
+
+956
+01:32:30.790 --> 01:32:35.500
+Anthony Taylor: would be valuable would be to take those images and pull out descriptive factors
+
+957
+01:32:35.750 --> 01:32:41.459
+Anthony Taylor: of those images, and then use that data to come up with the price of the car?
+
+958
+01:32:42.810 --> 01:32:50.660
+Anthony Taylor: Right? Is there any damage? What color is it. you know? Model the year that kind of thing.
+
+959
+01:32:51.040 --> 01:32:55.629
+Anthony Taylor: So yeah, no, I mean, computer vision is computer vision. Computer vision
+
+960
+01:32:56.110 --> 01:32:58.040
+Anthony Taylor: is what's coming next.
+
+961
+01:32:58.850 --> 01:33:02.220
+Anthony Taylor: I can tell you that. Now, I don't know about this computer smell thing
+
+962
+01:33:02.920 --> 01:33:13.130
+Anthony Taylor: that's that's different. But computer vision, I mean, once, once these these models are wrapped up into our cameras and stuff like that
+
+963
+01:33:14.190 --> 01:33:15.609
+Anthony Taylor: I mean, what's next?
+
+964
+01:33:16.260 --> 01:33:24.040
+Anthony Taylor: Right? It only makes sense the problem, though the the only issue with computer vision and data science is, it takes a tremendous amount of process.
+
+965
+01:33:24.440 --> 01:33:33.190
+Anthony Taylor: Alright, those see those scans I was talking about massive amount of processing to do. Our training
+
+966
+01:33:33.690 --> 01:33:45.509
+Anthony Taylor: on these models just does not only that we have to anonymize them off, first. because Ct scans come with the usually a patient medical record, sometimes more
+
+967
+01:33:45.740 --> 01:33:52.629
+Anthony Taylor: identifiable information. So first, we have to anonymize them, which sometimes means altering the picture itself.
+
+968
+01:33:52.810 --> 01:33:54.330
+Anthony Taylor: And then
+
+969
+01:33:54.680 --> 01:33:58.930
+Anthony Taylor: we have to process and train our models with these gigantic pictures.
+
+970
+01:33:59.760 --> 01:34:09.259
+Anthony Taylor: But yeah, as far as as far as things you can do with this, I mean. the most common thing is to identify images in pictures.
+
+971
+01:34:09.480 --> 01:34:16.190
+Anthony Taylor:  some things that that I've I've heard of. Not necessarily good part of
+
+972
+01:34:16.470 --> 01:34:21.029
+Anthony Taylor: is well, obviously, you know, medical imaging is a big one.
+
+973
+01:34:21.790 --> 01:34:24.270
+Anthony Taylor:  but like
+
+974
+01:34:24.350 --> 01:34:27.790
+Anthony Taylor: reviewing video and finding things that nobody noticed.
+
+975
+01:34:28.470 --> 01:34:30.440
+Baro, Sonja: That's very common
+
+976
+01:34:30.520 --> 01:34:40.439
+Baro, Sonja: finding the Starbucks, the Starbucks, the game of thrones. Maybe you
+
+977
+01:34:40.820 --> 01:34:43.610
+Baro, Sonja: I mean, you know, there's all kinds of things. Yeah.
+
+978
+01:34:43.670 --> 01:34:46.170
+Baro, Sonja: So like. So I was just thinking.
+
+979
+01:34:46.390 --> 01:35:09.819
+Baro, Sonja: but kinda like recapping what I've learned today. And is it fair to say, like, when I do my unlock my phone with my face. This is the it simplistically right. This is what we've learned today is that somehow, like what? When I set this up, I trained the model off of my face.
+
+980
+01:35:10.300 --> 01:35:13.030
+Baro, Sonja: Is that what happened? Or
+
+981
+01:35:13.710 --> 01:35:24.329
+Anthony Taylor: because it's a little different? But it's yes, I mean, it's a little different. So if you're not training a model per se. You have a program that
+
+982
+01:35:24.640 --> 01:35:27.440
+Anthony Taylor: is using image recognition.
+
+983
+01:35:27.590 --> 01:35:41.359
+Anthony Taylor:  practices. capabilities to map your face. And then when you come back on, I mean, you know. Try it with a photo sometime, just for record.
+
+984
+01:35:41.730 --> 01:35:46.059
+Anthony Taylor: Take a photo of your face and just hold it in front of the camera. It'll work.
+
+985
+01:35:46.860 --> 01:36:16.420
+Baro, Sonja: Well, I was thinking of how you know you've taught all this about when we're creating our models to make sure that it can generalize as well right cause, and then to my camera when I unlock it. If I take my glasses off, it does not like it. When I take my classes off and try to log in. So like, I said, it's using practice using the base up on your phone. They wanted to be really good.
+
+986
+01:36:16.500 --> 01:36:24.699
+Anthony Taylor: So they're not gonna generalize much on that right? It's looking, I mean. Now, if you saved your face with and without your glasses you should be fine.
+
+987
+01:36:25.250 --> 01:36:26.340
+Baro, Sonja: But yeah, yeah.
+
+988
+01:36:26.640 --> 01:36:29.940
+Baro, Sonja: like, like, well, mine. And I do the fingerprint I got like
+
+989
+01:36:30.250 --> 01:36:31.950
+Anthony Taylor: 6 of my fingers on
+
+990
+01:36:32.880 --> 01:36:37.219
+Anthony Taylor: right cause. I never know how I'm holding my phone. So I want to be able to open it, no matter what.
+
+991
+01:36:38.160 --> 01:36:48.859
+Anthony Taylor: But yeah. So no, it's just that's just using that. That's not the same. No, but it's using the techniques to capture the date.
+
+992
+01:36:51.150 --> 01:36:56.690
+Masarirambi, Rodney: Is that is that a Google device or or an iphone cause an iphone shouldn't have an iphone.
+
+993
+01:36:57.430 --> 01:36:58.930
+Baro, Sonja: My son Michael.
+
+994
+01:36:59.500 --> 01:37:01.279
+Baro, Sonja: That's odd.
+
+995
+01:37:01.970 --> 01:37:04.479
+Masarirambi, Rodney: That's odd, because, like I'll
+
+996
+01:37:04.690 --> 01:37:21.300
+Masarirambi, Rodney: no, I don't. I don't. I'm I'm I'm I'm I'm I'm I'm I'm I'm I'm not. I'm not. I don't know
+
+997
+01:37:22.500 --> 01:37:28.190
+Masarirambi, Rodney: feature like where you have to be looking at the phone for it to register, cause there's 2 modes to it.
+
+998
+01:37:28.200 --> 01:37:38.460
+Baro, Sonja: I did not know that. No, I don't know. I'll try it. Yeah, I'll try it, anyway. No, no, no, that's good.
+
+999
+01:37:39.310 --> 01:37:42.299
+Anthony Taylor: All right. Any other thoughts for today.
+
+1000
+01:37:43.880 --> 01:37:51.799
+Anthony Taylor: Alright. Well, if everybody's good. Look at that, I mean, I thought we would be done way early, and we're like right on time. Have a great quote
+
+1001
+01:37:51.950 --> 01:38:00.330
+Mason, Natalie: our module 18 is due next Monday. Sure, sure. 14.
+
+1002
+01:38:00.810 --> 01:38:05.700
+Anthony Taylor: I'm not. Gonna just get it in soon enough when you can.
+
+1003
+01:38:06.250 --> 01:38:13.699
+Masarirambi, Rodney: Alright, gang. Wait. Actually, question on that. Does everybody. Do you actually see it? Cause
+
+1004
+01:38:14.160 --> 01:38:14.870
+Anthony Taylor: who
+
+1005
+01:38:15.510 --> 01:38:18.369
+Masarirambi, Rodney: the modules? Everybody else? Not me? I don't think
+
+1006
+01:38:18.510 --> 01:38:28.440
+Anthony Taylor: I mean that's there for us to do in our homework. But it's not on the schedule. It's not on the calendar.
+
+1007
+01:38:28.630 --> 01:38:43.849
+Anthony Taylor: I'll ask them to update the calendar again. They were supposed to last time. but you can safely assume you have a week from the last day. Don't. Yeah, I think somebody already said it. II don't want you to stress about it. If it takes a week in a day, or whatever
+
+1008
+01:38:43.890 --> 01:38:48.339
+Anthony Taylor: we're not, gonna mark you off for being late. Just don't miss it.
+
+1009
+01:38:48.950 --> 01:39:00.460
+Anthony Taylor: Okay, they're very strict. I mean, they're they're strict on the homework at at at this university, so don't play around because I will not be able to give you a certificate
+
+1010
+01:39:01.050 --> 01:39:04.990
+Anthony Taylor: if you don't do it so I can
+
+1011
+01:39:06.470 --> 01:39:12.100
+Anthony Taylor: alright. Well, have a wonderful night, and I will see you tomorrow. Probably
+
+1012
+01:39:12.590 --> 01:39:14.119
+Anthony Taylor: try to stay warm.
+
+1013
+01:39:16.280 --> 01:39:17.210
+Anthony Taylor: Hi Al
+
+1014
+01:39:17.600 --> 01:39:19.389
+Raugewitz, Tania: thanks thanks, Anthony.
+
+1015
+01:39:19.800 --> 01:39:20.440
+Anthony Taylor: no worries.
+

@@ -1,0 +1,22 @@
+##--CODE--##
+# Install the required libraries
+from IPython.display import clear_output
+try:
+  !pip install prophet
+except:
+  print("Error installing libraries")
+finally:
+  clear_output()
+  print("Libraries successfully installed")
+
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+from prophet import Prophet
+import datetime as dt
+%matplotlib inline
+
+##--CODE--##
+# Import the `files` library to allow files upload
+from google.colab import files
+

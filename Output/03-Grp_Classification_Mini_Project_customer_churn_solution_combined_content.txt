@@ -1,0 +1,116 @@
+# Customer Churn
+
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC 
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+
+##--CODE--##
+# Load in data
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m13/lesson_3/datasets/customer-churn.csv')
+df
+
+##--CODE--##
+# Drop the label to create the X data
+X = df.drop('Churn', axis=1)
+X
+
+##--CODE--##
+# Create the y set from the "Churn" column
+y = df["Churn"]
+y
+
+##--CODE--##
+# Split the data into training and testing sets using random_state=1
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+
+##--CODE--##
+# Scale the X data by using StandardScaler()
+scaler = StandardScaler().fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_train_scaled
+
+##--CODE--##
+# Transform the test dataset based on the fit from the training dataset
+X_test_scaled = scaler.transform(X_test)
+X_test_scaled
+
+## Model and Fit to a Logistic Regression Classifier
+
+##--CODE--##
+# Create the logistic regression classifier model with a random_state of 1
+lr_model = LogisticRegression()
+
+# Fit the model to the training data
+lr_model.fit(X_train_scaled, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print(f"Training Data Score: {lr_model.score(X_train_scaled, y_train)}")
+print(f"Testing Data Score: {lr_model.score(X_test_scaled, y_test)}")
+
+## Model and Fit to a Support Vector Machine
+
+##--CODE--##
+# Create the support vector machine classifier model with a 'rbf' kernel
+svm_model = SVC(kernel='rbf')
+
+# Fit the model to the training data
+svm_model.fit(X_train_scaled, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print(f"Training Data Score: {svm_model.score(X_train_scaled, y_train)}")
+print(f"Testing Data Score: {svm_model.score(X_test_scaled, y_test)}")
+
+## Model and Fit to a KNN Model
+
+##--CODE--##
+# Create the KNN model with 9 neighbors
+knn_model = KNeighborsClassifier(n_neighbors=9)
+
+# Fit the model to the training data
+knn_model.fit(X_train_scaled, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print(f"Training Data Score: {knn_model.score(X_train_scaled, y_train)}")
+print(f"Testing Data Score: {knn_model.score(X_test_scaled, y_test)}")
+
+## Model and Fit to a Decision Tree Classifier
+
+##--CODE--##
+# Create the decision tree classifier model
+dt_model = DecisionTreeClassifier()
+
+# Fit the model to the training data
+dt_model.fit(X_train_scaled, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print(f"Training Data Score: {dt_model.score(X_train_scaled, y_train)}")
+print(f"Testing Data Score: {dt_model.score(X_test_scaled, y_test)}")
+
+## Model and Fit to a Random Forest Classifier
+
+##--CODE--##
+# Create the random forest classifier model
+# with n_estimators=128 and random_state=1
+rf_model = RandomForestClassifier(n_estimators=128, random_state=1)
+
+# Fit the model to the training data
+rf_model.fit(X_train_scaled, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print(f"Training Data Score: {rf_model.score(X_train_scaled, y_train)}")
+print(f"Testing Data Score: {rf_model.score(X_test_scaled, y_test)}")
+
+##--CODE--##
+
+

@@ -1,0 +1,6482 @@
+WEBVTT
+
+1
+00:00:04.900 --> 00:00:07.680
+Anthony Taylor: Did you want to introduce yourself and all that fun stuff?
+
+2
+00:00:08.000 --> 00:00:32.869
+Nick Kinger (SSA): Yeah, I felt bad. I couldn't make it until launch but they, too, made it in glued to be here. Everyone. My name's Nick. You have gotten a ton of emails from me. I just wanted to at least show my face and introduce myself quickly. Not. Take up too much your class time, because you definitely have a full agenda but I wanted to open the floor in case anyone had any questions and give a brief background because, the university slide was a little bit iffy. If I could put a phone
+
+3
+00:00:32.870 --> 00:00:43.970
+Nick Kinger (SSA): fun. Fact or not. I think Gabby made a comment about that. So just a fun background, I have a background as a middle school science teacher, I did that for 7 years. That was 7 years too much.
+
+4
+00:00:43.970 --> 00:00:55.300
+Nick Kinger (SSA): So now I'm here, every second of it. But other than that, you know, we'll get to know each other over time. But just really looking forward to working with everyone. And I couldn't be more excited about the AI program.
+
+5
+00:00:57.150 --> 00:00:59.850
+Anthony Taylor: Fantastic. Anybody have questions for Nick.
+
+6
+00:01:00.730 --> 00:01:05.589
+Anthony Taylor: II would just say, you guys understand what Nick is to us. To me.
+
+7
+00:01:05.760 --> 00:01:14.100
+Anthony Taylor: right is is again anytime. You guys need help with like grades or not. Great. What like
+
+8
+00:01:14.100 --> 00:01:38.919
+Nick Kinger (SSA): easiest definition. If it's curriculum, don't ask me, because I will have no idea. If it's curriculum. Go to Anthony, go to your amazing instructional team. If it's anything else to do with the boot camp. I'm your guy, and if I'm not. I'm gonna find out for you and make it happen. That's my role. So if there's anything you guys need
+
+9
+00:01:38.920 --> 00:01:45.819
+Nick Kinger (SSA): again, don't ask me AI questions. Oh, not pretty, but everything else. I'm here.
+
+10
+00:01:46.590 --> 00:01:53.270
+Anthony Taylor: We we'll teach Nick how to use when you ask me AI questions
+
+11
+00:01:53.790 --> 00:01:57.059
+Nick Kinger (SSA): who live experience with Chat Gpt.
+
+12
+00:01:57.380 --> 00:02:08.890
+Anthony Taylor: I think everybody on the planet. They want to stay that right. It it's like everybody's like what to do to take my job.
+
+13
+00:02:09.280 --> 00:02:20.199
+Nick Kinger (SSA): no, absolutely. And again, I'm here for everyone. My virtual doors always open. You guys will get a lot of emails from me. Please read them. I know it's a lot but important information coming your way, but
+
+14
+00:02:20.260 --> 00:02:33.809
+Nick Kinger (SSA): that's everything. If you think of anything don't hesitate to reach out and kinder@bootcamps.com. I'm also linked in our general channel on slack at the top. You'll see my calendar, Link, if you need to ever schedule some time with me.
+
+15
+00:02:35.070 --> 00:02:36.119
+Anthony Taylor: There you go.
+
+16
+00:02:37.020 --> 00:02:43.240
+Nick Kinger (SSA): Yeah, you're good to go. Have fun.
+
+17
+00:02:43.670 --> 00:02:45.900
+Nick Kinger (SSA): Thank you, sir.
+
+18
+00:02:46.160 --> 00:02:56.500
+Nick Kinger (SSA): You take care or hang out, or whatever you want to do. Alright.
+
+19
+00:02:57.230 --> 00:02:58.180
+Anthony Taylor: Alright.
+
+20
+00:02:58.530 --> 00:03:00.920
+Anthony Taylor: Okay,
+
+21
+00:03:03.600 --> 00:03:10.650
+Anthony Taylor: yeah. So now we get started with impact of machine learning day 2,
+
+22
+00:03:12.120 --> 00:03:16.269
+Anthony Taylor: all right. So today, we're gonna cover a bunch of fun stuff.
+
+23
+00:03:16.360 --> 00:03:20.360
+Anthony Taylor: We're going to talk about supervised and unsupervised machine learning.
+
+24
+00:03:20.690 --> 00:03:27.569
+Anthony Taylor: We're going to define more complex AI models, including neural networks and deep learning. So I gotta tell you guys.
+
+25
+00:03:28.750 --> 00:03:43.010
+Anthony Taylor: I'm gonna make these funny faces when I see stuff like this, if they're email models, remember, AI or Ml is a subset of AI, so you can say, say, AI models. But if you said an AI model, you know a neural network as an AI model, people forget you.
+
+26
+00:03:44.070 --> 00:03:45.619
+Anthony Taylor: Okay, so I'm just telling you.
+
+27
+00:03:45.720 --> 00:03:47.710
+Anthony Taylor: You can say it. It's not wrong.
+
+28
+00:03:48.050 --> 00:03:49.100
+Anthony Taylor: but it's unusual.
+
+29
+00:03:49.630 --> 00:03:54.880
+Anthony Taylor: Then we're gonna talk a little bit about Mir natural language processing
+
+30
+00:03:54.890 --> 00:03:59.210
+Anthony Taylor: and transform. These are all things we're gonna get very deep into
+
+31
+00:03:59.280 --> 00:04:02.379
+Anthony Taylor: as the weeks go by. But today kind of keep it out, either.
+
+32
+00:04:03.130 --> 00:04:07.039
+Anthony Taylor: we're also gonna learn how to actually use Github.
+
+33
+00:04:07.620 --> 00:04:14.159
+Anthony Taylor: Everyone's got it working right? Hopefully, you're locked in. Well, today, you're gonna learn how to use it properly.
+
+34
+00:04:15.430 --> 00:04:16.339
+Anthony Taylor: very highly.
+
+35
+00:04:16.880 --> 00:04:24.979
+Anthony Taylor: Okay, we're gonna add, commit push, code. Github, we're not gonna do any merge resolution. Clayton. Nothing like that.
+
+36
+00:04:25.310 --> 00:04:36.970
+Anthony Taylor: Okay, we are gonna Branch. But we're going to branch very carefully. Only Clayton knows what I'm talking about. But that's okay. because he's the get guy, right? Clayton, you're the get guy.
+
+37
+00:04:37.770 --> 00:04:39.099
+Anthony Taylor: Yeah, all right.
+
+38
+00:04:39.770 --> 00:04:42.950
+Anthony Taylor: Okay, demystifying machine learning.
+
+39
+00:04:45.900 --> 00:04:49.520
+Anthony Taylor: I do need a background. I you know II should do that.
+
+40
+00:04:51.350 --> 00:04:55.510
+Anthony Taylor: I had the last class. On the final project day.
+
+41
+00:04:55.990 --> 00:04:59.220
+Anthony Taylor: one of my one of the students. They did their whole
+
+42
+00:04:59.730 --> 00:05:05.130
+Anthony Taylor: portion of their final project with with the background music. It was so
+
+43
+00:05:05.390 --> 00:05:09.909
+Anthony Taylor: good. It was 95. I said. I'm gonna have that all the time.
+
+44
+00:05:10.150 --> 00:05:18.450
+Anthony Taylor: Play something like, you know. Mission, impossible music in the background while I talk. Okay? So first off.
+
+45
+00:05:18.490 --> 00:05:33.880
+Anthony Taylor: Just like I said a moment ago, machine learning is A is a subset of AI these are like the official definitions. It is the practice of applying computer algorithms and statistics to create models that can learn from data.
+
+46
+00:05:34.020 --> 00:05:41.380
+Anthony Taylor: then make decisions or predictions about future data. Before today is over, we're going to clarify this
+
+47
+00:05:41.650 --> 00:05:45.350
+Anthony Taylor: cause. This makes it sound like Whoa makes decisions.
+
+48
+00:05:46.250 --> 00:05:53.870
+Anthony Taylor: It's kind of binary. In that sense. You can have classifications which you can classify many different layers.
+
+49
+00:05:54.170 --> 00:05:57.849
+Anthony Taylor: But these decisions, all of this is based on
+
+50
+00:05:58.150 --> 00:06:03.239
+Anthony Taylor: history. And that's it. It doesn't make up anything.
+
+51
+00:06:03.550 --> 00:06:06.439
+Anthony Taylor: It has no creativity.
+
+52
+00:06:07.490 --> 00:06:08.300
+Anthony Taylor: Okay.
+
+53
+00:06:08.480 --> 00:06:13.010
+Anthony Taylor: algorithms are not make decisions without meeting anyone program. All that logic.
+
+54
+00:06:13.190 --> 00:06:18.669
+Anthony Taylor: They learn the patterns, behaviors and logic on their own directly from data. Then
+
+55
+00:06:19.660 --> 00:06:21.200
+Anthony Taylor: I'll clarify that, too.
+
+56
+00:06:21.500 --> 00:06:26.089
+Anthony Taylor: Okay, nothing is that there's nothing a computer does. It's on its own.
+
+57
+00:06:26.710 --> 00:06:32.690
+Anthony Taylor: Let's just get that clear. We're not making Skynet like. was it, Clayton? That, said Skynet.
+
+58
+00:06:33.540 --> 00:06:35.120
+Anthony Taylor: No, Mike.
+
+59
+00:06:36.100 --> 00:06:40.480
+Anthony Taylor: Mike, said Skynet. Sorry, Clayton. It's the beard. I got him confused.
+
+60
+00:06:40.590 --> 00:06:42.520
+Anthony Taylor: Okay.
+
+61
+00:06:43.290 --> 00:06:51.030
+Anthony Taylor: yeah, we're not making Skynet, because we really don't have a way for computers to figure it out themselves. And yet
+
+62
+00:06:51.180 --> 00:06:53.619
+Anthony Taylor: I am not sharing my slides.
+
+63
+00:06:56.140 --> 00:06:58.270
+Anthony Taylor: That's okay. Here's what you missed.
+
+64
+00:07:00.840 --> 00:07:03.919
+Anthony Taylor: That's what you missed. Okay, pretty much so.
+
+65
+00:07:04.210 --> 00:07:15.760
+Anthony Taylor:  yeah, they they really can't do anything. Now, I will show you something some point. During this 24 weeks called Auto Ml, which is almost the closest. You're going to get
+
+66
+00:07:16.120 --> 00:07:27.350
+Anthony Taylor: to a computer, figuring everything out by itself. But she's still got to tell it what you want to figure out you still got to give it instructions. Computers follow instructions. Even AI's
+
+67
+00:07:28.650 --> 00:07:31.090
+Anthony Taylor: alright. And we'll talk more about that as we go.
+
+68
+00:07:31.470 --> 00:07:36.829
+Anthony Taylor: So there's 2 major classes.
+
+69
+00:07:36.870 --> 00:07:40.340
+Anthony Taylor: machine learning. unsupervised learning
+
+70
+00:07:42.070 --> 00:07:46.749
+Anthony Taylor: and supervisor. The difference between the 2
+
+71
+00:07:47.050 --> 00:07:55.810
+Anthony Taylor: is unsuper. Well, these are the types regression algorithms used to model predict continuous variables. Whatever. Okay, the let me go back to here.
+
+72
+00:07:56.030 --> 00:08:01.379
+Anthony Taylor: The difference between these 2 and it's gonna come up again in a slideshow. I mean, Natalie on
+
+73
+00:08:01.950 --> 00:08:03.120
+Anthony Taylor: is
+
+74
+00:08:03.670 --> 00:08:08.360
+Anthony Taylor: supervised learning. We're going to give the algorithm
+
+75
+00:08:08.530 --> 00:08:09.740
+Anthony Taylor: the answer.
+
+76
+00:08:11.460 --> 00:08:12.620
+Anthony Taylor: that's what it means.
+
+77
+00:08:13.150 --> 00:08:17.869
+Anthony Taylor: Okay? So in other words, we have all this data. And this data is labeled.
+
+78
+00:08:18.900 --> 00:08:26.030
+Anthony Taylor: Okay, let me give you a very famous example. You see this all over the Internet. There is a data set out there on the Titanic.
+
+79
+00:08:26.570 --> 00:08:33.340
+Anthony Taylor: Okay? And it has like, when they got on the boat, what was their gender? What was their age? What kind of ticket did they have?
+
+80
+00:08:33.640 --> 00:08:35.710
+Anthony Taylor: Okay, what cabin were they in.
+
+81
+00:08:36.840 --> 00:08:38.940
+Anthony Taylor: and did they live or die?
+
+82
+00:08:41.240 --> 00:08:42.650
+Anthony Taylor: Believe or die?
+
+83
+00:08:42.740 --> 00:08:49.750
+Anthony Taylor: Was is the predicted variable? That's what we want to predict. If if we put a new person on the Titanic
+
+84
+00:08:50.820 --> 00:09:01.150
+Anthony Taylor: that got on at this stop? And was this gender? And was this age, and had this ticket, and was staying in this cabin. Could we predict if they lived or died?
+
+85
+00:09:02.920 --> 00:09:06.500
+Anthony Taylor: Alright? That is supervised learning? We know the answer.
+
+86
+00:09:07.240 --> 00:09:09.500
+Anthony Taylor: Something more practical for today.
+
+87
+00:09:10.750 --> 00:09:12.130
+Anthony Taylor: Loan defaults.
+
+88
+00:09:13.170 --> 00:09:21.780
+Anthony Taylor: Okay, here's a great one for you. One of the companies I worked at for a while was Hertz rent a car. Everybody familiar with Hertz rent a car.
+
+89
+00:09:22.100 --> 00:09:27.599
+Anthony Taylor: You got to be right. They're out in Fort Myers, Florida. I built their entire data science platform
+
+90
+00:09:28.160 --> 00:09:29.110
+Anthony Taylor: by myself.
+
+91
+00:09:30.130 --> 00:09:32.420
+Anthony Taylor: Okay, put it together.
+
+92
+00:09:32.440 --> 00:09:37.250
+Anthony Taylor: brought in some data science. Well, they had data scientists. In fact, they had 52 data scientists
+
+93
+00:09:37.320 --> 00:09:41.430
+Anthony Taylor: of those 52 data scientists, only one knew how to use machine learning.
+
+94
+00:09:42.190 --> 00:09:45.119
+Anthony Taylor: Okay, the rest of them were really just equal people with the cool type.
+
+95
+00:09:45.830 --> 00:09:55.379
+Anthony Taylor:  but we basically built a machine learning model that would predict the likelihood that this person would steal the car.
+
+96
+00:09:57.970 --> 00:09:58.740
+Anthony Taylor: Yep.
+
+97
+00:09:59.830 --> 00:10:02.329
+Anthony Taylor: and it was it was shockingly.
+
+98
+00:10:02.620 --> 00:10:05.090
+Anthony Taylor: But did they rent the car to that person?
+
+99
+00:10:05.370 --> 00:10:06.790
+Anthony Taylor: You betcha?
+
+100
+00:10:07.830 --> 00:10:18.809
+Anthony Taylor: Because why? Because it was shockingly accurate about 90% of the time. So as you imagine, if during that 10%, we said, Oh, look! Meredith came up to, she's gonna steal this car.
+
+101
+00:10:19.170 --> 00:10:23.540
+Anthony Taylor: We're not gonna let her have one. Hello. sued.
+
+102
+00:10:24.100 --> 00:10:26.650
+Anthony Taylor: Okay. So they just did it. And
+
+103
+00:10:27.500 --> 00:10:35.860
+Anthony Taylor: we tracked every one of those cars. We had a map that showed where the car was. and as soon as it crossed the Mexican border they just wrote it off.
+
+104
+00:10:38.120 --> 00:10:40.459
+Anthony Taylor: and it was done no more car.
+
+105
+00:10:41.260 --> 00:10:55.739
+Anthony Taylor: Okay? And it happened every day. But you know, it's just that's how rental car business. Actually, I'll have all kinds of fun stories about rental car. I've been like. I said. I work medical most of the time, but my last big
+
+106
+00:10:55.940 --> 00:11:01.009
+Anthony Taylor: contract that I did before I went into arthritis was Hertz. So I have lots of herbs.
+
+107
+00:11:01.030 --> 00:11:03.009
+Anthony Taylor: They're actually a really good
+
+108
+00:11:03.120 --> 00:11:06.100
+Anthony Taylor: example for me to give you, because
+
+109
+00:11:06.110 --> 00:11:07.709
+Anthony Taylor: they went from
+
+110
+00:11:08.560 --> 00:11:12.809
+Anthony Taylor: basically barely having a data warehouse to having one
+
+111
+00:11:12.980 --> 00:11:17.610
+Anthony Taylor: of the better data analytics platforms that they could have asked for.
+
+112
+00:11:17.820 --> 00:11:20.889
+Anthony Taylor: And yeah, I made it. So I'm bragging a little. But
+
+113
+00:11:21.190 --> 00:11:26.460
+Anthony Taylor: it just it just worked out. Okay, okay? So supervised learning, we have a label.
+
+114
+00:11:27.230 --> 00:11:33.240
+Anthony Taylor: Typically, it's when we have a label. If that label is word or a binary.
+
+115
+00:11:33.610 --> 00:11:37.549
+Anthony Taylor: you'll yes, no. Prove false. That is classification.
+
+116
+00:11:38.530 --> 00:11:39.280
+Anthony Taylor: Okay.
+
+117
+00:11:39.830 --> 00:11:43.500
+Anthony Taylor: regression. This is continuous numbers.
+
+118
+00:11:44.250 --> 00:11:46.929
+Anthony Taylor: Okay, regression is a really tricky one.
+
+119
+00:11:47.060 --> 00:11:54.219
+Anthony Taylor: Give you actual projects that students have done basketball salaries. Did I tell you this one already? I feel like I told you this one.
+
+120
+00:11:55.270 --> 00:11:56.389
+Anthony Taylor: No, okay.
+
+121
+00:11:56.720 --> 00:12:07.899
+Anthony Taylor: Basket. If I ever do that by way, I'm bad about telling stories more than once, so you'll go ahead and stop me. Say, Hey, Anthony, so I'll be like, huh! I'll give you, anyway, basketball salads. So
+
+122
+00:12:08.730 --> 00:12:20.230
+Anthony Taylor: group their group, they were all into basketball. They thought this was cool. There is a ton of statistics on basketball. So they built machine learning model that would predict a basketball player's salary based on their college statistics.
+
+123
+00:12:21.010 --> 00:12:22.289
+Anthony Taylor: Pretty cool. Right?
+
+124
+00:12:22.700 --> 00:12:26.899
+Anthony Taylor: They ran it. And they were. They had like 4% accuracy. I'm like dude.
+
+125
+00:12:26.910 --> 00:12:30.210
+Anthony Taylor: That means if you flipped a coin the coin would hit you in the head and hurt you.
+
+126
+00:12:30.600 --> 00:12:36.930
+Anthony Taylor: Okay, no, you want at least 50%, so that at least you can say, Well, I can put coin, and I get the same answer.
+
+127
+00:12:37.490 --> 00:12:43.639
+Anthony Taylor: No. The reason was is that when you do regression. You're guessing numbers, exact numbers.
+
+128
+00:12:44.170 --> 00:12:52.849
+Anthony Taylor: So if their salary is $400,000 and 4 cents. and your model predicts $400,000, it's wrong.
+
+129
+00:12:55.220 --> 00:13:08.579
+Anthony Taylor: So there are ways to work around that. But we'll talk about like really easy ways to work around that are less accurate. And then we'll talk about ways to kind of, say, all right. Well, 400, only 4 cents off. That's not so bad.
+
+130
+00:13:08.660 --> 00:13:10.170
+Anthony Taylor: We can still work with that.
+
+131
+00:13:10.310 --> 00:13:18.060
+Anthony Taylor: Okay, regression is a very common thing, but a lot of people get mixed up. They're like Whoa! But I couldn't get any good accuracy with that. What the
+
+132
+00:13:18.460 --> 00:13:21.190
+Anthony Taylor: right? How about, we make it a range that works.
+
+133
+00:13:21.560 --> 00:13:27.399
+Anthony Taylor: Okay. But then, if it's a range, are you doing a number? No, you're doing a classification.
+
+134
+00:13:29.240 --> 00:13:36.730
+Anthony Taylor: Hi. unsupervised learning. So if the key factor of supervised learning is, you have to have a label
+
+135
+00:13:38.380 --> 00:13:46.210
+Anthony Taylor: unsupervised learning means. I don't have a label. I don't know who what this data is, I have no clue.
+
+136
+00:13:46.780 --> 00:13:50.759
+Anthony Taylor: Okay, unsupervised learning is incredibly valuable.
+
+137
+00:13:51.430 --> 00:13:52.660
+Anthony Taylor: What does it do
+
+138
+00:13:53.100 --> 00:14:09.410
+Anthony Taylor: I throw in one of my clients many years ago, with dell or, well, sorry I worked at Dell. It was target. Okay? And target has some wonderful. There's some stories online about target and their data science stuff that are really, I mean, they're like infants.
+
+139
+00:14:09.470 --> 00:14:13.840
+Anthony Taylor: And I was actually like, involved with the teams that that built that stuff.
+
+140
+00:14:14.030 --> 00:14:18.330
+Anthony Taylor:  but they have
+
+141
+00:14:18.900 --> 00:14:24.380
+Anthony Taylor: tons of data. those cameras? Yeah. But I mean, everybody's been target, right?
+
+142
+00:14:25.000 --> 00:14:28.929
+Anthony Taylor: Or something similar. You walk in. And if you look up, what do you see?
+
+143
+00:14:29.110 --> 00:14:34.000
+Anthony Taylor: Little black domes every 10 feet in the whole store.
+
+144
+00:14:34.380 --> 00:14:38.280
+Anthony Taylor: Right? Yes, they're looking for shoplifters for sure.
+
+145
+00:14:39.000 --> 00:14:44.410
+Anthony Taylor: Okay, what they're also doing is tracking how we walk through the store
+
+146
+00:14:45.260 --> 00:14:46.830
+Anthony Taylor: and what you bought.
+
+147
+00:14:47.090 --> 00:14:57.829
+Anthony Taylor: So you come in, they see. Oh, look! She goes to the right every time, and then she goes down that middle aisle that's about halfway down between the women's clothing and the gift car and the breeding cards.
+
+148
+00:14:58.130 --> 00:15:01.240
+Anthony Taylor: and she goes down to the back, and then oh, look! Look! Look, look.
+
+149
+00:15:01.630 --> 00:15:04.490
+whoever she's with just went into the electronics area.
+
+150
+00:15:05.010 --> 00:15:10.809
+Anthony Taylor: And they're looking at video games. And then she went to the right, which is over by seasonal goods.
+
+151
+00:15:11.120 --> 00:15:14.289
+Anthony Taylor: I don't know. Does that just describe? Like every target on the planet? I think I did.
+
+152
+00:15:14.800 --> 00:15:16.919
+Anthony Taylor: Okay, then
+
+153
+00:15:16.960 --> 00:15:23.170
+Anthony Taylor: they're watching you. They basically tag you. They said. I don't know who this person is, but we're gonna call it Shopper B.
+
+154
+00:15:24.370 --> 00:15:28.070
+Anthony Taylor: So Shopper B. Finishes going through the store. Doesn't shoplift
+
+155
+00:15:28.790 --> 00:15:31.020
+Anthony Taylor: goes to the front and pays.
+
+156
+00:15:31.060 --> 00:15:34.679
+Anthony Taylor: And they pray that you have that little red car.
+
+157
+00:15:36.740 --> 00:15:44.159
+Anthony Taylor: Okay, if you haven't been to target red card is basically their reward system. Okay, the reward is for them.
+
+158
+00:15:45.790 --> 00:15:49.780
+Anthony Taylor: Alright. You scan it. That's what they just learned.
+
+159
+00:15:50.540 --> 00:15:53.090
+Anthony Taylor: Shopper B is Sonia
+
+160
+00:15:53.450 --> 00:16:02.919
+Anthony Taylor: Sonia Maro. Oh, and we have the history of everything she's ever purchased. Let's go back and see how she walked to the store the last time. Oh, look at that!
+
+161
+00:16:04.200 --> 00:16:16.329
+Anthony Taylor: Okay, now. Moral of this story. Where. So where? How does it still to unsupervised learning? Well, they have all this data. Yeah, they know it's signing, but that doesn't necessarily tell us who is like, son.
+
+162
+00:16:16.810 --> 00:16:18.270
+Anthony Taylor: I want to know
+
+163
+00:16:18.950 --> 00:16:24.050
+Anthony Taylor: when I passed in all of this data, all of the people that shop like Sony.
+
+164
+00:16:26.140 --> 00:16:37.349
+Anthony Taylor: so I don't have a label cause. I don't know what they like. I don't know who they are. so I'm going to run an unsupervised model, and the unsupervised model is going to take this big ball of data
+
+165
+00:16:37.370 --> 00:16:44.050
+Anthony Taylor: and start separating it and separating it. And you can literally watch it. Do it into clusters.
+
+166
+00:16:44.960 --> 00:16:51.469
+Anthony Taylor: And it's gonna say, oh, look at this Sonya and Curry. They shop almost exactly the same.
+
+167
+00:16:52.720 --> 00:16:55.670
+Anthony Taylor: Okay. Jennifer and Matt.
+
+168
+00:16:55.690 --> 00:17:03.319
+Anthony Taylor: They're more just kind of. They go different directions every time they come in they go straight for what they want. They don't shop
+
+169
+00:17:04.970 --> 00:17:11.879
+Anthony Taylor: right. They're like they come in with a grocery list. They go to the groceries. They kept the groceries they leave. That's a style of shop.
+
+170
+00:17:12.930 --> 00:17:19.650
+Anthony Taylor: It's not my stuff. I'm like, walk around the store for 2 h. Okay? Oh, I need that alright.
+
+171
+00:17:19.940 --> 00:17:31.399
+Anthony Taylor: So unsupervised learning allows us to do that. Now let me ask you a question. If I take a group data and I, and I cluster it with unsupervised learning, and it breaks into 4 groups.
+
+172
+00:17:31.900 --> 00:17:33.340
+Anthony Taylor: Do I have a label? Now?
+
+173
+00:17:36.030 --> 00:17:43.899
+Anthony Taylor: I kind of do right. I have 4 groups, so I can figure out why those 4 groups clustered together and label them.
+
+174
+00:17:44.310 --> 00:17:48.150
+Anthony Taylor: which means, now go back over to supervise
+
+175
+00:17:49.590 --> 00:17:53.720
+Anthony Taylor: which it tends to be betterable. or it's easier to work.
+
+176
+00:17:54.380 --> 00:17:57.679
+Anthony Taylor: Okay, unsupervised. There's only a few that even do anything.
+
+177
+00:17:58.270 --> 00:18:07.150
+Anthony Taylor: but they do it well. then, supervised, there's hundreds of algorithms that we can run dimension or dimensionality section.
+
+178
+00:18:08.300 --> 00:18:18.639
+Anthony Taylor: This mostly refers to. We have tables that have like 500 columns. So basically, we have 5 or 499 dimensions in one label.
+
+179
+00:18:19.560 --> 00:18:26.230
+Anthony Taylor: Okay, that's too many. The algorithm, if it does need all of those, it's going to be horribly slow.
+
+180
+00:18:26.980 --> 00:18:38.040
+Anthony Taylor: Okay, so what we do is we can run dimensionality reduction, which effectively looks at all the dimensions and says, You know what these 50 and these 50 are similar.
+
+181
+00:18:38.450 --> 00:18:43.240
+Anthony Taylor: Let's just put them into one value and bring them back over here and use them.
+
+182
+00:18:44.060 --> 00:18:51.069
+Anthony Taylor: And and this allows us to have smaller width of data to pass it. Yeah, click.
+
+183
+00:18:52.640 --> 00:18:56.759
+Clayton Graves: Can you define what a dimension is in this context?
+
+184
+00:18:56.990 --> 00:19:01.350
+Anthony Taylor: I love that. So for machine learning, you have your label, you have dimensions.
+
+185
+00:19:02.050 --> 00:19:05.000
+Anthony Taylor: Okay? Or you have what you're trying to predict, and you have dimensions.
+
+186
+00:19:05.170 --> 00:19:10.129
+Anthony Taylor: So, for instance, on the Titanic example.
+
+187
+00:19:10.640 --> 00:19:14.320
+Anthony Taylor: okay, the dimensions for the Titanic example were
+
+188
+00:19:14.790 --> 00:19:15.850
+Anthony Taylor: the ticket.
+
+189
+00:19:15.950 --> 00:19:19.600
+Anthony Taylor: the gender, the age where they got on the boat.
+
+190
+00:19:20.330 --> 00:19:24.540
+Anthony Taylor: So like that, you'll also hear that called features. That's another way.
+
+191
+00:19:24.560 --> 00:19:30.849
+Anthony Taylor: Okay, dimensionality reduction is a term that came around before people started calling them features.
+
+192
+00:19:30.970 --> 00:19:36.920
+Anthony Taylor: Well, one term you're going to hear a lot is feature store. which is basically storing the dimensions.
+
+193
+00:19:37.450 --> 00:19:42.969
+Anthony Taylor: And no, it's not dimensions like in a Erd like a data warehouse. Not that kind of dimension.
+
+194
+00:19:43.190 --> 00:19:48.040
+Anthony Taylor: Or like, if you're building a house not like hike with.
+
+195
+00:19:49.210 --> 00:19:50.310
+Anthony Taylor: yes, Sonya.
+
+196
+00:19:51.170 --> 00:20:07.369
+Anthony Taylor: yeah. So II had 2 questions for you. One is to check my understanding. Make sure I'm tracking with you. So clustering. So, Netflix recommendations of what to watch that. Okay.
+
+197
+00:20:07.560 --> 00:20:10.440
+sonja baro: okay? And so then my second question was.
+
+198
+00:20:10.730 --> 00:20:18.790
+sonja baro: well, the way you describe dimensionality reduction almost to me sounds like a version of clustering. It's just clustering
+
+199
+00:20:19.180 --> 00:20:21.240
+sonja baro: different attributes.
+
+200
+00:20:21.630 --> 00:20:24.269
+Anthony Taylor: which is why it's over an unsupervised learning.
+
+201
+00:20:24.400 --> 00:20:36.240
+Anthony Taylor: right? Because what it does, it does exactly like what you just said, you take these 500 499 columns, and it starts figuring out which of these are similar enough to cluster into a single value.
+
+202
+00:20:36.820 --> 00:20:49.289
+Anthony Taylor: And if we're lucky we get down to like this one algorithm. I don't know if we'll get to it in this class at Pca, and you can even tell it. Hey? I would take these 499 calls to make him a 10,
+
+203
+00:20:49.570 --> 00:20:54.970
+Anthony Taylor: and it will every time, and then it'll tell you how much you lost.
+
+204
+00:20:56.600 --> 00:21:03.159
+Anthony Taylor: Okay, you'll say, hey? I made 10 out of it, but you know what. I only got 98, or 92
+
+205
+00:21:03.180 --> 00:21:06.349
+Anthony Taylor: of that of of the you know of the whole thing.
+
+206
+00:21:06.750 --> 00:21:16.500
+Anthony Taylor: I of the value of the whole thing. If you didn't do this now, that would be a great trade off. But if you took it before 99 to 10, and it said, you got, you know, 50%.
+
+207
+00:21:16.770 --> 00:21:20.510
+Anthony Taylor: Now you're like, no, let's make it, you know. Let's make it 30
+
+208
+00:21:20.800 --> 00:21:30.410
+Anthony Taylor: capability.
+
+209
+00:21:31.840 --> 00:21:41.310
+Clayton Graves: So so basically. what it's doing is maybe it has a black chair, blue share, red chair, green chair, whatever.
+
+210
+00:21:41.540 --> 00:21:49.259
+Clayton Graves: And it basically takes the all the descriptions and says, Oh, those are colors and clutches those together.
+
+211
+00:21:49.330 --> 00:21:53.309
+Clayton Graves: And then over here they're all chairs, plus of those together
+
+212
+00:21:53.700 --> 00:21:59.319
+Clayton Graves: is that kind of what it's doing that that's a great way to envision it.
+
+213
+00:21:59.810 --> 00:22:04.030
+Anthony Taylor: yes, it is what it's doing there. There's There's actually
+
+214
+00:22:04.710 --> 00:22:06.890
+Clayton Graves: I'm almost seeing it like a database.
+
+215
+00:22:07.590 --> 00:22:11.479
+Clayton Graves: like a database, where where you take
+
+216
+00:22:11.580 --> 00:22:16.069
+Clayton Graves: a certain amount of attributes. and you make a table out of em.
+
+217
+00:22:16.260 --> 00:22:19.989
+Clayton Graves: and then when you enter that data in, you put those.
+
+218
+00:22:21.120 --> 00:22:23.259
+Clayton Graves: put that data in under those headers.
+
+219
+00:22:23.500 --> 00:22:27.139
+Anthony Taylor: Yeah, I mean it. It is that way.
+
+220
+00:22:28.610 --> 00:22:32.860
+the the hard part about explaining dimensionality reduction without actually doing it
+
+221
+00:22:32.890 --> 00:22:38.630
+Anthony Taylor: right is when we do so. So there's this term, we're gonna get to called interpretability.
+
+222
+00:22:39.010 --> 00:22:45.220
+Anthony Taylor: Okay, interpretability is like a big term right now. And you guys may not even have heard it.
+
+223
+00:22:45.240 --> 00:22:56.010
+Anthony Taylor: But in in this context, but basically what it means to us. And one of the big arguments about the new AI stuff is, can you tell us why it came up with that answer.
+
+224
+00:22:57.160 --> 00:23:01.829
+Anthony Taylor: okay, so some of the stuff we're gonna learn in supervised learning.
+
+225
+00:23:01.940 --> 00:23:05.069
+Anthony Taylor: I'm gonna show you how you can tell how the model
+
+226
+00:23:05.890 --> 00:23:13.090
+Anthony Taylor: weighed each attribute, each dimension. It's going to say, Hey, you had 20 dimensions, these 3.
+
+227
+00:23:13.670 --> 00:23:16.740
+Anthony Taylor: They played 95%
+
+228
+00:23:17.940 --> 00:23:20.479
+Anthony Taylor: of why we came to the decision. We came to
+
+229
+00:23:20.990 --> 00:23:24.459
+Anthony Taylor: these others. Yeah, tiny, it'sy bitsy bit.
+
+230
+00:23:24.600 --> 00:23:31.619
+Anthony Taylor: hey? They weren't very important at all. So with dimensionality reduction, all it does is this, will those 3? I'm not gonna miss
+
+231
+00:23:31.810 --> 00:23:33.570
+Anthony Taylor: because they're super important.
+
+232
+00:23:33.700 --> 00:23:42.490
+Anthony Taylor: But these other ones down here. We maybe we can combine them. Make some kind of like, you know, in in your example, you know. Maybe we'll just say, instead of saying.
+
+233
+00:23:42.690 --> 00:23:48.430
+Anthony Taylor: red, orange, blue and chair chair, chair chair, we're going to say red chair, blue chair, orange chair.
+
+234
+00:23:48.720 --> 00:23:50.559
+Anthony Taylor: Make it what? Instead of 2,
+
+235
+00:23:50.620 --> 00:23:56.769
+Anthony Taylor: it separates the relevant from the irrelevant
+
+236
+00:23:56.850 --> 00:24:03.520
+Clayton Graves: and condenses it together, and can absolutely okay.
+
+237
+00:24:03.960 --> 00:24:07.250
+Anthony Taylor: Alright, Sonya. Yes, I love all the questions.
+
+238
+00:24:07.610 --> 00:24:22.489
+sonja baro: Yes, so I'm just curious. This thing between interpretability. And then what Clayton just shared are these ways that we can seek out bias in a
+
+239
+00:24:23.390 --> 00:24:26.209
+Anthony Taylor: jeez? Yeah, I do where I'm at.
+
+240
+00:24:26.240 --> 00:24:30.650
+Anthony Taylor: Oh, I'm just curious. The short answer is.
+
+241
+00:24:34.130 --> 00:24:44.429
+sonja baro: do you like test something? Because you're coming? You said you can you tell it? Why, that it gave us this answer. And if you're
+
+242
+00:24:45.290 --> 00:24:53.230
+Anthony Taylor: right, we can say like, Okay, so let me say this. let's say we do. A model and gender and race
+
+243
+00:24:53.580 --> 00:24:56.350
+Anthony Taylor: are 2 of the main factors that it used
+
+244
+00:24:56.430 --> 00:24:58.250
+Anthony Taylor: right clearly.
+
+245
+00:24:58.350 --> 00:25:08.360
+Anthony Taylor: particularly in today's scenario gender race with not be a good way to do. You know, we wouldn't want that to be the primary decision points.
+
+246
+00:25:08.640 --> 00:25:10.610
+Anthony Taylor: Okay,
+
+247
+00:25:10.670 --> 00:25:13.930
+Anthony Taylor: and and keep in mind most of the time. Our data is historical.
+
+248
+00:25:14.670 --> 00:25:28.420
+Anthony Taylor: Okay? So if we had historical data. Up until a few years ago there were but 2 genders registered in a database. It doesn't mean that we're only is to be clear. Doesn't mean. There were only 2 genders few years ago, but
+
+249
+00:25:28.460 --> 00:25:30.189
+Anthony Taylor: nobody was recording them.
+
+250
+00:25:31.040 --> 00:25:40.030
+Anthony Taylor: Right? It's only as good as the data, right? The data coming in. But as far as finding bias bias is really hard thing. It will.
+
+251
+00:25:40.310 --> 00:25:58.029
+Anthony Taylor: II don't know if we're gonna have, like the in the in the data course we have like this whole ethics, and and a whole bias lecture. We could talk about it at different times throughout when it comes up. I don't know that they're gonna have that in here. AI itself has its own
+
+252
+00:25:58.280 --> 00:26:12.459
+Anthony Taylor: ethical bio bias type problems. And the biggest problem right now with AI like the Llibs. It's they're very difficult to interpret. right? It's incredibly difficult to figure out
+
+253
+00:26:12.730 --> 00:26:17.680
+Anthony Taylor: why it came up with that answer.  yeah.
+
+254
+00:26:17.810 --> 00:26:22.530
+Anthony Taylor: I mean, even if you do it at bing chat, where it literally gives you the links of where it found the answer.
+
+255
+00:26:23.030 --> 00:26:28.080
+Anthony Taylor: Okay, sometimes the things it says you're like, well, that wasn't on that page. Where did it get that?
+
+256
+00:26:28.910 --> 00:26:33.090
+Anthony Taylor: Okay, we know how it got it these days. But we don't know why.
+
+257
+00:26:34.290 --> 00:26:35.850
+Anthony Taylor: Okay, so anyway.
+
+258
+00:26:35.920 --> 00:26:46.139
+Anthony Taylor: that's those are great questions, guys I love. I love. I don't care if we run late. I'll figure it out. Yeah, Captain, what's up? You gotta raise your hand. But you know, just wave that scream.
+
+259
+00:26:48.650 --> 00:26:49.960
+Anthony Taylor: Go ahead.
+
+260
+00:26:51.860 --> 00:26:55.690
+Anthony Taylor: Okay, we're going to work on reed and ditch with that. No, we can't hear you, Bud.
+
+261
+00:26:57.870 --> 00:27:00.680
+Anthony Taylor: -Oh! Picture, mic. No sound
+
+262
+00:27:03.160 --> 00:27:06.290
+Anthony Taylor: always that worried. But, oh, God! What's going on
+
+263
+00:27:06.660 --> 00:27:13.350
+Anthony Taylor: now? Check under the look under the little the little microphone thing, and make sure you're using the right microphone.
+
+264
+00:27:15.020 --> 00:27:16.940
+Anthony Taylor: I'm not using the right mic. Oh, yeah, yeah.
+
+265
+00:27:18.480 --> 00:27:22.029
+michael mcpherson: You talking to me. There you go. No, I'm talking half.
+
+266
+00:27:23.080 --> 00:27:24.240
+Gebrekristos, Hafton: How about now?
+
+267
+00:27:24.760 --> 00:27:28.860
+Anthony Taylor: Yes, was I talking to you, Mike? I don't know, Captain. So I meant to be talking
+
+268
+00:27:28.940 --> 00:27:36.170
+Gebrekristos, Hafton: this. Probably this is off topic. But II play this online online gambling stuff. You know, these fan.
+
+269
+00:27:37.000 --> 00:27:45.570
+Gebrekristos, Hafton: right? Yeah. I play a lot. But I don't know how it works in the background. I'm just curious what that belongs to.
+
+270
+00:27:45.840 --> 00:27:52.319
+Anthony Taylor: if even if it is AI or mission learning at all. So wait. So fan dual. Isn't that just a gambling site?
+
+271
+00:27:52.600 --> 00:27:54.669
+Gebrekristos, Hafton: It's a gambling platform. Correct?
+
+272
+00:27:55.170 --> 00:28:01.729
+Anthony Taylor: Yeah, that's just a I mean, that's almost, you know, that's like, I'll send you over to Gabriel, because that's basically an app
+
+273
+00:28:02.080 --> 00:28:11.790
+Anthony Taylor: right there's there. There is probably like suggestions, recommendations that would, you know, come your way from Sandal I am not playing with. It's not actually legal with Texas.
+
+274
+00:28:12.160 --> 00:28:14.380
+Anthony Taylor: right. We have to gamble with bookies.
+
+275
+00:28:15.660 --> 00:28:17.950
+Anthony Taylor: We don't get to gamble on our phones.
+
+276
+00:28:18.290 --> 00:28:22.510
+Anthony Taylor: But I don't know. II would have to look at it myself.
+
+277
+00:28:22.890 --> 00:28:27.940
+Anthony Taylor: if it has any kind of suggestions or recommendations. probably AI of something.
+
+278
+00:28:28.320 --> 00:28:30.959
+Anthony Taylor: Okay. But overall, it's probably just an app.
+
+279
+00:28:31.410 --> 00:28:39.759
+Gebrekristos, Hafton: Okay, it does. It does suggest, and it has. All this recommendation is probably to stuff like that. But II was always curious how it works.
+
+280
+00:28:40.250 --> 00:28:49.480
+Anthony Taylor: Well, we can, I mean II don't said I can't even use it here, so I can't really give you a whole lot. But if I find a way to look at it, I will, but I'll tell you.
+
+281
+00:28:49.620 --> 00:28:50.770
+Anthony Taylor: I don't mind
+
+282
+00:28:51.360 --> 00:28:56.999
+Anthony Taylor: alright. So that's a great question, though I like it like, I said, keep asking questions, folks.
+
+283
+00:28:57.220 --> 00:29:00.349
+Anthony Taylor: I'll tell you if we have to stop asking questions which will never happen.
+
+284
+00:29:00.550 --> 00:29:04.320
+Anthony Taylor: but unsupervised learning. Okay, here's a picture
+
+285
+00:29:05.280 --> 00:29:14.260
+Anthony Taylor: next. Sorry there's really nothing to say. It's unlabeled data interpretation. That simply means just prepping the data, the algorithm that we train
+
+286
+00:29:14.300 --> 00:29:18.440
+Anthony Taylor: it processes it. And then it outputs it into separate clusters.
+
+287
+00:29:19.430 --> 00:29:22.799
+Anthony Taylor: That's it. We'll know what those clusters are when it goes in.
+
+288
+00:29:23.040 --> 00:29:29.019
+Anthony Taylor: We can interpret what they are when they come out. Okay. Now I'm in Clayton yon. I'm not doing well.
+
+289
+00:29:29.610 --> 00:29:34.780
+michael mcpherson: alright. Last thing mathematically on paper.
+
+290
+00:29:35.760 --> 00:29:38.269
+Anthony Taylor: You remember doing this mathematically on paper?
+
+291
+00:29:38.490 --> 00:29:41.020
+michael mcpherson: Yeah, I can do that mathematically on paper.
+
+292
+00:29:41.700 --> 00:29:46.820
+Anthony Taylor: Huh? Oh, this this exact picture. Alright. If you could, I'd be probably good.
+
+293
+00:29:47.160 --> 00:29:51.910
+Anthony Taylor: Okay, so where do we use it? Exploratory data analysis.
+
+294
+00:29:51.930 --> 00:30:00.240
+Anthony Taylor: unsupervised learning? Probably every data science project I've ever been involved in. Usually the first model is unsupervised.
+
+295
+00:30:00.990 --> 00:30:04.070
+Anthony Taylor: Because why? Because most people don't label their
+
+296
+00:30:05.160 --> 00:30:18.870
+Anthony Taylor: I they just don't. So what's the first thing we got to do? We got to label the data. How do we label it? If we cluster it first. then we have to do a lot of analysis to figure out what each of those clusters mean. And once we do got you, Clayton, go ahead.
+
+297
+00:30:20.640 --> 00:30:24.089
+Clayton Graves: So I'd almost see unsupervised learning is
+
+298
+00:30:28.130 --> 00:30:29.679
+Clayton Graves: mine. A bunch of rock.
+
+299
+00:30:29.980 --> 00:30:35.090
+Clayton Graves: And the unsupervised learning is is basically processing that.
+
+300
+00:30:35.930 --> 00:30:44.650
+Clayton Graves: And then the refinement it's separating the rock from from the good stuff. And then the refinement is actually making the gold bars, or or whatever
+
+301
+00:30:45.980 --> 00:30:54.120
+Anthony Taylor: to some degree. Yeah, I mean, the idea the bottom line is is unsupervised. Learning is I don't want to label my data. Or
+
+302
+00:30:55.190 --> 00:30:59.070
+Anthony Taylor: I wanna label my data, and I need a way to do it. And this is the fastest way to do
+
+303
+00:30:59.550 --> 00:31:18.800
+Anthony Taylor: so. I think I think we're hitting the same thing. Alright, yeah, so cross. So these are some uses cross selling, consumer segmentation. Select the target example, pattern recognition. So by pattern recognition, what we mean is, you have rows of data. They have 2030, 50, a hundred columns.
+
+304
+00:31:18.840 --> 00:31:32.190
+Anthony Taylor: right? And we want to look for patterns that match row a row B or C, or D, or F cetera. right? It doesn't even have to be for any specific purpose other than we want to see what's similar about our data.
+
+305
+00:31:32.490 --> 00:31:35.449
+Anthony Taylor: and if we can find patterns in it that we didn't know about
+
+306
+00:31:35.580 --> 00:31:37.750
+Anthony Taylor: alright supervised
+
+307
+00:31:37.910 --> 00:31:42.179
+Anthony Taylor: apples and bananas, pears and oranges. Those are my labels.
+
+308
+00:31:42.410 --> 00:31:52.120
+Anthony Taylor: I pass it into my supervised learning model, and then the next time I pass in a blue apple, look at thing, it will call it an apple.
+
+309
+00:31:53.050 --> 00:31:59.170
+Anthony Taylor: Okay, this is your dog cat example. You know. They look at pictures. All that stuff.
+
+310
+00:31:59.530 --> 00:32:01.370
+Anthony Taylor: Alright.
+
+311
+00:32:01.770 --> 00:32:06.649
+Anthony Taylor: So the biggest thing. Take away from this unsupervised no late supervise. Gotta wait.
+
+312
+00:32:07.740 --> 00:32:09.640
+Anthony Taylor: Okay. good.
+
+313
+00:32:11.190 --> 00:32:17.389
+Anthony Taylor: I love it. They call it instructor demonstration. There is no demonstration. It's just me talking again.
+
+314
+00:32:17.950 --> 00:32:24.860
+Anthony Taylor: We don't have a lot of lot of activities in these first 2 day free days. But we will, I promise. I promise
+
+315
+00:32:24.870 --> 00:32:28.279
+Anthony Taylor: you'll have so many activities. You'll miss me. Yes, son.
+
+316
+00:32:29.060 --> 00:32:46.990
+sonja baro: So on that last slide, the supervised learning, I'm wondering, are there any? So if the the question, the core. The core determination is is my data labeled right? Depending on.
+
+317
+00:32:47.120 --> 00:32:56.940
+sonja baro: is there any benefit, even though you've got the data labeled to strip the label and push it through an unsupervised
+
+318
+00:32:58.200 --> 00:32:59.759
+Anthony Taylor: and everything I mean.
+
+319
+00:33:00.220 --> 00:33:08.320
+sonja baro: Well, that's on that like, what benefits do you get like? Do you find new ways like, did you miss a pattern, maybe, or I'm just.
+
+320
+00:33:08.590 --> 00:33:13.310
+Anthony Taylor: it is possible. So here's the answer I'll give you as a consultant.
+
+321
+00:33:13.710 --> 00:33:21.129
+Anthony Taylor: Okay, not as as a consultant who has experience in this. Right? I would tell you if you got the bucket
+
+322
+00:33:22.000 --> 00:33:22.840
+Anthony Taylor: go for.
+
+323
+00:33:23.420 --> 00:33:30.650
+Anthony Taylor: Okay. The thing is is what what a lot of people don't realize. All the models we're going to train in here. Take seconds to train.
+
+324
+00:33:31.190 --> 00:33:35.319
+Anthony Taylor: Okay, the models we trained at herks and and
+
+325
+00:33:35.420 --> 00:33:39.659
+Anthony Taylor: pennant and lots of other places. They can take weeks
+
+326
+00:33:40.120 --> 00:33:41.190
+Anthony Taylor: to trade.
+
+327
+00:33:41.540 --> 00:33:46.969
+Anthony Taylor: okay, and cost close to $1020,000 to train one time.
+
+328
+00:33:47.680 --> 00:33:54.799
+Anthony Taylor: and then we have to do it 20 times to make sure it's right. So a lot of times where
+
+329
+00:33:54.970 --> 00:33:59.680
+Anthony Taylor: what you'll find out is that people don't want to do that extra work.
+
+330
+00:33:59.690 --> 00:34:00.890
+Anthony Taylor: you know, but
+
+331
+00:34:01.630 --> 00:34:08.309
+Anthony Taylor: there's no reason you you can't do it. And you're right. They could identify things, you know, labels that you might have missed.
+
+332
+00:34:08.600 --> 00:34:10.800
+Anthony Taylor: And then what's that?
+
+333
+00:34:11.460 --> 00:34:18.940
+Anthony Taylor:  it could identify labels you might have missed. Sure they could. And if if you had the money and the time, why not
+
+334
+00:34:19.630 --> 00:34:21.900
+Anthony Taylor: so? Yeah, yes, Ronnie.
+
+335
+00:34:23.090 --> 00:34:32.490
+Masarirambi, Rodney: so. So you mentioned that it could take, you know, Weeks, and the amount of money to train the model is that
+
+336
+00:34:32.940 --> 00:34:42.040
+Masarirambi, Rodney: sure? Is that cost calculated and like, like, you know, renting out the servers and that kind of stuff. That's where the cost is or where where is the cost? In that.
+
+337
+00:34:42.280 --> 00:34:47.090
+Anthony Taylor: So I will tell you guys this. my background in the last
+
+338
+00:34:47.690 --> 00:34:58.719
+Anthony Taylor: I don't know. 6, 7 years is no more than almost 10 is all cloud. Okay, I don't deal with servers in server groups anymore. I used to long time
+
+339
+00:34:59.090 --> 00:35:05.929
+Anthony Taylor: so for us on the cloud, what we do is we just virtually spin up.
+
+340
+00:35:06.430 --> 00:35:08.180
+Anthony Taylor: However, many computers we.
+
+341
+00:35:08.360 --> 00:35:13.870
+Anthony Taylor: And if we need Gpus, we spin up Gpus until they tell us they don't have any more available. I've had that happen?
+
+342
+00:35:14.040 --> 00:35:23.440
+Anthony Taylor:  yeah, I mean, you know. And and that cost the more computers we spin up to do the work. It's basically charged by the minute.
+
+343
+00:35:24.210 --> 00:35:34.509
+Anthony Taylor: Okay, how long we're using it. And you would think it sounds like a lot of money. The the truth is, it's, you know, a good high-end computer might only cost you, you know.
+
+344
+00:35:34.960 --> 00:35:36.390
+Anthony Taylor: 10 cents a minute.
+
+345
+00:35:36.920 --> 00:35:48.979
+Anthony Taylor: Okay, but add that up to and out. now and then you add it up to like 2 weeks. 24 HA day. This is an expensive process, and usually we use many.
+
+346
+00:35:49.080 --> 00:35:53.390
+Anthony Taylor: The the largest one I've used in the last few years is 50.
+
+347
+00:35:53.570 --> 00:35:56.939
+Anthony Taylor: And by 50 I mean servers
+
+348
+00:35:57.180 --> 00:36:04.279
+Anthony Taylor: with multiple processors and multiple threads on each processor. Okay? So we were probably looking at like
+
+349
+00:36:04.590 --> 00:36:09.570
+Anthony Taylor: 500 threats. Something in that range. I don't. And I mean
+
+350
+00:36:09.590 --> 00:36:15.950
+Anthony Taylor: I did not look. I don't care. I mean, I look at the number of notes. So we had 50. Okay? But
+
+351
+00:36:16.040 --> 00:36:19.630
+Anthony Taylor: it was, and that one was expensive, very expensive.
+
+352
+00:36:20.010 --> 00:36:25.960
+Anthony Taylor: So anyway, that's how we price it. If you have your own computers on site that you're doing this in.
+
+353
+00:36:26.450 --> 00:36:32.749
+Anthony Taylor: you'll find one. You'll be limited. But 2. It's it may not cost you as much. It's a stickle.
+
+354
+00:36:33.810 --> 00:36:35.840
+Anthony Taylor: Okay. alright.
+
+355
+00:36:36.350 --> 00:36:38.270
+Anthony Taylor: unless you have Clayton's big computer.
+
+356
+00:36:39.450 --> 00:36:41.510
+Anthony Taylor: Alright. Okay.
+
+357
+00:36:42.610 --> 00:36:43.520
+Anthony Taylor: So
+
+358
+00:36:44.500 --> 00:36:47.870
+Anthony Taylor: we talk about 2 types of learning.
+
+359
+00:36:48.330 --> 00:36:56.400
+Anthony Taylor: Now, we're gonna talk about a specific style of using Ml, or specific styles. I remember, method.
+
+360
+00:36:56.850 --> 00:36:59.830
+Anthony Taylor: a specific method. How we do.
+
+361
+00:37:00.260 --> 00:37:01.160
+Anthony Taylor: Ml.
+
+362
+00:37:02.300 --> 00:37:03.190
+Anthony Taylor: okay.
+
+363
+00:37:03.920 --> 00:37:05.109
+a neural network
+
+364
+00:37:05.680 --> 00:37:17.449
+Anthony Taylor: seta algorithms that are modeled, that human brain neural networks are designed to mimic the way our brains function with artificial neutrons serving the same purpose as our biological biological mirror.
+
+365
+00:37:18.050 --> 00:37:26.870
+Anthony Taylor: What does that mean? Well. if you I don't think we have a picture of a neuron in here. No, they used to have it.
+
+366
+00:37:26.990 --> 00:37:34.799
+Anthony Taylor: imagine the neuron, everybody remember, looks like a tadpole kind of with all these like pencils coming out of the tail. Okay,
+
+367
+00:37:35.080 --> 00:37:38.249
+Anthony Taylor: basically, what it does is we pass in
+
+368
+00:37:38.550 --> 00:37:39.440
+Anthony Taylor: data
+
+369
+00:37:40.690 --> 00:37:44.559
+Anthony Taylor: to a an activator algorithm.
+
+370
+00:37:45.630 --> 00:37:53.689
+Anthony Taylor: And it looks at it, and it goes. Oh. of these things this seems more important. and it assigns a probability.
+
+371
+00:37:55.350 --> 00:37:56.120
+Anthony Taylor: Okay?
+
+372
+00:37:56.640 --> 00:38:03.199
+Anthony Taylor: And then it takes those, and it passes it to either another layer or another activator to give you an answer.
+
+373
+00:38:03.990 --> 00:38:06.250
+Anthony Taylor:  and
+
+374
+00:38:06.460 --> 00:38:08.690
+Anthony Taylor: it does this in such a way
+
+375
+00:38:09.850 --> 00:38:16.159
+Anthony Taylor: that it gives the appearance of a neuron. one going in, many coming out.
+
+376
+00:38:16.960 --> 00:38:20.020
+Anthony Taylor: Okay, one going in, many coming out.
+
+377
+00:38:21.090 --> 00:38:28.309
+Anthony Taylor: And I mean, actually, there's more than one going in up to the first one. But the the point of the matter is that each one of these are considered neurons.
+
+378
+00:38:29.830 --> 00:38:36.179
+Anthony Taylor: Okay? And each one of these will look at a different aspect of the incoming data
+
+379
+00:38:36.750 --> 00:38:38.130
+Anthony Taylor: weighted.
+
+380
+00:38:39.260 --> 00:38:44.390
+Anthony Taylor: Apply an activation algorithm and believe or not, you all are going to know how to do this in a few weeks.
+
+381
+00:38:44.760 --> 00:38:51.759
+Anthony Taylor: Okay, and then send it to another. Possibly another layer depending on how you configured your neural network.
+
+382
+00:38:52.380 --> 00:38:55.219
+Anthony Taylor: There could be many layers. It could be hundreds of layers.
+
+383
+00:38:57.150 --> 00:39:04.730
+Anthony Taylor: Okay? And then eventually it gets to the end. And it goes, okay, this is probably
+
+384
+00:39:04.740 --> 00:39:05.750
+Anthony Taylor: that's right.
+
+385
+00:39:07.720 --> 00:39:08.879
+Anthony Taylor: And that's how it works.
+
+386
+00:39:10.260 --> 00:39:14.340
+Anthony Taylor: Okay. now be. Yeah, Rodney, go for it.
+
+387
+00:39:15.520 --> 00:39:16.470
+Masarirambi, Rodney: So
+
+388
+00:39:16.690 --> 00:39:22.629
+Masarirambi, Rodney: the first question I have, and maybe maybe it's self assigned. Maybe it's like a dumb question. But
+
+389
+00:39:24.940 --> 00:39:29.009
+Masarirambi, Rodney: what's the advantage of the neural network, I mean, isn't there like
+
+390
+00:39:29.320 --> 00:39:38.070
+Masarirambi, Rodney: cause we're we're trying to think of it like how a human brain things. But surely there's a better option that's out there, or something that we could.
+
+391
+00:39:38.240 --> 00:39:44.920
+Masarirambi, Rodney: That's that would be better than our brains. I like just kind of thinking, like nothing better than the human brain.
+
+392
+00:39:45.100 --> 00:39:51.529
+Anthony Taylor: I know that's a scary thought. The human brain has more computational power
+
+393
+00:39:51.720 --> 00:39:58.749
+Anthony Taylor: in one little teeny iota than all the quantum computers that are out there today. Okay? But
+
+394
+00:39:58.910 --> 00:40:03.420
+Anthony Taylor: and and be honest with this was developed back in the 60 s.
+
+395
+00:40:04.430 --> 00:40:06.990
+Anthony Taylor: The first guy that came up with this idea
+
+396
+00:40:07.070 --> 00:40:09.329
+Anthony Taylor: drew it on a paper
+
+397
+00:40:09.630 --> 00:40:14.879
+Anthony Taylor: in the 60 S. He couldn't. I don't think he lived long enough to see it ever work.
+
+398
+00:40:16.040 --> 00:40:17.959
+Anthony Taylor: because we just didn't have the power to do.
+
+399
+00:40:18.690 --> 00:40:23.090
+Anthony Taylor: Okay, I will tell you this. Neural networks are
+
+400
+00:40:23.350 --> 00:40:27.180
+Anthony Taylor: they? Were to Ml, you know what Google was to the Internet.
+
+401
+00:40:27.440 --> 00:40:36.400
+Anthony Taylor: You could do wonderful things without neurobibles. And you were right, a lot and great things. But there were definite limitations.
+
+402
+00:40:36.910 --> 00:40:40.369
+Anthony Taylor: Neural networks pretty much eliminated the limitations.
+
+403
+00:40:41.420 --> 00:40:45.270
+Anthony Taylor: And we can solve almost any problem with neurode.
+
+404
+00:40:46.100 --> 00:40:48.370
+Anthony Taylor: But yes, like.
+
+405
+00:40:49.820 --> 00:40:54.989
+Clayton Graves: it's just seems like fancy clustering to me.
+
+406
+00:40:55.250 --> 00:41:02.080
+Clayton Graves: I mean, it's essentially you can do the same thing right now with a supercomputer. And you take.
+
+407
+00:41:02.550 --> 00:41:08.979
+Clayton Graves: You have multiple no's, and they all work simultaneously on whatever job or task to give them.
+
+408
+00:41:11.470 --> 00:41:15.090
+Clayton Graves: That's great computing, and that's but that's not what this is.
+
+409
+00:41:15.500 --> 00:41:20.899
+Anthony Taylor: I understand the picture II follow. I follow.
+
+410
+00:41:20.960 --> 00:41:23.520
+Anthony Taylor: But the the picture gives you that I got.
+
+411
+00:41:23.600 --> 00:41:27.120
+Anthony Taylor: Understand each of these circles is another algorithm.
+
+412
+00:41:28.150 --> 00:41:33.529
+Anthony Taylor: Okay, each of these circles are an algorithm. As it comes out, we apply another algorithm
+
+413
+00:41:33.630 --> 00:41:38.990
+Anthony Taylor: that takes the probability that the that came from this algorithm and assigns it.
+
+414
+00:41:39.050 --> 00:41:41.829
+Anthony Taylor: Do each of these lines going into the next
+
+415
+00:41:41.840 --> 00:41:44.980
+Anthony Taylor: node, which is yet another album?
+
+416
+00:41:45.750 --> 00:41:53.999
+Anthony Taylor: Okay? And then that algorithm and and all of the dog words are created through a training process. So it looks at it. It goes well.
+
+417
+00:41:54.100 --> 00:41:59.949
+Anthony Taylor: this is the triangle. Okay, we have the algorithm to figure out a triangle.
+
+418
+00:42:00.110 --> 00:42:03.699
+Anthony Taylor: Okay? Oh, now we got a square. Well, let's figure out the differences.
+
+419
+00:42:04.070 --> 00:42:13.990
+Anthony Taylor: And which of the factor that is coming in. Are we going to assign a higher probability to? Well, obviously, if it was a triangle now, it's a square 4 corners.
+
+420
+00:42:14.910 --> 00:42:18.229
+Anthony Taylor: Okay? Oh, but this one's a diamond. Man!
+
+421
+00:42:18.240 --> 00:42:24.839
+Anthony Taylor: 4 corners looks like 2 triangles. What are we going to do. you see? So I get what you're saying.
+
+422
+00:42:25.350 --> 00:42:32.350
+Anthony Taylor: But when we do this in programming, you'll see that that the the grid that we're creating is all a bunch of functions.
+
+423
+00:42:32.430 --> 00:42:37.870
+Anthony Taylor: The good news is. we only have to know what the functions are. Please have to know the page.
+
+424
+00:42:37.890 --> 00:42:48.789
+Anthony Taylor: So this will get easier to comprehend when we actually do it. Oh, yeah, honestly, guys, I just want you to know this exist. We're going to do all of this in class. We spend a week
+
+425
+00:42:48.920 --> 00:42:50.349
+Anthony Taylor: on neural networks.
+
+426
+00:42:51.440 --> 00:42:57.330
+Anthony Taylor: Okay, 3 full classes, learning and doing and creating neural networks.
+
+427
+00:42:57.980 --> 00:43:01.519
+Anthony Taylor: Okay? And the same for supervised and same for unsupervised.
+
+428
+00:43:01.980 --> 00:43:05.639
+Anthony Taylor: So you're gonna get plenty of practice today is just overview of.
+
+429
+00:43:05.810 --> 00:43:11.020
+Anthony Taylor: we have a visitor. Oh, you guys can't see her patience.
+
+430
+00:43:11.380 --> 00:43:13.179
+Anthony Taylor: Okay, anyway.
+
+431
+00:43:13.340 --> 00:43:19.850
+Anthony Taylor: So yeah. So please, all of you do not get hung up on. I don't understand this. I don't expect you to.
+
+432
+00:43:20.140 --> 00:43:25.900
+Anthony Taylor: What I want you to do is understand? It's here. And this is what we're gonna do. We're still kinda in like introduction.
+
+433
+00:43:26.410 --> 00:43:34.369
+Anthony Taylor: So what are some advantages of neural networks versus traditional machine learning models? First off, you guys don't even know what they are. I never told you.
+
+434
+00:43:34.670 --> 00:43:42.480
+Anthony Taylor: I'll tell you, neural network is called a neural network traditional model. Random Forest. That's my favorite.
+
+435
+00:43:43.280 --> 00:43:44.930
+Anthony Taylor: Okay, ran a forest
+
+436
+00:43:45.230 --> 00:43:48.570
+Anthony Taylor: support vector machine. That's a good one.
+
+437
+00:43:50.070 --> 00:43:52.709
+Anthony Taylor: K-means, also a tradition.
+
+438
+00:43:53.380 --> 00:43:58.359
+Anthony Taylor: Alright, anyway. So advantages. And you're gonna learn all of those. By the way, that I just said
+
+439
+00:43:58.570 --> 00:44:10.340
+Anthony Taylor: you're actually gonna know what those are and know how to make them effectively detect complex relationships within our data. This is what the neural networks do better than anybody. And this is why they're so valuable.
+
+440
+00:44:10.920 --> 00:44:15.420
+Anthony Taylor: They can predict consumer. But they can predict practically anything.
+
+441
+00:44:16.470 --> 00:44:20.169
+Anthony Taylor: Okay? So why don't everybody use neural networks? Well.
+
+442
+00:44:21.550 --> 00:44:23.070
+Anthony Taylor: no one can interpret that
+
+443
+00:44:24.200 --> 00:44:25.510
+Anthony Taylor: no one knows why.
+
+444
+00:44:27.300 --> 00:44:29.570
+Anthony Taylor: Okay, they are
+
+445
+00:44:29.660 --> 00:44:31.050
+Anthony Taylor: a black box.
+
+446
+00:44:32.210 --> 00:44:34.620
+Anthony Taylor: No one knows what's happening inside the brain.
+
+447
+00:44:35.210 --> 00:44:40.580
+Anthony Taylor: All we know is, if we give it 5 layers, 6 nodes each.
+
+448
+00:44:40.820 --> 00:44:42.119
+Anthony Taylor: We get a good answer.
+
+449
+00:44:45.120 --> 00:44:46.630
+Anthony Taylor: Okay. But
+
+450
+00:44:46.870 --> 00:44:55.069
+Anthony Taylor: if I said, tell me what to tell me how it came up with that you'd be like horrible 5 layers, 6 note views. But he won't for me.
+
+451
+00:44:55.880 --> 00:44:57.939
+Anthony Taylor: Okay, and that's just the fact.
+
+452
+00:44:59.980 --> 00:45:06.229
+Anthony Taylor: Oh, you know another disadvantage they don't mention in here. They're freaking computationally, monsters.
+
+453
+00:45:07.350 --> 00:45:09.360
+Anthony Taylor: To do this
+
+454
+00:45:09.740 --> 00:45:11.870
+Anthony Taylor: across many layers
+
+455
+00:45:12.390 --> 00:45:16.799
+Anthony Taylor: is a monster. It will take so many cycles.
+
+456
+00:45:17.310 --> 00:45:18.840
+Anthony Taylor: How many of you have heard about
+
+457
+00:45:19.130 --> 00:45:22.910
+Anthony Taylor: the the carbon footprint of chap. Gp.
+
+458
+00:45:23.920 --> 00:45:30.049
+Anthony Taylor: It's like the equivalent of like every car on the planet, revving its engine for 2 days straight
+
+459
+00:45:30.280 --> 00:45:32.769
+Anthony Taylor: to train it. One time
+
+460
+00:45:33.820 --> 00:45:37.110
+Anthony Taylor: they've trained it hundreds of times.
+
+461
+00:45:38.800 --> 00:45:44.490
+Anthony Taylor: I mean the. It's it's massive. The computational power to do all this stuff is huge.
+
+462
+00:45:44.630 --> 00:45:57.590
+Anthony Taylor: Okay, alright, deep learning. I love, deep learning versus neural network. What's the difference? Neural network is one layer of neurons. You have an input, one layer of neurons output neural network.
+
+463
+00:45:57.780 --> 00:46:01.440
+Anthony Taylor: deep learning more than one layer of neurons.
+
+464
+00:46:02.310 --> 00:46:05.939
+Anthony Taylor: Think you guys can handle that one, that one's easy, right? One
+
+465
+00:46:06.000 --> 00:46:13.949
+Anthony Taylor: or more than one. That's it. Additional layers help make the algorithm be more efficient at there you go. So this is
+
+466
+00:46:14.550 --> 00:46:17.080
+Anthony Taylor: neural network. This
+
+467
+00:46:18.490 --> 00:46:24.690
+Anthony Taylor: is not. This is deep learning. Okay, there you go. I got my, I got my circle on.
+
+468
+00:46:25.260 --> 00:46:26.140
+Anthony Taylor: Okay.
+
+469
+00:46:26.570 --> 00:46:31.409
+Anthony Taylor: that's it. Neural network, deep learning eliminate. I tell you it's complicated. It's not
+
+470
+00:46:32.030 --> 00:46:39.710
+Anthony Taylor: alright. No network people.  this is a fairly okay. So let's talk about picture.
+
+471
+00:46:39.810 --> 00:46:43.700
+Anthony Taylor: One of the things that neural networks are deep learning in particular.
+
+472
+00:46:43.740 --> 00:46:55.370
+Anthony Taylor: is very good at is recognition. So all of those things where you have photos and they recognize something or recognize your face. Everybody use Google photos or something like it. Right? It's recognizes everybody in your family
+
+473
+00:46:55.450 --> 00:46:58.749
+Anthony Taylor: and people in other people's families. It's like, Hey, isn't that, Joe? From?
+
+474
+00:46:59.890 --> 00:47:02.170
+Anthony Taylor: Alright? It recognizes everybody.
+
+475
+00:47:03.760 --> 00:47:04.540
+Anthony Taylor: Those
+
+476
+00:47:04.680 --> 00:47:09.629
+Anthony Taylor: pictures are huge amount of pictures. But let's just talk about a simple
+
+477
+00:47:10.180 --> 00:47:14.840
+Anthony Taylor: 24 by 24, black and white picture.
+
+478
+00:47:15.920 --> 00:47:19.009
+Anthony Taylor: How many pixels is that?
+
+479
+00:47:21.950 --> 00:47:24.080
+Anthony Taylor: 728, of course.
+
+480
+00:47:25.180 --> 00:47:35.110
+Anthony Taylor: Okay, III trust me, I didn't do the math. I have okay, 728 pixels. That means 728 inputs
+
+481
+00:47:35.460 --> 00:47:36.920
+Anthony Taylor: into our model.
+
+482
+00:47:38.970 --> 00:47:47.439
+Anthony Taylor: we pass them all in. It looks at all of them, and it determines it when it uses those pixels placements
+
+483
+00:47:48.150 --> 00:47:50.850
+Anthony Taylor: to try to learn what that picture was.
+
+484
+00:47:52.290 --> 00:48:06.089
+Anthony Taylor: and it can do it with dogs and cats. It can do it with motorcycles and bicycles. It can do it with practically anything. If you go to azure or aws today, they have a service that they've already trained with practically every picture available on the Internet.
+
+485
+00:48:07.320 --> 00:48:17.670
+Anthony Taylor: And because of that. they can identify almost anything. I know somebody's gonna talk about facial recognition. Yes. that's out there, too.
+
+486
+00:48:18.780 --> 00:48:31.740
+Anthony Taylor: Okay, it doesn't mean that people are using. It doesn't mean they're not. But it's how it works. looks at your face finds unique features. It gets enough pictures of your face. It can figure out who you are
+
+487
+00:48:32.320 --> 00:48:44.710
+Anthony Taylor: once it knows enough. Is there an exact Doppelganger review? I can tell you. It's possible I have a brother when we were kids. He's 2 years younger than me. You could not tell us apart.
+
+488
+00:48:45.510 --> 00:48:48.330
+Anthony Taylor: I wouldn't have known that I didn't know him when I was a child.
+
+489
+00:48:48.870 --> 00:48:53.539
+Anthony Taylor: and know until I was 52 natural language processing.
+
+490
+00:48:55.020 --> 00:49:01.110
+Anthony Taylor: This is fun stuff. And this is where we're gonna start getting into the Llm stuff. We're not now. But this is how we're gonna get to it.
+
+491
+00:49:01.230 --> 00:49:03.539
+Anthony Taylor: Okay, natural language processing
+
+492
+00:49:03.560 --> 00:49:14.720
+Anthony Taylor: combines the rules of human linguistics with Ml algorithms to not only translate text into a format that a computer can understand. But to essentially understand the meaning behind the words.
+
+493
+00:49:15.080 --> 00:49:21.309
+Anthony Taylor: That is a very high level and it was not true very long ago.
+
+494
+00:49:22.230 --> 00:49:24.949
+Anthony Taylor: Okay, natural language processing
+
+495
+00:49:24.970 --> 00:49:29.110
+Anthony Taylor: goes through a number of steps. Well, okay, and in large language models.
+
+496
+00:49:29.760 --> 00:49:39.770
+Anthony Taylor: I don't think I don't know if we're gonna talk more about the other one you might. I don't know. Large language models. This is your chat. Tpp. This is your bard. This is your lama, 2, Dolly.
+
+497
+00:49:40.110 --> 00:49:41.779
+Anthony Taylor: Everybody know who Dolly is.
+
+498
+00:49:42.840 --> 00:49:43.959
+Anthony Taylor: This is the one
+
+499
+00:49:45.300 --> 00:49:52.520
+Anthony Taylor: I literally a stuffed animal of the Dolly AI model. Okay.
+
+500
+00:49:53.410 --> 00:49:59.309
+Anthony Taylor: if it was given to me at the I was at the AI summit just recently. So
+
+501
+00:49:59.330 --> 00:50:03.580
+Anthony Taylor:  anyway, let's say, deep learning
+
+502
+00:50:03.960 --> 00:50:05.179
+Anthony Taylor: many notes
+
+503
+00:50:07.600 --> 00:50:17.380
+Anthony Taylor: algorithm that can recognize, summarize, translate, predict, and generate text and other forms of content based on knowledge gained from mass
+
+504
+00:50:18.250 --> 00:50:26.649
+Anthony Taylor: data sets. These data sets have as many as yeah. Well, they claim that GPT. 4 has a trillion totals.
+
+505
+00:50:28.820 --> 00:50:38.199
+Anthony Taylor: Okay? The llama. 2, one just recently released by Meta. Facebook, right? Has 70 billion tokens.
+
+506
+00:50:38.820 --> 00:50:46.039
+Anthony Taylor: 70 billion effectively 70 billion words. And here's a real kicker. You can download the whole model in your computer.
+
+507
+00:50:47.700 --> 00:50:53.169
+Anthony Taylor: whole thing and run it on your computer. Well, you have to have a pretty big video card, but you can do it.
+
+508
+00:50:54.070 --> 00:50:56.209
+Anthony Taylor: We're not going to do that in class, in fact.
+
+509
+00:50:56.250 --> 00:51:08.300
+Anthony Taylor: not 100%. I know how I'm going to do it if they haven't solved it before we get to it. But we'll have to come up with some clever ways to run some of these models, because most of you will not have a computer that can handle it.
+
+510
+00:51:08.450 --> 00:51:17.050
+Anthony Taylor: Local. We'll have to do it somewhere on the Internet.  yeah. a transformer model
+
+511
+00:51:17.220 --> 00:51:24.680
+Anthony Taylor: is actually a step on the way to the large language model. But it's basically a neural network. And
+
+512
+00:51:24.780 --> 00:51:33.800
+Anthony Taylor: it really is a deep learning network that learns context and thus meaning by tracking the relationship and sequential. So yesterday, I mentioned these 2 guys right
+
+513
+00:51:34.240 --> 00:51:37.600
+Anthony Taylor: when we first started natural language processing, we did it a word at a time
+
+514
+00:51:38.350 --> 00:51:41.820
+Anthony Taylor: when I teach it to you. That's the first way I'm gonna teach it to you.
+
+515
+00:51:42.510 --> 00:51:46.680
+Anthony Taylor: Okay, we're gonna have text. and you're gonna be able to read through it.
+
+516
+00:51:46.710 --> 00:51:54.420
+Anthony Taylor: And you know, with your algorithm, and it's going to come up with sentiment analysis. But it's going to come up with it, based on a word.
+
+517
+00:51:55.670 --> 00:51:56.700
+Anthony Taylor: one word.
+
+518
+00:51:57.570 --> 00:52:06.629
+Anthony Taylor: maybe 2 or 3 words in a sentence are all positive. So therefore it's positive. But if there's 2 words negative one's positive
+
+519
+00:52:07.220 --> 00:52:08.130
+Anthony Taylor: right.
+
+520
+00:52:08.720 --> 00:52:10.600
+Anthony Taylor: then it could be negative.
+
+521
+00:52:11.650 --> 00:52:14.940
+Anthony Taylor: That SOB. Was
+
+522
+00:52:15.100 --> 00:52:18.309
+Anthony Taylor: mean, but man in service was great.
+
+523
+00:52:19.670 --> 00:52:21.980
+Anthony Taylor: Is that, good or bad, that positive or negative.
+
+524
+00:52:23.270 --> 00:52:27.390
+Anthony Taylor: Alright, how do you know? Well, natural language processing, that's how
+
+525
+00:52:27.690 --> 00:52:29.219
+Anthony Taylor: it initially started.
+
+526
+00:52:29.580 --> 00:52:34.590
+Anthony Taylor: Okay, transformers. And what's called the attention model
+
+527
+00:52:34.660 --> 00:52:40.249
+Anthony Taylor: is basically doesn't look at more than one word. It's gonna look at the whole set.
+
+528
+00:52:42.690 --> 00:52:47.319
+Anthony Taylor: And a lot of times with generative models. All they're really doing
+
+529
+00:52:47.340 --> 00:52:49.240
+Anthony Taylor: is filling in the next work.
+
+530
+00:52:50.180 --> 00:52:56.830
+Anthony Taylor: So you type a prompt blah blah blah. In fact, most of you, when you type your prompts don't just type the question.
+
+531
+00:52:57.340 --> 00:53:01.599
+Anthony Taylor: and we'll talk about this in prompt engineering. But you can actually type like.
+
+532
+00:53:01.910 --> 00:53:09.530
+Anthony Taylor: Show me how I would write sequel that would do this and then write, select
+
+533
+00:53:10.290 --> 00:53:11.269
+Anthony Taylor: and stop
+
+534
+00:53:11.380 --> 00:53:13.160
+Anthony Taylor: select space. Stop!
+
+535
+00:53:15.320 --> 00:53:18.340
+Anthony Taylor: That is really what it's designed to do.
+
+536
+00:53:19.970 --> 00:53:25.210
+Anthony Taylor: It's designed to go. Oh, well, the next word after collect would be but and it would just go through the whole.
+
+537
+00:53:26.720 --> 00:53:30.280
+Anthony Taylor: Okay? That makes them way more efficient.
+
+538
+00:53:31.860 --> 00:53:43.680
+Anthony Taylor: So where are we now? Transform model process text and spoke words fed into the algorithm which extracts the data, breaks it into each element in individual words of phrases called tokenization. You're going to learn how to do that.
+
+539
+00:53:43.720 --> 00:53:58.469
+Anthony Taylor: The algorithm classifies and labels each element that sounds like supervisor. It is not. It's not even clustering. Necessarily. Okay, using statistical training. The algorithm proposes the most likely meaning of the data.
+
+540
+00:53:59.690 --> 00:54:11.670
+Anthony Taylor: Now, you're thinking to yourself, is it? Does that mean? It takes the words and goes well, that meant. Anthony talks too much. That's what that meant. Okay, not really.
+
+541
+00:54:11.780 --> 00:54:20.640
+Anthony Taylor: What it does is it takes the words, it vectorizes them. Okay, by vectorizing it basically means it takes each word and turns it into a number.
+
+542
+00:54:22.100 --> 00:54:29.549
+Anthony Taylor: Okay, takes those numbers and compares them to the context of the rest of the numbers around.
+
+543
+00:54:31.100 --> 00:54:40.480
+Anthony Taylor: And then the next time somebody comes in and asks something that fits near, that it starts looking around it to come up with what next should come out of
+
+544
+00:54:41.660 --> 00:54:43.359
+Anthony Taylor: alright it again.
+
+545
+00:54:43.610 --> 00:54:56.940
+Anthony Taylor: We're going to do all this in class. I know you guys are like, this is crazy, all of this crazy stuff. Yeah. And he's promising. We're gonna do it in class. Yeah. I promise you will do everything I show you today.
+
+546
+00:54:59.360 --> 00:55:02.830
+Anthony Taylor: Weeks. Oh, Sony's challenging. What? Sonya?
+
+547
+00:55:03.090 --> 00:55:03.960
+Anthony Taylor: I
+
+548
+00:55:04.640 --> 00:55:15.879
+sonja baro: not a challenge. Well, I'm just asking this one could you go back to the last because I didn't get to write down the last slide?
+
+549
+00:55:16.320 --> 00:55:20.650
+Anthony Taylor: Well, I'm it helps me. I retain if I write. I like that. That's smart.
+
+550
+00:55:21.050 --> 00:55:28.390
+sonja baro: So the transformer model process. Now I'm trying to remember what my question was or comment was.
+
+551
+00:55:28.880 --> 00:55:40.340
+sonja baro: Really was I'm trying to think of is this like, when you have a foreign language in that foreign language.
+
+552
+00:55:40.570 --> 00:55:43.320
+sonja baro: a single word can have multiple meanings.
+
+553
+00:55:43.710 --> 00:55:53.549
+sonja baro: It just depends on how it's used and what's before and after it, or what end is on it. That type of thing is is that a fair comparison
+
+554
+00:55:54.010 --> 00:55:55.670
+sonja baro: of that or.
+
+555
+00:55:55.720 --> 00:55:59.410
+sonja baro: okay. So first off, the good news is you're on the right track.
+
+556
+00:55:59.580 --> 00:56:02.240
+Anthony Taylor: Okay? And Nlp is how we do translation.
+
+557
+00:56:02.980 --> 00:56:06.600
+Anthony Taylor: Alright. Now, again, old Nlp
+
+558
+00:56:06.820 --> 00:56:10.540
+Anthony Taylor: was the one that if you said I want a taco
+
+559
+00:56:10.650 --> 00:56:19.169
+Anthony Taylor: and told it to translate that into Korean it literally translated, I want a taco in the Korean in that order.
+
+560
+00:56:19.960 --> 00:56:24.239
+sonja baro: and I shouldn't use Korean because I have no idea how to say I want to talk over Korean.
+
+561
+00:56:24.920 --> 00:56:28.350
+Anthony Taylor: I don't know if I know how to taco. I can do it in Spanish.
+
+562
+00:56:28.450 --> 00:56:29.519
+sonja baro: I mean.
+
+563
+00:56:29.530 --> 00:56:32.030
+Anthony Taylor: okay, alright. So in Spanish.
+
+564
+00:56:32.150 --> 00:56:48.169
+Anthony Taylor: right? It's still kind of I want to tackle. But I don't know. Does anybody help me here? Anyway? The point is is now that we have the transformal transformer process translation. It's gotten significantly better.
+
+565
+00:56:48.580 --> 00:56:50.980
+Anthony Taylor: Has anyone played with translation recently.
+
+566
+00:56:51.370 --> 00:56:56.720
+Anthony Taylor: like all the new phones like, I have the Pixel 8 pro. And I mean, man, it's freaking. Tax
+
+567
+00:56:56.800 --> 00:57:02.340
+Anthony Taylor: it. III didn't even realize. II turned on this thing. I saw this button said, Live caption.
+
+568
+00:57:02.650 --> 00:57:04.520
+Anthony Taylor: I didn't think anything of it right.
+
+569
+00:57:04.530 --> 00:57:10.520
+Anthony Taylor: That dang thing was translate every video into words, posting them on my screen
+
+570
+00:57:10.580 --> 00:57:12.250
+Anthony Taylor: as it spoke them.
+
+571
+00:57:13.020 --> 00:57:17.639
+Anthony Taylor: I mean, it was so flippant. I mean, it is, you know, top of the line phone at the moment. But
+
+572
+00:57:18.360 --> 00:57:23.669
+Anthony Taylor: I mean it was, it's crazy. And that's all this. What you're seeing on the screen today?
+
+573
+00:57:23.980 --> 00:57:28.169
+Anthony Taylor: Okay, it it takes the context of the English
+
+574
+00:57:28.310 --> 00:57:29.490
+Anthony Taylor: phrase.
+
+575
+00:57:29.700 --> 00:57:33.530
+Anthony Taylor: looks at the context of the Spanish phrase.
+
+576
+00:57:33.660 --> 00:57:38.320
+Anthony Taylor: and goes, oh, you know what those, those, while they are in the same order, those go together
+
+577
+00:57:39.230 --> 00:57:44.860
+Anthony Taylor: return that right? So it has gotten significantly better and faster
+
+578
+00:57:45.970 --> 00:57:51.490
+Anthony Taylor: because it's were correct. That makes any sense. But yeah.
+
+579
+00:57:52.750 --> 00:57:56.829
+Anthony Taylor: oh, did I answer your question and look on your face. I'm not sure I answered the question.
+
+580
+00:57:57.160 --> 00:58:02.290
+sonja baro: No, no, usually it's great. Thank you.
+
+581
+00:58:02.480 --> 00:58:17.990
+Anthony Taylor: You guys are. Gonna learn this about me as we do this over time. Sometimes I go to answer questions, then I go on this story, and I go over here, and then I never get back to the question. So feel free to like, you know. Say, hey, that was great story. Now answer question, and I'll ask you what the question was, because I forgot.
+
+582
+00:58:18.210 --> 00:58:19.630
+Anthony Taylor: Okay, alright.
+
+583
+00:58:19.910 --> 00:58:25.180
+Anthony Taylor: continuing forward. So how are we using Lp models? Well, spam from legitimate. That's a big
+
+584
+00:58:25.860 --> 00:58:38.830
+Anthony Taylor: okay. We look at the words we tokenize them. If this one has a lot of weird things or certain statements in it. Boom! It's gone alright, translating from one language to another. Thank you, Sonia. We already talked about
+
+585
+00:58:39.520 --> 00:58:47.269
+Anthony Taylor: social media sentiment analysis. This is a big one. Do we use it? Not so much. Do the social media companies use it?
+
+586
+00:58:47.500 --> 00:58:48.790
+Anthony Taylor: Absolutely
+
+587
+00:58:50.200 --> 00:58:52.060
+Anthony Taylor: all right. Yes, click!
+
+588
+00:58:53.890 --> 00:58:54.870
+Clayton Graves: Is that
+
+589
+00:58:58.340 --> 00:59:01.200
+Anthony Taylor: buddy? Your mic is gold. Where is that?
+
+590
+00:59:01.520 --> 00:59:04.349
+Clayton Graves: Is this? Is this better? There you go. That's better.
+
+591
+00:59:04.810 --> 00:59:06.130
+Clayton Graves: So let's say I type.
+
+592
+00:59:07.810 --> 00:59:11.089
+Anthony Taylor: Now, now you sound far away, but it's okay. I can hear you.
+
+593
+00:59:11.260 --> 00:59:17.679
+Clayton Graves: I I'll have to put my other less fancy headphones on. But let's say you say,
+
+594
+00:59:18.220 --> 00:59:22.740
+Clayton Graves: eat glass, right? I type out, eat glass to somebody
+
+595
+00:59:22.780 --> 00:59:24.660
+Clayton Graves: on Facebook.
+
+596
+00:59:25.110 --> 00:59:26.170
+Clayton Graves: and
+
+597
+00:59:26.820 --> 00:59:33.370
+Clayton Graves: so am I, am I. So is is when you, when you talk about social media sentiment analysis.
+
+598
+00:59:33.770 --> 00:59:42.080
+Clayton Graves: or is it trying to understand what I meant when I said that? Am I actually telling somebody to eat glass and injure themselves, or am I quoting Shits Creek?
+
+599
+00:59:42.330 --> 00:59:50.509
+Anthony Taylor: That's a great question, and I don't know the answer, except only answer I can give you is it depends on how they
+
+600
+00:59:50.650 --> 00:59:55.090
+Anthony Taylor: classified the terms. Eat glass each glass
+
+601
+00:59:55.220 --> 00:59:57.790
+Anthony Taylor: if you do it so. And here's an interesting thing.
+
+602
+00:59:57.890 --> 01:00:01.750
+Anthony Taylor: A few years ago eat glass would probably have gotten de flagged at all.
+
+603
+01:00:02.100 --> 01:00:07.690
+Anthony Taylor: Okay? Because it would look. And it would look at glass. And it would go. Both those words are fine.
+
+604
+01:00:08.600 --> 01:00:12.070
+Anthony Taylor: Okay. Now, contextually speaking.
+
+605
+01:00:12.410 --> 01:00:14.370
+Anthony Taylor: it might see those as aggressive.
+
+606
+01:00:15.960 --> 01:00:22.599
+Anthony Taylor: Right? Because it sounds like you're you know, you're saying, you know, E. Glass, like it's like you tell you to harm yourself.
+
+607
+01:00:24.060 --> 01:00:27.829
+Anthony Taylor: Okay? And even though that's just saying or just the quote
+
+608
+01:00:27.990 --> 01:00:43.030
+Anthony Taylor: it, you know. And and again, I can answer questions. I don't know the rules that you know Facebook, where all these guys put behind their sentiments analysis to say what would be considered offensive or inappropriate, or whatever
+
+609
+01:00:49.620 --> 01:01:07.340
+Anthony Taylor: they train it. They look at what it's and they usually will custer it or they'll just have, you know, a bunch of people label it, and they'll say. you know. Okay. But now, every time the post comes in we're gonna run it through our model, and as long as it doesn't come back as flagged we're good to go.
+
+610
+01:01:08.230 --> 01:01:14.809
+Anthony Taylor: So yeah. And then, of course, chat bots, virtual agents. We're gonna talk about them lots. We've already picked that one up.
+
+611
+01:01:14.940 --> 01:01:24.570
+Anthony Taylor: So we'll move forward. Do good machine learning is awesome. That's what it says. I don't know why. Told me to sing
+
+612
+01:01:25.700 --> 01:01:26.840
+so weird.
+
+613
+01:01:27.370 --> 01:01:32.649
+Anthony Taylor:  Oh, hey! We got something we could do together.
+
+614
+01:01:33.150 --> 01:01:41.589
+Anthony Taylor: How fun is that? Alright? So I'm gonna give you guys a link in slack. Yeah, rob me.
+
+615
+01:01:42.390 --> 01:01:43.800
+Masarirambi, Rodney: Sorry. Just
+
+616
+01:01:43.810 --> 01:01:46.530
+Anthony Taylor: no, do not be sorry questions.
+
+617
+01:01:47.060 --> 01:01:47.910
+Masarirambi, Rodney: So
+
+618
+01:01:49.020 --> 01:01:54.609
+Masarirambi, Rodney: you've mentioned that with with the neural networks that we know that you put
+
+619
+01:01:54.630 --> 01:02:01.170
+Masarirambi, Rodney: favoring the nodes, and so that, and nobody understands how we came up with the answers.
+
+620
+01:02:01.450 --> 01:02:04.220
+Anthony Taylor: they're very difficult to come up with the answers, yes.
+
+621
+01:02:05.150 --> 01:02:06.560
+Masarirambi, Rodney: so
+
+622
+01:02:07.780 --> 01:02:09.060
+Masarirambi, Rodney: we
+
+623
+01:02:10.630 --> 01:02:19.050
+Masarirambi, Rodney: has anybody. Awesome. Is this the right way to go? If we don't know how it works. We don't care.
+
+624
+01:02:19.540 --> 01:02:23.599
+Masarirambi, Rodney: Rodney Rodney, do you know? Do you know.
+
+625
+01:02:23.790 --> 01:02:26.610
+Anthony Taylor: you know? Hold on, I gotta find something crazy
+
+626
+01:02:26.810 --> 01:02:31.210
+Anthony Taylor: you probably know you. You're smart, guy, aren't you?
+
+627
+01:02:31.220 --> 01:02:33.519
+Anthony Taylor: Do you know how a video card works?
+
+628
+01:02:35.470 --> 01:02:37.699
+Anthony Taylor: Don't explain it. Just say, do you? Or don't you?
+
+629
+01:02:37.790 --> 01:02:44.609
+Anthony Taylor: And the answer is probably not in great detail, right? But you use that thing like crazy. Don't video graphics
+
+630
+01:02:45.380 --> 01:02:56.990
+Anthony Taylor: right? But the idea that somebody knows and somebody put that together that that's the only Singapore. II know they don't, they truly don't. It's a black box.
+
+631
+01:02:57.270 --> 01:02:58.440
+Anthony Taylor: It's a black box.
+
+632
+01:02:58.600 --> 01:03:08.629
+Anthony Taylor:  There are. There are entire think, tanks, that their job is. Figure out how to get AI models and make them interpretable.
+
+633
+01:03:08.800 --> 01:03:10.290
+Anthony Taylor: and how to make
+
+634
+01:03:10.900 --> 01:03:17.159
+Anthony Taylor: no networks and turn. Now, here's the interesting thing. What you guys are. Gonna find out. Guess what AI models are built from
+
+635
+01:03:17.820 --> 01:03:19.300
+Anthony Taylor: neural networks.
+
+636
+01:03:20.350 --> 01:03:30.530
+Anthony Taylor: Okay, is it all built from your own network? So are we ever going to be able to really answer the question? Maybe maybe not. Did you have? Are you raising your hands on you?
+
+637
+01:03:30.820 --> 01:03:38.899
+Anthony Taylor: Are you just waving at somebody in the house. Bye. see if you're okay. Alright. So I gave you guys a link.
+
+638
+01:03:39.840 --> 01:03:43.180
+Anthony Taylor:  let's open that up together.
+
+639
+01:03:44.570 --> 01:03:45.340
+Anthony Taylor: Oops.
+
+640
+01:03:46.660 --> 01:03:50.609
+Anthony Taylor: Oh, were you doing the link. Is that what you were just doing? That's fun.
+
+641
+01:03:50.840 --> 01:03:53.110
+Anthony Taylor: Alright. So skip the tutorial.
+
+642
+01:03:53.480 --> 01:03:56.500
+Anthony Taylor: Just click. This link here hit the tutorial
+
+643
+01:03:57.070 --> 01:04:01.419
+Anthony Taylor: alright. Now we're. This is one of those moments. I wish I was recording the screen of all of
+
+644
+01:04:01.770 --> 01:04:06.500
+Anthony Taylor: alright. So over here, the input, it's gonna ask you to let you use your camera.
+
+645
+01:04:06.580 --> 01:04:11.639
+Anthony Taylor:  I think you'll have to turn off your camera to make that happen.
+
+646
+01:04:12.920 --> 01:04:15.910
+Anthony Taylor: Yep, you will. So everyone has permission.
+
+647
+01:04:15.930 --> 01:04:24.049
+Anthony Taylor: Stop the video on Zoom. This is, I'm not gonna get the joy out of this. I want it. Refresh the page.
+
+648
+01:04:25.710 --> 01:04:27.880
+Masarirambi, Rodney: It's onward, for with both me.
+
+649
+01:04:28.630 --> 01:04:29.700
+Anthony Taylor: Oh, is it
+
+650
+01:04:30.060 --> 01:04:33.410
+Anthony Taylor: so lucky if it's on it, you can see yourself.
+
+651
+01:04:33.750 --> 01:04:35.699
+Anthony Taylor: Yeah, it was working under camera.
+
+652
+01:04:35.760 --> 01:04:40.760
+Anthony Taylor: Here, let me see. Wait, let me see my turn on my camera make it work.
+
+653
+01:04:41.770 --> 01:04:48.270
+Anthony Taylor: A oh, you know what? Never mind, I know. What's going. Is that it?
+
+654
+01:04:48.980 --> 01:04:53.850
+Anthony Taylor: Now see, it's not working for me. Yeah. Well, I feel bad now. But you guys can see my screen right?
+
+655
+01:04:54.520 --> 01:04:58.249
+Anthony Taylor: Yeah, alright, that's all. There. She can see me on here.
+
+656
+01:04:58.380 --> 01:05:00.840
+Anthony Taylor: Okay, so here's what we're gonna do.
+
+657
+01:05:00.940 --> 01:05:05.749
+Anthony Taylor: We're going to train a model to recognize visual cues.
+
+658
+01:05:06.390 --> 01:05:12.250
+Anthony Taylor: So what we want you do is first, I want you to either raise or wade with your left hand
+
+659
+01:05:12.950 --> 01:05:16.269
+Anthony Taylor: and then push the train green button
+
+660
+01:05:17.540 --> 01:05:19.860
+Anthony Taylor: and just let it run for like 5 s
+
+661
+01:05:22.800 --> 01:05:23.720
+Anthony Taylor: and stop.
+
+662
+01:05:25.450 --> 01:05:29.459
+Anthony Taylor: Okay. So we have assigned Train green to this key cat.
+
+663
+01:05:30.190 --> 01:05:37.220
+Anthony Taylor: Alright now, can't really do anything yet, because we only have the one. So now I want you to raise your right hand
+
+664
+01:05:38.030 --> 01:05:45.979
+Anthony Taylor: and push the purple button. Now for those of us that are using their mouse that way. What I would do is come over here like the train. Purple.
+
+665
+01:05:48.450 --> 01:05:54.780
+Anthony Taylor: Okay. now, last, but not least. I want you to just make a silly face
+
+666
+01:05:56.610 --> 01:05:59.039
+Anthony Taylor: and push train orange ready. Go
+
+667
+01:06:00.640 --> 01:06:01.660
+Anthony Taylor: and let go
+
+668
+01:06:04.060 --> 01:06:08.490
+Anthony Taylor: alright. I did not get to see any silly faces. How disappointing
+
+669
+01:06:09.890 --> 01:06:16.760
+Anthony Taylor: away Christine still doing right hand. Let's see if she so she makes silly things. Did it not work? Yeah, hold. But yeah, hold it, Christine.
+
+670
+01:06:21.590 --> 01:06:25.279
+Anthony Taylor: Now, when you're done. you hold up your left hand.
+
+671
+01:06:25.730 --> 01:06:30.470
+Anthony Taylor: The green button should go the green picture. You go up your right hand
+
+672
+01:06:33.050 --> 01:06:37.560
+Anthony Taylor: the way I did it the Purple one should go. If you make a funny face.
+
+673
+01:06:40.030 --> 01:06:41.579
+Anthony Taylor: The Bunny Rabinson show
+
+674
+01:06:43.020 --> 01:06:44.029
+Anthony Taylor: is that working
+
+675
+01:06:47.120 --> 01:06:54.680
+Anthony Taylor: like Robbie got it. Oh, my God! Sonya's got fireworks going on. Curry, you got it! Are you still doing it?
+
+676
+01:06:56.050 --> 01:07:08.539
+Mason, Natalie: I'm still not sure how to even get my face in there. I turned off. You open yours and share with us.
+
+677
+01:07:10.590 --> 01:07:12.500
+Mason, Natalie: Am I sharing my screen?
+
+678
+01:07:12.760 --> 01:07:13.940
+Anthony Taylor: Yes, please
+
+679
+01:07:16.670 --> 01:07:17.350
+like that.
+
+680
+01:07:18.230 --> 01:07:19.840
+Mason, Natalie: There! Did that work.
+
+681
+01:07:19.970 --> 01:07:23.359
+Anthony Taylor: Okay? Yes. Now, where's that link that I put in slack
+
+682
+01:07:28.260 --> 01:07:31.499
+Mason, Natalie: live? Is it live? Yes, sir, I see.
+
+683
+01:07:31.940 --> 01:07:37.660
+Anthony Taylor: There it oh, was I not there? And I am sorry. Okay, so maximize that.
+
+684
+01:07:39.520 --> 01:07:43.470
+Anthony Taylor: Think that. Let me get my arrow. I'll help you with this. I'm very good with my arrow.
+
+685
+01:07:44.260 --> 01:07:46.979
+Anthony Taylor: Hit this button right here. This one up here at the top.
+
+686
+01:07:48.290 --> 01:07:51.359
+Anthony Taylor: That's square. You see my arrow on your screen.
+
+687
+01:07:51.530 --> 01:07:52.900
+Mason, Natalie: Yeah.
+
+688
+01:07:53.630 --> 01:07:55.299
+Anthony Taylor: hit that button on top.
+
+689
+01:07:57.990 --> 01:07:58.990
+Anthony Taylor: Let's do it.
+
+690
+01:08:00.840 --> 01:08:02.010
+Mason, Natalie: Mishmere.
+
+691
+01:08:02.700 --> 01:08:06.450
+Anthony Taylor: is it not let me go full screen. You can drag it, if you what?
+
+692
+01:08:10.940 --> 01:08:14.020
+Anthony Taylor: Hello, Buddy. Okay, skip the tutorial.
+
+693
+01:08:15.130 --> 01:08:18.600
+Mason, Natalie: Just hit. Skip the tutorial at the bottom.
+
+694
+01:08:18.920 --> 01:08:21.740
+Anthony Taylor: Alright. Now allow.
+
+695
+01:08:21.950 --> 01:08:26.060
+Mason, Natalie: Okay. Now we should give it a second.
+
+696
+01:08:30.569 --> 01:08:35.049
+Anthony Taylor: Alright. Try closing your try, stopping your camera, your video on your on your thing.
+
+697
+01:08:37.490 --> 01:08:38.879
+Mason, Natalie: Stop, share.
+
+698
+01:08:39.430 --> 01:08:41.200
+Anthony Taylor: not stop share. Stop feeding
+
+699
+01:08:45.000 --> 01:08:49.139
+Mason, Natalie: the little video camera the next to your microphone.
+
+700
+01:08:53.390 --> 01:08:57.240
+Anthony Taylor: Go ahead and leave it off, and it should come up and then refresh the screen.
+
+701
+01:09:00.729 --> 01:09:06.830
+Anthony Taylor: Nope, your videos back on. But do you try? Do skip the tutorial again. Don't don't do. Let's go hit. Skip.
+
+702
+01:09:07.300 --> 01:09:13.850
+Anthony Taylor: Okay, yeah, no. Turn turn off your your to do. Stop video at the bottom. Perfect. Now refresh the screen.
+
+703
+01:09:15.350 --> 01:09:24.499
+Anthony Taylor: and we should be able to see it. Do skip tutorial again at the file right there. Okay, there you are. Okay. Raise your left hand
+
+704
+01:09:25.260 --> 01:09:29.240
+Anthony Taylor: and push the green button and hold it for like 3 or 4 s.
+
+705
+01:09:31.100 --> 01:09:32.029
+Anthony Taylor: Perfect.
+
+706
+01:09:32.700 --> 01:09:35.550
+Anthony Taylor: Okay. Now raise your other hand
+
+707
+01:09:36.090 --> 01:09:37.890
+Anthony Taylor: and then push the purple button.
+
+708
+01:09:38.109 --> 01:09:42.550
+Anthony Taylor: That's like difficult. Oh, no, it's not okay. Cool. Now.
+
+709
+01:09:42.979 --> 01:09:46.700
+Anthony Taylor: Make a face or something at the screen and push the orange button
+
+710
+01:09:50.700 --> 01:09:53.099
+Anthony Taylor: and hold it. There we go.
+
+711
+01:09:54.780 --> 01:09:59.789
+Anthony Taylor: That's awesome. Okay. Now raise your left hand.
+
+712
+01:10:01.620 --> 01:10:04.310
+Anthony Taylor: No, that that's weird. Why is it not.
+
+713
+01:10:04.910 --> 01:10:09.160
+Mason, Natalie: You're not pushing the buttons right. Don't push any buttons. Oh, put your glasses back on
+
+714
+01:10:10.700 --> 01:10:12.350
+Anthony Taylor: now raise your life.
+
+715
+01:10:13.460 --> 01:10:15.680
+Anthony Taylor: There you go now you're right here
+
+716
+01:10:17.270 --> 01:10:19.029
+Anthony Taylor: and now take the classes up
+
+717
+01:10:20.700 --> 01:10:22.010
+Mason, Natalie: weird.
+
+718
+01:10:22.530 --> 01:10:24.769
+Anthony Taylor: And we've just trained a model.
+
+719
+01:10:25.670 --> 01:10:32.919
+Anthony Taylor: This is a vision recognition. It is literally what you do and and act based on what you're doing on the other side. Okay?
+
+720
+01:10:33.610 --> 01:10:37.339
+Anthony Taylor: And this is not nefarious. It's just a super, cool way to show.
+
+721
+01:10:37.540 --> 01:10:39.870
+Anthony Taylor: Okay. everybody like that.
+
+722
+01:10:40.580 --> 01:10:45.440
+Anthony Taylor: That was fun. It was way better than listen to me talk, let me tell you. Alright.
+
+723
+01:10:46.120 --> 01:10:56.519
+Masarirambi, Rodney: So let me share it. We build about 3,000 trees. Right? Is that is that what? Now? Let's be really simple.
+
+724
+01:10:56.640 --> 01:10:59.590
+Anthony Taylor: But you know, maybe
+
+725
+01:11:00.300 --> 01:11:01.699
+Mason, Natalie: it's up that.
+
+726
+01:11:02.890 --> 01:11:05.619
+Anthony Taylor: That one was really step, really step.
+
+727
+01:11:05.870 --> 01:11:09.300
+Anthony Taylor: In fact, it was probably all done in Javascript, which is, yeah.
+
+728
+01:11:09.510 --> 01:11:14.070
+Anthony Taylor: You guys can come back on camera. Now stop playing with the thing. Yes, Mike.
+
+729
+01:11:15.560 --> 01:11:20.410
+michael mcpherson: you're having a problem getting it your camera to turn back on close that pit website?
+
+730
+01:11:21.070 --> 01:11:22.010
+Anthony Taylor: Yes.
+
+731
+01:11:23.490 --> 01:11:27.810
+Anthony Taylor: absolutely, Natalie. You guys, okay, we're bringing the camera back up now.
+
+732
+01:11:28.750 --> 01:11:30.709
+Anthony Taylor: It's almost break time already.
+
+733
+01:11:31.990 --> 01:11:39.930
+Anthony Taylor: Yeah, I'm working on that. Let's see. Just close the browser window and then push this the start. Video button on your zoom.
+
+734
+01:11:41.570 --> 01:11:53.049
+Anthony Taylor: You'll be fine. We'll get there. Alright, gay! So we'll continue. We'll I know you're working on your camera. in fact, doing that to work on right now. Just pay attention and and
+
+735
+01:11:53.250 --> 01:11:57.960
+Anthony Taylor: we'll get it. Okay. So AI found meetings.
+
+736
+01:11:58.660 --> 01:12:03.659
+Anthony Taylor: Today's AI Foundation's lecture work section. We're going to cover Github.
+
+737
+01:12:03.850 --> 01:12:06.939
+Anthony Taylor: the industry standard collaboration tool.
+
+738
+01:12:07.680 --> 01:12:15.260
+Anthony Taylor: You will use Github to store your code, collaborate with your peers on projects and submit assignments.
+
+739
+01:12:15.340 --> 01:12:19.430
+Anthony Taylor: Your first challenge assignment will be creating a repo with you.
+
+740
+01:12:19.910 --> 01:12:26.169
+Anthony Taylor: getting comfortable with Github is critical for your success at the food camp and post graduation.
+
+741
+01:12:26.600 --> 01:12:28.500
+Anthony Taylor:  yeah.
+
+742
+01:12:29.060 --> 01:12:33.300
+Anthony Taylor: it's funny in the data class. I always kind of follow that with, well. So
+
+743
+01:12:33.550 --> 01:12:36.010
+Anthony Taylor: we don't typically use a lot of Github data.
+
+744
+01:12:36.180 --> 01:12:40.550
+Anthony Taylor: But in AI AI is a little closer to an application.
+
+745
+01:12:40.610 --> 01:12:42.659
+Anthony Taylor: The data, yeah, like
+
+746
+01:12:43.040 --> 01:12:44.549
+Clayton Graves: is this, like
+
+747
+01:12:45.030 --> 01:12:48.909
+Clayton Graves: like bitbucket is. This is Github like bitbucket.
+
+748
+01:12:49.820 --> 01:13:06.560
+Anthony Taylor:  I'm not positive. I think so. But get up is basically, I mean, well, we're gonna talk about it gives you like visual. So you can like merge your your, not a lot of visual. But you can do that with Vs code and Github.
+
+749
+01:13:06.610 --> 01:13:09.689
+Anthony Taylor: Okay, I can show you all. But
+
+750
+01:13:09.840 --> 01:13:11.330
+Anthony Taylor: I'm thinking.
+
+751
+01:13:11.970 --> 01:13:16.070
+Anthony Taylor: hold on, I want. I'm thinking we should go on break before we continue.
+
+752
+01:13:16.690 --> 01:13:19.310
+Anthony Taylor: because this is like a whole nother like thing.
+
+753
+01:13:19.880 --> 01:13:22.250
+Anthony Taylor: and we're at almost 90'clock.
+
+754
+01:13:22.770 --> 01:13:25.520
+Anthony Taylor: which means I'm way behind again. But that's alright.
+
+755
+01:13:26.090 --> 01:13:33.449
+Anthony Taylor: I know you guys like here we talk a lot, so I'll just keep talking. But let's go ahead and take break come back at
+
+756
+01:13:34.080 --> 01:13:36.319
+Anthony Taylor: page 5, 7, 45, right?
+
+757
+01:13:37.330 --> 01:13:39.419
+Anthony Taylor: Yeah. Hi, I'll see you guys at 80'clock.
+
+758
+01:13:44.380 --> 01:13:47.730
+michael mcpherson: Alright, gang! We are back
+
+759
+01:13:48.940 --> 01:13:52.279
+Anthony Taylor: back to mute. Go back to mute. Stop being social
+
+760
+01:13:52.710 --> 01:13:57.779
+Anthony Taylor: kidding. We love everybody being social. How about Anthony shares a screen that would Google.
+
+761
+01:13:59.910 --> 01:14:01.380
+Anthony Taylor: okay.
+
+762
+01:14:01.770 --> 01:14:05.870
+Anthony Taylor: so now we're gonna get to put their hands on keyboard for a little bit.
+
+763
+01:14:06.010 --> 01:14:12.539
+Anthony Taylor: Doing something important. Bit bucket. By the way, Clayton. Yeah, it's practically like the same dame thing
+
+764
+01:14:12.940 --> 01:14:18.730
+Anthony Taylor: and it's probably really popular now, because it wasn't that long ago that Microsoft bought it up
+
+765
+01:14:19.720 --> 01:14:24.670
+and Microsoft owns it, and you know everybody's like, oh, everything. Microsoft's involved with this evil
+
+766
+01:14:25.120 --> 01:14:29.740
+Anthony Taylor:  except apparently chat gpts and say pretty much. I want to.
+
+767
+01:14:30.240 --> 01:14:31.640
+Anthony Taylor: But
+
+768
+01:14:33.220 --> 01:14:33.990
+Anthony Taylor: yeah.
+
+769
+01:14:34.220 --> 01:14:36.740
+Anthony Taylor: So let's talk about Github.
+
+770
+01:14:38.460 --> 01:14:43.979
+Anthony Taylor: So what is Github Github? So let's actually, you know what we we obviously have gamers.
+
+771
+01:14:44.110 --> 01:14:47.419
+Anthony Taylor: Anybody in here. Never play a game ever in your life.
+
+772
+01:14:49.190 --> 01:14:51.130
+Anthony Taylor: Alright good. So everybody has played a game.
+
+773
+01:14:51.380 --> 01:14:54.170
+Anthony Taylor: Maybe I play a game recently last
+
+774
+01:14:54.630 --> 01:14:58.589
+Anthony Taylor: 2 days. Anyway, it's not played a game in the last 2 days.
+
+775
+01:14:58.810 --> 01:15:00.939
+Anthony Taylor: Okay, a few of you all right. Week
+
+776
+01:15:01.870 --> 01:15:02.870
+Anthony Taylor: month.
+
+777
+01:15:04.120 --> 01:15:07.360
+Anthony Taylor: Oh, my God. all right, we got a few. Okay.
+
+778
+01:15:07.380 --> 01:15:08.739
+michael mcpherson: if I now
+
+779
+01:15:09.240 --> 01:15:13.690
+Anthony Taylor: bad? Something that you can press save on.
+
+780
+01:15:14.570 --> 01:15:17.959
+Anthony Taylor: So how about a word document or an excel document?
+
+781
+01:15:18.730 --> 01:15:19.770
+Anthony Taylor: All right. There.
+
+782
+01:15:20.180 --> 01:15:24.690
+Anthony Taylor: So you're playing a game. You're typing your word, Doc. You're doing some cells
+
+783
+01:15:24.840 --> 01:15:28.770
+Anthony Taylor: and get to a point. You're like, I'm gonna press, save right?
+
+784
+01:15:29.920 --> 01:15:34.250
+Anthony Taylor: Okay, go a little bit further. Oh, no, mess up!
+
+785
+01:15:35.720 --> 01:15:47.539
+Anthony Taylor: Oh, you can. Now go back to your save file. Right. open it back up, video game, go! And you're like that's fire. I'll never, you know, every time he's fine it's instantly dead.
+
+786
+01:15:47.620 --> 01:15:51.830
+Anthony Taylor: Alright. Okay. Go back to my last, save. Okay.
+
+787
+01:15:53.660 --> 01:15:56.199
+Anthony Taylor: Github is kind of like that.
+
+788
+01:15:57.330 --> 01:16:01.689
+Anthony Taylor: Alright. When we create a repository
+
+789
+01:16:03.180 --> 01:16:06.519
+Anthony Taylor: in Github, we're going to clone
+
+790
+01:16:06.650 --> 01:16:07.960
+Anthony Taylor: it down
+
+791
+01:16:08.300 --> 01:16:10.799
+Anthony Taylor: to our computer.
+
+792
+01:16:11.530 --> 01:16:13.470
+Anthony Taylor: It's going to track
+
+793
+01:16:13.930 --> 01:16:19.959
+Anthony Taylor: every change we make to every file that we have put into our repository.
+
+794
+01:16:21.320 --> 01:16:29.040
+Anthony Taylor: When we say. Commit. that is the equivalent of pushing the save button.
+
+795
+01:16:30.610 --> 01:16:34.470
+Anthony Taylor: Alright, so it will at that point, save where you are.
+
+796
+01:16:35.190 --> 01:16:44.519
+Anthony Taylor: Now you continue work. Something happens. You can go back to that point or you continue working, and then you go. Oh, I need to save again commit
+
+797
+01:16:45.110 --> 01:16:46.350
+Anthony Taylor: saves it again.
+
+798
+01:16:47.150 --> 01:16:52.379
+Anthony Taylor: Now you keep working, and you go to like test what you were doing. And oh, my God, it doesn't.
+
+799
+01:16:53.520 --> 01:16:56.050
+Anthony Taylor: Okay. Well, it did work
+
+800
+01:16:56.500 --> 01:16:59.240
+Anthony Taylor: in my last save so I can go back to there
+
+801
+01:17:00.480 --> 01:17:06.400
+Anthony Taylor: and I start coding again. I realize you know what this is. Something I did wrong a long time ago, and I can go back to my first save
+
+802
+01:17:07.500 --> 01:17:15.230
+Anthony Taylor: and start from there. And that's is one of the big points of git.
+
+803
+01:17:16.300 --> 01:17:17.160
+Anthony Taylor: Okay?
+
+804
+01:17:17.560 --> 01:17:32.669
+Anthony Taylor:  the other big thing. I mean, they talk about collaboration. And yes does allow us to collaborate because you can create this repository and be clear repository in this case is a web page that allows you to upload
+
+805
+01:17:32.790 --> 01:17:36.759
+Anthony Taylor: or objects. Web pages, pictures
+
+806
+01:17:37.050 --> 01:17:38.940
+Anthony Taylor: whatever. Okay.
+
+807
+01:17:39.850 --> 01:17:46.250
+Anthony Taylor:  it's collaboration. Because I can say.
+
+808
+01:17:47.400 --> 01:17:48.850
+Meredith
+
+809
+01:17:49.290 --> 01:17:54.170
+Anthony Taylor: has her repository. She's working with Sonya and Gabriel.
+
+810
+01:17:54.920 --> 01:17:59.070
+Anthony Taylor: and they're all working on a different piece.
+
+811
+01:17:59.630 --> 01:18:03.149
+Anthony Taylor: and they're all saving to the same repository.
+
+812
+01:18:05.530 --> 01:18:07.329
+Anthony Taylor: There you go collaboration.
+
+813
+01:18:07.700 --> 01:18:11.220
+Anthony Taylor: They can comment. They can do all that. So so that's
+
+814
+01:18:11.300 --> 01:18:20.999
+Anthony Taylor: what Github and Gith are all about. Github is really just a website where we can make web based repositories and bring them
+
+815
+01:18:21.030 --> 01:18:22.379
+Anthony Taylor: to our hard drive.
+
+816
+01:18:22.700 --> 01:18:26.430
+Anthony Taylor: a very similar to get lab different, but similar.
+
+817
+01:18:26.630 --> 01:18:32.990
+Anthony Taylor: So anyway, so this is the visual representation. When I look at this, I not get a comfy, warm feeling.
+
+818
+01:18:33.440 --> 01:18:37.609
+Anthony Taylor: but version A, then version 2 is a one.
+
+819
+01:18:38.210 --> 01:18:40.679
+Anthony Taylor: but version, one has an A, B and C
+
+820
+01:18:41.100 --> 01:18:46.909
+Anthony Taylor: B. We didn't update till version 4. So now we have version 2 of A, one
+
+821
+01:18:47.000 --> 01:18:53.429
+Anthony Taylor: is now a 2, and then B, one becomes B, 2, while C, one and C 2. Just skip the version. 5
+
+822
+01:18:53.570 --> 01:18:54.459
+Anthony Taylor: got it.
+
+823
+01:18:56.230 --> 01:18:58.750
+Anthony Taylor: That was the stupidest diagram ever.
+
+824
+01:18:59.050 --> 01:19:06.609
+Anthony Taylor: I'm not even sure how to explain this. So let me try again. Version one. We have. Let's say, we have 3 modules. Okay.
+
+825
+01:19:06.760 --> 01:19:15.740
+Anthony Taylor: we have the controller module. the picture module and the chart month. Okay.
+
+826
+01:19:15.940 --> 01:19:20.529
+Anthony Taylor: we need to fix the controller module and picture module.
+
+827
+01:19:21.240 --> 01:19:24.649
+Anthony Taylor: But the whatever I call the middle one.
+
+828
+01:19:25.630 --> 01:19:32.809
+Anthony Taylor: whatever does not need to be fixed. So we create a new version, and we make changes to A and change. B,
+
+829
+01:19:33.040 --> 01:19:35.639
+Anthony Taylor: we don't change B, so we don't need to move it.
+
+830
+01:19:37.700 --> 01:19:39.630
+Anthony Taylor: Perversion 3. We're like, Oh.
+
+831
+01:19:39.640 --> 01:19:45.840
+Anthony Taylor: we need to make a change here, but nowhere else. So let's just make a new version with a new C,
+
+832
+01:19:47.060 --> 01:19:53.349
+Anthony Taylor: and then here we only change A and B, but we left C and version 5 is, we only change B and C,
+
+833
+01:19:54.510 --> 01:19:55.480
+Anthony Taylor: okay.
+
+834
+01:19:55.860 --> 01:19:59.380
+Anthony Taylor: this is so much more complicated than anything
+
+835
+01:19:59.810 --> 01:20:04.570
+Anthony Taylor: you're gonna do in this class. Alright, we're not gonna let you get this company.
+
+836
+01:20:05.010 --> 01:20:13.539
+Anthony Taylor:  I have seen like application development areas, like where people are creating applications
+
+837
+01:20:13.810 --> 01:20:24.499
+Anthony Taylor: where they get this complicated. Because typically when you create applications, you'll like assign different objects or different functionality to different people.
+
+838
+01:20:25.220 --> 01:20:29.089
+Anthony Taylor: Okay? And there could be a hundred objects there could be a thousand of.
+
+839
+01:20:29.860 --> 01:20:34.190
+Anthony Taylor: and each one of them have their own little piece of the coat.
+
+840
+01:20:34.540 --> 01:20:42.000
+Anthony Taylor: and said some point we need to bring those in to a main branch and push the coat. That's complicated.
+
+841
+01:20:42.450 --> 01:20:45.809
+Anthony Taylor: Unlikely. You guys will run into that. An AI,
+
+842
+01:20:46.080 --> 01:20:50.590
+Anthony Taylor: maybe okay. And data pretty much. Never.
+
+843
+01:20:51.580 --> 01:20:52.840
+Anthony Taylor: Okay. But
+
+844
+01:20:52.860 --> 01:21:04.979
+Anthony Taylor: we do use get and get technologies pretty much across the board. We just don't get this company. Okay? Oh, so a commit.
+
+845
+01:21:04.990 --> 01:21:09.589
+Anthony Taylor: So a commit, and I love the way they do this. I made some changes to these 5,
+
+846
+01:21:10.980 --> 01:21:17.660
+Anthony Taylor: and here's why. So when you do a commit, there's a message you put in the message. And the message should basically be
+
+847
+01:21:18.660 --> 01:21:22.250
+Anthony Taylor: why you made the change doesn't have to be what you change.
+
+848
+01:21:22.380 --> 01:21:31.680
+Anthony Taylor: But maybe oh, I fixed this functionality. Or I, I added this new algorithm or change the parameters in our machine learning model.
+
+849
+01:21:33.010 --> 01:21:36.620
+Anthony Taylor: Okay? And you would put that in here and that way
+
+850
+01:21:36.690 --> 01:21:42.010
+Anthony Taylor: when you know, a week or 2 from now, when I go back to the Repository, if I have to go back
+
+851
+01:21:42.070 --> 01:21:47.999
+Anthony Taylor: and say, Oh, it's not working. Right? Let's go back to this version. The comment is how we find the version.
+
+852
+01:21:49.760 --> 01:21:55.220
+Anthony Taylor: Okay, you're not gonna keep track of the big, long number of users. It's not as friendly as 1, 2.
+
+853
+01:21:55.660 --> 01:21:57.399
+Anthony Taylor: So a git, save
+
+854
+01:21:57.410 --> 01:22:03.919
+Anthony Taylor: save game is called a commit. All right. So if we start, we have some code.
+
+855
+01:22:04.230 --> 01:22:06.099
+Anthony Taylor: or maybe no code that met.
+
+856
+01:22:06.290 --> 01:22:13.059
+Anthony Taylor: But let's say we start with some. and we create a branch or talk about what branches but branches effectively
+
+857
+01:22:13.490 --> 01:22:19.450
+Anthony Taylor: a parallel path for our code. You know, everyone watches Marvel. Maybe it's a multiverse.
+
+858
+01:22:19.590 --> 01:22:22.280
+Anthony Taylor: Okay. it's a parallel branch.
+
+859
+01:22:22.510 --> 01:22:34.020
+Anthony Taylor: It's got the same. And the first dot here. There's pretty much everything that was here. everything. And then we start fearing off and creating new timelines.
+
+860
+01:22:34.500 --> 01:22:36.809
+Anthony Taylor: I'm I'm going with this. I'm liking this.
+
+861
+01:22:37.000 --> 01:22:43.150
+Anthony Taylor: Okay, so we have these 2 timelines. But then along comes the TVA.
+
+862
+01:22:44.120 --> 01:22:59.390
+Anthony Taylor: And you only know what that is. If you watch Loki all right, and they need to fix the timeline. So basically, you have finished making your changes, and they have been tested. And you want to merge them back into the master timeline.
+
+863
+01:23:00.580 --> 01:23:06.279
+Anthony Taylor: So you you commit. You make what's called a pool request.
+
+864
+01:23:07.740 --> 01:23:14.429
+Anthony Taylor: and then whoever owes this repository, the gitmaster will come in and say.
+
+865
+01:23:15.390 --> 01:23:18.579
+Anthony Taylor: Yes, we can bring this timeline into this time.
+
+866
+01:23:19.120 --> 01:23:23.660
+Anthony Taylor: and then we bring it back into a single timing. Okay.
+
+867
+01:23:24.220 --> 01:23:27.120
+Anthony Taylor: Hi, Tennessee Valley authority. What?
+
+868
+01:23:27.390 --> 01:23:28.350
+michael mcpherson: And my
+
+869
+01:23:29.080 --> 01:23:30.800
+Anthony Taylor: alright, hey? What's up?
+
+870
+01:23:31.570 --> 01:23:43.379
+Clayton Graves: So the way that that I've always envisioned it is the branch is when they went back in time and took the affinity stones right?
+
+871
+01:23:43.610 --> 01:23:48.670
+Clayton Graves: And it branches out, and when that branch goes back in.
+
+872
+01:23:48.860 --> 01:23:51.589
+Clayton Graves: that's when Captain America returned. Them
+
+873
+01:23:53.320 --> 01:23:57.090
+Anthony Taylor: wasn't an iron man when he did they return them.
+
+874
+01:23:57.690 --> 01:24:00.450
+Anthony Taylor: But that's alright. Click! We all give.
+
+875
+01:24:01.570 --> 01:24:05.169
+Anthony Taylor: Oh, my God! Did you just gather what?
+
+876
+01:24:08.350 --> 01:24:19.569
+Anthony Taylor: Okay, anyway? Yes, that is it. So branches are typically dated like, if you have an application. It's working. And someone says, we need a new functionality.
+
+877
+01:24:20.040 --> 01:24:23.519
+Anthony Taylor: Okay, so we'll create a branch from the work code.
+
+878
+01:24:23.560 --> 01:24:31.620
+Anthony Taylor: create the new functionality test the new functionality, and then merge it back into the master, which will then become
+
+879
+01:24:32.130 --> 01:24:35.500
+Anthony Taylor: the the application. The next version of the application
+
+880
+01:24:35.820 --> 01:24:37.369
+Anthony Taylor: alright again.
+
+881
+01:24:37.510 --> 01:24:45.920
+Anthony Taylor: Pretty elaborate discussion. you know, which you may or may not run into very often. but I'm glad you could still
+
+882
+01:24:46.050 --> 01:24:57.190
+Anthony Taylor: so here's a scenario your group has been working on Ubers writer data. And you've decided to analyze the average age of writers. The root code for this project is called Main.
+
+883
+01:24:57.410 --> 01:24:59.189
+Anthony Taylor: Okay, that's the master branch.
+
+884
+01:24:59.290 --> 01:25:02.909
+Anthony Taylor: And so you create a version. Well, what are they doing here?
+
+885
+01:25:03.110 --> 01:25:13.999
+Anthony Taylor: Remote repository? That's on Github. The staging areas where you edit the files would be part of the next commit. So you bring it down to your local computer. So you do a clone. We're gonna do that in a minute.
+
+886
+01:25:14.360 --> 01:25:15.410
+Anthony Taylor: Okay?
+
+887
+01:25:15.470 --> 01:25:25.450
+Anthony Taylor: And that brings it to the computer. That's where you do work. That's where you do the commit. It doesn't go back up to the remote repository until you do a push
+
+888
+01:25:26.510 --> 01:25:29.390
+Anthony Taylor: you can commit 1,000 times
+
+889
+01:25:30.020 --> 01:25:34.329
+Anthony Taylor: unlimited number of times. Okay, on your local computer.
+
+890
+01:25:34.690 --> 01:25:38.820
+Anthony Taylor: But until once you do a push, it pushes that last commit
+
+891
+01:25:39.060 --> 01:25:40.330
+Anthony Taylor: up together.
+
+892
+01:25:42.000 --> 01:25:49.650
+Anthony Taylor: Okay. that's important. Oh, so continuing allows us to write the code and save it
+
+893
+01:25:49.700 --> 01:25:51.999
+Anthony Taylor: locally on our computer. Git, commit.
+
+894
+01:25:52.380 --> 01:25:54.759
+Anthony Taylor: Oh, these are cute little pictures. I like this
+
+895
+01:25:54.880 --> 01:26:01.379
+Anthony Taylor: and then we can do a push and push it up to get up to get help.
+
+896
+01:26:01.960 --> 01:26:07.540
+Anthony Taylor: which is in the Internet. Okay? And then. did they even talk about it?
+
+897
+01:26:07.830 --> 01:26:16.040
+Anthony Taylor: The update should be added to the main branch. Would they merge? So if things go particularly well, and I hope they do for you guys.
+
+898
+01:26:16.710 --> 01:26:21.650
+Anthony Taylor: Okay, you won't have any merge conflicts. Merge conflicts are awful.
+
+899
+01:26:21.980 --> 01:26:24.699
+Anthony Taylor: There are no fun, and they happen all the time.
+
+900
+01:26:25.310 --> 01:26:31.979
+Anthony Taylor: Okay, if you guys listen to me and follow my directions, and don't try to do it your own way
+
+901
+01:26:32.880 --> 01:26:39.350
+Anthony Taylor: until you understand it better. You will not have a merge conflict. and life will be wonderful
+
+902
+01:26:39.930 --> 01:26:44.089
+Anthony Taylor: if you would like. I will help you by creating a merge conflict.
+
+903
+01:26:44.200 --> 01:26:46.200
+Anthony Taylor: and let you try to figure it out.
+
+904
+01:26:46.720 --> 01:26:50.109
+Anthony Taylor: I'll walk you through it, but only to a certain point, because I hate
+
+905
+01:26:51.490 --> 01:27:02.280
+Anthony Taylor: no birds. Conflicts are particularly difficult with with notebooks, and that's a lot of work going to be doing some notebooks. So anyway, that's it. Okay, I will tell you how to avoid.
+
+906
+01:27:02.460 --> 01:27:12.399
+Anthony Taylor: So these are the commands we're gonna learn today. Get clone, get, add, get, connect, get pushed, get, pull. You learn these things. You know everything you will probably ever need to know about using.
+
+907
+01:27:12.510 --> 01:27:13.420
+Anthony Taylor: Get
+
+908
+01:27:13.950 --> 01:27:18.739
+Anthony Taylor: okay, so commit and get up. That's you're saying it again. It's like the same.
+
+909
+01:27:19.370 --> 01:27:22.389
+Anthony Taylor: It's not break time. We just had our break.
+
+910
+01:27:22.690 --> 01:27:24.320
+Anthony Taylor: Hi, so
+
+911
+01:27:27.620 --> 01:27:35.770
+Anthony Taylor: I'm going to give you a demo. And then I'm gonna let you guys do the same thing. So don't do what I do yet. please.
+
+912
+01:27:37.210 --> 01:27:38.600
+Anthony Taylor: Yes, Andy.
+
+913
+01:27:39.600 --> 01:27:41.129
+sonja baro: quick question.
+
+914
+01:27:41.250 --> 01:27:45.850
+sonja baro: So the commit. When you do get commit it.
+
+915
+01:27:45.870 --> 01:27:48.939
+sonja baro: It's in your local repository.
+
+916
+01:27:49.130 --> 01:27:54.989
+sonja baro: Correct. So I've clone my repo, and I bring it, and I bring it down.
+
+917
+01:27:55.140 --> 01:28:01.150
+sonja baro: And I committed for the the first time to like.
+
+918
+01:28:01.430 --> 01:28:02.840
+Anthony Taylor: It's whatever's in there.
+
+919
+01:28:03.070 --> 01:28:12.319
+sonja baro: Okay? And then I commit, and then I go, and I make changes, and it doesn't go back until I push or do I have to commit? Okay.
+
+920
+01:28:12.420 --> 01:28:19.400
+Anthony Taylor: you always have to commit before you push. The good news is most of the time. When you try to push, it'll tell you you should commit
+
+921
+01:28:19.910 --> 01:28:28.610
+Anthony Taylor: we're gonna walk through how to see other. This actually, one more command. They don't mentioned that I'm gonna do. So you guys are all welcome. Come to my repository.
+
+922
+01:28:28.770 --> 01:28:33.380
+Anthony Taylor: It is filled with lots of fun stuff that you're going to enjoy at some point.
+
+923
+01:28:33.540 --> 01:28:38.029
+Anthony Taylor: It also has a bunch of stuff that are really just Demos.
+
+924
+01:28:38.260 --> 01:28:41.630
+Anthony Taylor: For this demo I'm about to do right now, live
+
+925
+01:28:41.770 --> 01:28:45.320
+Anthony Taylor: any name you like. Guess how that went.
+
+926
+01:28:45.500 --> 01:28:49.169
+Anthony Taylor: I said, create a repo. Give it any name you like.
+
+927
+01:28:51.550 --> 01:28:54.909
+Anthony Taylor: Okay, so anyway, that's what we're gonna do. So going back
+
+928
+01:28:55.020 --> 01:29:00.070
+Anthony Taylor: to our homepage, you should see something like this. If you just got here.
+
+929
+01:29:01.750 --> 01:29:11.230
+Anthony Taylor: it may look more like this. Okay, it just depends. Most of you don't have a lot over here on the left. Don't worry about it. You will.
+
+930
+01:29:11.610 --> 01:29:21.879
+Anthony Taylor: Okay. So what we're gonna do is we're gonna start with, let's create a new repository. So if you're on this screen, you can just click this new button right here.
+
+931
+01:29:23.690 --> 01:29:36.009
+Anthony Taylor: Okay? And it's gonna take you. No, I just want you to watch. You're welcome to do it.
+
+932
+01:29:36.520 --> 01:29:40.740
+Anthony Taylor:  So we're not going to use any templates. Anything like that.
+
+933
+01:29:40.750 --> 01:29:46.640
+Anthony Taylor: In my case I have more than one, so I get to queue the owner, so I'll use my main
+
+934
+01:29:47.070 --> 01:29:50.689
+Anthony Taylor: my main name, which is Lord of Etl.
+
+935
+01:29:51.650 --> 01:29:55.569
+Anthony Taylor: Don't make fun of me. It used to be lord of data.
+
+936
+01:29:56.220 --> 01:30:02.089
+Clayton Graves: Okay. And now, following you, you saw mine.
+
+937
+01:30:02.800 --> 01:30:06.229
+Clayton Graves: What is yours, Lord Etl. Lord Graves.
+
+938
+01:30:06.660 --> 01:30:18.999
+Anthony Taylor: Oh, that's a good one, too. Well, Lord Etl came from I they used to call me the Lord data, and then I started working on something, and as Laura and me, I said, I'm not gonna be Lord data anymore. That's I'm gonna be Lord Etl.
+
+939
+01:30:19.200 --> 01:30:22.040
+Anthony Taylor: and I've had that stupid name forever.
+
+940
+01:30:23.050 --> 01:30:26.869
+Anthony Taylor:  I used to have the domain. But I got rid of.
+
+941
+01:30:27.090 --> 01:30:32.379
+Anthony Taylor: Okay. Repository name needs to be unique to your
+
+942
+01:30:33.490 --> 01:30:37.930
+Anthony Taylor: subscription. Okay? So I can't use any name I like.
+
+943
+01:30:38.560 --> 01:30:45.460
+Anthony Taylor: Alright, but I could just make one. So I'll do a demo for AI. Okay?
+
+944
+01:30:45.910 --> 01:30:50.459
+Anthony Taylor: And it says, Here, that's available. So I'm good. Go. Don't push any buttons
+
+945
+01:30:50.550 --> 01:30:57.699
+Anthony Taylor: next description. This is optional. I recommend you put something in here. This is my first
+
+946
+01:30:58.430 --> 01:30:59.190
+repo.
+
+947
+01:31:01.710 --> 01:31:05.100
+Anthony Taylor: public or private. Now I have some private ones.
+
+948
+01:31:05.420 --> 01:31:11.080
+Anthony Taylor: Public. If you're gonna share with anybody in the group, or you're going to submit homework.
+
+949
+01:31:11.280 --> 01:31:12.659
+Anthony Taylor: you need it to be public.
+
+950
+01:31:13.130 --> 01:31:19.819
+Anthony Taylor: Okay, private, you'd have to actually, specifically give people permission. You don't know which grader is gonna be grading. So
+
+951
+01:31:20.360 --> 01:31:32.130
+Anthony Taylor: it's basically going to be public always at a read me, it's not a requirement. It's just a really good idea. Okay. for the get ignored. So
+
+952
+01:31:33.220 --> 01:31:37.279
+Anthony Taylor: a lot of programming languages, including python create
+
+953
+01:31:37.680 --> 01:31:38.500
+Anthony Taylor: duff.
+
+954
+01:31:39.810 --> 01:31:43.640
+Anthony Taylor: And the stuff is not important to your code base.
+
+955
+01:31:44.110 --> 01:31:45.930
+Anthony Taylor: Alright. So
+
+956
+01:31:46.110 --> 01:31:53.680
+Anthony Taylor: we can come in here. And since most of the work we're going to be doing is in python, we're going to click on this. And in the filter
+
+957
+01:31:53.950 --> 01:31:55.929
+Anthony Taylor: type, PY.
+
+958
+01:31:56.100 --> 01:31:59.150
+Anthony Taylor: And you will see python and click python.
+
+959
+01:32:01.050 --> 01:32:11.510
+Anthony Taylor: All this is gonna do is put a file into your repository that says, Hey, all this stuff that python's creating, that you don't need. Just ignore it.
+
+960
+01:32:11.820 --> 01:32:18.220
+Anthony Taylor: Don't put it back up on the Internet. cause. It's just gonna take up space and and make your repository up.
+
+961
+01:32:19.180 --> 01:32:23.419
+Anthony Taylor: Okay, you could also update that and add other things. If you need to
+
+962
+01:32:23.590 --> 01:32:33.249
+Anthony Taylor: do not worry about license. None of us are making any license software at this point. So just move on once that's done, create the repository.
+
+963
+01:32:33.620 --> 01:32:36.650
+Anthony Taylor: This should go very quickly, and then you have
+
+964
+01:32:36.660 --> 01:32:39.239
+Anthony Taylor: this. So you'll be in a repository.
+
+965
+01:32:40.940 --> 01:32:41.700
+Anthony Taylor: Okay.
+
+966
+01:32:42.630 --> 01:32:46.020
+Anthony Taylor: now, I'm going to open my terminal.
+
+967
+01:32:46.390 --> 01:32:51.479
+Anthony Taylor: Everybody feel free to join a lot. If you want still in demo mode right now.
+
+968
+01:32:51.950 --> 01:32:58.060
+Anthony Taylor:  I'm not gonna switch to get past, cause I don't want to.
+
+969
+01:32:59.150 --> 01:33:03.790
+Anthony Taylor: but you could for those of you. If if you type GIT.
+
+970
+01:33:04.210 --> 01:33:09.100
+Anthony Taylor: Space, dash B, and it doesn't give you an answer similar to this.
+
+971
+01:33:10.440 --> 01:33:11.410
+Anthony Taylor: raise your hand.
+
+972
+01:33:12.530 --> 01:33:13.830
+Anthony Taylor: leave it at the screen.
+
+973
+01:33:16.570 --> 01:33:21.890
+Anthony Taylor: Everybody's good with this. I'm gonna be so impressed
+
+974
+01:33:22.240 --> 01:33:23.919
+Tania Raugewitz: I thought we were in demo mode
+
+975
+01:33:24.480 --> 01:33:27.549
+Anthony Taylor: we are. But you can still do it. Just this.
+
+976
+01:33:30.520 --> 01:33:32.399
+michael mcpherson: Hold on. I got a couple of thumbs.
+
+977
+01:33:33.330 --> 01:33:34.519
+Anthony Taylor: I'm sorry, Mike.
+
+978
+01:33:37.770 --> 01:33:40.210
+michael mcpherson: I got a bunch of different command prompts open.
+
+979
+01:33:41.140 --> 01:33:42.470
+Anthony Taylor: You only need one.
+
+980
+01:33:43.850 --> 01:33:46.989
+michael mcpherson: How's going?
+
+981
+01:33:47.770 --> 01:33:49.340
+Anthony Taylor: Oh, I'm sorry.
+
+982
+01:33:50.630 --> 01:33:53.709
+Anthony Taylor: Bryan, you raise your hand. Was that a good? Yes, you're good
+
+983
+01:33:56.670 --> 01:33:58.470
+Masarirambi, Rodney: no. So
+
+984
+01:33:58.740 --> 01:34:00.820
+Masarirambi, Rodney: once these 2 are entered.
+
+985
+01:34:01.350 --> 01:34:07.170
+Masarirambi, Rodney: yeah, II gotta wants me to do my itunes xcode an SDK license.
+
+986
+01:34:08.150 --> 01:34:13.360
+Anthony Taylor: Okay, do, do you have? Oh, your term? Oh. Kev, what's he got to do?
+
+987
+01:34:16.210 --> 01:34:17.910
+Kevin Nguyen: Let me see.
+
+988
+01:34:18.970 --> 01:34:23.449
+Anthony Taylor: Oh, you want him to share? Oh, I didn't mean for this to be a sharing.
+
+989
+01:34:27.570 --> 01:34:30.310
+Anthony Taylor: Go ahead, share for us, Rodney. Show us what's going on.
+
+990
+01:34:30.990 --> 01:34:34.930
+Gebrekristos, Hafton: Does it have to be the same version as yours. I have 2.4 1.
+
+991
+01:34:37.120 --> 01:34:39.979
+Anthony Taylor: No, it does not need to be saved.
+
+992
+01:34:40.530 --> 01:34:41.210
+Okay.
+
+993
+01:34:41.550 --> 01:34:50.209
+Anthony Taylor: yeah. As long as it returns something that means you're installed properly. Rodney, did you share Mike? I see your hand. But let's work. Let's get running down.
+
+994
+01:34:50.680 --> 01:34:52.759
+Masarirambi, Rodney: Is anybody else having issues
+
+995
+01:34:55.160 --> 01:34:57.549
+Masarirambi, Rodney: I'm trying to share. But I'm not getting any.
+
+996
+01:34:58.630 --> 01:35:02.119
+Masarirambi, Rodney: thank you. I'm getting the weirdest like, it's not.
+
+997
+01:35:04.740 --> 01:35:16.760
+Masarirambi, Rodney: It's yeah. That's that's weird. You're not getting the usual share options. Let me see if I can just do desktop. I'm just going to do desktop, too. That's sorry us do the desktop.
+
+998
+01:35:19.010 --> 01:35:21.169
+Anthony Taylor: We won't look at all your other icons up.
+
+999
+01:35:22.320 --> 01:35:25.489
+Masarirambi, Rodney: No, no, it's just. It's literally just the
+
+1000
+01:35:25.520 --> 01:35:32.670
+Masarirambi, Rodney: it's it's not doing it. I I don't know if I need to quit Zoom. But I
+
+1001
+01:35:32.840 --> 01:35:34.459
+Masarirambi, Rodney: yeah, I'm not still wearing.
+
+1002
+01:35:35.580 --> 01:35:38.469
+Masarirambi, Rodney: Yeah, I'm getting like exclamation marks with everything.
+
+1003
+01:35:38.640 --> 01:35:44.610
+Anthony Taylor: Well, what was the what was the the what was the return again. Something about X code. Kit.
+
+1004
+01:35:45.840 --> 01:35:54.099
+Masarirambi, Rodney: Yeah. So it's it's something. So says something. That I've got to greet the expo license. You might have to every time
+
+1005
+01:35:54.390 --> 01:35:57.709
+Kevin Nguyen: it takes a long time, though it takes like 15 min
+
+1006
+01:35:57.760 --> 01:36:01.350
+Kevin Nguyen: or more, so maybe we could do it after class, or you could we could do it before tomorrow.
+
+1007
+01:36:01.860 --> 01:36:08.519
+Anthony Taylor: Okay, so you're alright. Today you're in watch move. It's alright. It's gonna be awesome, Rodney. Don't worry.
+
+1008
+01:36:08.660 --> 01:36:10.749
+Anthony Taylor: Mike. What's the question, sir.
+
+1009
+01:36:19.730 --> 01:36:21.250
+Anthony Taylor: you're muted, Mike.
+
+1010
+01:36:22.540 --> 01:36:25.869
+Anthony Taylor: You weren't muted. But now you're muted. There you go.
+
+1011
+01:36:26.130 --> 01:36:33.630
+michael mcpherson: Mine's 2.4 2.0. That's fine. That just means you got you guys installed it after I installed them. It's totally good.
+
+1012
+01:36:34.680 --> 01:36:38.080
+Anthony Taylor: All right. Everybody else. Right now, you're okay. Yeah.
+
+1013
+01:36:38.680 --> 01:36:41.039
+Anthony Taylor: awesome. Okay. Back to share.
+
+1014
+01:36:41.750 --> 01:36:47.169
+Anthony Taylor: Rodney. We will take care of you do not concern, and the good news is not complicated stuff.
+
+1015
+01:36:47.570 --> 01:36:50.230
+Anthony Taylor: Alright. So now that I have
+
+1016
+01:36:50.410 --> 01:36:59.089
+Anthony Taylor: the terminal that I have tested. I'm going to go up here to my repo. So we're gonna call her from now on, because we are the cool kids.
+
+1017
+01:36:59.880 --> 01:37:02.069
+Anthony Taylor: Okay, the repo.
+
+1018
+01:37:02.710 --> 01:37:04.680
+Anthony Taylor: And we're going to push this green button.
+
+1019
+01:37:05.040 --> 01:37:13.780
+Anthony Taylor: and you can actually pick ssh, just, I don't care. Ssh is typically considered better. It doesn't work. Come back and pick https.
+
+1020
+01:37:13.970 --> 01:37:16.080
+Anthony Taylor: Okay,
+
+1021
+01:37:16.220 --> 01:37:17.200
+Anthony Taylor: copy.
+
+1022
+01:37:18.260 --> 01:37:20.770
+Anthony Taylor: And then we're going to type. Git
+
+1023
+01:37:21.630 --> 01:37:27.800
+Anthony Taylor: clone. And you don't need to do this right now. But you're going to, and we're going to paste and hit enter.
+
+1024
+01:37:28.520 --> 01:37:36.470
+Anthony Taylor: So what has just happened? It has closed all of the objects
+
+1025
+01:37:36.710 --> 01:37:42.909
+Anthony Taylor: in my repository to my local drive. I can. I know this because I can type
+
+1026
+01:37:43.180 --> 01:37:44.900
+Anthony Taylor: change Directory
+
+1027
+01:37:45.990 --> 01:37:48.930
+Anthony Taylor: Demo for AI
+
+1028
+01:37:49.120 --> 01:37:51.750
+Anthony Taylor: and hit enter and then list.
+
+1029
+01:37:51.800 --> 01:37:57.680
+Anthony Taylor: And oh, sorry I'm not in that directory and see I have it. Ignore it reading.
+
+1030
+01:37:58.410 --> 01:37:59.990
+Anthony Taylor: I will actually
+
+1031
+01:38:02.750 --> 01:38:11.899
+Anthony Taylor: open it this way. Okay. now, on my screen, I have 2 files that you may not see when you do this, because they would be hidden files
+
+1032
+01:38:12.490 --> 01:38:23.459
+Anthony Taylor: for my windows. Users. I don't know how to do this on that are my windows users. I want you to hit view so, and then make sure you have hidden items checked
+
+1033
+01:38:23.950 --> 01:38:29.810
+Anthony Taylor: as well as filing extensions. Otherwise your screen will look more like
+
+1034
+01:38:31.890 --> 01:38:32.810
+Anthony Taylor: that.
+
+1035
+01:38:33.770 --> 01:38:37.029
+Anthony Taylor: There's nothing wrong with that. But yeah, I don't.
+
+1036
+01:38:38.120 --> 01:38:41.090
+Anthony Taylor: So file name extensions
+
+1037
+01:38:43.250 --> 01:38:44.889
+Anthony Taylor: and midnight
+
+1038
+01:38:46.190 --> 01:38:54.730
+Anthony Taylor: when I see. So sometimes some of you will say I'm doing a get committed. Nothing's working, and I'll look, and I'll say, Show me your directory, and you won't have this file.
+
+1039
+01:38:54.930 --> 01:39:00.589
+Anthony Taylor: And then I know this is not a git repository. because everything happens in. Git.
+
+1040
+01:39:00.630 --> 01:39:02.499
+Anthony Taylor: it's stored in that full.
+
+1041
+01:39:04.150 --> 01:39:08.889
+Anthony Taylor: Okay, alright. So here we are. So now I'm gonna right. Click inside of here.
+
+1042
+01:39:09.120 --> 01:39:13.509
+Anthony Taylor: And I'm going to go to Vs code. Now, if you don't have this cool option
+
+1043
+01:39:13.670 --> 01:39:22.529
+Anthony Taylor: bummer. but I will show you how to get to it. Okay? So what you would do is just open Vs code.
+
+1044
+01:39:23.310 --> 01:39:34.550
+Anthony Taylor: and at the top here you would do file open folder. and then you would go to wherever that folder is stored.
+
+1045
+01:39:38.740 --> 01:39:41.180
+Anthony Taylor: and put that in here.
+
+1046
+01:39:42.970 --> 01:39:50.300
+Anthony Taylor: Enter and then do select folder. Okay, either one works the right click. One is way better.
+
+1047
+01:39:50.410 --> 01:39:56.659
+Anthony Taylor: only because it's just super convenient. Okay? So now here we are.
+
+1048
+01:39:56.990 --> 01:40:03.439
+Anthony Taylor: We're in our repository. So what are we gonna do first? Well, first, I'm going to add a file
+
+1049
+01:40:03.650 --> 01:40:04.870
+Anthony Taylor: of.
+
+1050
+01:40:04.990 --> 01:40:10.170
+Anthony Taylor: and I'll call it a file dot text. And I'll say, this is
+
+1051
+01:40:10.890 --> 01:40:13.269
+Anthony Taylor: my first entry.
+
+1052
+01:40:14.120 --> 01:40:17.029
+Anthony Taylor: I'm I'm typing faster than I'm talking.
+
+1053
+01:40:17.510 --> 01:40:23.400
+Anthony Taylor: Okay, and I saved it. Now the cool thing about Vs code Vs code is a lot of
+
+1054
+01:40:23.500 --> 01:40:25.040
+Anthony Taylor: capabilities.
+
+1055
+01:40:26.140 --> 01:40:31.879
+Anthony Taylor: Alright, it can tell us it's actually telling me that this file is new
+
+1056
+01:40:32.580 --> 01:40:34.359
+Anthony Taylor: and it's been updated.
+
+1057
+01:40:35.450 --> 01:40:44.279
+Anthony Taylor: I can see this by the color. I can see this by the U. In fact, if I click over here. I can even see that it's been changed.
+
+1058
+01:40:46.240 --> 01:40:55.740
+Anthony Taylor: Okay, now we're gonna come back to this. But for right now let's stay in here. So I'm back in here and I do directory. And
+
+1059
+01:40:57.100 --> 01:41:03.779
+Anthony Taylor: and I can now see, I have that file. So here's the next command. What was the first command we learned.
+
+1060
+01:41:08.520 --> 01:41:16.260
+Anthony Taylor: get, get close. Okay. So now I'm gonna type. Get status.
+
+1061
+01:41:17.750 --> 01:41:26.799
+Anthony Taylor: Now, what get status tells me is what's going on in my repository right now. Now, the cool thing about git status
+
+1062
+01:41:26.840 --> 01:41:30.820
+Anthony Taylor: is not only does it tell me I have an untracked file.
+
+1063
+01:41:31.040 --> 01:41:44.709
+Anthony Taylor: it tells me how to add it, what I should do. so I need to add this file to my track. Now there are 2 ways to do it. One you can do, get. Add, then, type the whole file name.
+
+1064
+01:41:45.030 --> 01:41:48.500
+Anthony Taylor: or you can do it my favorite way. Get
+
+1065
+01:41:49.260 --> 01:41:56.689
+Anthony Taylor: add space period. That will add all of these untracked files to our repository.
+
+1066
+01:41:58.190 --> 01:41:58.970
+Anthony Taylor: And
+
+1067
+01:42:00.620 --> 01:42:02.079
+Anthony Taylor: now, how do I know I didn't
+
+1068
+01:42:03.110 --> 01:42:05.740
+Anthony Taylor: anybody want. Guess? What should I type? You already know it.
+
+1069
+01:42:10.010 --> 01:42:13.790
+Anthony Taylor: Go ahead, Curry. I see it. You wanted to push, unmute.
+
+1070
+01:42:14.650 --> 01:42:15.890
+Curry Gardner: get status.
+
+1071
+01:42:16.350 --> 01:42:17.650
+Anthony Taylor: get status.
+
+1072
+01:42:18.890 --> 01:42:26.070
+Anthony Taylor: Okay? It looks different now. Right? This says your branch is up to date with origin main. So that means we're up to date with the
+
+1073
+01:42:26.120 --> 01:42:31.450
+Anthony Taylor: the main branch. and we haven't changed, and we have this new file.
+
+1074
+01:42:32.790 --> 01:42:38.429
+Anthony Taylor: And what do we want to do with? Well, it literally says, changes to be committed.
+
+1075
+01:42:39.950 --> 01:42:43.230
+Anthony Taylor: Alright, so don't be afraid of commitment.
+
+1076
+01:42:44.330 --> 01:42:46.730
+Anthony Taylor: Gibbs commit.
+
+1077
+01:42:47.710 --> 01:42:50.120
+Anthony Taylor: And now we need a message dash. M.
+
+1078
+01:42:50.490 --> 01:42:51.500
+Anthony Taylor: Quotes
+
+1079
+01:42:51.890 --> 01:42:53.950
+Anthony Taylor: my first
+
+1080
+01:42:54.150 --> 01:42:56.670
+Anthony Taylor: commit end quote.
+
+1081
+01:42:58.830 --> 01:42:59.840
+Anthony Taylor: Answer.
+
+1082
+01:43:00.810 --> 01:43:13.130
+Anthony Taylor: Okay. So now I gave this more information. So some of this stuff don't worry about this is like what's going on in the background. But it basically it put this message, says one file is changed, and it was added
+
+1083
+01:43:15.010 --> 01:43:17.389
+Anthony Taylor: alright, and then there we go.
+
+1084
+01:43:18.400 --> 01:43:22.059
+Anthony Taylor: Now, let's go back to Github
+
+1085
+01:43:22.130 --> 01:43:34.279
+Anthony Taylor: and see if it's there. Take a vote before I refresh the page. Is it gonna be there? Curry says, no. Jennifer says, baby. Yeah. Ronnie says, Yeah. alright. Well.
+
+1086
+01:43:35.350 --> 01:43:38.449
+Anthony Taylor: we are actually missing a step.
+
+1087
+01:43:38.750 --> 01:43:41.390
+sonja baro: It's not there. Yeah, push it.
+
+1088
+01:43:42.010 --> 01:43:44.730
+Anthony Taylor: Yeah, yeah, push it poochy
+
+1089
+01:43:44.870 --> 01:43:50.280
+Anthony Taylor: real good. There you go. Gotta push. I always stick that in my head.
+
+1090
+01:43:50.300 --> 01:43:51.910
+Anthony Taylor: So now that we have
+
+1091
+01:43:51.980 --> 01:43:56.590
+Anthony Taylor: create, and we have made something we have committed. So we did a save.
+
+1092
+01:43:57.210 --> 01:43:59.040
+Anthony Taylor: Now we can do a push.
+
+1093
+01:44:00.530 --> 01:44:09.859
+Anthony Taylor: Actually, we could even do a status just to see where we are. I have nothing to commit. Everything looks good. Oh, but wait! Something has changed. You guys see what changed
+
+1094
+01:44:09.900 --> 01:44:16.400
+Anthony Taylor: up here said. We're up to date now. It says we are ahead
+
+1095
+01:44:16.730 --> 01:44:19.879
+Anthony Taylor: of origin, name by one bit.
+
+1096
+01:44:20.920 --> 01:44:22.620
+Anthony Taylor: and the only way to fix that
+
+1097
+01:44:24.000 --> 01:44:26.300
+Anthony Taylor: get push. Answer.
+
+1098
+01:44:27.210 --> 01:44:32.959
+Anthony Taylor: Okay. Now, as you can see if everything is set up properly. This just pushed it up to
+
+1099
+01:44:33.260 --> 01:44:39.520
+Anthony Taylor: our repository, which now, when we refresh just like magic, it's now there.
+
+1100
+01:44:41.340 --> 01:44:43.960
+Anthony Taylor: Okay. pretty cool.
+
+1101
+01:44:44.990 --> 01:44:47.750
+Anthony Taylor: alright alternatives.
+
+1102
+01:44:50.310 --> 01:44:53.679
+Anthony Taylor: Boot camp rule number one for curriculum.
+
+1103
+01:44:54.420 --> 01:44:56.959
+Anthony Taylor: Show them the hard way first
+
+1104
+01:44:57.190 --> 01:45:01.729
+Anthony Taylor: that way. They really like you when you show them the easy way.
+
+1105
+01:45:02.540 --> 01:45:07.720
+Anthony Taylor: particularly after you've made them do it like 500 times the hard way.
+
+1106
+01:45:08.200 --> 01:45:13.339
+Anthony Taylor: Then show them easy. Well, I'm not gonna do that. I did show you the hard way. That was the hard.
+
+1107
+01:45:14.060 --> 01:45:23.119
+Anthony Taylor: okay, the easy way I can come. Well, there's a couple of easy ways. There's this easy way, which is stupid, easy, but I wouldn't recommend it. Very often.
+
+1108
+01:45:23.220 --> 01:45:27.140
+Anthony Taylor: You can actually create a new file right here. Hi.
+
+1109
+01:45:28.660 --> 01:45:31.550
+Anthony Taylor: this is a file created
+
+1110
+01:45:31.900 --> 01:45:37.170
+Anthony Taylor: on the web. Okay. if you like it.
+
+1111
+01:45:38.010 --> 01:45:41.429
+Anthony Taylor: you can preview what it looks like edit.
+
+1112
+01:45:41.570 --> 01:45:42.910
+Anthony Taylor: And then.
+
+1113
+01:45:43.290 --> 01:45:45.669
+Anthony Taylor: oh, we gotta give it a name.
+
+1114
+01:45:47.140 --> 01:45:51.830
+Anthony Taylor: web, file dot text and commit changes.
+
+1115
+01:45:52.190 --> 01:45:56.409
+Anthony Taylor: Okay, you could give it a nice comment. Whatever you want commit.
+
+1116
+01:45:56.740 --> 01:45:59.360
+Anthony Taylor: and it has been committed. We refresh
+
+1117
+01:46:00.510 --> 01:46:02.880
+Anthony Taylor: and look at that. It's there question.
+
+1118
+01:46:03.460 --> 01:46:06.759
+Anthony Taylor: is this gonna be in my local folder on my hard drive?
+
+1119
+01:46:09.510 --> 01:46:18.009
+Anthony Taylor: It's not right, but it should be Clayton's. Clayton's right. It should be there. But it's not because there is one more step
+
+1120
+01:46:18.340 --> 01:46:25.190
+Anthony Taylor: every day that you guys are working in the repo during projects. The first thing you're going to do
+
+1121
+01:46:25.310 --> 01:46:27.960
+Anthony Taylor: get Paul.
+
+1122
+01:46:29.310 --> 01:46:35.199
+Anthony Taylor: Run it now get fool! Said, hey! We have a new file.
+
+1123
+01:46:37.460 --> 01:46:50.660
+Clayton Graves: We just added it to your folder. Let's go look in my folder wham it's right there. Just think about it like this. Guys get clone pulls the entire repository right? It pulls everything. Only do that. Once
+
+1124
+01:46:50.700 --> 01:46:57.020
+Clayton Graves: get pulled. Postage changes that have been made since the last time you cloned it or polled
+
+1125
+01:46:58.040 --> 01:47:14.270
+Anthony Taylor: correct. But do be aware it can overwrite your changes if you change the same thing. So be aware that usually it'll tell. Okay. Alright. So that was and easy way. But you had to do that stupid git, pull thing right, which we're going to do anyway. But
+
+1126
+01:47:14.380 --> 01:47:17.490
+Anthony Taylor: there is yet an easier way still.
+
+1127
+01:47:18.820 --> 01:47:21.770
+Anthony Taylor: Okay. Vs code
+
+1128
+01:47:22.960 --> 01:47:32.370
+Anthony Taylor: is the end. All tool of all tools. Alright. So here's what we're going to do. We're going to create another file, in fact, cancel that I'm going to create a folder
+
+1129
+01:47:32.630 --> 01:47:35.160
+Anthony Taylor:  stuff
+
+1130
+01:47:35.560 --> 01:47:40.720
+Anthony Taylor: folder in that folder. I'm gonna create file
+
+1131
+01:47:41.550 --> 01:47:45.570
+Anthony Taylor: another file dot text.
+
+1132
+01:47:46.190 --> 01:47:48.590
+Anthony Taylor: And in here I'm gonna say,
+
+1133
+01:47:49.240 --> 01:47:52.570
+Anthony Taylor: gonna commit from vs, code.
+
+1134
+01:47:53.860 --> 01:47:59.180
+Anthony Taylor: Okay, I'm gonna save it. So here we go again. Everything color coded. It turns green.
+
+1135
+01:47:59.370 --> 01:48:04.839
+Anthony Taylor: Says it's gonna update. Now, I'm gonna go over here to this cool thing. If you notice it says source control
+
+1136
+01:48:06.240 --> 01:48:12.449
+Anthony Taylor: there's there's other information on the screen. As we do this, you can see right now we're in the main branch.
+
+1137
+01:48:13.550 --> 01:48:14.560
+Anthony Taylor: Okay.
+
+1138
+01:48:14.880 --> 01:48:22.549
+Anthony Taylor: I'm going to click on this. I see this here. I'm going to put in a message first. Commit from Bs code
+
+1139
+01:48:23.080 --> 01:48:24.260
+Anthony Taylor: type. Commit.
+
+1140
+01:48:25.400 --> 01:48:29.479
+It says, would you like to stage it first. So remember the get ad
+
+1141
+01:48:31.140 --> 01:48:32.590
+Anthony Taylor: that was staging.
+
+1142
+01:48:32.600 --> 01:48:41.580
+Anthony Taylor: Well, there is no git. Add here. I mean, technically, I could just push this button, but I can just say, you know what? Get it? It'll add whatever's in this area.
+
+1143
+01:48:41.630 --> 01:48:49.459
+Anthony Taylor: So yeah, always do that. So now it has timidity. But now down here at the bottom. Something has changed.
+
+1144
+01:48:50.410 --> 01:48:53.429
+Anthony Taylor: It's showing 0 down one up.
+
+1145
+01:48:54.680 --> 01:48:55.959
+Anthony Taylor: which means
+
+1146
+01:48:55.980 --> 01:49:02.129
+Anthony Taylor: there's nothing new up on on the the Github Repository, but I've got something.
+
+1147
+01:49:03.590 --> 01:49:11.000
+Anthony Taylor: So if I want to push it, I can either click here, I can click sync changes. I can go in here and do push
+
+1148
+01:49:12.460 --> 01:49:13.970
+Anthony Taylor: all of these options.
+
+1149
+01:49:14.680 --> 01:49:25.139
+Anthony Taylor: Okay, so we'll just pick one for right now, actually. this button will be here. You can use it. I want to do it down here, because if you didn't see this, or if you were like in this screen.
+
+1150
+01:49:25.300 --> 01:49:26.649
+Anthony Taylor: this is still here.
+
+1151
+01:49:27.110 --> 01:49:32.549
+Anthony Taylor: So you click that it'll say you want to push and pull. You say, yeah, don't show me that again.
+
+1152
+01:49:33.310 --> 01:49:39.980
+Anthony Taylor: and then it'll take a second. Now, when we go back to our repository refresh.
+
+1153
+01:49:40.070 --> 01:49:43.759
+Anthony Taylor: we have a folder, and in our folder there is a file.
+
+1154
+01:49:45.580 --> 01:49:49.800
+Clayton Graves: This is awesome before this is, this is great.
+
+1155
+01:49:50.200 --> 01:49:52.089
+Anthony Taylor: It is very handy.
+
+1156
+01:49:52.710 --> 01:49:54.640
+Anthony Taylor: Okay,
+
+1157
+01:49:54.660 --> 01:50:04.110
+Anthony Taylor: Other things you can do in here that are kind of interesting. We can say more stuff. save it.
+
+1158
+01:50:04.270 --> 01:50:07.480
+Anthony Taylor: We have tools that will allow us
+
+1159
+01:50:07.740 --> 01:50:13.329
+Anthony Taylor: to look at what the history of this file is, oh.
+
+1160
+01:50:13.360 --> 01:50:14.930
+Anthony Taylor: I like that one's not working.
+
+1161
+01:50:15.170 --> 01:50:20.420
+Anthony Taylor: Where's my get Lensx inspect?
+
+1162
+01:50:20.900 --> 01:50:33.139
+Anthony Taylor: I don't need you guys to know how to do this stuff. But basically I can look at this and see who originally committed it. What changes they made over time to do all this. It's like a lineage of how we got
+
+1163
+01:50:33.950 --> 01:50:36.059
+Anthony Taylor: all right. Very, very cool thing.
+
+1164
+01:50:36.910 --> 01:50:38.290
+Anthony Taylor: Okay.
+
+1165
+01:50:39.620 --> 01:50:42.410
+Anthony Taylor: I think I've beat that near to death.
+
+1166
+01:50:44.150 --> 01:50:48.699
+Anthony Taylor: Okay, final. Get snapshot model slack out. Link pro get book.
+
+1167
+01:50:48.910 --> 01:50:50.299
+Anthony Taylor: I'm gonna give you this link
+
+1168
+01:50:51.520 --> 01:50:59.040
+Anthony Taylor: alright. Any questions you guys feel totally lost or totally like that was interesting. But I'm well.
+
+1169
+01:50:59.710 --> 01:51:05.549
+Anthony Taylor: Is that where you are. How about this? This is one of the the the school's favorite things to do. Fifth of 5.
+
+1170
+01:51:05.940 --> 01:51:08.220
+Anthony Taylor: What that means is one.
+
+1171
+01:51:08.240 --> 01:51:16.960
+Anthony Taylor: I don't even know why I'm here. 5. I know this as well as him. Okay. somewhere in between.
+
+1172
+01:51:17.090 --> 01:51:22.939
+Anthony Taylor: you're good. Alright. So show me 55. Put it on camera. Where are you at? With what? We just covered
+
+1173
+01:51:23.160 --> 01:51:27.300
+Anthony Taylor: twos, threes, twos, fours, hey? No ones.
+
+1174
+01:51:27.720 --> 01:51:37.259
+Anthony Taylor: I'm feeling good about it. Okay. cool. Those are. You got threes and fours and fives. Are you like experienced with this? You used this before?
+
+1175
+01:51:37.380 --> 01:51:41.270
+Anthony Taylor: No, okay, that's good. That's good. I'm I'm happy with that
+
+1176
+01:51:41.320 --> 01:51:46.309
+Anthony Taylor: alright notice. Because I added this. Now it says I've got another clue.
+
+1177
+01:51:46.400 --> 01:51:53.140
+Anthony Taylor: I can save. Blah. Don't do that. That's bad idea. Then sync my changes. And now that's up there, too.
+
+1178
+01:51:53.890 --> 01:52:03.220
+Anthony Taylor: Now, do you have to see changes every time? Absolutely not. You can commit, make a change, commit, make a change, commit, make a change.
+
+1179
+01:52:04.220 --> 01:52:06.500
+Anthony Taylor: test everything works.
+
+1180
+01:52:06.600 --> 01:52:07.850
+Anthony Taylor: Then push.
+
+1181
+01:52:09.300 --> 01:52:11.320
+Anthony Taylor: Okay, alright your turn.
+
+1182
+01:52:11.470 --> 01:52:27.199
+Anthony Taylor: I went. Everybody finally gonna let you guys work. and it's only 9 40. On the second 8 40. On the second day.  so you're gonna create a repository. It tells you exactly what it, what what they want you to do.
+
+1183
+01:52:29.090 --> 01:52:33.629
+Anthony Taylor: It tells you to use the terminal officially as of right now.
+
+1184
+01:52:33.750 --> 01:52:36.750
+Anthony Taylor: I don't care if you use terminal or you use Vs code.
+
+1185
+01:52:37.590 --> 01:52:42.040
+Anthony Taylor: Okay, Vs code will be the tool you will use. probably for
+
+1186
+01:52:42.760 --> 01:52:47.099
+Anthony Taylor: alright. But if you want to use terminal feel free if you don't, that's fine, too.
+
+1187
+01:52:47.540 --> 01:52:51.200
+Anthony Taylor: If you use the terminal, you could do get status.
+
+1188
+01:52:51.290 --> 01:52:59.230
+Anthony Taylor: If you're not using the terminal when you're at Vs code, all you pretty much have to do is click on this dude over here, and you'll see what what's going on.
+
+1189
+01:52:59.640 --> 01:53:02.050
+Anthony Taylor: Alright. Yeah.
+
+1190
+01:53:04.380 --> 01:53:05.220
+Anthony Taylor: that's it.
+
+1191
+01:53:05.360 --> 01:53:13.210
+Anthony Taylor: So do all of this. It should only take you like 10 min, if that. and let's do it. So here's what's gonna happen.
+
+1192
+01:53:13.510 --> 01:53:24.440
+Anthony Taylor: I'm going to make breakout rooms. You will be automatically put into the breakout room. In this particular case all of you have to do it. But one of you could share your screen if you want.
+
+1193
+01:53:24.780 --> 01:53:27.349
+Anthony Taylor: Remember, everybody talks
+
+1194
+01:53:28.240 --> 01:53:31.460
+Anthony Taylor: so, even if you already know how to do it. Don't
+
+1195
+01:53:31.500 --> 01:53:41.560
+Anthony Taylor: talk the whole time like Anthony. All right, let somebody else talk and let them get involved. We need everybody involved. That's how we learn. Yes, Meredith.
+
+1196
+01:53:43.410 --> 01:53:52.120
+Meredith McCanse (she/her): I just you. Just a second ago you showed the instructions on your screen is that
+
+1197
+01:53:52.210 --> 01:53:55.610
+Meredith McCanse (she/her): I found the download file.
+
+1198
+01:53:57.680 --> 01:54:03.570
+Anthony Taylor: Yeah. So in gitlab or in download files, canvas. They should be there. If not.
+
+1199
+01:54:04.140 --> 01:54:06.129
+Anthony Taylor: I will post this
+
+1200
+01:54:06.480 --> 01:54:09.579
+Anthony Taylor: in in slack, just in case
+
+1201
+01:54:10.040 --> 01:54:12.249
+Meredith McCanse (she/her): download files on canvas.
+
+1202
+01:54:12.660 --> 01:54:13.929
+sonja baro: It's in the
+
+1203
+01:54:14.190 --> 01:54:17.970
+sonja baro: yeah, if you down, it's in Class 2,
+
+1204
+01:54:18.510 --> 01:54:20.799
+Meredith McCanse (she/her): okay, the like. The zip file.
+
+1205
+01:54:21.190 --> 01:54:23.930
+Kevin Nguyen: Do we teach them how to pull anything.
+
+1206
+01:54:25.150 --> 01:54:30.400
+Anthony Taylor: how to pull from? Get lab, not yet. But basically, yeah.
+
+1207
+01:54:30.920 --> 01:54:45.700
+Anthony Taylor: we haven't done it. But we we just showed them out. So anyway, I just put it up in slack also. So you guys should be go. Okay. Alright. Thank you. Aye. welcome back, everybody. What do you guys think about breakout rooms? Aren't they fine?
+
+1208
+01:54:46.520 --> 01:54:47.990
+Meredith McCanse (she/her): I love.
+
+1209
+01:54:49.080 --> 01:54:50.659
+Meredith McCanse (she/her): We ran out of time
+
+1210
+01:54:51.410 --> 01:54:53.630
+Anthony Taylor: that happens. Oh, oh.
+
+1211
+01:54:53.750 --> 01:54:58.200
+Anthony Taylor: I forgot to tell you that we will always run out of time, as it's
+
+1212
+01:54:58.750 --> 01:55:02.020
+Anthony Taylor: alright. Every once in a while you will finish everything.
+
+1213
+01:55:02.150 --> 01:55:06.910
+Anthony Taylor:  it it. It's not very often.
+
+1214
+01:55:07.220 --> 01:55:17.720
+Anthony Taylor: so usually what I want you to do when that happens we will, of course, review it so you can either do it while we're reviewing it, or you can do it. Like, you know.
+
+1215
+01:55:17.800 --> 01:55:18.810
+Anthony Taylor: after class.
+
+1216
+01:55:18.970 --> 01:55:23.330
+Anthony Taylor: Okay? It happens a lot that run out of time. And I need it.
+
+1217
+01:55:23.720 --> 01:55:27.130
+Anthony Taylor: There's just no, there's no way around. It just happens.
+
+1218
+01:55:27.450 --> 01:55:30.929
+Anthony Taylor: Okay, so let's quickly go through that.
+
+1219
+01:55:32.250 --> 01:55:42.020
+Anthony Taylor:  that's interesting. So there wasn't a whole lot to say to that.
+
+1220
+01:55:42.200 --> 01:55:51.130
+Tania Raugewitz: if if I can, I don't know what I was sharing my screen. And now my camera will come on. So I'm here. How is that possible?
+
+1221
+01:55:52.210 --> 01:56:06.660
+Tania Raugewitz:  And I'm thinking that no, that was happening before my start. Video is slashed.
+
+1222
+01:56:07.260 --> 01:56:11.340
+Tania Raugewitz: So it's not along the little arrow next to it.
+
+1223
+01:56:11.560 --> 01:56:15.530
+Tania Raugewitz: Yeah, I know. Do you have like more than one camera listed?
+
+1224
+01:56:15.640 --> 01:56:16.820
+Tania Raugewitz: No
+
+1225
+01:56:17.670 --> 01:56:19.120
+Anthony Taylor: file. Poo
+
+1226
+01:56:19.850 --> 01:56:22.449
+Masarirambi, Rodney: may also be a permissions issue, because I
+
+1227
+01:56:22.620 --> 01:56:30.999
+Masarirambi, Rodney: figured out that buying issue with sharing was that I needed to restart zoom in order to enable sharing and all that stuff so it could be permissions as well.
+
+1228
+01:56:31.150 --> 01:56:39.149
+Anthony Taylor: Well, Tanya, I won't be mad at you today if your camera how's that? I don't get mad at anybody?
+
+1229
+01:56:39.390 --> 01:56:41.250
+Anthony Taylor: Alright?
+
+1230
+01:56:42.450 --> 01:56:43.950
+Anthony Taylor: okay
+
+1231
+01:56:45.270 --> 01:56:51.380
+Anthony Taylor: view. So how do you do what? Show me, Meredith? Let's let's be the show person.
+
+1232
+01:56:51.990 --> 01:56:57.210
+Meredith McCanse (she/her): Okay, I think this is the right screen.
+
+1233
+01:56:57.940 --> 01:57:02.199
+Meredith McCanse (she/her): We didn't quite finish, though we were at the process of trying to clone.
+
+1234
+01:57:02.860 --> 01:57:07.550
+Anthony Taylor: That looks good. Oh, push! Yes.
+
+1235
+01:57:07.910 --> 01:57:13.960
+Meredith McCanse (she/her): okay, if anybody gets this. And this is common just type. Yes.
+
+1236
+01:57:14.240 --> 01:57:17.890
+Meredith McCanse (she/her): oh, I have to do the lower case. Yes, but
+
+1237
+01:57:17.940 --> 01:57:21.979
+Anthony Taylor: alright, no, it's good. Okay. So that's done. So what did it tell you to do next
+
+1238
+01:57:23.760 --> 01:57:26.090
+Meredith McCanse (she/her): receiving objects done?
+
+1239
+01:57:26.400 --> 01:57:29.069
+Meredith McCanse (she/her): Oh, in the instructions are on git bash!
+
+1240
+01:57:29.540 --> 01:57:32.600
+Anthony Taylor: No, in the instruction. I I'm gonna open the instruction, Steven.
+
+1241
+01:57:42.610 --> 01:57:48.940
+Meredith McCanse (she/her): and with that thing like a one time thing. And now it'll work. Okay. Cool.
+
+1242
+01:57:49.070 --> 01:57:52.090
+Anthony Taylor: Alright.
+
+1243
+01:57:52.830 --> 01:57:54.280
+Meredith McCanse (she/her): Oh, sorry. Say it again.
+
+1244
+01:57:54.590 --> 01:57:55.930
+Anthony Taylor: Go to Vs code.
+
+1245
+01:57:56.390 --> 01:58:04.090
+Meredith McCanse (she/her): Okay? So I can do code space.
+
+1246
+01:58:04.560 --> 01:58:05.500
+Anthony Taylor: You should.
+
+1247
+01:58:06.650 --> 01:58:13.120
+Anthony Taylor: Yup, it's on a different screen. Let me pull it over. Bring on over
+
+1248
+01:58:13.280 --> 01:58:14.370
+Meredith McCanse (she/her): you see it?
+
+1249
+01:58:14.740 --> 01:58:17.640
+Anthony Taylor: Yes, I can. Oh.
+
+1250
+01:58:17.690 --> 01:58:20.310
+Anthony Taylor: oh. okay, close that.
+
+1251
+01:58:21.240 --> 01:58:34.130
+Anthony Taylor: You're actually one folder to high, so close that completely and then now do CD and go into and just do CD space and type first.
+
+1252
+01:58:34.390 --> 01:58:36.820
+Anthony Taylor: and then hit tab. Nope.
+
+1253
+01:58:36.990 --> 01:58:38.299
+Tania Raugewitz: lower case first.
+
+1254
+01:58:39.360 --> 01:58:40.569
+Anthony Taylor: There you go. Tap.
+
+1255
+01:58:42.220 --> 01:58:50.259
+Anthony Taylor: There you go. Enter. Oh, is that just so? It it automatically will fill it in with. So it goes into the correct folder. Now do code space dot
+
+1256
+01:58:52.290 --> 01:59:01.800
+Anthony Taylor: everybody with this so far.
+
+1257
+01:59:02.090 --> 01:59:06.520
+Meredith McCanse (she/her): Do you notice also it tells you what branch you're in now to see that little blue main there?
+
+1258
+01:59:06.950 --> 01:59:12.780
+Anthony Taylor: Alright. So bring that Vs code over. And it said, edit something in the readme. So
+
+1259
+01:59:13.570 --> 01:59:19.749
+Anthony Taylor: okay, so here's the read me, just type something inside of there.
+
+1260
+01:59:21.530 --> 01:59:25.900
+Meredith McCanse (she/her):  how come it already? Says something in here?
+
+1261
+01:59:26.200 --> 01:59:27.100
+Anthony Taylor: I don't know.
+
+1262
+01:59:27.250 --> 01:59:32.089
+Meredith McCanse (she/her): Oh, because when we set it up, okay.
+
+1263
+01:59:32.150 --> 01:59:43.199
+Meredith McCanse (she/her): yes, it did
+
+1264
+01:59:43.420 --> 01:59:45.289
+Meredith McCanse (she/her): K. Control. S.
+
+1265
+01:59:46.440 --> 01:59:48.560
+Anthony Taylor: Now, if you want.
+
+1266
+01:59:48.950 --> 01:59:53.219
+Anthony Taylor: you can go back to your prompt again, or do you want to do it in here, I'll leave it up to you.
+
+1267
+01:59:53.750 --> 01:59:58.490
+Meredith McCanse (she/her): Alright. Can I go here for a second, at least. Type it status
+
+1268
+01:59:58.900 --> 02:00:05.349
+Meredith McCanse (she/her): status. Get status. Get status. Okay? Now you can see your reading is changed.
+
+1269
+02:00:05.460 --> 02:00:09.260
+Meredith McCanse (she/her): So do get space, add space period.
+
+1270
+02:00:12.130 --> 02:00:12.970
+Anthony Taylor: Enter.
+
+1271
+02:00:13.130 --> 02:00:16.280
+Meredith McCanse (she/her): Thank you for waiting. And now, do you get status?
+
+1272
+02:00:17.370 --> 02:00:18.890
+Meredith McCanse (she/her): So the git add.
+
+1273
+02:00:19.090 --> 02:00:23.879
+Meredith McCanse (she/her): so basically, what this does is. Now we're tracking this file.
+
+1274
+02:00:24.490 --> 02:00:29.559
+Anthony Taylor: Okay? So now and actually, notice, if you notice the Vs code behind you.
+
+1275
+02:00:29.620 --> 02:00:31.150
+Anthony Taylor: it's changed. Colors
+
+1276
+02:00:31.750 --> 02:00:42.549
+Anthony Taylor: no longer, says you, which is untracked. By the way, now it says like modified or monitor. So now get status again. You'll see what it says.
+
+1277
+02:00:42.900 --> 02:00:45.650
+Anthony Taylor: It's green committed.
+
+1278
+02:00:47.160 --> 02:00:52.299
+Anthony Taylor: Oh.
+
+1279
+02:00:52.470 --> 02:00:57.749
+Meredith McCanse (she/her): oh, to be committed. Got it? Okay? So now I so I don't remember the command. Just commit.
+
+1280
+02:00:57.960 --> 02:01:09.820
+Meredith McCanse (she/her): get get space commit, and then space. Dash him and give it a message. Him, as in Mary Yup or Mary Space Quote.
+
+1281
+02:01:10.540 --> 02:01:12.190
+Meredith McCanse (she/her): Oh.
+
+1282
+02:01:12.230 --> 02:01:15.490
+Meredith McCanse (she/her): updated stuff.
+
+1283
+02:01:15.940 --> 02:01:21.610
+Anthony Taylor: Good, of course. Get status again.
+
+1284
+02:01:21.850 --> 02:01:25.080
+Meredith McCanse (she/her): Get status. Okay?
+
+1285
+02:01:25.280 --> 02:01:30.839
+Anthony Taylor: And now it says your tree is clean that you committed, but
+
+1286
+02:01:30.940 --> 02:01:35.510
+Meredith McCanse (she/her): right now you can push. Do a git push.
+
+1287
+02:01:38.090 --> 02:01:39.730
+Anthony Taylor: And now you're good.
+
+1288
+02:01:56.200 --> 02:01:58.869
+Tania Raugewitz: What's why, Natalie, show me.
+
+1289
+02:01:59.160 --> 02:02:03.420
+Meredith McCanse (she/her): Let me. Hold on. I gotta figure out how to unshare. Give me a second. I lost my
+
+1290
+02:02:03.560 --> 02:02:06.969
+Meredith McCanse (she/her):  Natalie, show us why.
+
+1291
+02:02:10.850 --> 02:02:14.520
+Mason, Natalie: okay. I was
+
+1292
+02:02:16.060 --> 02:02:28.869
+Mason, Natalie: harlan was walking me through something else in order to do any of this.
+
+1293
+02:02:29.110 --> 02:02:30.799
+Anthony Taylor: that's okay. Don't do that.
+
+1294
+02:02:31.090 --> 02:02:33.909
+Anthony Taylor: Cancel changes.
+
+1295
+02:02:36.490 --> 02:02:38.929
+Anthony Taylor: No, no, hold on! Let me give my arrow. Don't
+
+1296
+02:02:39.780 --> 02:02:44.040
+Mason, Natalie: I love my arrow right there? Cancel changes.
+
+1297
+02:02:45.050 --> 02:02:49.320
+Anthony Taylor: Okay, did you get your did you do your get clone yet? Or do you know?
+
+1298
+02:02:50.710 --> 02:02:53.130
+Anthony Taylor: Click! Right here my first repo
+
+1299
+02:02:56.360 --> 02:02:57.490
+Anthony Taylor: do code
+
+1300
+02:02:58.990 --> 02:03:02.250
+Anthony Taylor: and S just ssh.
+
+1301
+02:03:03.080 --> 02:03:04.300
+Anthony Taylor: and then copy.
+
+1302
+02:03:05.260 --> 02:03:08.609
+Anthony Taylor: Oh, wait! Never mind. Do https.
+
+1303
+02:03:09.160 --> 02:03:18.259
+Anthony Taylor: Take a note, Kevin and James. Natalie needs her. Ssh. okay, now, go back to Terminal to see what you've done in here.
+
+1304
+02:03:19.280 --> 02:03:24.960
+Mason, Natalie: Okay, yeah, we got to this point.
+
+1305
+02:03:25.280 --> 02:03:28.020
+Mason, Natalie: So you're way far along.
+
+1306
+02:03:28.420 --> 02:03:32.599
+Anthony Taylor: So here's what we're gonna do say enumerating counting objects
+
+1307
+02:03:32.760 --> 02:03:34.669
+Anthony Taylor: type. It's
+
+1308
+02:03:35.390 --> 02:03:40.490
+Anthony Taylor: oh, change Directory to type CD, or yeah. CD,
+
+1309
+02:03:41.040 --> 02:03:42.070
+Anthony Taylor: space
+
+1310
+02:03:42.090 --> 02:03:44.620
+Anthony Taylor: capital, NY. And then tab
+
+1311
+02:03:46.160 --> 02:03:50.310
+Anthony Taylor: N. Or is it, Meredith? Why.
+
+1312
+02:03:51.090 --> 02:03:56.190
+Anthony Taylor: Tab? Well, it's a low, it's a lower case wide. So you're basically trying to get here.
+
+1313
+02:03:57.220 --> 02:03:59.000
+Mason, Natalie: Okay, now. Oh, I see.
+
+1314
+02:04:00.360 --> 02:04:03.350
+Mason, Natalie: No, you only type. It just hit tab.
+
+1315
+02:04:03.930 --> 02:04:06.029
+Anthony Taylor: Well, don't untype it.
+
+1316
+02:04:08.070 --> 02:04:09.200
+Go ahead. Hit, Tab.
+
+1317
+02:04:09.570 --> 02:04:11.500
+Mason, Natalie: is it not working, Tab
+
+1318
+02:04:11.550 --> 02:04:13.550
+Anthony Taylor: that? Oh, that's not
+
+1319
+02:04:14.680 --> 02:04:19.859
+Anthony Taylor: okay. Wait. You're in the right place. Alright. Go back and type it. I bet, Delete, that
+
+1320
+02:04:20.570 --> 02:04:23.229
+Anthony Taylor: I don't know why it didn't work. That's okay. We'll get to it.
+
+1321
+02:04:23.990 --> 02:04:34.270
+Mason, Natalie: You not have Terminal. Don't worry about right now. Let's talk about or, anyway. Okay, my dad.
+
+1322
+02:04:34.770 --> 02:04:35.750
+Mason, Natalie: Dash
+
+1323
+02:04:36.590 --> 02:04:39.009
+Mason, Natalie: first. Dash repa.
+
+1324
+02:04:39.310 --> 02:04:40.120
+Anthony Taylor: Yes.
+
+1325
+02:04:41.350 --> 02:04:42.200
+Anthony Taylor: answer.
+
+1326
+02:04:43.570 --> 02:04:44.779
+Anthony Taylor: Get status.
+
+1327
+02:04:48.930 --> 02:04:49.740
+Anthony Taylor: and
+
+1328
+02:04:50.070 --> 02:04:55.180
+Anthony Taylor: okay, perfect. Now do get space, add space period.
+
+1329
+02:05:00.320 --> 02:05:04.089
+Anthony Taylor: Enter. hit your up arrow 2 times.
+
+1330
+02:05:05.540 --> 02:05:09.269
+Anthony Taylor: 1, 2. See? Now you got your old commands. Get status. Enter
+
+1331
+02:05:11.230 --> 02:05:13.849
+Anthony Taylor: now it's green, so git commit.
+
+1332
+02:05:15.450 --> 02:05:20.240
+Anthony Taylor: get space, commit dash m space. Sorry space. Dash. M.
+
+1333
+02:05:21.100 --> 02:05:22.050
+Anthony Taylor: Quotes
+
+1334
+02:05:23.890 --> 02:05:26.640
+Anthony Taylor: doing it. or whatever you want to say.
+
+1335
+02:05:28.410 --> 02:05:31.350
+Anthony Taylor: Quote. enter
+
+1336
+02:05:33.800 --> 02:05:35.140
+Anthony Taylor: now, get push.
+
+1337
+02:05:38.570 --> 02:05:39.460
+Anthony Taylor: Voila.
+
+1338
+02:05:40.490 --> 02:05:44.640
+Anthony Taylor: you did. Okay, we were very, very close.
+
+1339
+02:05:46.220 --> 02:05:50.980
+Anthony Taylor: Oh, this is interesting. Okay, so sign in with your browser because you don't have your token set up. Right?
+
+1340
+02:05:51.040 --> 02:05:53.739
+Anthony Taylor: That's okay. We've taken note of it.
+
+1341
+02:05:54.690 --> 02:06:00.059
+Anthony Taylor: Okay. Kevin. See? Kevin or James, like after class.
+
+1342
+02:06:00.250 --> 02:06:01.520
+Mason, Natalie: Okay? Okay.
+
+1343
+02:06:01.640 --> 02:06:02.500
+Anthony Taylor: cool.
+
+1344
+02:06:02.710 --> 02:06:04.640
+Anthony Taylor: awesome fan
+
+1345
+02:06:04.920 --> 02:06:08.300
+Anthony Taylor: tastic anybody else.
+
+1346
+02:06:09.340 --> 02:06:10.660
+Anthony Taylor: Yeah, Brandon.
+
+1347
+02:06:12.430 --> 02:06:18.010
+Mckimmy, Brandon: you lowered your hand. Yeah, I just did. The same thing is her, and it didn't work.
+
+1348
+02:06:18.690 --> 02:06:19.899
+Anthony Taylor: Show me real quick.
+
+1349
+02:06:20.660 --> 02:06:22.070
+Mckimmy, Brandon: Let me. Just.
+
+1350
+02:06:22.090 --> 02:06:28.880
+Anthony Taylor: We don't do this. We're not gonna do this every time, like really well, but this is like the first breakout, or really what you guys all get.
+
+1351
+02:06:29.360 --> 02:06:31.730
+Anthony Taylor: But I want y'all to listen to me.
+
+1352
+02:06:32.000 --> 02:06:39.239
+Anthony Taylor: Okay, please. This is the opportunity for you to help your fellow students and to work.
+
+1353
+02:06:39.410 --> 02:06:45.830
+Anthony Taylor: Don't just go. Mine's working. I'm gonna check out while there. We're helping that student no to help me solve the problem.
+
+1354
+02:06:46.160 --> 02:06:48.879
+Anthony Taylor: Even if you don't talk about help, you solve the problem
+
+1355
+02:06:49.050 --> 02:06:57.649
+Anthony Taylor: because being able to solve these problems is going to what is going to be what makes you different than other people applying for the same job.
+
+1356
+02:06:58.530 --> 02:07:00.549
+Anthony Taylor: Alright, alright! So let me see where you're at.
+
+1357
+02:07:00.760 --> 02:07:07.430
+Anthony Taylor:  okay, type. Get status where you are right now.
+
+1358
+02:07:11.950 --> 02:07:17.259
+Anthony Taylor: Your brain. You haven't changed anything yet. But so type. Are your windows. Type code.
+
+1359
+02:07:19.380 --> 02:07:20.740
+Anthony Taylor: space period
+
+1360
+02:07:21.240 --> 02:07:34.860
+Anthony Taylor: code space period is gonna open. Vs code. Enter. Look at that now. Say, Kuwait, don't do anything. Check that checkbox and then say, yes, I trust myself.
+
+1361
+02:07:36.810 --> 02:07:38.280
+Anthony Taylor: There's no shame in that.
+
+1362
+02:07:39.040 --> 02:07:45.109
+Anthony Taylor: Okay, now do like the renew there, or whatever change whatever you want.
+
+1363
+02:07:45.200 --> 02:07:50.629
+Anthony Taylor: We'll do yours this way. Okay, so just type anything in there real quick. We'll do yours through Vs code.
+
+1364
+02:07:52.260 --> 02:07:53.600
+Anthony Taylor: Just type something.
+
+1365
+02:07:55.480 --> 02:07:57.839
+Anthony Taylor: Okay? Good. And save that
+
+1366
+02:08:01.070 --> 02:08:08.550
+Anthony Taylor: control. S, okay, now go to this icon right here
+
+1367
+02:08:10.890 --> 02:08:14.480
+Anthony Taylor: and type in my first commit
+
+1368
+02:08:18.990 --> 02:08:20.779
+Anthony Taylor: and press commit
+
+1369
+02:08:22.080 --> 02:08:23.620
+Anthony Taylor: they always.
+
+1370
+02:08:25.290 --> 02:08:27.749
+Anthony Taylor: And now sync changes.
+
+1371
+02:08:29.220 --> 02:08:32.920
+Anthony Taylor: Boom, okay, don't show again, or okay, whatever you feel like.
+
+1372
+02:08:36.740 --> 02:08:38.539
+Anthony Taylor: make sure it goes
+
+1373
+02:08:42.480 --> 02:08:45.839
+Anthony Taylor: once you. So you need your token. Then, too, no.
+
+1374
+02:08:46.700 --> 02:08:49.149
+Anthony Taylor: Brandon needs token. Go ahead and sign in, for now
+
+1375
+02:08:50.380 --> 02:08:52.470
+Anthony Taylor: just hit this button and sign it.
+
+1376
+02:08:53.040 --> 02:08:55.360
+Mckimmy, Brandon: Is that gonna be given the name the token?
+
+1377
+02:08:55.920 --> 02:09:02.820
+Anthony Taylor: No, it's something that you have to do. But it was in your pre-word. Don't worry about it. Just say authorize, get ecosystem
+
+1378
+02:09:04.090 --> 02:09:08.030
+Anthony Taylor:  and that should be all you need.
+
+1379
+02:09:09.450 --> 02:09:11.310
+Anthony Taylor: Go back to the Vs code.
+
+1380
+02:09:17.600 --> 02:09:23.050
+Anthony Taylor: and alright, let me get you a token. Token will make this automatic. So you don't have to wait for it like that.
+
+1381
+02:09:23.200 --> 02:09:27.879
+Anthony Taylor: Okay, but you're good, you you did it. You're in good shape, Rodney. What's up?
+
+1382
+02:09:29.630 --> 02:09:31.610
+Masarirambi, Rodney: So that
+
+1383
+02:09:31.920 --> 02:09:42.730
+Masarirambi, Rodney: it fixed. My, she's got it. The first commit done. I didn't get a on Vs code saying, Do I want to periodically run, fetch
+
+1384
+02:09:43.490 --> 02:09:50.880
+Anthony Taylor: every now and then, and then it went away. So I wasn't sure what? Okay? Cool to do it. So you're okay.
+
+1385
+02:09:51.060 --> 02:09:55.679
+Anthony Taylor: Yeah. I mean, there's nothing wrong with this, but it can mess you up.
+
+1386
+02:09:56.160 --> 02:10:02.410
+Anthony Taylor: So so I would stay away from that, but it's not gonna hurt anything if you push. Yes.
+
+1387
+02:10:03.580 --> 02:10:08.050
+Anthony Taylor: cool. One more thing. Oh, sorry. Good deal.
+
+1388
+02:10:08.510 --> 02:10:10.679
+Anthony Taylor: I one more thing to cover on git
+
+1389
+02:10:11.620 --> 02:10:13.649
+Tania Raugewitz: before we call it a day.
+
+1390
+02:10:13.960 --> 02:10:15.220
+Anthony Taylor: And that
+
+1391
+02:10:15.310 --> 02:10:16.430
+branching.
+
+1392
+02:10:17.900 --> 02:10:22.970
+Anthony Taylor:  so here's what we're gonna do. We're gonna go back to.
+
+1393
+02:10:23.370 --> 02:10:28.049
+Anthony Taylor: I'm gonna do all of this vs, code. Okay, we're not gonna do any more terminal term.
+
+1394
+02:10:29.640 --> 02:10:32.449
+Tania Raugewitz: Sorry. I say that out loud, but attacks
+
+1395
+02:10:32.700 --> 02:10:35.220
+Anthony Taylor: okay, it stinks. Is that better?
+
+1396
+02:10:35.330 --> 02:10:41.779
+Anthony Taylor: Alright. So we're gonna create a branch. Actually, I'm gonna update. I think I have update you. Hold on 1 s.
+
+1397
+02:10:42.270 --> 02:10:47.920
+Anthony Taylor: I do not. If I ever see your thing like this, I would be like, go install that update and then reach out.
+
+1398
+02:10:49.760 --> 02:10:52.020
+Anthony Taylor: Okay, Vs code. Particular.
+
+1399
+02:10:52.100 --> 02:10:54.800
+Anthony Taylor: If you don't install updates that will just stop working.
+
+1400
+02:10:55.760 --> 02:10:57.539
+Anthony Taylor: So always install the update.
+
+1401
+02:10:58.230 --> 02:11:00.490
+Anthony Taylor:  now.
+
+1402
+02:11:02.500 --> 02:11:04.440
+Anthony Taylor: and yes, it'll close your Bs code.
+
+1403
+02:11:07.900 --> 02:11:08.609
+Thank you.
+
+1404
+02:11:09.660 --> 02:11:11.559
+Anthony Taylor: I don't know why it's still doing that. Okay.
+
+1405
+02:11:11.950 --> 02:11:15.930
+Anthony Taylor:  So I'm gonna go back to
+
+1406
+02:11:17.660 --> 02:11:19.020
+Tania Raugewitz: my folder.
+
+1407
+02:11:19.540 --> 02:11:22.410
+Anthony Taylor: There it comes. Who's waiting for me to close that one?
+
+1408
+02:11:23.530 --> 02:11:25.190
+Anthony Taylor: Now it thinks
+
+1409
+02:11:26.790 --> 02:11:27.550
+1 s.
+
+1410
+02:11:28.630 --> 02:11:29.540
+Anthony Taylor: there is
+
+1411
+02:11:29.670 --> 02:11:35.579
+Anthony Taylor: okay. So we're back to here. Okay, so what I'm gonna do is
+
+1412
+02:11:35.780 --> 02:11:38.190
+Anthony Taylor: I'm gonna go over here to my get
+
+1413
+02:11:39.230 --> 02:11:42.599
+Anthony Taylor: in fact, no, let's do it this way from right here.
+
+1414
+02:11:42.930 --> 02:11:47.510
+Anthony Taylor: We're going to create a branch. How do we do that? So go up to view.
+
+1415
+02:11:47.760 --> 02:11:58.900
+Anthony Taylor: Go to command pilot and type. GIT. And that did work so type branch. There we go.
+
+1416
+02:11:58.930 --> 02:12:02.340
+Anthony Taylor: So now we get git, create branch.
+
+1417
+02:12:03.570 --> 02:12:07.879
+Anthony Taylor: Okay. Now remember the picture. We had the main tree. That's all these 5.
+
+1418
+02:12:07.990 --> 02:12:13.000
+Anthony Taylor: And we had a branch. So what we're gonna do, I'm gonna create a branch so that Kevin
+
+1419
+02:12:13.180 --> 02:12:22.480
+Anthony Taylor: can work on some of his stuff in my repository. So I'm gonna create branch. It's gonna say, please provide the new branch name heaven.
+
+1420
+02:12:23.740 --> 02:12:25.430
+Anthony Taylor: Kevin's branch
+
+1421
+02:12:26.480 --> 02:12:29.840
+Anthony Taylor: alright enter. and that's it.
+
+1422
+02:12:30.970 --> 02:12:32.609
+Anthony Taylor: I've created Branch.
+
+1423
+02:12:32.650 --> 02:12:34.819
+Tania Raugewitz: How do I know I created a branch.
+
+1424
+02:12:39.740 --> 02:12:40.769
+Look at that!
+
+1425
+02:12:42.120 --> 02:12:45.089
+Anthony Taylor: And now, says Kevin Sprint, y'all say that, too.
+
+1426
+02:12:45.370 --> 02:12:49.239
+Anthony Taylor: whatever you called yours, I don't know if you all call the Kevin's branch. That might be good. But
+
+1427
+02:12:49.560 --> 02:12:50.410
+Anthony Taylor: I did.
+
+1428
+02:12:51.630 --> 02:12:53.499
+Anthony Taylor: We got it. Is that working?
+
+1429
+02:12:55.270 --> 02:12:56.240
+Tania Raugewitz: Yeah.
+
+1430
+02:12:56.360 --> 02:12:57.590
+Mason, Natalie: alright?
+
+1431
+02:12:58.330 --> 02:13:02.630
+Anthony Taylor: No. What's wrong, Natalie? Did you? Did you do the create branch in the top.
+
+1432
+02:13:03.000 --> 02:13:08.570
+Mason, Natalie:  yeah, my mine doesn't even pull up that option.
+
+1433
+02:13:09.230 --> 02:13:12.759
+Anthony Taylor: You might. Did you ever get logged into your github because you didn't have a token
+
+1434
+02:13:12.850 --> 02:13:16.160
+Mason, Natalie: I did.
+
+1435
+02:13:18.420 --> 02:13:23.070
+Mason, Natalie: Okay.
+
+1436
+02:13:23.090 --> 02:13:27.919
+Anthony Taylor: because I will. We'll get you. We'll get you through it alright. Another way to create a branch.
+
+1437
+02:13:28.320 --> 02:13:33.180
+Anthony Taylor: You could come down here and you could change your branches down here, too, so I can go back to Main Branch.
+
+1438
+02:13:34.720 --> 02:13:37.220
+Anthony Taylor: or I could go to Kevin Sprint.
+
+1439
+02:13:37.580 --> 02:13:44.250
+Anthony Taylor: or I could go to main and then create a new branch from here. Okay.
+
+1440
+02:13:44.420 --> 02:13:49.909
+Anthony Taylor: there's all kinds of ways to create a branch really cool. So what is a branch? Well, let's go to Kevin's Branch.
+
+1441
+02:13:50.920 --> 02:13:54.020
+Anthony Taylor: and in Kevin's Branch I'm gonna create a new file.
+
+1442
+02:13:54.040 --> 02:13:55.850
+Anthony Taylor: Paul Kevin's
+
+1443
+02:13:56.420 --> 02:14:01.380
+Anthony Taylor: file dot text. Now, this is the code that Kevin's going to work on.
+
+1444
+02:14:08.490 --> 02:14:12.879
+Tania Raugewitz: Alright. So he saves this. Everything pretty much is exactly the same.
+
+1445
+02:14:13.340 --> 02:14:19.570
+Anthony Taylor: Okay? He's got we've got. Do we want to commit? Yeah, file
+
+1446
+02:14:19.660 --> 02:14:20.800
+Anthony Taylor: commit?
+
+1447
+02:14:20.910 --> 02:14:28.699
+Anthony Taylor: Do we want to publish now? It says, Publish branch instead of push. That's because right now we haven't pushed this branch up to give up.
+
+1448
+02:14:29.250 --> 02:14:35.600
+Anthony Taylor: Okay. So if we go look under branches. Which is this little thing right here? Okay.
+
+1449
+02:14:36.510 --> 02:14:40.440
+Anthony Taylor: there's no new branch. So let's go ahead and publish this branch.
+
+1450
+02:14:40.960 --> 02:14:44.860
+Anthony Taylor: So what it's gonna do is copy all that up
+
+1451
+02:14:46.220 --> 02:14:52.530
+Anthony Taylor: refresh this. We'll see. We now have another option.
+
+1452
+02:14:53.000 --> 02:14:55.530
+Anthony Taylor: So, looking at our files.
+
+1453
+02:14:57.670 --> 02:15:00.980
+Anthony Taylor: no, Kevin's branch. everybody see that.
+
+1454
+02:15:01.990 --> 02:15:02.850
+Anthony Taylor: But
+
+1455
+02:15:03.290 --> 02:15:06.120
+Anthony Taylor: if I change it to Kevin's branch
+
+1456
+02:15:07.470 --> 02:15:09.139
+Anthony Taylor: I can see Kevin's hut.
+
+1457
+02:15:10.780 --> 02:15:14.769
+Anthony Taylor: Okay, everything Kevin does in this branch
+
+1458
+02:15:14.810 --> 02:15:18.420
+Anthony Taylor: is isolated from Maine.
+
+1459
+02:15:19.660 --> 02:15:23.670
+Anthony Taylor: He can't touch me right now. Okay.
+
+1460
+02:15:24.270 --> 02:15:30.519
+Anthony Taylor:  one thing we're gonna ask you guys to do. If you see this, protect this branch, go ahead and do that.
+
+1461
+02:15:31.010 --> 02:15:32.000
+Anthony Taylor: Okay.
+
+1462
+02:15:32.280 --> 02:15:36.069
+Tania Raugewitz: tell it. You want to protect me, require and just check that box.
+
+1463
+02:15:36.860 --> 02:15:44.940
+Anthony Taylor: Aye, that's all. You and then create and log. Why do they make us do all that stuff.
+
+1464
+02:15:45.830 --> 02:15:51.059
+Anthony Taylor: Okay? And that just creates a rule. Don't don't sweat it if you don't see it when you see it.
+
+1465
+02:15:51.150 --> 02:15:59.630
+Anthony Taylor: Know that I want you to do that. Alright. So let's say, Kevin's been working on this for like a week. He has tested it.
+
+1466
+02:15:59.660 --> 02:16:02.640
+Anthony Taylor: Everything is awesome. Now I want
+
+1467
+02:16:02.830 --> 02:16:13.189
+Anthony Taylor: Kevin's file from his branch to be put into the main branch. So we're in Kevin's Branch. See? Right there. And I want it
+
+1468
+02:16:13.570 --> 02:16:15.540
+Anthony Taylor: in here are in
+
+1469
+02:16:16.470 --> 02:16:17.290
+Anthony Taylor: Ming.
+
+1470
+02:16:18.080 --> 02:16:22.869
+Anthony Taylor: Okay, that's just so you guys know, we normally teach this like in the fourth week.
+
+1471
+02:16:23.780 --> 02:16:31.070
+Anthony Taylor: Alright, this is like, not something we normally do on the second day. So don't worry. If you're not getting it, we're gonna go over it again when we get to projects.
+
+1472
+02:16:31.760 --> 02:16:39.790
+Anthony Taylor: So I Kevin made his changes to come in here and he's gonna do compare and pull requests.
+
+1473
+02:16:40.309 --> 02:16:50.399
+Anthony Taylor: See this button. and he's going to press that button. And he might say what it is that he changed, or what he did. and then he's gonna create it.
+
+1474
+02:16:50.600 --> 02:16:55.029
+Anthony Taylor: Now as the owner of the depository, I heard him.
+
+1475
+02:16:55.230 --> 02:16:57.400
+Anthony Taylor: the good master.
+
+1476
+02:16:57.680 --> 02:17:02.030
+Anthony Taylor: Okay, that's my job. I'm the good master. So
+
+1477
+02:17:02.080 --> 02:17:07.710
+Anthony Taylor: I can come in here and look. do I need to change anything
+
+1478
+02:17:10.879 --> 02:17:18.689
+Anthony Taylor: automatically was approving. I had to approve it first, but that's because I just protected it. So I'm just gonna say whatever and check that box.
+
+1479
+02:17:18.730 --> 02:17:20.189
+Anthony Taylor: Now I can do.
+
+1480
+02:17:21.270 --> 02:17:22.160
+Anthony Taylor: I can
+
+1481
+02:17:23.590 --> 02:17:29.740
+Anthony Taylor: per merge the pull request because there's no errors. Nothing's stopping. Confirm the merge
+
+1482
+02:17:30.820 --> 02:17:36.320
+Anthony Taylor: pull requests successfully merged and closed. Now I can delete Kevin's branch
+
+1483
+02:17:36.980 --> 02:17:39.879
+Anthony Taylor: because I've merged it. We don't need it. Anymore.
+
+1484
+02:17:40.540 --> 02:17:44.730
+Anthony Taylor: Okay? And you can see there's a little history here. So when we go back
+
+1485
+02:17:45.889 --> 02:17:51.779
+Anthony Taylor: and we look, Heaven's branch is gone. Maine is the only branch. And Lookie, there.
+
+1486
+02:17:51.809 --> 02:17:53.240
+Anthony Taylor: there's Kevin's file.
+
+1487
+02:17:54.680 --> 02:17:56.860
+Anthony Taylor: So did everybody follow that? I mean
+
+1488
+02:17:57.120 --> 02:17:58.170
+Anthony Taylor: again.
+
+1489
+02:17:58.350 --> 02:18:03.410
+Anthony Taylor: don't worry. If you didn't mail it today, you're gonna get to see this again before. You need to know it.
+
+1490
+02:18:03.820 --> 02:18:05.179
+Anthony Taylor: Rodney, you're up.
+
+1491
+02:18:06.940 --> 02:18:16.549
+Masarirambi, Rodney: Oh, I followed it. But my question is, why did we delete Kevin's branch? Because later on
+
+1492
+02:18:17.320 --> 02:18:20.349
+Anthony Taylor: you could you could, but you'd have to re-pool anyway.
+
+1493
+02:18:21.110 --> 02:18:30.209
+Anthony Taylor: Right? So if he makes for now let let me tell you this, there was the option to not delete his branch. It's totally depends on your use case on what you're doing.
+
+1494
+02:18:30.600 --> 02:18:35.379
+Anthony Taylor: Okay, you could leave it and let him continue working on it and merge it again later.
+
+1495
+02:18:35.610 --> 02:18:39.539
+Anthony Taylor: Okay, that's okay. There's nothing wrong with that. But most of the time
+
+1496
+02:18:40.059 --> 02:18:51.569
+Anthony Taylor: again, depending on your workflow, like for me, for the people that work for work. No one technically works for the people that work with me. Okay, I tell them
+
+1497
+02:18:51.690 --> 02:18:56.349
+Anthony Taylor: when you're ready to push you tell me I'll push it. You're done.
+
+1498
+02:18:57.000 --> 02:19:00.520
+Anthony Taylor: Okay, you can keep your code. You can do what you want with it. But
+
+1499
+02:19:00.910 --> 02:19:07.170
+Anthony Taylor: there is no branch. Okay, we're gonna get rid of that branch cause you've you finished your your part of the job.
+
+1500
+02:19:07.629 --> 02:19:13.680
+Anthony Taylor: Okay? Something wrong with it, and you know, have to. It's just like a preference. If you know.
+
+1501
+02:19:14.209 --> 02:19:28.500
+Masarirambi, Rodney: So I think I understand where where it's lost. I think I was thinking that that the code is then also going to be deleted from the device and stuff like that. But now notice Kevin's branch
+
+1502
+02:19:28.650 --> 02:19:31.869
+Anthony Taylor: no longer. Technically, it says it exists, but it really doesn't.
+
+1503
+02:19:32.360 --> 02:19:36.290
+Anthony Taylor: Okay. If I was to pull it, or when I do a pull here.
+
+1504
+02:19:36.410 --> 02:19:38.590
+Anthony Taylor: it's going to disappear.
+
+1505
+02:19:40.240 --> 02:19:45.970
+Anthony Taylor: See? Couldn't find Kevin's Branch alright, so I'll have to change back to Maine
+
+1506
+02:19:47.100 --> 02:19:48.610
+Anthony Taylor: and then do a
+
+1507
+02:19:51.310 --> 02:19:55.370
+Anthony Taylor: and then I'll be okay. But now I'll see Evans files in May.
+
+1508
+02:19:56.090 --> 02:19:58.449
+Anthony Taylor: Meredith, what can I do for you?
+
+1509
+02:19:59.900 --> 02:20:01.629
+Meredith McCanse (she/her): So in when you're
+
+1510
+02:20:01.820 --> 02:20:13.180
+Meredith McCanse (she/her): when you merge it, do you? Is when you do, you run into potential issues if you like. Kevin had files in there with the same name as other files in the main. And that's where you're gonna run into version control issues.
+
+1511
+02:20:13.630 --> 02:20:19.989
+Anthony Taylor: Yes. So what I will tell you. And again, this is a great example of why we don't normally teach this until project.
+
+1512
+02:20:20.260 --> 02:20:24.350
+Anthony Taylor: Right? When your project comes around, you're all gonna have groups.
+
+1513
+02:20:24.490 --> 02:20:26.510
+Anthony Taylor: okay, 3 to 4 people.
+
+1514
+02:20:27.600 --> 02:20:36.999
+Anthony Taylor: You're going. One of you is going to be the gitmaster. You're going to create a github or positive. Then you're going to invite the members of your group.
+
+1515
+02:20:37.550 --> 02:20:47.969
+Anthony Taylor: and they're all probably going to create a branch. You're going. You guys are going to decide what you're going to do. Decide who's going to do what? And they do their work in branch.
+
+1516
+02:20:49.150 --> 02:20:51.779
+Anthony Taylor: What I will tell you to do.
+
+1517
+02:20:52.550 --> 02:20:53.860
+Anthony Taylor: Everybody
+
+1518
+02:20:54.960 --> 02:20:58.110
+Anthony Taylor: put your initials before your whatever file. You're working
+
+1519
+02:20:59.260 --> 02:21:01.460
+Anthony Taylor: initial underscore, whatever you're working
+
+1520
+02:21:02.000 --> 02:21:11.869
+Anthony Taylor: okay that way when you merge, unless some of you have some of the same initials which is possible. But when you merge it's very unlikely you're gonna crash into each other.
+
+1521
+02:21:12.040 --> 02:21:25.730
+Anthony Taylor: and then when everybody's merged into a main, then go and see if you need to combine it. because if you're forced to do it in here. It's really other. And and I'll give you guys I mean, we won't do the activity. Because, like I said, we're gonna do this again later.
+
+1522
+02:21:25.970 --> 02:21:34.930
+Anthony Taylor:  But I will show you how to do that or what it looks like. I don't. I hate urging.
+
+1523
+02:21:34.960 --> 02:21:35.970
+Anthony Taylor: Hate it.
+
+1524
+02:21:35.980 --> 02:21:42.160
+Anthony Taylor: We'll call this one Bob's branch. Bob's Bob, as you will find out, is my favorite name to use in ever.
+
+1525
+02:21:42.900 --> 02:21:52.050
+Anthony Taylor: It's kind of funny in in. II wrote some of the curriculum on the data side data science side. And you could always tell which ones I wrote, because all the variables are bob and soup.
+
+1526
+02:21:52.900 --> 02:21:58.200
+Anthony Taylor: Okay? So we're in Bob's branch. I'm gonna change Kevin's file.
+
+1527
+02:22:00.300 --> 02:22:01.550
+Anthony Taylor: Bob
+
+1528
+02:22:01.670 --> 02:22:05.130
+Anthony Taylor: says, do this now.
+
+1529
+02:22:05.310 --> 02:22:07.050
+Anthony Taylor: Okay? And then I'm gonna save.
+
+1530
+02:22:07.770 --> 02:22:10.240
+Anthony Taylor: So right now I'm fuck.
+
+1531
+02:22:11.520 --> 02:22:13.529
+Anthony Taylor: I could push this everything would be fine.
+
+1532
+02:22:14.190 --> 02:22:16.979
+Anthony Taylor: But let's go back to Maine for a second.
+
+1533
+02:22:20.760 --> 02:22:22.339
+Anthony Taylor: Come on, go back to Maine.
+
+1534
+02:22:24.680 --> 02:22:26.719
+Anthony Taylor: Oh, we'll close that, and then go back.
+
+1535
+02:22:26.910 --> 02:22:27.720
+Anthony Taylor: There we go.
+
+1536
+02:22:27.880 --> 02:22:30.940
+Anthony Taylor: And now open this up. What is going on here?
+
+1537
+02:22:32.150 --> 02:22:33.890
+Anthony Taylor: And for AI,
+
+1538
+02:22:35.740 --> 02:22:40.109
+Anthony Taylor: it should not be showing us that. Or let me close that.
+
+1539
+02:22:42.900 --> 02:22:44.700
+Anthony Taylor: Let's go back to Bob's
+
+1540
+02:22:50.350 --> 02:22:51.570
+Anthony Taylor: interesting.
+
+1541
+02:22:54.190 --> 02:22:57.940
+Anthony Taylor: I'm going to save that. Then go to main
+
+1542
+02:22:58.910 --> 02:23:02.910
+Anthony Taylor: type, something new. Well, we're open again in main.
+
+1543
+02:23:03.980 --> 02:23:06.949
+Anthony Taylor: something new, save
+
+1544
+02:23:07.170 --> 02:23:09.020
+Anthony Taylor: we're going to commit this one.
+
+1545
+02:23:10.050 --> 02:23:16.879
+Anthony Taylor: 2 main commit and and see you can. Oh, I'd be put a message in
+
+1546
+02:23:17.970 --> 02:23:24.560
+Anthony Taylor:  Bob's change is that's what happens if you don't put the message in here
+
+1547
+02:23:24.880 --> 02:23:34.799
+Anthony Taylor: is, it'll give you that little box, and we're going to sync that. So that's been synced up to the main branch. So if we go in here we should. If that worked properly.
+
+1548
+02:23:34.820 --> 02:23:39.219
+Anthony Taylor: we should see something new. Okay, but in
+
+1549
+02:23:39.800 --> 02:23:44.909
+Anthony Taylor: Bob's branch oh, I haven't even pushed Bob's branch yet. Oh, maybe that's what was going on.
+
+1550
+02:23:45.470 --> 02:23:51.760
+Anthony Taylor: So in Bob's branch it doesn't say something new. Okay, but watch this.
+
+1551
+02:23:52.250 --> 02:23:53.910
+Anthony Taylor: Something. Old
+
+1552
+02:23:56.090 --> 02:23:58.509
+Anthony Taylor: David published branch.
+
+1553
+02:23:59.860 --> 02:24:00.820
+Anthony Taylor: commit
+
+1554
+02:24:03.960 --> 02:24:06.470
+Anthony Taylor: Bob's stuff.
+
+1555
+02:24:10.130 --> 02:24:11.540
+Anthony Taylor: Think changes.
+
+1556
+02:24:13.550 --> 02:24:15.960
+Anthony Taylor: Oh, my God! Did it fix it on its own?
+
+1557
+02:24:17.160 --> 02:24:19.230
+Anthony Taylor: Oh, okay. So now
+
+1558
+02:24:19.310 --> 02:24:24.889
+Anthony Taylor: let's go look at the 2 branches up here. It did not fix it on itself. So we're gonna go back in here
+
+1559
+02:24:26.140 --> 02:24:29.780
+Anthony Taylor: and we're going to look at. We're in Maine, Kevin's file
+
+1560
+02:24:30.000 --> 02:24:31.160
+Anthony Taylor: something new.
+
+1561
+02:24:31.240 --> 02:24:34.350
+Anthony Taylor: Okay. Now let's go to Bob's branch.
+
+1562
+02:24:34.980 --> 02:24:36.270
+Anthony Taylor: Something old.
+
+1563
+02:24:37.350 --> 02:24:39.739
+Anthony Taylor: So we've done a push.
+
+1564
+02:24:40.690 --> 02:24:42.150
+Anthony Taylor: We've done a commit.
+
+1565
+02:24:42.770 --> 02:24:54.310
+Anthony Taylor: So that means we can do a push request, a pull request. So here we are. We're going to do a compare and pull request. So what does that mean? That means we're going to try to merge 5
+
+1566
+02:24:54.370 --> 02:24:55.760
+Anthony Taylor: into May.
+
+1567
+02:24:56.830 --> 02:25:00.310
+Anthony Taylor: Okay. create pull requests.
+
+1568
+02:25:01.470 --> 02:25:03.440
+Anthony Taylor: Review required. Aha!
+
+1569
+02:25:04.640 --> 02:25:10.549
+Anthony Taylor: That's what I was trying to show. This branch has conflicts that must be resolved.
+
+1570
+02:25:11.420 --> 02:25:16.410
+Anthony Taylor: This is a merge conflict. This is what happens if you alter a file
+
+1571
+02:25:16.630 --> 02:25:25.669
+Anthony Taylor: in 2 different places, and then try to bring them together. and then you have to resolve it. and by resolving them, that means you have to delete one of these
+
+1572
+02:25:27.530 --> 02:25:29.760
+Anthony Taylor: and say, Yep, that's good to go.
+
+1573
+02:25:31.450 --> 02:25:32.320
+Anthony Taylor: Got it?
+
+1574
+02:25:32.810 --> 02:25:34.320
+Anthony Taylor: I know a lot of stuff.
+
+1575
+02:25:35.030 --> 02:25:35.930
+Anthony Taylor: Okay?
+
+1576
+02:25:36.190 --> 02:25:38.600
+Anthony Taylor:  we're gonna stop there
+
+1577
+02:25:39.110 --> 02:25:43.689
+Anthony Taylor: perfect timing 2 min, which is pretty good, considering how far behind.
+
+1578
+02:25:43.920 --> 02:25:51.889
+Anthony Taylor:  I'm not, you know, just between you guys and me and somebody's gonna tell me about it because they're watching these videos. I'm not supposed to say on the.
+
+1579
+02:25:52.360 --> 02:25:57.470
+Anthony Taylor: But but that's okay. Because we did cover bridge. Okay?
+
+1580
+02:25:57.610 --> 02:26:00.369
+Anthony Taylor: And that was the end.
+
+1581
+02:26:01.290 --> 02:26:07.770
+Anthony Taylor: So all we missed was that activity? What I recommend for you guys feel free to go try the activity yourself.
+
+1582
+02:26:07.990 --> 02:26:12.240
+Anthony Taylor: Come back to class tomorrow, and if you have questions I'm happy to help you dead.
+
+1583
+02:26:13.190 --> 02:26:14.290
+Anthony Taylor: But remember.
+
+1584
+02:26:14.330 --> 02:26:18.440
+Anthony Taylor: we will cover this again at Project one.
+
+1585
+02:26:18.670 --> 02:26:24.580
+Anthony Taylor: because that's the next time you're gonna need like creating, or, you know, creating every what you do for your challenges.
+
+1586
+02:26:24.610 --> 02:26:29.980
+Anthony Taylor: But the merging and all that stuff branches. You don't do any of that until project one.
+
+1587
+02:26:31.220 --> 02:26:36.200
+Anthony Taylor: Okay, but you needed to know how to create a repo and do commit push.
+
+1588
+02:26:36.980 --> 02:26:38.770
+Anthony Taylor: because that's for your challenges.
+
+1589
+02:26:38.940 --> 02:26:45.049
+Anthony Taylor: Alright. Every challenge starts with something like, Create a repo called AI challenge.
+
+1590
+02:26:45.810 --> 02:26:53.100
+Anthony Taylor: Okay? And that's what you'll do. And then that's what you'll submit for with your homework. Hi! Any questions
+
+1591
+02:26:53.740 --> 02:26:58.179
+Anthony Taylor: I know. Probably all like threes right now, except for a couple of yeah.
+
+1592
+02:26:58.950 --> 02:27:00.550
+Anthony Taylor: Don't tell me your tubes.
+
+1593
+02:27:00.990 --> 02:27:02.830
+Anthony Taylor: Pretty sure you might be Chips.
+
+1594
+02:27:03.280 --> 02:27:04.960
+Anthony Taylor: Yes, Meredith.
+
+1595
+02:27:05.050 --> 02:27:13.119
+Meredith McCanse (she/her): Anthony, where can we access? The slide decks are those in queue?
+
+1596
+02:27:13.810 --> 02:27:17.200
+Anthony Taylor: There'll be like a Pdf file and get that.
+
+1597
+02:27:18.260 --> 02:27:19.970
+Meredith McCanse (she/her): Okay, thank you.
+
+1598
+02:27:20.260 --> 02:27:21.450
+Anthony Taylor: You're very welcome.
+
+1599
+02:27:21.710 --> 02:27:24.719
+Anthony Taylor: The reason we do that we call gitlab, like your textbook.
+
+1600
+02:27:25.040 --> 02:27:29.889
+Anthony Taylor: Alright, when you're done. The only thing you'll really still have access. You have slack for a while
+
+1601
+02:27:29.930 --> 02:27:32.000
+Anthony Taylor: that you will
+
+1602
+02:27:32.170 --> 02:27:37.360
+Anthony Taylor: your gitlab. You can download the whole thing. So all the activities, all the slideshows.
+
+1603
+02:27:38.190 --> 02:27:43.440
+Anthony Taylor: The hardest thing is is you don't get my videos, which I know is terrible. But anyway.
+
+1604
+02:27:43.550 --> 02:27:47.809
+Anthony Taylor: so recap we seem. You know, we've done a lot today. Guys
+
+1605
+02:27:48.050 --> 02:27:58.460
+Anthony Taylor: supervised and unsupervised models, neural networks and deep learning and methods, processing and transformers all in one day. That's madness.
+
+1606
+02:27:59.110 --> 02:28:05.090
+Anthony Taylor: We learned how to deal with. Get Hub. It's funny, it says, using the get gooey. We never talked about.
+
+1607
+02:28:05.410 --> 02:28:07.769
+Anthony Taylor: It's not even in the instruction. So
+
+1608
+02:28:08.250 --> 02:28:08.980
+Anthony Taylor: what a!
+
+1609
+02:28:09.130 --> 02:28:15.080
+Anthony Taylor: And then we did active push with the command line, and then, for some reason, we also did branching.
+
+1610
+02:28:15.720 --> 02:28:19.059
+Anthony Taylor:  do not worry about branching
+
+1611
+02:28:19.660 --> 02:28:23.580
+Anthony Taylor: at all until project one. Okay.
+
+1612
+02:28:25.230 --> 02:28:27.020
+Anthony Taylor: get clone.
+
+1613
+02:28:27.400 --> 02:28:28.870
+Anthony Taylor: It status.
+
+1614
+02:28:29.350 --> 02:28:33.729
+Anthony Taylor: Add git commit hit. Push all you have to remember from today.
+
+1615
+02:28:35.110 --> 02:28:40.430
+Anthony Taylor: Alright, Hi, gang! It's all I have for you. Fantastic work
+
+1616
+02:28:40.450 --> 02:28:42.539
+Anthony Taylor: next. Next class.
+
+1617
+02:28:42.710 --> 02:28:54.570
+Anthony Taylor:  we're gonna talk about some more cool AI stuff. We're gonna get more into the the like, we're going to get ready to start code. Basically. okay, next week
+
+1618
+02:28:54.910 --> 02:29:03.220
+Anthony Taylor: is going to be your hands in python. You're going to become programs starting next week. Right now, you're just kind of learning what's coming.
+
+1619
+02:29:03.940 --> 02:29:13.139
+Anthony Taylor: Okay, Hi, gang have a great night. See you? Tomorrow we will be here for 30 min. Anybody wants to stick around or talk to Tas. Feel free to hang out.
+
+1620
+02:29:15.060 --> 02:29:15.640
+Meredith McCanse (she/her): Thank you.
+

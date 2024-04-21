@@ -1,0 +1,139 @@
+# 1. Import the Preprocessed Data
+Import the pickle file with the preprocessed images.
+
+##--CODE--##
+import pickle
+import requests
+import io
+import numpy as np
+
+pickle_file = 'https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_3/datasets/pickles/preprocessed_faces_data.pkl'
+data = pickle.load(io.BytesIO(requests.get(pickle_file).content))
+data.keys()
+
+
+##--CODE--##
+X_train = data['X_train']
+X_test = data['X_test']
+
+y_train_userid = data['y_train_userid']
+y_train_pose = data['y_train_pose']
+y_train_expression = data['y_train_expression']
+y_train_eyes = data['y_train_eyes']
+
+y_test_userid = data['y_test_userid']
+y_test_pose = data['y_test_pose']
+y_test_expression = data['y_test_expression']
+y_test_eyes = data['y_test_eyes']
+
+# 2. Build the Model
+
+##--CODE--##
+from tensorflow.keras import layers, models, Model
+# First we build the input layer
+input_layer = layers.Input(shape=(60, 64, 1), name='input_layer')
+
+# Shared layers (common across all tasks)
+# The second layer should be a Conv2D layer built off the input_layer
+conv1 = layers.Conv2D(32, (3, 3), activation='relu')(input_layer)
+
+# The third layer should be a MaxPooling2D layer built off the second layer
+maxpool1 = layers.MaxPooling2D((2, 2))(conv1)
+
+# The fourth layer should be a Conv2D layer built off the third layer
+conv2 = layers.Conv2D(64, (3, 3), activation='relu')(maxpool1)
+
+# The fifth layer should be a MaxPooling2D layer built off the fourth layer
+maxpool2 = layers.MaxPooling2D((2, 2))(conv2)
+
+# The sixth layer should be a Conv2D layer built off the fifth layer
+conv3 = layers.Conv2D(64, (3, 3), activation='relu')(maxpool2)
+
+# The seventh layer should be a Flatten layer built off the sixth layer
+flatten = layers.Flatten()(conv3)
+
+# Lastly, build one dense layer before branching to the different y branches
+dense_shared = layers.Dense(64, activation='relu')(flatten)
+
+
+##--CODE--##
+# Build the branches for each of the y variables
+# Include a dense hidden layer in each along with the output layer.
+# Remember to include the correct number of nodes for the output!
+
+# userid
+userid_dense = layers.Dense(64, activation='relu')(dense_shared)
+userid_output = layers.Dense(len(y_train_userid.columns),
+                             activation='sigmoid',
+                             name='userid_output')(userid_dense)
+
+# pose
+pose_dense = layers.Dense(64, activation='relu')(dense_shared)
+pose_output = layers.Dense(len(y_train_pose.columns),
+                           activation='softmax',
+                             name='pose_output')(pose_dense)
+
+# expression
+expression_dense = layers.Dense(64, activation='relu')(dense_shared)
+expression_output = layers.Dense(len(y_train_expression.columns),
+                                 activation='softmax',
+                             name='expression_output')(expression_dense)
+
+# eyes
+eyes_dense = layers.Dense(64, activation='relu')(dense_shared)
+eyes_output = layers.Dense(len(y_train_eyes.columns),
+                           activation='sigmoid',
+                             name='eyes_output')(eyes_dense)
+
+##--CODE--##
+# Build the model
+model = Model(inputs=input_layer, outputs=[
+    userid_output,
+    pose_output,
+    expression_output,
+    eyes_output
+])
+
+# Compile the model
+model.compile(optimizer='adam',
+              loss={'userid_output': 'categorical_crossentropy',
+                    'pose_output': 'categorical_crossentropy',
+                    'expression_output': 'categorical_crossentropy',
+                    'eyes_output': 'binary_crossentropy'},
+              metrics={'userid_output': 'accuracy',
+                       'pose_output': 'accuracy',
+                       'expression_output': 'accuracy',
+                       'eyes_output': 'accuracy'})
+
+##--CODE--##
+# Train the model with the training data
+model.fit(
+    X_train,
+    {
+        'userid_output': y_train_userid,
+        'pose_output': y_train_pose,
+        'expression_output': y_train_expression,
+        'eyes_output': y_train_eyes
+    },
+    epochs=10,  # You can adjust the number of epochs based on your needs
+    batch_size=32,  # You can adjust the batch size based on your available memory
+    validation_split=0.2  # You can specify the validation split if you have a separate validation set
+)
+
+##--CODE--##
+# Evaluate the model using the test data
+results = model.evaluate(np.array(X_test), {
+        'userid_output': y_test_userid,
+        'pose_output': y_test_pose,
+        'expression_output': y_test_expression,
+        'eyes_output': y_test_eyes
+    })
+
+# Print the accuracy for each category
+pred_categories = ['userid', 'pose', 'expression', 'eyes']
+for i, cat in enumerate(pred_categories):
+    print(f"{cat} accuracy: {results[i+5]}")
+
+##--CODE--##
+
+

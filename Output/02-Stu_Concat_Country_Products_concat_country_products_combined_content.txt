@@ -1,0 +1,61 @@
+### Import Libraries and Dependencies
+
+##--CODE--##
+import pandas as pd
+from pathlib import Path
+
+### Read in files
+
+##--CODE--##
+# Import data
+
+
+# Read in data and make the index the CustomerID
+
+
+### Output sample of data
+
+##--CODE--##
+# Show the first five rows of France data
+
+
+##--CODE--##
+# Show the first five rows of UK data
+
+
+##--CODE--##
+# Show the first five rows of Netherlands data
+
+
+### Concatenate data by rows using `concat` function and `inner` join
+
+##--CODE--##
+# Join UK, France, and Netherlands full datasets by axis
+
+
+### Concatenate data by rows using `concat` function and `inner` join and make each country a key.
+
+##--CODE--##
+# Join UK, France, and Netherlands full datasets by axis and add the countries to the index.
+
+
+# Drop the Country column and display the updated DataFrame.
+
+
+### Display the customer and products DataFrames.
+
+##--CODE--##
+# Show the customer data
+
+
+##--CODE--##
+# Show the products data
+
+
+##--CODE--##
+# Join the customer and products by columns axes. 
+
+
+##--CODE--##
+
+

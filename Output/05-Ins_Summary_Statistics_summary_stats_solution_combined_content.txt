@@ -1,0 +1,40 @@
+##--CODE--##
+# Import dependencies
+import numpy as np
+import pandas as pd
+import scipy.stats as sts
+
+##--CODE--##
+# Read in the LAX temperature data
+temperature_df = pd.read_csv('../Resources/lax_temperature.csv')
+temperatures = temperature_df['HourlyDryBulbTemperature']
+
+##--CODE--##
+# Calculate the measures of central tendency
+mean_numpy = np.mean(temperatures)
+print(f"The mean temperature at the LAX airport is {mean_numpy}")
+
+median_numpy = np.median(temperatures)
+print(f"The median temperature at the LAX airport is {median_numpy}")
+
+mode_scipy = sts.mode(temperatures)
+print(f"The mode temperature at the LAX airport is {mode_scipy}")
+
+##--CODE--##
+# Calculate variance and standard deviation using NumPy
+variance = np.var(temperatures)
+print(f"The population variance using the NumPy module is {variance}")
+
+stand_dev = np.std(temperatures)
+print(f"The population standard deviation using the NumPy module is {stand_dev}")
+
+##--CODE--##
+# Calculate z-scores using SciPy
+z_scipy = sts.zscore(temperatures)
+print(f"The z-scores using the SciPy module are {z_scipy}")
+
+##--CODE--##
+# Add the z-scores to the original DataFrame as a new column
+temperature_df["z_score"] = z_scipy
+temperature_df.head()
+

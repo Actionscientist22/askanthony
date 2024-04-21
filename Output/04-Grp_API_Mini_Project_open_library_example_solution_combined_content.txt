@@ -1,0 +1,86 @@
+##--CODE--##
+# Import dependencies
+import requests
+import json
+import pandas as pd
+
+##--CODE--##
+# Set up author query url
+author_query_url = "https://openlibrary.org/search/authors.json?q="
+
+author = input("Which author would you like to search for? ")
+
+##--CODE--##
+# Execute `GET` request with url
+response_data = requests.get(author_query_url + author)
+
+##--CODE--##
+# Print `response_data variable`
+print(response_data)
+
+##--CODE--##
+# Format data as JSON
+data = response_data.json()
+
+##--CODE--##
+# Use json.dumps with argument indent=4 to format data
+print(json.dumps(data, indent=4))
+
+##--CODE--##
+# Extract "key" from first result
+try:
+    author_key = data["docs"][0]["key"]
+    print(author_key)
+except:
+    print("Try again.")
+
+##--CODE--##
+# Use author key to fetch author's works
+author_works_url = f"https://openlibrary.org/authors/{author_key}/works.json"
+
+# Execute `GET` request with url
+response_data = requests.get(author_works_url)
+
+##--CODE--##
+# Format data as JSON
+author_works_data = response_data.json()
+
+##--CODE--##
+# Use json.dumps with argument indent=4 to format data
+print(json.dumps(author_works_data, indent=4))
+
+##--CODE--##
+# Print menu of results: 
+print("Select the number for the book you would like to view.")
+for i in range(len(author_works_data["entries"])):
+    print(f'{i}: {author_works_data["entries"][i]["title"]}')
+
+
+##--CODE--##
+work_selection = input("What is your selection? ")
+
+try:
+    work_selection = int(work_selection)
+    work_url = "https://openlibrary.org" + author_works_data["entries"][work_selection]["key"]
+    print(work_url)
+except:
+    print("Your chosen selection could not be looked up.")
+
+##--CODE--##
+# Execute `GET` request with url
+work_response_data = requests.get(work_url + ".json")
+work_data = work_response_data.json()
+
+# Dump JSON about work
+print(json.dumps(work_data, indent=4))
+
+##--CODE--##
+# Create Pandas DataFrame for each work by author
+#for i in range(len(author_works_data["entries"])):
+#    print(f'{i}: {author_works_data["entries"][i]["title"]}')
+author_df = pd.json_normalize(author_works_data["entries"])
+author_df
+
+##--CODE--##
+
+

@@ -1,0 +1,37 @@
+##--CODE--##
+# Dependencies
+import requests
+import pandas as pd
+
+##--CODE--##
+# List of characters
+search_characters = ['R2-D2', 'Darth Vader', 'Godzilla', 'Luke Skywalker', 'Frodo',
+                     'Boba Fett', 'Iron Man', 'Jon Snow', 'Han Solo']
+
+# Set URL for API
+url = 'https://swapi.dev/api/people/?search='
+
+# Set empty lists to hold characters height and mass
+height = []
+mass = []
+
+
+# Loop through each character
+
+    
+    # Create search query, make request and store in JSON
+
+    
+    # Try to grab the height and mass of characters if they are available in the Star Wars API
+
+        
+    # Handle exceptions for a character that is not available in the Star Wars API
+
+
+##--CODE--##
+# Create DataFrame
+
+
+##--CODE--##
+
+

@@ -1,0 +1,58 @@
+##--CODE--##
+import pandas as pd
+
+##--CODE--##
+# Import the data
+file = '../Resources/SFO_Airport_Utility_Consumption.csv'
+utilities_df = pd.read_csv(file)
+utilities_df.head()
+
+##--CODE--##
+# Add a column that tracks the tax rate
+# Assume every year and type of utility had 
+# a tax rate of 5%, except for 2019 when the 
+# tax was raised to 5.5%
+
+# Define a function
+def tax_rate(year):
+    return 0.055 if year >= 2019 else 0.05
+
+# Apply the function to the Year column
+utilities_df['Tax Rate'] = utilities_df['Year'].apply(tax_rate)
+utilities_df.tail()
+
+##--CODE--##
+# Recalculate the tax rate assuming that
+# commission owned units were taxed an
+# additional 1% on Electricity.
+
+# Define a function
+def tax_rate(row):
+    rate = 0.05
+    if row['Year'] == 2019:
+        rate += 0.005
+    if (row['Owner'] == 'Commission') & (row['Utility'] == 'Electricity'):
+        rate += 0.01
+    return rate
+
+# Apply the function to the DataFrame
+utilities_df['Tax Rate'] = utilities_df.apply(tax_rate, axis = 1)
+utilities_df.tail()
+
+
+
+##--CODE--##
+# Use apply with a lambda function to set
+# the existing Tax Rate column to 0 if
+# the utility was "Passengers"
+
+# Apply a lambda function
+utilities_df['Tax Rate'] = utilities_df\
+            .apply(lambda x: 0 if x['Utility'] == 'Passengers' else x['Tax Rate'],
+                axis = 1)
+
+utilities_df.head()
+
+##--CODE--##
+
+

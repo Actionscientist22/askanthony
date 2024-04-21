@@ -1,0 +1,61 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install transformers
+
+##--CODE--##
+# Import the pipeline class from the transformers module. 
+from transformers import pipeline
+# Initialize the pipeline to generate questions and answers using the distilbert-base-cased-distilled-squad model. 
+question_answerer = pipeline("question-answering", model='distilbert-base-cased-distilled-squad')
+
+##--CODE--##
+# Read in the text file with the read_file function.
+filepath = "Resources/video_game_history.txt"
+with open(filepath) as f:
+    video_game_history = f.read().replace("\n"," ")
+
+##--CODE--##
+# Source: https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)
+video_game_history
+
+##--CODE--##
+# Generate a list of questions.
+questions = ["When did Nintendo released its Nintendo Entertainment System in the United States?",
+             "What was the first home video game?",
+             "When did internet gaming start?"]
+
+##--CODE--##
+# Check the output from one question.
+question = "When did Nintendo released its Nintendo Entertainment System in the United States?"
+# Pass the first question and text to the question_answerer.
+result = question_answerer(question=question, context=video_game_history)
+# Show the results
+result
+
+##--CODE--##
+# Import Pandas 
+import pandas as pd
+
+# Create a function to generate the answers based on an input text.
+def question_answer(questions, text):
+    # Create a list to hold the data that will be added to the DataFrame.
+    data = []
+    # Use a for loop to iterate through the questions.
+    for question in questions:
+        # Pass the question and text to the initialized question_answerer. 
+        result = question_answerer(question=question, context=text)
+        # Retrieve the question, answer, the score, the starting 
+        # and ending of where the answer is located in the text.
+        data.append([question, result['answer'], result['score'], result['start'], result['end']])
+    # Create a DataFrame from the data with appropriate columns. 
+    df = pd.DataFrame(data, columns=["Question", "Answer", "Score", "Starting Position", "Ending Position"])
+    # Return the DataFrame
+    return df
+
+##--CODE--##
+# Call the question_answer function with the questions and text.
+question_answer(questions, video_game_history)
+
+##--CODE--##
+
+

@@ -1,0 +1,4274 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:01.910
+Anthony Taylor: It could have been. You never know.
+
+2
+00:00:02.560 --> 00:00:12.619
+Anthony Taylor: Hi, welcome everybody today to of Ml, optimization. Now, you may think, Ml, optimization. primary focus and speed.
+
+3
+00:00:12.970 --> 00:00:16.710
+Anthony Taylor: Yeah. But optimization also refers to
+
+4
+00:00:17.040 --> 00:00:19.059
+Anthony Taylor: just making better models.
+
+5
+00:00:19.410 --> 00:00:22.989
+Anthony Taylor: Today, we're going to focus on advanced
+
+6
+00:00:23.440 --> 00:00:24.850
+Anthony Taylor: pre-processing.
+
+7
+00:00:26.160 --> 00:00:30.629
+Anthony Taylor: Okay? So some of this will be review. Some of it will take to the next level.
+
+8
+00:00:31.710 --> 00:00:34.040
+Anthony Taylor: All right, very excited about today.
+
+9
+00:00:34.050 --> 00:00:40.499
+Anthony Taylor: So we're gonna recognize and address data leakage. Okay, data leakage is not as gross as it's found
+
+10
+00:00:41.790 --> 00:00:46.799
+Anthony Taylor: alright. Apply innovates, methods, handle missing values.
+
+11
+00:00:47.730 --> 00:00:53.930
+Anthony Taylor: Okay, evaluate and select appropriate encoding. You thought encoding was just encoding. Well.
+
+12
+00:00:54.760 --> 00:01:07.619
+Anthony Taylor: there's actually some more appropriate than codings. We're gonna use one hot and ordinal. We've used one hot ordinal is a new one. Ensure prevention of data leakage.
+
+13
+00:01:07.980 --> 00:01:15.199
+Anthony Taylor: Whoa. okay, construct preprocessing functions that's exciting.
+
+14
+00:01:15.480 --> 00:01:21.490
+Anthony Taylor: And last, but not least design incorporate new features to enhance machine learning, model performance.
+
+15
+00:01:21.760 --> 00:01:25.540
+Anthony Taylor: Feature engineering is a big deal. It's a big buzz word.
+
+16
+00:01:26.130 --> 00:01:27.920
+Anthony Taylor: Okay?
+
+17
+00:01:29.200 --> 00:01:30.540
+Anthony Taylor: So we'll get
+
+18
+00:01:30.900 --> 00:01:33.750
+Anthony Taylor: alright. So day one, we talked about metrics
+
+19
+00:01:35.820 --> 00:01:37.999
+Anthony Taylor: today, we're going to talk about
+
+20
+00:01:38.260 --> 00:01:40.460
+Anthony Taylor: making our data better
+
+21
+00:01:40.490 --> 00:01:43.040
+Anthony Taylor: for the model train.
+
+22
+00:01:44.120 --> 00:01:48.360
+Anthony Taylor: because it's all about the training. Once we get a train, it's just a function
+
+23
+00:01:49.580 --> 00:01:54.899
+Anthony Taylor: that's the output in case you haven't figured that out. Yet what is? Let me ask this question.
+
+24
+00:01:55.160 --> 00:01:56.489
+Anthony Taylor: what is
+
+25
+00:01:57.690 --> 00:02:06.709
+Anthony Taylor: the final deliverable of a trained mob? I did. We've done it 100 times.
+
+26
+00:02:10.850 --> 00:02:12.400
+Meredith McCanse (she/her): The predictions.
+
+27
+00:02:12.960 --> 00:02:16.200
+Anthony Taylor: the predictions themselves. And how do we get the predictions
+
+28
+00:02:18.570 --> 00:02:23.140
+Meredith McCanse (she/her): by doing dot predict? I don't know if I understand your question.
+
+29
+00:02:23.210 --> 00:02:27.490
+Anthony Taylor: That is exactly it. You do the model dot predict. So we've trained it.
+
+30
+00:02:27.570 --> 00:02:36.040
+Anthony Taylor: And now we're going to do dot, predict, and pass in new value. And then the output is the prediction that the model created that we trained it to create.
+
+31
+00:02:36.160 --> 00:02:42.570
+Anthony Taylor: That is a deliverable. How are we using, whether batch or an Api, or whatever? That's another thing.
+
+32
+00:02:42.870 --> 00:02:48.350
+Anthony Taylor: But the actual deliverable of a data science is that predict function, a single
+
+33
+00:02:48.700 --> 00:02:49.600
+Anthony Taylor: function.
+
+34
+00:02:52.680 --> 00:02:54.940
+Anthony Taylor: Everything we did to get there
+
+35
+00:02:56.300 --> 00:02:58.369
+Anthony Taylor: is a whole lot more than a single function.
+
+36
+00:02:59.020 --> 00:03:07.030
+Anthony Taylor: And that's what we're gonna do today. We're gonna opt to continue to optimize the steps we took to get to that final delivery.
+
+37
+00:03:07.430 --> 00:03:08.210
+Anthony Taylor: Alright.
+
+38
+00:03:11.250 --> 00:03:12.010
+Anthony Taylor: okay.
+
+39
+00:03:12.590 --> 00:03:14.650
+Anthony Taylor: data linkage. So.
+
+40
+00:03:15.080 --> 00:03:21.220
+Anthony Taylor: But let's let's let let me hold on. Let me open. I don't think there might be
+
+41
+00:03:25.630 --> 00:03:26.300
+Anthony Taylor: Nope.
+
+42
+00:03:28.800 --> 00:03:30.750
+Anthony Taylor: I was hoping already had it a dint.
+
+43
+00:03:43.980 --> 00:03:45.379
+Anthony Taylor: Alright. What is this?
+
+44
+00:03:48.090 --> 00:03:49.430
+Anthony Taylor: How?
+
+45
+00:03:50.570 --> 00:03:51.670
+Anthony Taylor: Arm
+
+46
+00:03:52.120 --> 00:03:53.949
+Anthony Taylor: alright? 1 s.
+
+47
+00:03:57.890 --> 00:04:02.460
+Anthony Taylor: I don't want to take you guys down the wrong path here. So let me just leave him here.
+
+48
+00:04:05.110 --> 00:04:06.000
+Anthony Taylor: Okay?
+
+49
+00:04:06.640 --> 00:04:14.450
+Anthony Taylor:  okay, so this is basically
+
+50
+00:04:15.630 --> 00:04:25.639
+Anthony Taylor: the second thing, the one we did yesterday, the last one sorry. Monday. The last thing we did this is gonna be a repeat of that. So let's just quickly review it. So we know where we left off.
+
+51
+00:04:25.730 --> 00:04:26.740
+Anthony Taylor: Okay.
+
+52
+00:04:28.500 --> 00:04:34.309
+Anthony Taylor: so we're gonna bring in some bank marketing data. We're going to do a drop in a and copy.
+
+53
+00:04:34.580 --> 00:04:42.560
+Anthony Taylor: We're going to clean our Y's. And remember, this will cause a problem for us. Right?
+
+54
+00:04:43.970 --> 00:04:47.129
+Anthony Taylor: Everybody. Remember this, we had changes to int
+
+55
+00:04:50.270 --> 00:04:55.050
+Anthony Taylor: think it actually is supposed to have. No, I guess it's okay.
+
+56
+00:04:55.230 --> 00:05:07.649
+Anthony Taylor:  and the re, and and remember, because if you don't. It does true, false. And then this doesn't select the Y variable and that suck. Okay? So now we're gonna create our X and Y and do our train test split.
+
+57
+00:05:08.310 --> 00:05:11.040
+Anthony Taylor: We're going to do a random forest classifier.
+
+58
+00:05:12.180 --> 00:05:20.240
+Anthony Taylor: We're going to actually run a predict on our test data and then print the balanced accuracy score, which is, if not
+
+59
+00:05:20.740 --> 00:05:29.420
+Anthony Taylor: okay. And then we're going to check the same thing on the training data. 60, 3. Alright
+
+60
+00:05:29.560 --> 00:05:32.950
+Anthony Taylor: cool. So that's the model. That's kind of where we left off
+
+61
+00:05:33.500 --> 00:05:45.000
+Anthony Taylor: alright. So data leakage. What does data leakage mean? Well. most important thing about data leakage is when you have
+
+62
+00:05:46.130 --> 00:05:51.980
+Anthony Taylor: your features, your your observations, your ex data in our case.
+
+63
+00:05:52.120 --> 00:06:01.060
+Anthony Taylor: Right? If there's something in there that gives away the answer. And we kind of talked about this the other day. But say, we're to get a lot more
+
+64
+00:06:01.070 --> 00:06:02.150
+Anthony Taylor: into it.
+
+65
+00:06:02.460 --> 00:06:14.489
+Anthony Taylor:  the the definition here, I mean. And and we talked about like, oh, well, they had a loan status, but we were predicting, if they qualified for a loan. Well, guess what if they have a loan status
+
+66
+00:06:14.530 --> 00:06:16.329
+Anthony Taylor: they qualified for. Well.
+
+67
+00:06:18.140 --> 00:06:25.440
+Anthony Taylor: now, would you, if someone was asking them for a loan, have a loan status? They put in the data? No.
+
+68
+00:06:26.490 --> 00:06:27.710
+Anthony Taylor: right? So
+
+69
+00:06:28.090 --> 00:06:32.500
+Anthony Taylor: in this definition, they're saying that you are using data
+
+70
+00:06:32.680 --> 00:06:36.780
+Anthony Taylor: to train your model that you may not get
+
+71
+00:06:37.380 --> 00:06:40.549
+Anthony Taylor: when you start or when you
+
+72
+00:06:41.490 --> 00:06:47.669
+Anthony Taylor: when you try to use your mobile. Okay. another situation.
+
+73
+00:06:52.340 --> 00:06:59.739
+Anthony Taylor: trying to see if this has any help at all. If a target column is accidentally left in the data.
+
+74
+00:06:59.900 --> 00:07:02.639
+Anthony Taylor: So we're saying, Oh, yes, I
+
+75
+00:07:02.670 --> 00:07:09.049
+Baro, Sonja: yeah. So just to to apply what you just was, we're talking about.
+
+76
+00:07:09.060 --> 00:07:25.780
+Baro, Sonja: So data leakage. If we've trained model with data that isn't available, would not when we run the predict? Wouldn't our test be off like we could also be really good because you gave it the answer of it.
+
+77
+00:07:26.320 --> 00:07:27.440
+Baro, Sonja: Okay.
+
+78
+00:07:27.730 --> 00:07:38.249
+Anthony Taylor: yeah. You given the model the answer, and and and we'll show how to check for that. But if you give the if you ask and like this. First example, the target column is left in the next data.
+
+79
+00:07:38.280 --> 00:07:41.710
+Baro, Sonja: Yeah, yeah, well, it's diamond over fit. It's just right.
+
+80
+00:07:42.640 --> 00:07:45.069
+Anthony Taylor: And because the chest data will be right. Also
+
+81
+00:07:45.680 --> 00:07:53.710
+Anthony Taylor: the answers there, too. It's gonna go it what? It's gonna basically do. You're gonna have 50 columns. And there's one column that gave gives it away
+
+82
+00:07:54.110 --> 00:07:59.459
+Anthony Taylor: right? And all it's gonna do is look at that one column. If you did a feature importance.
+
+83
+00:07:59.680 --> 00:08:02.250
+Anthony Taylor: that one column would be like 98,
+
+84
+00:08:02.650 --> 00:08:07.590
+Anthony Taylor: right? And it's like, Oh, well, I'm just looking for this once. I find this, I know the answer.
+
+85
+00:08:08.830 --> 00:08:16.039
+Anthony Taylor: Okay, obviously, when we go do this in production. We wouldn't have that. And therefore our model has no idea what to do next.
+
+86
+00:08:16.360 --> 00:08:18.330
+Baro, Sonja: So that's this example.
+
+87
+00:08:18.860 --> 00:08:23.199
+Anthony Taylor: Okay, another one. If it's using the row number
+
+88
+00:08:23.330 --> 00:08:27.229
+Anthony Taylor: that's so ridiculous. Or the Id.
+
+89
+00:08:27.820 --> 00:08:29.790
+Anthony Taylor: All right.
+
+90
+00:08:29.920 --> 00:08:39.469
+Anthony Taylor: this is just nuts. Don't ever do this. You're not going to have a row number or an id, particularly if the data, if the Id was created after you create
+
+91
+00:08:39.510 --> 00:08:42.249
+Anthony Taylor: after the data was created. Yes, ma'am.
+
+92
+00:08:45.110 --> 00:08:49.870
+Meredith McCanse (she/her): you have to. Sorry I took me a second to unmute. You're good, you're good.
+
+93
+00:08:50.280 --> 00:08:53.359
+Meredith McCanse (she/her): Do you have to
+
+94
+00:08:54.770 --> 00:09:07.689
+Meredith McCanse (she/her): any data that you pass into the model? Does it have to be in the exact same format as the data you trained it on. For instance, like all the column headers, are named exactly the same, and all the columns are in the same order.
+
+95
+00:09:08.020 --> 00:09:13.829
+Meredith McCanse (she/her):  or can it be slightly different in the model? We'll figure it out.
+
+96
+00:09:14.800 --> 00:09:17.010
+Anthony Taylor: Depends on how you're calling your mom.
+
+97
+00:09:17.730 --> 00:09:26.030
+Anthony Taylor: and I'll explain it this way. If you're using like an Api call right? You're going to pass in Json object.
+
+98
+00:09:26.170 --> 00:09:31.350
+Anthony Taylor: and then Json, object. Json, object will have column name
+
+99
+00:09:31.540 --> 00:09:42.030
+Anthony Taylor: and a value key and a value like dictionary. Right? That key will correspond to the column for your model predicts for your the model, so do they have to be in the same order? Not necessarily.
+
+100
+00:09:42.410 --> 00:09:48.659
+Anthony Taylor: but depending on how you create your Api some Apis, they say, just passing an array of values.
+
+101
+00:09:50.200 --> 00:09:52.180
+Anthony Taylor: Those would have to be in the same way.
+
+102
+00:09:53.300 --> 00:09:57.060
+Anthony Taylor: Okay, another thing like, if you're doing like bulk
+
+103
+00:09:57.280 --> 00:09:59.330
+Anthony Taylor: predictions from a table
+
+104
+00:09:59.590 --> 00:10:12.729
+Anthony Taylor: that one will use the column headers, so they don't have to be in the same order all right. But if you have like a single field and you want to make predictions for multiple values. Then that field would have to be in the same order.
+
+105
+00:10:13.110 --> 00:10:15.690
+Anthony Taylor: Does that? I hope I didn't confuse that too much.
+
+106
+00:10:15.730 --> 00:10:21.929
+Anthony Taylor: The bottom line is is, if you have power members available, it will use them. If you don't. It has to be in the same way.
+
+107
+00:10:22.200 --> 00:10:29.010
+Meredith McCanse (she/her): Yeah, I think that makes sense like in some of the models that we've trained. The data that we've used on. It has been in an array format.
+
+108
+00:10:29.140 --> 00:10:38.469
+Meredith McCanse (she/her): Right? So then, I think what you're saying. Is that, then what you any new data you pass into it also needs to be in an array, and whatever's in the array has to be in the same order.
+
+109
+00:10:38.870 --> 00:10:43.670
+Meredith McCanse (she/her): But if you train it on column headed sort of data frame structure data.
+
+110
+00:10:43.730 --> 00:10:50.920
+Meredith McCanse (she/her): you, the column headers. As long as they're consistent. I think it would rely on those to know where to look.
+
+111
+00:10:51.560 --> 00:11:02.469
+Anthony Taylor: Yes, exactly. That's good. I like it. Okay? So the ebay example and this is similar to what I was saying. With the loan stuff.
+
+112
+00:11:02.650 --> 00:11:06.130
+Anthony Taylor: right? The ebay example. You're trying to
+
+113
+00:11:06.310 --> 00:11:08.900
+Anthony Taylor: say you're trying to predict whether something sold.
+
+114
+00:11:10.020 --> 00:11:18.430
+Anthony Taylor: Okay. But there's a column in it that is sales price, which contains a negative one. If the item didn't sell.
+
+115
+00:11:21.140 --> 00:11:28.729
+Anthony Taylor: So the model is gonna know it's going to figure out that. Oh, well, look! When this column is negative one. I know it didn't sold. I'm done.
+
+116
+00:11:29.280 --> 00:11:32.959
+Anthony Taylor: didn't sell, didn't sell. I'm done. I don't need to know anything else.
+
+117
+00:11:34.320 --> 00:11:40.209
+Anthony Taylor: and if it doesn't, then your models got a problem. But that's that. And then, last, but not least.
+
+118
+00:11:40.510 --> 00:11:53.720
+Anthony Taylor: and this one's a this one's iffy, and and I mean it's good. They put it in here because it does happen. But but when we talked about it, and that's scaling your X value before you train test split.
+
+119
+00:11:55.660 --> 00:12:05.449
+Anthony Taylor: Okay? Cause, if you scale your your entire data set with the same function, you may not get a good
+
+120
+00:12:05.500 --> 00:12:07.540
+Anthony Taylor: test of your scaling
+
+121
+00:12:07.790 --> 00:12:18.219
+Anthony Taylor: when you put it on the test data alone. As you've already used, you've already done it. So you know, it's going to be right? So basically, you told it the answer and then split the data and then ran it.
+
+122
+00:12:18.830 --> 00:12:25.029
+Anthony Taylor: okay, so it could give you some false. This one's not as common, but it's a bad price
+
+123
+00:12:25.670 --> 00:12:34.740
+Baro, Sonja: that confused me, cause I thought we were. We scale before. No, we split before we scale.
+
+124
+00:12:34.790 --> 00:12:45.650
+Anthony Taylor: There you go, and so this would be if you scale before you split. And then basic again, you've basically given it the answer for the test data before you made the test.
+
+125
+00:12:45.800 --> 00:12:46.939
+Baro, Sonja: Got it? Okay?
+
+126
+00:12:47.150 --> 00:12:48.689
+Anthony Taylor: Alright. So now
+
+127
+00:12:48.860 --> 00:12:51.000
+Anthony Taylor: that's
+
+128
+00:12:51.730 --> 00:12:54.580
+Anthony Taylor: take a look at some examples.
+
+129
+00:12:55.510 --> 00:12:58.989
+Anthony Taylor: Alright. So here we got random forest train test splits.
+
+130
+00:13:01.180 --> 00:13:02.680
+Anthony Taylor: I just had a heart attack.
+
+131
+00:13:03.820 --> 00:13:10.270
+Anthony Taylor: I just realized that while I was prepping for your static website, I did not run all of these, so let's hope they all work
+
+132
+00:13:11.860 --> 00:13:12.960
+Anthony Taylor: cause they often
+
+133
+00:13:13.350 --> 00:13:17.539
+Anthony Taylor: alright. So we have data here. 88 columns.
+
+134
+00:13:17.620 --> 00:13:22.649
+Anthony Taylor: Very exciting. You've seen this before. We're gonna drop the result column
+
+135
+00:13:23.750 --> 00:13:25.409
+Anthony Taylor: and create
+
+136
+00:13:25.770 --> 00:13:28.650
+Anthony Taylor: our Y variable. Let me make sure.
+
+137
+00:13:30.380 --> 00:13:31.170
+Okay.
+
+138
+00:13:31.340 --> 00:13:35.889
+Anthony Taylor:  we're going to create
+
+139
+00:13:37.230 --> 00:13:38.899
+Anthony Taylor: a rent.
+
+140
+00:13:38.990 --> 00:13:41.419
+Anthony Taylor: I love this guy, this, this, this kills me.
+
+141
+00:13:47.930 --> 00:13:52.140
+Anthony Taylor: We're not going to complain. Okay, we just know
+
+142
+00:13:52.320 --> 00:14:00.109
+Anthony Taylor: that's not correct. Okay? Does everybody see as high like this says, create logistic regression model? And then it creates a random forest.
+
+143
+00:14:02.230 --> 00:14:07.700
+Anthony Taylor: Nobody's perfect. Alright. We're gonna train it. We're gonna score it. We got a one.
+
+144
+00:14:08.200 --> 00:14:09.600
+Anthony Taylor: Nice.
+
+145
+00:14:10.200 --> 00:14:14.929
+Anthony Taylor: Okay, and then we'll score the test.
+
+146
+00:14:15.380 --> 00:14:16.290
+Anthony Taylor: Oh.
+
+147
+00:14:17.400 --> 00:14:18.720
+Anthony Taylor: that's pretty good.
+
+148
+00:14:19.340 --> 00:14:22.850
+Anthony Taylor: Okay. So we should be skeptical at this point, right?
+
+149
+00:14:24.000 --> 00:14:25.550
+Anthony Taylor: It doesn't seem right.
+
+150
+00:14:26.300 --> 00:14:29.950
+Anthony Taylor: So let's take a look at our the correlation
+
+151
+00:14:30.030 --> 00:14:36.600
+Anthony Taylor: of result with all of our data. And let's see what comes up. Okay? So
+
+152
+00:14:37.810 --> 00:14:41.590
+Anthony Taylor: we can see that we have. Oh, look at this one
+
+153
+00:14:45.170 --> 00:14:46.670
+Anthony Taylor: that's pretty high.
+
+154
+00:14:47.100 --> 00:14:54.380
+Anthony Taylor: alright so. And and to be honest with you. That's there's a good chance. We've got something wrong here.
+
+155
+00:14:54.700 --> 00:14:55.819
+Anthony Taylor: Okay? And
+
+156
+00:14:55.960 --> 00:15:03.790
+Anthony Taylor: didn't we remove results? Yeah, result is always going to be one to result. So let's do, let's pop this out with app number and results.
+
+157
+00:15:06.850 --> 00:15:08.859
+Anthony Taylor: Okay, so basically.
+
+158
+00:15:09.310 --> 00:15:14.269
+Anthony Taylor: these are like exactly the same that are, these are completely correlated.
+
+159
+00:15:14.390 --> 00:15:15.520
+Anthony Taylor: And I don't
+
+160
+00:15:15.660 --> 00:15:18.880
+Anthony Taylor: like way they're showing that. But
+
+161
+00:15:20.920 --> 00:15:22.570
+Anthony Taylor: this is telling us that
+
+162
+00:15:23.270 --> 00:15:28.099
+Anthony Taylor: this value and this goes back to that one example. You have like a row number
+
+163
+00:15:28.210 --> 00:15:29.980
+Anthony Taylor: or an id column.
+
+164
+00:15:30.200 --> 00:15:41.960
+Anthony Taylor: Okay, it's able to use that to do predictions. Alright. So you would want to get rid of this. This is data leakage. You would want to get rid of this because this isn't even a helpful value.
+
+165
+00:15:42.000 --> 00:15:45.439
+Anthony Taylor: What's the point of this in predicting our model?
+
+166
+00:15:46.630 --> 00:15:53.110
+Anthony Taylor: Okay? And effectively. So let's say, app number 7 is Malwa.
+
+167
+00:15:55.050 --> 00:15:57.110
+Anthony Taylor: You could just do a lookup for that right?
+
+168
+00:15:57.660 --> 00:16:01.250
+Anthony Taylor: Someone passes in App Number 70, that's Mallard.
+
+169
+00:16:01.480 --> 00:16:03.790
+Anthony Taylor: Certainly don't need a machine learning model for that.
+
+170
+00:16:05.480 --> 00:16:08.579
+Anthony Taylor: Alright. So that this is an example of that.
+
+171
+00:16:08.960 --> 00:16:12.199
+Anthony Taylor: Let's see, we can see. Yeah, see these app numbers.
+
+172
+00:16:12.700 --> 00:16:15.380
+Anthony Taylor: They're they're they don't add anything.
+
+173
+00:16:15.550 --> 00:16:17.560
+Anthony Taylor: They're literally just names.
+
+174
+00:16:19.230 --> 00:16:31.250
+Anthony Taylor: Okay. it'd be the equivalent. I got another example. If the back to the loan worthiness. If you passed in names
+
+175
+00:16:31.580 --> 00:16:37.879
+Anthony Taylor: into your training data and then passed in a name into your test.
+
+176
+00:16:38.960 --> 00:16:41.680
+Anthony Taylor: Okay, now, it may not be the same, Bob.
+
+177
+00:16:42.100 --> 00:16:45.570
+Anthony Taylor: but it's going to assume it is unless you have more information.
+
+178
+00:16:46.870 --> 00:16:51.479
+Anthony Taylor: But the first thing it's gonna look at is, oh, well, you passed in, Bob. We know Bob. See?
+
+179
+00:16:54.080 --> 00:16:55.709
+Anthony Taylor: See? Data leakage.
+
+180
+00:16:55.880 --> 00:16:56.740
+Anthony Taylor: Alright.
+
+181
+00:16:56.870 --> 00:17:02.099
+Anthony Taylor: Okay, so you guys have a little exercise. It's very similar to what we just did.
+
+182
+00:17:06.460 --> 00:17:10.130
+Anthony Taylor: So you're gonna look at the data, you're gonna check the correlation values
+
+183
+00:17:11.140 --> 00:17:13.490
+Anthony Taylor: and plot
+
+184
+00:17:13.560 --> 00:17:20.699
+Anthony Taylor: rewards given. Now to me, this isn't as huge of a of a demo.
+
+185
+00:17:20.869 --> 00:17:24.079
+Anthony Taylor: right? But you can still take a look and see.
+
+186
+00:17:24.810 --> 00:17:31.940
+Anthony Taylor: Okay, and see if you can spot a data leakage. Alright. Alright!
+
+187
+00:17:34.490 --> 00:17:36.500
+Anthony Taylor: Welcome back.
+
+188
+00:17:36.670 --> 00:17:39.570
+Anthony Taylor: everybody. Yeah.
+
+189
+00:17:40.630 --> 00:17:42.110
+Anthony Taylor: alright. So 100
+
+190
+00:17:42.940 --> 00:17:47.530
+Anthony Taylor: lot of people came back early. So I'm assuming this wasn't terribly difficult.
+
+191
+00:17:48.470 --> 00:17:53.330
+Anthony Taylor: But we're still gonna go through it and we're going to love it. Am I sharing?
+
+192
+00:17:54.400 --> 00:17:59.589
+Anthony Taylor: I am sharing? Okay? Good. So we're gonna import a good stuff
+
+193
+00:18:01.900 --> 00:18:05.989
+Anthony Taylor: and bring in some crowdfunding data.
+
+194
+00:18:06.210 --> 00:18:10.720
+Anthony Taylor: Now, right away, this data set is suspicious
+
+195
+00:18:10.800 --> 00:18:21.740
+Anthony Taylor: because it's called crowdfunding data leakage. Typically this is something you might want to look twice at. Alright. So
+
+196
+00:18:21.870 --> 00:18:28.309
+Anthony Taylor: we're going to use the outcome column as our target. So drop and use it y, and then split
+
+197
+00:18:28.660 --> 00:18:33.229
+Anthony Taylor: random 4 is fit and score bam. 1 point. Oh.
+
+198
+00:18:35.080 --> 00:18:38.129
+Anthony Taylor: not that unusual. Let's go do our test.
+
+199
+00:18:38.180 --> 00:18:44.159
+Anthony Taylor: Oh, boy, we have a problem. So look at our data again.
+
+200
+00:18:51.820 --> 00:18:52.750
+Anthony Taylor: Okay.
+
+201
+00:18:53.240 --> 00:18:56.469
+Anthony Taylor: now, let's do our correlation.
+
+202
+00:18:58.660 --> 00:18:59.940
+Anthony Taylor: I don't know.
+
+203
+00:19:00.350 --> 00:19:03.009
+Anthony Taylor: See anything terribly exciting. There.
+
+204
+00:19:03.250 --> 00:19:05.239
+Anthony Taylor: let's look at our scatterplot.
+
+205
+00:19:07.200 --> 00:19:08.130
+Anthony Taylor: Oh.
+
+206
+00:19:09.160 --> 00:19:10.670
+Anthony Taylor: interesting!
+
+207
+00:19:12.200 --> 00:19:16.380
+Anthony Taylor: Interesting! That is definitely suspicious.
+
+208
+00:19:16.410 --> 00:19:17.960
+Anthony Taylor: So anybody see why?
+
+209
+00:19:20.550 --> 00:19:27.490
+michael mcpherson: Because the only reward time rewards aren't given is when they gave when they donated anything, didn't donate anything.
+
+210
+00:19:28.210 --> 00:19:29.569
+Anthony Taylor: basically, yeah.
+
+211
+00:19:29.990 --> 00:19:42.550
+Anthony Taylor: right? So when they didn't get so basically, the correlation is 100. If they gave something right? Well, it's not 100 but what the key here. And and this is
+
+212
+00:19:42.570 --> 00:19:45.610
+Anthony Taylor: where I would go with this. So this is pledges.
+
+213
+00:19:46.310 --> 00:19:52.859
+Anthony Taylor: Okay, so let's think about if you guys are doing like any kind of like pledging stuff
+
+214
+00:19:53.250 --> 00:19:55.069
+Anthony Taylor: who gets rewards
+
+215
+00:19:56.930 --> 00:19:58.150
+Baro, Sonja: people, money.
+
+216
+00:19:58.640 --> 00:19:59.999
+Anthony Taylor: and you don't think that
+
+217
+00:20:00.130 --> 00:20:09.860
+Anthony Taylor: money donated right? And the outcome is indicated that, indicating that this was successful. What what merits successful.
+
+218
+00:20:10.350 --> 00:20:11.570
+Anthony Taylor: they got money.
+
+219
+00:20:12.350 --> 00:20:20.440
+Anthony Taylor: so if they got a reward it was likely successful, and therefore, even though the correlation is not perfect.
+
+220
+00:20:20.800 --> 00:20:27.869
+Anthony Taylor: it is enough, or it is a a a thing where knowing the data is going to tell you that, hey? You know what
+
+221
+00:20:28.570 --> 00:20:32.150
+Anthony Taylor: this is kind of data leakage? Because we we gave the answer.
+
+222
+00:20:32.590 --> 00:20:36.819
+Anthony Taylor: and you can even see in this little sample. You know where they got rewards.
+
+223
+00:20:38.350 --> 00:20:45.209
+Anthony Taylor: They they both of them had it, but the ones with 0. And you can look at more of the data and get a better idea.
+
+224
+00:20:45.720 --> 00:20:46.630
+Anthony Taylor: Okay.
+
+225
+00:20:46.960 --> 00:20:49.179
+Anthony Taylor: alright. So here's another one again.
+
+226
+00:20:49.480 --> 00:20:53.129
+Anthony Taylor: That's leakage in the name. Let's give it a try.
+
+227
+00:20:54.220 --> 00:20:55.390
+Oh.
+
+228
+00:20:56.890 --> 00:21:01.210
+Anthony Taylor:  So everything's the same except we're gonna use firm category
+
+229
+00:21:02.010 --> 00:21:13.360
+Anthony Taylor: we're gonna score it, we got one test is one. Let's look at our data. Okay, so here, this, this could be all kinds of stuff. Right? Oh.
+
+230
+00:21:14.120 --> 00:21:15.829
+Anthony Taylor: but what do you guys think this is
+
+231
+00:21:18.210 --> 00:21:19.980
+Anthony Taylor: what is fishy in this one
+
+232
+00:21:25.800 --> 00:21:28.000
+Gebrekristos, Hafton: think we have a key value there? Right?
+
+233
+00:21:28.020 --> 00:21:29.400
+Gebrekristos, Hafton: Fermat. Maybe
+
+234
+00:21:30.060 --> 00:21:38.159
+Anthony Taylor: the firm. Id, exactly. This is just a key value. It doesn't mean anything right? So when we run this
+
+235
+00:21:38.790 --> 00:21:43.609
+Anthony Taylor: it I mean, I don't know that I would get all freaked out, because these look pretty damn high, too.
+
+236
+00:21:44.300 --> 00:21:48.119
+Anthony Taylor: Okay. But we know as
+
+237
+00:21:48.230 --> 00:21:57.869
+Anthony Taylor: qualify data experts that having the key or the it in your data and create a leakage scenario.
+
+238
+00:21:58.650 --> 00:21:59.610
+Anthony Taylor: Okay?
+
+239
+00:21:59.740 --> 00:22:04.000
+Anthony Taylor: So when you look at this the firm can. We're trying to get
+
+240
+00:22:04.550 --> 00:22:11.109
+Anthony Taylor: the 0 and one. It's 0 all the way up to a thousand. And then, after a thousand, it's always one
+
+241
+00:22:11.470 --> 00:22:13.000
+Anthony Taylor: that's too
+
+242
+00:22:14.100 --> 00:22:15.410
+Anthony Taylor: coincidental.
+
+243
+00:22:16.610 --> 00:22:25.660
+Anthony Taylor: Alright. So we're just gonna have to know if we see ids, we need to get rid of those, get those out of the system out of the feature set. Yes, Mered.
+
+244
+00:22:29.700 --> 00:22:35.989
+Meredith McCanse (she/her): what would you? What's in it like? What? What would you want this scatter plot to look like for?
+
+245
+00:22:36.640 --> 00:22:39.720
+Meredith McCanse (she/her): data point. That is, that's not
+
+246
+00:22:39.950 --> 00:22:55.670
+Meredith McCanse (she/her): doing this cause like, I've tried putting in the names of different columns in here that I think are not correlated, and they don't do much like one just gave me a point in all 4 corners. Other ones that I thought were not correlated also did something kind of similar.
+
+247
+00:22:56.370 --> 00:23:00.500
+Anthony Taylor: Well, let's pick like one of these guys here. These probably are better.
+
+248
+00:23:01.290 --> 00:23:02.899
+Let's do
+
+249
+00:23:04.500 --> 00:23:09.070
+Anthony Taylor: backers count. So do keep in mind. There's only 2.
+
+250
+00:23:09.670 --> 00:23:16.460
+Anthony Taylor:  there's only 2 outcomes. So it's always gonna look like this line up and down.
+
+251
+00:23:16.500 --> 00:23:19.060
+Anthony Taylor: But what you're hoping to see is a mix.
+
+252
+00:23:19.760 --> 00:23:31.080
+Meredith McCanse (she/her): Oh, no, I think it's cause if you've run the whole file. The second set of data is also named. The data frame is named Df. And so then, if you come back and redo it.
+
+253
+00:23:31.230 --> 00:23:35.660
+Meredith McCanse (she/her): So you have to like, read. Do all the stuff. Just rerun these guys?
+
+254
+00:23:37.610 --> 00:23:39.410
+Raugewitz, Tania: No. do we?
+
+255
+00:23:39.620 --> 00:23:42.930
+The scaling it, do anything, since there's a lot of
+
+256
+00:23:43.680 --> 00:23:48.909
+Raugewitz, Tania: we could, we could have scaled it in this case, it wouldn't have made much difference.
+
+257
+00:23:49.140 --> 00:23:52.530
+Anthony Taylor: It might even have hit it right. I hid the problem.
+
+258
+00:23:52.620 --> 00:23:59.520
+Anthony Taylor: But so you see how 0 and one they're the values go across the entire chart.
+
+259
+00:23:59.770 --> 00:24:07.320
+Meredith McCanse (she/her): and it's not either one all the way across or half way is one and the other half is 0.
+
+260
+00:24:07.430 --> 00:24:09.580
+Meredith McCanse (she/her): Okay, this is a good
+
+261
+00:24:09.780 --> 00:24:11.210
+Anthony Taylor: chart. If you were like
+
+262
+00:24:11.280 --> 00:24:21.629
+Anthony Taylor: I would, I mean, I don't know. Maybe I've ever seen. I do a scatter for something like this, but but what they're trying to show is in the example. With rewards given
+
+263
+00:24:26.440 --> 00:24:30.529
+Anthony Taylor: all of them, I mean, with exception, one are are what
+
+264
+00:24:30.920 --> 00:24:41.690
+Anthony Taylor: and then and and you know, and that's just that's what you're looking for. So you really want to see a better distribution. Here. You see, everything goes up here, and then everything goes up to here.
+
+265
+00:24:41.810 --> 00:24:43.499
+Anthony Taylor: What I really want to see is
+
+266
+00:24:43.520 --> 00:24:49.550
+Anthony Taylor: both ups and downs across the board. Then I know that at least I've got something that means something
+
+267
+00:24:50.590 --> 00:24:52.830
+Meredith McCanse (she/her): that's helpful. Yeah, thank you.
+
+268
+00:24:53.140 --> 00:24:56.970
+Anthony Taylor: Cool alright. Any other questions.
+
+269
+00:24:58.240 --> 00:25:00.780
+Anthony Taylor: Nay. let us continue.
+
+270
+00:25:04.080 --> 00:25:04.880
+Anthony Taylor: Okay.
+
+271
+00:25:06.750 --> 00:25:07.750
+Anthony Taylor: So
+
+272
+00:25:08.090 --> 00:25:15.519
+Anthony Taylor: the next thing we're gonna talk about is missing values. What have we been doing with missing values? My favorite thing to do. What have we been doing?
+
+273
+00:25:24.940 --> 00:25:27.100
+Anthony Taylor: Right? No.
+
+274
+00:25:27.820 --> 00:25:31.249
+Anthony Taylor: okay, that is not the way we do things.
+
+275
+00:25:31.600 --> 00:25:34.839
+Anthony Taylor: We're going to use imputation
+
+276
+00:25:35.500 --> 00:25:44.850
+Anthony Taylor: alright. All that means is that we're going to look at the missing values and try to figure out what best thing to put there is.
+
+277
+00:25:44.910 --> 00:25:46.530
+Anthony Taylor: Sometimes it's 0,
+
+278
+00:25:47.660 --> 00:25:50.680
+Anthony Taylor: sometimes it's not okay.
+
+279
+00:25:52.510 --> 00:25:58.130
+Let's find out. So imputations in art and science, what does that mean? Well.
+
+280
+00:25:58.230 --> 00:26:03.830
+Anthony Taylor: a lot of times implications gonna require somebody who understands the data. You can't just look at it.
+
+281
+00:26:05.520 --> 00:26:18.700
+Anthony Taylor: Okay, contextual, you need to look at the rest of the column. I got a column, and it's got 20% nulls. I need to look at what the other values look like? Do they have rains? Are they giants?
+
+282
+00:26:19.330 --> 00:26:22.130
+Anthony Taylor: Right? Are they categorical? Are they numerous?
+
+283
+00:26:22.730 --> 00:26:26.570
+Anthony Taylor: Is it even necessary doesn't make any difference.
+
+284
+00:26:27.630 --> 00:26:31.760
+Anthony Taylor: If I if I fill them with anything at all.
+
+285
+00:26:32.020 --> 00:26:35.340
+Anthony Taylor: or do I just drop. Maybe I don't need that whole call.
+
+286
+00:26:35.980 --> 00:26:43.490
+Anthony Taylor: Okay? And you need to be need to recheck your model multiple times as you try different techniques.
+
+287
+00:26:44.020 --> 00:26:46.569
+Anthony Taylor: Thank you for all of that lecturing.
+
+288
+00:26:47.510 --> 00:26:48.370
+Anthony Taylor: Okay.
+
+289
+00:26:49.700 --> 00:26:50.500
+Anthony Taylor: so
+
+290
+00:26:50.680 --> 00:27:08.960
+Anthony Taylor: let's look at some things we could do with this. Okay.  So we've got the crowd funding missing data table.
+
+291
+00:27:09.440 --> 00:27:14.939
+Anthony Taylor: Okay, pretty excited about that. We've got outcome. So we're gonna create our feature set
+
+292
+00:27:14.990 --> 00:27:19.560
+Anthony Taylor: and our Y variable. And then do a train test split.
+
+293
+00:27:20.340 --> 00:27:26.070
+Anthony Taylor: Okay, so this is a way to find the percentage of nulls
+
+294
+00:27:26.890 --> 00:27:33.390
+Anthony Taylor: in our extreme date. And so we're seeing that the backwards
+
+295
+00:27:33.690 --> 00:27:36.160
+Anthony Taylor: count has
+
+296
+00:27:37.800 --> 00:27:45.250
+Anthony Taylor: like 9% nulls, 10%, almost okay, which is not a small amount. It's not trivial.
+
+297
+00:27:45.810 --> 00:27:50.200
+Anthony Taylor: alright, so we need to figure out what do
+
+298
+00:27:50.290 --> 00:27:51.430
+Anthony Taylor: with that?
+
+299
+00:27:51.900 --> 00:27:54.160
+Anthony Taylor: Alright?
+
+300
+00:27:58.920 --> 00:27:59.710
+Anthony Taylor: aye.
+
+301
+00:28:00.150 --> 00:28:04.880
+Anthony Taylor: So here we're going to describe the column
+
+302
+00:28:05.980 --> 00:28:17.650
+Anthony Taylor: with the nose, or with the the whole column with the notes. Okay, so what do we see? Well. we can see the count. It's a hundred 6 of them. Okay. a.
+
+303
+00:28:19.210 --> 00:28:23.319
+Anthony Taylor: yeah. This is showing us some of the other columns that go with it.
+
+304
+00:28:24.030 --> 00:28:26.449
+Anthony Taylor: Okay? So we can see a hundred 6.
+
+305
+00:28:28.150 --> 00:28:37.749
+Anthony Taylor: Okay, go the mean? Well, you can't calculate any of these things. Why would they so dumb? Okay, but I guess it. It helps. You see the other columns
+
+306
+00:28:39.050 --> 00:28:46.980
+Anthony Taylor: alright. The other numerical columns. I mean it. It's not going to calculate anything for backers count. There's no's there can't calculate
+
+307
+00:28:47.040 --> 00:28:49.290
+Anthony Taylor: statistics on null values.
+
+308
+00:28:50.310 --> 00:28:52.360
+Anthony Taylor: Alright, so let's continue forward.
+
+309
+00:28:53.380 --> 00:28:57.750
+Anthony Taylor: Here's the whole data set. So here you can see
+
+310
+00:28:57.930 --> 00:29:00.470
+Anthony Taylor: we have 106 nulls.
+
+311
+00:29:01.740 --> 00:29:08.720
+Anthony Taylor: We have 846 rows. and you can see now, this one actually tells me something worthwhile.
+
+312
+00:29:08.750 --> 00:29:17.379
+Anthony Taylor: This gives me the average standard deviation, the minimum value maximum value. It's got a pretty big range.
+
+313
+00:29:18.650 --> 00:29:28.669
+Anthony Taylor: Alright. So my goal here is to kind of figure out what the best way to fill or do I fill
+
+314
+00:29:28.750 --> 00:29:30.860
+Anthony Taylor: these know values?
+
+315
+00:29:31.050 --> 00:29:37.110
+Anthony Taylor: Alright. So one thing we can do to kind of visualize this we can create like a little histogram.
+
+316
+00:29:37.590 --> 00:29:38.780
+Anthony Taylor: and ha!
+
+317
+00:29:40.780 --> 00:29:44.179
+Anthony Taylor: Sorry. That's the funniest histogram ever.
+
+318
+00:29:44.580 --> 00:29:47.720
+Anthony Taylor:  so
+
+319
+00:29:47.860 --> 00:29:49.790
+Anthony Taylor: we can see
+
+320
+00:29:51.090 --> 00:29:55.250
+Anthony Taylor: our X-train his Alpha 2.
+
+321
+00:29:59.880 --> 00:30:03.050
+Anthony Taylor: I'm trying to figure out what they're trying to show you. So
+
+322
+00:30:03.410 --> 00:30:06.430
+Anthony Taylor: they're basically saying the backers count
+
+323
+00:30:07.430 --> 00:30:11.009
+Anthony Taylor: is the X and the days active
+
+324
+00:30:12.330 --> 00:30:14.009
+Anthony Taylor: is the why.
+
+325
+00:30:16.250 --> 00:30:17.459
+Anthony Taylor: Oh, no, here it is.
+
+326
+00:30:18.450 --> 00:30:25.150
+Anthony Taylor: Oh, I see. So they're doing 2. They've got days. Active plot is. So that's this guy
+
+327
+00:30:25.370 --> 00:30:34.060
+Anthony Taylor: a little bitty one. and then let's just do one of these at a time. I'm not sure why they're trying to do so. Let's just do this one. So days at.
+
+328
+00:30:34.470 --> 00:30:43.199
+Anthony Taylor: So this is looking at the days active across the board. We can see 81, 20 blah blah blah blah blah. Okay.
+
+329
+00:30:43.230 --> 00:30:44.469
+Anthony Taylor: So now
+
+330
+00:30:49.090 --> 00:31:00.819
+Anthony Taylor: we look at this. Now, what do we see here? Okay, so we have along our X. The backers count. So these blanks here are empty
+
+331
+00:31:00.890 --> 00:31:01.900
+Anthony Taylor: backers.
+
+332
+00:31:02.470 --> 00:31:04.610
+Anthony Taylor: Alright. So
+
+333
+00:31:05.960 --> 00:31:07.989
+Anthony Taylor: it's primarily
+
+334
+00:31:09.540 --> 00:31:11.329
+Anthony Taylor: for less than one week.
+
+335
+00:31:12.490 --> 00:31:14.030
+Anthony Taylor: This is so bizarre.
+
+336
+00:31:15.540 --> 00:31:16.980
+Anthony Taylor: It's just killing.
+
+337
+00:31:17.360 --> 00:31:22.340
+Anthony Taylor: Huh? Oh. days active. So
+
+338
+00:31:23.630 --> 00:31:33.089
+Anthony Taylor: what it what they're trying to show, and they're just not lining up. But what they're trying to show is is that the majority of the No are falling into
+
+339
+00:31:33.220 --> 00:31:35.350
+Anthony Taylor: that
+
+340
+00:31:36.200 --> 00:31:45.479
+Anthony Taylor: campaigns that are less than the first week. That's what they're trying to show you. This Instagram does a very bad job of displaying it. But you can see if you
+
+341
+00:31:46.640 --> 00:31:48.099
+Anthony Taylor: get rid of that one.
+
+342
+00:31:48.150 --> 00:31:52.960
+Anthony Taylor: It's all happening over here on the left. And so when we switch em.
+
+343
+00:31:53.700 --> 00:31:55.810
+Anthony Taylor: just pretend like you can still see this.
+
+344
+00:31:58.410 --> 00:32:01.860
+Anthony Taylor: you can see that it's showing that it's all happening on this side.
+
+345
+00:32:02.350 --> 00:32:04.679
+Anthony Taylor: Okay, that's when it was trying to show
+
+346
+00:32:05.170 --> 00:32:12.469
+Anthony Taylor: just some data analysis. Alright. So if we look at this, since the backers count, seem missing in the first week of the campaign.
+
+347
+00:32:12.600 --> 00:32:23.089
+Anthony Taylor: removing the data would be detrimental. Good choice might be to fill the data back counts from campaigns in week 2. So what does that mean? That means I'm gonna take the value
+
+348
+00:32:23.250 --> 00:32:32.610
+Anthony Taylor: from week 2 and assign it to week one. Okay.
+
+349
+00:32:33.050 --> 00:32:41.980
+Anthony Taylor: so to do that, well or well, this is for the mean, okay, so this is gonna grab the average
+
+350
+00:32:42.290 --> 00:32:45.169
+Anthony Taylor: of the values. Because again, we're not just gonna grab this.
+
+351
+00:32:45.260 --> 00:32:48.090
+Anthony Taylor: Every value would just move it over that
+
+352
+00:32:48.170 --> 00:33:00.639
+Anthony Taylor: you could do that. It's not necessarily wrong. This would be a testing method. Okay, you'd be like, well, let's try it. And you do it. And you're like, yeah, maybe maybe not. Another way to do it would be. You know what?
+
+353
+00:33:00.730 --> 00:33:03.470
+Anthony Taylor: Let's do, a fill in a
+
+354
+00:33:04.480 --> 00:33:07.749
+Anthony Taylor: and we're going to round the average
+
+355
+00:33:08.040 --> 00:33:13.520
+Anthony Taylor: of the backers count, which I'm guessing. That's yeah. So that's what this value is
+
+356
+00:33:14.230 --> 00:33:20.899
+Anthony Taylor: to, you know, to put in there and divide it by 2. So it'll be basically half
+
+357
+00:33:21.050 --> 00:33:22.400
+Anthony Taylor: of week, 2
+
+358
+00:33:23.780 --> 00:33:26.309
+Anthony Taylor: of the average. So 300
+
+359
+00:33:26.330 --> 00:33:27.670
+Anthony Taylor: 73.
+
+360
+00:33:29.120 --> 00:33:32.129
+Anthony Taylor: Alright. So that's what's gonna get put in there.
+
+361
+00:33:32.570 --> 00:33:33.880
+Anthony Taylor: Now we can.
+
+362
+00:33:35.350 --> 00:33:38.780
+Anthony Taylor: Oh, so that's the function that's gonna do it. Then we're gonna
+
+363
+00:33:38.920 --> 00:33:41.990
+Anthony Taylor: to run that function on the data
+
+364
+00:33:42.070 --> 00:33:46.969
+Anthony Taylor: and then take a look at our data and you'll see now we have no no about.
+
+365
+00:33:48.880 --> 00:33:51.989
+Anthony Taylor: So let's walk back through this because that got a little weird in the middle.
+
+366
+00:33:52.360 --> 00:33:53.890
+Anthony Taylor: So we have data.
+
+367
+00:33:53.910 --> 00:33:58.809
+Anthony Taylor: we, we can clearly see we have 10% of our background count as null.
+
+368
+00:33:59.350 --> 00:34:04.439
+Anthony Taylor: We do some analysis on on the columns that have a nullbackers count.
+
+369
+00:34:04.580 --> 00:34:11.379
+Anthony Taylor: and we can see, of course, we can't get any statistics for backers count. We can get statistics for gold pledged in days. Act
+
+370
+00:34:12.420 --> 00:34:20.870
+Anthony Taylor:  When we do a describe on the entire data set, we can see that. Yep, we're missing 106 records.
+
+371
+00:34:20.980 --> 00:34:27.159
+Anthony Taylor: and we can see the the men and the Max, which to me is probably the most important.
+
+372
+00:34:27.260 --> 00:34:29.529
+Anthony Taylor: But you might also want to look at the meat.
+
+373
+00:34:30.860 --> 00:34:34.909
+Anthony Taylor: Why is Ninin and Max cause this is telling me this is a huge range.
+
+374
+00:34:36.090 --> 00:34:45.690
+Anthony Taylor: I'm probably not gonna want up with a 0 here in my nose. It's a huge range, unless it's only the first week. So maybe I don't know.
+
+375
+00:34:46.290 --> 00:34:49.210
+Anthony Taylor: This histogram that worked very badly
+
+376
+00:34:49.250 --> 00:34:56.320
+Anthony Taylor: was, would have, will demonstrate that the majority of the null were actually in the first active week.
+
+377
+00:34:56.620 --> 00:34:58.179
+Anthony Taylor: our first and second
+
+378
+00:34:58.480 --> 00:35:03.369
+Anthony Taylor: so what did we do, we said, Well, first and second, 0 and one. Okay.
+
+379
+00:35:03.470 --> 00:35:08.250
+Anthony Taylor: we said for the second week, let's just get the average value.
+
+380
+00:35:08.540 --> 00:35:19.590
+Anthony Taylor: And since it's going into the first week, we'll divide it by 2. Just assume it's growing and so we grab the average. create a function that divides it by 2
+
+381
+00:35:20.390 --> 00:35:26.860
+Anthony Taylor: run the function on the data frame, as we're only affecting the backwards count call
+
+382
+00:35:27.560 --> 00:35:31.250
+Anthony Taylor: and then show that we did, in fact, get rid of the missing dollars.
+
+383
+00:35:32.930 --> 00:35:39.019
+Anthony Taylor: Alright. So that's is a way
+
+384
+00:35:41.230 --> 00:35:42.210
+Anthony Taylor: to do it.
+
+385
+00:35:43.990 --> 00:35:46.740
+Anthony Taylor: I hold on okay.
+
+386
+00:35:47.470 --> 00:35:50.170
+Anthony Taylor: How we doing on time? Oh, we're wow
+
+387
+00:35:50.730 --> 00:35:52.589
+Anthony Taylor: doing really good on time.
+
+388
+00:35:57.190 --> 00:36:06.469
+Meredith McCanse (she/her): So yeah, what is another way? Oh, go ahead, Meredith. will you scroll up and show the code where it told it to fill in the values
+
+389
+00:36:06.540 --> 00:36:07.720
+Anthony Taylor: right here.
+
+390
+00:36:09.830 --> 00:36:12.429
+Meredith McCanse (she/her): you created it. So if we so let's take it apart.
+
+391
+00:36:12.770 --> 00:36:14.690
+Anthony Taylor: Yeah. So we created a function
+
+392
+00:36:15.090 --> 00:36:24.039
+Anthony Taylor: needed not needed doesn't matter right? It's just we're just gonna pass in the whole data frame. But notice, it's only using one column, anyway. So it's kind of a moot point.
+
+393
+00:36:24.190 --> 00:36:26.700
+Anthony Taylor: But we're going to take the backers count column.
+
+394
+00:36:27.070 --> 00:36:33.109
+Anthony Taylor: we're gonna call it. Do fill in a. And then in this method, remember what fillin A does
+
+395
+00:36:33.600 --> 00:36:40.129
+Anthony Taylor: right? Filling a whatever you put in here. That's what gets put into the know about. So this one is saying.
+
+396
+00:36:40.410 --> 00:36:44.220
+Anthony Taylor: Fill an a, we're gonna do an int we're gonna round it.
+
+397
+00:36:44.280 --> 00:36:46.050
+Anthony Taylor: And we're going to
+
+398
+00:36:46.130 --> 00:36:53.109
+Anthony Taylor: take the mean. This value right here. We just made of the week 2, and then divided by 2.
+
+399
+00:36:53.730 --> 00:36:57.599
+Anthony Taylor: And this is the mean of all week, 2 not row by row by row.
+
+400
+00:36:59.150 --> 00:37:08.389
+Meredith McCanse (she/her): and it it only fills in the N. A's. And you already you already established that the bulk of them are in the first 2 weeks.
+
+401
+00:37:08.880 --> 00:37:12.950
+Meredith McCanse (she/her): You know what? That's it.
+
+402
+00:37:13.060 --> 00:37:16.950
+Anthony Taylor: man, that's a good question, Meredith. So
+
+403
+00:37:17.190 --> 00:37:21.349
+Anthony Taylor: might we break something if this is filling in as that are like in the eighth week.
+
+404
+00:37:23.560 --> 00:37:37.850
+Meredith McCanse (she/her): I don't know. I guess if there, if there's only one or 2, maybe it doesn't matter, cause if you established most of them. II missed the part, if you, if all of them were in the first weeks, or just most of them
+
+405
+00:37:40.180 --> 00:37:50.260
+Anthony Taylor: example if I make it? Yeah, whatever since backers count seems to be missing in the first week of the campaign. so
+
+406
+00:37:51.390 --> 00:38:03.779
+Anthony Taylor: seems indicates to me that it does occasionally show up missing somewhere else. But this would be a data analyst thing. This is where you would dig in would see it. Now, I wanna tell you, guys, art and science.
+
+407
+00:38:04.190 --> 00:38:06.750
+Anthony Taylor: Okay, is this the best way to do it?
+
+408
+00:38:08.220 --> 00:38:10.150
+Anthony Taylor: Maybe could be.
+
+409
+00:38:11.340 --> 00:38:13.639
+Anthony Taylor: I don't know. I can't answer that question.
+
+410
+00:38:13.690 --> 00:38:18.680
+Anthony Taylor: How would I answer it. I've rerun them up. See if it got any better.
+
+411
+00:38:18.960 --> 00:38:31.280
+Anthony Taylor: If it's still funky or something weird's going on, I'd look at it again. Maybe I would talk to the data own. Hey? Does this make sense. or is it just normal to not have any backers on the first week?
+
+412
+00:38:31.770 --> 00:38:33.309
+Anthony Taylor: So should we put a 0 there.
+
+413
+00:38:34.880 --> 00:38:40.720
+Anthony Taylor: right? If they tell me that. Oh, yeah, it's rare. We have backers in the first week, like how we're like
+
+414
+00:38:41.740 --> 00:38:44.800
+Anthony Taylor: 10% of the time we don't have any backers.
+
+415
+00:38:46.060 --> 00:38:50.829
+Anthony Taylor: so what do you guys do? Well, we don't put anything there. Thus it's not.
+
+416
+00:38:51.900 --> 00:38:54.199
+Anthony Taylor: But the right answer is, it's actually 0.
+
+417
+00:38:55.280 --> 00:39:00.440
+Anthony Taylor: So this is a data analyst thing. This is something that you would do with your data expert.
+
+418
+00:39:01.570 --> 00:39:04.850
+Anthony Taylor: Okay? Or you would try different things.
+
+419
+00:39:06.340 --> 00:39:08.380
+Anthony Taylor: Okay. that's cool.
+
+420
+00:39:09.990 --> 00:39:11.170
+Anthony Taylor: So
+
+421
+00:39:17.620 --> 00:39:18.570
+Anthony Taylor: moving on
+
+422
+00:39:20.690 --> 00:39:24.879
+Anthony Taylor: and actually, we'll go back to the slideshow for this
+
+423
+00:39:25.790 --> 00:39:31.070
+Anthony Taylor: encoding. So we talked about encoding. We've done encoding. What's the one encoding. We did a lot of
+
+424
+00:39:35.220 --> 00:39:36.590
+Meredith McCanse (she/her): get dummies
+
+425
+00:39:36.820 --> 00:39:42.770
+Anthony Taylor: get dummies right? That yellow book encoding forget dummies.
+
+426
+00:39:44.140 --> 00:39:58.460
+Anthony Taylor: Right? Okay. I love those books. By the way, do not I love them. They're so good. So basically encoding just means we, we have a categorical variable. And we need to encode it so that we can basically perform math on
+
+427
+00:39:59.200 --> 00:40:10.270
+Anthony Taylor: all right. That's the goal. We have 2 kinds of variables, and we haven't talked about this before. Nominal variables which don't have an inherent order.
+
+428
+00:40:10.620 --> 00:40:13.110
+Anthony Taylor: It could be anything in any order.
+
+429
+00:40:13.890 --> 00:40:16.599
+Anthony Taylor: Okay, this could be
+
+430
+00:40:16.950 --> 00:40:18.460
+Anthony Taylor: no counts.
+
+431
+00:40:20.060 --> 00:40:22.810
+Anthony Taylor: Okay, this could actually be dollar amounts.
+
+432
+00:40:23.970 --> 00:40:25.159
+Anthony Taylor: Things like that.
+
+433
+00:40:26.130 --> 00:40:29.449
+Anthony Taylor: Ordinal variables have an order.
+
+434
+00:40:30.240 --> 00:40:35.260
+Anthony Taylor: Think grades A, BCDE,
+
+435
+00:40:36.880 --> 00:40:37.890
+Anthony Taylor: okay.
+
+436
+00:40:39.790 --> 00:40:47.369
+Anthony Taylor: yeah. Basically they are. I mean, and you could argue that money that, like dollar amounts could be ordered
+
+437
+00:40:47.550 --> 00:40:51.069
+Anthony Taylor: highest to lowest or vice versa. hey? I don't know.
+
+438
+00:40:51.330 --> 00:40:54.250
+Anthony Taylor: I don't know. I'd like to think that they're nominal, but
+
+439
+00:40:55.180 --> 00:40:58.199
+Anthony Taylor: now that I say that out loud. I'm like thinking twice about it.
+
+440
+00:40:58.370 --> 00:41:01.280
+Anthony Taylor:  
+
+441
+00:41:01.850 --> 00:41:08.029
+Anthony Taylor: anyway, we'll get back. We'll we'll get into some. Let's get into some Demos on that. We're not on feature engineering yet.
+
+442
+00:41:09.350 --> 00:41:10.250
+Anthony Taylor: Dang it.
+
+443
+00:41:11.330 --> 00:41:12.200
+Anthony Taylor: Okay.
+
+444
+00:41:13.420 --> 00:41:17.509
+Anthony Taylor: so let's look at how we're gonna do this. And all we have to do. It's a fairly simple thing.
+
+445
+00:41:17.730 --> 00:41:20.769
+Anthony Taylor: We're gonna do some text data. Here
+
+446
+00:41:21.470 --> 00:41:26.550
+Anthony Taylor: it comes up. Looks like this. Okay, so just look at these variables.
+
+447
+00:41:28.190 --> 00:41:30.510
+Anthony Taylor: Aye. where you guys stay.
+
+448
+00:41:36.290 --> 00:41:41.969
+Anthony Taylor: are they ordinal? Or are they nominal? Let's start start with backpack, back, back color
+
+449
+00:41:47.580 --> 00:41:49.500
+Baro, Sonja: like, take a guess.
+
+450
+00:41:49.590 --> 00:42:01.420
+Anthony Taylor: nominal right? Since there's no set order to this, you can't really rank these, I mean, who's gonna rank color? Randy's the best. I don't. Maybe it is. Maybe it isn't
+
+451
+00:42:01.860 --> 00:42:09.120
+Anthony Taylor: alright. So this would be nominal. Alright. What about grade? You already said Great. But go ahead. Tell me anything.
+
+452
+00:42:13.040 --> 00:42:17.329
+Baro, Sonja: Ordinal Ordinal. Absolutely.
+
+453
+00:42:17.470 --> 00:42:20.949
+Anthony Taylor: How about favorite preacher?
+
+454
+00:42:22.120 --> 00:42:23.120
+Raugewitz, Tania: Nominal.
+
+455
+00:42:23.890 --> 00:42:26.850
+Anthony Taylor: nominal, definitely arrived.
+
+456
+00:42:28.600 --> 00:42:29.580
+Raugewitz, Tania: Nominal?
+
+457
+00:42:30.830 --> 00:42:34.749
+Anthony Taylor: Yeah, pretty pretty straightforward. So here's the good news.
+
+458
+00:42:34.870 --> 00:42:35.720
+Anthony Taylor: Sorry?
+
+459
+00:42:36.620 --> 00:42:47.540
+Anthony Taylor: Well, I guess not. I was just gonna say, I see where you're going. Couldn't you order arrive? Yeah, but which one is right is link better than what time I don't.
+
+460
+00:42:48.200 --> 00:42:51.060
+Anthony Taylor: I guess that depends on your you know the
+
+461
+00:42:51.360 --> 00:42:58.690
+Baro, Sonja: which. Book of etiquette your your week? Am I in Hawaii late is okay.
+
+462
+00:42:59.130 --> 00:43:06.119
+Anthony Taylor: So anyway, so first thing we're doing we're actually going to get rid of arrived, anyway, because that's our column we're looking for.
+
+463
+00:43:06.560 --> 00:43:18.819
+Anthony Taylor: Here's our backpack color, blue, yellow, red, definitely or no. or sorry nominal. So for those we're going to use one hot encoder.
+
+464
+00:43:19.500 --> 00:43:22.819
+Anthony Taylor: Okay, so we're gonna run this reshape it.
+
+465
+00:43:23.090 --> 00:43:26.500
+Anthony Taylor: It's gonna be a beautiful thing. We'll come back to that in a minute.
+
+466
+00:43:26.660 --> 00:43:29.340
+Anthony Taylor: Grade value counts
+
+467
+00:43:30.010 --> 00:43:31.490
+Anthony Taylor: interesting.
+
+468
+00:43:31.950 --> 00:43:39.300
+Anthony Taylor: Okay, we know that we can order these. So this will be an ordinal encounter.
+
+469
+00:43:39.360 --> 00:43:46.559
+Anthony Taylor: Notice, it's a new encoder. We haven't seen this one before. so ordinary encoder has a couple of additional
+
+470
+00:43:46.750 --> 00:43:51.210
+Anthony Taylor:  properties. The method does.
+
+471
+00:43:51.280 --> 00:43:54.989
+Anthony Taylor: So we're going to. And notice we do have to fit it.
+
+472
+00:43:56.060 --> 00:44:02.560
+Anthony Taylor: So what we're gonna do is we're gonna pass in categories that are possible in the order that we want.
+
+473
+00:44:03.760 --> 00:44:18.080
+Anthony Taylor: we're going to say, if there's a missing value. do a negative what? Okay? It's funny. There's also an unknown value. Now, what do you think the difference between missing and unknown would be here
+
+474
+00:44:21.560 --> 00:44:25.709
+Dipinto, Matt: is missing. Null and unknown is not in your categories.
+
+475
+00:44:27.910 --> 00:44:28.680
+I'm
+
+476
+00:44:28.830 --> 00:44:33.329
+Anthony Taylor: see, you know that's an interesting you know what. Now I want to look at it, cause I would have said the opposite.
+
+477
+00:44:33.400 --> 00:44:39.440
+Anthony Taylor: But You're correct. Missing is encoded. Missing value is
+
+478
+00:44:39.460 --> 00:44:41.410
+Anthony Taylor: it says, no.
+
+479
+00:44:41.740 --> 00:44:43.680
+Anthony Taylor: Unknown is.
+
+480
+00:44:49.730 --> 00:44:52.300
+Anthony Taylor: oh, okay. So
+
+481
+00:44:53.710 --> 00:44:59.230
+Anthony Taylor: what's happening here is the handle unknown says, use encoded value.
+
+482
+00:44:59.770 --> 00:45:03.070
+Anthony Taylor: Okay? When you use that
+
+483
+00:45:03.570 --> 00:45:12.349
+Anthony Taylor: the grade column. If we were later to try to add a value of B, we want to specify the value, so we will choose use encoded value.
+
+484
+00:45:12.360 --> 00:45:24.970
+Anthony Taylor: So you could add it in here. And if it's unknown, it's basically the same as this one. but it has to do with. If you add something in here. So let me read this again. I'm gonna read this exactly what says
+
+485
+00:45:25.030 --> 00:45:28.900
+Anthony Taylor: handle a known parameter tells the encoder whether to throw an error
+
+486
+00:45:28.930 --> 00:45:40.000
+Anthony Taylor: or do something else whenever a value is encountered that the encoder wasn't trained with. for example, in the grade column. If we were to later to try to encode the value.
+
+487
+00:45:40.120 --> 00:45:45.690
+Anthony Taylor: A, B, we want to specify a value. So we will choose. Okay.
+
+488
+00:45:45.780 --> 00:45:51.699
+Anthony Taylor: let me restate that. And I think it's actually what Matt said. So, good job, this is just a null
+
+489
+00:45:51.860 --> 00:45:52.720
+Anthony Taylor: period.
+
+490
+00:45:53.310 --> 00:45:58.469
+Anthony Taylor: This is, if you come across something that's not in this list.
+
+491
+00:46:00.590 --> 00:46:05.380
+Anthony Taylor: use this value. So in this case unknown, minus one.
+
+492
+00:46:05.970 --> 00:46:10.660
+Anthony Taylor: So either way no, or outside of our list, it's negative. What
+
+493
+00:46:12.010 --> 00:46:13.180
+Anthony Taylor: so good? Comment?
+
+494
+00:46:13.600 --> 00:46:16.919
+Anthony Taylor: Alright. So this is going to do that and create
+
+495
+00:46:17.360 --> 00:46:22.760
+Anthony Taylor: that one so favorite creature. whole bunch of fun. Favorite creatures!
+
+496
+00:46:25.910 --> 00:46:27.929
+Anthony Taylor: I love that Chupacabra made it
+
+497
+00:46:28.610 --> 00:46:38.190
+Anthony Taylor: definitely nominal. So we're going to be one hot encoder. and that's all we have to worry about. So to do our pre-processing.
+
+498
+00:46:38.570 --> 00:46:44.980
+Anthony Taylor: We're just going to take each one of these, and so we appear. Notice, we've only trained them.
+
+499
+00:46:45.230 --> 00:46:47.210
+Anthony Taylor: Okay, we did the fit
+
+500
+00:46:47.470 --> 00:46:54.799
+Anthony Taylor: on each one. So they're ready. They're trained. Okay, but we haven't applied them
+
+501
+00:46:54.830 --> 00:46:57.990
+Anthony Taylor: to our data. We're going to do that here.
+
+502
+00:46:58.170 --> 00:46:59.500
+Anthony Taylor: So we're gonna take
+
+503
+00:47:00.010 --> 00:47:05.140
+Anthony Taylor: are color encoded grade encoded favorite encoded, and apply
+
+504
+00:47:05.830 --> 00:47:11.190
+Anthony Taylor: the trained encoder to the column
+
+505
+00:47:11.890 --> 00:47:14.089
+Anthony Taylor: that we want to apply it to
+
+506
+00:47:14.850 --> 00:47:20.939
+Anthony Taylor: alright. When we're all done, we're basically gonna create a data frame out of it. Remember.
+
+507
+00:47:21.880 --> 00:47:25.670
+Anthony Taylor: we've seen this before with one hot coder.
+
+508
+00:47:25.920 --> 00:47:38.310
+Anthony Taylor: this. we're bring the column names back out so that we can actually see them. And there's the function. You guys can save that function. If I were you.
+
+509
+00:47:38.330 --> 00:47:43.119
+Anthony Taylor: then we can look at our data and see it is now a beautiful thing.
+
+510
+00:47:45.010 --> 00:47:49.730
+Anthony Taylor: Okay. now notice the difference between
+
+511
+00:47:49.860 --> 00:47:51.820
+Anthony Taylor: this and
+
+512
+00:47:52.420 --> 00:47:53.420
+Anthony Taylor: this.
+
+513
+00:47:57.330 --> 00:48:00.710
+Anthony Taylor: since this is a ordinary.
+
+514
+00:48:01.090 --> 00:48:07.959
+Anthony Taylor: instead of doing 1 0 1 0 like like these others did. It actually gives us A ranking.
+
+515
+00:48:09.060 --> 00:48:17.529
+Anthony Taylor: whatever ranking we give it whenever we trained it up here. So it went. You know. 0 1, 2, 3, 4.
+
+516
+00:48:19.740 --> 00:48:22.210
+Anthony Taylor: Okay. pretty cool.
+
+517
+00:48:24.180 --> 00:48:26.690
+Anthony Taylor: So that's the difference between the 2. Yes, Mary.
+
+518
+00:48:30.100 --> 00:48:33.300
+Meredith McCanse (she/her): I don't think you just answered this. But I
+
+519
+00:48:33.750 --> 00:48:41.550
+Meredith McCanse (she/her): what's the diff like? What's the difference between using one hot encoder versus get dummies
+
+520
+00:48:42.570 --> 00:48:43.280
+Anthony Taylor: that
+
+521
+00:48:43.410 --> 00:48:46.810
+Anthony Taylor: honestly, it's it's which one you call
+
+522
+00:48:47.090 --> 00:48:57.530
+Anthony Taylor: right? So notice up here. We brought in pandas. But we're using the sk, learn one hot encoder. get dummies, works the same.
+
+523
+00:48:57.940 --> 00:49:08.850
+Meredith McCanse (she/her): Okay, so there's not like it in this situation. Use this versus this other situation. Okay, II would say, the only thing that you need to keep in mind is that get dummies is for
+
+524
+00:49:09.400 --> 00:49:13.629
+Anthony Taylor: the non. I keep mixing up the nominal values.
+
+525
+00:49:13.680 --> 00:49:17.500
+Anthony Taylor: If you have ordinal values, you should be using this one.
+
+526
+00:49:18.850 --> 00:49:21.230
+Anthony Taylor: So you would want to learn to escalate.
+
+527
+00:49:22.220 --> 00:49:28.210
+Anthony Taylor: so no one would look at you and go. Oh, my God, you can just get dummies. You're lame. No.
+
+528
+00:49:29.110 --> 00:49:33.919
+Anthony Taylor: okay. or vice versa. Oh, you're using one hot instead of get dummies. Why.
+
+529
+00:49:34.610 --> 00:49:40.289
+Anthony Taylor: it's the they're effectively the same. Now, there are situations where you don't have ends.
+
+530
+00:49:42.810 --> 00:49:50.800
+Anthony Taylor: Okay? So like, if you're working with spark data or something like that, you don't use pandas. You're using something else. That's when you would use these guys for sure.
+
+531
+00:49:51.280 --> 00:49:53.610
+Anthony Taylor: So the good news is, we've talked a few ways to do
+
+532
+00:49:54.830 --> 00:49:55.810
+Anthony Taylor: okay.
+
+533
+00:50:00.010 --> 00:50:00.790
+Anthony Taylor: test.
+
+534
+00:50:01.930 --> 00:50:06.480
+Anthony Taylor: So pretty good. awesome. Okay.
+
+535
+00:50:07.670 --> 00:50:12.799
+Anthony Taylor: these are kind of different today. It's an interesting way. We're doing things. Say, okay, so
+
+536
+00:50:12.990 --> 00:50:20.579
+Anthony Taylor:  it's break time. So come back at at the top of the hour.
+
+537
+00:50:20.800 --> 00:50:22.620
+Anthony Taylor: What would that be 80'clock.
+
+538
+00:50:22.950 --> 00:50:25.339
+Anthony Taylor: Oh, wait, stop, Derek!
+
+539
+00:50:27.240 --> 00:50:36.620
+Derek Rikke: Alright! What's the point of doing the ordinal one? And it seems to me like, why wouldn't you just do one hot and get
+
+540
+00:50:36.860 --> 00:50:41.929
+Derek Rikke: of one and 0 for each grade. Cause this way, you're like waiting that
+
+541
+00:50:41.990 --> 00:50:45.769
+Derek Rikke: the A is like a 4. So we're gonna have more weight. I do like that.
+
+542
+00:50:46.200 --> 00:50:50.089
+Anthony Taylor: That that's a possibility. But so here's the idea
+
+543
+00:50:50.230 --> 00:50:53.499
+Anthony Taylor: behind this, and and this isn't always the case.
+
+544
+00:50:53.720 --> 00:50:57.379
+Anthony Taylor: But in the model, by ranking it.
+
+545
+00:50:57.620 --> 00:51:02.649
+Anthony Taylor: and the way we ranked it we ranked F as the lowest rank, and A is the highest
+
+546
+00:51:03.040 --> 00:51:06.110
+Anthony Taylor: right. We are applying weight
+
+547
+00:51:06.360 --> 00:51:07.680
+Anthony Taylor: to that ranking
+
+548
+00:51:08.950 --> 00:51:12.130
+Anthony Taylor: make sense. That's not always case
+
+549
+00:51:12.860 --> 00:51:19.499
+Anthony Taylor: like like. So like, if you're doing places first, second, third, first would have the highest rate, and third would have the lowest rate.
+
+550
+00:51:20.400 --> 00:51:21.180
+Anthony Taylor: But
+
+551
+00:51:21.420 --> 00:51:23.030
+Baro, Sonja: even then
+
+552
+00:51:23.070 --> 00:51:27.930
+Anthony Taylor: it it may or may not make any difference. Okay? And and so
+
+553
+00:51:28.960 --> 00:51:31.529
+Anthony Taylor: there will be times when Ordinal
+
+554
+00:51:31.590 --> 00:51:34.459
+Anthony Taylor: is nice to have. If you have like, a lot
+
+555
+00:51:34.480 --> 00:51:40.119
+Anthony Taylor: of orders. Okay? Because get dummies, as you know, will create a column for every value.
+
+556
+00:51:42.970 --> 00:51:46.440
+Anthony Taylor: Yeah, it just depends. And again, science and art.
+
+557
+00:51:46.550 --> 00:51:50.680
+Anthony Taylor: You're going to use it sometimes. And sometimes it's not the best idea.
+
+558
+00:51:52.110 --> 00:51:52.960
+Anthony Taylor: Okay?
+
+559
+00:51:53.210 --> 00:51:55.879
+Anthony Taylor: But yeah, that's the best way. I can answer that
+
+560
+00:51:57.470 --> 00:51:59.030
+Anthony Taylor: bye now.
+
+561
+00:51:59.650 --> 00:52:03.840
+Anthony Taylor: only last a minute. So same same time I'll see you guys.
+
+562
+00:52:04.100 --> 00:52:12.090
+Baro, Sonja: Anthony, on the the last one with the function. You'd said we should copy that
+
+563
+00:52:12.310 --> 00:52:17.670
+Baro, Sonja: the we don't have the solved so we can't. You will. I'll give it to you.
+
+564
+00:52:17.790 --> 00:52:23.380
+Anthony Taylor: Don't worry. Yeah, I'll give it to you. Alright. Now, top of the hour.
+
+565
+00:52:24.420 --> 00:52:30.139
+Anthony Taylor: Yeah. But welcome back and break everybody. Yeah.
+
+566
+00:52:30.510 --> 00:52:33.790
+Anthony Taylor: alright. We have one more lecture today.
+
+567
+00:52:34.480 --> 00:52:38.040
+Anthony Taylor: and then we have a very long activity.
+
+568
+00:52:39.060 --> 00:52:42.039
+Anthony Taylor: I know. But it's not a group project
+
+569
+00:52:42.340 --> 00:52:43.850
+Anthony Taylor: unless you really like this
+
+570
+00:52:45.860 --> 00:52:46.880
+Anthony Taylor: alright
+
+571
+00:52:46.970 --> 00:52:49.720
+Anthony Taylor: feature engineering.
+
+572
+00:52:52.000 --> 00:52:57.950
+Anthony Taylor: This is another one of those I wanna say buzz words. But it's really not a buzz. It's
+
+573
+00:52:58.050 --> 00:53:02.519
+Anthony Taylor: it's a for real thing that a lot of
+
+574
+00:53:02.670 --> 00:53:09.049
+Anthony Taylor: this is another one of those things where, like, if you ask a data analyst, what's feature engineering? You're going to have no clue. What you're talking about.
+
+575
+00:53:09.800 --> 00:53:14.840
+Anthony Taylor: Okay? If you ask a data scientist, they should know what you're talking about. But
+
+576
+00:53:14.950 --> 00:53:17.290
+Anthony Taylor: my experience is about half of them built
+
+577
+00:53:17.920 --> 00:53:22.760
+Anthony Taylor:  feature engineering is
+
+578
+00:53:23.430 --> 00:53:25.370
+Kanouff, Christine:  and
+
+579
+00:53:25.600 --> 00:53:32.239
+Anthony Taylor: it's basically looking at the fee. So remember. So your ex data, the way we've been doing everything there. X is your features.
+
+580
+00:53:32.580 --> 00:53:39.200
+Anthony Taylor: Okay? But they're really, if we would get serious about terminology, they're actually observations.
+
+581
+00:53:39.720 --> 00:53:44.449
+Anthony Taylor: The actual observations in your data. So think
+
+582
+00:53:44.580 --> 00:53:47.050
+Anthony Taylor: scientifics think like,
+
+583
+00:53:47.220 --> 00:53:53.729
+Anthony Taylor: I don't know. I almost did. I almost did a study. I was gonna start it tomorrow, a weight loss. Study
+
+584
+00:53:53.970 --> 00:53:57.619
+Anthony Taylor: right? Some people are making some competitor to us epic.
+
+585
+00:53:57.780 --> 00:54:03.600
+Anthony Taylor: and they're like, Hey, do you want to do it? We'll pay you money, and I'm like, I lost a lot of weight already. And they're like, that's okay.
+
+586
+00:54:04.200 --> 00:54:08.330
+Anthony Taylor: like, I didn't want to do it. But
+
+587
+00:54:08.410 --> 00:54:09.679
+Anthony Taylor: they have studied.
+
+588
+00:54:10.040 --> 00:54:15.580
+Anthony Taylor: And in that study they're collecting data. And each item in that data is an observation.
+
+589
+00:54:16.260 --> 00:54:22.040
+Anthony Taylor: What does he weigh now? Which pills did he take? What was his blood sugars like, how much activity did he have?
+
+590
+00:54:22.380 --> 00:54:25.549
+Anthony Taylor: Right? All of those things are an observation.
+
+591
+00:54:26.930 --> 00:54:30.990
+Anthony Taylor: a feature includes observations.
+
+592
+00:54:31.090 --> 00:54:34.130
+Anthony Taylor: but it can also be like.
+
+593
+00:54:35.780 --> 00:54:37.309
+Anthony Taylor: what's his? Bmi.
+
+594
+00:54:38.290 --> 00:54:42.290
+Anthony Taylor: Now, if I have an observation that has height, weight.
+
+595
+00:54:43.400 --> 00:54:49.509
+Anthony Taylor: maybe waist size. I should be able to calculate. Bmi right?
+
+596
+00:54:51.950 --> 00:55:00.069
+Anthony Taylor: The answer is, yes, those are not sure. Okay, so if I can calculate Bmi, I can make that one of my feature.
+
+597
+00:55:01.380 --> 00:55:04.580
+Anthony Taylor: Now. It is no longer a raw observation.
+
+598
+00:55:04.660 --> 00:55:10.520
+Anthony Taylor: I it was not an observation made when I collected the data. It was an observation made
+
+599
+00:55:12.160 --> 00:55:14.979
+Anthony Taylor: when, you know, after I've collected my data.
+
+600
+00:55:15.660 --> 00:55:18.550
+Anthony Taylor:  so
+
+601
+00:55:19.940 --> 00:55:21.310
+Anthony Taylor: while
+
+602
+00:55:22.880 --> 00:55:27.490
+Anthony Taylor: seeing the weight. He weighs 360 pounds.
+
+603
+00:55:28.890 --> 00:55:29.860
+Anthony Taylor: Okay.
+
+604
+00:55:30.410 --> 00:55:35.010
+Anthony Taylor:  And this other person weighs a hundred 40 pounds.
+
+605
+00:55:36.000 --> 00:55:37.530
+Anthony Taylor: Did the weight loss work.
+
+606
+00:55:38.970 --> 00:55:42.700
+Anthony Taylor: Well, we don't know. Well, this person weighed.
+
+607
+00:55:43.190 --> 00:55:48.159
+Anthony Taylor: you know, 3, 80, and this person weighed a hundred 50.
+
+608
+00:55:48.630 --> 00:55:50.310
+Anthony Taylor: Now 160.
+
+609
+00:55:50.910 --> 00:55:55.440
+Anthony Taylor: This guy lost 40 pounds. This Guy lost 14. Did it work?
+
+610
+00:55:56.750 --> 00:56:08.020
+Anthony Taylor: Observation would tell us it looks like it's working. But who did it work better on? Well, somebody who is really say that 170 pound person is 6, 4.
+
+611
+00:56:10.040 --> 00:56:12.210
+Anthony Taylor: Okay, that's a skinny guy.
+
+612
+00:56:14.040 --> 00:56:17.410
+Anthony Taylor: Okay? So maybe that's bad that they lost that.
+
+613
+00:56:18.320 --> 00:56:26.380
+Anthony Taylor: But if we look at Bmi. We'll get a better id of what we're looking at. and and I don't even know if that's a great example. But it's an example
+
+614
+00:56:27.110 --> 00:56:38.550
+Anthony Taylor: where there might be a measurement that we derived from the observations, and that measurement gives us more information or better information than the observations alone.
+
+615
+00:56:39.560 --> 00:56:42.540
+Anthony Taylor: And this technique is called
+
+616
+00:56:42.790 --> 00:56:44.929
+Anthony Taylor: feature engineering.
+
+617
+00:56:46.860 --> 00:56:47.680
+Anthony Taylor: Alright.
+
+618
+00:56:48.030 --> 00:56:57.110
+Anthony Taylor: so we can increase model efficiency. But we do want to be careful not to create additional noise. Don't create a feature just because you can.
+
+619
+00:56:58.990 --> 00:57:01.149
+Anthony Taylor: Okay. Height and inches.
+
+620
+00:57:03.190 --> 00:57:16.489
+Anthony Taylor: height and centimeters. That's just noise. It's crap. Alright. If I got high feet that's probably good enough. Height inches for sure. Good enough heightened centimeters unless you're in Europe
+
+621
+00:57:16.640 --> 00:57:17.760
+Anthony Taylor: or Canada.
+
+622
+00:57:19.310 --> 00:57:21.209
+Anthony Taylor: Alright, no one cares.
+
+623
+00:57:22.770 --> 00:57:24.420
+Anthony Taylor: Okay. Aye.
+
+624
+00:57:26.960 --> 00:57:36.459
+Anthony Taylor: okay. One more thing about feature engineering that you're not going to see. Here is another term. You're going to hear a lot if you get to do any machine learning pipelines like in the real world
+
+625
+00:57:36.560 --> 00:57:38.760
+Anthony Taylor: is feature store.
+
+626
+00:57:40.060 --> 00:57:43.859
+Anthony Taylor: Okay? And you might be like, well, what's a feature store? Well, feature store is nothing more.
+
+627
+00:57:44.330 --> 00:58:04.599
+Anthony Taylor: Then a table where you can keep features that you've created, based off of your observations. Now, again, many of them could be observations. but you can also have derived features in there as well. Why is that important. Well, I'm bringing in all this data. And I've got all this data. And I've got all these observations.
+
+628
+00:58:04.640 --> 00:58:07.249
+Anthony Taylor: You know, I need to apply
+
+629
+00:58:07.620 --> 00:58:08.980
+Anthony Taylor: the feature
+
+630
+00:58:09.250 --> 00:58:16.879
+Anthony Taylor: calculations to make my feet to populate my feature store. So by having a feature store, it's basically like the next level.
+
+631
+00:58:17.030 --> 00:58:24.450
+Anthony Taylor: So you have your features, your observations, and then you apply calculations, and you store that result in the feature store.
+
+632
+00:58:24.600 --> 00:58:28.879
+Anthony Taylor: That feature store becomes the data you do your machine learning on.
+
+633
+00:58:30.120 --> 00:58:35.099
+Anthony Taylor: It's still your observations. There's no difference other than maybe you've enhanced it
+
+634
+00:58:35.130 --> 00:58:45.209
+Anthony Taylor: with some additional capability or measurements, or whatever feature engineering kind of important, not
+
+635
+00:58:45.260 --> 00:58:46.840
+Anthony Taylor: like, oh, my God.
+
+636
+00:58:47.290 --> 00:58:56.769
+Anthony Taylor: gotta know how to do it perfectly, but it will allow you to do an even better job in optimizing your machine. Learning marks.
+
+637
+00:58:58.420 --> 00:58:59.180
+Anthony Taylor: Okay?
+
+638
+00:59:00.300 --> 00:59:05.349
+Anthony Taylor: So, hey, I love this. I'm going to read this exactly how it cleans your data
+
+639
+00:59:05.500 --> 00:59:09.640
+Anthony Taylor: check encoded your categorical variables. Check.
+
+640
+00:59:09.710 --> 00:59:13.570
+Anthony Taylor: Now let's elevate our data set further by crafting new features.
+
+641
+00:59:13.650 --> 00:59:16.230
+Mason, Natalie: Are you supposed to be sharing your screen?
+
+642
+00:59:16.600 --> 00:59:28.609
+Anthony Taylor: Not yet. Okay, just checking. But I could. I mean the good news is there was only one slide. so you didn't miss a whole lot. Here was 2 slides. Here's the one slide
+
+643
+00:59:29.200 --> 00:59:31.690
+Anthony Taylor: that you missed. I apologize. Thank you.
+
+644
+00:59:32.340 --> 00:59:36.810
+Anthony Taylor: I know, you guys are just enjoying seeing my face as I went through all of that
+
+645
+00:59:36.830 --> 00:59:38.240
+Anthony Taylor: anyway.
+
+646
+00:59:38.870 --> 00:59:48.790
+Anthony Taylor: So simple operations. Yeah. Features can be added by combining data. And and this is true. So maybe your feature short also has stuff like
+
+647
+00:59:48.940 --> 00:59:52.210
+Anthony Taylor: to have a Zip code.
+
+648
+00:59:52.270 --> 00:59:57.260
+Anthony Taylor: And maybe you want to add Class 4 to your Zip code
+
+649
+00:59:57.560 --> 01:00:04.190
+Anthony Taylor: that could go in your feature store. The observation is just zip code without the plus 4. But you want to enhance that.
+
+650
+01:00:04.330 --> 01:00:09.849
+Anthony Taylor: Put that in your future store. Okay, that's another thing that could go in there when you're doing feature engineering.
+
+651
+01:00:09.980 --> 01:00:14.280
+Anthony Taylor:  a lot of it is domain knowledge
+
+652
+01:00:14.440 --> 01:00:20.759
+Anthony Taylor: like, how did I know that Bmi might be a better measure than just weight?
+
+653
+01:00:22.440 --> 01:00:27.609
+Anthony Taylor: Right? Well, I mean, you know, you gotta. You gotta have a little bit of domain knowledge.
+
+654
+01:00:27.720 --> 01:00:32.380
+Anthony Taylor: or or some common sense. To figure some of this stuff out.
+
+655
+01:00:32.800 --> 01:00:37.789
+Anthony Taylor: Okay, it's not necessarily something you're able to do with it. You know nothing about the subject matter.
+
+656
+01:00:40.830 --> 01:00:45.239
+Anthony Taylor: Just be careful not to add noise, and let's do an active
+
+657
+01:00:47.670 --> 01:00:48.690
+Anthony Taylor: hey, Kate?
+
+658
+01:00:50.910 --> 01:00:58.739
+Anthony Taylor: So there's really nothing too terribly fancy about this activity. It's the same stuff we've been doing. The only thing we're gonna do. And you can kind of imagine
+
+659
+01:00:58.760 --> 01:01:03.090
+Anthony Taylor: is we're going to do some kind of am I in the right one?
+
+660
+01:01:03.830 --> 01:01:06.829
+Anthony Taylor: No, I'm in the wrong one. Somehow or another I ended up in the wrong.
+
+661
+01:01:07.410 --> 01:01:09.120
+Anthony Taylor: A
+
+662
+01:01:11.880 --> 01:01:24.229
+Anthony Taylor: here we go. We're not gonna really do anything. Fancy. we're simply going to calculate some fields and store them separately and and into another data frame in this case.
+
+663
+01:01:24.430 --> 01:01:32.309
+Anthony Taylor: So here we have gold led. This is our our crowd funding one. So here we're going to say, well, let's do pledged for backup
+
+664
+01:01:33.900 --> 01:01:35.300
+Anthony Taylor: might be worthwhile.
+
+665
+01:01:35.440 --> 01:01:40.300
+Anthony Taylor: We have pledged. We have backward count. We can create a pledged for backer.
+
+666
+01:01:41.620 --> 01:01:42.520
+Anthony Taylor: Okay.
+
+667
+01:01:43.080 --> 01:01:55.109
+Anthony Taylor: I don't know could be helpful. Why not? Right? We can get rid of the nulls, we'll say, Hey, if they're null we'll just give them a 0 we can get backers per day.
+
+668
+01:01:55.490 --> 01:02:00.909
+Anthony Taylor: That's kind of an interesting one. I don't know how helpful it would be, but why not? Right?
+
+669
+01:02:01.610 --> 01:02:05.979
+Anthony Taylor: So we got backers per day. We got pledged for backer.
+
+670
+01:02:06.390 --> 01:02:17.570
+Anthony Taylor:  here, we're going to do a, we're going to use a function to create a new column. And this one we're gonna say, the goal minus the pledge.
+
+671
+01:02:18.690 --> 01:02:25.580
+Anthony Taylor: And then the pledge per day. We're gonna do the pledge, the pledge for backer times, the backers per day.
+
+672
+01:02:26.600 --> 01:02:28.670
+Anthony Taylor: Okay, because we don't have that. We have pledged.
+
+673
+01:02:29.660 --> 01:02:41.739
+Anthony Taylor: but we don't have pledge per day, nor do we have amount of naming. The only thing we're gonna add in here is the pledge per day equals 0 return 10,000. I don't know why, but that's a good one.
+
+674
+01:02:41.790 --> 01:02:45.729
+Anthony Taylor: And then we're gonna divide. Oh, well, there's why.
+
+675
+01:02:45.780 --> 01:02:49.590
+Anthony Taylor: because if we would have said, Return 0, and you divide by 0.
+
+676
+01:02:50.780 --> 01:03:03.100
+Anthony Taylor: Everybody knows you can't do that right. Okay? And then when we're done, we're just going to apply this to our data. So we're going to take days to go equals. And we're going to apply this cool function
+
+677
+01:03:03.310 --> 01:03:05.380
+Anthony Taylor: and take a look at our data.
+
+678
+01:03:05.900 --> 01:03:09.379
+Anthony Taylor: But now we get a days to go. Come
+
+679
+01:03:11.890 --> 01:03:13.720
+Anthony Taylor: to go days to go.
+
+680
+01:03:14.120 --> 01:03:15.320
+Anthony Taylor: I'm saying goal
+
+681
+01:03:15.420 --> 01:03:19.940
+Anthony Taylor: sounds like go, because that's actually what I said. But and that's it.
+
+682
+01:03:20.970 --> 01:03:25.080
+Anthony Taylor: Alright. So in
+
+683
+01:03:25.240 --> 01:03:27.300
+Anthony Taylor: most tools.
+
+684
+01:03:28.270 --> 01:03:34.510
+Anthony Taylor: And like, if we go in here and we type feature store.
+
+685
+01:03:38.520 --> 01:03:43.009
+Anthony Taylor: I mean, you could see there's data breaks. There's snowflake, there'll be a but like data bricks.
+
+686
+01:03:43.020 --> 01:03:53.120
+Anthony Taylor: What is a feature store, a feature store alright. And this would explain exactly what that means. So the main thing it means is it's a place to store.
+
+687
+01:03:53.460 --> 01:03:58.500
+Anthony Taylor: Observations that we have manipulated to make them more useful.
+
+688
+01:03:59.510 --> 01:04:02.949
+Anthony Taylor: Okay. and that's pretty much it.
+
+689
+01:04:03.090 --> 01:04:08.209
+Anthony Taylor: This is the tool I use pretty much every day. I'm kind of the expert of the industry on this tool.
+
+690
+01:04:09.850 --> 01:04:10.720
+Anthony Taylor: Okay.
+
+691
+01:04:11.950 --> 01:04:15.130
+Anthony Taylor: it's my baby. Yes, I'm
+
+692
+01:04:16.180 --> 01:04:23.640
+Baro, Sonja: so this is reminding me of why we make functions right? So with functions.
+
+693
+01:04:23.720 --> 01:04:36.799
+Baro, Sonja: our way of compiling a number of steps together to where we don't have to do them individually creating features or engineering features and storing them
+
+694
+01:04:36.940 --> 01:04:45.019
+Baro, Sonja: is a way to get more data or more in insight out of your observations.
+
+695
+01:04:45.400 --> 01:04:52.159
+Baro, Sonja: Yeah, I mean, that's not. That's not wrong, that's not wrong. But let me ask you this, do we know
+
+696
+01:04:52.930 --> 01:04:55.049
+Anthony Taylor: if this is going to make the model better
+
+697
+01:04:55.280 --> 01:05:01.060
+Baro, Sonja: right now with what we just did.
+
+698
+01:05:01.800 --> 01:05:04.990
+Anthony Taylor: It is even possible that you could make it worse.
+
+699
+01:05:06.100 --> 01:05:11.520
+Baro, Sonja: So okay, cause you can add some extra stuff. You could even create data leakage if you're not careful.
+
+700
+01:05:12.800 --> 01:05:19.869
+Baro, Sonja: So before you publish or push something to a feature store, you'd want to run the model on it.
+
+701
+01:05:20.530 --> 01:05:22.780
+Anthony Taylor: Yes, yes, yes.
+
+702
+01:05:23.220 --> 01:05:34.060
+Anthony Taylor: that? Well, you would want to run it without your features, and then you would start enhancing your sorry you would run it. Want to run it like we've been running it with just your observations.
+
+703
+01:05:34.330 --> 01:05:49.070
+Anthony Taylor: And then, if you didn't get a great score, maybe go and look, or maybe you want it to be more interpretable, and we haven't talked about interpretability very much. But interpretability is, can I tell you how this model came up with this answer?
+
+704
+01:05:50.770 --> 01:06:00.390
+Anthony Taylor: Right? And a lot of people in the AI space right now. That's a big, hot topic, because most people can explain how the Lllnds are coming up with some of their stuff.
+
+705
+01:06:02.180 --> 01:06:04.289
+Anthony Taylor: which is both good and bad.
+
+706
+01:06:04.460 --> 01:06:08.360
+Anthony Taylor: I mean, it's good because we're getting stuff we didn't expect.
+
+707
+01:06:08.460 --> 01:06:09.609
+Anthony Taylor: And it's good.
+
+708
+01:06:10.340 --> 01:06:16.869
+Anthony Taylor: Okay, it's bad, because alright how the heck did it come up with that? And we didn't know, and and and we don't get it
+
+709
+01:06:18.030 --> 01:06:25.819
+Anthony Taylor: alright, so it th it's a big plus and a plus. But anyway, yeah, you're right. Feature store is a great way
+
+710
+01:06:25.870 --> 01:06:27.589
+Anthony Taylor: to store data
+
+711
+01:06:27.630 --> 01:06:32.429
+Anthony Taylor: that we've applied to an additional feature engineering.
+
+712
+01:06:32.550 --> 01:06:33.599
+Anthony Taylor: Yes, Meredith.
+
+713
+01:06:34.780 --> 01:06:46.600
+Meredith McCanse (she/her): the feature store. Does it live independently like? If you have all of your pre preparation steps, and what not, and then you do your stuff, and then you
+
+714
+01:06:46.600 --> 01:07:06.370
+Anthony Taylor: do your calculations and store them in a feature store? Do you have to like the next time you run a set of data through this model? Do you have to do a step where you like, clean out the feature store. So you're not like accidentally mixing data from a previous
+
+715
+01:07:06.810 --> 01:07:11.480
+Anthony Taylor: most of the time, like in my examples. I have data, you know. I'll have.
+
+716
+01:07:11.630 --> 01:07:13.350
+Anthony Taylor: you know, 10 years worth of data.
+
+717
+01:07:13.370 --> 01:07:30.440
+Anthony Taylor: Okay? And I have my observations. And we create some additional features or like, okay, so we're gonna load this into a feature store. Why do we load into feature store while the reason we're loading into feature store. They don't want to store those additional or those engineered features in my raw date.
+
+718
+01:07:30.620 --> 01:07:36.419
+Anthony Taylor: because that data is used for reporting. And I don't want to, necessarily. And maybe I do. Maybe. Yeah, maybe they're health.
+
+719
+01:07:36.630 --> 01:07:45.600
+Anthony Taylor: But let's just assume I'm not. I'm only gonna have those in my feature store. So in those conditions, you wouldn't necessarily need to erase and remake.
+
+720
+01:07:45.870 --> 01:07:53.700
+Anthony Taylor: Right? You can just incrementally. But it also depends on like, if you're doing an aggregation across the entire data set
+
+721
+01:07:54.760 --> 01:08:07.010
+Anthony Taylor: right, then you would have to recalculate 4 the entire data set. So you would. In that case you would have to go and come back. But overall.
+
+722
+01:08:07.140 --> 01:08:13.069
+Anthony Taylor: I would say more times than not I'm able to. I don't. Usually. Usually it's within a single row.
+
+723
+01:08:13.270 --> 01:08:21.959
+Anthony Taylor: or it's a lookup right, either one of those. Neither one of those would require me to reload the whole feature store. It would just be adding more
+
+724
+01:08:22.550 --> 01:08:25.130
+Anthony Taylor: more data to the to to make it available.
+
+725
+01:08:26.330 --> 01:08:28.449
+Meredith McCanse (she/her): Okay, thank you. Cool.
+
+726
+01:08:28.899 --> 01:08:30.870
+Meredith McCanse (she/her): Yeah. Anybody else. Thank you.
+
+727
+01:08:31.279 --> 01:08:32.690
+Anthony Taylor: You're very welcome.
+
+728
+01:08:34.630 --> 01:08:37.249
+Anthony Taylor: Righty there.
+
+729
+01:08:38.670 --> 01:08:39.710
+Anthony Taylor: So
+
+730
+01:08:43.430 --> 01:08:45.550
+Anthony Taylor: they call this the third model.
+
+731
+01:08:47.109 --> 01:08:55.420
+Anthony Taylor: So for this activity feel free to start with the unsolved Jupiter notebook that's there. Use your own from the previous class.
+
+732
+01:08:55.720 --> 01:08:59.470
+Anthony Taylor: the one that we did for the second model yesterday
+
+733
+01:09:00.040 --> 01:09:01.350
+Anthony Taylor: our Monday.
+
+734
+01:09:01.430 --> 01:09:04.760
+Anthony Taylor: Wait. Yeah. Monday.
+
+735
+01:09:04.890 --> 01:09:07.280
+Anthony Taylor: Whenever you see fit.
+
+736
+01:09:07.470 --> 01:09:13.910
+Anthony Taylor: you're going to fill missing values. Encode dex data properly. Select a good model.
+
+737
+01:09:14.020 --> 01:09:17.660
+Anthony Taylor:  just try to do a good job with it.
+
+738
+01:09:17.910 --> 01:09:19.550
+Anthony Taylor: Take some time.
+
+739
+01:09:19.810 --> 01:09:23.249
+Anthony Taylor: play with it, have fun with it. You got 40 min
+
+740
+01:09:23.390 --> 01:09:24.640
+Anthony Taylor: to do this
+
+741
+01:09:25.010 --> 01:09:27.789
+Anthony Taylor: which is still gonna get us done
+
+742
+01:09:28.470 --> 01:09:29.880
+Anthony Taylor: really early today.
+
+743
+01:09:30.779 --> 01:09:39.249
+Anthony Taylor: we're gonna review when we're done. Maybe talk a little bit about it, maybe 1015 min, and then I probably will not have anything else. We'll see.
+
+744
+01:09:39.800 --> 01:09:42.590
+Anthony Taylor: Okay. hey? Sound good
+
+745
+01:09:43.859 --> 01:09:44.770
+Anthony Taylor: 40
+
+746
+01:09:46.660 --> 01:09:49.430
+Anthony Taylor: alright.
+
+747
+01:09:50.609 --> 01:09:57.029
+Anthony Taylor: or, as we all like to say. Okay, so
+
+748
+01:09:58.970 --> 01:10:13.410
+Anthony Taylor:  we're gonna do this one a little different. We've all been working on these models for days. or at least 2 days. Right? So I want some of you to show me what you and your group have completed
+
+749
+01:10:14.020 --> 01:10:17.840
+Anthony Taylor: and share it with the group and talk about things like
+
+750
+01:10:18.080 --> 01:10:21.970
+Anthony Taylor: this was fun. This was hard, this was easy.
+
+751
+01:10:22.400 --> 01:10:30.019
+Anthony Taylor: We had so much time. We actually wrote a novel after doing the exercise whatever it was you did.
+
+752
+01:10:30.430 --> 01:10:37.379
+Anthony Taylor: Okay? Who would like to show the class the work that they accomplished.
+
+753
+01:10:47.520 --> 01:10:51.140
+Anthony Taylor: Okay, I hear you, I understand.
+
+754
+01:10:51.560 --> 01:10:53.469
+Anthony Taylor: Not so thrilled.
+
+755
+01:10:54.160 --> 01:10:58.919
+Baro, Sonja: I think, Anthony. If I don't know my group, please
+
+756
+01:10:59.050 --> 01:11:02.079
+Baro, Sonja: let me let me know if I'm not representing. But
+
+757
+01:11:02.190 --> 01:11:07.699
+Baro, Sonja: I'll be honest. We were figured trying to figure out what the heck we were supposed to do.
+
+758
+01:11:07.960 --> 01:11:17.340
+Baro, Sonja: And so we were walking through like, okay, wait. So they want us to. They, we're going through the steps of what we would do. Like.
+
+759
+01:11:17.450 --> 01:11:27.830
+Baro, Sonja: okay, identify? What's missing. Figure out what to do with the missing. And what should we encode or not? That kind of thing we talked through that.
+
+760
+01:11:28.210 --> 01:11:41.009
+Baro, Sonja: And then we're like, well. you know, is that the right way to approach the encoding or not that kind of thing, and that's we talked. But we didn't change anything or code anything. So that's
+
+761
+01:11:41.210 --> 01:11:43.289
+Baro, Sonja: I mean just sharing with you.
+
+762
+01:11:43.450 --> 01:11:55.980
+Baro, Sonja: showing you we don't have. We didn't have anything that we to show other than we're like trying to figure out. Okay, what did they do? And why? And what? What is it that we should be doing? So
+
+763
+01:11:57.680 --> 01:12:02.440
+Baro, Sonja: that's I just wanted to give you kind of what we spent our time doing.
+
+764
+01:12:02.510 --> 01:12:08.179
+Anthony Taylor: Okay, Brandon. What was your comment on that? You have commentary
+
+765
+01:12:08.450 --> 01:12:09.830
+Anthony Taylor: or something to share?
+
+766
+01:12:10.310 --> 01:12:12.019
+Mckimmy, Brandon: I found a way to make it better.
+
+767
+01:12:12.790 --> 01:12:16.959
+Anthony Taylor: Nice. Not sure. That's what you're looking for.
+
+768
+01:12:17.480 --> 01:12:18.459
+Anthony Taylor: Why not?
+
+769
+01:12:18.720 --> 01:12:23.340
+Anthony Taylor: I'm looking for how? What you guys experienced while doing this.
+
+770
+01:12:25.060 --> 01:12:36.089
+Mckimmy, Brandon: Okay? So basically, I looked at the accuracy. Here ran some hyper parameters. Skip this because it took too long. and I use Sg, boost with great Switchv to kick higher by 10%.
+
+771
+01:12:38.540 --> 01:12:42.470
+Anthony Taylor: Okay, so was that in the third model?
+
+772
+01:12:42.970 --> 01:12:44.110
+Mckimmy, Brandon: No, I just
+
+773
+01:12:44.530 --> 01:12:47.660
+Anthony Taylor: okay. Well, thank you. That's good.
+
+774
+01:12:48.610 --> 01:12:50.860
+Anthony Taylor: Alright. that's good.
+
+775
+01:12:50.990 --> 01:12:53.239
+Anthony Taylor: Okay, thank you for that.
+
+776
+01:12:53.440 --> 01:12:57.290
+Anthony Taylor: So let's focus on what we've actually covered in class.
+
+777
+01:12:58.450 --> 01:13:06.799
+Anthony Taylor: So does anybody else have anything. I can't go over that stuff you just showed us, Brandon. It was all stuff we're not covering today.
+
+778
+01:13:07.040 --> 01:13:10.799
+Anthony Taylor: So we're we can't can't really review that right.
+
+779
+01:13:11.600 --> 01:13:14.499
+Anthony Taylor: I would like. yes, go ahead, Ted.
+
+780
+01:13:14.540 --> 01:13:19.429
+Raugewitz, Tania: to kind of add on to what Sonia said we did a lot of talking about
+
+781
+01:13:19.720 --> 01:13:22.220
+Raugewitz, Tania: what we what we could do.
+
+782
+01:13:22.400 --> 01:13:32.600
+Raugewitz, Tania: But personally I had some questions about like what the Y column, you know is it? Is it predicting, or whether they're not going to default or not?
+
+783
+01:13:33.000 --> 01:13:39.799
+Raugewitz, Tania: And but like, if we bend, maybe the ages age groups. If we could kind of
+
+784
+01:13:39.890 --> 01:13:44.580
+Raugewitz, Tania: group the data differently. Would that give us anything?
+
+785
+01:13:45.640 --> 01:13:50.340
+Anthony Taylor: But did you guys run the models to test that? Or were you just hypothesize.
+
+786
+01:13:50.610 --> 01:13:54.320
+Raugewitz, Tania: we were getting ready to do that when we were taken out.
+
+787
+01:13:54.950 --> 01:14:01.220
+Anthony Taylor: Fair enough. That is a fair statement. It's absolutely a fair statement, and that's that is what you would do
+
+788
+01:14:01.470 --> 01:14:07.090
+Anthony Taylor: to be clear both of the thing. All the things you guys are saying is exactly
+
+789
+01:14:07.350 --> 01:14:08.839
+Anthony Taylor: what you would do
+
+790
+01:14:09.120 --> 01:14:16.920
+Anthony Taylor: if you were doing this work right? You would look at the data you would start talking about. Well, what do you think? And and all of that? So
+
+791
+01:14:17.120 --> 01:14:23.030
+Anthony Taylor: some of the important things that we need to understand is like 80% of the work. And I think I've said this before
+
+792
+01:14:23.200 --> 01:14:26.600
+Anthony Taylor: of a data scientist. it's getting ready.
+
+793
+01:14:28.200 --> 01:14:30.549
+Anthony Taylor: That's it. It's like getting ready.
+
+794
+01:14:31.080 --> 01:14:34.520
+Anthony Taylor: Selecting models is actually not complicated at all.
+
+795
+01:14:35.170 --> 01:14:37.889
+Anthony Taylor: Run lots and ups. Okay?
+
+796
+01:14:38.260 --> 01:14:51.090
+Anthony Taylor:  yeah. So a lot of that getting ready involves talking to the data owners. Doing the pre-processing things like that? Okay?
+
+797
+01:14:51.340 --> 01:14:54.930
+Anthony Taylor:  then. So how many of you actually
+
+798
+01:14:55.000 --> 01:14:57.980
+Anthony Taylor: got to a balanced accuracy score
+
+799
+01:14:58.310 --> 01:15:00.200
+Anthony Taylor: at all. Did anybody
+
+800
+01:15:01.140 --> 01:15:07.099
+Anthony Taylor: I know? Brandon got a whole bunch of different scores, I'm sure. But, Derek, did you get you a balanced accuracy score?
+
+801
+01:15:08.550 --> 01:15:12.330
+Derek Rikke: Yeah, but I mean it wasn't better.
+
+802
+01:15:12.640 --> 01:15:15.250
+Anthony Taylor: It didn't get much better. That's okay.
+
+803
+01:15:16.170 --> 01:15:21.590
+Derek Rikke: So we did look at the but like documentation or like where the data came from
+
+804
+01:15:22.590 --> 01:15:23.909
+Derek Rikke: and try to
+
+805
+01:15:24.010 --> 01:15:33.450
+Derek Rikke: see. You know what insights we can gain from there, and at least one step which I know was good is that we got rid of the duration column
+
+806
+01:15:34.790 --> 01:15:37.150
+Derek Rikke: cause. I talked about that and the representation.
+
+807
+01:15:37.160 --> 01:15:39.090
+Derek Rikke: And I was basically like, if this is.
+
+808
+01:15:39.300 --> 01:15:45.079
+Derek Rikke: this is highly correlated. And if it's not 0. It's gonna be a yes, so get rid of it.
+
+809
+01:15:46.460 --> 01:15:49.740
+Derek Rikke: It didn't improve the scores, but
+
+810
+01:15:50.870 --> 01:15:53.049
+Derek Rikke: pretty sure it prevented some data leakage.
+
+811
+01:15:56.050 --> 01:16:01.000
+Anthony Taylor: Good. I like it. I like it. Alright, Rodney, you got a comment.
+
+812
+01:16:02.310 --> 01:16:12.060
+Masarirambi, Rodney: Yeah, just a question. Did anybody else do the third model? Or did anybody go back to the because we were concentrating on the third model.
+
+813
+01:16:13.070 --> 01:16:16.650
+Anthony Taylor: Well, I think everybody. The third model is just an extension of the second model.
+
+814
+01:16:18.990 --> 01:16:19.770
+Masarirambi, Rodney: Okay.
+
+815
+01:16:20.380 --> 01:16:23.669
+Anthony Taylor: yeah. So I mean it should be the same data.
+
+816
+01:16:24.760 --> 01:16:28.070
+Anthony Taylor: I didn't actually look. Yeah. But
+
+817
+01:16:28.230 --> 01:16:34.420
+Dipinto, Matt: I think we all have the same problem. Look at your unsolved file.
+
+818
+01:16:35.310 --> 01:16:37.080
+Dipinto, Matt: It's solved
+
+819
+01:16:37.190 --> 01:16:42.130
+Dipinto, Matt: all the way through.
+
+820
+01:16:42.180 --> 01:16:50.430
+Dipinto, Matt: You're gonna have to scroll for 6 min with all the shit they have in there. That one block is the only markdown that says, ask the question.
+
+821
+01:17:12.410 --> 01:17:13.529
+Anthony Taylor: you know, what?
+
+822
+01:17:13.710 --> 01:17:15.820
+Raugewitz, Tania: What can you do to improve the model?
+
+823
+01:17:16.500 --> 01:17:26.279
+Dipinto, Matt: 40 min to understand what they did, which was wild. I'm not saying there's anything bad about that. But like I think most groups didn't get to the point of improving it, because
+
+824
+01:17:26.320 --> 01:17:44.660
+Meredith McCanse (she/her): it takes a really long time to wrap your head around every step they took to. They do a lot of things where they fill in data. We spend a lot of time talking about, how did they make this assumption to fit? What are they even looking at? What are they asking us to look at here?
+
+825
+01:17:44.780 --> 01:18:05.110
+Meredith McCanse (she/her): And then we were sort of like. Why disagree with this? I would like, there's a part where they're saying, oh, well, all of these jobs right above where you are. They sort of. Say, all of these jobs up here don't require an advanced education. So we're just gonna say, the education level was primary, like high school diploma. And we were sort of like. Well, I disagree. That's not necessarily true. How did they come to that conclusion?
+
+826
+01:18:05.680 --> 01:18:13.200
+Meredith McCanse (she/her): But it was hard to some of the steps they did where we were like, why are you looking at the data this way? What are we supposed to glean from this? We couldn't figure that out.
+
+827
+01:18:13.920 --> 01:18:24.929
+Anthony Taylor: Okay, well, and I'll be honest with you. I was wondering, cause it said, well, this is just one possible solution. which is the same solution that you guys just went through, I'm sure
+
+828
+01:18:25.040 --> 01:18:32.779
+Anthony Taylor:  And it says for the review on this, just talk to you guys, let you tell me how you did and what you did.
+
+829
+01:18:32.940 --> 01:18:38.029
+Anthony Taylor: So I guess more or less it all fits because you did tell me what you did and how you did
+
+830
+01:18:38.090 --> 01:18:42.180
+Anthony Taylor: even Brandon, with this stuff that we're not even doing right now.
+
+831
+01:18:42.200 --> 01:18:46.049
+Anthony Taylor: said, well, this is what I got out of it. And this is what I did, which is fine.
+
+832
+01:18:46.520 --> 01:18:48.409
+Anthony Taylor: We just can't really review it.
+
+833
+01:18:48.490 --> 01:18:50.789
+Anthony Taylor: But but yeah.
+
+834
+01:18:51.080 --> 01:18:55.129
+Raugewitz, Tania: I guess. But to what Brandon did I mean? He did use
+
+835
+01:18:55.390 --> 01:19:08.020
+Raugewitz, Tania: models that we've reviewed in the past. So II figured is, if it's something we've done in the past, isn't it still fair game versus if we haven't covered it at all? So I was thinking about going there as as well.
+
+836
+01:19:08.330 --> 01:19:16.400
+Raugewitz, Tania: He didn't use models. We didn't badly use hyper parameter tuning which we haven't covered yet. Oh, that one! But the get booster
+
+837
+01:19:17.200 --> 01:19:25.440
+Anthony Taylor: I think we talked about xt I'm not sure doesn't matter. We use hyperpround or tuning, which we're not there yet. Tomorrow we're gonna cover hyper parameter, too.
+
+838
+01:19:25.540 --> 01:19:26.419
+Raugewitz, Tania: I got you.
+
+839
+01:19:27.030 --> 01:19:33.930
+Baro, Sonja: I think it was. I do think it was helpful. I I'll speak for myself to
+
+840
+01:19:34.260 --> 01:19:42.430
+Baro, Sonja: go through, even though we're trying to figure out what the heck to do it. It was helpful, though, to talk through. Okay, first.
+
+841
+01:19:42.650 --> 01:20:03.580
+Baro, Sonja: we're looking at the data. What's the first thing we're looking at. Okay, well, what's missing? Right? And how would we do that? And then next is, how do we deal with the the non numerical values? And so we talked through all of that, and I think that was helpful. So it's not like it was a waste.
+
+842
+01:20:03.910 --> 01:20:08.160
+Baro, Sonja: I don't want anyone to think that valuable.
+
+843
+01:20:09.260 --> 01:20:11.349
+Anthony Taylor: I think that the
+
+844
+01:20:12.070 --> 01:20:19.660
+Baro, Sonja: I just say, like we reran the the plot with the histogram to say, Okay, now that you've
+
+845
+01:20:19.820 --> 01:20:22.549
+Baro, Sonja: you've decided to recode
+
+846
+01:20:22.660 --> 01:20:31.409
+Baro, Sonja: value make a negative one for those who haven't been contacted. What does that do you know? So you know, we we explored a little bit
+
+847
+01:20:31.530 --> 01:20:32.910
+Baro, Sonja: there. But
+
+848
+01:20:32.940 --> 01:20:39.200
+Baro, Sonja: yeah, that's why we were saying we didn't really quote, do anything
+
+849
+01:20:39.460 --> 01:20:45.710
+Baro, Sonja: well. And like, I said, now that I look at it and see that it's all broken. Are they basically did the whole thing for you.
+
+850
+01:20:47.350 --> 01:20:55.149
+Anthony Taylor: It makes more sense. Why, they were saying, you know, there's nothing really to review. Just have you guys tell me about what you did
+
+851
+01:20:55.510 --> 01:20:59.839
+Anthony Taylor: right? And I think you guys did good. You pointed out a lot of stuff. So let me
+
+852
+01:20:59.980 --> 01:21:02.449
+Anthony Taylor: let me point out something else. You
+
+853
+01:21:02.580 --> 01:21:06.409
+Anthony Taylor: let let me finish this thing. So when you mentioned the job thing
+
+854
+01:21:06.530 --> 01:21:11.199
+Anthony Taylor: right, that is exactly the kind of stuff you should have found and questioned.
+
+855
+01:21:12.290 --> 01:21:22.810
+Anthony Taylor: So that's a good thing. Right? That's what we want to do. If you did, we don't know. I mean their statement whether that's right or wrong. whatever right the point is is that
+
+856
+01:21:23.480 --> 01:21:34.319
+Anthony Taylor: that's the kind of stuff you should be questioning when you see something like that. So that's a good thing. Let me see if there's anything else here before you. I answer your question.
+
+857
+01:21:36.670 --> 01:21:47.620
+Anthony Taylor: The bottom line is, and and I'm going to tell you. I agree with this statement, completely preprocessing is not. And we said this earlier, it's an art and a science. All of data. Science
+
+858
+01:21:47.780 --> 01:21:49.850
+Anthony Taylor: is an art and a science.
+
+859
+01:21:50.710 --> 01:21:54.180
+Anthony Taylor: Okay, it's not there. There is not always
+
+860
+01:21:54.930 --> 01:22:00.199
+Anthony Taylor: a single answer. But there can be a best answer.
+
+861
+01:22:01.550 --> 01:22:05.250
+Anthony Taylor: Does that make sense? And by best answer, we're really referring
+
+862
+01:22:05.400 --> 01:22:10.170
+Anthony Taylor: to the final deliverable. That final prediction.
+
+863
+01:22:10.560 --> 01:22:12.580
+Anthony Taylor: Right? You can get
+
+864
+01:22:17.540 --> 01:22:18.640
+Anthony Taylor: sorry about that
+
+865
+01:22:20.700 --> 01:22:23.760
+Anthony Taylor: good thing. but you can get to a point
+
+866
+01:22:23.770 --> 01:22:27.430
+Anthony Taylor: where that score is as good as it's going to get.
+
+867
+01:22:28.710 --> 01:22:32.850
+Anthony Taylor: Okay. It is possible. How you get there
+
+868
+01:22:33.390 --> 01:22:36.169
+Anthony Taylor: could be done 10 different directions.
+
+869
+01:22:37.170 --> 01:22:46.609
+Anthony Taylor: Some of them are going to be more efficient. Some of them are going to be less efficient. As you get better, you get better at understanding what's more efficient versus what's less efficient.
+
+870
+01:22:48.240 --> 01:22:49.150
+Anthony Taylor: Got it
+
+871
+01:22:51.320 --> 01:22:52.030
+Anthony Taylor: cool.
+
+872
+01:22:52.390 --> 01:22:54.460
+Anthony Taylor: Okay, Meredith, you had a question.
+
+873
+01:22:54.800 --> 01:23:01.910
+Meredith McCanse (she/her): Yeah, I question for you and the other groups about. So we noticed one of the first discussions we had was looking at.
+
+874
+01:23:02.630 --> 01:23:18.710
+Meredith McCanse (she/her): We did the thing where we in the previous exercise. We looked at the percentage of nulls, and I think we added that in there. It wasn't part of the code they gave us, and we saw that Pete, the columns, P. Days and P. Outcome has had like 60% nulls.
+
+875
+01:23:18.710 --> 01:23:34.070
+Meredith McCanse (she/her): and we were like that seems to way too much to try to impute that data like there's no way you're gonna get any kind of accuracy. So is it better to just leave it as nulls, or to
+
+876
+01:23:35.050 --> 01:23:46.659
+Meredith McCanse (she/her): drop those columns altogether, and we don't know what they mean, either. Like P. Days is numerical, and P. Outcomes is a word. But we don't really know how they're calculated or how they're relevant.
+
+877
+01:23:46.840 --> 01:23:51.589
+Meredith McCanse (she/her): But the fact that 60% of them are empty was a red flag for us.
+
+878
+01:23:52.230 --> 01:24:00.980
+Masarirambi, Rodney: So the P. Days were the length of time since the marketing team had reached out to people. but that also, like
+
+879
+01:24:01.060 --> 01:24:03.630
+Masarirambi, Rodney: made us question a bunch of things. Because
+
+880
+01:24:03.860 --> 01:24:11.500
+Masarirambi, Rodney: do we know that? Did it tell us that somewhere? Yeah, it it. It's it's marked off in the in the section. Can you go down just a little bit?
+
+881
+01:24:13.900 --> 01:24:22.649
+Anthony Taylor: Well, I was just looking at the calculation that came up with, but nexus P. Days says, how many days it's been since the last marketing contact.
+
+882
+01:24:24.470 --> 01:24:25.380
+Anthony Taylor: Okay.
+
+883
+01:24:28.390 --> 01:24:35.710
+Meredith McCanse (she/her): But I guess, my Anthony, my question for you, if you have data like that where 60 of it is null. How do you handle that?
+
+884
+01:24:37.010 --> 01:24:38.490
+Anthony Taylor: Probably would.
+
+885
+01:24:41.380 --> 01:24:49.209
+Anthony Taylor: Honestly, I would probably drop the columns and run it without it. and see what I get. If I start to find it, I need more detail
+
+886
+01:24:49.250 --> 01:24:52.630
+Anthony Taylor: to get a better fit. Then I would go back in and view.
+
+887
+01:24:53.190 --> 01:24:54.010
+Anthony Taylor: and
+
+888
+01:24:54.850 --> 01:24:59.290
+Anthony Taylor: the tools that we use kind of make it really simple, because there's actually
+
+889
+01:25:00.580 --> 01:25:07.539
+Anthony Taylor:  I was, I was gonna get the wheel out to make you guys talk. But
+
+890
+01:25:08.190 --> 01:25:18.800
+Anthony Taylor:  there's a lot of them.
+
+891
+01:25:19.870 --> 01:25:20.820
+Anthony Taylor: Okay.
+
+892
+01:25:21.920 --> 01:25:23.769
+Let's see if this is a good one.
+
+893
+01:25:25.720 --> 01:25:28.470
+Anthony Taylor: We only showed you like one or 2,
+
+894
+01:25:30.060 --> 01:25:31.670
+Anthony Taylor: but there's actually
+
+895
+01:25:33.000 --> 01:25:34.260
+Anthony Taylor: quite a few.
+
+896
+01:25:36.100 --> 01:25:39.969
+Anthony Taylor: and I'm trying to find if I could find you just a list of all of them.
+
+897
+01:25:40.320 --> 01:25:42.399
+Anthony Taylor: You would see what I'm talking about.
+
+898
+01:25:43.460 --> 01:25:46.269
+Anthony Taylor: And some of them are very elaborate
+
+899
+01:25:47.020 --> 01:25:54.080
+Anthony Taylor: like, it's not just the mean. I mean, we're gonna like, literally create a machine learning model to come up with
+
+900
+01:25:54.250 --> 01:25:55.580
+Anthony Taylor: the missing value
+
+901
+01:25:56.930 --> 01:25:59.370
+Anthony Taylor: like that kind of stuff. Okay.
+
+902
+01:25:59.520 --> 01:26:10.269
+Anthony Taylor:  these are. This is pretty basic right here. So I don't know. This is a good one. But anyway. The point is, there's a lot of ways to do it. Sorry.
+
+903
+01:26:10.460 --> 01:26:16.409
+Baro, Sonja: So just that kind of opens up. Another question, at least, that I was asking was.
+
+904
+01:26:16.890 --> 01:26:28.169
+Baro, Sonja: So everything's about you could do all the manipulations in the world on this stuff. But how much value is it gonna have to the end output?
+
+905
+01:26:28.320 --> 01:26:32.530
+Anthony Taylor: And and that's the thing you don't know, and I don't know. No one knows that until you do it.
+
+906
+01:26:33.090 --> 01:26:57.769
+Baro, Sonja: So that's what I was wondering, like we had talked to, or we were exploring. Okay, could you start looking at correlations? Well, but to do that, I have to convert the data right? But we're like we're talked about. Okay, could you look to see what influence any one of those columns is having? So that way? If it doesn't, don't waste your time with that column.
+
+907
+01:26:58.330 --> 01:27:07.460
+Anthony Taylor: I don't know. Going back to my. The question to me was, What would I do? What I would do is I would drop those columns.
+
+908
+01:27:07.600 --> 01:27:22.600
+Anthony Taylor: Because I'm assuming, since 60% of the data is, no, it's not gonna have much of an impact. Right? I would run them up if I could come up with a reasonable solution. right with your reasonable score without them.
+
+909
+01:27:23.160 --> 01:27:23.910
+Anthony Taylor: Fine!
+
+910
+01:27:24.100 --> 01:27:28.369
+Anthony Taylor: Alright! If not, I would come up, I would find, and and
+
+911
+01:27:28.520 --> 01:27:30.610
+Anthony Taylor: it's hard to explain this. But
+
+912
+01:27:30.880 --> 01:27:38.200
+Anthony Taylor: for me to do imputation, I mean, this is what you guys, as students are looking at all of these different methods and how to code them.
+
+913
+01:27:38.460 --> 01:27:42.700
+Anthony Taylor: I just tell it imputed best way possible. And it figures it out for me.
+
+914
+01:27:43.170 --> 01:27:45.010
+Anthony Taylor: Okay,
+
+915
+01:27:45.240 --> 01:27:57.639
+Anthony Taylor: So I will do that, and then I'll run again. Do I get an improvement? Yes, if not, I'm not even gonna risk it, or I'll try a different implication method. So maybe the first one is just gonna be use the mean
+
+916
+01:27:58.030 --> 01:28:04.120
+Anthony Taylor: right? Well. that doesn't always. I mean, if that doesn't work or that doesn't improve anything.
+
+917
+01:28:04.200 --> 01:28:13.049
+Anthony Taylor: I might stop there unless I have a huge range, if it's 0 to a hundred 1,000, mean might not help be helpful. 0 might not be helpful.
+
+918
+01:28:13.630 --> 01:28:21.920
+Anthony Taylor: Right? So the the this all goes. I see those hands guys. I'm coming. This all goes down to. It's just a matter of
+
+919
+01:28:22.360 --> 01:28:27.479
+Anthony Taylor: I it's it. II can't tell you guys enough. I know I've said it. It's iterations.
+
+920
+01:28:27.790 --> 01:28:42.430
+Anthony Taylor: It's doing it again and again until you get. Now there is a point where you go. You know what give like, an 89% accuracy. And I've done 6 days of tuning. And I'm at like 89.1.
+
+921
+01:28:42.680 --> 01:28:44.889
+Anthony Taylor: Right? That's where you just go. Okay. It's not.
+
+922
+01:28:45.080 --> 01:28:51.850
+Anthony Taylor: I've done it. I'm not gonna do any more right? And 6 days is probably too many, especially if you're training over and over and over again.
+
+923
+01:28:52.300 --> 01:28:58.949
+Anthony Taylor:  yeah. So III can tell you guys, there is no right answer.
+
+924
+01:28:59.610 --> 01:29:03.959
+Anthony Taylor: There are methods that make it easier. But there's no right answer.
+
+925
+01:29:04.300 --> 01:29:08.490
+Anthony Taylor: Okay, not an it all comes down to the final scroll. Yes, Christine.
+
+926
+01:29:08.860 --> 01:29:21.659
+Kanouff, Christine: Oh, I was just gonna comment. The first thing you would do with the you know we don't. The previous contact that data is in the organization. It has to be so. It's some
+
+927
+01:29:21.930 --> 01:29:24.990
+Kanouff, Christine: person who was not thinking took it out of the main date of
+
+928
+01:29:25.030 --> 01:29:35.340
+Kanouff, Christine: frame. They added a date. They sent the stuff out. However, they did it. Email, direct mail, you know, whatever. So you know.
+
+929
+01:29:36.200 --> 01:30:00.709
+Kanouff, Christine: I think when you're looking at numbers that that are that high. And you know enough about your organization, you'd be able to say, I need this data. I know you have it. We need to do a match. And that's where you would bring in some other type of model right to match that data and those that data back into your main database, or to a separate database that you wanted to do this analysis on cause, the data has to be in the organization.
+
+930
+01:30:01.090 --> 01:30:08.240
+Anthony Taylor: Oh, yeah, and you would you take it back to your whoever you're getting your observations from, and say, Look, we need this cleaned up.
+
+931
+01:30:08.460 --> 01:30:09.480
+Anthony Taylor: or
+
+932
+01:30:09.650 --> 01:30:14.530
+Anthony Taylor: you do what I said, and which would be, you know, drop it, or imputed some way that makes sense. But
+
+933
+01:30:14.830 --> 01:30:23.549
+Anthony Taylor: again, II wish I could tell you guys I could feel you guys are wanting, is the solid answer. And the solid answer is.
+
+934
+01:30:23.880 --> 01:30:31.610
+Anthony Taylor: you gotta run it again and again and again, trying different things. There is no possible anybody. I don't care how
+
+935
+01:30:32.180 --> 01:30:37.399
+Anthony Taylor: many machine models they've done can tell you for sure what the best one is for any data set.
+
+936
+01:30:38.750 --> 01:30:47.570
+Anthony Taylor: Okay? I mean, you know, unless it's like a tutorial, what that we're working on, we could probably tell you. But yeah.
+
+937
+01:30:50.400 --> 01:30:56.130
+Masarirambi, Rodney: but you based on something that you said when you were giving the previous answer, you said that
+
+938
+01:30:56.440 --> 01:31:06.319
+Masarirambi, Rodney: what you would do is you would find another way to to imitate the that the the data and find, like, you know, another way. And
+
+939
+01:31:07.980 --> 01:31:11.090
+Masarirambi, Rodney: which brings the question is that I'll
+
+940
+01:31:13.450 --> 01:31:17.810
+Masarirambi, Rodney: how often will we be looking. How often will we be looking for.
+
+941
+01:31:18.060 --> 01:31:30.839
+Masarirambi, Rodney: you know, like a better method which would do the that work for us? Or is it gonna be like us coding it ourselves to get it, and kind of figure that out, because now cause that made me think, wait a second.
+
+942
+01:31:31.730 --> 01:31:33.500
+Masarirambi, Rodney: There's more there
+
+943
+01:31:35.170 --> 01:31:40.090
+Anthony Taylor: there is automated in that. Okay.
+
+944
+01:31:40.210 --> 01:31:45.949
+Anthony Taylor: I when when I work, I mean and and granted, I have a lot of funds available to me.
+
+945
+01:31:46.110 --> 01:31:53.120
+Anthony Taylor: But probably 80% of what we do. We've run through, automated Ml, which will run it through.
+
+946
+01:31:54.140 --> 01:31:57.929
+Anthony Taylor: I mean, I can run it through hundreds of models.
+
+947
+01:31:58.660 --> 01:32:01.670
+Anthony Taylor: Okay, and train it and tune it
+
+948
+01:32:01.780 --> 01:32:09.089
+Anthony Taylor: the hyper parameter stuff that you're gonna see tomorrow that Brandon was playing around with. It'll do that in automated
+
+949
+01:32:09.310 --> 01:32:17.420
+Anthony Taylor: done. It'll impute missing values. It'll do everything, and when it's done it'll tell me the best way to do it, and then I'll test that.
+
+950
+01:32:17.810 --> 01:32:21.060
+Anthony Taylor: and either tune it or leave it as is, and then deploy it.
+
+951
+01:32:23.260 --> 01:32:26.620
+Anthony Taylor: That's what we do now in the data science area.
+
+952
+01:32:27.580 --> 01:32:31.050
+Masarirambi, Rodney: And that's the common way to do things. Now
+
+953
+01:32:31.400 --> 01:32:36.780
+Anthony Taylor: it it has much more common. Now, here's that part
+
+954
+01:32:37.040 --> 01:32:40.349
+Anthony Taylor: while this is what we do. And and I mean when I
+
+955
+01:32:40.470 --> 01:32:46.370
+Anthony Taylor:  let's see what products. Actually, let's use being chat for this might be better.
+
+956
+01:32:48.790 --> 01:32:55.030
+Anthony Taylor: What products offer auto? Ml, functionality.
+
+957
+01:32:56.230 --> 01:32:59.960
+Anthony Taylor: spell functionality ROM hopefully fixes it out.
+
+958
+01:33:00.380 --> 01:33:02.369
+Anthony Taylor: What you'll find
+
+959
+01:33:04.130 --> 01:33:05.710
+Anthony Taylor: is there is a lot of
+
+960
+01:33:09.840 --> 01:33:10.850
+Anthony Taylor: ha! Ha!
+
+961
+01:33:12.200 --> 01:33:14.770
+Anthony Taylor: That's because I'm logged in as as.
+
+962
+01:33:15.120 --> 01:33:17.229
+Anthony Taylor: or as my teacher account
+
+963
+01:33:18.840 --> 01:33:27.829
+Anthony Taylor: talk about. Do it. Talk on it alright. I'll just check chat. Tpt may not be able to do this right because it's it's not based on current data. But
+
+964
+01:33:28.430 --> 01:33:29.369
+Anthony Taylor: let's see.
+
+965
+01:33:32.250 --> 01:33:42.609
+Anthony Taylor: Google, Cloud, Microsoft, azure Amazon sage maker data robot. Hto, Ibm Watson Rapid. Mike.
+
+966
+01:33:42.720 --> 01:33:43.850
+Anthony Taylor: get the idea
+
+967
+01:33:46.060 --> 01:33:51.090
+Anthony Taylor: that doesn't even include like my product data, bricks has a spectacular auto image.
+
+968
+01:33:52.170 --> 01:33:56.950
+Anthony Taylor: Okay? And I I'll show it to you. Data brick sometime, just for giggles.
+
+969
+01:33:57.180 --> 01:33:58.920
+Anthony Taylor: You literally go.
+
+970
+01:33:59.030 --> 01:34:03.540
+Anthony Taylor: I have a classification problem. Here's the column. I want you to predict.
+
+971
+01:34:03.920 --> 01:34:07.390
+Anthony Taylor: Here's the training data. Go
+
+972
+01:34:09.270 --> 01:34:10.459
+Anthony Taylor: walk away.
+
+973
+01:34:12.870 --> 01:34:13.750
+Anthony Taylor: That's it.
+
+974
+01:34:16.050 --> 01:34:21.149
+Anthony Taylor: right. And then, if you're not sure that you know oh, whatever I could do better, you know what you do you run it again
+
+975
+01:34:21.240 --> 01:34:22.349
+Anthony Taylor: just for fun.
+
+976
+01:34:23.540 --> 01:34:26.410
+Anthony Taylor: and it does it again if it comes up with a better number
+
+977
+01:34:26.880 --> 01:34:33.890
+Anthony Taylor: now, so ask, let's go ahead and ask the optimist question. Well, if that's the case, why are we learning this?
+
+978
+01:34:34.690 --> 01:34:36.280
+Anthony Taylor: Is that the obvious question?
+
+979
+01:34:36.800 --> 01:34:38.730
+Oh, no, I think there's another question.
+
+980
+01:34:39.170 --> 01:34:40.640
+Anthony Taylor: Oh, go ahead, Ron.
+
+981
+01:34:41.530 --> 01:34:49.859
+Masarirambi, Rodney: but don't forget the question. I just said you need to ask you, bright. That's a great question. But when are we doing that?
+
+982
+01:34:50.270 --> 01:34:53.600
+Anthony Taylor: You know you're not gonna do Iowa.
+
+983
+01:34:53.710 --> 01:34:59.020
+Masarirambi, Rodney: But but I mean, like, like, say, day one, we were employed. We just got to our first job.
+
+984
+01:34:59.270 --> 01:35:05.139
+Masarirambi, Rodney: Would we be doing that day one? Or would we be doing something else before? That
+
+985
+01:35:07.980 --> 01:35:09.060
+Anthony Taylor: depends on the top.
+
+986
+01:35:09.420 --> 01:35:16.050
+Anthony Taylor: But keep in mind. You would probably, as a junior or an entry level data scientist, you're gonna be stuck doing pre process.
+
+987
+01:35:16.310 --> 01:35:22.900
+Anthony Taylor: That's gonna be like your only job. Because you know what data scientists that are experienced don't want to do work.
+
+988
+01:35:27.460 --> 01:35:29.599
+Anthony Taylor: So guess what the new guy gets.
+
+989
+01:35:31.390 --> 01:35:34.069
+Anthony Taylor: All of the team is boring crap.
+
+990
+01:35:34.620 --> 01:35:39.450
+Anthony Taylor: Okay? And then the day you give it to your senior data scientist, and you go.
+
+991
+01:35:39.670 --> 01:35:50.640
+Anthony Taylor: I'll get back to you in 2 days. Boom! Runs Ottawa. But now and and that's a bit of an exaggeration. But these days. I see it a lot. When I was consulting.
+
+992
+01:35:51.680 --> 01:35:58.699
+Anthony Taylor: people were doing it all over. You would only get run into a few like die hard day sites like I can do it better.
+
+993
+01:35:59.480 --> 01:36:00.789
+Anthony Taylor: Sure thing, Buddy.
+
+994
+01:36:01.210 --> 01:36:03.090
+Anthony Taylor: Okay,
+
+995
+01:36:03.250 --> 01:36:04.400
+Anthony Taylor: here's the problem.
+
+996
+01:36:04.720 --> 01:36:12.570
+Anthony Taylor: Why do you need to learn all of these different things? Well, one kind of like chat. Tpt, I can get to all the answers out of chat. Tpt.
+
+997
+01:36:12.920 --> 01:36:16.339
+Anthony Taylor: but if I don't understand the answers. I don't know anything
+
+998
+01:36:17.310 --> 01:36:34.039
+Anthony Taylor: same thing here. Auto, ml, is not chat. CD, but it I mean, think of it the same way. It's giving you the answer. But if you don't understand the model, the hydro parameters, the preprocessing steps that it took everything else. You can't troubleshoot.
+
+999
+01:36:35.290 --> 01:36:41.009
+Anthony Taylor: you can't continue to tune, and most of all, you can't answer interview questions
+
+1000
+01:36:43.570 --> 01:36:53.190
+Anthony Taylor: here. We teach you all of the steps to get there. The reason we don't show you auto, ml, is, it's easy. It's like show. It's like, here. Here's Chat 2 Vt. Delivered
+
+1001
+01:36:55.410 --> 01:37:12.200
+Anthony Taylor: right could do it and work. But it's not helpful. It doesn't teach you. It shows you what we're trying to do is teach you how to use these engines and how to do the steps, so that when you get to the point where you get to use auto, ml, and your job, or wherever you are, you're like
+
+1002
+01:37:12.410 --> 01:37:18.139
+Anthony Taylor: this is heavy. This is the greatest thing. Out I went from 6 days of work to
+
+1003
+01:37:18.260 --> 01:37:19.520
+Anthony Taylor: 5 min.
+
+1004
+01:37:20.980 --> 01:37:24.600
+Anthony Taylor: Okay? And I could tell you there are companies that are only using auto
+
+1005
+01:37:26.120 --> 01:37:27.390
+Anthony Taylor: big companies.
+
+1006
+01:37:27.840 --> 01:37:35.900
+Anthony Taylor: Hershey's did something similar with the azure designer which I haven't shown you yet, but it's basically a Gui, ml, tool.
+
+1007
+01:37:37.090 --> 01:37:48.119
+Anthony Taylor: You go. Here's my data. Drag a line. I need to split it, drag a line. I need to encode it. Drag a line. I want this model, train it drag a line, score it
+
+1008
+01:37:48.220 --> 01:37:49.790
+Anthony Taylor: right, dot
+
+1009
+01:37:51.840 --> 01:37:53.900
+Anthony Taylor: not one line of python food.
+
+1010
+01:37:54.950 --> 01:37:59.060
+Anthony Taylor: Yet. if you ask it to, it'll give you the whole type of script.
+
+1011
+01:38:00.620 --> 01:38:06.370
+Anthony Taylor: Did you say Hershey did that like the chocolate Hershey, the Chocolate Company? They did
+
+1012
+01:38:06.420 --> 01:38:09.719
+Anthony Taylor: a huge data science implementation.
+
+1013
+01:38:10.120 --> 01:38:12.600
+Anthony Taylor:  without
+
+1014
+01:38:15.250 --> 01:38:16.790
+Anthony Taylor: a data scientist?
+
+1015
+01:38:17.350 --> 01:38:23.240
+Meredith McCanse (she/her): Did they just build out application in house software, in house to do all the things you just described.
+
+1016
+01:38:23.970 --> 01:38:32.310
+Anthony Taylor: No, they did this. Let's see if I can still get to it. They they've actually closed this down. You can get to it if you pay for it.
+
+1017
+01:38:32.990 --> 01:38:37.660
+Anthony Taylor: Yeah, see, it's it's this was retired. But this is what it used to look like.
+
+1018
+01:38:40.920 --> 01:38:45.069
+Anthony Taylor: And and it's funny you'll actually see some of our class activities.
+
+1019
+01:38:46.100 --> 01:38:47.659
+Anthony Taylor: Alright cause I put them all in.
+
+1020
+01:38:47.840 --> 01:38:50.429
+Anthony Taylor: But yeah, you drag data on.
+
+1021
+01:38:50.500 --> 01:38:57.270
+Anthony Taylor: I'm going to split the data gonna train a 2 class logistic regression. Here's the training step.
+
+1022
+01:38:57.450 --> 01:38:59.380
+Anthony Taylor: Score it, evaluate it.
+
+1023
+01:39:02.340 --> 01:39:03.769
+Anthony Taylor: See the result?
+
+1024
+01:39:05.370 --> 01:39:06.789
+Anthony Taylor: What's that? Look like.
+
+1025
+01:39:09.160 --> 01:39:14.260
+Anthony Taylor: Rockock? Right? Oh, and remember the threshold thing I was telling you about.
+
+1026
+01:39:14.620 --> 01:39:22.960
+Anthony Taylor: since this is a binary, I could change the threshold, and it changes my accuracy and precision. Recall in F one sport.
+
+1027
+01:39:26.150 --> 01:39:30.699
+Anthony Taylor: Okay, this isn't auto, ml, but this was. This was freaking amazing.
+
+1028
+01:39:33.160 --> 01:39:38.149
+Anthony Taylor: And what's cool about this is, you can
+
+1029
+01:39:40.610 --> 01:39:44.920
+Anthony Taylor: You can do this today in azure.
+
+1030
+01:39:46.150 --> 01:39:57.749
+Anthony Taylor: This one's really cool and Wikipedia 500. We're going to hash some features, execute some r in case you have some hardcore cook. Here's K-means. Oh, look! I can actually do both
+
+1031
+01:39:58.040 --> 01:40:07.269
+Anthony Taylor: more than one model and train them. Then I can even bring them out. And if I wanted to, in some of these you'll see. I actually can compare that
+
+1032
+01:40:09.340 --> 01:40:11.829
+Baro, Sonja: Anthony, the First actually works
+
+1033
+01:40:11.950 --> 01:40:14.669
+Baro, Sonja: looks like a workflow engine.
+
+1034
+01:40:15.340 --> 01:40:17.699
+Anthony Taylor: It's amazing, isn't it?
+
+1035
+01:40:18.090 --> 01:40:20.350
+Baro, Sonja: Bent with the pipelines within it.
+
+1036
+01:40:20.880 --> 01:40:30.289
+Anthony Taylor: I love this thing, and I and I have this available to me in azure as as well. But azure also has auto. And now, too. So
+
+1037
+01:40:31.120 --> 01:40:36.840
+Anthony Taylor: yeah. But if you look over here, I mean, like, hold on, let me show you one thing, and then I'll shut up because it's time to go.
+
+1038
+01:40:37.180 --> 01:40:41.619
+Anthony Taylor:  tarnick. I was hoping it would be there.
+
+1039
+01:40:45.340 --> 01:40:46.300
+Anthony Taylor: Okay.
+
+1040
+01:40:47.990 --> 01:40:48.950
+Anthony Taylor: okay.
+
+1041
+01:40:54.090 --> 01:40:56.489
+Anthony Taylor: I'm pretty sure. Yeah, there you go.
+
+1042
+01:40:57.070 --> 01:41:04.110
+Anthony Taylor: So we have, just for clean missing data. This, is it right? So what you would do is, you would drag your data into it.
+
+1043
+01:41:04.860 --> 01:41:05.720
+Anthony Taylor: I missed
+
+1044
+01:41:05.910 --> 01:41:08.110
+Anthony Taylor: you would drag your data into it.
+
+1045
+01:41:09.310 --> 01:41:11.389
+Anthony Taylor: and then you would select a column.
+
+1046
+01:41:14.080 --> 01:41:16.660
+Anthony Taylor: I don't know the columns right now. Oh, here we go.
+
+1047
+01:41:16.740 --> 01:41:19.489
+Anthony Taylor: So we'd select. Let's just say
+
+1048
+01:41:19.670 --> 01:41:25.619
+Anthony Taylor: relationship was was constantly missing right? And then we would come in here and say
+
+1049
+01:41:26.140 --> 01:41:30.990
+how we want to calculate the missing end. There's all these methods to do.
+
+1050
+01:41:34.930 --> 01:41:38.419
+Meredith McCanse (she/her): This is very similar to how Altrix works.
+
+1051
+01:41:39.160 --> 01:41:42.499
+Anthony Taylor: I would doubt it and yourself.
+
+1052
+01:41:42.860 --> 01:41:49.999
+Meredith McCanse (she/her): Just slightly different layout, and it has a window at the bottom where you can see your data through each step of it.
+
+1053
+01:41:50.130 --> 01:41:57.969
+Meredith McCanse (she/her): But it's almost exactly the same, and you pull an I. You drag an icon onto a workspace. You draw a line to connect it to the next thing you want to do
+
+1054
+01:41:58.270 --> 01:42:09.179
+Meredith McCanse (she/her):  So is this just like proprietary Hershey stuff like Hershey employees? No, no, this isn't Hershey. No, no, this is Microsoft. This is azure.
+
+1055
+01:42:09.540 --> 01:42:10.450
+Meredith McCanse (she/her): Oh.
+
+1056
+01:42:10.630 --> 01:42:16.469
+Anthony Taylor: yeah, I did. I used to teach this to the students as an extra review, but they they got rid of it.
+
+1057
+01:42:16.580 --> 01:42:21.039
+Anthony Taylor:  But this is all old stuff that you can't use anymore.
+
+1058
+01:42:22.390 --> 01:42:23.120
+Anthony Taylor: But
+
+1059
+01:42:23.450 --> 01:42:34.049
+Anthony Taylor: oh, yeah, oh, yeah, we used to do this one. We had all these numbers like all these voice observations. And we could tell if it was like a male or a female voice just by the numbers.
+
+1060
+01:42:34.710 --> 01:42:47.500
+Anthony Taylor: right? And that was one of the models. But see here we had we. We were training a 2 class decision forest and then scoring it and then doing chain and tests to get the out.
+
+1061
+01:42:48.090 --> 01:42:54.830
+Anthony Taylor: So anyway, lots of cool stuff. This tool is actually available, but there's no free
+
+1062
+01:42:55.020 --> 01:43:02.700
+Anthony Taylor: version of it. So if I was to show it to you, live like with real stuff and not, I'm not sure I can. I'll look into it for you.
+
+1063
+01:43:02.740 --> 01:43:09.290
+Anthony Taylor: But it's a very cool tool. But yeah, I look at all these sample data sets
+
+1064
+01:43:10.960 --> 01:43:12.930
+Anthony Taylor: very cool stuff, anyway.
+
+1065
+01:43:13.110 --> 01:43:14.610
+Anthony Taylor: that's all I got.
+
+1066
+01:43:15.390 --> 01:43:19.430
+Anthony Taylor: So tomorrow we're gonna do hyper parameter tuning.
+
+1067
+01:43:19.500 --> 01:43:25.930
+Anthony Taylor: We'll catch up to Brandon. It'll be very exciting. and that's pretty much it.
+
+1068
+01:43:27.710 --> 01:43:29.719
+Anthony Taylor: and we'll be here for 30 min.
+

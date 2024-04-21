@@ -1,0 +1,73 @@
+##--CODE--##
+# Import the Gutenberg and stopwords databases from the nltk corpus 
+from nltk.corpus import gutenberg, stopwords
+# Import tokenizers
+from nltk.tokenize import word_tokenize, sent_tokenize
+
+# Import nltk and download  the sentence tokenizer.
+import nltk
+nltk.download('punkt')
+
+##--CODE--##
+# Get all the fileids 
+print(gutenberg.fileids())
+
+##--CODE--##
+# Get Jane Austen's book, Persuasion.
+persuasion_book = gutenberg.raw(fileids=('austen-persuasion.txt'))
+print(persuasion_book)
+
+##--CODE--##
+# Use the sentence tokenizer on a random sentence in Persuasion.
+one_sentence = sent_tokenize(persuasion_book)[8]
+print(one_sentence)
+
+##--CODE--##
+# Get all the words in the sentence.
+all_words = word_tokenize(one_sentence)
+print(all_words)
+
+## NLTK Stopwords
+
+##--CODE--##
+# Get all the nltk stopwords
+sw = set(stopwords.words('english'))
+print(sw)
+
+##--CODE--##
+# Filter out all the stopwords from the words in the sentence.
+first_result = [word.lower() for word in all_words if word.lower() not in sw]
+print(first_result)
+
+##--CODE--##
+# We can define our own list of stopwords to add to the default nltk stopwords
+sw_addon = {'still', 'fifty-four'}
+second_result = [word.lower() for word in all_words if word.lower() not in sw.union(sw_addon)]
+print(second_result)
+
+## Getting Rid of Non-Alpha Characters using Regular Expressions
+
+##--CODE--##
+# Import regular expressions library
+import re
+
+##--CODE--##
+# Substitute everything that is not a letter with an empty string
+regex = re.compile("[^a-zA-Z ]")
+re_clean = regex.sub(' ', one_sentence)
+print(re_clean)
+
+##--CODE--##
+# Retrieve everything that is not a letter with an empty string
+re_clean_2 = re.findall("[^a-zA-Z ]", one_sentence)
+print(re_clean_2)
+
+##--CODE--##
+# Remove all the stopwords from our cleaned regular expression.
+re_words = word_tokenize(re_clean)
+re_result = [word.lower() for word in re_words if word.lower() not in sw.union(sw_addon)]
+print(re_result)
+
+##--CODE--##
+
+

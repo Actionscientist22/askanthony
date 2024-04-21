@@ -1,0 +1,82 @@
+##--CODE--##
+import pandas as pd
+import numpy as np
+import random
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
+from sklearn.model_selection import train_test_split
+
+##--CODE--##
+# Import the data
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m14/lesson_2/datasets/text-data.csv')
+df.head()
+
+##--CODE--##
+# Create X and y and split into training and testing sets
+X = df.drop(columns='arrived')
+y = df['arrived']
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=13)
+
+##--CODE--##
+# Decide how to encode the backpack_color column
+X_train['backpack_color'].value_counts()
+
+##--CODE--##
+# Create an encoder for the backpack_color column
+backpack_color_ohe = OneHotEncoder(drop='first', handle_unknown='ignore', sparse_output=False)
+
+# Train the encoder
+backpack_color_ohe.fit(X_train['backpack_color'].values.reshape(-1,1))
+
+
+##--CODE--##
+# Decide how to encode the grade column
+df['grade'].value_counts()
+
+
+
+##--CODE--##
+# Create an encoder for the backpack_color column
+grade_ord_enc = OrdinalEncoder(categories = [['F', 'D', 'C', 'B', 'A']], encoded_missing_value=-1, handle_unknown='use_encoded_value', unknown_value=-1)
+
+# Train the encoder
+grade_ord_enc.fit(X_train['grade'].values.reshape(-1,1))
+
+##--CODE--##
+# Decide how to encode the favorite_creature column
+df['favorite_creature'].value_counts()
+
+##--CODE--##
+# Create an encoder for the backpack_color column
+creature_ohe = OneHotEncoder(handle_unknown='infrequent_if_exist', sparse_output=False, min_frequency=0.2)
+
+# Train the encoder
+creature_ohe.fit(X_train['favorite_creature'].values.reshape(-1,1))
+
+##--CODE--##
+# Create a function using the pretrained encoders to use on
+# any new data (including the testing data)
+
+def X_preprocess(X_data):
+    # Transform each column into numpy arrays
+    backpack_color_encoded = backpack_color_ohe.transform(X_data['backpack_color'].values.reshape(-1,1))
+    grade_encoded = grade_ord_enc.transform(X_data['grade'].values.reshape(-1,1))
+    favorite_creature_encoded = creature_ohe.transform(X_data['favorite_creature'].values.reshape(-1,1))
+
+    # Reorganize the numpy arrays into a DataFrame
+    backpack_color_df = pd.DataFrame(backpack_color_encoded, columns = backpack_color_ohe.get_feature_names_out())
+    creature_df = pd.DataFrame(favorite_creature_encoded, columns= creature_ohe.get_feature_names_out())
+    out_df = pd.concat([backpack_color_df, creature_df], axis = 1)
+    out_df['grade'] = grade_encoded
+
+    # Return the DataFrame
+    return out_df
+
+
+##--CODE--##
+# Preprocess the training data
+X_preprocess(X_train)
+
+##--CODE--##
+# Preprocess the testing data
+X_preprocess(X_test)
+

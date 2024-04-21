@@ -1,0 +1,39 @@
+##--CODE--##
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
+##--CODE--##
+# Import the data
+df = pd.read_csv("https://static.bc-edx.com/ai/ail-v-1-0/m14/datasets/crowdfunding-data.csv")
+df.head()
+
+##--CODE--##
+# Create a column "pledged_per_backer"
+
+
+
+##--CODE--##
+# Fill the missing values with zeros
+
+
+
+##--CODE--##
+# Create a backers_per_day column
+
+
+
+##--CODE--##
+# Create a days_to_goal column
+
+# Create a function to apply
+
+
+    # Note that we can't divide by zero:
+    # return a large number if pledged_per_day is zero
+   
+    return 
+
+# Apply the function
+
+

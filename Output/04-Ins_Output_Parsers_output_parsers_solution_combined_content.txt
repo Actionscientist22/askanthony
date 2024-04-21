@@ -1,0 +1,148 @@
+##--CODE--##
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+# Model and API Key
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# List Parser
+
+##--CODE--##
+# Additional imports for list parser.
+from langchain.output_parsers import CommaSeparatedListOutputParser
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.9)
+
+# Initialize the output parser.
+parser = CommaSeparatedListOutputParser()
+
+# Get the output format instructions.
+instructions = parser.get_format_instructions()
+print(instructions)
+
+print()
+
+# Define a query as a string, combining with the instructions.
+query = "List 3 cat breeds." + "\n\n" + instructions
+
+# Pass the query to the invoke method, and print the result.
+result = llm.invoke(query)
+print(result.content)
+
+print()
+
+# Parse the result, store it, and print it.
+data = parser.parse(result.content)
+print(data)
+
+# Structured Parser
+
+##--CODE--##
+# Additional imports for structured parser.
+from langchain.output_parsers import StructuredOutputParser, ResponseSchema
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.9)
+
+# Define the schemas for our parser.
+schemas = [
+    ResponseSchema(name="country", description="the country"),
+    ResponseSchema(name="capital", description="the capital")
+]
+
+# Initialize the output parser using the schema.
+parser = StructuredOutputParser.from_response_schemas(schemas)
+
+# Get the output format instructions and print them.
+instructions = parser.get_format_instructions()
+print(instructions)
+
+print()
+
+# Define a query as a string, combining with the instructions.
+query = "Name a country and its capital." + "\n\n" + instructions
+
+# Pass the query to the invoke method, and print the result.
+result = llm.invoke(query)
+print(result.content)
+
+print()
+
+# Parse the result, store it, and print it.
+data = parser.parse(result.content)
+print(data)
+print(data["country"])
+print(data["capital"])
+
+print()
+
+# Define a new query using the parsed output.
+query = f"What are three tourist attractions in {data['capital']}?"
+
+# Pass the query to the invoke method, and print the result.
+result = llm.invoke(query)
+print(result.content)
+
+# Class-based Parser
+
+##--CODE--##
+# Additional imports for Pydantic parser.
+from langchain.output_parsers import PydanticOutputParser
+from langchain_core.pydantic_v1 import Field, BaseModel
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.9)
+
+# Define the class for our parsed responses.
+class Country(BaseModel):
+    name: str = Field(description="the country name")
+    capital: str = Field(description="the capital")
+    population: int = Field(description="the country's population")
+
+# Initialize the output parser using the schema.
+parser = PydanticOutputParser(pydantic_object=Country)
+
+# Get the output format instructions and print them.
+instructions = parser.get_format_instructions()
+print(instructions)
+
+print()
+
+# Define a query as a string, combining with the instructions.
+query = "Name any country, its capital, and the country's population." + "\n\n" + instructions
+
+# Pass the query to the invoke method, and print the result.
+result = llm.invoke(query)
+print(result.content)
+
+print()
+
+# Parse the result, store it, and print it.
+data = parser.parse(result.content)
+print(data)
+print(data.name)
+print(data.capital)
+print(data.population)
+
+print()
+
+# Define a new query using the parsed output.
+query = f"What are three tourist attractions in {data.capital}?"
+
+# Pass the query to the invoke method, and print the result.
+result = llm.invoke(query)
+print(result.content)
+

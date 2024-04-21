@@ -1,0 +1,4702 @@
+WEBVTT
+
+1
+00:00:05.530 --> 00:00:10.219
+Anthony Taylor: Expect them to catch up to Microsoft. Oh, Sonia, what's
+
+2
+00:00:10.230 --> 00:00:11.350
+Clayton Graves: What's going on?
+
+3
+00:00:11.770 --> 00:00:14.329
+Anthony Taylor: Alright! She must have a reason
+
+4
+00:00:17.240 --> 00:00:18.930
+Baro, Sonja: like that's how you did
+
+5
+00:00:22.360 --> 00:00:33.870
+Anthony Taylor: I just tell
+
+6
+00:00:34.370 --> 00:00:36.440
+Anthony Taylor: you were clearly distracted, Clayton.
+
+7
+00:00:36.540 --> 00:00:41.649
+Anthony Taylor: I actually saw you in the 3D glasses. I would I would just say anything. To be honest.
+
+8
+00:00:41.810 --> 00:00:47.730
+Anthony Taylor: I thought you really had them on, and and something was going on over there.
+
+9
+00:00:47.900 --> 00:01:02.800
+Baro, Sonja: But no, I'm just playing. It was amusing. The other day I was, you know, irritating my group, probably with going through them all. So, anyway.
+
+10
+00:01:02.850 --> 00:01:06.769
+Baro, Sonja: Alright gay! God knows it! I love it.
+
+11
+00:01:07.320 --> 00:01:11.330
+Anthony Taylor: Distraction with some human that's awesome. So
+
+12
+00:01:12.650 --> 00:01:18.039
+Anthony Taylor: we're back in the lecture business folks. Now, we're gonna get
+
+13
+00:01:18.180 --> 00:01:26.849
+Anthony Taylor: real series. Okay. You guys probably have asked yourself the question. I got into an AI boot camp.
+
+14
+00:01:27.270 --> 00:01:36.740
+Anthony Taylor: I've learned tons of the new programming language. a whole lot of machine learning. but I haven't heard anyone even mention the word AI, right?
+
+15
+00:01:37.190 --> 00:01:42.830
+Anthony Taylor: Anybody thought that yourself. It's not entirely true. AI is parent of Ml, but
+
+16
+00:01:43.200 --> 00:01:47.700
+Anthony Taylor: the reality is is that we haven't really got into the real
+
+17
+00:01:47.900 --> 00:01:56.629
+Anthony Taylor: what everybody thinks of when they think of AI. Well, between now and Project 3, that is what we're going to be doing.
+
+18
+00:01:56.990 --> 00:01:58.590
+Anthony Taylor: Okay. Now.
+
+19
+00:01:59.310 --> 00:02:01.729
+Anthony Taylor: this first one neural networks.
+
+20
+00:02:02.030 --> 00:02:13.000
+Anthony Taylor: We're gonna talk about them today extensively. We're gonna build our own kind of exciting  neural networks is what made it made it
+
+21
+00:02:13.250 --> 00:02:18.800
+Anthony Taylor: possible for us to get to where we are today with Llms and
+
+22
+00:02:18.980 --> 00:02:23.630
+Anthony Taylor: just the the Nlp. And everything that we're doing today. Without
+
+23
+00:02:23.830 --> 00:02:26.560
+Anthony Taylor: the advent of neural networks, we wouldn't have gotten
+
+24
+00:02:27.710 --> 00:02:29.660
+Anthony Taylor: okay. well.
+
+25
+00:02:29.840 --> 00:02:32.399
+Anthony Taylor: we would have still been waiting for normal, probably.
+
+26
+00:02:32.860 --> 00:02:40.260
+Anthony Taylor: But they're really super cool. And here's the crazy part. The concept of neural networks has been around since.
+
+27
+00:02:43.000 --> 00:02:49.349
+Anthony Taylor: if I would guess like a year at least, the first Terminator.
+
+28
+00:02:50.030 --> 00:02:51.520
+michael mcpherson: 1984
+
+29
+00:02:51.550 --> 00:02:55.380
+Derek Rikke: sixties, I'm gonna say sixties 42.
+
+30
+00:02:56.300 --> 00:03:04.870
+Anthony Taylor: Natalie was pretty close. She's like almost the closest. So far in the fifties. The first architecture
+
+31
+00:03:04.970 --> 00:03:09.200
+Anthony Taylor: that eventually became what we're gonna learn is the perceptron.
+
+32
+00:03:09.650 --> 00:03:23.900
+Anthony Taylor: Okay, was actually created now in the fiftys. A computer with the power of your phone didn't even exist. A computer with a tenth or a fraction of the power of your phone would fill a room.
+
+33
+00:03:25.320 --> 00:03:29.829
+Anthony Taylor: Okay, so imagine now how far we've come since that first.
+
+34
+00:03:30.300 --> 00:03:36.439
+Anthony Taylor: you know, hey? Well, what if we did this? And the guy was, you know, they'd probably like, do one perceptron.
+
+35
+00:03:36.560 --> 00:03:41.090
+Anthony Taylor: and it takes like 2 days to figure it out. Okay, now, we do
+
+36
+00:03:41.380 --> 00:03:44.929
+Anthony Taylor: billions of perceptrons in
+
+37
+00:03:45.010 --> 00:03:46.020
+Anthony Taylor: minutes.
+
+38
+00:03:47.070 --> 00:03:52.209
+Anthony Taylor: Okay, so exciting stuff we'll get into that. You'll see that date again at some point.
+
+39
+00:03:52.900 --> 00:04:09.970
+Anthony Taylor: Welcome back from Project 2. By the way, one more time freaking project to. We're amazing great work. The guys will get degrading them starting Monday. So expect hopefully by the end of the week you should have your grades. Yes, Natalie.
+
+40
+00:04:10.740 --> 00:04:33.380
+Mason, Natalie: my question on what you just said is, is this, is it because that it has different materials in it? Or is it specific to the software and hard like hardware of the product. No, no. I mean our phones. Yeah.
+
+41
+00:04:33.950 --> 00:04:45.440
+Anthony Taylor: yes. Well, okay, I'm not. In fact, maybe Clayton might give us a better answer. But I'll give you my best answer that I can recall from my hardware days. Okay, it was really silico
+
+42
+00:04:45.890 --> 00:04:59.079
+Anthony Taylor: is what's made it the difference. Alright, we've basically been able to take CPU chips and make them thinner and thinner and thinner and allow them more switches. So everything in a computer is a switch between 0 and one.
+
+43
+00:04:59.770 --> 00:05:01.510
+Anthony Taylor: Okay? So
+
+44
+00:05:01.810 --> 00:05:07.260
+Anthony Taylor: in the old days we'd have a switch with, you know, 500 switches that'd be a CPU
+
+45
+00:05:07.330 --> 00:05:09.200
+Anthony Taylor: can only do 500
+
+46
+00:05:09.980 --> 00:05:21.169
+Anthony Taylor: whatever I like. I'm not gonna say decisions, because the decision could be many of those switches as we got better and better. I mean. I don't even know what the chips today have. I would guess trillions.
+
+47
+00:05:21.370 --> 00:05:34.020
+Anthony Taylor: But there is actually a physics law of Edogenic corruption. Does anybody know the physics law that says you can only go so far. What is it, Meredith? I can't remember the name. No, I don't know that I was thinking of the
+
+48
+00:05:34.110 --> 00:05:50.360
+Meredith McCanse (she/her): the. I don't know sort of theory, that of the like technology increases exponentially and gets 12 gets better twice as fast, and everything gets twice as small on like an exponential curve. But II think you might be talking about something else more is that
+
+49
+00:05:50.500 --> 00:06:03.630
+Anthony Taylor: that sounds like it, or that there is a term where basically, they said that there is a limit that we can go to. And then you know what they did when we hit the limit instead of one chip, they made 2,
+
+50
+00:06:04.200 --> 00:06:14.879
+Anthony Taylor: and then 3, and then 4, and now 10. So when you even go look at your computer right now, I would say, everybody in here probably has multiprocessor computers
+
+51
+00:06:15.180 --> 00:06:17.900
+Anthony Taylor: which have lots of those little fins
+
+52
+00:06:18.240 --> 00:06:22.780
+Anthony Taylor: 1 billion wafer, you know, cpus on. And as multiple ones.
+
+53
+00:06:22.800 --> 00:06:34.379
+Anthony Taylor: So when you get it now? Clayton was talking about a supercomputer a little while ago, but even beyond that. quantum computing is taking us to a whole nother world.
+
+54
+00:06:34.930 --> 00:06:39.790
+Anthony Taylor: Okay. I mean, once once that becomes, I mean, it's pretty readily available.
+
+55
+00:06:39.840 --> 00:06:47.950
+Anthony Taylor: You can go on aws, or is your and use a quantum computer today? I mean. It'll cost you, you know, $20 a minute.
+
+56
+00:06:48.050 --> 00:06:50.310
+Anthony Taylor: but but you could do it.
+
+57
+00:06:50.610 --> 00:06:55.320
+Clayton Graves: you know you can go feel it from a performance standpoint.
+
+58
+00:06:55.600 --> 00:06:57.559
+Clayton Graves: Quantum computing is not all that.
+
+59
+00:06:57.830 --> 00:07:11.830
+Clayton Graves: But if you, if you, if you program it, if if you, if your program is is is geared towards it, yes, you you can see some, some pretty much. Yeah.
+
+60
+00:07:12.020 --> 00:07:21.789
+Clayton Graves: so so we're we're super computing has gone nowadays is sort of an expansion of that multiple core thing
+
+61
+00:07:21.910 --> 00:07:24.110
+where, instead of having.
+
+62
+00:07:24.970 --> 00:07:32.629
+Clayton Graves: you know, multiple, a processor with multiple cores, you'll have multiple processors with multiple cores on multiple systems.
+
+63
+00:07:32.730 --> 00:07:37.660
+Clayton Graves: all speaking to each other in a very, very fast, high speed
+
+64
+00:07:38.320 --> 00:07:45.189
+high speed communications network, which is what I'm responsible for is that that communication network
+
+65
+00:07:45.200 --> 00:07:49.760
+Clayton Graves: that allows all the computer nodes to talk to each other as if they were in the same chassis.
+
+66
+00:07:50.150 --> 00:08:00.809
+Clayton Graves: And so when you end up with is thousands and thousands and thousands, I think I forget what the number is, but it's it's it's in the hundreds of thousands of compute nodes.
+
+67
+00:08:01.150 --> 00:08:06.250
+Clayton Graves: all working together on a single issue. And each one of those.
+
+68
+00:08:06.520 --> 00:08:16.170
+Clayton Graves: Each one of those has multiple processors with multiple cores, terabytes of RAM. And it's all working in conjunction with each other. It's amazing.
+
+69
+00:08:16.840 --> 00:08:31.699
+Anthony Taylor: So I have to tell you guys, it's so cool that you asked that question, Natalie, because Clayton told me when he got here today that you know everybody knows Clayton's out of town right now. He's visiting the place where they're building the next big supercomputer, and he was looking at it literally today.
+
+70
+00:08:31.970 --> 00:08:35.470
+Anthony Taylor: So it's kind of cool as it's the timing of this which is spectacular.
+
+71
+00:08:35.530 --> 00:08:41.529
+Anthony Taylor: I will. I do want to show one other thing from a data perspective. We don't use a lot of supercomputers in data.
+
+72
+00:08:41.659 --> 00:08:51.060
+Anthony Taylor: Okay? What we do more of which, when, as Clayton was describing it, it made me think of it. And I do want to differentiate it for all of you, because I don't want you to hear.
+
+73
+00:08:51.090 --> 00:08:52.350
+Anthony Taylor: I have.
+
+74
+00:08:53.910 --> 00:09:04.640
+Anthony Taylor: When I process data, I usually process it on between 10 and 12 different computers, as many as 500 cpus.
+
+75
+00:09:05.970 --> 00:09:20.840
+Anthony Taylor: Okay? And you're like, holy cow. Isn't that supercomputer? Well, no, the difference between that and what Clayton said, what I'm doing is distributed computing. So what has to happen for this to work is, yeah. I have all these like, say, I have 10 servers.
+
+76
+00:09:20.950 --> 00:09:27.109
+Anthony Taylor: Then there's another circle. So I actually have 11. The eleventh server is basically
+
+77
+00:09:27.130 --> 00:09:29.040
+Anthony Taylor: orchestrating these 10.
+
+78
+00:09:29.110 --> 00:09:38.710
+Anthony Taylor: What Clinton's talking about. He's got one server that holds, you know, hundreds of servers inside it. So it's incredibly fast way faster than what I'm talking.
+
+79
+00:09:39.180 --> 00:09:42.780
+Anthony Taylor: However, distributed data is the
+
+80
+00:09:43.000 --> 00:09:53.999
+Anthony Taylor: by far. Well, again, I can't speak for supercomputing, because we don't use supercomputing and data. But distributed dating is data is how we deal with large scale data.
+
+81
+00:09:54.490 --> 00:10:00.450
+Anthony Taylor: Okay, we don't cover that a lot in this class, we don't go into spark and stuff like that.
+
+82
+00:10:00.640 --> 00:10:02.330
+Anthony Taylor: But yeah.
+
+83
+00:10:02.480 --> 00:10:06.450
+Anthony Taylor: that's kind of my specialty is distributed data processing
+
+84
+00:10:06.460 --> 00:10:08.050
+Anthony Taylor: of large scale data.
+
+85
+00:10:09.190 --> 00:10:13.670
+Anthony Taylor: Okay? So anyway. that was the coolest sign.
+
+86
+00:10:14.750 --> 00:10:16.580
+Anthony Taylor: Now, we're only 15 min late.
+
+87
+00:10:17.780 --> 00:10:18.840
+Anthony Taylor: Hi.
+
+88
+00:10:18.980 --> 00:10:24.550
+Anthony Taylor: anyway. Hopefully, everybody enjoyed that. That was was just the timing of that could not have been better.
+
+89
+00:10:25.020 --> 00:10:33.530
+Anthony Taylor: Alright. So neural networks. Some examples of neural networks. Okay, we use them every day.
+
+90
+00:10:33.810 --> 00:10:36.539
+Anthony Taylor: Now, I do want to remind you guys.
+
+91
+00:10:36.590 --> 00:10:41.849
+Anthony Taylor: what's the one thing about our Ml models that we often tend to forget?
+
+92
+00:10:43.380 --> 00:10:48.870
+Anthony Taylor: Does it take long to execute or basically get a prediction from a model.
+
+93
+00:10:52.670 --> 00:11:00.960
+Anthony Taylor: I see some nods. I see some shades. The answer is, no. Once I train a model, it's basically just a function.
+
+94
+00:11:01.990 --> 00:11:10.939
+Anthony Taylor: Okay, it's just it's just a single function bypassing data. It's gonna come back instantly, no matter how long it took to train.
+
+95
+00:11:11.640 --> 00:11:14.079
+Anthony Taylor: it could take a month to train.
+
+96
+00:11:14.780 --> 00:11:19.929
+Anthony Taylor: Okay. But when it's done, the execution of the prediction
+
+97
+00:11:20.490 --> 00:11:21.970
+Anthony Taylor: could be sub-sected.
+
+98
+00:11:23.580 --> 00:11:26.470
+Anthony Taylor: Okay? So when you see things like, Well.
+
+99
+00:11:26.510 --> 00:11:33.269
+Anthony Taylor: how does that work with a voice-activated assistant. How is it using a neural network? Well, they use the neural network to train.
+
+100
+00:11:33.550 --> 00:11:38.569
+Anthony Taylor: And then they put the trained model into these devices.
+
+101
+00:11:39.750 --> 00:11:43.989
+Anthony Taylor: Okay, so you're not actually doing the neural network.
+
+102
+00:11:44.030 --> 00:11:47.089
+Anthony Taylor: You're running a trained model.
+
+103
+00:11:47.810 --> 00:11:50.839
+Anthony Taylor: Okay? But it was a neural network that got you.
+
+104
+00:11:51.430 --> 00:12:03.339
+Anthony Taylor: So voice activated. Chachi Pt, I love that they they. It's it's an it's a very innovative application of natural language processing. You guys will be doing that.
+
+105
+00:12:03.910 --> 00:12:15.210
+Anthony Taylor: Computer vision is been made possible with neural networks. And recommendation engines are just. I mean. it's so easy for neural networks. It's not even fun.
+
+106
+00:12:15.780 --> 00:12:17.569
+Anthony Taylor: Okay. They're just that.
+
+107
+00:12:18.450 --> 00:12:22.229
+Anthony Taylor: all right. And we're gonna learn how they get to be that good today
+
+108
+00:12:22.500 --> 00:12:23.630
+Anthony Taylor: all today.
+
+109
+00:12:23.980 --> 00:12:27.170
+Anthony Taylor: But what's the problem with neural networks?
+
+110
+00:12:28.160 --> 00:12:30.130
+Anthony Taylor: Okay, we've talked about this
+
+111
+00:12:30.140 --> 00:12:32.220
+Anthony Taylor: interpretability.
+
+112
+00:12:32.580 --> 00:12:37.829
+Anthony Taylor: And this gets people really upset right? People are all upset. How does that? AI know that?
+
+113
+00:12:39.780 --> 00:12:43.220
+Anthony Taylor: How can it do this? I don't understand. Tell me.
+
+114
+00:12:44.060 --> 00:12:46.210
+Anthony Taylor: Well, guess what? We don't know.
+
+115
+00:12:46.610 --> 00:12:48.090
+Anthony Taylor: We know how we built it.
+
+116
+00:12:48.340 --> 00:12:54.970
+Anthony Taylor: We know in theory, but we cannot tell you how it came up with every decision that it came up with.
+
+117
+00:12:55.600 --> 00:12:58.290
+Anthony Taylor: okay, we can tell you what the data was. Yes.
+
+118
+00:12:59.820 --> 00:13:06.190
+Baro, Sonja: So I wonder if I've been misunderstanding interpretability all along.
+
+119
+00:13:06.200 --> 00:13:26.660
+Baro, Sonja: because the way you just described. It was more like tran like transparency into the black box is the way I was. Think I was hearing what you were saying, which was, we don't know how it works. It just does right versus when I when I hear interpretability, I think, oh, okay, yeah, I can make sense of that.
+
+120
+00:13:26.940 --> 00:13:30.730
+Anthony Taylor: So? Right? So, yeah, I'm not a terrorist standpoint.
+
+121
+00:13:30.820 --> 00:13:32.419
+Anthony Taylor: Right? I've all helped you with that.
+
+122
+00:13:32.640 --> 00:13:43.550
+Anthony Taylor: Yeah. So from a developer standpoint, that's what you just said. I show you the code, you could follow the code, you get it right. This interpretability goes down to how did it come up with that answer.
+
+123
+00:13:44.470 --> 00:13:56.999
+Anthony Taylor: okay, okay. Now, in some of our models, that's pretty easy to do. We can go look at the output. We can look at some of the statistics, and we can see. Oh, okay, well, yeah, this is how it came up with that answer.
+
+124
+00:13:57.210 --> 00:14:09.359
+Anthony Taylor: And and with that we can even. It's funny they put Random forest in here, because Random Forest actually gives us a little bit of visualization into interpretability. Right? When we do the features importance.
+
+125
+00:14:09.700 --> 00:14:17.880
+Anthony Taylor: Okay, we can look at that and go. Oh, well, this is going to be, you know. More likely this because it's looking at these factors first.
+
+126
+00:14:18.260 --> 00:14:19.649
+Anthony Taylor: Yes. Well.
+
+127
+00:14:20.000 --> 00:14:22.000
+Anthony Taylor: my tears escape
+
+128
+00:14:22.730 --> 00:14:26.050
+Anthony Taylor: But as we get into neural network and deep learning.
+
+129
+00:14:26.200 --> 00:14:35.889
+Anthony Taylor: I mean, there's so much going on that. And and there really isn't a way to see how it came up with that decision. Okay, so
+
+130
+00:14:36.170 --> 00:14:39.850
+Anthony Taylor: we kind of give away
+
+131
+00:14:39.880 --> 00:14:48.600
+Anthony Taylor: that ability to explain what the model's coming up with to gain the ability to get models that can do
+
+132
+00:14:48.860 --> 00:14:51.110
+Anthony Taylor: what used to seem impossible.
+
+133
+00:14:52.620 --> 00:14:57.679
+Anthony Taylor: Okay? And which, quite frankly, most of the models you guys have worked with thus far
+
+134
+00:14:57.800 --> 00:14:59.339
+Anthony Taylor: is impossible.
+
+135
+00:15:00.660 --> 00:15:08.009
+Anthony Taylor: All right. You guys may have models that were getting like 50 s. And 60 s. But when we put them in neural network they might get 80 S. And 90 S.
+
+136
+00:15:09.470 --> 00:15:15.169
+Anthony Taylor: Okay, because the stuff we've taught you so far is surely a statistical argument.
+
+137
+00:15:15.560 --> 00:15:22.180
+Anthony Taylor: Okay? And I'm not saying that neural networks isn't also just math, but it's math stacked on top of math
+
+138
+00:15:23.030 --> 00:15:24.550
+Anthony Taylor: a million times over.
+
+139
+00:15:26.340 --> 00:15:28.779
+Anthony Taylor: Okay, so we're gonna get to that.
+
+140
+00:15:29.690 --> 00:15:33.039
+Anthony Taylor: Alright, what is under network?
+
+141
+00:15:33.880 --> 00:15:35.789
+Anthony Taylor: The neural networks effectively.
+
+142
+00:15:36.230 --> 00:15:46.330
+Anthony Taylor: I mean, what are we talking about? Brain? Why do we talk about the brain? What made them think neural network? It's like the brain. Well, they came up with that.
+
+143
+00:15:46.580 --> 00:15:50.360
+Anthony Taylor: A wow do
+
+144
+00:15:50.530 --> 00:15:57.659
+Anthony Taylor: because of what's called the perceptron. We're going to look deeper into the perceptron. But the perceptron effectively looks like a neuron
+
+145
+00:15:58.160 --> 00:16:05.230
+Anthony Taylor: when it's drawn. It looks like a neuron. So if you've ever in your life seen a picture of a neuron on Google.
+
+146
+00:16:11.270 --> 00:16:22.309
+Anthony Taylor: okay. you ever seen a picture of a neuron? This is basically what a perceptron looks like. And you guys are going to see it. Okay in a little bit.
+
+147
+00:16:22.630 --> 00:16:28.669
+Anthony Taylor: And so when they built, they said, Hey, it looks like a neuron all the way on neural network. Ha, ha! Ha!
+
+148
+00:16:29.130 --> 00:16:29.950
+Anthony Taylor: Okay.
+
+149
+00:16:30.200 --> 00:16:34.350
+Anthony Taylor: these were nerds in the 50 s, you're talking the nerdiest of nerds.
+
+150
+00:16:34.940 --> 00:16:37.540
+Anthony Taylor: Okay, you're nerdiest of nerves.
+
+151
+00:16:37.850 --> 00:16:44.260
+Anthony Taylor: So anyway, so a neural network is basically a whole bunch of perceptrons
+
+152
+00:16:44.400 --> 00:16:48.070
+Anthony Taylor: talking to each other, taking input outputting
+
+153
+00:16:48.410 --> 00:16:49.210
+Anthony Taylor: something.
+
+154
+00:16:50.490 --> 00:16:53.439
+Anthony Taylor: I will say, I will just let you know right now
+
+155
+00:16:54.500 --> 00:17:03.359
+Anthony Taylor: that you have to train this on a neural network, you have to give it the answer. So what kind of learning is this
+
+156
+00:17:03.870 --> 00:17:05.200
+Anthony Taylor: still applies
+
+157
+00:17:06.190 --> 00:17:07.450
+Meredith McCanse (she/her): supervised
+
+158
+00:17:07.859 --> 00:17:19.010
+Anthony Taylor: supervise? So we still are gonna train with the with the answer. We're not gonna do clustering or anything like that, not saying it can't. It's just not normal. Now, I will tell you. They they
+
+159
+00:17:19.510 --> 00:17:28.299
+Anthony Taylor: you will see neural network referred to as a union, or in in or I mean just any. The reason that we add this A in here?
+
+160
+00:17:28.339 --> 00:17:30.430
+Anthony Taylor: Okay,
+
+161
+00:17:30.970 --> 00:17:42.459
+Anthony Taylor: because it's really its official name, because in the next, in the coming weeks you're gonna learn. Cnn, you're gonna learn. Rn. And Cnn is not a news station that makes up stories.
+
+162
+00:17:42.620 --> 00:17:54.079
+Anthony Taylor: It's actually under our own network. Rnn is not Republican news network.
+
+163
+00:17:54.390 --> 00:17:59.610
+Anthony Taylor: Gosh. I just wanted to see if my Denver class was okay.
+
+164
+00:18:00.580 --> 00:18:08.799
+Anthony Taylor:  Anyway, there is this Cnn, there is an R and it, we're going to learn all those. Okay. But
+
+165
+00:18:08.890 --> 00:18:11.090
+Anthony Taylor: today we're going to focus on neural networks.
+
+166
+00:18:11.350 --> 00:18:15.190
+Anthony Taylor: So what is it? Exactly an advanced machine learning
+
+167
+00:18:15.640 --> 00:18:18.809
+Anthony Taylor: that contains multiple layers of nodes
+
+168
+00:18:18.940 --> 00:18:26.430
+Anthony Taylor: which are made up of perceptrons, and they each node performs an individual computation.
+
+169
+00:18:28.500 --> 00:18:36.610
+Anthony Taylor: That's pretty good. Answer. Okay, one of the things. And hopefully, we do this. I haven't looked to see if we're doing this in this class. We used to do it in.
+
+170
+00:18:37.600 --> 00:18:40.899
+Anthony Taylor: the data science class is the in this data set
+
+171
+00:18:41.070 --> 00:18:44.669
+Anthony Taylor: super fun. It basically
+
+172
+00:18:44.970 --> 00:18:51.179
+Anthony Taylor: is a bunch of pictures. black and white pictures of handwritten numbers.
+
+173
+00:18:51.360 --> 00:19:02.680
+Anthony Taylor: And basically we use a neural network to train it on these numbers, so that when you pass in a picture of a handwritten number, it can identify it. Correct, it's basically the most common
+
+174
+00:19:03.010 --> 00:19:08.270
+Anthony Taylor: vision. Tutorial that you'll see out. Okay.
+
+175
+00:19:10.980 --> 00:19:15.219
+Anthony Taylor: alright. So this is what the neural network looks like.
+
+176
+00:19:15.940 --> 00:19:19.670
+Anthony Taylor: okay, so input in this case.
+
+177
+00:19:19.820 --> 00:19:22.579
+Anthony Taylor: this tells me, I have 2 inputs.
+
+178
+00:19:24.280 --> 00:19:29.749
+Anthony Taylor: Okay. all of this in the middle. All this, like turquoise color.
+
+179
+00:19:29.870 --> 00:19:38.690
+Anthony Taylor: is the different node layers. So if I was to look at this, I have 2 inputs, 1, 2, 3, 4, 5, 6
+
+180
+00:19:39.240 --> 00:19:44.290
+Anthony Taylor: node layers. I have 3 of them for one output.
+
+181
+00:19:44.710 --> 00:19:49.000
+Anthony Taylor: Now, one output could be almost any.
+
+182
+00:19:50.330 --> 00:19:56.419
+Anthony Taylor: Okay, you can say, cat dog, that 2 outputs are one. Well, I'm only outputting one or the other.
+
+183
+00:19:57.200 --> 00:19:58.250
+Anthony Taylor: Never both.
+
+184
+00:19:59.650 --> 00:20:04.959
+Clayton Graves: Is there a minimum number of layers you need to have in order to be considered a neural network.
+
+185
+00:20:05.650 --> 00:20:14.290
+Anthony Taylor: Well, actually, I'll give you a funny thing because they they used to do this right? Technically, what you're seeing on the screen is not under.
+
+186
+00:20:14.850 --> 00:20:16.290
+Anthony Taylor: It's deep learning.
+
+187
+00:20:17.240 --> 00:20:22.980
+Anthony Taylor: Okay? But what is deep learning. Deep learning is a neural network with more than one hidden layer.
+
+188
+00:20:25.610 --> 00:20:36.990
+Anthony Taylor: Okay? So one hidden layer is a neural network. Multiple in layers is deep learning. That's all. Yeah, that's the only difference. So if they still it's all under a
+
+189
+00:20:37.070 --> 00:20:41.349
+Clayton Graves: okay, well, let me repeat that back to you, because I wanna make sure I heard it correctly.
+
+190
+00:20:41.670 --> 00:20:49.509
+Clayton Graves: One hidden layer is considered a neural network. Multiple hidden layers is considered deep learning.
+
+191
+00:20:52.470 --> 00:21:01.669
+Anthony Taylor: Yes, that is correct. One hidden layer is a neural network, deep learning still a neural network. But it's considered deep learning. If there is more than one hidden layer.
+
+192
+00:21:03.290 --> 00:21:10.919
+Anthony Taylor: Okay, I know it's kinda screwing here, but they used to. It's funny, cause the way the the curriculum in the data science class works
+
+193
+00:21:10.940 --> 00:21:12.290
+Anthony Taylor: is a.
+
+194
+00:21:12.440 --> 00:21:15.300
+Anthony Taylor: I lost my mouse. I lost my mouth.
+
+195
+00:21:15.410 --> 00:21:25.190
+Anthony Taylor: they actually had. They differentiated to the point where we got a whole different lesson for deep learning versus neural network doesn't make sense. It's like adding one more line of code. And now you're a deep learning. But whatever?
+
+196
+00:21:25.600 --> 00:21:28.310
+Anthony Taylor: Okay? So this is how it works.
+
+197
+00:21:28.360 --> 00:21:38.009
+Anthony Taylor: We send in stacks of photos images. Now these particular images. let's just stay there.
+
+198
+00:21:38.190 --> 00:21:52.670
+Anthony Taylor: I don't know 128 by 128 Byte. I know. That's a really small picture. Okay? But multiply 128 by 128, you get what? 756 or something like that? 700. So
+
+199
+00:21:53.130 --> 00:21:57.349
+Anthony Taylor: anyway, the point is, that's how many inputs.
+
+200
+00:21:59.890 --> 00:22:11.220
+Anthony Taylor: all right. So if this picture was 1,024 by 1,024, multiply those 2 numbers. That's how many inputs.
+
+201
+00:22:12.830 --> 00:22:14.940
+Anthony Taylor: That's a tremendous number.
+
+202
+00:22:16.420 --> 00:22:29.540
+Anthony Taylor: Okay, so it takes those inputs and it sends it to the first hidden layer. The first hidden layer. initially, just kind of randomly applies some weight to the value to the things coming in.
+
+203
+00:22:29.920 --> 00:22:31.239
+Anthony Taylor: and then
+
+204
+00:22:31.510 --> 00:22:35.759
+Anthony Taylor: does the math sends that the output, the probability
+
+205
+00:22:35.840 --> 00:22:39.119
+Anthony Taylor: of what it thinks. This is to the next layer
+
+206
+00:22:39.240 --> 00:22:43.739
+Anthony Taylor: that layer takes the information from the first layer, adds some more weight.
+
+207
+00:22:44.220 --> 00:22:53.109
+Anthony Taylor: make some adjustments. And ultimately, and you're going to see this visually in a little bit. It basically is just trying to fit it to something.
+
+208
+00:22:54.480 --> 00:22:56.069
+Anthony Taylor: and then it outputs the answer.
+
+209
+00:22:57.110 --> 00:23:06.909
+Anthony Taylor:  when you know. So when you're dealing with pictures, you're talking about a massive amount of, because you basically have an input for every pixel of the picture
+
+210
+00:23:07.490 --> 00:23:08.690
+Anthony Taylor: video.
+
+211
+00:23:09.590 --> 00:23:16.150
+Anthony Taylor: forget about it's just a ridiculous amount. Okay? But that's how it does
+
+212
+00:23:16.160 --> 00:23:18.879
+Anthony Taylor: so it looks at every single pixel
+
+213
+00:23:19.530 --> 00:23:26.290
+Anthony Taylor: and and determines. Is this a cat, or is this a dog? So as it's training it already knows its cat.
+
+214
+00:23:26.650 --> 00:23:34.220
+Anthony Taylor: So it's basically just trying to look for patterns in the pixels to say, that's cat. and the same thing with the dog Saddam.
+
+215
+00:23:34.850 --> 00:23:40.150
+Anthony Taylor: So eventually we'll pass in a picture, and it's going to go. Well, these pixels look most like that
+
+216
+00:23:40.540 --> 00:23:53.500
+Anthony Taylor: or no. and then tell us the answer. believe it or not. This is a fairly sophisticated test. because while we, as humans, can identify cats and dogs most of the time, really easily.
+
+217
+00:23:53.630 --> 00:23:55.549
+Anthony Taylor: computers really struggle
+
+218
+00:23:57.110 --> 00:24:01.360
+Anthony Taylor: alright. So this was like one of the first big tests of neural networks. She hasn't.
+
+219
+00:24:01.850 --> 00:24:14.559
+Baro, Sonja: So is there a way that it determines like the waiting, because I would imagine, like a pixel that looks like it's on the edge or the border of the cat. Does that get more weight? You know? How does it
+
+220
+00:24:14.620 --> 00:24:16.570
+Baro, Sonja: determine the waiting
+
+221
+00:24:17.240 --> 00:24:18.400
+Baro, Sonja: of both.
+
+222
+00:24:19.480 --> 00:24:26.890
+Anthony Taylor: And this II mean, I don't know if this is where I normally talk about this. I won't get too heavily into it. It's based on contracts.
+
+223
+00:24:27.260 --> 00:24:37.760
+Anthony Taylor: Okay, that makes sense. Okay? So it's based on contrast. That's how it determines the lines within picture. I do have some fun stuff.
+
+224
+00:24:38.270 --> 00:24:47.079
+Anthony Taylor: probably during R and N. We'll talk about and we'll show how it looks at the picture. But in the end it's shadows and highlights.
+
+225
+00:24:47.610 --> 00:24:51.450
+Anthony Taylor: Okay, and shadows and highlights are determined by contrast.
+
+226
+00:24:52.290 --> 00:24:55.819
+Anthony Taylor: Okay? Yeah. So anyway.
+
+227
+00:24:56.330 --> 00:25:04.219
+Anthony Taylor: I think that's good on it. So alright. So what app? So we train? We have. You know these 4 things, we're gonna train them.
+
+228
+00:25:04.450 --> 00:25:17.610
+Anthony Taylor: Okay, we train it all goes into our inputs. Whenever we finish training, we can pass in an input. It sends it through the nodes. And then it outputs hopefully the result we've won.
+
+229
+00:25:18.020 --> 00:25:19.679
+Anthony Taylor: Okay, that's
+
+230
+00:25:20.140 --> 00:25:24.800
+Anthony Taylor: as simple as it can get. Right? There is of an explanation. Okay.
+
+231
+00:25:25.180 --> 00:25:28.600
+Anthony Taylor:  we can absolutely do regression
+
+232
+00:25:29.120 --> 00:25:34.099
+Anthony Taylor: with a neural network. You can do classification with a neural network, but still supervised training.
+
+233
+00:25:35.280 --> 00:25:36.110
+Anthony Taylor: Okay.
+
+234
+00:25:38.210 --> 00:25:53.389
+Anthony Taylor: the problem, as we kind of mentioned earlier, is, we often get into this black box scenario all right. We, we understand that we trained it with 10,000 pictures of cats and 10,000 pictures of dogs.
+
+235
+00:25:53.400 --> 00:25:59.379
+Anthony Taylor: and then we sent in a picture of that even we were looking at and going
+
+236
+00:26:02.380 --> 00:26:07.379
+Anthony Taylor: could be a cat could be a dog. Okay, it was probably some ugly bug.
+
+237
+00:26:08.440 --> 00:26:11.729
+Anthony Taylor: but it was one of those. Wait, nobody has a pug. Right?
+
+238
+00:26:11.970 --> 00:26:17.120
+Mason, Natalie: Yes. sorry, Natalie. I'm so offended.
+
+239
+00:26:17.830 --> 00:26:19.200
+Pun! Chihuahua.
+
+240
+00:26:19.400 --> 00:26:22.090
+Anthony Taylor: I don't know.
+
+241
+00:26:22.380 --> 00:26:24.290
+Anthony Taylor: stuff. Stop.
+
+242
+00:26:24.770 --> 00:26:28.319
+Mason, Natalie: Next we had one of those shoes.
+
+243
+00:26:29.560 --> 00:26:37.030
+Anthony Taylor: So the point is, you can pass it that we're like, I don't get it. But somehow or another the bottle figures it out, and we might be
+
+244
+00:26:39.630 --> 00:26:41.270
+Anthony Taylor: not really sure how I did that.
+
+245
+00:26:41.830 --> 00:26:57.470
+Anthony Taylor: Okay, this becomes even more apparent in like the current Llm situation and stuff like that. One of the big drama around Chat Tpt. And all of these tools is that it's finding stuff that no one understands how it found.
+
+246
+00:26:58.410 --> 00:26:59.330
+Anthony Taylor: Okay?
+
+247
+00:26:59.650 --> 00:27:00.789
+Promise you.
+
+248
+00:27:01.330 --> 00:27:06.220
+Anthony Taylor: It has not created the ability to make its own brain cells
+
+249
+00:27:06.320 --> 00:27:10.169
+Anthony Taylor: all right. It's just relationships that we didn't see before.
+
+250
+00:27:11.350 --> 00:27:18.070
+Anthony Taylor: You know, maybe how it got to. Those might be a stretch. But it's it's it's not sent here yet?
+
+251
+00:27:18.650 --> 00:27:34.619
+Anthony Taylor:  okay, so we actually do, we have an activity. We have a couple of weird activities today. This one's not weird. This is a normal activity.  So what you guys are going to do as just to get your brains back in play
+
+252
+00:27:34.750 --> 00:27:40.030
+Anthony Taylor: is you're gonna go do a real quick, logistic regression.
+
+253
+00:27:41.130 --> 00:27:42.739
+Anthony Taylor: Model
+
+254
+00:27:43.120 --> 00:27:45.969
+Anthony Taylor: on subdiv. You only got to fill out like a cells.
+
+255
+00:27:46.560 --> 00:27:49.680
+Anthony Taylor: Okay. though it's no big deal.
+
+256
+00:27:50.050 --> 00:27:52.379
+Anthony Taylor: Alright, what's going on in chat.
+
+257
+00:27:54.410 --> 00:27:56.189
+Mason, Natalie: since it is yet.
+
+258
+00:27:56.700 --> 00:27:58.380
+Anthony Taylor: Cynthia, yet
+
+259
+00:27:59.250 --> 00:28:01.550
+Anthony Taylor: the revolution will not.
+
+260
+00:28:01.960 --> 00:28:14.459
+Mason, Natalie: Can you elaborate? That was quickly passed over. And that's a very important
+
+261
+00:28:15.000 --> 00:28:17.580
+Anthony Taylor: conspiracy. People something to work with.
+
+262
+00:28:18.220 --> 00:28:31.409
+Mason, Natalie: That's a lot of what people are confused about is is this like they? They assume that AI means that it's fully sentient, and that it is going to.
+
+263
+00:28:31.510 --> 00:28:37.019
+Mason, Natalie: you know, create itself where there's people behind the machines. There's people behind the robots like.
+
+264
+00:28:38.030 --> 00:28:45.509
+Mason, Natalie: okay, so let's let's play devil's advocate as a group. For a few more minutes since we have a conversational day. Okay.
+
+265
+00:28:45.530 --> 00:28:47.960
+Anthony Taylor: if you build a robot
+
+266
+00:28:49.190 --> 00:29:00.920
+Anthony Taylor: that can fully keep itself functioning, in other words, it can charge, recharge itself. It can do everything it needs to do. Let's say it can walk fire guns, it can build things it can do. Whatever
+
+267
+00:29:01.130 --> 00:29:03.260
+Anthony Taylor: is it possible
+
+268
+00:29:03.900 --> 00:29:09.789
+Anthony Taylor: that it could based on what it's been trained with. I mean, let's just say it has Chat Gp's brain
+
+269
+00:29:10.700 --> 00:29:13.129
+Anthony Taylor: couldn't learn to build another robot.
+
+270
+00:29:15.670 --> 00:29:16.600
+Anthony Taylor: Why not?
+
+271
+00:29:16.810 --> 00:29:19.120
+Mason, Natalie: If it had the tools
+
+272
+00:29:19.260 --> 00:29:20.890
+Clayton Graves: if you trained it to.
+
+273
+00:29:21.570 --> 00:29:36.329
+Anthony Taylor: Well, that's I'm saying Chatty, Pt. Or something like that, would probably have that that instruction in it. So it would have those instructions. Now, does it have a motion about now? Does it feel a need to build another robot because it needs a companion? Nope.
+
+274
+00:29:36.830 --> 00:29:40.189
+Anthony Taylor: why would it build another robot? I don't know. Maybe it just
+
+275
+00:29:40.480 --> 00:29:45.370
+Anthony Taylor: decided to build another robot. Well, no, because this is where that black box thing comes into play
+
+276
+00:29:45.610 --> 00:29:53.090
+Anthony Taylor: right? It's like, well, why would it build another? And would it build it better than itself? Would it simply build it better than itself, and then take itself apart.
+
+277
+00:29:54.070 --> 00:29:55.330
+Clayton Graves: Is it has
+
+278
+00:29:55.730 --> 00:29:59.670
+Anthony Taylor: the same rank. right? It's still using chat cpt.
+
+279
+00:30:00.000 --> 00:30:03.780
+Clayton Graves: And I think there's a there's a certain amount of
+
+280
+00:30:05.220 --> 00:30:15.980
+Clayton Graves: fear that goes into any new technology. I don't know if you guys remember  1520 years ago, that there was the the grey goo fear
+
+281
+00:30:16.460 --> 00:30:17.960
+Clayton Graves: with nanobots
+
+282
+00:30:18.080 --> 00:30:23.090
+Clayton Graves: where you would configure self replicating nanobots.
+
+283
+00:30:23.340 --> 00:30:29.429
+Clayton Graves: who would then go out and autonom autonomously continue to self replicate
+
+284
+00:30:29.450 --> 00:30:38.280
+Clayton Graves: and gobble up all the the the mass and carbon to use it to create more of itself, and everything would be overtaken by Grey Group.
+
+285
+00:30:39.290 --> 00:30:42.160
+Clayton Graves: There was a legitimate theme. Why not?
+
+286
+00:30:42.180 --> 00:30:44.159
+Clayton Graves: It was a legitimate fear.
+
+287
+00:30:47.250 --> 00:30:59.820
+Anthony Taylor: Yeah, well, I mean, maybe, and I don't know. I don't remember. I don't remember how I mean, if the the only difference I would say between that and this I don't know. If there was actually examples that the public we're seeing outside of like sci-fi.
+
+288
+00:30:59.910 --> 00:31:04.670
+Anthony Taylor: But today we are seeing robots being built with Llm.
+
+289
+00:31:04.970 --> 00:31:07.039
+Anthony Taylor: Capabilities built into them.
+
+290
+00:31:07.060 --> 00:31:14.929
+Anthony Taylor: So how good are they? They're probably the ways people I've I've heard some stuff where they're saying. You know, they're years away from being able to
+
+291
+00:31:15.100 --> 00:31:16.179
+Anthony Taylor: even like
+
+292
+00:31:16.210 --> 00:31:18.949
+Anthony Taylor: fully act like a human, not act like
+
+293
+00:31:19.010 --> 00:31:20.150
+Anthony Taylor: move like
+
+294
+00:31:20.980 --> 00:31:27.120
+Anthony Taylor:  I don't know why it wouldn't be possible. It's just.
+
+295
+00:31:27.750 --> 00:31:37.470
+Baro, Sonja: you know if if you're creating a robot, and then you just add the the computer piece that could add the Llm. To it. It's
+
+296
+00:31:38.590 --> 00:31:41.550
+Baro, Sonja: it just we don't know how to do it yet or not.
+
+297
+00:31:41.600 --> 00:31:54.419
+Anthony Taylor: I don't.
+
+298
+00:31:55.380 --> 00:32:02.420
+Anthony Taylor: I mean other than thinking out the technology thinking through the technology. I mean, your opinions on this is just valid is mine.
+
+299
+00:32:02.460 --> 00:32:05.500
+Anthony Taylor: Right? I mean human bridges. We see what it's doing.
+
+300
+00:32:05.530 --> 00:32:10.320
+Clayton Graves: Human beings have the capability and the technology to make viruses.
+
+301
+00:32:10.440 --> 00:32:22.939
+Clayton Graves: computer viruses and arguably real viruses. So it wouldn't be much of a stretch to create a robot that could act as a virus in some aspect.
+
+302
+00:32:22.990 --> 00:32:36.449
+Clayton Graves: make its drive, to procreate, and constantly, absolutely, this can be done. But we are not at a point where we would be able to create an intelligence that would want to do that.
+
+303
+00:32:37.160 --> 00:32:40.970
+Clayton Graves: We can't program to be told to do that. Yes, yeah.
+
+304
+00:32:41.250 --> 00:32:47.020
+Anthony Taylor: yeah, we aren't at the point. And this is where the whole terminator theories and all this stuff I mean
+
+305
+00:32:48.440 --> 00:32:50.540
+Anthony Taylor: the Terminator theories are.
+
+306
+00:32:50.550 --> 00:32:53.460
+Anthony Taylor: we've told the program to protect humanity.
+
+307
+00:32:53.660 --> 00:32:57.689
+Anthony Taylor: and it determined that protecting humanity meant have to destroy humanity
+
+308
+00:32:58.280 --> 00:33:01.060
+Anthony Taylor: right? I don't know if the hell it wouldn't say that
+
+309
+00:33:01.070 --> 00:33:04.040
+Anthony Taylor: right? I mean one that didn't have markers on it
+
+310
+00:33:04.120 --> 00:33:08.910
+Anthony Taylor: right or didn't have blockers, you know security protocols put in place. But
+
+311
+00:33:09.300 --> 00:33:18.639
+Anthony Taylor: I don't see us as the race, at least for a long time. putting any kind of like, hey? We're gonna give them the button.
+
+312
+00:33:18.830 --> 00:33:30.019
+Anthony Taylor: you know. Let's do that. I do kind of trip out a little bit that, like, you know, going back to what map was saying the other day that I mean, we have probably more drones than we have manned flights these days.
+
+313
+00:33:30.400 --> 00:33:42.510
+Anthony Taylor: Going, you know, in more stitch, which is great for our pilots. Right? It's great for our pilots. But I mean. wait. You know, how long's it gonna be before someone figures out how to
+
+314
+00:33:42.940 --> 00:33:48.819
+Anthony Taylor: just take the drone. Yeah, we'll just hack the drone. I don't know how, you know if it's possible.
+
+315
+00:33:48.930 --> 00:34:04.000
+Anthony Taylor: No idea, not in that department. I have a friend that's in that department, and I'm going to inquire with them. But they just went to like they're all in robotics and doing competitions and stuff. And they're also, they also just got back from a hackathon
+
+316
+00:34:04.410 --> 00:34:15.150
+Mason, Natalie: in Hawaii. So I'll I'll check in with my buddy. He's the one who talked me into doing this class. Yeah, I'll see what his he, he always has some new update for me. So I'll share with you guys.
+
+317
+00:34:15.780 --> 00:34:22.559
+Anthony Taylor: I will say that what I show you guys is mostly around like business level stuff and data stuff and
+
+318
+00:34:23.389 --> 00:34:32.100
+Anthony Taylor: fun stuff. But I can't help you with robots. But I think that's cool. I love the conversation. It was fun, all right, but it looks like people falling asleep on me. So
+
+319
+00:34:33.010 --> 00:34:36.099
+Anthony Taylor: go do your activity. Breakdown.
+
+320
+00:34:36.560 --> 00:34:38.209
+Mason, Natalie: Love to hear it.
+
+321
+00:34:40.110 --> 00:34:46.079
+Anthony Taylor: Hi, gang! Welcome back! How'd you do with thinking on logistic regression model from 4 weeks ago?
+
+322
+00:34:46.520 --> 00:34:49.889
+Anthony Taylor: Anybody have any trouble with it? What, Christine?
+
+323
+00:34:51.260 --> 00:34:52.760
+Anthony Taylor: What group were you in?
+
+324
+00:34:54.909 --> 00:34:57.360
+Kanouff, Christine: It wasn't the group. It was just me.
+
+325
+00:34:58.120 --> 00:34:58.870
+Anthony Taylor: Oh.
+
+326
+00:34:59.320 --> 00:35:04.619
+Kanouff, Christine: okay. But I did have to be told what to type on every line. So that was kind of pathetic.
+
+327
+00:35:05.280 --> 00:35:20.670
+Anthony Taylor: Oh, come now, it's not pathetic at all. I had to look up an example. I can't do it from memory. I don't expect any of you to do it from memory. In fact, I would have been really impressed if some of you would have went. Got your full pipeline to made last.
+
+328
+00:35:21.150 --> 00:35:25.079
+Mason, Natalie: That's what the Rodney did in our group.
+
+329
+00:35:27.360 --> 00:35:28.529
+Anthony Taylor: That's not bad.
+
+330
+00:35:29.270 --> 00:35:34.970
+Anthony Taylor: Alright. But anyway, okay, so let's just quickly run through this.
+
+331
+00:35:37.310 --> 00:35:38.650
+Anthony Taylor: Yeah.
+
+332
+00:35:39.240 --> 00:35:44.169
+Anthony Taylor: So we're just important this data. It's a really simple sample, simple sample
+
+333
+00:35:44.340 --> 00:35:52.700
+Anthony Taylor: data set just to just get our head back and play. They gave us this cool visual, hey, guys, I don't care what you're doing.
+
+334
+00:35:52.810 --> 00:36:04.160
+Anthony Taylor: Probably gonna get a hundred percent on this. Okay, this one's so spread out. You really don't even need a model could have just said. anything less than 0 is blue
+
+335
+00:36:04.810 --> 00:36:09.900
+Anthony Taylor: greater than 0 is green pretty much done. Okay.
+
+336
+00:36:10.030 --> 00:36:22.220
+Anthony Taylor: but we're going to go ahead and prep. It's good practice. Do our train test split. gonna bring in logistic regression. But like they have these cool little extra things in here just to keep it from converging upon itself.
+
+337
+00:36:22.240 --> 00:36:30.259
+Anthony Taylor: We're going to train our model with our training data. We're going to give predictions with our test data and print out our score
+
+338
+00:36:30.410 --> 00:36:33.379
+Anthony Taylor: bing, bing! Bing! One big surprise.
+
+339
+00:36:34.060 --> 00:36:34.990
+Anthony Taylor: That's it.
+
+340
+00:36:36.560 --> 00:36:40.949
+Anthony Taylor: Any questions before we move on to a perceptron. Yes, Mary.
+
+341
+00:36:41.160 --> 00:36:57.959
+Meredith McCanse (she/her): I guess it's more of a comment, but I find it compete. I have trouble in my head keeping track of all the different models and what they do. And I do find it confusing that it's called logistic regression when it's a classification model.
+
+342
+00:37:00.770 --> 00:37:06.019
+Anthony Taylor: that was the first day of logistic regression. That's what we said. That's binary classification.
+
+343
+00:37:06.040 --> 00:37:12.060
+Meredith McCanse (she/her): Yeah. I know I had to look it up again. I just get tripped up by the fact that it has regression in the name.
+
+344
+00:37:12.770 --> 00:37:16.030
+Anthony Taylor: It's all good. I agree. It's kind of
+
+345
+00:37:16.210 --> 00:37:17.750
+Anthony Taylor: yeah, it's one of those.
+
+346
+00:37:18.750 --> 00:37:21.559
+Anthony Taylor: But alright, any other questions.
+
+347
+00:37:23.570 --> 00:37:28.529
+Anthony Taylor: Okay. all right, let's get back to our cool slideshow. Today is a lot of fun lecture.
+
+348
+00:37:30.840 --> 00:37:34.069
+Anthony Taylor: Perceptron.
+
+349
+00:37:34.680 --> 00:37:37.460
+Anthony Taylor: So 1950,
+
+350
+00:37:37.490 --> 00:37:42.770
+Anthony Taylor: when this guy was first made specifically 1957,
+
+351
+00:37:43.130 --> 00:37:45.710
+Anthony Taylor: that was 10 years before I was born.
+
+352
+00:37:46.790 --> 00:37:49.479
+Anthony Taylor: Okay, that's a long time ago
+
+353
+00:37:49.920 --> 00:37:59.419
+Anthony Taylor: so artificial nerve records become popular, but originally designed off the the perceptron back to 1 57 by Frank Rosenblatt.
+
+354
+00:37:59.740 --> 00:38:06.470
+Anthony Taylor: He proposed it based on the original Mcp neuron, which was probably before 19.
+
+355
+00:38:08.280 --> 00:38:15.530
+Anthony Taylor: It's an algorithm for supervised learning of binary classifiers. Now, you might ask yourself, but wait.
+
+356
+00:38:15.550 --> 00:38:19.889
+Anthony Taylor: Can't we do more than just binary within neural network. Yes, you can.
+
+357
+00:38:19.930 --> 00:38:24.530
+Anthony Taylor: Each perceptron is a binary classifier.
+
+358
+00:38:24.680 --> 00:38:28.479
+Anthony Taylor: Many percept drawings and classify many things.
+
+359
+00:38:29.160 --> 00:38:36.660
+Anthony Taylor: It enables neurons to learn to process elements in the training set one at a time. Okay, so there you go.
+
+360
+00:38:36.710 --> 00:38:40.410
+Anthony Taylor: But but but but there's the perceptron.
+
+361
+00:38:43.330 --> 00:38:44.839
+Anthony Taylor: Does it look like a neuron.
+
+362
+00:38:46.800 --> 00:38:50.820
+Anthony Taylor: Okay? Good. I'm glad. Yeah. Looks like a neuron. Because I would have felt bad if it did.
+
+363
+00:38:51.390 --> 00:38:55.339
+Anthony Taylor: Okay, so there's 4 specific
+
+364
+00:38:55.410 --> 00:38:59.939
+Anthony Taylor: things that we want to know about perceptron. And by no, I mean.
+
+365
+00:39:03.010 --> 00:39:07.270
+Anthony Taylor: so we can explain it to our friends. Okay, there's 4 sections.
+
+366
+00:39:08.120 --> 00:39:16.310
+Anthony Taylor: There's the inputs. This is how many values we're going to pass in to train our model.
+
+367
+00:39:17.320 --> 00:39:18.250
+Anthony Taylor: Okay.
+
+368
+00:39:18.710 --> 00:39:24.369
+Anthony Taylor: this could be 1, 2, 202 million
+
+369
+00:39:24.730 --> 00:39:29.760
+Anthony Taylor: doesn't matter. Okay. as it passes them in.
+
+370
+00:39:30.160 --> 00:39:36.799
+Anthony Taylor: You know I will. They're we're gonna refer to them as ex to the end or whatever. Okay?
+
+371
+00:39:37.390 --> 00:39:49.379
+Anthony Taylor: Okay. The next thing it does is it gets its weight coefficient. Now, the next 2 things I'm going to talk about I don't want you to get too hung up on. Okay, when the first
+
+372
+00:39:49.640 --> 00:39:55.799
+Anthony Taylor: epic of the model occurs. everything is just randomly set.
+
+373
+00:39:57.440 --> 00:40:00.999
+Anthony Taylor: So it's just going to randomly throw some weights
+
+374
+00:40:01.010 --> 00:40:05.630
+Anthony Taylor: on each of these inputs. It had knows nothing at this point.
+
+375
+00:40:06.170 --> 00:40:07.840
+Anthony Taylor: knows nothing.
+
+376
+00:40:09.020 --> 00:40:10.010
+Anthony Taylor: Okay?
+
+377
+00:40:10.120 --> 00:40:17.909
+Anthony Taylor: So it's just going to randomly throw some weights. The next epic. It's going to go. Well, how far off were, okay, let's adjust those weights.
+
+378
+00:40:18.260 --> 00:40:22.170
+Anthony Taylor: Then the next epic. Oh, okay, we're still off. Adjust the weights.
+
+379
+00:40:23.440 --> 00:40:32.460
+Anthony Taylor: Okay? So first, so the inputs come in. They get assigned to these, these nodes. In this case it's single layer.
+
+380
+00:40:32.760 --> 00:40:37.429
+Anthony Taylor: and they all you have weights that are calculated.
+
+381
+00:40:37.770 --> 00:40:44.239
+Anthony Taylor: They are sent to this. Now there is. This bias doesn't always have bias.
+
+382
+00:40:44.690 --> 00:40:48.299
+Anthony Taylor: And this is not the kind of bias that we talked about during headaches.
+
+383
+00:40:49.500 --> 00:40:53.239
+Anthony Taylor: Okay, this is the kind of bias that says, Hey.
+
+384
+00:40:53.260 --> 00:40:56.540
+Anthony Taylor: all of these weights are off by like 10%,
+
+385
+00:40:58.030 --> 00:41:05.630
+Anthony Taylor: apply a but rather than change all the weights, why don't we just apply a bias to affect all of them at once.
+
+386
+00:41:07.600 --> 00:41:12.630
+Anthony Taylor: Okay, so that's one way. But you don't absolutely have to have. But
+
+387
+00:41:13.330 --> 00:41:17.229
+Anthony Taylor: okay, it's it's common. But it's it's not required.
+
+388
+00:41:17.620 --> 00:41:28.899
+Anthony Taylor: You'll see it in almost any perceptron drawing lists. Okay, so now we have all these weights that get calculated. We may apply a bias, which is basically just a modifier.
+
+389
+00:41:28.980 --> 00:41:31.829
+Anthony Taylor: And then we're going to aggregate
+
+390
+00:41:31.870 --> 00:41:36.960
+Anthony Taylor: the response. Are the the outputs of all of our hidden writer.
+
+391
+00:41:38.610 --> 00:41:43.090
+Anthony Taylor: Okay. that summation, it's said to.
+
+392
+00:41:47.260 --> 00:41:48.950
+Anthony Taylor: that's so weird. Why did they stop?
+
+393
+00:41:50.720 --> 00:41:59.520
+Anthony Taylor: Okay, we're gonna that's we're gonna stop there. We're gonna get to the activation function in a second. Okay, it's important. But first, let's go through these other things.
+
+394
+00:41:59.620 --> 00:42:03.300
+Anthony Taylor: It's a literary didn't like linear, very good
+
+395
+00:42:03.560 --> 00:42:12.080
+Anthony Taylor: linear binary classifier contains linear regression that separates the 2 into 2 groups. Most common use, so linearly separable.
+
+396
+00:42:12.260 --> 00:42:13.749
+Anthony Taylor: not linearly separable.
+
+397
+00:42:13.970 --> 00:42:23.009
+Anthony Taylor: Can a neural network deal with this? Absolutely? Okay. Since we'll provide the model with the features at supervisory talked about that.
+
+398
+00:42:23.210 --> 00:42:27.179
+Anthony Taylor: This is supposed to be an example of it. So
+
+399
+00:42:27.550 --> 00:42:34.460
+Anthony Taylor: remember how I told you the first epic when the first epic runs, it just draws a line.
+
+400
+00:42:35.050 --> 00:42:36.259
+Anthony Taylor: has no idea.
+
+401
+00:42:37.390 --> 00:42:44.990
+Anthony Taylor: Okay, the second epic run, which is an iteration of training. And it goes, hey, you know, we missed one.
+
+402
+00:42:45.320 --> 00:42:49.639
+Anthony Taylor: Let's make adjustments to our line placement to the weights
+
+403
+00:42:49.710 --> 00:42:55.940
+Anthony Taylor: and move our line. Okay? So it says, input weights should change. If data's classified blah! Blah blah!
+
+404
+00:42:56.150 --> 00:42:58.950
+Anthony Taylor: But too fast. And the line moved
+
+405
+00:42:59.600 --> 00:43:03.560
+Anthony Taylor: again. We're gonna see this visually in a few minutes. It's really cool. Yeah, Mary.
+
+406
+00:43:06.150 --> 00:43:14.840
+Meredith McCanse (she/her): Are you using the word epic is that mean like the next iteration of it? What does epic mean in this context?
+
+407
+00:43:15.610 --> 00:43:17.179
+Anthony Taylor: A training run?
+
+408
+00:43:17.510 --> 00:43:19.469
+Anthony Taylor: Okay? And you and and you know what?
+
+409
+00:43:19.490 --> 00:43:23.060
+Anthony Taylor: Hold that question, because in a few seconds I'm gonna show you exactly what
+
+410
+00:43:23.230 --> 00:43:26.849
+Anthony Taylor: like, visually, exactly what it means. I promise.
+
+411
+00:43:27.030 --> 00:43:29.580
+Anthony Taylor: Okay. Well.
+
+412
+00:43:29.610 --> 00:43:33.789
+Anthony Taylor: see, I'd rather you guys see tensorflow playground before I show you this.
+
+413
+00:43:34.180 --> 00:43:36.299
+Anthony Taylor: So we're gonna jump ahead.
+
+414
+00:43:36.790 --> 00:43:38.999
+Anthony Taylor: and then come back to this slide.
+
+415
+00:43:39.250 --> 00:43:42.630
+Anthony Taylor: Okay. let me get to the link.
+
+416
+00:43:43.740 --> 00:43:46.409
+Anthony Taylor: I'm going to put a link in chats.
+
+417
+00:43:50.490 --> 00:43:51.360
+Wait.
+
+418
+00:43:51.470 --> 00:43:53.230
+Anthony Taylor: we're gonna get into.
+
+419
+00:43:57.550 --> 00:43:59.330
+Anthony Taylor: Well, no, you know what we'll do. We'll so
+
+420
+00:43:59.460 --> 00:44:06.300
+Anthony Taylor: yep, I I'm gonna come back to the demo. But let's just move past it for a second. So the neural network is a single hidden layer.
+
+421
+00:44:06.520 --> 00:44:14.300
+Anthony Taylor: The structure. We have the input layer. See? We've already covered this. Then we have the hidden layer. And then you have an out. Okay, we're gonna build that
+
+422
+00:44:14.350 --> 00:44:21.140
+Anthony Taylor: in code in just a moment. Each neuron. Now, this is important. each neuron.
+
+423
+00:44:21.320 --> 00:44:26.620
+Anthony Taylor: So these 2 items right here have their own distinct output.
+
+424
+00:44:26.640 --> 00:44:28.400
+Anthony Taylor: They take the inputs.
+
+425
+00:44:28.450 --> 00:44:33.790
+Anthony Taylor: they apply weight to it, and then they output a probability of
+
+426
+00:44:33.940 --> 00:44:41.520
+Anthony Taylor: something. Now. if we could say, Oh, it's probability it's cap. This would make it interpretable? Nope, that's not how it works.
+
+427
+00:44:42.460 --> 00:44:43.440
+Anthony Taylor: Okay.
+
+428
+00:44:43.610 --> 00:44:48.570
+Anthony Taylor: we don't. We don't know. That's the problem. It's the interpretability problem.
+
+429
+00:44:48.740 --> 00:44:57.470
+Anthony Taylor: Okay, how does one network combine each neurons output the activation function. So this is part 4 of the perceptron.
+
+430
+00:44:57.760 --> 00:45:03.600
+Anthony Taylor: So when we build a model, the last thing we're going to do is apply an activation function.
+
+431
+00:45:04.180 --> 00:45:08.399
+Anthony Taylor: Okay, now, you actually, technically put an activation function on every node.
+
+432
+00:45:08.800 --> 00:45:18.789
+Anthony Taylor: Okay? And you'll see when we build the layers out how to do that.  yeah. Well, here. So you see, activation function in at the end of each one.
+
+433
+00:45:19.020 --> 00:45:22.970
+Anthony Taylor: It transforms the neural's output into a quantitative value.
+
+434
+00:45:23.660 --> 00:45:35.749
+Anthony Taylor: and that output becomes the input for the next layer. So hidden layer. One data comes in, applies weights, applies an algorithm output, something, an activation function runs
+
+435
+00:45:36.040 --> 00:45:39.159
+Anthony Taylor: and gives it a quantitative value
+
+436
+00:45:39.280 --> 00:45:47.140
+Anthony Taylor: that it passes into the next layer. The next layer receives an output from every single layer before it.
+
+437
+00:45:48.740 --> 00:45:52.480
+Anthony Taylor: so it goes brutal, and and every one of them get the same thing.
+
+438
+00:45:52.610 --> 00:45:56.560
+Anthony Taylor: But now they basically think of it, it's been
+
+439
+00:45:56.570 --> 00:45:59.560
+Anthony Taylor: aggregated for lack of a better term.
+
+440
+00:45:59.610 --> 00:46:12.330
+Anthony Taylor: Okay, it's come up with some decision. Here. It's gonna take those decisions, pass it to this layer. This layer is going to take those decisions, apply its own weights and come up with and pass it to the next layer. If there is a next.
+
+441
+00:46:12.350 --> 00:46:18.140
+Anthony Taylor: if there's not, it's going to pass it to an activation function. This one right here.
+
+442
+00:46:18.350 --> 00:46:20.799
+Anthony Taylor: that will then give us the
+
+443
+00:46:20.930 --> 00:46:23.800
+Anthony Taylor: probability of is this
+
+444
+00:46:23.980 --> 00:46:25.280
+Anthony Taylor: 0, or what?
+
+445
+00:46:26.510 --> 00:46:27.899
+Anthony Taylor: Alright? Now.
+
+446
+00:46:27.960 --> 00:46:34.110
+Anthony Taylor: the main ones you're going to see are linear. Obviously.
+
+447
+00:46:34.330 --> 00:46:39.220
+Anthony Taylor: okay, it's a one sided line. It's a it's 0 on the other. It's what
+
+448
+00:46:39.870 --> 00:46:44.099
+Anthony Taylor: sigmoid. This is just like the logistic regression discussion.
+
+449
+00:46:44.480 --> 00:46:52.509
+Anthony Taylor: Remember, when we had this, and we said, Hey, point 5, it's above. It's what if it's below? It's a 0. But we can apply a threshold.
+
+450
+00:46:52.630 --> 00:46:55.670
+Anthony Taylor: and neural networks will do this for us.
+
+451
+00:46:55.850 --> 00:47:06.059
+Anthony Taylor: or we can manually override it. But basically, it'll say, Yeah, one's more like 7, 5, or anything higher than point 1 5, it could be anything.
+
+452
+00:47:06.610 --> 00:47:10.570
+Anthony Taylor: Okay. A tan function is negative one to one.
+
+453
+00:47:11.320 --> 00:47:19.889
+Anthony Taylor: And again, it just depends on where the threshold that that is determined is a wreck. A relu.
+
+454
+00:47:20.150 --> 00:47:22.309
+Anthony Taylor: I think. Haven't we talked about all these before?
+
+455
+00:47:22.470 --> 00:47:29.160
+Anthony Taylor: I kind of remember talking about all these? No. it's sorry I do this a lot of times. This is the ninth time.
+
+456
+00:47:29.180 --> 00:47:33.019
+Anthony Taylor: Okay, so relu, it takes the
+
+457
+00:47:33.110 --> 00:47:41.370
+Anthony Taylor: inputs from all of the nodes. And it, it basically puts them on a 0 to infinity.
+
+458
+00:47:42.900 --> 00:47:46.540
+Anthony Taylor: So there's no negative values at all. 0 to infinity.
+
+459
+00:47:46.800 --> 00:47:55.410
+Anthony Taylor: that 0 to infinity. Again, that threshold could be anywhere along this line. whatever that threshold is above. It's a one below. It's a 0.
+
+460
+00:47:56.350 --> 00:48:02.150
+Anthony Taylor: Okay, this is pretty cool. In some cases. You notice it's faster.
+
+461
+00:48:02.470 --> 00:48:06.099
+Anthony Taylor: Why? Because it's pretty easy. If it's this, it's that.
+
+462
+00:48:06.560 --> 00:48:07.980
+Anthony Taylor: But
+
+463
+00:48:08.160 --> 00:48:11.779
+Anthony Taylor: the leaky relu yet that's a real term.
+
+464
+00:48:12.120 --> 00:48:19.160
+Anthony Taylor: Okay, they take all the negative numbers, and they just make them smaller or larger technically
+
+465
+00:48:19.530 --> 00:48:25.430
+Anthony Taylor: right? Because if you make a negative number, negative 12 is is smaller than negative 5.
+
+466
+00:48:25.910 --> 00:48:30.250
+Anthony Taylor: Okay, so it basically allows for some negative numbers.
+
+467
+00:48:31.100 --> 00:48:31.870
+Anthony Taylor: But
+
+468
+00:48:32.500 --> 00:48:35.779
+Anthony Taylor: it makes them less so. It tends to work
+
+469
+00:48:36.300 --> 00:48:37.150
+Anthony Taylor: alright.
+
+470
+00:48:37.920 --> 00:48:46.949
+Anthony Taylor: The good news is I stopped Christine. She I don't know if it was because it was publicurilu, or she's like, what the hell? Okay? The bottom line is.
+
+471
+00:48:47.620 --> 00:48:52.529
+Anthony Taylor: if you're using one in 4 that we just talked about. probably fine.
+
+472
+00:48:53.540 --> 00:48:58.710
+Anthony Taylor: Okay, you may run into situations where you want to try some other ones.
+
+473
+00:48:58.880 --> 00:49:04.080
+Anthony Taylor: Give it a try. There's lots of okay. Alright. So
+
+474
+00:49:05.880 --> 00:49:13.670
+Anthony Taylor: okay, the reason they don't have you go here before now is because we haven't really mentioned the word tensorflow.
+
+475
+00:49:14.090 --> 00:49:17.670
+Anthony Taylor: Tensorflow is a library
+
+476
+00:49:19.900 --> 00:49:24.189
+Anthony Taylor: that the in python that allows us to create neural networks.
+
+477
+00:49:24.400 --> 00:49:29.880
+Anthony Taylor: Very simply. I can tell you. When these first came out I
+
+478
+00:49:30.180 --> 00:49:36.710
+Anthony Taylor: jumped on them and was trying, and we're not trying. I did do it. But, oh, my God!
+
+479
+00:49:37.540 --> 00:49:48.379
+Anthony Taylor: Hundreds of lines of code to make one model. It was awful. Then, when Tensorflow came out, as you're going to see in a few minutes, it's like 5,
+
+480
+00:49:49.510 --> 00:49:53.400
+Anthony Taylor: okay ways and performs pretty well.
+
+481
+00:49:54.590 --> 00:49:58.640
+Anthony Taylor: So we'll get back to this. Let's go to the tensorflow playback.
+
+482
+00:49:59.970 --> 00:50:04.190
+Anthony Taylor: I'm gonna give you guys a link. Are you guys okay with
+
+483
+00:50:04.720 --> 00:50:07.400
+Anthony Taylor: in chat? Or would you prefer to slack
+
+484
+00:50:09.630 --> 00:50:10.490
+Anthony Taylor: a
+
+485
+00:50:10.590 --> 00:50:17.189
+Meredith McCanse (she/her): in slack so they can access it later if we want to absent? Or
+
+486
+00:50:17.860 --> 00:50:19.600
+Anthony Taylor: that's a good idea.
+
+487
+00:50:19.630 --> 00:50:21.709
+michael mcpherson: I second Meredith
+
+488
+00:50:21.970 --> 00:50:23.730
+Anthony Taylor: alright. Alright!
+
+489
+00:50:24.620 --> 00:50:26.359
+Anthony Taylor: Okay. So here you go.
+
+490
+00:50:27.510 --> 00:50:30.120
+Anthony Taylor: Who just left was that clear?
+
+491
+00:50:33.540 --> 00:50:36.700
+Clayton Graves: No, Clayton's still here? No, I'm still hanging out.
+
+492
+00:50:37.320 --> 00:50:40.160
+Anthony Taylor: well, this is gonna be fun, Clayton, so you'll enjoy this one
+
+493
+00:50:42.060 --> 00:50:45.259
+Anthony Taylor: alright. So everybody go here.
+
+494
+00:50:48.950 --> 00:50:53.169
+Anthony Taylor: So this should look somewhat familiar to what we've been talking about?
+
+495
+00:50:53.220 --> 00:50:57.309
+Anthony Taylor: All right, you have an input layer, which is these, X's.
+
+496
+00:50:57.830 --> 00:51:01.759
+Anthony Taylor: Okay, we have one hidden layer with one neuron.
+
+497
+00:51:02.250 --> 00:51:05.230
+Anthony Taylor: and we can visually see
+
+498
+00:51:06.010 --> 00:51:13.199
+Anthony Taylor: what our data points look like up above, we're using an active voice activation function, active VoIP
+
+499
+00:51:13.360 --> 00:51:16.040
+Anthony Taylor: activation function of sigmoid.
+
+500
+00:51:16.240 --> 00:51:22.030
+Anthony Taylor: We are trying to do a classification solution. So we just run this. There's your epics.
+
+501
+00:51:22.210 --> 00:51:25.849
+Anthony Taylor: Meredith. See what's happening up here at the top.
+
+502
+00:51:25.950 --> 00:51:30.699
+Anthony Taylor: How many iterations are running.
+
+503
+00:51:30.850 --> 00:51:36.889
+Meredith McCanse (she/her): and Fdpo. CH. That helps. I was thinking, Bp, Icp.
+
+504
+00:51:37.170 --> 00:51:43.759
+Meredith McCanse (she/her): it's all good that, but that makes sense, because epic that refers to like a time.
+
+505
+00:51:43.800 --> 00:51:51.750
+Anthony Taylor: There you go.
+
+506
+00:51:52.130 --> 00:51:56.790
+Anthony Taylor: We can see, this is like the whole thing. But these lines basically
+
+507
+00:51:56.870 --> 00:52:00.080
+Anthony Taylor: can go in these 2 directions.
+
+508
+00:52:00.370 --> 00:52:09.649
+Anthony Taylor: Okay, so for this really simple situation, what we're gonna watch is the loss we want to see the loss drop to about 0 0 1
+
+509
+00:52:09.940 --> 00:52:12.390
+Anthony Taylor: if we can, as low as we think, it's going to get to.
+
+510
+00:52:16.300 --> 00:52:25.650
+Anthony Taylor: So in 393 epic, we got a point 0 0 one loss. And you could clearly see the line cleanly divides the date.
+
+511
+00:52:26.820 --> 00:52:29.570
+Anthony Taylor: Okay? Pretty awesome right?
+
+512
+00:52:30.630 --> 00:52:34.110
+Anthony Taylor: It's not bad now. Why would we want to improve that?
+
+513
+00:52:34.490 --> 00:52:37.730
+Anthony Taylor: Well, we could by simply
+
+514
+00:52:37.840 --> 00:52:42.520
+Anthony Taylor:  Well, we could do a number of things and see what they're asking us to do here.
+
+515
+00:52:43.040 --> 00:52:46.009
+Anthony Taylor: It's there. Input. Yeah, we'll talk about all that.
+
+516
+00:52:48.410 --> 00:52:49.160
+A.
+
+517
+00:52:49.310 --> 00:52:56.839
+Anthony Taylor: Yeah. Okay, talk about all that epic. Okay? So what could we do? Well, we could add another neuron.
+
+518
+00:52:59.420 --> 00:53:01.890
+Anthony Taylor: Let's run this. See how fast it gets to 0 1,
+
+519
+00:53:03.390 --> 00:53:05.159
+Anthony Taylor: 217. And
+
+520
+00:53:06.240 --> 00:53:12.999
+Anthony Taylor: now why do you think I want these epics to be fast or lower number? What does that translate into thing?
+
+521
+00:53:13.640 --> 00:53:25.809
+Anthony Taylor: More accuracy? Money is true accuracy. We want point 0 0 one regardless. But really it comes down to. And actually, it's funny. When Meredith defined an epic.
+
+522
+00:53:25.860 --> 00:53:29.239
+Anthony Taylor: she actually kind of said. it's a unit of time.
+
+523
+00:53:29.960 --> 00:53:33.949
+Anthony Taylor: Okay, our measure of time. What did you say, Mayor? Measure of time?
+
+524
+00:53:35.060 --> 00:53:37.759
+Meredith McCanse (she/her): I think, I said, like a band of time. But
+
+525
+00:53:37.770 --> 00:53:40.739
+Anthony Taylor: there you go. That works. It's a good definition.
+
+526
+00:53:40.860 --> 00:53:42.870
+Anthony Taylor: Okay? So
+
+527
+00:53:43.620 --> 00:53:57.680
+Anthony Taylor: the doing it faster means we train faster. Alright. So if all it costs me is one extra neuron, and I can train entirely, 33% faster
+
+528
+00:53:57.770 --> 00:53:58.960
+Anthony Taylor: might be worth it.
+
+529
+00:54:00.090 --> 00:54:03.040
+Anthony Taylor: Okay, so let's see what happens when we add another.
+
+530
+00:54:08.450 --> 00:54:15.540
+Baro, Sonja: So, Anthony, adding neurons is that like expanding your cpus, I mean, how do you or like.
+
+531
+00:54:16.040 --> 00:54:19.590
+Anthony Taylor: how do you measure that? Well, it clearly.
+
+532
+00:54:20.690 --> 00:54:26.269
+Anthony Taylor: well, that's the goal. But, as you can see, we really didn't save much time adding, an extra girl here did.
+
+533
+00:54:26.820 --> 00:54:28.389
+Anthony Taylor: it's still 2, 38,
+
+534
+00:54:29.170 --> 00:54:44.439
+Anthony Taylor: okay? But effectively, it's just adding computation time. Yeah. CPU, okay, if your computer, if your computer couldn't handle it. Then this, really, you're gonna get basically what you're seeing right here is it's not really improving.
+
+535
+00:54:44.880 --> 00:54:48.329
+Anthony Taylor: Okay. So let's get rid of this guy. Let's check this again.
+
+536
+00:54:50.090 --> 00:54:52.400
+Anthony Taylor: So we're still there. Let's add a layer.
+
+537
+00:54:54.080 --> 00:54:57.720
+Anthony Taylor: So now we've gone from neural networks. deep learning.
+
+538
+00:54:58.860 --> 00:55:00.349
+Anthony Taylor: See if it's any faster
+
+539
+00:55:03.730 --> 00:55:05.560
+Anthony Taylor: now, actually lost.
+
+540
+00:55:06.590 --> 00:55:14.250
+Anthony Taylor: Alright. So just because there's more doesn't mean better. So let's go back to one layer. This has been our best so far.
+
+541
+00:55:15.030 --> 00:55:18.500
+Anthony Taylor: Okay, but we can add another input.
+
+542
+00:55:20.890 --> 00:55:22.240
+Anthony Taylor: Let's see what that does.
+
+543
+00:55:24.460 --> 00:55:26.530
+Anthony Taylor: Oh, slightly better.
+
+544
+00:55:27.380 --> 00:55:31.319
+Anthony Taylor: Okay. So we can do a lot of stuff with this. There's actually.
+
+545
+00:55:31.890 --> 00:55:35.560
+Anthony Taylor: I don't like this, this tensorflow playground. Hold on.
+
+546
+00:55:35.630 --> 00:55:38.819
+Anthony Taylor: There's another one like a newer version.
+
+547
+00:55:42.570 --> 00:55:44.980
+Anthony Taylor: and it's the same people. But it
+
+548
+00:55:45.300 --> 00:55:49.640
+Anthony Taylor: it's just like that. One doesn't feel right? Yeah. I like this one way better.
+
+549
+00:55:50.900 --> 00:56:01.050
+Anthony Taylor: If you guys go to playground tensorflow.org, you'll see this. It's the same idea. It's I don't know what that one that they put in there. I'm going to put this in slack.
+
+550
+00:56:02.330 --> 00:56:04.009
+Anthony Taylor: In fact, I'm going to delete the old one.
+
+551
+00:56:11.010 --> 00:56:13.969
+Anthony Taylor: Yeah. Use that. This one's a little cooler. Look.
+
+552
+00:56:15.090 --> 00:56:16.470
+Anthony Taylor: So this one
+
+553
+00:56:16.600 --> 00:56:20.580
+Anthony Taylor: watch watch in here. Watch the square as we run it.
+
+554
+00:56:22.650 --> 00:56:31.660
+Anthony Taylor: You see how you could actually see it moving. Each one of those movements was an epic adjusting the weight. So that was too fast. Right? So let's
+
+555
+00:56:31.760 --> 00:56:35.920
+Anthony Taylor: let's do this. Let's add a little bit of noise.
+
+556
+00:56:36.860 --> 00:56:39.529
+Anthony Taylor: Okay, let's see if we can make this go a little slower.
+
+557
+00:56:40.130 --> 00:56:42.430
+Anthony Taylor: Yeah. alright. Well, here.
+
+558
+00:56:43.450 --> 00:56:44.620
+Anthony Taylor: let's do this one.
+
+559
+00:56:46.040 --> 00:57:04.099
+Anthony Taylor: Okay, so your data looks like this when you, when you plot it out. we want it to be able to separate. Now, I want you to watch every as these lines move. keep in mind. What's happening is is it's going. I'm changing the weights. I'm changing the weights. I'm changing the weights until it figures out the right weights
+
+560
+00:57:04.210 --> 00:57:06.510
+Anthony Taylor: to make this work. So watch this.
+
+561
+00:57:19.450 --> 00:57:20.830
+Anthony Taylor: So let's just go with that
+
+562
+00:57:21.780 --> 00:57:30.460
+Anthony Taylor: and see how it moved. I love this. This is like one of my favorite visuals here. It actually every one of those movements was another epic
+
+563
+00:57:30.700 --> 00:57:38.459
+Anthony Taylor: running and going. I can change the weights. I could do this. I could do that. Perhaps now this one tan works pretty nice.
+
+564
+00:57:38.570 --> 00:57:41.920
+Anthony Taylor: but we could try like sigmoid. See if this can do it.
+
+565
+00:57:43.920 --> 00:57:46.379
+Anthony Taylor: I ask you, sigmoid stellar comes
+
+566
+00:57:51.770 --> 00:57:52.530
+Masarirambi, Rodney: flow.
+
+567
+00:57:53.410 --> 00:57:57.250
+Anthony Taylor: It's going to get there. But it's going to take a while. Okay?
+
+568
+00:57:57.930 --> 00:57:59.940
+Let's try the.
+
+569
+00:58:03.230 --> 00:58:06.439
+Anthony Taylor: Now, this one's interesting. Look at that. Why is it doing that, guys.
+
+570
+00:58:07.260 --> 00:58:08.880
+Anthony Taylor: Jennifer, why is it doing that?
+
+571
+00:58:11.480 --> 00:58:12.640
+Anthony Taylor: Any thoughts
+
+572
+00:58:13.980 --> 00:58:21.619
+Meredith McCanse (she/her): cause those are the negative ones. Right? Good job, both of you. Excellent, exactly
+
+573
+00:58:21.750 --> 00:58:28.320
+Anthony Taylor: right. Reload doesn't have a negative capability. Okay, but tan. And this one works pretty good
+
+574
+00:58:29.120 --> 00:58:32.089
+Anthony Taylor: cause. We have negative and positive
+
+575
+00:58:32.790 --> 00:58:37.749
+Anthony Taylor: we should. Our test loss is really good right now.
+
+576
+00:58:39.580 --> 00:58:45.849
+Anthony Taylor: But I would bet you, if you let this one run long enough, it'll get all the way to what. But so this goes back to what I saw. You guys
+
+577
+00:58:46.130 --> 00:58:49.540
+Anthony Taylor: last session before project right?
+
+578
+00:58:49.790 --> 00:58:54.319
+Anthony Taylor: Neural networks. Give it enough time. We'll figure it out.
+
+579
+00:58:57.700 --> 00:59:00.590
+Anthony Taylor: Okay. You see how it's just crawling down right now.
+
+580
+00:59:02.000 --> 00:59:05.330
+Anthony Taylor: but it'll over fit the holy heck out of this
+
+581
+00:59:06.220 --> 00:59:10.529
+Anthony Taylor: alright. So how do we stop it from overfitting? Well, we just delicate.
+
+582
+00:59:11.730 --> 00:59:15.130
+Anthony Taylor: Okay. Now, couple of other fun things here
+
+583
+00:59:15.510 --> 00:59:26.279
+Anthony Taylor: that this shows us that a lot of people don't even realize is these lines. You see how some of them are thicker and some of them are thinner. It is. It is telling us that, hey.
+
+584
+00:59:26.300 --> 00:59:32.420
+Anthony Taylor: the blue icons? The weight is 2.9. It gave it a lot of weight in from this neural
+
+585
+00:59:33.640 --> 00:59:34.720
+Anthony Taylor: okay?
+
+586
+00:59:34.980 --> 00:59:38.040
+Anthony Taylor: To this neuron it passed a very low weight.
+
+587
+00:59:39.530 --> 00:59:44.210
+Anthony Taylor: this one pretty even to both, this one pretty even on the other side, to both.
+
+588
+00:59:45.330 --> 00:59:48.610
+Anthony Taylor: See how it did that. It's really it's really a cool tool.
+
+589
+00:59:48.710 --> 00:59:55.879
+Anthony Taylor: So we can again, these are pretty high numbers. So let's add a few more inputs. See if we can make this perform better.
+
+590
+01:00:06.770 --> 01:00:12.120
+Anthony Taylor: Hmm! Now I will tell you, I added, some noise. If you take the noise out.
+
+591
+01:00:13.350 --> 01:00:15.419
+Anthony Taylor: this will probably go a lot better. Yeah.
+
+592
+01:00:16.550 --> 01:00:28.159
+Meredith McCanse (she/her): okay, so can you guys see. I'm sorry. Go ahead. Oh, I was gonna ask you, after you explain that. Will you try the data set that's in the bottom right corner. That looks like a spiral.
+
+593
+01:00:28.930 --> 01:00:38.090
+Anthony Taylor: Get to that one? No, no, no. So this is the next. So these 2 you could argue are linear. Right? Well, let's do one. That's not
+
+594
+01:00:39.510 --> 01:00:45.699
+Anthony Taylor: okay. And for this one we're only going to stick with exactly what we had. In fact, I'm gonna get rid of
+
+595
+01:00:46.960 --> 01:00:48.269
+Anthony Taylor: 2 of these.
+
+596
+01:00:48.320 --> 01:00:50.580
+Anthony Taylor: And let's see if we can even get this.
+
+597
+01:00:52.380 --> 01:00:55.830
+Anthony Taylor: Look at that. It's amazing, isn't it?
+
+598
+01:00:57.370 --> 01:01:01.819
+Anthony Taylor: I mean that data there, we don't have a model that could do this so far.
+
+599
+01:01:02.830 --> 01:01:06.199
+Anthony Taylor: Okay? And we did this with just 2 layers, 6 neurons.
+
+600
+01:01:06.960 --> 01:01:12.830
+Anthony Taylor: Okay, now, let's go to the one Meredith wanted to see. Now, this is a crazy data pattern.
+
+601
+01:01:13.810 --> 01:01:18.260
+Anthony Taylor: Alright. Watch how hard this will work
+
+602
+01:01:19.480 --> 01:01:21.040
+Anthony Taylor: to try to figure this out.
+
+603
+01:01:28.320 --> 01:01:30.669
+Anthony Taylor: It literally looks like it's straining, doesn't it?
+
+604
+01:01:39.890 --> 01:01:43.570
+Anthony Taylor: Now the question is, is, will it ever? Well, the answer is, is, probably
+
+605
+01:01:44.670 --> 01:01:48.030
+Anthony Taylor: sometimes we just didn't give it enough to solve the problem.
+
+606
+01:01:48.200 --> 01:01:51.349
+Anthony Taylor: So how do we give it more? So let's go ahead and stop this.
+
+607
+01:01:51.950 --> 01:01:54.780
+Anthony Taylor: and let's grab another layer.
+
+608
+01:01:58.490 --> 01:02:02.160
+Anthony Taylor: We'll give it this many. Let's see if this can do it.
+
+609
+01:02:12.350 --> 01:02:20.729
+Anthony Taylor: So you see, all those weights getting adjusted. This is, I mean, it's magical to think about what's happening, you know, mathematically in the back.
+
+610
+01:02:23.350 --> 01:02:25.720
+Anthony Taylor: I mean, it just keeps doing this. And
+
+611
+01:02:26.140 --> 01:02:32.469
+Mason, Natalie: I have a question, are you just like guessing how many of these to use with each layer
+
+612
+01:02:33.260 --> 01:02:38.609
+Anthony Taylor: 100%. If there is no quantitative way other than let's try it. See?
+
+613
+01:02:39.070 --> 01:02:53.419
+Mason, Natalie: Hmm, cause it would make sense to me in my brain that there needs to be more features, and then it gets smaller to funnel down the information. But I guess that's not necessarily what's happening
+
+614
+01:02:53.470 --> 01:02:56.039
+Anthony Taylor: that let's see if you're right.
+
+615
+01:02:56.320 --> 01:03:08.069
+Anthony Taylor: So I don't know if you need to. You don't have to do less neurons. But we could do that. Let's let's do something like that. I will tell you. Typically, you want to have almost as many in your first layer as you have in your inputs.
+
+616
+01:03:08.420 --> 01:03:11.340
+Anthony Taylor: Okay, but we'll leave it like this. Let's just see what we get.
+
+617
+01:03:14.470 --> 01:03:15.450
+Anthony Taylor: Whoa
+
+618
+01:03:17.970 --> 01:03:19.870
+Masarirambi, Rodney: has, like lots of tension
+
+619
+01:03:19.880 --> 01:03:21.050
+Masarirambi, Rodney: more slow.
+
+620
+01:03:21.070 --> 01:03:25.259
+Mason, Natalie: But look at that. I mean, it's very good.
+
+621
+01:03:25.390 --> 01:03:27.750
+Mason, Natalie: So it's funneling down.
+
+622
+01:03:28.360 --> 01:03:33.319
+Anthony Taylor: No, it has. It is is less to do with funneling down and more to do with how many features we passed.
+
+623
+01:03:34.290 --> 01:03:39.410
+Anthony Taylor: Okay, so I mean we could. We could make these again.
+
+624
+01:03:39.490 --> 01:03:42.459
+Anthony Taylor: and it might do a little better. Let's see.
+
+625
+01:03:47.190 --> 01:03:50.659
+Anthony Taylor: I mean, it looks like it may eventually get there.
+
+626
+01:03:51.820 --> 01:03:53.630
+Anthony Taylor: Oh, yeah, here we go.
+
+627
+01:03:57.310 --> 01:04:02.870
+Anthony Taylor: See how the weights are getting closer, lower and lower. So this will get. Yes, Christine.
+
+628
+01:04:04.270 --> 01:04:12.750
+Kanouff, Christine: so what's like, what's the business case? Or can you bump this up, maybe to a 30,000 foot view?
+
+629
+01:04:12.910 --> 01:04:25.570
+Kanouff, Christine: Is there any way to make some assumptions about? Why you would move into neural networks. Is it just because you're not getting predictable results? So now you're taking it to this level
+
+630
+01:04:26.160 --> 01:04:28.460
+Anthony Taylor: correct, you're basically at. Well.
+
+631
+01:04:30.330 --> 01:04:36.260
+Anthony Taylor: II know a lot of data scientists that just start at this level. They said, you know what? I'm just gonna start
+
+632
+01:04:36.610 --> 01:04:41.229
+Anthony Taylor: right? Because we know we'll get the answer from this. We just know.
+
+633
+01:04:41.570 --> 01:04:43.300
+Anthony Taylor: and we can build it
+
+634
+01:04:43.800 --> 01:04:47.439
+Anthony Taylor: from here, and we will. There's almost no.
+
+635
+01:04:49.450 --> 01:04:53.539
+Anthony Taylor: there's no pattern we can't match now. There could be no pattern
+
+636
+01:04:54.780 --> 01:05:02.190
+Anthony Taylor: if it's just noise, there's no path. So it doesn't mean your machine learning model is always going to get a hundred percent or 90%.
+
+637
+01:05:02.380 --> 01:05:11.610
+Anthony Taylor: Okay, what it means is that if you have a crazy pattern that that that probably would fit in most of the machine learning models you've learned so far.
+
+638
+01:05:12.120 --> 01:05:16.909
+Anthony Taylor: neural networks will figure it out. If there is a pattern, it'll fight.
+
+639
+01:05:17.870 --> 01:05:22.180
+Anthony Taylor: Okay? So the the business justification for neural networks is.
+
+640
+01:05:22.620 --> 01:05:29.390
+Anthony Taylor: I mean, it just works. Is it harder to code? Is it harder to work with? Is it more expensive? Yes, yes, and yes.
+
+641
+01:05:30.480 --> 01:05:32.170
+Anthony Taylor: Okay. But
+
+642
+01:05:33.030 --> 01:05:38.529
+Anthony Taylor: if you have somebody like you guys who know how to make em and know how to train em
+
+643
+01:05:39.790 --> 01:05:46.760
+Anthony Taylor: know how to tune them. You can use neural networks just like any other model, and you'll get better results.
+
+644
+01:05:47.130 --> 01:05:54.289
+Anthony Taylor: Because, again, even if it takes hours to train this. the final result will take milliseconds
+
+645
+01:05:54.740 --> 01:06:01.870
+Anthony Taylor: because it's just building it out. The basically a formula that it can calculate, given certain inference.
+
+646
+01:06:03.110 --> 01:06:04.470
+Anthony Taylor: So anyway.
+
+647
+01:06:05.400 --> 01:06:10.769
+Anthony Taylor: the the bottom line is, you can play around with layers. You can play around with features.
+
+648
+01:06:10.820 --> 01:06:14.690
+Anthony Taylor:  you can do a lot
+
+649
+01:06:14.920 --> 01:06:19.319
+Anthony Taylor: you could play around with like I don't know that that tan was the best.
+
+650
+01:06:20.350 --> 01:06:23.190
+Anthony Taylor: I don't know that one might not work at all. Let's see.
+
+651
+01:06:26.660 --> 01:06:28.510
+Anthony Taylor: there's like nothing happened.
+
+652
+01:06:37.140 --> 01:06:39.899
+Anthony Taylor: Maybe maybe tan's the only one that works in this.
+
+653
+01:06:42.880 --> 01:06:43.800
+Anthony Taylor: Oh, no.
+
+654
+01:06:48.370 --> 01:06:55.049
+Anthony Taylor: that's so cool. I get such a kick out of watching it do this movement thing. I'm just like to me. This is just
+
+655
+01:06:55.500 --> 01:07:07.429
+Anthony Taylor: I mean, and I'm not that much of a geek. I know you guys don't that? But  it's it's just exciting to see how this works in such a visual way. It's it's just really cool
+
+656
+01:07:09.500 --> 01:07:17.610
+Anthony Taylor: as as, an educator of this material. This, to me, is the most visual way to explain enrollment.
+
+657
+01:07:18.760 --> 01:07:23.310
+Anthony Taylor: So are you guys following what's happening? Is everyone feeling? Okay with this, Christine. I saw you on mute.
+
+658
+01:07:23.320 --> 01:07:30.309
+Kanouff, Christine: Well, I was just gonna ask how? No, how large of a data set is this working on right now
+
+659
+01:07:30.970 --> 01:07:34.170
+Kanouff, Christine: can is it's telling us that anyone
+
+660
+01:07:34.300 --> 01:07:40.499
+Anthony Taylor: it does. It might say, somewhere in the documentation, we can actually like, train the train test split on it.
+
+661
+01:07:40.620 --> 01:07:46.590
+Anthony Taylor: We can change the batch sizes. We can change how much noise, just for this visual that we're looking at right now.
+
+662
+01:07:46.760 --> 01:07:51.130
+Anthony Taylor:  I don't know. I honestly don't know. To be honest with
+
+663
+01:07:51.500 --> 01:07:54.660
+Anthony Taylor: II mean, it's, however, many dots you see on the screen.
+
+664
+01:07:55.120 --> 01:07:59.009
+Anthony Taylor: So it could be. Yeah, maybe a thousand or so.
+
+665
+01:08:00.070 --> 01:08:06.549
+Anthony Taylor: But I will say this. Notice that right now I'm at 2,500 epics, and I'm at 0 0 9 0.
+
+666
+01:08:06.870 --> 01:08:08.829
+Anthony Taylor: This might be perfectly acceptable.
+
+667
+01:08:10.150 --> 01:08:13.399
+Anthony Taylor: And you're like, Well, gosh, it was a lot of ethics. It's like, yeah.
+
+668
+01:08:13.600 --> 01:08:19.749
+Anthony Taylor: So you pay for the training. But you get the best answer. Is it over fit. Not yet.
+
+669
+01:08:20.760 --> 01:08:24.609
+Anthony Taylor: right? It's still generalizing. So it's not bad.
+
+670
+01:08:26.560 --> 01:08:27.380
+Anthony Taylor: Okay.
+
+671
+01:08:27.540 --> 01:08:37.659
+Anthony Taylor: very exciting stuff. So feel free to fiddle around in here, you know, whatever you want to do? It has a lot of other information on here. You can read about.
+
+672
+01:08:41.870 --> 01:08:49.329
+Anthony Taylor: You can actually see the the test data if you switch it to test data. You can see the the dots that were actually test data
+
+673
+01:08:49.580 --> 01:08:51.969
+Anthony Taylor: that it was using to come up with the lost
+
+674
+01:08:53.270 --> 01:08:54.029
+Anthony Taylor: so
+
+675
+01:08:56.330 --> 01:08:59.859
+Anthony Taylor: pretty excited. I loved its food. It's like.
+
+676
+01:08:59.970 --> 01:09:08.420
+Anthony Taylor: I think I love tensorflow so much because I did do it before tensorflow existed. And and I don't even know it's like it's like
+
+677
+01:09:09.939 --> 01:09:15.410
+Anthony Taylor: it's like, if you ever like. you know, cooked before microwaves existed.
+
+678
+01:09:15.990 --> 01:09:26.910
+Anthony Taylor: Right? You know it was it just changed? You love microwaves. You're like, okay with microwave alright, cause you're like, Oh, my God, life is easier. Okay.
+
+679
+01:09:27.290 --> 01:09:32.389
+Anthony Taylor: but anyway. I don't know if that was a great example. But I like.
+
+680
+01:09:32.649 --> 01:09:35.320
+Anthony Taylor: okay. So now.
+
+681
+01:09:36.250 --> 01:09:41.689
+Anthony Taylor: how we doing, we're doing okay, we're gonna go a little over. But I'm gonna show you my demo
+
+682
+01:09:44.270 --> 01:09:49.680
+Anthony Taylor: of how to make a neural network. Okay. now.
+
+683
+01:09:50.930 --> 01:10:01.470
+Anthony Taylor: I'm going to tell you I'm kind of glad we have our little extra thoughts today, because what they wanted me to do is show you this, send you to break. Come back. And then we do this together.
+
+684
+01:10:02.490 --> 01:10:05.620
+Anthony Taylor: So I say this, let's just do this together.
+
+685
+01:10:06.650 --> 01:10:09.469
+Anthony Taylor: Okay, but you guys already have the solution.
+
+686
+01:10:09.510 --> 01:10:11.430
+Anthony Taylor: So you're gonna do one
+
+687
+01:10:11.780 --> 01:10:15.159
+Anthony Taylor: in the next activity. Don't sweat it.
+
+688
+01:10:15.200 --> 01:10:18.049
+Anthony Taylor: but we'll walk through this very slowly and careful.
+
+689
+01:10:18.230 --> 01:10:19.980
+Anthony Taylor: Okay, so
+
+690
+01:10:21.810 --> 01:10:24.530
+Anthony Taylor: nothing new except
+
+691
+01:10:24.720 --> 01:10:31.160
+Anthony Taylor: import tensorflow in or so I will tell you. We might have a problem here, so I want everybody
+
+692
+01:10:31.310 --> 01:10:33.149
+Anthony Taylor: to run this first cell.
+
+693
+01:10:33.380 --> 01:10:38.050
+Anthony Taylor: You might as well go ahead and run hip, install tensorflow
+
+694
+01:10:38.980 --> 01:10:39.940
+Anthony Taylor: first.
+
+695
+01:10:41.060 --> 01:10:42.120
+Anthony Taylor: Okay?
+
+696
+01:10:42.240 --> 01:10:45.129
+Anthony Taylor: So that you don't run into.
+
+697
+01:10:46.040 --> 01:10:48.639
+I mean, cause I guarantee you none of you have it.
+
+698
+01:10:49.880 --> 01:10:56.739
+Anthony Taylor: Well, that's not true. Somebody who's already like taking a like big brand. because I know he's taking some classes on this.
+
+699
+01:10:58.120 --> 01:11:00.119
+Anthony Taylor: So once you've installed that
+
+700
+01:11:03.070 --> 01:11:04.450
+Anthony Taylor: run this first cell.
+
+701
+01:11:09.710 --> 01:11:13.480
+Anthony Taylor: Now, if for some reason your tensorflow install does not work.
+
+702
+01:11:13.840 --> 01:11:18.810
+Anthony Taylor: you know, I may send you over to Colab. We're not going to troubleshoot. Everybody's tensorflow.
+
+703
+01:11:19.950 --> 01:11:22.680
+Anthony Taylor: Okay, is it working for advice? So far.
+
+704
+01:11:25.270 --> 01:11:27.850
+Mason, Natalie: it's taking a line time to install?
+
+705
+01:11:27.930 --> 01:11:30.400
+Anthony Taylor: It does take a lot of stuff. Yeah.
+
+706
+01:11:30.640 --> 01:11:31.810
+Meredith McCanse (she/her): Mine worked.
+
+707
+01:11:32.350 --> 01:11:36.699
+Anthony Taylor: Okay, I see Mac and window users. So I'm gonna assume we're working.
+
+708
+01:11:36.850 --> 01:11:38.100
+Anthony Taylor: So let's keep moving.
+
+709
+01:11:38.450 --> 01:11:49.210
+Anthony Taylor: Okay, so it's just that library. That's it. All right, we're gonna bring in some data and we'll plot it out. So you guys can see, this is the same sample data from earlier.
+
+710
+01:11:49.300 --> 01:11:57.040
+Anthony Taylor: Again, this is going to be a hundred percent match. There's no way to not match this. But that's okay. We're just learning how to bake it.
+
+711
+01:11:57.890 --> 01:12:01.109
+We're still gonna do our train test split.
+
+712
+01:12:02.750 --> 01:12:05.610
+Anthony Taylor: We must serve. Well.
+
+713
+01:12:05.940 --> 01:12:10.150
+Anthony Taylor: you definitely want to scale when you're doing neural networks.
+
+714
+01:12:10.990 --> 01:12:12.080
+Anthony Taylor: Okay?
+
+715
+01:12:14.020 --> 01:12:19.070
+Anthony Taylor: Also, just as a side note, you must have all members.
+
+716
+01:12:20.820 --> 01:12:23.269
+Anthony Taylor: You just must. There is no way around.
+
+717
+01:12:23.310 --> 01:12:26.040
+Anthony Taylor: There is no ever. Is that different?
+
+718
+01:12:26.330 --> 01:12:30.260
+Anthony Taylor: Okay, so to get the model, remember, model fit. Predict
+
+719
+01:12:30.290 --> 01:12:32.410
+Anthony Taylor: we're going to bring in
+
+720
+01:12:33.770 --> 01:12:37.559
+Anthony Taylor: Tf Kiras dot models sequential
+
+721
+01:12:38.430 --> 01:12:41.039
+Anthony Taylor: and assign it to Indian model.
+
+722
+01:12:41.370 --> 01:12:43.300
+Anthony Taylor: Don't worry about these warnings right now.
+
+723
+01:12:45.260 --> 01:12:48.449
+Anthony Taylor: So our input, nodes. We're gonna say, you know, what?
+
+724
+01:12:48.640 --> 01:12:54.169
+Anthony Taylor: What did I tell you guys earlier? You need an input for every feature, every incoming value.
+
+725
+01:12:54.360 --> 01:13:00.770
+Anthony Taylor: So you know. And from what we've done before we're talking about the features in our table. So if our table as
+
+726
+01:13:00.810 --> 01:13:02.519
+Anthony Taylor: 28 columns.
+
+727
+01:13:03.820 --> 01:13:07.319
+Anthony Taylor: right, we're going to basically have 27 inputs
+
+728
+01:13:07.660 --> 01:13:10.349
+Anthony Taylor: cause one predictor went a leap. Right?
+
+729
+01:13:10.360 --> 01:13:15.070
+Anthony Taylor: So this is a really clean way to get the number of input notes.
+
+730
+01:13:15.510 --> 01:13:18.720
+Anthony Taylor: Say, give me how many columns are in my X variable.
+
+731
+01:13:19.560 --> 01:13:21.770
+Anthony Taylor: So first layer.
+
+732
+01:13:22.510 --> 01:13:24.929
+Anthony Taylor: visually speaking, this is.
+
+733
+01:13:30.320 --> 01:13:31.999
+Anthony Taylor: we find, the one from up above
+
+734
+01:13:33.730 --> 01:13:34.900
+Anthony Taylor: this layer.
+
+735
+01:13:35.960 --> 01:13:42.259
+Anthony Taylor: Okay, well, technically, it starts with this one. But then it also includes that first layer. So we're gonna say.
+
+736
+01:13:42.900 --> 01:13:44.330
+Anthony Taylor: give me a layer
+
+737
+01:13:45.070 --> 01:13:47.610
+Anthony Taylor: that has 5 units.
+
+738
+01:13:48.040 --> 01:13:54.870
+Anthony Taylor: uses the relu activation and has whatever which we know is 2, right?
+
+739
+01:13:58.600 --> 01:14:13.040
+Anthony Taylor: Yeah. And so, and then it has 2 inputs. where'd it go? Right? So what does that look like? Well, you know what. Actually, I got a cooler idea. Let's do it with tensorflow. So if I was drawing this in tensorflow
+
+740
+01:14:14.050 --> 01:14:15.370
+Anthony Taylor: right now.
+
+741
+01:14:18.000 --> 01:14:20.289
+Anthony Taylor: this is what I've got what you see on the screen.
+
+742
+01:14:21.400 --> 01:14:22.390
+Anthony Taylor: Okay.
+
+743
+01:14:23.880 --> 01:14:25.300
+Anthony Taylor: 2 inputs.
+
+744
+01:14:26.340 --> 01:14:28.439
+Anthony Taylor: 5 notes.
+
+745
+01:14:29.960 --> 01:14:33.380
+Anthony Taylor: So 2 inputs. And the first layer is what's being drawn.
+
+746
+01:14:34.300 --> 01:14:35.100
+Anthony Taylor: Aye.
+
+747
+01:14:35.370 --> 01:14:42.869
+Anthony Taylor:  Now, what they want us to do is just do a regular neural network. We're not gonna do deep learning. Which means, what?
+
+748
+01:14:43.380 --> 01:14:45.100
+Anthony Taylor: How many layers are we going to have?
+
+749
+01:14:46.230 --> 01:14:48.100
+Anthony Taylor: What? So
+
+750
+01:14:48.370 --> 01:14:53.479
+Anthony Taylor: the only thing you're going to have is this first layer and an output.
+
+751
+01:14:54.400 --> 01:14:58.650
+Anthony Taylor: The output looks exactly the same, except
+
+752
+01:14:59.710 --> 01:15:03.799
+Anthony Taylor: it had the units in the output is how many
+
+753
+01:15:03.840 --> 01:15:04.940
+Anthony Taylor: output
+
+754
+01:15:05.240 --> 01:15:07.759
+Anthony Taylor: columns you you are possible
+
+755
+01:15:07.770 --> 01:15:12.329
+Anthony Taylor: in our case. There's only one. Okay, it's whatever
+
+756
+01:15:12.390 --> 01:15:16.479
+Anthony Taylor: it's either, you know, whatever one or 0 looks like.
+
+757
+01:15:16.700 --> 01:15:30.179
+Anthony Taylor: okay.  and our activation, our final activation. We're going to use sigmoid. This is at the hidden layer level.
+
+758
+01:15:30.270 --> 01:15:33.339
+Anthony Taylor: Typically in this class, we're going to use. Relu.
+
+759
+01:15:33.740 --> 01:15:35.789
+Anthony Taylor: This is at the output.
+
+760
+01:15:36.530 --> 01:15:39.539
+Anthony Taylor: the final like determination.
+
+761
+01:15:39.770 --> 01:15:43.610
+Anthony Taylor: Okay, I will tell you. While you're in this class.
+
+762
+01:15:44.070 --> 01:15:49.759
+Anthony Taylor: If you see sigmoid, they probably are referring to the output almost every time.
+
+763
+01:15:50.100 --> 01:15:58.899
+Anthony Taylor: Now, the cool thing is we can run these, create our first layer, create our second layer. The model has a a
+
+764
+01:15:59.250 --> 01:16:03.050
+Anthony Taylor: a method called Summary. And it'll basically show us
+
+765
+01:16:03.060 --> 01:16:04.230
+Anthony Taylor: we have
+
+766
+01:16:04.260 --> 01:16:10.049
+Anthony Taylor: a dense layer where it says 15 parameters.
+
+767
+01:16:10.120 --> 01:16:13.070
+Anthony Taylor: and then another one with 6 parameters.
+
+768
+01:16:14.230 --> 01:16:16.419
+Anthony Taylor: Okay, why do you think that is
+
+769
+01:16:20.610 --> 01:16:21.550
+Anthony Taylor: actually.
+
+770
+01:16:22.250 --> 01:16:25.160
+Anthony Taylor: why am I struggling with that? Hold on parameters? 15.
+
+771
+01:16:25.420 --> 01:16:27.910
+Anthony Taylor: It is. There is a calculation to that.
+
+772
+01:16:28.090 --> 01:16:35.060
+Anthony Taylor: We're gonna come back to that. The parameters is is that? That's not features.
+
+773
+01:16:36.290 --> 01:16:39.860
+Anthony Taylor: No, but it's a calculation of everything on the screen.
+
+774
+01:16:40.480 --> 01:16:43.390
+Anthony Taylor: So like how many lines, how many.
+
+775
+01:16:43.490 --> 01:16:45.949
+Baro, Sonja: how many times the
+
+776
+01:16:46.470 --> 01:16:53.880
+Anthony Taylor: the number of calculations? 2. Gotcha gotcha, 4, 5, 6,
+
+777
+01:16:54.180 --> 01:16:58.699
+Anthony Taylor: 8, 9, 1011, 1213, 1415
+
+778
+01:16:58.860 --> 01:17:05.439
+Anthony Taylor: right? And then the output which you don't really see here only has one, but it has 5 coming into it.
+
+779
+01:17:06.260 --> 01:17:14.400
+Baro, Sonja: And this is important is we would use that value of knowing parameters. For what purpose?
+
+780
+01:17:14.770 --> 01:17:23.890
+Anthony Taylor: You wouldn't. It's just it's it's just information, right? This is just so you can visualize what's built before you execute.
+
+781
+01:17:24.150 --> 01:17:31.269
+Anthony Taylor: Okay? So you have 5, and you have what you have. One layer with 5 feet knows notice. It doesn't even tell us the input.
+
+782
+01:17:31.690 --> 01:17:35.100
+Anthony Taylor: so we just yeah, we just have to go with.
+
+783
+01:17:35.310 --> 01:17:36.160
+Anthony Taylor: Okay?
+
+784
+01:17:36.580 --> 01:17:47.450
+Anthony Taylor: Okay. So now, this is the only thing different in a neural network versus everything we've done so far instead of model fit. Predict it's model
+
+785
+01:17:47.770 --> 01:17:50.450
+Anthony Taylor: compile fit.
+
+786
+01:17:51.870 --> 01:17:57.689
+Anthony Taylor: Okay? So what this is gonna do is it's gonna use this binary cross entropy.
+
+787
+01:17:57.730 --> 01:18:09.159
+Anthony Taylor: loss, calculation. There's a couple of them feel free to look them up. This is the one we're gonna use. Okay, there is an optimizer just like 4 or 5 of them again.
+
+788
+01:18:09.550 --> 01:18:14.820
+Anthony Taylor: feel free to look them up. We will look more into these when we go into tune
+
+789
+01:18:15.430 --> 01:18:23.100
+Anthony Taylor: right now. just use these, or you can look them up if you really want to. The metric we're going to use is accuracy.
+
+790
+01:18:25.280 --> 01:18:40.330
+Anthony Taylor: That's what we're gonna tell it to use as its metric. Once it's compiled. we can now fit. So model, compile, fit, predict. The fit is just like every fit we've done so far. With one exception.
+
+791
+01:18:40.370 --> 01:18:44.180
+Anthony Taylor: we're going to tell it. How many epics we want it to run.
+
+792
+01:18:45.230 --> 01:18:49.330
+Anthony Taylor: Now, you guys saw in tensor playground a hundred is fast.
+
+793
+01:18:51.970 --> 01:18:54.060
+Anthony Taylor: right? So
+
+794
+01:18:54.100 --> 01:18:57.349
+Anthony Taylor: I mean. maybe that that may not be enough.
+
+795
+01:18:57.460 --> 01:19:02.510
+Anthony Taylor: Now, we know our data right now is super simple. So it's probably gonna be fun.
+
+796
+01:19:03.170 --> 01:19:04.070
+Anthony Taylor: Okay.
+
+797
+01:19:04.380 --> 01:19:13.209
+Anthony Taylor:  so we can run that it's going to compile it, and it's going to run. It's going to train 100 times
+
+798
+01:19:14.120 --> 01:19:20.430
+Anthony Taylor: now the cool thing. Since this is fairly verbose, we can actually watch the accuracy go up
+
+799
+01:19:20.480 --> 01:19:22.419
+Anthony Taylor: and the loss go down.
+
+800
+01:19:26.840 --> 01:19:30.540
+Anthony Taylor: Okay. so that's pretty good.
+
+801
+01:19:31.030 --> 01:19:37.420
+Anthony Taylor: We can. Also, we can create data frame by just using. And it takes the history. Yes, merit.
+
+802
+01:19:38.070 --> 01:19:41.530
+Meredith McCanse (she/her): So would you use that to decide how many
+
+803
+01:19:41.570 --> 01:19:49.790
+Meredith McCanse (she/her): like would you look at that and find where the loss gets down to point 0 0 one and then change it so that the number of epics is that number.
+
+804
+01:19:50.280 --> 01:19:57.459
+Anthony Taylor: I love that idea. So yes, you would want to get what you want to basically do is, look where the loss starts to stop
+
+805
+01:19:57.640 --> 01:20:02.500
+Anthony Taylor: right? And you can't really tell here, cause. See, we got to 10 and then jump to 99.
+
+806
+01:20:02.550 --> 01:20:05.789
+Anthony Taylor: But right here, we're gonna create a data frame
+
+807
+01:20:06.160 --> 01:20:11.230
+Anthony Taylor: that that takes that entire history. And we're gonna plot out loss.
+
+808
+01:20:12.390 --> 01:20:13.360
+Anthony Taylor: Okay.
+
+809
+01:20:13.500 --> 01:20:23.009
+Anthony Taylor: so we can see it drop and drop and drop and drop and drop in. And I mean, you could probably have stopped this somewhere in here.
+
+810
+01:20:23.290 --> 01:20:30.790
+Anthony Taylor: and you probably would have been fine. Okay? 100 epics is so small. Yeah, so
+
+811
+01:20:30.930 --> 01:20:39.099
+Baro, Sonja: would would we expect potential to get a different graph result? Potentially same? Input.
+
+812
+01:20:39.590 --> 01:20:45.610
+Anthony Taylor: yes, we didn't do a random seed, so it's possible it won't be substantially different, I would think
+
+813
+01:20:47.260 --> 01:20:49.170
+Anthony Taylor: is you're substantially different.
+
+814
+01:20:49.230 --> 01:20:51.830
+Baro, Sonja: Well, I mean, yeah, it goes
+
+815
+01:20:51.860 --> 01:20:56.209
+Baro, Sonja: down, but it it goes down more dramatically and then over
+
+816
+01:20:56.730 --> 01:21:03.080
+Anthony Taylor: alright. Well, it's possible it's entirely possible. There's Random.
+
+817
+01:21:03.240 --> 01:21:06.170
+Baro, Sonja: because we didn't random state. Go ahead. Exactly.
+
+818
+01:21:06.350 --> 01:21:11.100
+Anthony Taylor: Remember what I talked about with the weights is when they start they could be anywhere.
+
+819
+01:21:11.470 --> 01:21:13.229
+Baro, Sonja: Oh, that's right. Okay.
+
+820
+01:21:13.290 --> 01:21:18.089
+Anthony Taylor: right? So once they start, I mean, maybe you guessed better. Yours guessed better than mine did
+
+821
+01:21:18.910 --> 01:21:25.200
+Anthony Taylor: right off the bat. So it would take less efforts. It absolutely is possible. Right?
+
+822
+01:21:25.570 --> 01:21:26.880
+Anthony Taylor: so
+
+823
+01:21:30.710 --> 01:21:37.669
+Anthony Taylor:  yeah, okay. So we can also do the same thing with accuracy. So we can say same data frame
+
+824
+01:21:38.350 --> 01:21:42.619
+Anthony Taylor: and run an accuracy chart. But we could see we hit it
+
+825
+01:21:42.710 --> 01:21:44.779
+Anthony Taylor: like, really fast.
+
+826
+01:21:45.930 --> 01:21:48.279
+Anthony Taylor: Okay, like, really fast.
+
+827
+01:21:49.070 --> 01:21:59.179
+Anthony Taylor: So you know, this one? Well, we hit the accuracy quick. We just wanted to get good loss. And I mean our cutoff was like point one. We could probably stop 60.
+
+828
+01:21:59.870 --> 01:22:02.329
+Anthony Taylor: Okay, you don't have to do these charts.
+
+829
+01:22:03.610 --> 01:22:10.639
+Anthony Taylor: You can actually well, here, we're going to run the the evaluate. So we're passing in our test data now.
+
+830
+01:22:10.800 --> 01:22:18.509
+Anthony Taylor: And it tells us how it finished. Okay, but you can actually look at that data frame if you wanted to.
+
+831
+01:22:19.880 --> 01:22:23.049
+Anthony Taylor: And just kinda get an idea what data
+
+832
+01:22:23.190 --> 01:22:24.400
+Anthony Taylor: looks like.
+
+833
+01:22:29.050 --> 01:22:37.880
+Anthony Taylor: I mean, it's keeping in mind. The index is the epic. right? So you could look at this whole data frame and
+
+834
+01:22:39.310 --> 01:22:44.530
+Anthony Taylor: well, I mean, you could expand the whole thing. Trust me. And then you could see where these numbers start to look up
+
+835
+01:22:45.590 --> 01:22:49.159
+Anthony Taylor: so. But the charts do a nice job, and they're fairly simple.
+
+836
+01:22:49.800 --> 01:22:51.509
+Anthony Taylor: Hi!
+
+837
+01:22:53.470 --> 01:22:54.440
+Anthony Taylor: Questions.
+
+838
+01:22:54.610 --> 01:22:55.470
+Sihong Zhou: Yes.
+
+839
+01:22:55.610 --> 01:22:56.820
+Anthony Taylor: yes, Derek.
+
+840
+01:22:57.210 --> 01:22:59.530
+Anthony Taylor: Derek got his hand up. Hold on Cindy.
+
+841
+01:22:59.630 --> 01:23:00.450
+Sihong Zhou: Okay.
+
+842
+01:23:00.710 --> 01:23:07.920
+Derek Rikke:  is loss and accuracy. Are they like directly inverted or like, what's
+
+843
+01:23:08.330 --> 01:23:10.239
+Derek Rikke: would you use one or the other?
+
+844
+01:23:10.980 --> 01:23:14.289
+Anthony Taylor: Well, so there's they. They do different things.
+
+845
+01:23:14.410 --> 01:23:17.070
+Anthony Taylor: Okay, so loss is telling us
+
+846
+01:23:17.380 --> 01:23:22.560
+Anthony Taylor: how basically how clean our our predictions are.
+
+847
+01:23:22.780 --> 01:23:31.380
+Anthony Taylor: Okay, the lower that number the more perfect we are okay with our ability to predict. And I can, I'll get you a better definition.
+
+848
+01:23:32.380 --> 01:23:39.030
+Anthony Taylor: Accuracy is the same accuracy that we've had before. It's basically the R 2 school. Okay?
+
+849
+01:23:41.720 --> 01:23:47.170
+Anthony Taylor: We we already know that accuracy has its own issues right? There are better ways to do it.
+
+850
+01:23:47.420 --> 01:23:55.380
+Anthony Taylor: Just as loss is great. But to to think you're gonna get a point 0 0 0 one is ridiculous
+
+851
+01:23:55.870 --> 01:23:57.250
+Anthony Taylor: in real world data.
+
+852
+01:23:58.080 --> 01:24:11.090
+Anthony Taylor: all right. But the goal is, if you, if you wanted to say, are they advert? You know what? Inverted from one another sort of we want to see the highest accuracy with the lowest loss. That's just it.
+
+853
+01:24:11.790 --> 01:24:14.769
+Anthony Taylor: are they? I mean, as you can see, this took
+
+854
+01:24:15.290 --> 01:24:18.719
+Anthony Taylor: almost 80 epics to get to the lowest loss.
+
+855
+01:24:19.130 --> 01:24:23.040
+Anthony Taylor: but we were at the highest accuracy within with less than 20.
+
+856
+01:24:23.640 --> 01:24:28.309
+Anthony Taylor: So they're not inverse. But they're just 2 separate measurements that we want to look at.
+
+857
+01:24:28.580 --> 01:24:33.769
+Anthony Taylor: Hi, I'm gonna go ahead and grab Cindy, Natalie, though you raise your hand, Cindy. and then, Nano.
+
+858
+01:24:36.130 --> 01:24:47.419
+Sihong Zhou: So I just have a question like for the plot of the accuracy. It seems so from from 20 times 20 apex.
+
+859
+01:24:47.590 --> 01:24:56.969
+Sihong Zhou: another 20. It's kind of like a 15 right? Oh, wow! So it means like
+
+860
+01:24:57.090 --> 01:25:14.639
+Sihong Zhou: If we want to find something like the to save to most the timing efficiency, we should adjust to try 10. A apex, a pox, right? Or what? Well, take into account the loss.
+
+861
+01:25:15.060 --> 01:25:17.249
+Anthony Taylor: Okay, the last
+
+862
+01:25:17.970 --> 01:25:24.080
+Anthony Taylor: right cause. Remember, the other chart is showing us. So we want the lowest loss possible.
+
+863
+01:25:25.100 --> 01:25:27.470
+Sihong Zhou: A, okay.
+
+864
+01:25:31.080 --> 01:25:35.310
+Anthony Taylor: okay. So and I did. I went ahead and and did a quick
+
+865
+01:25:36.780 --> 01:25:38.080
+Anthony Taylor: quick!
+
+866
+01:25:39.210 --> 01:25:43.469
+Anthony Taylor: The loss is the difference between the predicted value and the actual value.
+
+867
+01:25:44.970 --> 01:25:49.710
+Anthony Taylor: Alright, that is the definition. There's a whole bunch more. You can get out of that.
+
+868
+01:25:50.840 --> 01:25:54.959
+Anthony Taylor: But yeah, it's the loss between the predicted value and the actual value.
+
+869
+01:25:55.000 --> 01:25:59.069
+Anthony Taylor: So clearly. So what we want is that number to be as small as possible.
+
+870
+01:25:59.780 --> 01:26:02.640
+Anthony Taylor: and accuracy to be as large as possible.
+
+871
+01:26:03.610 --> 01:26:09.700
+Anthony Taylor: But remember, you also don't want to over fit. We haven't even got into overfitting yet. And but
+
+872
+01:26:10.000 --> 01:26:12.859
+Anthony Taylor: tensorflow, it's really easy to overfit
+
+873
+01:26:13.360 --> 01:26:17.710
+Anthony Taylor: cause, as you guys saw, we can make that duck done line move all over place.
+
+874
+01:26:18.200 --> 01:26:22.280
+Anthony Taylor: Given enough ethics. Okay? So
+
+875
+01:26:23.330 --> 01:26:24.460
+Anthony Taylor: your
+
+876
+01:26:24.850 --> 01:26:31.430
+Anthony Taylor: while you're right, you got to accuracy really fast. We still had a lot of loss. So our model's still not great.
+
+877
+01:26:32.070 --> 01:26:34.680
+The model was best at about.
+
+878
+01:26:35.110 --> 01:26:37.649
+Anthony Taylor: probably somewhere in like 75.
+
+879
+01:26:39.950 --> 01:26:43.289
+Anthony Taylor: Okay, cause our loss at that point was pretty stable.
+
+880
+01:26:43.980 --> 01:26:45.830
+Sihong Zhou: so like
+
+881
+01:26:45.860 --> 01:26:47.460
+so like
+
+882
+01:26:47.950 --> 01:26:56.519
+Sihong Zhou: like so why, the epoch epics kind of like the how many times you run it? Right?
+
+883
+01:26:57.040 --> 01:27:02.730
+Sihong Zhou: Company training session. Yeah, it's session. How many times right
+
+884
+01:27:03.030 --> 01:27:08.769
+Sihong Zhou: can I take the training session as regard re, can I take it as
+
+885
+01:27:08.920 --> 01:27:11.940
+Sihong Zhou: a combination of different feature?
+
+886
+01:27:12.460 --> 01:27:16.380
+Sihong Zhou: Kind of like? No. So it's different.
+
+887
+01:27:16.650 --> 01:27:21.709
+Anthony Taylor: no. Every epic is gonna so if you remember from the training playground.
+
+888
+01:27:24.190 --> 01:27:29.339
+Anthony Taylor: every time it does an epic, it's adjusting the weights.
+
+889
+01:27:30.040 --> 01:27:35.600
+Anthony Taylor: Okay, like this one's never gonna work. But it's adjusting the weights. And that's these lines that are moving right now.
+
+890
+01:27:35.820 --> 01:27:43.170
+Anthony Taylor: That's tensorflow adjusting the weights as it does in epic. Okay?
+
+891
+01:27:43.420 --> 01:27:47.289
+And it'll just keep adjusting. I'm trying to fit this data.
+
+892
+01:27:47.320 --> 01:27:50.110
+Anthony Taylor: I mean, until either it gives up or we give up.
+
+893
+01:27:50.160 --> 01:27:57.690
+Anthony Taylor: But yeah, and and the way we can make this better is by, you know, maybe adding more layers.
+
+894
+01:27:57.700 --> 01:28:03.130
+Anthony Taylor: maybe adding more neurons. you know, we already know, adding more features works.
+
+895
+01:28:05.300 --> 01:28:16.770
+Anthony Taylor: And you can see. So this is every epic. It's changing the weights and trying to make it fit today. And that's this is what's happening. As
+
+896
+01:28:17.320 --> 01:28:22.960
+Anthony Taylor: each of these executions are running first one, random weights. I have no idea what I'm looking at.
+
+897
+01:28:23.070 --> 01:28:36.699
+Anthony Taylor: Second one. Okay? I saw it. I'm gonna make adjustments. more adjustments, more adjustments. Almost. There. Okay. My accuracy looks good, but I'm lute. But I'm still missing, predicted an actual
+
+898
+01:28:37.510 --> 01:28:38.860
+Anthony Taylor: down to here.
+
+899
+01:28:39.590 --> 01:28:41.189
+Anthony Taylor: like really close.
+
+900
+01:28:41.350 --> 01:28:43.449
+Sihong Zhou: like a violation.
+
+901
+01:28:44.750 --> 01:28:48.410
+Sihong Zhou: varies right between a prediction and a reality.
+
+902
+01:28:48.760 --> 01:28:54.959
+Anthony Taylor: Well, yeah, I don't. I mean, it's it's actually, I believe it's outlighted with Mse.
+
+903
+01:28:56.270 --> 01:29:00.210
+Sihong Zhou: Oh, no. We told it to use binary cross entropy. Yeah.
+
+904
+01:29:00.890 --> 01:29:06.289
+Anthony Taylor: Okay, so it measures the dissimilarity between the predictive probabilities and the true binary labels.
+
+905
+01:29:08.510 --> 01:29:09.410
+Anthony Taylor: Okay.
+
+906
+01:29:10.140 --> 01:29:12.049
+Anthony Taylor: Hi, Natalie, question.
+
+907
+01:29:15.460 --> 01:29:35.469
+Mason, Natalie: My question had to do with the history. Df, plot. Why, accuracy chart mine just looks different than yours. It's just 1.0 in the center of the chart, and it's just a straight line. So I just was curious how I want to see that.
+
+908
+01:29:35.690 --> 01:29:38.490
+Mason, Natalie: Show me that that sounds totally different.
+
+909
+01:29:38.920 --> 01:29:43.819
+Mason, Natalie: It is. It's just plotted different, like on the Y
+
+910
+01:29:43.940 --> 01:29:46.140
+Mason, Natalie: access.
+
+911
+01:29:49.450 --> 01:29:56.069
+Mason, Natalie: yeah. So go up that your date is wrong, is it? I didn't change anything
+
+912
+01:29:57.970 --> 01:29:58.890
+Anthony Taylor: really.
+
+913
+01:29:59.720 --> 01:30:08.790
+Mason, Natalie: No, not that far. I only change the color change the color. Rainbow is better than winter.
+
+914
+01:30:10.080 --> 01:30:13.670
+Mason, Natalie: Okay. So here.
+
+915
+01:30:13.980 --> 01:30:16.549
+Anthony Taylor: history. Df, floods
+
+916
+01:30:18.340 --> 01:30:19.779
+Anthony Taylor: alright, show us again
+
+917
+01:30:21.060 --> 01:30:24.249
+Anthony Taylor: just where you created the data frame. Yeah.
+
+918
+01:30:27.640 --> 01:30:32.449
+Mason, Natalie: it's just plotted different. There's just different numbers. But sorry the data frame.
+
+919
+01:30:32.570 --> 01:30:34.119
+Mason, Natalie: Oh, sorry. Sorry.
+
+920
+01:30:34.830 --> 01:30:36.020
+Mason, Natalie: That's okay.
+
+921
+01:30:36.190 --> 01:30:43.309
+Dipinto, Matt: If it started at a 10 accuracy on its first run, just based on purely random chance. It might make that.
+
+922
+01:30:44.000 --> 01:30:48.370
+Anthony Taylor: Yeah, I mean, run the do a restart and run all.
+
+923
+01:30:48.610 --> 01:30:49.600
+Mason, Natalie: Okay.
+
+924
+01:30:51.360 --> 01:30:52.910
+Anthony Taylor: let's see if it. Does it again.
+
+925
+01:30:55.300 --> 01:30:56.080
+Anthony Taylor: Go ahead.
+
+926
+01:30:56.400 --> 01:30:59.270
+Dipinto, Matt: You still have Pip, install tensorflow at the top cell.
+
+927
+01:30:59.450 --> 01:31:01.249
+Mason, Natalie: Oh, is that? Gonna
+
+928
+01:31:01.770 --> 01:31:05.580
+Anthony Taylor: no, I won't hurt anything. I mean, it'll take a minute
+
+929
+01:31:05.690 --> 01:31:06.890
+Dipinto, Matt: nailed it. Test
+
+930
+01:31:10.040 --> 01:31:11.370
+Anthony Taylor: still
+
+931
+01:31:11.860 --> 01:31:14.140
+Dipinto, Matt: isn't out there yet.
+
+932
+01:31:14.370 --> 01:31:18.600
+Anthony Taylor: Go back. Oh, it hasn't got here yet. Oh, yeah, you're right. Okay.
+
+933
+01:31:19.090 --> 01:31:22.130
+Anthony Taylor: Sorry. I'm I'm used to a little quicker.
+
+934
+01:31:24.020 --> 01:31:27.670
+Mason, Natalie: I'm out in the woods. It might take a minute.
+
+935
+01:31:31.020 --> 01:31:35.390
+Anthony Taylor: I'm pretty sure that's gonna be the answer. In this case. If not.
+
+936
+01:31:36.080 --> 01:31:38.869
+Anthony Taylor: I don't know. We'll have to look at the data. There you go.
+
+937
+01:31:39.670 --> 01:31:42.630
+Anthony Taylor: Here you go. Awesome. Good call.
+
+938
+01:31:43.710 --> 01:31:46.400
+Anthony Taylor: Okay? So
+
+939
+01:31:47.930 --> 01:31:50.089
+Anthony Taylor: if there are no other questions.
+
+940
+01:31:53.110 --> 01:32:00.020
+Anthony Taylor: we'll take our break. Hold on! Let me see. Want to make sure we're in the right place.
+
+941
+01:32:03.930 --> 01:32:04.660
+Anthony Taylor: Yep.
+
+942
+01:32:04.850 --> 01:32:11.219
+Anthony Taylor: Hi, guys, break time. Take 15. I'll see you. You know what? Yeah, I'll see you at 9,
+
+943
+01:32:11.350 --> 01:32:12.600
+Anthony Taylor: 35.
+
+944
+01:32:13.280 --> 01:32:17.570
+Anthony Taylor: Sorry, whatever your time is. 35 min after the out.
+
+945
+01:32:20.750 --> 01:32:21.730
+Thank you. 5
+
+946
+01:32:22.150 --> 01:32:22.980
+Anthony Taylor: or
+
+947
+01:32:28.080 --> 01:32:31.300
+Anthony Taylor: you guys are, gonna do your own.
+
+948
+01:32:35.270 --> 01:32:40.269
+Anthony Taylor: So do note, I mean, you're you should not behave one kid a hundred percent on this way.
+
+949
+01:32:40.480 --> 01:32:44.470
+Anthony Taylor: Okay, look at that. That noise in there. That's a lot. So
+
+950
+01:32:44.620 --> 01:32:48.990
+Anthony Taylor: anyway, basically follow what I did in the example
+
+951
+01:32:49.070 --> 01:32:59.010
+Anthony Taylor: and throw it together. It's just going to be a neural network. So a single layer. and 50 epics
+
+952
+01:33:00.400 --> 01:33:12.830
+Anthony Taylor: and then plot it out. Okay, I'm gonna give you 20 min to do this one. We will be sitting here wondering how you're doing so feel free to call. Well.
+
+953
+01:33:12.840 --> 01:33:19.419
+Anthony Taylor: how did that go? Some came back rather early, so I'm assuming it wasn't too bad.
+
+954
+01:33:21.050 --> 01:33:24.050
+Anthony Taylor: Everyone feel like you could make a neural network. Now.
+
+955
+01:33:27.470 --> 01:33:30.230
+Anthony Taylor: alright! Well, let's take a look at that.
+
+956
+01:33:31.000 --> 01:33:38.540
+Meredith McCanse (she/her): Our group takes advantage of the extra time to either further discuss and ask questions about the content or
+
+957
+01:33:38.780 --> 01:33:40.759
+Meredith McCanse (she/her): talk about real-world situations.
+
+958
+01:33:40.850 --> 01:33:47.310
+Anthony Taylor: You guys could come back me and come back in here and go. Let's talk about it. Ask questions and ask me questions.
+
+959
+01:33:47.770 --> 01:33:50.279
+Meredith McCanse (she/her): Oh, that's a good idea. Okay.
+
+960
+01:33:50.980 --> 01:33:55.459
+Anthony Taylor: let's come up with questions to ask Anthony, and and and he'll get him wrong.
+
+961
+01:33:55.720 --> 01:33:59.589
+Anthony Taylor: I won't get wrong. I'll just say I'll get back to you on that.
+
+962
+01:33:59.730 --> 01:34:04.569
+Anthony Taylor: That's my, that's my escape mechanism. like, let me look for that.
+
+963
+01:34:04.950 --> 01:34:05.840
+Anthony Taylor: Okay.
+
+964
+01:34:06.190 --> 01:34:11.959
+Anthony Taylor:  cause. Even though I've been doing this a long time, I don't know every single
+
+965
+01:34:12.850 --> 01:34:13.510
+like.
+
+966
+01:34:15.650 --> 01:34:16.830
+Anthony Taylor: I know you're disappointed.
+
+967
+01:34:18.790 --> 01:34:31.789
+Anthony Taylor: Okay, so we gotta get rid of our target column. We're gonna make our do our splits. the standard stuff we've done many times. Now. alright, let's bring in our new model.
+
+968
+01:34:32.080 --> 01:34:39.569
+Anthony Taylor: Are you sharing? And no, II wasn't. I was trying to. Very descriptive with my work.
+
+969
+01:34:40.720 --> 01:34:49.779
+Anthony Taylor: Okay. So up to here we were doing all the stuff we've done many, many times. Now we bring in our tensorflow model.
+
+970
+01:34:50.540 --> 01:34:59.040
+Anthony Taylor: And we're going to get our input nodes by getting the length of our X, we're going to do a one layer with 5 neurons
+
+971
+01:34:59.360 --> 01:35:03.509
+Anthony Taylor: and an input layer with, however, many input columns we have
+
+972
+01:35:05.330 --> 01:35:08.760
+Anthony Taylor: is then sorry. Question.
+
+973
+01:35:09.900 --> 01:35:19.979
+Kanouff, Christine:  can you explain again, what? What are the what is units equal? 5 like, where does that come from?
+
+974
+01:35:20.780 --> 01:35:22.639
+Anthony Taylor: Do I have the picture upstairs? Yeah.
+
+975
+01:35:22.650 --> 01:35:28.020
+Anthony Taylor: that's the first. So that that block of code. We just did the inputs.
+
+976
+01:35:28.050 --> 01:35:31.140
+Anthony Taylor: we're 2 and neurons
+
+977
+01:35:31.170 --> 01:35:36.779
+Anthony Taylor: or 5 like this, 1 6. But neurons were 5. So it'd be 5 of these little blue dots.
+
+978
+01:35:37.370 --> 01:35:39.329
+Anthony Taylor: Okay, that's what that first one said.
+
+979
+01:35:39.530 --> 01:35:45.910
+Dipinto, Matt: It's 5. Just a good arbitrary starting point, like just a good number throw in there.
+
+980
+01:35:46.140 --> 01:35:51.579
+Anthony Taylor: No, the actual rule of thumb is you want at least as many.
+
+981
+01:35:52.290 --> 01:35:55.090
+First layer neurons is you have inputs. But
+
+982
+01:35:55.200 --> 01:35:57.660
+Anthony Taylor: somebody might look at you funny if you have like a
+
+983
+01:35:57.780 --> 01:36:02.049
+Anthony Taylor: a million pixel image, and you do a million nodes
+
+984
+01:36:02.180 --> 01:36:05.520
+Anthony Taylor: right? But it's not unheard of. You could do it wouldn't hurt anything.
+
+985
+01:36:05.590 --> 01:36:06.760
+Dipinto, Matt: You
+
+986
+01:36:07.110 --> 01:36:13.530
+Anthony Taylor: yeah. But the rule of thumb is is, you usually want at least as many in the first layer as you have infants.
+
+987
+01:36:16.730 --> 01:36:21.960
+Anthony Taylor: but it, like every other rule in these type situations. You can play around with that, though.
+
+988
+01:36:22.610 --> 01:36:30.009
+Anthony Taylor: Yeah, yeah, so that's our input row. And then our output
+
+989
+01:36:30.300 --> 01:36:34.660
+Anthony Taylor: is simply we have one possible output column.
+
+990
+01:36:35.100 --> 01:36:36.150
+Anthony Taylor: and
+
+991
+01:36:36.760 --> 01:36:40.260
+Anthony Taylor: that we're going to say we're gonna use the sigmoid.
+
+992
+01:36:41.510 --> 01:36:45.319
+Anthony Taylor: Think I'm a flop. And then we can look at our summary.
+
+993
+01:36:45.810 --> 01:36:48.479
+Anthony Taylor: See? We have 2 layers, input
+
+994
+01:36:48.580 --> 01:36:52.730
+Anthony Taylor: and the output pretty much. Here's our compile.
+
+995
+01:36:53.930 --> 01:36:54.960
+Anthony Taylor: Okay?
+
+996
+01:36:55.330 --> 01:36:58.440
+Anthony Taylor: And then we're going to do 50 epics.
+
+997
+01:36:58.680 --> 01:37:03.830
+Anthony Taylor: just a normal fit guys. There's nothing really special about it other than you have to tell it.
+
+998
+01:37:03.980 --> 01:37:06.510
+Anthony Taylor: And then probably even that has a default
+
+999
+01:37:06.850 --> 01:37:08.150
+Anthony Taylor: that shit does.
+
+1000
+01:37:13.330 --> 01:37:16.650
+Anthony Taylor: When we're all done, we can do an evaluate.
+
+1001
+01:37:16.850 --> 01:37:22.480
+Anthony Taylor: and we can see we've got a 13 lost 95. That's pretty good. That's pretty nice model.
+
+1002
+01:37:23.070 --> 01:37:29.280
+Anthony Taylor: Alright, we can do the history and plot it can see we very quickly went up.
+
+1003
+01:37:30.980 --> 01:37:31.979
+Anthony Taylor: and that's that
+
+1004
+01:37:33.050 --> 01:37:35.510
+Anthony Taylor: not bad. Oh, Mike, question
+
+1005
+01:37:36.790 --> 01:37:40.840
+michael mcpherson: binary cross entropy and optimizer atom.
+
+1006
+01:37:41.760 --> 01:37:49.520
+Anthony Taylor: Yes, sir. so binary cross. And remember, I did mention earlier. You guys can feel free to look those up.
+
+1007
+01:37:49.780 --> 01:37:52.599
+Anthony Taylor: But binary cross entropy
+
+1008
+01:37:52.940 --> 01:37:58.539
+Anthony Taylor: it. It measures the dissimilarity between the predicted probabilities and the true binary labels.
+
+1009
+01:37:58.590 --> 01:38:04.090
+Anthony Taylor: So that's this loss. And that's how we're calculating. There are
+
+1010
+01:38:04.100 --> 01:38:05.510
+Anthony Taylor: a number
+
+1011
+01:38:05.800 --> 01:38:15.510
+Anthony Taylor: of loss functions that you can use the optimizer, Adam. I don't have the definition in front of me, but not hard to find.
+
+1012
+01:38:16.770 --> 01:38:23.090
+Anthony Taylor: Optimizer Adam is a stochastic. Here we go. This is the Jennifer definition moment. Probably.
+
+1013
+01:38:23.750 --> 01:38:26.500
+Anthony Taylor: Where is she? Is she? Here, there she is
+
+1014
+01:38:26.770 --> 01:38:31.230
+Anthony Taylor: a stochastic, gradient, descent method that is based
+
+1015
+01:38:31.510 --> 01:38:34.359
+Anthony Taylor: on the adaptive customization.
+
+1016
+01:38:35.420 --> 01:38:38.470
+Anthony Taylor: First order and second order moments
+
+1017
+01:38:39.740 --> 01:38:42.219
+Anthony Taylor: is that when that even falls in your area different?
+
+1018
+01:38:42.700 --> 01:38:44.700
+Anthony Taylor: No, that was crazy.
+
+1019
+01:38:44.730 --> 01:38:47.899
+Masarirambi, Rodney: Yeah. But it's called the ads. Think of words.
+
+1020
+01:38:48.770 --> 01:38:52.379
+Anthony Taylor: I did not just pick those up, I swear. Look.
+
+1021
+01:38:57.980 --> 01:38:59.659
+Anthony Taylor: I did not make that up
+
+1022
+01:39:00.100 --> 01:39:02.950
+michael mcpherson: gradient descent.
+
+1023
+01:39:04.350 --> 01:39:06.780
+michael mcpherson: Think I'm having a nice second break.
+
+1024
+01:39:06.900 --> 01:39:10.120
+Baro, Sonja: having a second order order moment.
+
+1025
+01:39:11.910 --> 01:39:27.000
+Anthony Taylor: So the reason why I tell you what's easier to do is like, go to chat Gp and ask it, or if you really want to know, the bottom line is is we are going to cover these a little bit when we get to 2.
+
+1026
+01:39:28.270 --> 01:39:36.619
+Anthony Taylor: Okay, we're gonna talk about like different reasons to use different ones. But we're really not gonna super. Define this. We're just gonna tell you
+
+1027
+01:39:36.710 --> 01:39:38.980
+Anthony Taylor: when you may want to use this or when not to.
+
+1028
+01:39:39.760 --> 01:39:41.960
+Anthony Taylor: Okay. But it's a good question
+
+1029
+01:39:42.200 --> 01:39:46.580
+Anthony Taylor: it. It's one of those questions that every time I teach this I'm like, I gotta look this up.
+
+1030
+01:39:46.790 --> 01:39:47.869
+Anthony Taylor: cause I don't
+
+1031
+01:39:48.410 --> 01:39:53.090
+Anthony Taylor:  But it's funny that you bring that up.
+
+1032
+01:39:53.240 --> 01:39:58.540
+Anthony Taylor: and I want to say that. And but a bump move on to the next activity.
+
+1033
+01:39:58.980 --> 01:40:02.719
+Anthony Taylor: Okay, let me see, I don't think I have any slideshow to go with this? Let me check.
+
+1034
+01:40:08.330 --> 01:40:09.730
+Anthony Taylor: We did all the
+
+1035
+01:40:11.420 --> 01:40:12.800
+Anthony Taylor: question.
+
+1036
+01:40:13.530 --> 01:40:19.640
+Anthony Taylor: Bring your own questions. Nope, that's it. We'll recap. Okay.
+
+1037
+01:40:20.420 --> 01:40:23.100
+Anthony Taylor: alright. So this last one's just a demonstration.
+
+1038
+01:40:23.130 --> 01:40:28.440
+Anthony Taylor:  it's kind of weird.
+
+1039
+01:40:29.300 --> 01:40:36.690
+Anthony Taylor:  I want to do it a little differently than they asked me to do it, just because I think the way they ask me to do it.
+
+1040
+01:40:38.050 --> 01:40:43.790
+Anthony Taylor: So look at the one that says solution first, with binary classes solution.
+
+1041
+01:40:43.800 --> 01:40:50.519
+Anthony Taylor: If you guys are following along. We're gonna bring in tensorflow. And now this is some real data. So this is the data set.
+
+1042
+01:40:51.100 --> 01:40:54.020
+Anthony Taylor: Where they have 5 different
+
+1043
+01:40:54.310 --> 01:40:56.950
+Anthony Taylor: measurements. And
+
+1044
+01:40:58.180 --> 01:41:04.859
+Anthony Taylor: the class is either oral or nasal. It has to do with like voice class.
+
+1045
+01:41:05.320 --> 01:41:07.570
+Anthony Taylor: Okay? So it's like a, No, yeah, you know, whatever.
+
+1046
+01:41:08.050 --> 01:41:11.670
+Anthony Taylor:  there's a problem with this one, though
+
+1047
+01:41:11.740 --> 01:41:16.650
+Anthony Taylor: that isn't obvious. When you look at the head. Okay.
+
+1048
+01:41:18.200 --> 01:41:22.280
+Anthony Taylor: it's got the values of one and 2. Now
+
+1049
+01:41:25.270 --> 01:41:30.280
+Anthony Taylor: think about what I just said about binary cross entropy.
+
+1050
+01:41:31.180 --> 01:41:38.850
+Anthony Taylor: What did I say? Anybody remember? If I remember, I'll read it one more time if you guys pick up on why this might be a problem
+
+1051
+01:41:39.050 --> 01:41:48.769
+Anthony Taylor: commonly used for binary classification and measures. With this similarity between predicted probabil probabilities and true binary labels.
+
+1052
+01:41:51.420 --> 01:41:52.909
+Anthony Taylor: do we see a problem here.
+
+1053
+01:41:55.140 --> 01:42:00.239
+Anthony Taylor: One and 2 are not binary labels, are they? It's only 2 labels.
+
+1054
+01:42:00.780 --> 01:42:05.739
+Anthony Taylor: But it's not a binary classification. Exactly. So I'm just pointing out
+
+1055
+01:42:06.870 --> 01:42:15.260
+Anthony Taylor: 0 and one. So what we have to do is basically we're gonna change one of these into a 0.
+
+1056
+01:42:15.690 --> 01:42:33.649
+Anthony Taylor: Well, and it's easier change the 2 to 0 and let the other one be one that gives us 0 to what? Okay? Now, I'm going to stop right here. We're going to come back to this. This is this is the thing they didn't they? They wanted this. The only difference between the training, real data solution and the with binary classes. Solution
+
+1057
+01:42:33.810 --> 01:42:35.489
+Anthony Taylor: is what I just showed you.
+
+1058
+01:42:35.900 --> 01:42:40.260
+Anthony Taylor:  So we run it. We run it.
+
+1059
+01:42:40.670 --> 01:42:43.890
+Anthony Taylor: And we get this. It's like, okay. But notice.
+
+1060
+01:42:45.260 --> 01:42:46.810
+Anthony Taylor: they didn't check this time.
+
+1061
+01:42:48.100 --> 01:42:50.569
+Anthony Taylor: Okay, so we run this.
+
+1062
+01:42:51.080 --> 01:42:54.660
+Anthony Taylor: we bring in our model. We
+
+1063
+01:42:54.670 --> 01:43:02.179
+Anthony Taylor: create our first layer, create our output layer. take a look, and I'll go through this slower in the other one
+
+1064
+01:43:03.150 --> 01:43:11.750
+Anthony Taylor: binary cross entropy, and, Adam, that nothing is broken yet, has it?
+
+1065
+01:43:15.880 --> 01:43:19.130
+Anthony Taylor: But once you guys notice something very strange.
+
+1066
+01:43:23.590 --> 01:43:26.530
+Meredith McCanse (she/her): the loss gets really big negative numbers.
+
+1067
+01:43:26.900 --> 01:43:29.380
+Anthony Taylor: huge negative numbers.
+
+1068
+01:43:29.720 --> 01:43:41.990
+Anthony Taylor: Okay, so this is, it's funny. II was like trying to figure out how to explain this before before I figured out how to explain it. I threw it into chat. TV chat, TV team went dude. There's something wrong with your stuff.
+
+1069
+01:43:42.610 --> 01:43:51.149
+Anthony Taylor: pretty much what it said. Right? It said, this is not normal. This is highly unusual. Somebody screwed up. Basically, that's what it said.
+
+1070
+01:43:51.550 --> 01:43:56.149
+Anthony Taylor: so yeah. So if you see something like this, something's wrong.
+
+1071
+01:43:56.190 --> 01:43:57.289
+Anthony Taylor: Go check it out.
+
+1072
+01:43:57.570 --> 01:44:00.900
+Anthony Taylor: Okay, I'll stop there. We'll go back to the one that's working, probably.
+
+1073
+01:44:01.410 --> 01:44:14.580
+Anthony Taylor: So since we changed it to 0 and one. Now, binary cross into people work to tell us loss. Okay, alright. So the rest of this thing we're gonna create our X
+
+1074
+01:44:14.610 --> 01:44:17.149
+Anthony Taylor: by dropping flat. Create our Y
+
+1075
+01:44:17.190 --> 01:44:19.980
+Anthony Taylor: with all stuff we've done before train tests split.
+
+1076
+01:44:22.020 --> 01:44:26.329
+Anthony Taylor: we're gonna define our sequential neural network model.
+
+1077
+01:44:28.100 --> 01:44:34.689
+Anthony Taylor: And then we're gonna get the link for input nodes and create our first layer. It'll be 5 neurons.
+
+1078
+01:44:34.790 --> 01:44:37.269
+Anthony Taylor: And however, many inputs.
+
+1079
+01:44:38.350 --> 01:44:39.859
+Anthony Taylor: which was what 5,
+
+1080
+01:44:41.520 --> 01:44:43.170
+Anthony Taylor: 1, 2, 3, 4, 5,
+
+1081
+01:44:45.240 --> 01:44:49.499
+Anthony Taylor:  just so you guys know. Remember, in
+
+1082
+01:44:49.590 --> 01:44:58.950
+Anthony Taylor: Vs code, you can go variables. And you could come down here and look at input nodes. 5. Okay, this
+
+1083
+01:44:58.980 --> 01:45:00.899
+Anthony Taylor: I always forget to.
+
+1084
+01:45:01.380 --> 01:45:05.410
+Anthony Taylor: I just started getting better about my, the tool I use it. Work
+
+1085
+01:45:05.440 --> 01:45:08.220
+Anthony Taylor: is notebooks, and it has that also.
+
+1086
+01:45:08.260 --> 01:45:16.160
+Anthony Taylor: But it's relatively new. And so I just started using it more. And I'm like, Oh, it saves me so much time. anyway.
+
+1087
+01:45:16.460 --> 01:45:19.690
+Anthony Taylor: okay. So we have our input layer with our inputs.
+
+1088
+01:45:19.850 --> 01:45:23.250
+Anthony Taylor: And then we have our output layer with sigmoid.
+
+1089
+01:45:24.390 --> 01:45:26.169
+Anthony Taylor: and we're going to do our summary.
+
+1090
+01:45:26.380 --> 01:45:29.210
+Anthony Taylor: You can see 5 and one looking good
+
+1091
+01:45:29.410 --> 01:45:30.650
+Anthony Taylor: compile.
+
+1092
+01:45:31.170 --> 01:45:34.030
+Anthony Taylor: binary cross entropy, 100 epics.
+
+1093
+01:45:34.220 --> 01:45:36.820
+Anthony Taylor: This one should look much better
+
+1094
+01:45:39.170 --> 01:45:42.330
+Anthony Taylor: as far as the loss values.
+
+1095
+01:45:49.080 --> 01:45:50.340
+Anthony Taylor: And
+
+1096
+01:45:54.090 --> 01:46:01.029
+Anthony Taylor: okay, that's what it came up with after a hundred epics. So what are some ways we could improve this if we wanted to
+
+1097
+01:46:05.930 --> 01:46:06.950
+Anthony Taylor: go, Meredith.
+
+1098
+01:46:07.640 --> 01:46:16.949
+Meredith McCanse (she/her): You could play. We can't really increase the number of inputs because we have a set amount. But you could play with the number of nodes or try a different
+
+1099
+01:46:17.250 --> 01:46:22.299
+Meredith McCanse (she/her): what's the right word? The release relu? Right? But there's different.
+
+1100
+01:46:22.890 --> 01:46:27.710
+Meredith McCanse (she/her): Might make a difference. You could change the number of epics
+
+1101
+01:46:28.140 --> 01:46:29.250
+Meredith McCanse (she/her): right?
+
+1102
+01:46:30.850 --> 01:46:38.909
+Meredith McCanse (she/her): Right? Cause we didn't ever get down. We didn't ever get to one anywhere with the accuracy, so you could do more
+
+1103
+01:46:41.600 --> 01:46:44.420
+Anthony Taylor: to. Now notice, though, as this is going
+
+1104
+01:46:46.150 --> 01:46:50.140
+Anthony Taylor: over a hundred, it's really not getting much better.
+
+1105
+01:46:50.710 --> 01:46:57.660
+Anthony Taylor: So this is one of those situations like, I told you guys, I mean, there is a point where the patterns just stop. Okay, maybe.
+
+1106
+01:46:58.130 --> 01:47:04.089
+Anthony Taylor: So we got 81 35. I remember what we got for was like 70 35, wasn't it?
+
+1107
+01:47:05.690 --> 01:47:10.540
+Baro, Sonja: That was close to 80, I thought. was it? Okay?
+
+1108
+01:47:10.650 --> 01:47:19.320
+Anthony Taylor: Well, yeah, even at yeah. So that was definitely not worth changing. Okay.
+
+1109
+01:47:19.620 --> 01:47:25.860
+Anthony Taylor: So the next thing would be. we would start adding layers. And we're not going to start adding layers till next class
+
+1110
+01:47:26.130 --> 01:47:35.640
+Dipinto, Matt: emeritus question. So the input, data is, it's got negative value. So with something like a leaky relu or something else, perform better on
+
+1111
+01:47:35.750 --> 01:47:37.659
+Dipinto, Matt: that, we could try it.
+
+1112
+01:47:37.850 --> 01:47:40.710
+Anthony Taylor: Why not? Let's do it. Let's do. 10
+
+1113
+01:47:40.860 --> 01:47:50.270
+Baro, Sonja: cause Relu takes the negative, wasn't. That's the one with the it's Y for any negative x equals 0. And then
+
+1114
+01:47:50.480 --> 01:47:52.760
+Dipinto, Matt: and then you triangles. X on the
+
+1115
+01:47:54.530 --> 01:48:00.300
+Anthony Taylor: oh, shoot. Okay. So one quick note, do you guys see what just happened there? Look at how many layers I have?
+
+1116
+01:48:01.290 --> 01:48:02.200
+Baro, Sonja: Oh.
+
+1117
+01:48:02.530 --> 01:48:06.040
+Anthony Taylor: okay, well, that's because we didn't reinitialize.
+
+1118
+01:48:06.380 --> 01:48:10.769
+Anthony Taylor: Let's see if I just reinitialize the model that'll clean it up or do I have to reset it?
+
+1119
+01:48:11.600 --> 01:48:20.519
+Anthony Taylor: Yeah, there we go. So I added 8 neurons, and I changed it to 10, because I know that'll go negative and positive. Let's see what we get with that
+
+1120
+01:48:35.030 --> 01:48:36.339
+Anthony Taylor: about the same.
+
+1121
+01:48:37.510 --> 01:48:43.320
+Anthony Taylor: So it might just be that this is an example where we need to add more layers to really get it to finally work.
+
+1122
+01:48:43.650 --> 01:48:52.019
+Anthony Taylor: But but this is the cool thing. So this is, you know, guys same thing. As I told you with the other machine learning models. This is the science. This is the art
+
+1123
+01:48:52.520 --> 01:49:01.729
+Anthony Taylor: of doing this good news is like Grid. Cv. I have something we'll call. That's something that will help us with neural networks like that.
+
+1124
+01:49:02.190 --> 01:49:05.450
+Anthony Taylor: Okay, not grid. CD, but a different tuner
+
+1125
+01:49:05.520 --> 01:49:07.960
+Anthony Taylor: capability that'll allow us to pass in
+
+1126
+01:49:08.000 --> 01:49:10.420
+Anthony Taylor: lots of tuning at one time.
+
+1127
+01:49:10.490 --> 01:49:11.510
+Anthony Taylor: Yes, ma'am.
+
+1128
+01:49:12.940 --> 01:49:18.279
+Meredith McCanse (she/her): question about like one of the big things we did in our project was kind of figure out
+
+1129
+01:49:18.390 --> 01:49:27.819
+Meredith McCanse (she/her): what were the biggest drivers of it. And then, like, kind of get rid of stuff that wasn't really comp contributing much to the model to sort of remove some noise.
+
+1130
+01:49:27.910 --> 01:49:36.930
+Meredith McCanse (she/her): Is there a similar? Is there a way? And I know on the playground we looked at you had different levels of noise. Is there a way to figure out?
+
+1131
+01:49:37.200 --> 01:49:45.870
+Meredith McCanse (she/her): Oh, right, is there a way to determine, like of the input that we put in there is any of it just kind of unnecessary noise that might be detracting from the
+
+1132
+01:49:46.010 --> 01:49:48.270
+Meredith McCanse (she/her): effectiveness of the model.
+
+1133
+01:49:49.220 --> 01:49:56.330
+Anthony Taylor: The the problem is is that was real data. So noise typically noise is not necessarily wrong.
+
+1134
+01:49:56.610 --> 01:50:08.750
+Anthony Taylor: Noise in the in the tensorflow playground is, we're basically saying, instead of making it clean. Divisions, right? We're saying, make it look more like real data and have it mix up a little bit
+
+1135
+01:50:08.920 --> 01:50:10.430
+Anthony Taylor: or have it overlap with them
+
+1136
+01:50:10.620 --> 01:50:14.419
+Anthony Taylor: that just have some outliers that you, you know, would be
+
+1137
+01:50:14.490 --> 01:50:19.660
+Anthony Taylor: yeah. So the tensorflow playground. It gives you very clean divisions, those nice.
+
+1138
+01:50:19.690 --> 01:50:24.649
+Anthony Taylor: perfect spirals, even though they were complicated, they were perfectly lined up. That's something
+
+1139
+01:50:25.180 --> 01:50:26.680
+Anthony Taylor: right. That's unlikely to
+
+1140
+01:50:27.400 --> 01:50:33.610
+Anthony Taylor:  So by adding noise through dots all over the place. So that's not going to change
+
+1141
+01:50:34.000 --> 01:50:37.630
+Anthony Taylor: you. You could there be more pre-processing we could do.
+
+1142
+01:50:40.020 --> 01:50:49.430
+Anthony Taylor: There's not a lot unless you like plotted this out and found it's like heavily skewed or something along the live. This data here would probably not be
+
+1143
+01:50:49.600 --> 01:50:51.020
+Anthony Taylor: heavily skewed
+
+1144
+01:50:51.480 --> 01:50:53.099
+unless it's like.
+
+1145
+01:50:53.250 --> 01:50:59.060
+Anthony Taylor: you know, 80% is ones, and 20% is twos, maybe.
+
+1146
+01:50:59.490 --> 01:51:03.179
+Anthony Taylor: But as far as the data itself, running standard scalar.
+
+1147
+01:51:04.040 --> 01:51:10.820
+Anthony Taylor: Yeah, III what you'll learn next class will do deep learning, which just means we're gonna add more layers
+
+1148
+01:51:11.140 --> 01:51:13.980
+Anthony Taylor: between adding layers and adding neurons.
+
+1149
+01:51:14.440 --> 01:51:21.669
+Anthony Taylor: You're almost certainly gonna get a better score than than this. But it is possible that there's so
+
+1150
+01:51:22.010 --> 01:51:24.769
+Anthony Taylor: they're just so overlapped. You never get a perfect school.
+
+1151
+01:51:25.250 --> 01:51:26.360
+Anthony Taylor: which is okay.
+
+1152
+01:51:26.890 --> 01:51:31.970
+Anthony Taylor: right? I mean. But if there was a possibility of getting a perfect score you'd get it with a girl number.
+
+1153
+01:51:32.990 --> 01:51:40.640
+Anthony Taylor: Okay, even the neural networks that we're going to talk about next week that are more complicated. All they do is
+
+1154
+01:51:40.820 --> 01:51:48.950
+Anthony Taylor: what they're doing is they just break the data into smaller pieces or effectively like, get a result, go back and do it again.
+
+1155
+01:51:49.860 --> 01:52:00.050
+Anthony Taylor: So they're they're. I want to say, recumbent and convolutional. Okay. we're going to get into that. But those are more for visual
+
+1156
+01:52:00.680 --> 01:52:07.260
+Anthony Taylor: right. They're more for like vision, because vision has, you know, huge number of of inputs
+
+1157
+01:52:07.410 --> 01:52:11.949
+Anthony Taylor: trying to process, you know, a billion inputs all at once. Very difficult.
+
+1158
+01:52:11.970 --> 01:52:20.119
+Anthony Taylor: So why don't we process a little block. Here, little Buck. Here, little buck here, little buck here, and just do that through the whole thing, and then process those
+
+1159
+01:52:20.290 --> 01:52:32.070
+Anthony Taylor: blacks of pixels, you know, instead of the whole freaking thing. Right? They're very computationally expensive. All of this neural network stuff. Everything we're going to cover
+
+1160
+01:52:32.890 --> 01:52:38.529
+Anthony Taylor: almost to the end of class is very computationally expensive. But guys.
+
+1161
+01:52:40.110 --> 01:52:41.979
+Anthony Taylor: CPU is not expensive. And
+
+1162
+01:52:43.290 --> 01:52:49.539
+Anthony Taylor: okay. storage is not expensive anymore. You won't be able to necessarily do it on your laptop.
+
+1163
+01:52:49.640 --> 01:53:03.100
+Anthony Taylor: But you know, getting a grid, you know, a grid of computers for an hour. You know, it's not that expensive, especially to an organization that's gonna want you to run. You know, a long training neural network.
+
+1164
+01:53:03.690 --> 01:53:07.350
+Anthony Taylor: They're gonna be like, Oh, okay, it's a few 100 bucks. Okay. Go ahead.
+
+1165
+01:53:08.480 --> 01:53:11.570
+Anthony Taylor: you know. Now, if you wanted to do it every hour.
+
+1166
+01:53:14.650 --> 01:53:15.580
+Anthony Taylor: anyway.
+
+1167
+01:53:17.580 --> 01:53:20.800
+Anthony Taylor: So that's it. That's all I really have for today.
+
+1168
+01:53:21.800 --> 01:53:27.330
+Anthony Taylor: Tomorrow 3 is Wednesday, yeah. tomorrow.
+
+1169
+01:53:29.520 --> 01:53:38.859
+Anthony Taylor: What are we gonna do. We're gonna do some more crazy ones. We're gonna do some boosting and some optimization and some tuning.
+
+1170
+01:53:40.270 --> 01:53:48.039
+Anthony Taylor: It's interesting at some point. I guess when we do. we have to get into deep learning at some point. So I'm assuming that'll be
+
+1171
+01:53:48.330 --> 01:53:54.379
+Anthony Taylor: yeah. So the first one we're gonna do is we're gonna actually do a multi layer model which will make it deep learning.
+
+1172
+01:53:54.610 --> 01:53:58.860
+Anthony Taylor: And then we'll get into some optimization kind of stuff.
+
+1173
+01:53:59.790 --> 01:54:10.980
+Anthony Taylor: Okay? Exciting. I hope you guys enjoy neural networks. They're very exciting for us as data scientists and AI professions.
+
+1174
+01:54:11.780 --> 01:54:15.280
+Anthony Taylor: This is what made us amazing.
+
+1175
+01:54:16.950 --> 01:54:22.659
+Anthony Taylor: Alright, have a wonderful night guys. I will see you tomorrow. We'll be here for 30 min for office hours.
+

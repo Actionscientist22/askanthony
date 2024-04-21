@@ -1,0 +1,70 @@
+#### Import Libraries and Dependencies 
+
+##--CODE--##
+import pandas as pd
+from pathlib import Path
+
+#### Read in Files 
+
+##--CODE--##
+# Import data
+apple_path = Path('Resources/AAPL.csv')
+google_path = Path('Resources/GOOG.csv')
+meta_path = Path('Resources/META.csv')
+
+# Read in data and index by date
+apple_data = pd.read_csv(apple_path, index_col='Date')
+goog_data = pd.read_csv(google_path, index_col='Date')
+meta_data = pd.read_csv(meta_path, index_col='Date')
+
+#### Output of sample data
+
+##--CODE--##
+# Show sample of Apple data
+apple_data.head()
+
+##--CODE--##
+# Show sample of Google data
+goog_data.head()
+
+##--CODE--##
+# Show sample of Meta data
+meta_data.head()
+
+#### Concatenate data by rows using concat function and inner join
+
+##--CODE--##
+# Join by rows axis
+joined_data_rows = pd.concat([apple_data, goog_data, meta_data], axis="rows", join="inner")
+joined_data_rows.head(30)
+
+#### Concatenate data by columns using concat function and inner join
+
+##--CODE--##
+# Join by columns axis
+joined_data_cols = pd.concat([apple_data, goog_data, meta_data], axis='columns', join='inner')
+joined_data_cols.head(15)
+
+#### Concatenate data by rows using concat function and inner join and provide the stock as keys.
+
+##--CODE--##
+# Join by rows and add the stock ticker as the key.
+joined_data_rows = pd.concat([apple_data, goog_data, meta_data], axis="rows",
+                             join="inner", keys=['Apple','Google', 'Meta'] )
+
+joined_data_rows.head(10)
+
+##--CODE--##
+joined_data_rows.tail(30)
+
+#### Combine the DataFrames horizontally using the `axis="columns"`.
+
+##--CODE--##
+# Join by columns and add the stock ticker as the key.
+joined_data_cols = pd.concat([apple_data, goog_data, meta_data], axis="columns",
+                             join="inner", keys=['Apple','Google', 'Meta'] )
+joined_data_cols.head(15)
+
+##--CODE--##
+
+

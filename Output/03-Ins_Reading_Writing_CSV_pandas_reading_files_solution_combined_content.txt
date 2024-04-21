@@ -1,0 +1,36 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+
+##--CODE--##
+# Store filepath in a variable
+file_one = "../Resources/DataOne.csv"
+
+##--CODE--##
+# Read our data file with the Pandas library
+# Not every CSV requires an encoding, but be aware this can come up
+file_one_df = pd.read_csv(file_one, encoding="ISO-8859-1")
+
+##--CODE--##
+# Show the first five rows.
+file_one_df.head()
+
+##--CODE--##
+# Show a single column
+file_one_df["full_name"].head()
+
+##--CODE--##
+# Show mulitple specific columns--note the extra brackets
+file_one_df[["full_name", "email"]].head()
+
+##--CODE--##
+# Show the last five rows.
+file_one_df.tail()
+
+##--CODE--##
+# Export file as a CSV, without the Pandas index, but with the header
+file_one_df.to_csv("Output/fileOne.csv", index=False, header=True)
+
+##--CODE--##
+
+

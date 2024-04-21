@@ -1,0 +1,74 @@
+##--CODE--##
+import pandas as pd
+import numpy as np
+from PIL import Image
+
+##--CODE--##
+# Import images from the pickle file
+# Import images from a pickle file
+# This pickle file is hosted at a url, so some
+# additional code is needed
+import pickle
+import requests
+import io
+
+path = 'https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_1/datasets/pickles/fungi_full.pkl'
+
+imgs = pickle.load(io.BytesIO(requests.get(path).content))
+
+imgs[1]
+
+##--CODE--##
+# Check the size of the second image
+
+
+##--CODE--##
+# Get all the sizes into a list, then convert to a set
+
+# View the set of sizes
+
+
+##--CODE--##
+# Convert the images to the middle 250, 250 size
+# Lets try with the first image
+
+
+
+##--CODE--##
+# Using the same syntax, use a for loop to apply resizing to all images
+
+
+##--CODE--##
+# Lets examine our data numerically.
+# This is most easily done by converting the image to a numpy array
+
+# Convert one image to a NumPy array
+
+
+# Display the pixel values
+
+
+##--CODE--##
+# Convert all images to floating point numpy arrays
+
+# Display the pixel values of the first image
+
+
+##--CODE--##
+# To normalize pixel values to a range between 0 and 1,
+# we need to divide all pixel values by the max of 255
+
+
+# Display the pixel values of the first image
+
+
+##--CODE--##
+from google.colab import drive
+
+drive.mount('/content/drive/')
+path = '/content/drive/My Drive/preprocessed_fungi.pkl'
+
+# Save our preprocessed images to a new pickle file
+with open(path, 'wb') as file:
+    pickle.dump(normalized_images, file)
+

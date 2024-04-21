@@ -1,0 +1,181 @@
+##--CODE--##
+# Import pandas and numpy
+import pandas as pd
+import numpy as np
+# Import the required dependencies from sklearn
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.svm import LinearSVC
+from sklearn import metrics
+
+# Set the column width to view the text message data.
+pd.set_option('max_colwidth', 200)
+
+##--CODE--##
+# Load the movie review dataset.
+imdb_reviews_df = pd.read_csv('Resources/imdb_reviews.csv')
+# Display the first five rows of the dataset. 
+imdb_reviews_df.head()
+
+##--CODE--##
+# Check for missing values. 
+imdb_reviews_df.info()
+
+##--CODE--##
+# Get a sample of a review.
+imdb_reviews_df["review"][2]
+
+##--CODE--##
+#  Get the number of "pos" and "neg" from the "label" column:
+imdb_reviews_df['label'].value_counts()
+
+## Split the data into training & testing data sets.
+
+##--CODE--##
+# Set the features variable to the "review" column.
+X = imdb_reviews_df['review']
+# Set the target variable to the "label" column.
+y = imdb_reviews_df['label']
+
+# Split data into training and testing and use `test_size = 30%`.
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=42)
+
+##--CODE--##
+#  Build a pipeline using `TfidfVectorizer()`, without `stopwords='english`, and `LinearSVC()`.
+text_clf = Pipeline([('tfidf', TfidfVectorizer()),('clf', LinearSVC()),])
+
+# Fit the model to the transformed data.
+text_clf.fit(X_train, y_train)  
+
+##--CODE--##
+# Validate the model by checking the model's training and testing accuracy.
+print('Train Accuracy: %.3f' % text_clf.score(X_train, y_train))
+print('Test Accuracy: %.3f' % text_clf.score(X_test, y_test))
+
+## Run predictions and analyze the results.
+
+##--CODE--##
+# Retrieve the first 30 predictions from the model.
+test_predictions = text_clf.predict(X_test)
+print(test_predictions[:30])
+
+##--CODE--##
+# Create the confusion matrix on the test data and predictions
+print(metrics.confusion_matrix(y_test,test_predictions))
+
+# Print a classification report
+print(metrics.classification_report(y_test,test_predictions))
+
+# Print the overall accuracy
+print(metrics.accuracy_score(y_test,test_predictions))
+
+### Feed a review into the model's `predict()` method
+
+##--CODE--##
+# Add a review of a movie.
+barbie_review = """I was curious to see how they would evolve the "stereotypical Barbie" into something more. 
+But the messaging in this movie was so heavy handed that it completely lost the plot. 
+I consider myself a proponent of gender equality, and this ain't the way to get it."""
+
+##--CODE--##
+# Print the classification of the review.
+print(text_clf.predict([barbie_review])) 
+
+## Repeat the analysis with the `english` stopwords. 
+
+Now let's repeat the process above and see if the removal of stopwords improves or impairs our score.
+
+##--CODE--##
+# Build a LinearSVC pipeline using`TfidfVectorizer()`, with `stopwords`, and `LinearSVC()`.
+text_clf_2 = Pipeline([('tfidf', TfidfVectorizer(stop_words='english')),('clf', LinearSVC())])
+
+# Fit the data to the model.
+text_clf_2.fit(X_train, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print('Train Accuracy: %.3f' % text_clf_2.score(X_train, y_train))
+print('Test Accuracy: %.3f' % text_clf_2.score(X_test, y_test))
+
+##--CODE--##
+# Retrieve the first 30 predictions from the model.
+test_predictions_2 = text_clf_2.predict(X_test)
+print(test_predictions_2[:30])
+
+##--CODE--##
+# Create the confusion matrix on the test data and predictions
+print(metrics.confusion_matrix(y_test,test_predictions_2))
+
+# Print a classification report
+print(metrics.classification_report(y_test,test_predictions_2))
+
+# Print the overall accuracy
+print(metrics.accuracy_score(y_test,test_predictions_2))
+
+Our score didn't change that much. We went from 74.2 % without filtering stopwords to 75.6% after adding a stopword filter to our pipeline. Keep in mind that 748 movie reviews is a relatively small dataset. The real gain from stripping stopwords is improved processing speed; depending on the size of the corpus, it might save hours.
+
+### Feed the previous review into the model's `predict()` method.
+
+##--CODE--##
+# Print the classification of the review.
+print(text_clf_2.predict([barbie_review]))  
+
+**Question:** Did the review change? 
+
+**Answer:** No.
+
+**Question:** If so, why do you think it changed? 
+
+## Repeat the analysis using the following custom stopwords. 
+
+##--CODE--##
+# Create custom stopwords.
+custom_stopwords = ['a', 'about', 'an', 'and', 'are', 'as', 'at', 'be', 'been', 'but', 'by', 'can', \
+             'even', 'ever', 'for', 'from', 'get', 'had', 'has', 'have', 'he', 'her', 'hers', 'his', \
+             'how', 'i', 'if', 'in', 'into', 'is', 'it', 'its', 'just', 'me', 'my', 'of', 'on', 'or', \
+             'see', 'seen', 'she', 'so', 'than', 'that', 'the', 'their', 'there', 'they', 'this', \
+             'to', 'was', 'we', 'were', 'what', 'when', 'which', 'who', 'will', 'with', 'you']
+
+##--CODE--##
+# Build a LinearSVC pipeline using`TfidfVectorizer()`, with custom_stopwords, and `LinearSVC()`.
+text_clf_3 = Pipeline([('tfidf', TfidfVectorizer(stop_words=custom_stopwords)),('clf', LinearSVC())])
+
+# Fit the data to the model.
+text_clf_3.fit(X_train, y_train)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print('Train Accuracy: %.3f' % text_clf_3.score(X_train, y_train))
+print('Test Accuracy: %.3f' % text_clf_3.score(X_test, y_test))
+
+##--CODE--##
+# Get predictions
+test_predictions_3 = text_clf_3.predict(X_test)
+print(test_predictions_3[:30])
+
+##--CODE--##
+# Create the confusion matrix on the test data and predictions
+print(metrics.confusion_matrix(y_test,test_predictions_3))
+
+# Print a classification report
+print(metrics.classification_report(y_test,test_predictions_3))
+
+# Print the overall accuracy
+print(metrics.accuracy_score(y_test,test_predictions_3))
+
+##--CODE--##
+# Print the classification of the review.
+print(text_clf_3.predict([barbie_review]))  
+
+**Question:** Did the review change? 
+
+**Answer:** Yes.
+
+**Question:** If so, why do you think it changed? 
+
+**Answer:** There are many words in the stopword list that may influence the classification of movie reviews.Using a custom or domain specific custom stopword list can help improve the algorithm.
+
+##--CODE--##
+
+

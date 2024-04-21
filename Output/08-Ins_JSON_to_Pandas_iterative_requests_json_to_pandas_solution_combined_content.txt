@@ -1,0 +1,56 @@
+##--CODE--##
+# Dependencies
+import json
+import requests
+import pandas as pd
+
+##--CODE--##
+# Open library results limit to 50 results per page. 
+# Authors documentation: https://openlibrary.org/dev/docs/api/authors
+# URL for Neil Gaiman
+url = "https://openlibrary.org/authors/OL53305A/works.json"
+
+##--CODE--##
+# Create an empty list to store the responses
+response_json = []
+
+##--CODE--##
+# Make a request for 3 pages of results
+for x in range(3):
+    print(f"Making request number: {x}")
+
+    # Get the results
+    post_response = requests.get(url + "?offset=" + str(x * 50)).json()
+
+    # Loop through the "entries" of the results and
+    # append them to the response_json list
+    for result in post_response["entries"]:
+        # Save post's JSON
+        response_json.append(result)
+
+##--CODE--##
+# Now we have 150 book objects, 
+# which we got by making 3 requests to the API.
+print(f"We have {len(response_json)} books!")
+
+##--CODE--##
+# preview the JSON
+print(json.dumps(response_json, indent=4))
+
+##--CODE--##
+# Convert the results to a DataFrame
+gaiman_books_df = pd.DataFrame(response_json)
+gaiman_books_df
+
+##--CODE--##
+# Convert the results to a DataFrame, normalizing the JSON
+gaiman_books_normalized_df = pd.json_normalize(response_json)
+gaiman_books_normalized_df
+
+##--CODE--##
+# Export to CSV
+gaiman_books_normalized_df.to_csv("output/gaiman_books.csv", index=False)
+
+##--CODE--##
+
+

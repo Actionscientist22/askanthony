@@ -1,0 +1,74 @@
+##--CODE--##
+# Import the dependencies
+import pandas as pd
+import random
+
+##--CODE--##
+# Create a Data Series with a range of 90 dates.
+dates = pd.date_range('1/1/23', periods=90, freq='D')
+random_integers = [random.randint(10, 50) for _ in range(90)]
+data = {"date": dates, "visits": random_integers}
+sales_data_df = pd.DataFrame(data)
+sales_data_df
+
+### Applying the `resample()` Function
+
+##--CODE--##
+# Make the dates the index because resample only works on a datetime index
+
+
+##--CODE--##
+# Get the total visits for each week.
+
+
+##--CODE--##
+# Get the number of visits for each week.
+
+
+##--CODE--##
+# Get the average number of visits for each week rounded to one decimal place.
+
+
+##--CODE--##
+# Get the total visits for each month.
+
+
+### Applying the `melt()` Function
+
+##--CODE--##
+# Read file into DataFrame
+exam_scores_df = pd.read_csv('Resources/students_exam_scores.csv')
+exam_scores_df.head(10)
+
+##--CODE--##
+# Using the `pivot_table` or the `pivot` function show each students exam score for each subject.
+# The student names are the columns, the subject is the index, and the values are the exam scores.
+exam_scores_subject = exam_scores_df.pivot_table(index="subject", 
+                                                 columns="student_name",
+                                                 values="exam_score").rename_axis(None, axis=1)
+exam_scores_subject
+
+##--CODE--##
+# Reset the index so "subject" is a column.
+
+
+##--CODE--##
+# Convert the DataFrame from short form to long form. 
+# Melt the DataFrame
+
+
+##--CODE--##
+# Melt the DataFrame using the variable we'd like to keep in the long DataFrame.
+
+
+##--CODE--##
+# Melt the DataFrame and rename the columns
+
+
+##--CODE--##
+# Group the melted DataFrame on the subject get the average exam score rounded to one decimal place.
+
+
+##--CODE--##
+
+

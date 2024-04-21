@@ -1,0 +1,89 @@
+##--CODE--##
+# Dependencies
+import pandas as pd
+
+##--CODE--##
+# Name of the CSV file
+file = '../Resources/donors2021_unclean.csv'
+
+##--CODE--##
+# The correct encoding must be used to read the CSV
+df = pd.read_csv(file, encoding="ISO-8859-1")
+
+##--CODE--##
+# Preview of the DataFrame
+# Note that Memo_CD is likely a meaningless column
+
+
+##--CODE--##
+# Delete extraneous column
+
+
+##--CODE--##
+# Identify incomplete rows
+
+
+##--CODE--##
+# Drop all rows with missing information
+
+
+##--CODE--##
+# Verify dropped rows
+
+
+##--CODE--##
+# The Zip column is the wrong data type. It should be a string (object).
+
+
+##--CODE--##
+# Use df.astype() method to convert the datatype of the Zip column
+
+
+##--CODE--##
+# Verify that the Zip column datatype has been made an object
+
+
+##--CODE--##
+# We can view all the unique values in a column
+
+
+##--CODE--##
+# We can count the number of unique values
+
+
+##--CODE--##
+# We can count the number of occurrences
+# for each unique value
+
+
+##--CODE--##
+# Clean up Employer category. Replace 'SELF' and 'SELF EMPLOYED' with 'SELF-EMPLOYED'
+
+
+##--CODE--##
+# Verify clean-up.
+
+
+##--CODE--##
+# Clean up Employer category. Replace 'NOT EMPLOYED' with 'UNEMPLOYED'
+
+
+##--CODE--##
+# Display a statistical overview
+
+
+##--CODE--##
+# We can calculate individual aggregate functions per column
+
+
+##--CODE--##
+# We can also calculate them for an entire DataFrame
+
+
+##--CODE--##
+# Save the DataFrame to a CSV file. 
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+
+##--CODE--##
+
+

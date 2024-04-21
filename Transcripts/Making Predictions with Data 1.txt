@@ -1,0 +1,3506 @@
+WEBVTT
+
+1
+00:00:16.730 --> 00:00:17.970
+Anthony Taylor: How
+
+2
+00:00:19.130 --> 00:00:20.750
+Anthony Taylor: today's a big day.
+
+3
+00:00:21.360 --> 00:00:25.369
+Anthony Taylor:  has done so many things.
+
+4
+00:00:26.290 --> 00:00:30.330
+You know, we have some visualizations which we're gonna use a little bit of that today.
+
+5
+00:00:30.630 --> 00:00:34.439
+Anthony Taylor: We've done charting, which is awesome. We've done
+
+6
+00:00:34.730 --> 00:00:40.220
+Anthony Taylor: some pandas manipulation. We're gonna bring all that stuff together. So going forward
+
+7
+00:00:40.800 --> 00:00:41.619
+time out
+
+8
+00:00:42.830 --> 00:00:44.610
+Anthony Taylor: that it's curry again.
+
+9
+00:00:45.080 --> 00:00:45.750
+It's cool.
+
+10
+00:00:48.430 --> 00:00:51.829
+Anthony Taylor: Oh, I see, you're just you have one just sitting there. I got it
+
+11
+00:00:52.960 --> 00:00:54.450
+Anthony Taylor: alright. So
+
+12
+00:00:55.750 --> 00:01:00.470
+Anthony Taylor: starting today. Now, next week is projects. Okay.
+
+13
+00:01:01.020 --> 00:01:09.289
+Anthony Taylor: But starting today, officially, we're going to start really digging into machine learning. So keep in mind a, I is apparent
+
+14
+00:01:09.530 --> 00:01:12.440
+Anthony Taylor: of machine learning. Okay?
+
+15
+00:01:12.490 --> 00:01:23.509
+Anthony Taylor:  the ll, everything that you guys you know, kind of join this platform is all based off of what we are going to start covering.
+
+16
+00:01:24.060 --> 00:01:25.000
+Anthony Taylor: Say that.
+
+17
+00:01:25.700 --> 00:01:27.670
+Anthony Taylor: So the next, like.
+
+18
+00:01:29.620 --> 00:01:36.949
+Anthony Taylor: 9 weeks is pretty much nothing but machine learning and projects.
+
+19
+00:01:39.180 --> 00:01:41.590
+Anthony Taylor: Yeah, whole weeks of machine learning.
+
+20
+00:01:42.070 --> 00:01:45.290
+Anthony Taylor: Okay, and then you're gonna do a project, too.
+
+21
+00:01:45.580 --> 00:01:50.030
+Anthony Taylor: So that kind of gives you idea next til the seventeenth week.
+
+22
+00:01:51.080 --> 00:01:51.990
+Anthony Taylor: So
+
+23
+00:01:53.240 --> 00:01:57.920
+Anthony Taylor: time series. Anybody heard of time series. Anybody know what I'm talking about. I think time series.
+
+24
+00:02:02.900 --> 00:02:07.610
+Anthony Taylor: who's my finances? Data over time? Basically, yeah.
+
+25
+00:02:08.150 --> 00:02:19.200
+Anthony Taylor: right? That is the base definition of time series. It's data measured over time. Which, when we really think about it, that's practically all. D
+
+26
+00:02:19.640 --> 00:02:22.479
+Anthony Taylor: okay. Oh, there's my finance person.
+
+27
+00:02:23.770 --> 00:02:26.610
+Anthony Taylor: I have to give her grief officially.
+
+28
+00:02:29.610 --> 00:02:30.680
+Anthony Taylor: Meredith.
+
+29
+00:02:35.630 --> 00:02:40.910
+Meredith McCanse (she/her): I'm here. Sorry. I just asked the question. And I said, Where's my finances?
+
+30
+00:02:41.390 --> 00:02:42.860
+Meredith McCanse (she/her): And you weren't there?
+
+31
+00:02:43.100 --> 00:02:52.819
+Anthony Taylor: I was having boot up problems. I had to restart my computer so anyway, today we're gonna start time soon.
+
+32
+00:02:53.030 --> 00:03:03.940
+Anthony Taylor:  we are. Gonna begin the class kind of talking about time and machine learning kind of doing a little bit of a review, because I think we talked about machine learning cool.
+
+33
+00:03:04.570 --> 00:03:12.470
+Anthony Taylor: We're going to use pandas to manipulate some time data so that we are better at it
+
+34
+00:03:12.530 --> 00:03:14.809
+Anthony Taylor: and making it more consistent.
+
+35
+00:03:15.290 --> 00:03:19.919
+Anthony Taylor: We're gonna do some data analysis on some time series data.
+
+36
+00:03:19.940 --> 00:03:24.089
+Anthony Taylor: We're here to identify some patterns using real stock market data.
+
+37
+00:03:24.660 --> 00:03:28.399
+Anthony Taylor: And we're gonna use some visualizations on that date.
+
+38
+00:03:28.980 --> 00:03:32.300
+Anthony Taylor: Okay, so that'll be fun. Welcome.
+
+39
+00:03:32.560 --> 00:03:35.740
+Anthony Taylor: That's enough of that. Alright. So let's recap.
+
+40
+00:03:36.050 --> 00:03:41.610
+Anthony Taylor: What do you know about machine learning? What can? There's II mentioned to you there was like 2
+
+41
+00:03:41.770 --> 00:03:45.809
+Anthony Taylor: primary categories of machine learning anybody remember what they are.
+
+42
+00:03:53.000 --> 00:04:11.230
+Anthony Taylor: Oh, actually, Derek got it supervised and unsupervised. I know when you were going sign structured and unstructured. That's type data. But still it's stuff, right? So right. The 2 main categories.
+
+43
+00:04:11.300 --> 00:04:18.619
+Anthony Taylor: our our supervisor. Anybody remember other than Derek? Anybody remember the difference what they are? What's struck? What's supervised?
+
+44
+00:04:19.480 --> 00:04:23.669
+Dipinto, Matt: The supervised has targets for the model to train to.
+
+45
+00:04:24.190 --> 00:04:27.439
+Anthony Taylor: Awesome. Is Sonya. Did you want to answer unsupervised then?
+
+46
+00:04:29.040 --> 00:04:43.859
+sonja baro: Well, he took the easy one. Now answer is for structured. We don't know that the answer is for unstructured or unsupervised, and they use clustering techniques to primarily. Yeah.
+
+47
+00:04:44.160 --> 00:04:48.639
+sonja baro: that's good. That's exactly no, that was it. No
+
+48
+00:04:48.710 --> 00:04:53.160
+Anthony Taylor: unsupervised. We? We just don't know the answer to train the model.
+
+49
+00:04:53.210 --> 00:05:03.270
+Anthony Taylor: So usually in unsupervised, we're just training the model blindly and telling it, hey. go out and find relationships in this data or patterns that we can't
+
+50
+00:05:03.440 --> 00:05:04.940
+Anthony Taylor: probably can't see
+
+51
+00:05:05.260 --> 00:05:13.660
+Anthony Taylor:  which is interesting when we get to Llm. Talk. That's kind of what Llm have done that are kind of remarkable
+
+52
+00:05:14.190 --> 00:05:18.460
+Anthony Taylor: is they have found relationships in words
+
+53
+00:05:19.170 --> 00:05:21.260
+Anthony Taylor: or in concepts
+
+54
+00:05:21.450 --> 00:05:24.899
+Anthony Taylor: that humans have not been able to find.
+
+55
+00:05:25.640 --> 00:05:31.070
+Anthony Taylor: Okay. And that's why, you know, I think I've said this recently. That's why they're discovering new medicines.
+
+56
+00:05:31.120 --> 00:05:40.940
+Anthony Taylor: They're discovering, you know, a a lot of new things now due to these the ais that are now available to everybody?
+
+57
+00:05:41.070 --> 00:05:45.980
+Anthony Taylor: because they're finding relationships that didn't that no one had seen before.
+
+58
+00:05:47.160 --> 00:05:52.840
+Anthony Taylor: Okay, but believe it or not lens are not driven by unsupervised learning.
+
+59
+00:05:53.150 --> 00:05:54.310
+Anthony Taylor: We'll get to that later.
+
+60
+00:05:54.740 --> 00:06:05.790
+Anthony Taylor: Okay, so machine learning algorithm automatically. So this is the definition, we're going to go with a machine learning algorithm automatically adapts to improve the accuracy of precision of outcomes and predictions
+
+61
+00:06:05.930 --> 00:06:10.210
+Anthony Taylor: eliminating the need for manual configuration inputs and adjustments to the output
+
+62
+00:06:11.110 --> 00:06:16.480
+Anthony Taylor: alright. They can learn autonomously. So developers don't need to code for every scenario.
+
+63
+00:06:21.700 --> 00:06:28.379
+Anthony Taylor: So when I read that, does that make you think that machine learning program can figure stuff out itself.
+
+64
+00:06:29.900 --> 00:06:31.659
+Anthony Taylor: It's kind of what sounded like, right?
+
+65
+00:06:33.180 --> 00:06:34.680
+Anthony Taylor: Yeah, that's not true.
+
+66
+00:06:34.790 --> 00:06:40.410
+Anthony Taylor: What it can do is look at past data.
+
+67
+00:06:40.920 --> 00:06:42.100
+Anthony Taylor: find
+
+68
+00:06:43.360 --> 00:06:46.360
+Anthony Taylor: correlations. We talked about correlation
+
+69
+00:06:46.640 --> 00:06:49.830
+Anthony Taylor: that may not have been obvious, or
+
+70
+00:06:50.690 --> 00:06:59.790
+Anthony Taylor: it can combine correlations in such a way that maybe something that is barely correlated at all is actually having effect
+
+71
+00:06:59.820 --> 00:07:10.960
+Anthony Taylor: on what that pattern outputs. Okay? And so mathematically, it goes through it. It figures all these relationships and trends and patterns
+
+72
+00:07:11.000 --> 00:07:16.110
+Anthony Taylor: out and then outputs a prediction with a probability
+
+73
+00:07:16.300 --> 00:07:17.689
+Anthony Taylor: of being right.
+
+74
+00:07:17.750 --> 00:07:23.170
+Anthony Taylor: No prediction. And you guys are, gonna see this in coming weeks. No prediction
+
+75
+00:07:23.450 --> 00:07:27.940
+Anthony Taylor: actually says yes or no. It's all a probability
+
+76
+00:07:28.710 --> 00:07:32.949
+Anthony Taylor: 90%. We're pretty sure. Maybe it's right.
+
+77
+00:07:33.720 --> 00:07:34.740
+Anthony Taylor: Okay.
+
+78
+00:07:35.970 --> 00:07:40.440
+Anthony Taylor: 90% made pop. okay, so we're gonna learn to
+
+79
+00:07:40.530 --> 00:07:42.640
+Anthony Taylor: to translate all of that. Yeah, click.
+
+80
+00:07:43.190 --> 00:07:50.679
+Clayton Graves: So does that mean that machine learning algorithms can do what we were doing manually
+
+81
+00:07:50.960 --> 00:07:52.300
+Clayton Graves: the other day? No.
+
+82
+00:07:52.570 --> 00:07:59.749
+Anthony Taylor: no, they can't. They really can't, can't do anything that you that doesn't have a pattern or a trend.
+
+83
+00:08:00.680 --> 00:08:13.530
+Clayton Graves: Okay? So they they can't calculate correlation between 2 things. Not really. No, I mean they they, the the models themselves possibly do correlation calculations underneath while they're while they're developing
+
+84
+00:08:13.740 --> 00:08:19.030
+Anthony Taylor: an an outlook effectively. This is what a machine learning model does. Maybe this will help
+
+85
+00:08:19.200 --> 00:08:26.759
+Anthony Taylor: right? So it starts digging. It starts looking at these patterns. It comes up with correlations it comes up with, hey? If we put these.
+
+86
+00:08:26.880 --> 00:08:30.430
+Anthony Taylor: you know these 10 features together, this is the out.
+
+87
+00:08:31.460 --> 00:08:39.569
+Anthony Taylor: then these 10 features. This is the output, and it compares those and says, Okay, well, is it always that way, you know? And it's it's not. It's complicated
+
+88
+00:08:39.620 --> 00:08:42.470
+Anthony Taylor: fitting a machine learning model, which is training.
+
+89
+00:08:42.750 --> 00:08:44.840
+Anthony Taylor: Okay, can take
+
+90
+00:08:45.020 --> 00:08:50.620
+Anthony Taylor: weeks 24, 7 massive amount of computer power.
+
+91
+00:08:51.150 --> 00:08:56.369
+Anthony Taylor: You guys have heard the train chat TPT. Is like the equivalent of, like.
+
+92
+00:08:56.540 --> 00:09:00.950
+Anthony Taylor: you know, 10 years of California's traffic in pollution.
+
+93
+00:09:02.310 --> 00:09:07.020
+Anthony Taylor: That's that's just how bad it is just to train Chat t one.
+
+94
+00:09:08.120 --> 00:09:10.620
+Anthony Taylor: Now the good news is we don't train them a lot. But
+
+95
+00:09:10.710 --> 00:09:14.670
+Anthony Taylor: when you guys are developing models, you do train them
+
+96
+00:09:14.740 --> 00:09:15.810
+Anthony Taylor: often.
+
+97
+00:09:16.850 --> 00:09:21.149
+Anthony Taylor: many, many times, depending on how good the data is.
+
+98
+00:09:22.110 --> 00:09:23.060
+Anthony Taylor: Okay.
+
+99
+00:09:23.620 --> 00:09:38.680
+Anthony Taylor:  so no to answer questions. They probably are absolutely using correlations in the background plate. But you look at correlations so that. And and as you're going to find the art of being a data scientist is understanding how to tune
+
+100
+00:09:38.720 --> 00:09:41.770
+Anthony Taylor: your model to get the best possible
+
+101
+00:09:42.250 --> 00:09:49.330
+Anthony Taylor: accuracy that you can come up with for the least amount of money. So when it comes down to
+
+102
+00:09:50.350 --> 00:09:59.559
+Anthony Taylor: alright, we're gonna learn models as we go through that get progressively more expensive to run, they will cost us and think, cause we're not doing very much date.
+
+103
+00:09:59.800 --> 00:10:05.459
+Anthony Taylor: But if you through, you know a billion rows of data at some of these models.
+
+104
+00:10:05.480 --> 00:10:13.859
+Anthony Taylor: you know, they could take days to run constant CPU, maybe 50 to a hundred cpus
+
+105
+00:10:14.370 --> 00:10:17.010
+Anthony Taylor: running 24, 7 for days.
+
+106
+00:10:17.800 --> 00:10:19.169
+Anthony Taylor: Very expensive.
+
+107
+00:10:19.700 --> 00:10:27.019
+Anthony Taylor: right? But if you have somebody who knows what they're doing? Maybe they could tune that down to 8 h of 50 CPU,
+
+108
+00:10:27.730 --> 00:10:31.030
+Anthony Taylor: and that comes from doing the data analysis like
+
+109
+00:10:31.350 --> 00:10:37.660
+Anthony Taylor: looking at correlations, looking at at what you have, and figuring out what the best combination is.
+
+110
+00:10:37.670 --> 00:10:42.409
+Anthony Taylor: Now here's the good news. One of the things that I find difficult
+
+111
+00:10:43.760 --> 00:10:46.880
+Clayton Graves: is no one
+
+112
+00:10:46.930 --> 00:10:52.470
+Clayton Graves: what my data is supposed to look like when I'm when I'm completing some sort of task.
+
+113
+00:10:52.890 --> 00:10:54.750
+Clayton Graves: So my question is.
+
+114
+00:10:55.730 --> 00:10:58.939
+Clayton Graves: how do we know that the
+
+115
+00:10:59.390 --> 00:11:04.879
+Clayton Graves: 8 h model is just as accurate as the 24 h model.
+
+116
+00:11:05.990 --> 00:11:08.549
+Anthony Taylor: And that's how you're gonna earn your money.
+
+117
+00:11:10.280 --> 00:11:21.140
+Anthony Taylor: That's it. Right. So me with. I do models. They expect I'm going to be able to get it down to best possible costs. Best possible answer as quickly as possible.
+
+118
+00:11:21.280 --> 00:11:25.500
+Anthony Taylor: You guys at entry level. You're gonna be the 27 h model.
+
+119
+00:11:25.860 --> 00:11:28.510
+Anthony Taylor: Right? You're gonna be the longer one. Most likely
+
+120
+00:11:28.550 --> 00:11:33.200
+Anthony Taylor: the good news is by taking this class. You should have an edge on others.
+
+121
+00:11:33.220 --> 00:11:39.839
+Anthony Taylor: you know. But again, let me go back. Those data analysts. I was talking about that work where I work. They've never done machine learning in their life.
+
+122
+00:11:41.370 --> 00:11:52.330
+Anthony Taylor: They're taking a workshop next Friday or next Thursday with me to learn what it is. They're gonna take the you know, this little, these 4 slides we're about to do. They don't even know this.
+
+123
+00:11:53.830 --> 00:12:05.140
+Anthony Taylor: Okay, so you guys are so far ahead of it. But to answer your question. It's gonna take time. The good news is, there is some wonderful tools out there which I hope to be able to show you.
+
+124
+00:12:05.650 --> 00:12:13.610
+Anthony Taylor:  that actually do it awfully okay, and and leave you very little to have to worry about.
+
+125
+00:12:14.340 --> 00:12:22.909
+Anthony Taylor: You have to be fortunate enough to have them available to okay. so we use learning, we develop a statistical model
+
+126
+00:12:23.510 --> 00:12:30.459
+Anthony Taylor: in the background. That's what it's doing of existing data that can automatically make predictions or decisions about new data.
+
+127
+00:12:30.580 --> 00:12:34.339
+Anthony Taylor: I hate this word automatic. It is not automatic.
+
+128
+00:12:34.700 --> 00:12:36.620
+Anthony Taylor: it is mathematical.
+
+129
+00:12:38.170 --> 00:12:39.210
+Anthony Taylor: Okay.
+
+130
+00:12:40.370 --> 00:12:41.300
+Anthony Taylor: that's that.
+
+131
+00:12:42.100 --> 00:12:42.840
+Alright.
+
+132
+00:12:43.320 --> 00:12:44.180
+Anthony Taylor: Okay.
+
+133
+00:12:44.300 --> 00:12:49.449
+Anthony Taylor: So have we mentioned, if I ever said these 3 words to you guys together.
+
+134
+00:12:53.660 --> 00:13:05.640
+Anthony Taylor: All right. So for the next 9 weeks, well, let's just say 7 weeks after project. Okay. you will hear me say, model fit predict 1,000 times
+
+135
+00:13:06.460 --> 00:13:12.370
+Anthony Taylor: alright, model fit. Predict that's every single machine learning process
+
+136
+00:13:12.530 --> 00:13:15.159
+Anthony Taylor: period and the story
+
+137
+00:13:15.300 --> 00:13:17.920
+Anthony Taylor: model fit predict
+
+138
+00:13:18.760 --> 00:13:22.189
+Anthony Taylor: long as you when you're building out your pipeline.
+
+139
+00:13:22.300 --> 00:13:24.050
+Anthony Taylor: What's the mommy? This one?
+
+140
+00:13:24.100 --> 00:13:26.090
+Anthony Taylor: How do I fit it this way?
+
+141
+00:13:26.300 --> 00:13:29.779
+Anthony Taylor: Now I can predict that's it. Fitting is training, by the way.
+
+142
+00:13:29.900 --> 00:13:33.739
+Anthony Taylor: So if you hear me say, Train your model fit is the same thing.
+
+143
+00:13:34.880 --> 00:13:39.720
+Anthony Taylor: Okay, you would think that you would trade to become fit, but not a machine.
+
+144
+00:13:41.700 --> 00:13:46.539
+Anthony Taylor: Damn, not even a smile. Okay, so once trained or fit.
+
+145
+00:13:46.720 --> 00:13:49.869
+Anthony Taylor: the model and algorithm can be used to make actual predictions.
+
+146
+00:13:50.080 --> 00:13:57.080
+Anthony Taylor: One thing that most programs, I'll tell you guys the secret. Here's a secret interview secret. Get ready.
+
+147
+00:13:57.650 --> 00:14:00.940
+Anthony Taylor: Okay. When I interview data science
+
+148
+00:14:02.520 --> 00:14:11.970
+Anthony Taylor: I will talk to, I'll say, Oh, so what models have you used? Oh, that's great! What preparate! And then what hyper parameters do you find? Or blah blah blah? And then I hit him with this question.
+
+149
+00:14:13.970 --> 00:14:15.209
+Anthony Taylor: how do you
+
+150
+00:14:15.500 --> 00:14:19.100
+Anthony Taylor: put your model into production so other people can use it?
+
+151
+00:14:19.400 --> 00:14:23.340
+Anthony Taylor: And I will tell you right now. One in 10 can answer that question.
+
+152
+00:14:24.040 --> 00:14:27.610
+Anthony Taylor: The other 9 don't know how they have no clue. How it works.
+
+153
+00:14:27.740 --> 00:14:35.549
+Anthony Taylor: All they've done is they've built models to do predictions, but they've never actually put them into a production environment to use them.
+
+154
+00:14:35.970 --> 00:14:38.889
+Anthony Taylor: Right? I'm gonna give you some good news right now.
+
+155
+00:14:39.760 --> 00:14:43.909
+Anthony Taylor: You, every one of you, when you leave this class, not today
+
+156
+00:14:45.300 --> 00:14:51.150
+Anthony Taylor: will know how to do it. and we'll be able to do it, and we'll be able to demonstrate.
+
+157
+00:14:52.170 --> 00:14:56.379
+Anthony Taylor: And here's the crazy part. Do you wanna know how long it's gonna take me to teach it to you.
+
+158
+00:14:57.600 --> 00:14:58.960
+Anthony Taylor: 15 min.
+
+159
+00:15:00.880 --> 00:15:03.110
+Anthony Taylor: everybody, no matter what you still love.
+
+160
+00:15:03.770 --> 00:15:07.480
+Anthony Taylor: When we get to that it will take me 15 min
+
+161
+00:15:07.850 --> 00:15:11.160
+Anthony Taylor: to teach you how to promote a model
+
+162
+00:15:11.190 --> 00:15:16.470
+Anthony Taylor: to production and make it usable to people outside or inside your organization.
+
+163
+00:15:17.160 --> 00:15:18.090
+Anthony Taylor: Okay.
+
+164
+00:15:18.260 --> 00:15:24.690
+Anthony Taylor: so that's a big deal. Most data. Science don't even not do it, because all they've done is what we're gonna do in class.
+
+165
+00:15:25.350 --> 00:15:32.700
+Anthony Taylor: They've made models. They've done great work. And they're like, I've done this. It's fantastic. 95% accurate
+
+166
+00:15:32.760 --> 00:15:36.389
+Anthony Taylor: like, that's awesome. Who uses it? Well, I
+
+167
+00:15:38.710 --> 00:15:40.139
+Anthony Taylor: that doesn't make a lot of sense.
+
+168
+00:15:40.380 --> 00:15:50.309
+Anthony Taylor: Alright. So here we go, supervise learning. We gonna do classification. We're gonna do. Regression. Regression is continuous number prediction. We've already talked about that up here.
+
+169
+00:15:50.500 --> 00:15:57.240
+Anthony Taylor: Regression does not have to be just linear. That's just one line. You can have multilinear.
+
+170
+00:15:57.700 --> 00:16:06.510
+Anthony Taylor: Okay, you can do regression in much more complicated machine learning algorithms. It's just means it's continuous numbers. That's it.
+
+171
+00:16:07.300 --> 00:16:14.439
+Anthony Taylor: Classification. This is the one you see most of the time. This is, are they a good credit risk?
+
+172
+00:16:14.700 --> 00:16:25.300
+Anthony Taylor: what website should I send them? To? What video do you want to see? What music should I recommend? You would think that'd be a recommendation engine. Sometimes it is.
+
+173
+00:16:25.740 --> 00:16:26.470
+Anthony Taylor: but
+
+174
+00:16:27.260 --> 00:16:29.289
+Anthony Taylor: sometimes it's just about patient.
+
+175
+00:16:29.440 --> 00:16:30.500
+Anthony Taylor: That's right.
+
+176
+00:16:31.650 --> 00:16:41.370
+Masarirambi, Rodney: Just to just to clarify regression is not the programming regression, as in like, we just introduced a regression to stop things from working in this.
+
+177
+00:16:41.950 --> 00:16:43.689
+Masarirambi, Rodney: but totally different. Right?
+
+178
+00:16:44.140 --> 00:16:53.949
+Anthony Taylor: Correct. Remember, we were doing linear regression last class, the line going up between. That's a regression. So it it basically just means we're trying to predict a number.
+
+179
+00:16:55.220 --> 00:17:00.050
+Anthony Taylor: Okay, that's pretty much. And you can see the forecasting real estate prices, population growth
+
+180
+00:17:00.160 --> 00:17:03.810
+Anthony Taylor: predicting financial returns, weather forecast
+
+181
+00:17:04.109 --> 00:17:05.300
+Anthony Taylor: predicting a number.
+
+182
+00:17:05.690 --> 00:17:07.900
+Anthony Taylor: Okay?
+
+183
+00:17:07.990 --> 00:17:13.980
+Anthony Taylor: no, no, that's a great question. So unsupervised learning, we don't know the answer. When we train our model.
+
+184
+00:17:14.050 --> 00:17:21.409
+Anthony Taylor: We do clustering. Now, I will tell you. Recommendation systems sometimes can also fall into clustering makes perfect sense.
+
+185
+00:17:21.880 --> 00:17:26.889
+Anthony Taylor: Jennifer likes these 10 songs. She's told us she does
+
+186
+00:17:27.290 --> 00:17:33.099
+Anthony Taylor: aft, listened to one of those 10 songs. Well, let's see if he likes the other night
+
+187
+00:17:34.660 --> 00:17:37.469
+Anthony Taylor: recommendation engine. Basically how they work.
+
+188
+00:17:38.050 --> 00:17:40.330
+Anthony Taylor: We're going to get way more into that
+
+189
+00:17:40.700 --> 00:17:47.769
+Anthony Taylor: and then dimensionality reduction. That's a big giant word, for we're gonna make our data a little less complex.
+
+190
+00:17:49.280 --> 00:17:59.410
+Anthony Taylor: Alright. So you have 500 columns in your table. You're trying to make a prediction on one column. So that's 499 features.
+
+191
+00:17:59.650 --> 00:18:00.900
+Anthony Taylor: That's a lot.
+
+192
+00:18:01.270 --> 00:18:11.880
+Anthony Taylor: We can use unsupervised learning to do dimensionality reduction and maybe reduce those 499 down to say 20. That actually means something.
+
+193
+00:18:13.250 --> 00:18:16.829
+Anthony Taylor: Okay? And that's what this this is gonna do. We're gonna do that as well.
+
+194
+00:18:17.660 --> 00:18:20.050
+Anthony Taylor: So all of these things we're gonna do in this box.
+
+195
+00:18:21.120 --> 00:18:22.040
+Anthony Taylor: Okay.
+
+196
+00:18:22.690 --> 00:18:25.430
+Anthony Taylor: alright, we already talked about that.
+
+197
+00:18:25.900 --> 00:18:27.380
+Anthony Taylor: And we talked about that
+
+198
+00:18:27.680 --> 00:18:31.030
+Anthony Taylor: classification, basically A or B
+
+199
+00:18:31.170 --> 00:18:34.279
+Anthony Taylor: 4, A, BCDE, FG.
+
+200
+00:18:34.390 --> 00:18:44.780
+Anthony Taylor: It could be any number. It doesn't have to be 2 things. It could be 20 things. It could be a thousand things or simply classifying it based on the date.
+
+201
+00:18:45.970 --> 00:18:49.579
+Anthony Taylor: Okay, regression, continuous number just talked about.
+
+202
+00:18:50.980 --> 00:18:56.190
+Anthony Taylor: Alright. Hey? You guys did a video today? I know you're excited.
+
+203
+00:18:57.740 --> 00:19:01.230
+Anthony Taylor: Oh, wait! I gotta change my share. I didn't put on sound hold on 1 s
+
+204
+00:19:06.420 --> 00:19:11.870
+Anthony Taylor: optimize for video. It's only 1 min and 10 s. So don't be too excited. Alright, here we go
+
+205
+00:19:12.720 --> 00:19:37.700
+on the Internet. The algorithms are all around you. You are watching this video because an algorithm brought it to you, among others, to click, which you did. And the algorithm took note. When you open the Tweetbook, a, the algorithm decides what you see when you search through your photos, a, the algorithm does the finding maybe even makes a little movie for you. When you buy something a, the algorithm sets the price and a the algorithm is at your bank watching
+
+206
+00:19:37.700 --> 00:20:02.010
+actions for fraud. The stock market is full of algorithms trading with algorithms. Given this, you might want to know how these little algorithmic bots shaping your world work, especially when they don't. In ye olden days humans built algorithmic bots by giving them instructions. The humans could explain if this, then that. But many problems are just too big and hard for a human to write simple instructions, for
+
+207
+00:20:02.010 --> 00:20:25.679
+there's a gazillion, financial transactions a second which ones are fraudulent. There's octillion videos on Netmetube, which 8 should the user see as recommendations which shouldn't be allowed on the site at all for this airline seat, what is the maximum price this user will pay right now. Algorithmic bots give answers to these questions, not perfect answers, but much better than a human could do. But how? These?
+
+208
+00:20:26.960 --> 00:20:28.640
+Anthony Taylor: That's where it told me to stop.
+
+209
+00:20:30.370 --> 00:20:31.990
+Anthony Taylor: It's like 9 min long.
+
+210
+00:20:33.880 --> 00:20:44.940
+Anthony Taylor: The algorithm didn't tell me to stop there. The lesson plan did. Okay. So you know, that's cool. I mean, I don't know that that told us anything we didn't know. But maybe you did
+
+211
+00:20:45.510 --> 00:20:52.589
+Anthony Taylor: right. I mean, the bottom line is pretty much everything you do. Even now, the one that always be is the airplane
+
+212
+00:20:53.170 --> 00:21:01.519
+Anthony Taylor: right? The ticket. You see what it said there. it didn't decide what the ticket was worth. It decided how much you pay for that ticket.
+
+213
+00:21:03.390 --> 00:21:07.530
+Anthony Taylor: Alright. So that's an interesting little tidbit.
+
+214
+00:21:07.960 --> 00:21:17.199
+Meredith McCanse (she/her): I read something recently about Uber rates that uber will. If your phone battery is dying. Uber will charge you a higher rate.
+
+215
+00:21:17.580 --> 00:21:19.539
+Meredith McCanse (she/her): I think, with the assumption that
+
+216
+00:21:19.830 --> 00:21:24.359
+Meredith McCanse (she/her): you have a limited
+
+217
+00:21:24.420 --> 00:21:29.619
+Meredith McCanse (she/her): which is just evil, that, like but it
+
+218
+00:21:30.420 --> 00:21:36.189
+Meredith McCanse (she/her): supply and demand. Everything is, I mean in the end.
+
+219
+00:21:37.140 --> 00:21:37.970
+Anthony Taylor: Adam.
+
+220
+00:21:38.230 --> 00:21:43.530
+Anthony Taylor: not. There's not a lot of people out there that are looking to to judge did not align their pockets
+
+221
+00:21:43.800 --> 00:21:56.289
+Anthony Taylor: at least a little bit right. I love doing this. I was just talking about this earlier today. I said, I love doing this. I would do this. I mean it pays me significantly less than my day job, but I love doing it so I don't care. It's what I want to do
+
+222
+00:21:56.400 --> 00:22:06.989
+Anthony Taylor: right. And and and it's it's because it makes me feel good to help. But you know, if they didn't pay me anything, you guys would have a different feature.
+
+223
+00:22:07.720 --> 00:22:12.420
+Anthony Taylor: Right? So in the end, we definitely, you know, all do.
+
+224
+00:22:12.430 --> 00:22:20.120
+Anthony Taylor: Some things are many thing. People in big organizations more than anybody else do. A ton of
+
+225
+00:22:20.250 --> 00:22:32.130
+Anthony Taylor: got a line pockets if nothing else got to do it. So you have investors need. Those investors need those stockholders make money, or they don't keep you anymore. Somebody else will come in. That will make the money.
+
+226
+00:22:33.860 --> 00:22:36.859
+Anthony Taylor: So yeah, I agree. That is, that's harsh, that's evil.
+
+227
+00:22:37.500 --> 00:22:46.009
+Anthony Taylor:  You know. How long is it before they have your credit report right there whenever you're you know, so they can see your salary. Oh, look at this guy. Yeah.
+
+228
+00:22:46.200 --> 00:22:52.080
+Anthony Taylor: okay, we'll charge you 20 more, just because you know, basically, when the salary
+
+229
+00:22:54.190 --> 00:22:57.030
+Anthony Taylor: I wouldn't even doubt that's already happened someplace
+
+230
+00:22:57.360 --> 00:23:08.789
+Anthony Taylor: so now we're able to decide what price really to pay a particular moment? 100%. We just talked about that predicts which financial transactions are fraudulent. How many of you got? How many. You got that phone call?
+
+231
+00:23:09.440 --> 00:23:12.520
+Anthony Taylor: Hi, I think it's a robot or something.
+
+232
+00:23:12.640 --> 00:23:18.579
+Anthony Taylor: Did you just charge $340 at that bed bath and beyond
+
+233
+00:23:19.300 --> 00:23:21.109
+Anthony Taylor: right. And you're like.
+
+234
+00:23:21.620 --> 00:23:23.270
+Anthony Taylor: do I have to admit it?
+
+235
+00:23:25.390 --> 00:23:41.450
+Anthony Taylor: But then you say, press one. If that was you right? Yeah, I mean, have you all got that call or something like it. I spent all day on Friday dealing with a potential fraud situation because I downloaded an app that tracks my spending.
+
+236
+00:23:41.840 --> 00:23:55.569
+Mason, Natalie: and it didn't recognize a charge. And it's because it didn't really have a definition within what it was. It just said, like golden pos golden Co, us, and I'm like scratching my head
+
+237
+00:23:55.930 --> 00:24:08.060
+Mason, Natalie: like, what could this be? What could this be? It's like on days that I didn't spend this money. I'm like, well, somebody's just draining my account. 95 bucks, 95 bucks. It was me going to physical therapy.
+
+238
+00:24:08.150 --> 00:24:13.810
+Mason, Natalie: but I spent hours just being afraid that I was getting ripped off.
+
+239
+00:24:14.180 --> 00:24:16.920
+Mason, Natalie: But luckily I wasn't. So that's
+
+240
+00:24:16.970 --> 00:24:20.840
+Mason, Natalie: well, that is, that is good. They should have called you
+
+241
+00:24:21.560 --> 00:24:23.540
+Anthony Taylor: right?
+
+242
+00:24:23.730 --> 00:24:26.539
+Anthony Taylor: anyway. So yeah. So that's that's cool stuff.
+
+243
+00:24:26.570 --> 00:24:32.379
+Anthony Taylor: Algorithms continuously trade against other algorithms stock market. This is a crazy thing
+
+244
+00:24:32.620 --> 00:24:34.209
+Anthony Taylor: when you think about it.
+
+245
+00:24:34.410 --> 00:24:40.989
+Anthony Taylor: right? The algorithms are trading based on rules that someone has created or that they've been trained to teach to trade on.
+
+246
+00:24:41.070 --> 00:24:43.819
+Anthony Taylor: And here's my best story. On this
+
+247
+00:24:44.090 --> 00:24:49.959
+Anthony Taylor: again. I might have mentioned this one, too, but hurts. I told you guys hurt watches, avis
+
+248
+00:24:50.880 --> 00:24:57.589
+Anthony Taylor: right? And a this watches hurts, and they both watch enterprise, and they're constantly comparing rates.
+
+249
+00:24:58.010 --> 00:24:59.579
+Anthony Taylor: Here's the crazy part.
+
+250
+00:25:00.620 --> 00:25:04.389
+Anthony Taylor: When they receive the rate, they will lower their rate
+
+251
+00:25:05.310 --> 00:25:06.770
+Anthony Taylor: below that rate.
+
+252
+00:25:07.630 --> 00:25:15.929
+Anthony Taylor: So mid-size car on a Saturday in Orlando from Avis will cost you 58 bucks a day.
+
+253
+00:25:16.480 --> 00:25:19.590
+Anthony Taylor: Hertz gets that information, makes it 57. But
+
+254
+00:25:20.510 --> 00:25:27.130
+Anthony Taylor: Avis gets that information, makes it 56 bucks a day enterprise. We'll show them we'll make it 55.
+
+255
+00:25:28.810 --> 00:25:37.900
+Anthony Taylor: So there's this constant craziness going on in that industry. But they all had to put rules in place, because when they first heard it on, guess what happened.
+
+256
+00:25:39.730 --> 00:25:41.660
+Anthony Taylor: everything dropped to 0.
+
+257
+00:25:44.210 --> 00:26:01.480
+Anthony Taylor: They had to stop it like immediately, like holy cow. Why? Because everyone was saying, oh, we gotta be lower the neck I got so they all have base rules they had to put in for each card type in each location that said, Look, go down, but never go below this point. Now
+
+258
+00:26:01.780 --> 00:26:04.029
+Anthony Taylor: think they had one at the top side of that?
+
+259
+00:26:05.050 --> 00:26:05.720
+Yeah.
+
+260
+00:26:06.740 --> 00:26:12.230
+Anthony Taylor: So when Avis raised the prices Hertz free, Hertz would just go adjust under that price.
+
+261
+00:26:13.390 --> 00:26:23.949
+Anthony Taylor: Okay, so what would happen was they would flip that they would flip the script every once in a while. I'm short on inventory and Avis. I'm short on inventory. I have to raise the price
+
+262
+00:26:24.040 --> 00:26:29.999
+Anthony Taylor: right well hurts now knows that Avis is short on inventory. So what are they going to do?
+
+263
+00:26:31.080 --> 00:26:37.029
+Anthony Taylor: Raise the price cheaper? The name is. but they're still gonna raise price
+
+264
+00:26:37.470 --> 00:26:41.490
+Anthony Taylor: because they now know that there's less cars and avis for people to rent
+
+265
+00:26:42.360 --> 00:26:45.620
+Anthony Taylor: making what demand high.
+
+266
+00:26:47.140 --> 00:26:51.450
+Anthony Taylor: So all these things have the stock trading algorithms to me is the same thing
+
+267
+00:26:51.820 --> 00:27:01.969
+Anthony Taylor: like they trade, they trade, you know this one buys, this one sells for different rules, and you know, I tell you Kevin was with the last cohort.
+
+268
+00:27:02.020 --> 00:27:08.889
+Anthony Taylor: II would say, almost every cohort I've taught. I have had at least one group of students tell me that they have
+
+269
+00:27:08.970 --> 00:27:10.690
+Anthony Taylor: match the stock market
+
+270
+00:27:10.730 --> 00:27:13.730
+Anthony Taylor: 98% accuracy. They can predict it.
+
+271
+00:27:14.890 --> 00:27:16.959
+Anthony Taylor: 98% access.
+
+272
+00:27:19.710 --> 00:27:23.479
+Anthony Taylor: Normally, they realize before the class is over that that's not true.
+
+273
+00:27:24.160 --> 00:27:27.230
+Anthony Taylor: But the model says it's 98% accurate.
+
+274
+00:27:28.100 --> 00:27:32.100
+Anthony Taylor: Okay, would you guys probably run into that? At least one of
+
+275
+00:27:32.250 --> 00:27:36.490
+Anthony Taylor: alright. It's just not possible. If it were possible, the whole world would blow up.
+
+276
+00:27:37.500 --> 00:27:45.759
+Anthony Taylor: I don't know. You all seen that new movie yet, what with Julia, Julia Roberts and Kevin Bacon. it would be like that, though.
+
+277
+00:27:47.280 --> 00:27:53.099
+Anthony Taylor: Meredith said, yes, she saw it. I hated the ending. Just so, you know. But I'm not gonna say what it was.
+
+278
+00:27:53.540 --> 00:27:56.529
+Meredith McCanse (she/her): I like the ending.
+
+279
+00:27:56.780 --> 00:27:57.500
+Anthony Taylor: Yeah.
+
+280
+00:27:57.820 --> 00:28:02.940
+Anthony Taylor: Oh, funny. Okay, anyway. it is. It is interesting.
+
+281
+00:28:03.410 --> 00:28:04.460
+Anthony Taylor: Okay.
+
+282
+00:28:04.700 --> 00:28:09.969
+Anthony Taylor:  so now let's talk about the main topic of the day.
+
+283
+00:28:10.250 --> 00:28:10.970
+Anthony Taylor: Aye.
+
+284
+00:28:12.660 --> 00:28:24.579
+Anthony Taylor:  it's vital in pretty much all of our models, most of our not all of our models will have a time aspect, but pretty much. Everything has a time series.
+
+285
+00:28:24.820 --> 00:28:31.600
+Anthony Taylor: a component whether or not it be included in the models we're working on? It's everything changes over time.
+
+286
+00:28:31.760 --> 00:28:35.700
+Anthony Taylor: right? So your willingness to pay for something might depend on the time of day.
+
+287
+00:28:36.910 --> 00:28:40.159
+Anthony Taylor: That's true. right? Or the time of year.
+
+288
+00:28:42.540 --> 00:28:47.390
+Anthony Taylor: Okay, clearly, we will spend money on holidays even.
+
+289
+00:28:47.920 --> 00:28:50.870
+Anthony Taylor: I'm sure everyone is feeling that right now.
+
+290
+00:28:52.650 --> 00:28:53.900
+Anthony Taylor: That's just made it.
+
+291
+00:28:54.080 --> 00:29:04.460
+Anthony Taylor: Financial transactions that occur very late at night, or very early, tend to be fraudulent, and more often to be fraudulent than what happens in the middle of the day.
+
+292
+00:29:04.540 --> 00:29:10.970
+Anthony Taylor: I don't understand that I ever decide to do a fraudulent transaction. I'm gonna do it while eating lunch.
+
+293
+00:29:13.210 --> 00:29:16.150
+Anthony Taylor: Best way to get away with it, I guess. Okay.
+
+294
+00:29:16.350 --> 00:29:23.909
+Anthony Taylor: profitable strategies might appear and disappear, depending on market conditions that change constantly over time.
+
+295
+00:29:24.640 --> 00:29:28.470
+Anthony Taylor: that what we're here to talk about today.
+
+296
+00:29:29.010 --> 00:29:29.940
+Anthony Taylor: I,
+
+297
+00:29:30.100 --> 00:29:38.890
+Anthony Taylor:  okay. So for machine learning to actually be able to do anything.
+
+298
+00:29:39.260 --> 00:29:41.560
+Anthony Taylor: you have to have history.
+
+299
+00:29:43.390 --> 00:29:45.890
+Anthony Taylor: Okay, it it it it doesn't. It's it's
+
+300
+00:29:46.170 --> 00:29:51.879
+Anthony Taylor: while you could give it like, well, here's 10 min of history. Couldn't predict something, maybe.
+
+301
+00:29:52.210 --> 00:29:54.659
+Anthony Taylor: But I mean, it's not gonna be very reliable.
+
+302
+00:29:54.810 --> 00:29:57.100
+Anthony Taylor: More history the more reliable.
+
+303
+00:29:57.400 --> 00:30:00.170
+Anthony Taylor: the more accurate. Right?
+
+304
+00:30:00.430 --> 00:30:07.150
+Anthony Taylor:  so there's lots of stuff where supervised learning and time series comes in play.
+
+305
+00:30:07.300 --> 00:30:12.670
+Anthony Taylor: Okay? Hold on. Let's see if they have examples to give you.
+
+306
+00:30:13.960 --> 00:30:16.919
+Anthony Taylor: Nope. just the ones we talked about
+
+307
+00:30:18.980 --> 00:30:23.370
+Anthony Taylor: might lead us to buy warm clothes in the winter. Yeah.
+
+308
+00:30:25.930 --> 00:30:28.780
+Not only our behavior, but how the world works
+
+309
+00:30:31.370 --> 00:30:32.620
+Anthony Taylor: make sense.
+
+310
+00:30:33.040 --> 00:30:36.580
+Anthony Taylor: Okay, so really, nothing exciting. And we do
+
+311
+00:30:36.690 --> 00:30:38.160
+Anthony Taylor: so.
+
+312
+00:30:38.730 --> 00:30:40.650
+Anthony Taylor: oh, these, that's these right
+
+313
+00:30:42.120 --> 00:30:47.729
+Anthony Taylor: when to make an investment, and positive money in your savings account might change over time.
+
+314
+00:30:48.250 --> 00:30:51.729
+Anthony Taylor: I didn't care much about my 401 K. When I was a young man.
+
+315
+00:30:52.500 --> 00:30:59.679
+Anthony Taylor: As I grew older I realized, dang it, they'll match it 100. That's free money.
+
+316
+00:31:01.490 --> 00:31:05.130
+Anthony Taylor: That wasn't a time thing. That was an intelligence thing.
+
+317
+00:31:07.100 --> 00:31:08.030
+Anthony Taylor: Okay.
+
+318
+00:31:08.510 --> 00:31:13.420
+Anthony Taylor:  So anything where you see data changing
+
+319
+00:31:13.470 --> 00:31:15.050
+Anthony Taylor: over time
+
+320
+00:31:15.380 --> 00:31:17.269
+Anthony Taylor: is time series.
+
+321
+00:31:17.880 --> 00:31:22.259
+Anthony Taylor: Okay, finance. Everything is time series. Pretty much
+
+322
+00:31:22.840 --> 00:31:31.780
+Anthony Taylor: alright. It goes up, it goes down. You make more, you make less. spend more. You spend less over time. Okay.
+
+323
+00:31:33.660 --> 00:31:38.049
+Anthony Taylor: so in this class today, you're gonna learn how to manipulate time.
+
+324
+00:31:38.400 --> 00:31:41.909
+Anthony Taylor: We don't mean like, go in the future. We're not, gonna
+
+325
+00:31:42.270 --> 00:31:45.179
+Anthony Taylor: you know. Be Doc Brown, or anything like that.
+
+326
+00:31:50.210 --> 00:31:52.380
+Anthony Taylor: Rodney's like, who the hell is, Doc? Grab?
+
+327
+00:31:52.560 --> 00:32:00.819
+Anthony Taylor: No, no, no, that III was promised that we were going to be manipulating time. So I'm out. So
+
+328
+00:32:00.930 --> 00:32:03.250
+Kanouff, Christine: you have seen the back to the feature.
+
+329
+00:32:03.660 --> 00:32:04.840
+Anthony Taylor: Yeah.
+
+330
+00:32:05.270 --> 00:32:08.429
+Anthony Taylor: I guess, Doctor, who might have been a good one, too. But I don't watch that
+
+331
+00:32:08.810 --> 00:32:23.239
+Anthony Taylor: anyway. So the probably most important thing we're gonna learn about time today is how to make sure our data is in the right format and assistant format so that we can then use it for machine learning.
+
+332
+00:32:23.430 --> 00:32:30.550
+Anthony Taylor: And with that you can construct more intricate time series models, including those capable making predictions across.
+
+333
+00:32:30.620 --> 00:32:31.730
+Anthony Taylor: I'm
+
+334
+00:32:33.370 --> 00:32:34.070
+right.
+
+335
+00:32:34.520 --> 00:32:38.840
+Anthony Taylor: So that was a lot of stuff. Any questions about any of that before we move on.
+
+336
+00:32:40.500 --> 00:32:46.749
+Clayton Graves: So when I open my weather app and I look at the 10 day forecast. Is is that
+
+337
+00:32:47.500 --> 00:32:49.339
+Clayton Graves: what I'm dealing with then
+
+338
+00:32:50.410 --> 00:32:52.289
+Anthony Taylor: in Denver. Yes.
+
+339
+00:32:52.370 --> 00:32:55.840
+Anthony Taylor: in Texas, yes. in California.
+
+340
+00:32:59.020 --> 00:33:01.219
+Anthony Taylor: in California it's the same weather, every
+
+341
+00:33:01.710 --> 00:33:19.790
+Anthony Taylor: right. So it's not much of a prediction, but everywhere else. They actually have to look at the what the you know. Look thing, and they're not looking necessarily like weather's an interesting one, because weather looks at patterns, of course, but it's also looking at the current data and comparing it to existing patterns.
+
+342
+00:33:20.140 --> 00:33:29.519
+Anthony Taylor: So it says, well, the committed this, the clouds are this. The wind's doing this, the parameters, this blah blah blah blah blah! All of these things taken into consideration.
+
+343
+00:33:29.730 --> 00:33:35.839
+Anthony Taylor: And you know, we're gonna say that yeah, we should be approaching these temperatures. I mean meteorology
+
+344
+00:33:35.910 --> 00:33:42.210
+Anthony Taylor: more than just machine learning. But it's the same concepts whether or not they apply an algorithm to do it.
+
+345
+00:33:42.770 --> 00:33:47.090
+Anthony Taylor: or they're doing it with science diet
+
+346
+00:33:47.330 --> 00:33:50.240
+Anthony Taylor: right? It's hard to say
+
+347
+00:33:50.640 --> 00:33:51.650
+Anthony Taylor: yes, right?
+
+348
+00:33:53.020 --> 00:33:58.329
+Masarirambi, Rodney: Not really a question per se. But you might gone back to the slide just before just wanted to take a look at that again.
+
+349
+00:33:59.690 --> 00:34:10.370
+Anthony Taylor: Thank you. Just like the cool puppet oh, I hadn't finished like taking all this, then? Oh, yeah.
+
+350
+00:34:11.250 --> 00:34:13.899
+Anthony Taylor: But yeah. So any other questions?
+
+351
+00:34:15.239 --> 00:34:16.760
+Anthony Taylor: Those were good questions
+
+352
+00:34:18.250 --> 00:34:24.080
+Anthony Taylor: like it. am I good to turn off the slide? I'm gonna go and give you guys a demo. Now.
+
+353
+00:34:25.620 --> 00:34:26.749
+Anthony Taylor: actually, am I?
+
+354
+00:34:28.080 --> 00:34:30.239
+Anthony Taylor: Yeah, are you good. With this one run?
+
+355
+00:34:30.889 --> 00:34:31.630
+Anthony Taylor: Okay.
+
+356
+00:34:33.040 --> 00:34:35.710
+Anthony Taylor: The importance of time.
+
+357
+00:34:37.659 --> 00:34:42.109
+Anthony Taylor: You guys remind me of the importance of time when you come back from that activity going to break out.
+
+358
+00:34:44.449 --> 00:34:46.919
+Anthony Taylor: Right? Yeah. Okay.
+
+359
+00:34:47.120 --> 00:34:54.699
+Anthony Taylor: Oh, the time plays a role in multitude. So discovering, obviously, you know, EKG. Heart mining reading a particular point in time.
+
+360
+00:34:54.770 --> 00:35:02.490
+Anthony Taylor: Aggregations, daily revenue of a firm has failed forecasting. What's tomorrow's time? Gonna be? What's it fails. Gonna be
+
+361
+00:35:02.780 --> 00:35:06.330
+Anthony Taylor: okay. All important aspects, time.
+
+362
+00:35:06.380 --> 00:35:18.520
+Anthony Taylor: the model and predict future prevents in time. We need the ability to handle everything that relates to time data. I love anytime. I see a word like everything. I immediately send up the alerts. Okay.
+
+363
+00:35:18.660 --> 00:35:23.789
+Anthony Taylor: the ability to handle everything that relates to time data.
+
+364
+00:35:24.930 --> 00:35:32.360
+Anthony Taylor: Okay, when dealing with data across the world. This one makes sense. We need the ability to convert time zones. This is one of the biggest headache
+
+365
+00:35:32.750 --> 00:35:39.270
+Anthony Taylor: of data engineers. Okay, and application developers. hey? Time zones.
+
+366
+00:35:40.160 --> 00:35:44.329
+Anthony Taylor: especially the idiots that came up Ben Franklin
+
+367
+00:35:44.450 --> 00:35:46.460
+Anthony Taylor: with daylight savings stock.
+
+368
+00:35:47.650 --> 00:35:48.570
+Anthony Taylor: Alright. Excuse me.
+
+369
+00:35:50.250 --> 00:35:51.080
+Anthony Taylor: Aye.
+
+370
+00:35:51.540 --> 00:35:59.979
+Anthony Taylor: to recognize patterns and time data. We need the ability to resample our data converting hourly data to daily data or daily data to weekly data.
+
+371
+00:36:00.750 --> 00:36:03.900
+Anthony Taylor: Okay, this we're going to do today.
+
+372
+00:36:04.100 --> 00:36:05.820
+Anthony Taylor: And this.
+
+373
+00:36:06.300 --> 00:36:07.250
+Anthony Taylor: okay.
+
+374
+00:36:08.420 --> 00:36:12.079
+Anthony Taylor: cool thing is, pandas has some really nice ways to do it.
+
+375
+00:36:12.780 --> 00:36:24.600
+Anthony Taylor:  yeah, let's keep going. I'm gonna eventually get to the demo. Today's class. We're going to learn about, python ended, using time and date time.
+
+376
+00:36:24.750 --> 00:36:27.750
+Anthony Taylor:  it.
+
+377
+00:36:27.760 --> 00:36:32.970
+Anthony Taylor: I would say. I would argue that date and time.
+
+378
+00:36:33.470 --> 00:36:35.240
+Anthony Taylor: There's probably
+
+379
+00:36:35.940 --> 00:36:39.979
+Anthony Taylor: in the top 5. Most difficult things to deal with in program.
+
+380
+00:36:41.190 --> 00:36:42.570
+Anthony Taylor: Okay, overall.
+
+381
+00:36:43.100 --> 00:36:46.680
+Anthony Taylor: We all have. I mean, I have that have the Bible
+
+382
+00:36:47.400 --> 00:36:55.230
+Anthony Taylor: template. I give the entire team with every date conversion I could come up with. And it's still not enough.
+
+383
+00:36:57.170 --> 00:37:00.350
+Anthony Taylor: Okay for them to figure it out without asking for
+
+384
+00:37:01.370 --> 00:37:06.299
+Anthony Taylor: it's just a pain in the butt. But people change stuff all the time.
+
+385
+00:37:06.660 --> 00:37:23.580
+Anthony Taylor:  so there's a lot of ways to format time. You know. We talked about this before Rami and his bizarre type format right? And then the rest of us, with our absolutely normal only happens in the United States dive format.
+
+386
+00:37:23.840 --> 00:37:25.970
+Anthony Taylor: Right? Yeah.
+
+387
+00:37:26.170 --> 00:37:35.549
+Anthony Taylor:  So as you learned in earlier units, python append is supply function available to do that. And that's 100%. True.
+
+388
+00:37:35.600 --> 00:37:38.190
+Anthony Taylor: Candace hasn't covered. We're good.
+
+389
+00:37:38.500 --> 00:37:40.830
+Anthony Taylor: We are going to play with some stock market date.
+
+390
+00:37:41.270 --> 00:37:44.130
+Anthony Taylor: Okay? In fact, let's go do that now.
+
+391
+00:37:45.790 --> 00:37:47.429
+Anthony Taylor: So in
+
+392
+00:37:48.320 --> 00:37:51.650
+Anthony Taylor: Instructor one you haven't already looked at.
+
+393
+00:37:52.450 --> 00:37:58.060
+Anthony Taylor: We're gonna bring in pandas. And we have some S and P data.
+
+394
+00:37:59.390 --> 00:38:03.649
+Anthony Taylor: Now. first characteristic of time series data.
+
+395
+00:38:04.610 --> 00:38:09.499
+Anthony Taylor: there is date time values, or at least date or time values.
+
+396
+00:38:10.510 --> 00:38:13.539
+Anthony Taylor: In this case these are just pure timestamps.
+
+397
+00:38:14.770 --> 00:38:18.669
+Anthony Taylor: Okay, these are the values, that's all we have in this particular.
+
+398
+00:38:19.720 --> 00:38:24.550
+Anthony Taylor: If we look at the types, though we have a little bit of an issue, don't we?
+
+399
+00:38:25.760 --> 00:38:29.010
+Anthony Taylor: Is that time column actually a date?
+
+400
+00:38:32.360 --> 00:38:38.490
+Anthony Taylor: Not according to Python. Python sees it as an object, which means it's a string.
+
+401
+00:38:39.300 --> 00:38:42.180
+Anthony Taylor: So first thing we have to do
+
+402
+00:38:43.060 --> 00:38:44.420
+Anthony Taylor: is converted.
+
+403
+00:38:44.790 --> 00:38:51.400
+Anthony Taylor: So if we just take a look at one of them we can see. Okay? Well, sure. Looks like a date time.
+
+404
+00:38:51.550 --> 00:38:53.290
+Anthony Taylor: I'm feeling pretty good about that.
+
+405
+00:38:53.780 --> 00:38:58.200
+Anthony Taylor: Let me show you what a daytime object looks like in pandas
+
+406
+00:38:58.730 --> 00:39:01.239
+Anthony Taylor: a little. It looks pretty similar.
+
+407
+00:39:01.920 --> 00:39:05.990
+Anthony Taylor: Okay, this is a timestamp in pandas.
+
+408
+00:39:06.210 --> 00:39:07.380
+Anthony Taylor: Very simple.
+
+409
+00:39:08.630 --> 00:39:10.240
+Anthony Taylor: Okay, so this is a real one.
+
+410
+00:39:10.970 --> 00:39:13.100
+Anthony Taylor: To convert it.
+
+411
+00:39:13.120 --> 00:39:24.909
+Anthony Taylor: Here's the brains. Here's the part of this part of the class that we need to know. Okay. Pd, dot 2 date time pass in the column. You want to convert.
+
+412
+00:39:25.380 --> 00:39:26.450
+Anthony Taylor: Does time come?
+
+413
+00:39:27.350 --> 00:39:31.800
+Anthony Taylor: I will tell you right now. This will give you a warning.
+
+414
+00:39:32.000 --> 00:39:36.239
+Anthony Taylor: and we're not going to use it throughout the entire class. But we will start class with it.
+
+415
+00:39:37.020 --> 00:39:42.140
+Anthony Taylor: Okay, and then Utc, does anybody know what Utc is?
+
+416
+00:39:47.420 --> 00:39:49.760
+Masarirambi, Rodney: I know Greenwich time?
+
+417
+00:39:50.390 --> 00:39:52.090
+Anthony Taylor: Wait. What'd you say.
+
+418
+00:39:55.040 --> 00:39:55.910
+Anthony Taylor: Rodney.
+
+419
+00:39:56.340 --> 00:40:06.170
+Anthony Taylor: doesn't it match like greenish? Meantime, or something like that. I love that you said that. And look, I'll show you some, so don't look at the bottom corner yet
+
+420
+00:40:06.320 --> 00:40:20.039
+Anthony Taylor: coordinated. Universal design is this time standard that anyone in the world can use to specify an exact moment in time, regardless of where they live. Utc doesn't adjust for daylight saving time, which is what differentiates it from
+
+421
+00:40:20.500 --> 00:40:21.980
+Anthony Taylor: Greenwich. Mean time.
+
+422
+00:40:23.310 --> 00:40:26.429
+Anthony Taylor: okay, Utc doesn't care.
+
+423
+00:40:28.220 --> 00:40:34.269
+Anthony Taylor: And usually what you'll see is, you know, minus 4 minus 5.
+
+424
+00:40:34.990 --> 00:40:38.349
+Anthony Taylor: Okay. alongside at Utc.
+
+425
+00:40:38.690 --> 00:40:45.870
+Anthony Taylor: So like standard Utc time standard also matches London's time zone. So it's plus 0 in England.
+
+426
+00:40:47.480 --> 00:40:48.400
+Anthony Taylor: Okay.
+
+427
+00:40:48.800 --> 00:40:54.999
+Anthony Taylor: alright. So anything else. There is a database called the time zone database.
+
+428
+00:40:55.180 --> 00:41:09.059
+Anthony Taylor: And it basically has all of the pluses and minuses for every time zone in the world. It's really not as many as you might think. Okay, but there's pretty much a plus and minus on both sides.
+
+429
+00:41:09.310 --> 00:41:12.000
+Anthony Taylor: We're gonna do date date time in just a moment.
+
+430
+00:41:12.400 --> 00:41:21.379
+Anthony Taylor:  just a quick note. The term timestamp in pandas is the same thing as date time almost everywhere else.
+
+431
+00:41:23.500 --> 00:41:27.250
+Anthony Taylor: Alright, when you see timestamp date time. The same thing.
+
+432
+00:41:28.420 --> 00:41:31.719
+Anthony Taylor: Okay? Alright. Now we'll do the
+
+433
+00:41:32.300 --> 00:41:36.050
+Anthony Taylor: alright. So we're gonna run this. It's gonna give us a warning.
+
+434
+00:41:36.070 --> 00:41:44.539
+Anthony Taylor: What's the warning? Say? Infer date, time, format is deprecated, and will no longer work in the future, for now it still works.
+
+435
+00:41:46.630 --> 00:41:53.489
+Anthony Taylor: Putting Utc equals. True means it's going to output the time value at Utc time.
+
+436
+00:41:53.600 --> 00:41:58.750
+Anthony Taylor: If you do not do this, it will convert it at your time zone.
+
+437
+00:42:01.460 --> 00:42:04.509
+Anthony Taylor: So that also means. Well, here, let's take a look.
+
+438
+00:42:07.370 --> 00:42:10.590
+Anthony Taylor: Oh, wait! That would convert it. So
+
+439
+00:42:10.970 --> 00:42:11.970
+let's see
+
+440
+00:42:13.410 --> 00:42:19.310
+Anthony Taylor: let's see if we run. No got it, no matter what I run. It's gonna mess with it. So
+
+441
+00:42:20.100 --> 00:42:22.500
+Anthony Taylor: let's just copy this down here
+
+442
+00:42:23.460 --> 00:42:25.279
+Anthony Taylor: after the conversion.
+
+443
+00:42:28.450 --> 00:42:29.290
+Anthony Taylor: Come on.
+
+444
+00:42:31.250 --> 00:42:37.590
+Anthony Taylor: Okay. So right now, this is saying it's all at at at 0 Utc, which
+
+445
+00:42:37.710 --> 00:42:40.809
+Anthony Taylor: makes sense because all of our data was at plus 0 also.
+
+446
+00:42:41.640 --> 00:42:45.630
+Anthony Taylor: Alright. So now we're going to convert it.
+
+447
+00:42:46.450 --> 00:42:51.880
+Anthony Taylor: 2 us Easter minus 4. Right?
+
+448
+00:42:52.420 --> 00:42:57.770
+Anthony Taylor: You guys are not Eastern, you might not know. So do you have 500? New York is
+
+449
+00:42:57.880 --> 00:43:00.729
+Anthony Taylor: when when the Macy's parade comes on. It's always early.
+
+450
+00:43:02.310 --> 00:43:09.789
+Anthony Taylor: So we're going to run that don't really see a whole lot of change except in this info. It shows us US. Eastern.
+
+451
+00:43:09.830 --> 00:43:14.160
+Anthony Taylor: and if we look at the data, it now all says, minus 5
+
+452
+00:43:14.700 --> 00:43:17.080
+Anthony Taylor: stupid daylight savings time.
+
+453
+00:43:18.560 --> 00:43:21.670
+Anthony Taylor: I was minus 4 just a few weeks ago.
+
+454
+00:43:22.160 --> 00:43:26.870
+Anthony Taylor: Promise okay? Questions. Yes, right?
+
+455
+00:43:28.070 --> 00:43:34.470
+Masarirambi, Rodney: So if that, if you go back up, it was saying that when you got the warning and saying it was
+
+456
+00:43:34.600 --> 00:43:36.300
+Masarirambi, Rodney: so, what
+
+457
+00:43:36.320 --> 00:43:41.840
+Masarirambi, Rodney: what's gonna replace. It's in the solution. I think II already put it in one of the
+
+458
+00:43:41.930 --> 00:43:44.180
+Anthony Taylor: you haven't seen it yet, but you will. Today
+
+459
+00:43:44.510 --> 00:43:50.919
+Anthony Taylor: I knew you were. Gonna ask that. I didn't say I didn't think Rodney's gonna ask that. But I figured somebody is gonna ask.
+
+460
+00:43:51.600 --> 00:43:53.520
+Anthony Taylor: what do we do about that warning.
+
+461
+00:43:54.170 --> 00:44:03.410
+Clayton Graves: I'm on it. What did you do? Linear regression to to to predict that, or what? What did you use to predict? It's not a prediction. It's simply. It's just a
+
+462
+00:44:03.670 --> 00:44:06.089
+Anthony Taylor: the bottom line is, is, there's a format.
+
+463
+00:44:06.130 --> 00:44:12.829
+Anthony Taylor: This is a format you have to put in. I was joking. It's fine, Meredith.
+
+464
+00:44:13.160 --> 00:44:19.570
+Meredith McCanse (she/her): In the step where you converted it to us. Eastern
+
+465
+00:44:20.450 --> 00:44:27.659
+Meredith McCanse (she/her): is the at the end in parentheses where it says us Eastern. I'm assuming that's the part where you tell it. Which
+
+466
+00:44:28.130 --> 00:44:30.630
+Meredith McCanse (she/her): zone to convert to?
+
+467
+00:44:31.020 --> 00:44:40.610
+Meredith McCanse (she/her): Is there a. So is there like a list of the different options? Because you probably can't just write anything there. Right? You have to.
+
+468
+00:44:42.390 --> 00:44:47.010
+Anthony Taylor: Yes. and let's see
+
+469
+00:44:48.710 --> 00:44:55.349
+Anthony Taylor: Tzi converts. I was hoping it would actually have it in here for the formatting it does
+
+470
+00:44:56.540 --> 00:45:01.550
+Anthony Taylor:  Europe, Berlin, us Central European?
+
+471
+00:45:03.730 --> 00:45:13.030
+Meredith McCanse (she/her): Or is it one of those things that will start populating while you type it? Because it's standardized? Probably it might, but I wouldn't count on it. We need to find
+
+472
+00:45:13.780 --> 00:45:16.239
+Anthony Taylor: the list that it's comfortable with.
+
+473
+00:45:19.320 --> 00:45:21.849
+Anthony Taylor: I'll hunt that down for you.
+
+474
+00:45:22.010 --> 00:45:31.080
+Anthony Taylor: I assumed you would just come in here and be able to find it. But I mean, we could look at the source code and see. But it has to get it somewhere. Also.
+
+475
+00:45:39.540 --> 00:45:40.520
+Anthony Taylor: Yeah.
+
+476
+00:45:47.130 --> 00:45:49.039
+Anthony Taylor: yeah, it's gotta get it somewhere.
+
+477
+00:45:51.080 --> 00:45:55.590
+Anthony Taylor: But yeah, I'll hunt it down for you or Kevin if you want to hunt it down. That'd be great.
+
+478
+00:45:55.800 --> 00:46:07.739
+Anthony Taylor: Bottom line is is is, yeah, it's probably just the the standard like, whatever the standard statement is. Us Eastern Us. Central, us. you know, mountain
+
+479
+00:46:07.910 --> 00:46:09.099
+Anthony Taylor: for you guys
+
+480
+00:46:09.340 --> 00:46:11.370
+Anthony Taylor: stuff like that. But
+
+481
+00:46:11.670 --> 00:46:15.850
+Anthony Taylor: yeah, I didn't think to look that one up. Meredith, darn it.
+
+482
+00:46:16.300 --> 00:46:23.159
+Anthony Taylor: no worries. Thank you. Okay, no, that's good. I'm glad. Okay. So now, you guys need to do that
+
+483
+00:46:23.840 --> 00:46:29.940
+Anthony Taylor: pretty much all day to day is all about. Have the instructor on one side, you on the other. Okay.
+
+484
+00:46:30.620 --> 00:46:42.080
+Anthony Taylor: it's very much like that. Alright.  so you're gonna import. There's that path
+
+485
+00:46:42.590 --> 00:46:48.929
+Anthony Taylor: you're going to bring in your Tesla data from resources
+
+486
+00:46:49.280 --> 00:46:53.879
+Anthony Taylor: kind of interesting. They had to do that. I don't think they've ever had to do that. I mean, we've done it. But
+
+487
+00:46:54.310 --> 00:47:03.910
+Anthony Taylor: you're going to do a quick head on that. You're going to do an info. You're going to do a date conversion like we did in the instructor, one
+
+488
+00:47:04.130 --> 00:47:07.480
+Anthony Taylor: ahead again and info again.
+
+489
+00:47:08.420 --> 00:47:11.100
+Anthony Taylor: Make it Europe, Berlin time zone.
+
+490
+00:47:12.100 --> 00:47:16.269
+Anthony Taylor: First 5 rows is ahead and an info. You're done.
+
+491
+00:47:18.330 --> 00:47:23.410
+Anthony Taylor: That was kind of fast, right? But it really was like identical to what we just did.
+
+492
+00:47:23.940 --> 00:47:30.089
+Anthony Taylor: We're gonna hit an error an error. When we hit use Pop, you're gonna get the warning. Yeah.
+
+493
+00:47:30.630 --> 00:47:32.250
+Anthony Taylor: okay, how'd you guys do?
+
+494
+00:47:34.580 --> 00:47:35.930
+Anthony Taylor: Pretty okay?
+
+495
+00:47:36.360 --> 00:47:37.620
+Mason, Natalie: Awesome.
+
+496
+00:47:39.280 --> 00:47:46.319
+Anthony Taylor: I don't think anyone's gonna complain about the time on that one since I have people back in the breakout room like 9 min in.
+
+497
+00:47:46.800 --> 00:47:49.930
+Anthony Taylor: So I'm thinking, everybody finish that one. Okay.
+
+498
+00:47:50.010 --> 00:47:53.590
+Clayton Graves: it was literally all just functions. You're just calling a function.
+
+499
+00:47:53.990 --> 00:47:57.190
+Anthony Taylor: Pretty much. Everything in life is just functions.
+
+500
+00:47:58.840 --> 00:48:01.200
+Anthony Taylor: Pretty much okay. Kind of.
+
+501
+00:48:01.660 --> 00:48:09.839
+Anthony Taylor: Alright. So let's just quickly review it. though. You guys did it so fast, I doubt you really needed me to review it.
+
+502
+00:48:10.100 --> 00:48:12.039
+Anthony Taylor: Just kidding. I'm still gonna review it.
+
+503
+00:48:12.890 --> 00:48:15.609
+Anthony Taylor: Okay, back to the top.
+
+504
+00:48:17.150 --> 00:48:27.739
+Anthony Taylor: And so we brought in pandas. We brought in Tesla. We peeked at the head. We can see right away. There's going to be a problem.
+
+505
+00:48:28.790 --> 00:48:36.739
+Anthony Taylor: It's gonna need a time conversion. So we can do that. Notice. I didn't even put the in first schema in there on this one.
+
+506
+00:48:37.750 --> 00:48:39.899
+Anthony Taylor: okay, are in for format.
+
+507
+00:48:39.930 --> 00:48:44.499
+Anthony Taylor: Don't even need it. But here's what it looks like. If you did.
+
+508
+00:48:46.250 --> 00:48:52.580
+Anthony Taylor: okay? So you would do format equals. And it would the one that's up here.
+
+509
+00:48:52.820 --> 00:49:05.810
+Anthony Taylor: This one is basically this format. You're probably like Yikes. But if you just go here, you can actually see and figure it out pretty quickly.
+
+510
+00:49:07.220 --> 00:49:08.280
+Anthony Taylor: Okay?
+
+511
+00:49:08.370 --> 00:49:14.130
+Anthony Taylor:  so yeah. So you build your format from these
+
+512
+00:49:14.290 --> 00:49:22.600
+Anthony Taylor: abbreviation. So here's day a month. Here's month as a 0 added decimal number.
+
+513
+00:49:24.020 --> 00:49:25.140
+Anthony Taylor: Okay?
+
+514
+00:49:26.250 --> 00:49:27.710
+Weekday.
+
+515
+00:49:29.380 --> 00:49:33.550
+Anthony Taylor: Weak number. Alright. Lots of fun stuff.
+
+516
+00:49:33.820 --> 00:49:45.569
+Meredith McCanse (she/her): And the percentage in front usually means like, however, it usually tells it, like, however, many characters needed. Right? Is that true? That's just telling you it's a format.
+
+517
+00:49:46.370 --> 00:49:47.669
+Meredith McCanse (she/her): Oh, okay, that's it.
+
+518
+00:49:47.870 --> 00:49:53.889
+Anthony Taylor: Yeah, yeah. so, but yeah, so anyway, so this is what it would look like
+
+519
+00:49:54.280 --> 00:49:58.179
+Anthony Taylor: today if you had to do your own format.
+
+520
+00:49:58.410 --> 00:50:06.809
+Anthony Taylor: So you would basically just put it in here like this. But like, say, it had slashes instead of dashes. Okay, you would go
+
+521
+00:50:07.190 --> 00:50:08.180
+Anthony Taylor: slash.
+
+522
+00:50:10.210 --> 00:50:11.330
+Anthony Taylor: flash.
+
+523
+00:50:12.440 --> 00:50:14.299
+Anthony Taylor: Okay? Assuming it was that slash
+
+524
+00:50:15.450 --> 00:50:26.970
+Anthony Taylor: alright. It's fairly straightforward, but it will take you some getting used to. Yeah. So you run that it does the same thing. Here's the infer date time where you get the warning.
+
+525
+00:50:27.070 --> 00:50:30.359
+Anthony Taylor: I just did it all 3 ways. So you guys can see
+
+526
+00:50:30.380 --> 00:50:36.520
+Anthony Taylor: you don't actually need it, because this one is actually in the format. Pandas expects it in.
+
+527
+00:50:37.790 --> 00:50:40.490
+Anthony Taylor: So you don't actually need to say a format
+
+528
+00:50:40.750 --> 00:50:43.599
+Anthony Taylor: but if you did, it would be this one.
+
+529
+00:50:44.450 --> 00:50:46.789
+Anthony Taylor: Okay, alright. So enough on that
+
+530
+00:50:46.810 --> 00:50:49.650
+Anthony Taylor: test the head. So now it's formatted.
+
+531
+00:50:49.970 --> 00:50:54.270
+Anthony Taylor: Info! It is a date time, it is in Utc.
+
+532
+00:50:54.850 --> 00:51:04.480
+Anthony Taylor: So we're going to change it to Europe. Berlin. do another hit. Do another info. and we can see it's still daytime, and now it's in Europe for them.
+
+533
+00:51:04.650 --> 00:51:06.390
+Anthony Taylor: which is plus what else?
+
+534
+00:51:09.050 --> 00:51:12.840
+Anthony Taylor: Pretty cool. Everyone nailed this. Huh? No issues.
+
+535
+00:51:13.230 --> 00:51:14.799
+Anthony Taylor: Then let us continue.
+
+536
+00:51:15.940 --> 00:51:18.500
+Anthony Taylor: let us continue
+
+537
+00:51:20.520 --> 00:51:30.540
+Anthony Taylor: alright. analyzing market data. So we're going to start looking at patterns in our time series data?
+
+538
+00:51:30.630 --> 00:51:43.500
+Anthony Taylor:  I mean, everything in Ml is effectively atoms. Okay, when we deal with data like we'll deal with big data.
+
+539
+00:51:43.510 --> 00:51:46.300
+Anthony Taylor: the patterns might be really hard to find
+
+540
+00:51:46.380 --> 00:51:57.280
+Anthony Taylor: as we start doing analytics on that data patterns start to emerge. And as we get to the point where we can make decisions on those patterns, they tend to be very well
+
+541
+00:51:57.470 --> 00:51:59.600
+Anthony Taylor: or okay.
+
+542
+00:52:00.150 --> 00:52:04.730
+Anthony Taylor:  I mean, everything has a pattern.
+
+543
+00:52:04.750 --> 00:52:09.529
+Anthony Taylor: whether you think about it or not. You getting ready for class today. There's a pattern
+
+544
+00:52:09.710 --> 00:52:18.200
+Anthony Taylor: you may call it a routine, but maybe that routine is not the same every day. But I bet you, if you looked at it over the entire 6 months, there's a pattern.
+
+545
+00:52:19.300 --> 00:52:26.080
+Anthony Taylor: a pattern that's so solid that when this class is over you will still be doing it
+
+546
+00:52:27.440 --> 00:52:30.649
+Anthony Taylor: and going. Dang it, I don't have class.
+
+547
+00:52:31.500 --> 00:52:38.659
+Anthony Taylor: Okay? And again, you could say, that's routine. Well, yeah. alright. But So
+
+548
+00:52:39.380 --> 00:52:51.510
+Anthony Taylor: lots of examples include going to lunch. Feeling excited about the market opening or closing, getting ready for class whatever. These are common interday patterns or time of day patterns.
+
+549
+00:52:52.210 --> 00:52:56.340
+Anthony Taylor: stock market patterns, some examples of time series, stock market.
+
+550
+00:52:56.500 --> 00:53:00.220
+Anthony Taylor: a surge in trading value. Open magazine, Easter.
+
+551
+00:53:01.690 --> 00:53:07.100
+Anthony Taylor: A spike in training value when market closes its position at lunchtime
+
+552
+00:53:08.240 --> 00:53:12.289
+Anthony Taylor: a daily, higher, low price that's tested around lunchtime
+
+553
+00:53:12.800 --> 00:53:28.760
+Anthony Taylor: increases in trading value between 2 and 3 Eastern. a final push before the market closes just before 4 Easter. These are all patterns. Our job is to algorithmically identify these patterns. But first.
+
+554
+00:53:29.540 --> 00:53:32.950
+Anthony Taylor: let's just visualize. Okay.
+
+555
+00:53:34.180 --> 00:53:35.000
+yeah.
+
+556
+00:53:35.260 --> 00:53:37.729
+Anthony Taylor: So let's go do that.
+
+557
+00:53:43.560 --> 00:53:48.820
+Anthony Taylor: So we're gonna bring in pandas again. We're gonna bring in our S and P, 500 data again.
+
+558
+00:53:49.830 --> 00:53:54.639
+I'm gonna go ahead and infer the date time. Just get that converted. Now we need it.
+
+559
+00:53:54.760 --> 00:53:56.589
+Anthony Taylor: We're going to put it into Easter.
+
+560
+00:53:57.660 --> 00:54:03.290
+Anthony Taylor: Okay? And then we're gonna take a look. We just did all of it in one cell. What we were doing in 3 or 4 a few minutes ago.
+
+561
+00:54:03.790 --> 00:54:09.050
+Anthony Taylor: Okay, so now we have time, us Eastern, and it's a date time. We're good to go.
+
+562
+00:54:09.800 --> 00:54:20.340
+Anthony Taylor: We're gonna go ahead and set our index to the time value. Why? Because we're gonna visualize. It's in the index. It pretty much automatically becomes the X axis.
+
+563
+00:54:21.620 --> 00:54:23.700
+Anthony Taylor: Alright. So we don't have to sweat it.
+
+564
+00:54:24.760 --> 00:54:26.750
+Anthony Taylor: Now.
+
+565
+00:54:26.760 --> 00:54:32.510
+Anthony Taylor: here's a cool thing about indexing a date time object. You can
+
+566
+00:54:32.860 --> 00:54:36.310
+Anthony Taylor: ask for different parts of the time
+
+567
+00:54:37.960 --> 00:54:40.689
+Anthony Taylor: you can ask for year, month.
+
+568
+00:54:40.750 --> 00:54:54.180
+Anthony Taylor: water. Sometimes you can ask for weeks. There's actually actually there you're going to see before the end of today. There is a defect they've changed this code.
+
+569
+00:54:54.320 --> 00:54:59.769
+Anthony Taylor: and you can't ask for a certain one that we're gonna ask you to ask for.
+
+570
+00:54:59.820 --> 00:55:02.600
+Anthony Taylor: And I'm going to try to get you guys to front it down.
+
+571
+00:55:02.860 --> 00:55:05.650
+Anthony Taylor: But right now just understand
+
+572
+00:55:05.870 --> 00:55:08.340
+Anthony Taylor: that you can see the year.
+
+573
+00:55:09.380 --> 00:55:18.510
+Anthony Taylor: the month, and the quarter simply by putting dot index dot year, if it is, in fact, a date time object in the index.
+
+574
+00:55:19.270 --> 00:55:21.020
+Anthony Taylor: Why is this beneficial?
+
+575
+00:55:21.320 --> 00:55:28.670
+Anthony Taylor: Well, if we want to chart? So right now, we're gonna so here, let's start this way. We're gonna chart that closing column.
+
+576
+00:55:29.010 --> 00:55:32.450
+Anthony Taylor: And that's it, nothing else. And it looks like
+
+577
+00:55:32.770 --> 00:55:33.480
+Anthony Taylor: that.
+
+578
+00:55:34.270 --> 00:55:41.960
+Anthony Taylor: Okay, every single date value is represented. Every single up and down is represented. That looks like stock chart 10.
+
+579
+00:55:43.790 --> 00:55:47.550
+Anthony Taylor: Who's my stock traders in here? I know Kevin is. But anybody else.
+
+580
+00:55:49.530 --> 00:55:53.910
+Anthony Taylor: Oh, Mike, you okay. usually, what is this candlesticks? Right?
+
+581
+00:55:56.380 --> 00:55:59.699
+Anthony Taylor: We clearly don't have an updated candlesticks. But yeah.
+
+582
+00:56:00.010 --> 00:56:15.780
+Anthony Taylor: okay, so here we can look at. Or so, okay, so here, we're going to do a local. So we're gonna filter since our date time is the index. We don't have to put any words in here. We could just put the date we want to use and grab the first 20 records.
+
+583
+00:56:16.470 --> 00:56:20.160
+Anthony Taylor: Okay? So we could see the first 20 records.
+
+584
+00:56:20.790 --> 00:56:22.680
+Anthony Taylor: with 6, 6, 2, 19.
+
+585
+00:56:24.310 --> 00:56:25.200
+Anthony Taylor: Okay.
+
+586
+00:56:25.420 --> 00:56:35.449
+Anthony Taylor: we wanted to get between 6, 6, 2, 19, at 7, a. M. And 6, 6, 2, 19, at 9, 30. What are we trying to identify here, we're trying to get this dip, I think.
+
+587
+00:56:36.440 --> 00:56:37.410
+Anthony Taylor: okay.
+
+588
+00:56:37.910 --> 00:56:41.119
+Anthony Taylor: we can do that with simply using
+
+589
+00:56:42.740 --> 00:56:47.370
+Anthony Taylor: this range argument here. So now we have between
+
+590
+00:56:48.400 --> 00:56:50.019
+Anthony Taylor: 7 and 9 30
+
+591
+00:56:51.030 --> 00:56:53.730
+Anthony Taylor: cool. Okay.
+
+592
+00:56:54.040 --> 00:57:03.640
+Anthony Taylor:  we can plot it same way. We're going to put the same loke. But then we're going to say we want it to plot the close column which down the other one
+
+593
+00:57:03.820 --> 00:57:05.490
+Anthony Taylor: and plot it out.
+
+594
+00:57:06.090 --> 00:57:10.739
+Anthony Taylor: So now we have a much smaller but much easier to read
+
+595
+00:57:11.100 --> 00:57:12.369
+Anthony Taylor: period of time.
+
+596
+00:57:13.180 --> 00:57:15.920
+Anthony Taylor: So clearly, we had a huge drop
+
+597
+00:57:16.410 --> 00:57:18.760
+Anthony Taylor: right around 8.8
+
+598
+00:57:19.450 --> 00:57:21.320
+Anthony Taylor: 8 15, most likely.
+
+599
+00:57:21.750 --> 00:57:32.240
+Meredith McCanse (she/her): But it's still. It's only within like it looks huge on the graph. But it's within a dollar, cause. It's $283 and 10 cents versus 90 cents.
+
+600
+00:57:32.670 --> 00:57:42.659
+Anthony Taylor: I think we're just trying to come up with a how to drill down into chart. Yeah, it's not really that. This one's probably. What's this one like 2,
+
+601
+00:57:42.840 --> 00:57:44.460
+Anthony Taylor: 90, something.
+
+602
+00:57:44.950 --> 00:57:47.960
+Anthony Taylor: the 2 70. That's a little more significant.
+
+603
+00:57:49.210 --> 00:57:51.869
+Anthony Taylor: That's a lot longer range. So, but it's cool.
+
+604
+00:57:52.420 --> 00:57:59.970
+Anthony Taylor:  So here we can look at 9, 30 to 9, 45 specifically. Oh, my God, that's about as tight as you get.
+
+605
+00:58:01.210 --> 00:58:08.189
+Anthony Taylor: Okay. So that's like a 15 min period of time. I don't know that anybody would drill down that part.
+
+606
+00:58:08.200 --> 00:58:18.929
+Anthony Taylor: and most widgets and stuff that you use allow you to drill down without doing this.  closing price during lunchtime. All right.
+
+607
+00:58:19.410 --> 00:58:23.060
+Anthony Taylor: Know what I did there. So here, you can see between 11 and 12.
+
+608
+00:58:24.470 --> 00:58:29.650
+Anthony Taylor: Okay. here, you can see between 2 and 2, 45
+
+609
+00:58:31.380 --> 00:58:34.939
+Anthony Taylor: started going back up. They're gonna get their dollar back.
+
+610
+00:58:36.320 --> 00:58:39.820
+Anthony Taylor: Here, between 3, 30 and 4,
+
+611
+00:58:42.450 --> 00:58:46.019
+Anthony Taylor: and here, between 3, 30 and 4 again, what?
+
+612
+00:58:46.200 --> 00:58:50.730
+Anthony Taylor: Why are they doing that one twice? Oh, this is just showing the date. There you go.
+
+613
+00:58:51.970 --> 00:58:56.990
+Anthony Taylor: Okay, when you see the data, it really doesn't look very impressive. Yay.
+
+614
+00:58:58.050 --> 00:58:59.060
+Anthony Taylor: yes. Then
+
+615
+00:58:59.430 --> 00:59:01.699
+sonja baro: I just want to confirm the
+
+616
+00:59:01.730 --> 00:59:13.609
+Anthony Taylor: the thing we're showing repeatedly is using slicing of that data. Is that right? That's all we're really demonstrating. Here is basically this behavior.
+
+617
+00:59:14.600 --> 00:59:20.020
+Anthony Taylor: Okay, this log which you guys have seen local before, but not on time, this one.
+
+618
+00:59:20.310 --> 00:59:24.359
+Anthony Taylor: So we're basically just showing you like 15 different versions of
+
+619
+00:59:24.520 --> 00:59:27.400
+Anthony Taylor: lessen the data down
+
+620
+00:59:28.360 --> 00:59:29.650
+sonja baro: Gotcha.
+
+621
+00:59:30.200 --> 00:59:40.420
+Meredith McCanse (she/her): and is the reason that you don't have to specify a column, because the time column is the index, and so it by default.
+
+622
+00:59:41.020 --> 00:59:49.090
+Anthony Taylor: That is correct. If we wouldn't have done that, you would have had to do. Time equals every time or time in or whatever.
+
+623
+00:59:50.170 --> 00:59:56.579
+Anthony Taylor: but for time, series, manipulation and time series visualization always set the time.
+
+624
+00:59:56.670 --> 01:00:01.179
+Anthony Taylor: The the date time to begin will definitely make your life easier.
+
+625
+01:00:02.270 --> 01:00:03.270
+Anthony Taylor: Okay.
+
+626
+01:00:05.320 --> 01:00:09.030
+Anthony Taylor: I know you guys are like that was too easy. Once he once he got up his sleeve.
+
+627
+01:00:10.970 --> 01:00:12.669
+Anthony Taylor: I have nothing up my sleeve
+
+628
+01:00:13.670 --> 01:00:16.340
+Anthony Taylor: they can't know. Okay, good.
+
+629
+01:00:16.680 --> 01:00:19.419
+Anthony Taylor: Wait. What time is it?
+
+630
+01:00:23.820 --> 01:00:25.560
+Anthony Taylor: There's no way. That's right.
+
+631
+01:00:28.110 --> 01:00:37.860
+Anthony Taylor: So I would tell you guys deep my secret. Here's a secret. You guys know that we at Edx, we offer a data science course, which is what I taught
+
+632
+01:00:38.770 --> 01:00:42.320
+Anthony Taylor: and then a Fintech course.
+
+633
+01:00:42.680 --> 01:00:44.660
+Anthony Taylor: which is what Meredith wishes she with.
+
+634
+01:00:45.680 --> 01:00:49.220
+Anthony Taylor: okay, so Fintech is a
+
+635
+01:00:50.450 --> 01:00:54.979
+Anthony Taylor: specialized field. It's pretty big field where it's all about
+
+636
+01:00:55.080 --> 01:01:05.700
+Anthony Taylor: stuff like this. Will this module this week? Everything up until now has come from the daily science full? Okay, this one is actually from the Fintech port.
+
+637
+01:01:05.950 --> 01:01:08.200
+Anthony Taylor: and I always said they had it to them.
+
+638
+01:01:08.980 --> 01:01:10.220
+Anthony Taylor: That's what I said.
+
+639
+01:01:10.860 --> 01:01:18.459
+Anthony Taylor: Okay, cause they're gonna give you 20 min to do. The next activity claims gonna be back 5 min, and I'm not even gonna have time.
+
+640
+01:01:19.350 --> 01:01:22.599
+Anthony Taylor: Alright. But that's alright. Okay. So
+
+641
+01:01:23.690 --> 01:01:27.259
+Anthony Taylor: I guess we can, you guys want to take a break before or after this activity
+
+642
+01:01:28.800 --> 01:01:29.930
+Meredith McCanse (she/her): after
+
+643
+01:01:30.650 --> 01:01:36.170
+Anthony Taylor: after. Okay, then I say, I say, good for you. Alright. So let's look at the activity real quick.
+
+644
+01:01:36.340 --> 01:01:38.350
+Anthony Taylor: See what you guys have to do?
+
+645
+01:01:40.280 --> 01:01:44.839
+Anthony Taylor: Well, it actually has a I suppose we should look at it.
+
+646
+01:01:44.910 --> 01:01:53.280
+Anthony Taylor: Set the time column to the index plot, the closing price of Tia of Tesla. You're going to do a lobe where you zoom into 2020.
+
+647
+01:01:53.620 --> 01:01:56.300
+Anthony Taylor: You're gonna zoom.
+
+648
+01:01:59.520 --> 01:02:12.390
+Anthony Taylor: Let's see what that is. And then you're gonna do some other local. So let's go look at this, because I that looks like they're going to ask you to do something I didn't show. Well, I did not exactly
+
+649
+01:02:12.600 --> 01:02:19.280
+Anthony Taylor: alright. So there's the hair they're giving you all this. Okay, here's where you convert it. They give you all of this.
+
+650
+01:02:19.570 --> 01:02:21.730
+Anthony Taylor: Geez. Okay?
+
+651
+01:02:21.750 --> 01:02:26.190
+Anthony Taylor: So here they're going to have you set it to the index and then do ahead.
+
+652
+01:02:27.720 --> 01:02:33.790
+Anthony Taylor: Here. You're going to plot close. You're going to do the whole plot. No filter. Okay?
+
+653
+01:02:34.730 --> 01:02:38.030
+Anthony Taylor:  Then you're going to plot just 2020.
+
+654
+01:02:40.520 --> 01:02:47.299
+Anthony Taylor: Then you're going to plot prices from 20 to 20 using date time. What?
+
+655
+01:02:48.650 --> 01:02:51.399
+Anthony Taylor: Okay? I'm not positive. I know what that is. So 1 s
+
+656
+01:02:53.080 --> 01:02:55.809
+Anthony Taylor: probably do. It's just the terminology, weird.
+
+657
+01:02:59.020 --> 01:03:00.070
+Anthony Taylor: almost. There.
+
+658
+01:03:02.890 --> 01:03:05.360
+Anthony Taylor: Oh, that's right. It's after break. Duh
+
+659
+01:03:05.750 --> 01:03:12.760
+Anthony Taylor:  Oh.
+
+660
+01:03:13.210 --> 01:03:15.119
+Anthony Taylor: okay. So do you remember this part?
+
+661
+01:03:17.110 --> 01:03:21.179
+Anthony Taylor: I'm kind of glad we went over this, because probably would have forgotten. Been met
+
+662
+01:03:25.590 --> 01:03:26.600
+Anthony Taylor: right here.
+
+663
+01:03:28.640 --> 01:03:34.080
+Anthony Taylor: Okay, so if I said. use the date time index
+
+664
+01:03:34.560 --> 01:03:36.210
+Anthony Taylor: for year.
+
+665
+01:03:38.110 --> 01:03:39.360
+Anthony Taylor: that's what I mean.
+
+666
+01:03:41.690 --> 01:03:45.559
+Anthony Taylor: Is that clear? So if we go back to the exercise.
+
+667
+01:03:47.290 --> 01:03:51.820
+Anthony Taylor: It says. using the date time index.
+
+668
+01:03:52.870 --> 01:03:56.820
+Anthony Taylor: Now, we didn't technically do it. But it's basically this would be
+
+669
+01:03:57.490 --> 01:03:59.799
+Anthony Taylor: you putting the column name
+
+670
+01:04:00.780 --> 01:04:05.779
+Anthony Taylor: okay, with the index and equals equals the year you want to filter up.
+
+671
+01:04:06.120 --> 01:04:12.039
+Anthony Taylor: So just as an example, I'm not going to give it to you all inside, but something like
+
+672
+01:04:12.100 --> 01:04:18.950
+Anthony Taylor: dot log bracket, and then the column name, which is what EF. Underscore
+
+673
+01:04:19.020 --> 01:04:23.980
+Anthony Taylor: Tesla. So you have to do the whole thing. Dot index
+
+674
+01:04:24.060 --> 01:04:25.080
+Anthony Taylor: dot you
+
+675
+01:04:26.240 --> 01:04:27.210
+Anthony Taylor: okay.
+
+676
+01:04:27.750 --> 01:04:29.569
+Anthony Taylor: equals equals 22.
+
+677
+01:04:30.730 --> 01:04:31.970
+Anthony Taylor: Everybody understand?
+
+678
+01:04:32.250 --> 01:04:38.509
+Anthony Taylor: That's what this means. The index attributes. We are going to use those again later. So be sure that you got that
+
+679
+01:04:39.110 --> 01:04:43.470
+Anthony Taylor: and then here, go back to the other one that we were doing before.
+
+680
+01:04:43.590 --> 01:04:49.860
+Anthony Taylor: You don't need to, you know, with the ranges like we did in the instructor. One same. Here, you're done
+
+681
+01:04:50.930 --> 01:04:53.229
+Anthony Taylor: 1 min to knock this out
+
+682
+01:04:56.870 --> 01:04:59.550
+alright, so we'll run through this and then take a break.
+
+683
+01:05:01.380 --> 01:05:03.930
+Anthony Taylor: That was such a fun activity
+
+684
+01:05:04.560 --> 01:05:12.640
+Clayton Graves: for me. Also, I have to tell you that Jennifer had a way more elegant solution than I used, and so we took some time to talk through that as well.
+
+685
+01:05:13.940 --> 01:05:17.109
+sonja baro: That's great. That's how we learn. Good job.
+
+686
+01:05:18.840 --> 01:05:21.420
+Anthony Taylor: Mike. Did you end the riot in the kitchen?
+
+687
+01:05:23.960 --> 01:05:29.260
+michael mcpherson: Yeah, they were. They were making themselves ice cream Sunday, and of course
+
+688
+01:05:29.280 --> 01:05:32.660
+michael mcpherson: everything else that everybody wanted right? This second.
+
+689
+01:05:32.950 --> 01:05:38.150
+michael mcpherson: So they had to discuss. Is it like 20 degrees out there 20°F out there right now.
+
+690
+01:05:38.480 --> 01:05:43.260
+michael mcpherson: It's a 71 degrees 70 71 degrees in the house.
+
+691
+01:05:43.750 --> 01:05:44.979
+Anthony Taylor: Oh, well.
+
+692
+01:05:46.090 --> 01:05:48.000
+Raugewitz, Tania: ice cream is always appropriate.
+
+693
+01:05:48.600 --> 01:05:52.730
+michael mcpherson: No, no, my kids talking to each other to each other is the problem.
+
+694
+01:05:53.550 --> 01:05:58.889
+michael mcpherson: That's always fair. Soon as one starts mo moving their mouth, the other one starts yelling.
+
+695
+01:05:59.430 --> 01:06:00.660
+michael mcpherson: And there's 4 of them.
+
+696
+01:06:02.500 --> 01:06:14.590
+Anthony Taylor: Okay. So we read in our test the data and we took a peek at it. and we got the info. I believe we got all this stuff. So we converted the column to date. Time
+
+697
+01:06:14.790 --> 01:06:29.569
+Anthony Taylor: gave us that cool little warning to get it again doesn't look a whole lot different. But if we do the info, we can see it is, in fact, different. Now we're going to set the index. So now we can see, it's different in the data frame itself.
+
+698
+01:06:30.170 --> 01:06:31.390
+Anthony Taylor: That's number one.
+
+699
+01:06:31.980 --> 01:06:36.049
+Anthony Taylor: If we just plot on that, and that's it, because
+
+700
+01:06:36.070 --> 01:06:42.940
+Anthony Taylor: we have it as the index. All we have to do is pass in the column, and it'll plot on that index, giving us this cool
+
+701
+01:06:43.510 --> 01:06:44.830
+Anthony Taylor: Tesla chart.
+
+702
+01:06:45.070 --> 01:06:47.730
+Anthony Taylor: Clearly this must have been around the time he bought
+
+703
+01:06:48.260 --> 01:06:56.270
+Anthony Taylor: Twitter. Now that was recent. Don't know. I don't know what that is up. Meredith. What happened to Tesla in 2,020?
+
+704
+01:06:57.570 --> 01:07:03.509
+Meredith McCanse (she/her): That's a good question. I'm trying that. So that was like during the Covid lockdown. Right? Cause the lockdown started around March.
+
+705
+01:07:04.040 --> 01:07:10.629
+Anthony Taylor: You know what? Yeah, maybe maybe just car sales probably drop that covid lock down on
+
+706
+01:07:10.720 --> 01:07:16.700
+Meredith McCanse (she/her): cause it went up right. And what is this closing prices? Oh, I don't know why I actually I don't know.
+
+707
+01:07:17.260 --> 01:07:20.959
+Anthony Taylor: I mean, that's look at that. He was over 2,000 and dropped down to
+
+708
+01:07:21.640 --> 01:07:34.050
+sonja baro: as low as looks like 200 and some he was having battery issues.
+
+709
+01:07:34.480 --> 01:07:47.619
+Masarirambi, Rodney: and nobody was able to go in and actually do the work cause like for like that year. And the next year, if you wanted any like any nonstock car option. They were building a spray from the factory so like a sunroof
+
+710
+01:07:47.750 --> 01:07:51.540
+Masarirambi, Rodney: you were getting it straight from the factory. Then there was like no stock for that.
+
+711
+01:07:52.730 --> 01:07:53.400
+Anthony Taylor: Huh?
+
+712
+01:07:54.050 --> 01:07:55.559
+Anthony Taylor: Clayton? What's question?
+
+713
+01:07:58.200 --> 01:07:59.280
+Clayton Graves: Figs.
+
+714
+01:07:59.490 --> 01:08:05.940
+Clayton Graves: how about how? How do we set things? Seriously? How do I calculate that? How do I determine what the correct.
+
+715
+01:08:06.140 --> 01:08:09.460
+Clayton Graves: Yeah, honestly, if you let that off, what does it look like with?
+
+716
+01:08:13.560 --> 01:08:24.210
+Anthony Taylor: It's just shorter. So it's really just it. It has to do with the I mean II wouldn't even worry about it, Frank, unless you just you know, you could try different sizes.
+
+717
+01:08:24.550 --> 01:08:29.629
+Anthony Taylor:  I I'm positive it's not in choose
+
+718
+01:08:30.640 --> 01:08:34.839
+Anthony Taylor: I saw on the web, on their documentation. It did say, inches.
+
+719
+01:08:35.260 --> 01:08:41.090
+Anthony Taylor: Is that crazy, though? But this isn't 20, so if it is inches. Then it's cutting it off the screen.
+
+720
+01:08:41.670 --> 01:08:47.510
+Anthony Taylor: So that that's why inches came into my head. I'm pretty sure. But that's clearly not 20 inches.
+
+721
+01:08:49.160 --> 01:08:52.149
+Anthony Taylor: Okay, and that's clearly not 10 inches.
+
+722
+01:08:52.750 --> 01:08:54.500
+Anthony Taylor: So I don't know.
+
+723
+01:08:54.529 --> 01:09:01.919
+Anthony Taylor: But my opinion on fig size is it's just cosmetic, and what we do is not cosmetic, so don't worry about it
+
+724
+01:09:02.149 --> 01:09:04.510
+Anthony Taylor: unless it helps make it easier to see.
+
+725
+01:09:05.370 --> 01:09:07.369
+Anthony Taylor: Okay, we're not. We're not
+
+726
+01:09:07.540 --> 01:09:08.950
+Anthony Taylor: cosmetics.
+
+727
+01:09:11.569 --> 01:09:14.319
+Anthony Taylor: only that. only that
+
+728
+01:09:16.130 --> 01:09:18.540
+Anthony Taylor: this is way easier than trying to slice it.
+
+729
+01:09:18.939 --> 01:09:22.529
+Clayton Graves: Have you seen this face? Yes, I know we're not cosmetic.
+
+730
+01:09:24.279 --> 01:09:27.700
+Anthony Taylor: Okay. continuing for.
+
+731
+01:09:27.979 --> 01:09:40.060
+Anthony Taylor: So we did everything. Now, we're just gonna do 2020 again, because we use as an index. We could simply say 20, and we get only 2020.
+
+732
+01:09:40.770 --> 01:09:41.850
+michael mcpherson: And coming
+
+733
+01:09:43.140 --> 01:09:48.960
+Clayton Graves: now, when we get it, I specify close, and and it looks pretty much the same.
+
+734
+01:09:49.170 --> 01:09:53.920
+Anthony Taylor: It will, it, will. There's only one value, so it it will, either.
+
+735
+01:09:55.380 --> 01:10:02.430
+Anthony Taylor: So here's the one with the index attributes. I think I gave you guys this. But but the bottom line is is
+
+736
+01:10:03.580 --> 01:10:07.120
+Anthony Taylor: is like, say, you wanted to do month. Okay.
+
+737
+01:10:07.310 --> 01:10:12.050
+Anthony Taylor: right? You can't. You wouldn't be able to use just index to do month.
+
+738
+01:10:12.450 --> 01:10:22.810
+Anthony Taylor: So you needed. You would need to know how to do this, or if you wanted to do quarter. you could do that here. Okay. we're going to do more of this in in after break.
+
+739
+01:10:22.920 --> 01:10:25.960
+Anthony Taylor: So here's the range ones. Oh, that's right. Now.
+
+740
+01:10:26.660 --> 01:10:29.980
+Anthony Taylor: looks exactly the same, because it is exactly the same.
+
+741
+01:10:30.040 --> 01:10:39.789
+Anthony Taylor: So here we're going to go from 28 to 2, 20 to 2029. So August to September. very cool. See that incredible drop.
+
+742
+01:10:41.540 --> 01:10:45.539
+Anthony Taylor: Okay? And then from 8, 22 to September fifth
+
+743
+01:10:47.530 --> 01:10:48.190
+Anthony Taylor: oops.
+
+744
+01:10:49.740 --> 01:10:53.519
+Anthony Taylor: And that's it. Alright. Any questions on any of that
+
+745
+01:10:55.870 --> 01:10:58.620
+Anthony Taylor: fantastic alright. So
+
+746
+01:11:00.150 --> 01:11:05.440
+Anthony Taylor: let's take our break. come back at 8,
+
+747
+01:11:06.620 --> 01:11:07.790
+Anthony Taylor: 40,
+
+748
+01:11:08.350 --> 01:11:10.570
+Anthony Taylor: 8, 40. I see it. 8, 40
+
+749
+01:11:10.670 --> 01:11:11.570
+Anthony Taylor: hiking.
+
+750
+01:11:16.000 --> 01:11:20.940
+Anthony Taylor: So how did we do? Did we get Iso Calendar figured out.
+
+751
+01:11:23.030 --> 01:11:26.179
+Anthony Taylor: Did anybody not get it? I love that. You guys got it
+
+752
+01:11:26.720 --> 01:11:35.699
+sonja baro: well, not everybody. We didn't get it. We got stuck on another little bump.
+
+753
+01:11:36.730 --> 01:11:38.370
+Anthony Taylor: It doesn't work for what? But
+
+754
+01:11:39.190 --> 01:11:40.320
+Clayton Graves: hours?
+
+755
+01:11:41.140 --> 01:11:42.970
+Anthony Taylor: Oh, oh.
+
+756
+01:11:43.300 --> 01:11:44.080
+Anthony Taylor: maybe.
+
+757
+01:11:44.560 --> 01:11:47.990
+Anthony Taylor: Well, let's take a look. Let's go, and we'll start at the beginning.
+
+758
+01:11:48.340 --> 01:11:54.320
+Anthony Taylor: When I push the solutions. By the way, I will push it with the Iso calendar solution. It's not in the original solution.
+
+759
+01:11:54.840 --> 01:12:05.349
+Anthony Taylor: Alright. So we're gonna bring in the data. We're going to index column will be date our states. We're gonna do this. We know, that doesn't do anything anymore or does. But it's not gonna
+
+760
+01:12:05.540 --> 01:12:09.089
+Anthony Taylor: we're gonna look at just the value data
+
+761
+01:12:09.120 --> 01:12:14.560
+Anthony Taylor: and put it into this variable. We're going to do a group level at day of week
+
+762
+01:12:15.110 --> 01:12:20.949
+Anthony Taylor: and group by our new group level which is damp. You could have put that in here.
+
+763
+01:12:21.200 --> 01:12:24.350
+Anthony Taylor: We're gonna get the mean and we're gonna plot it all at one pass
+
+764
+01:12:25.440 --> 01:12:27.310
+Anthony Taylor: that comfortable, for everybody
+
+765
+01:12:28.280 --> 01:12:30.940
+Anthony Taylor: was kind of a cotton one pass go
+
+766
+01:12:31.370 --> 01:12:38.549
+Meredith McCanse (she/her): can you scroll up a little bit? So at this step. where you turned it into a variable.
+
+767
+01:12:38.820 --> 01:12:52.690
+Meredith McCanse (she/her): We played with a couple of different ways to do that. This, I think, looks like it's the most simple, is there is there like we did it where we did Dotloc to filter it. And then we also figured out a version where we just we we
+
+768
+01:12:52.770 --> 01:12:57.529
+Meredith McCanse (she/her): we isolated it, but turned it into a data frame so it wouldn't come out as a
+
+769
+01:12:57.610 --> 01:13:01.020
+Meredith McCanse (she/her): as a series. But this is different. This is a.
+
+770
+01:13:01.350 --> 01:13:03.940
+Anthony Taylor: we wanted it to be a series in this case.
+
+771
+01:13:04.040 --> 01:13:08.099
+Meredith McCanse (she/her): Okay, so like, is there like, is the version you did? Is this like
+
+772
+01:13:08.220 --> 01:13:14.249
+Meredith McCanse (she/her): this would be the anytime it tells you to slice a column or to pull out a single column. Go ahead and just do it.
+
+773
+01:13:14.980 --> 01:13:17.680
+Anthony Taylor: That. Yes, there's probably 10 ways you could do it.
+
+774
+01:13:17.810 --> 01:13:22.569
+Anthony Taylor: But this is definitely what we always want you to do when we say just grab one call
+
+775
+01:13:24.430 --> 01:13:36.929
+sonja baro: got it? We did not do that.
+
+776
+01:13:37.200 --> 01:13:38.749
+Anthony Taylor: No, that I mean.
+
+777
+01:13:38.790 --> 01:13:40.810
+Anthony Taylor: that's not interesting. Approach
+
+778
+01:13:41.020 --> 01:13:44.510
+Anthony Taylor: as long as you saved it to a new data frame, I would say, you're fine.
+
+779
+01:13:45.540 --> 01:13:46.860
+sonja baro: What's your
+
+780
+01:13:47.240 --> 01:13:54.589
+Anthony Taylor: well, and the only reason I'd say that is no one necessarily destroy it, because what if you wanted to get late, then you'd have to go and reload your old data.
+
+781
+01:13:54.650 --> 01:13:56.820
+sonja baro: But if you made a new one
+
+782
+01:13:56.910 --> 01:14:01.079
+Anthony Taylor: and drop that column that you'd still be okay. You'd still be in the same space.
+
+783
+01:14:01.210 --> 01:14:07.900
+Anthony Taylor: Right? Okay, no, I honestly, that's not wrong at all. It's just
+
+784
+01:14:08.560 --> 01:14:16.700
+Anthony Taylor: you would have to think ahead that am I going to need clothes later? If you know you're not gonna need it? Then that's actually a perfectly acceptable solution.
+
+785
+01:14:17.190 --> 01:14:18.040
+sonja baro: Okay.
+
+786
+01:14:18.390 --> 01:14:19.360
+Anthony Taylor: okay?
+
+787
+01:14:19.470 --> 01:14:23.610
+sonja baro: And then on the on the plot below.
+
+788
+01:14:23.930 --> 01:14:25.410
+sonja baro: Yes.
+
+789
+01:14:26.440 --> 01:14:35.560
+sonja baro: just why do we have more than 7 data points on the on the X access.
+
+790
+01:14:37.450 --> 01:14:41.649
+Anthony Taylor: This is just a range. These are just ticks.
+
+791
+01:14:42.530 --> 01:14:47.550
+Anthony Taylor: So the ticks don't. Necessarily, they don't necessarily line up to a data point.
+
+792
+01:14:48.000 --> 01:14:52.290
+sonja baro: So we have, however, many data points. So I mean, I see, like, this is what
+
+793
+01:14:52.650 --> 01:15:00.239
+Anthony Taylor: this whole line to 3. I would guess there's 4, maybe 5 at the count first one
+
+794
+01:15:01.080 --> 01:15:03.550
+sonja baro: which makes sense day a week. Right?
+
+795
+01:15:03.710 --> 01:15:15.890
+Anthony Taylor: Yeah. Okay, so that's we were kind of stuck on this because we were trying to figure out. We thought that was wrong, the 0 to
+
+796
+01:15:16.050 --> 01:15:17.329
+sonja baro: thank you. Yeah.
+
+797
+01:15:17.610 --> 01:15:24.929
+Anthony Taylor: no, you're good, hey? So then we can do hours same way as we did the one up above. And again, this could have been put here if if
+
+798
+01:15:25.150 --> 01:15:29.000
+Anthony Taylor: we're putting it in a variable. But the rest of this is exactly the same.
+
+799
+01:15:29.150 --> 01:15:38.850
+Anthony Taylor: Okay. In fact. if you look, since we use the same variable. the rest of the code is exactly the same. The only thing we changed is which group level we wanted.
+
+800
+01:15:39.470 --> 01:15:46.050
+Anthony Taylor: So this is a good practice here. So here you can see the hours. Now, why doesn't it go? The whole range?
+
+801
+01:15:46.600 --> 01:16:01.470
+Anthony Taylor: Because we probably only have from feet till 14. So 8 am. To 20'clock. Okay. now, here's the ugly. What if you would have tried to do this with index dot day of week.
+
+802
+01:16:01.930 --> 01:16:08.610
+Anthony Taylor: which even shows up in the documentation which I brought in here for you. Okay.
+
+803
+01:16:08.720 --> 01:16:14.649
+Anthony Taylor:  even if you do it with. According to the documentation. It's as well not with our version of bicycle.
+
+804
+01:16:15.150 --> 01:16:20.250
+Anthony Taylor: So Iso Calendar. It's still column index.
+
+805
+01:16:20.370 --> 01:16:23.889
+Anthony Taylor: But you do iso calendar, and then you do dot week.
+
+806
+01:16:25.000 --> 01:16:29.789
+Anthony Taylor: If you want to see all the options. you can actually Google this.
+
+807
+01:16:31.940 --> 01:16:34.840
+Raugewitz, Tania: And where's that date? Time index?
+
+808
+01:16:35.770 --> 01:16:37.270
+Raugewitz, Tania: Oh, that's permission.
+
+809
+01:16:37.750 --> 01:16:40.520
+Anthony Taylor: Sorry. Let me go back and go back. I'm not sure I heard.
+
+810
+01:16:40.620 --> 01:16:52.600
+Raugewitz, Tania: So so this part no, no, down below is explaining.
+
+811
+01:16:52.900 --> 01:16:56.709
+Anthony Taylor: Yeah, no. This is just the documentation of
+
+812
+01:16:57.150 --> 01:16:59.580
+Anthony Taylor: this one. just to be clear.
+
+813
+01:16:59.880 --> 01:17:02.880
+Anthony Taylor: It's for this one. And
+
+814
+01:17:03.160 --> 01:17:07.720
+Anthony Taylor: and like, I said, some of these have been deprecated like day of week.
+
+815
+01:17:09.170 --> 01:17:13.180
+Anthony Taylor: I did not put the documentation for this one. But like I showed you, it's pretty much just
+
+816
+01:17:14.850 --> 01:17:19.580
+Anthony Taylor: if you come in here and look. you can see you know what kind of options.
+
+817
+01:17:20.180 --> 01:17:21.229
+You have
+
+818
+01:17:21.730 --> 01:17:34.220
+Anthony Taylor: okay. Well, it tells you about the function, I'm sure. Somewhere. therefore years always start. Weeks start with money, years start with money. 52. So this is an isocho. Okay. alright.
+
+819
+01:17:35.070 --> 01:17:37.359
+Anthony Taylor: that's card trick. And look at that.
+
+820
+01:17:37.560 --> 01:17:45.029
+Meredith McCanse (she/her): Can you, Anthony? Can you scroll up and show the code above this. Sure, of course, on the this part.
+
+821
+01:17:45.110 --> 01:17:47.350
+Meredith McCanse (she/her): we definitely did not.
+
+822
+01:17:47.820 --> 01:17:55.469
+Anthony Taylor: So did you? I mean, cause this is identical to the line above this. So it was it the group level that you struggled with?
+
+823
+01:17:56.130 --> 01:17:58.960
+Meredith McCanse (she/her): We got it to work. We just did it differently.
+
+824
+01:17:59.280 --> 01:18:00.730
+Meredith McCanse (she/her): We didn't
+
+825
+01:18:00.960 --> 01:18:02.110
+Meredith McCanse (she/her): like. We didn't
+
+826
+01:18:02.300 --> 01:18:08.690
+Meredith McCanse (she/her): like. You're sort of assigning. I think you're assigning a variable, and then you're calling the variable when you plot it.
+
+827
+01:18:08.740 --> 01:18:12.159
+Meredith McCanse (she/her): And we did. Yeah, here's the same thing.
+
+828
+01:18:17.050 --> 01:18:17.920
+Anthony Taylor: same thing.
+
+829
+01:18:19.120 --> 01:18:21.560
+Anthony Taylor: We only did. The only reason they did this
+
+830
+01:18:23.520 --> 01:18:32.590
+Anthony Taylor: was because up here this code and this code are identical except for the way we broke it up.
+
+831
+01:18:34.270 --> 01:18:38.610
+Anthony Taylor: That's the only reason they did that. So you could see how we could reuse the same code.
+
+832
+01:18:40.420 --> 01:18:41.300
+Meredith McCanse (she/her): Okay.
+
+833
+01:18:41.450 --> 01:18:44.610
+Meredith McCanse (she/her): does that help you? Yeah. Yup.
+
+834
+01:18:49.920 --> 01:18:51.629
+Anthony Taylor: anybody else have a question.
+
+835
+01:18:54.360 --> 01:18:55.530
+Anthony Taylor: Nay.
+
+836
+01:18:57.030 --> 01:18:58.500
+Anthony Taylor: alright, well.
+
+837
+01:19:00.580 --> 01:19:03.190
+Anthony Taylor: don't look at that. Okay.
+
+838
+01:19:04.210 --> 01:19:07.190
+Anthony Taylor: we did questions recap.
+
+839
+01:19:08.780 --> 01:19:15.790
+Anthony Taylor: recognize the importance of time data. I think we beat that up pretty good today. Time data has a lot to do with a lot of things.
+
+840
+01:19:16.290 --> 01:19:30.060
+Anthony Taylor: Okay, manipulate it. We definitely were able to do that.  you know, manipulate, like, we basically were able to take some date time data and turn it into weeks, days, months, quarters.
+
+841
+01:19:30.170 --> 01:19:31.969
+Anthony Taylor: all kinds of fun stuff.
+
+842
+01:19:32.370 --> 01:19:37.009
+Anthony Taylor: We did some data analysis techniques with our date time data.
+
+843
+01:19:37.270 --> 01:19:44.789
+Anthony Taylor: We identified some cool patterns in stock market, did some slicing with our loaf as well as our indexes.
+
+844
+01:19:45.240 --> 01:19:46.210
+Anthony Taylor: Okay.
+
+845
+01:19:46.590 --> 01:19:48.420
+Anthony Taylor: and that's it.
+
+846
+01:19:48.580 --> 01:19:50.109
+Anthony Taylor: I mean, that was today.
+
+847
+01:19:50.200 --> 01:19:55.340
+Anthony Taylor: So next lesson you're going to learn about correlations. Yes, we're going to talk about correlations again.
+
+848
+01:19:55.430 --> 01:19:58.400
+Anthony Taylor: however. and this one
+
+849
+01:19:59.930 --> 01:20:04.570
+Anthony Taylor: we're gonna get a little more specific to how we're going to use them
+
+850
+01:20:05.490 --> 01:20:07.520
+Anthony Taylor: or time series
+
+851
+01:20:08.500 --> 01:20:14.480
+Anthony Taylor: data. Okay, we saw a pretty interesting correlation today. And I will tell you it will be in
+
+852
+01:20:14.490 --> 01:20:22.050
+Anthony Taylor: one of the demonstrations. But does anybody remember what correlation we saw today? That was really obvious.
+
+853
+01:20:24.810 --> 01:20:33.130
+sonja baro: I can give you a big inventory at home price
+
+854
+01:20:33.260 --> 01:20:38.999
+Anthony Taylor: inventory and home price, right? Obvious correlation. And we would make sense without even seeing.
+
+855
+01:20:39.360 --> 01:20:59.019
+Anthony Taylor: Okay. But that's one of the Demos that you're gonna see is a correlation between those 2 values. Okay? So we're going to cover that  yeah. And then we're gonna start doing some forecasting. We're gonna use a new tool if you guys feel free to check it out.
+
+856
+01:20:59.050 --> 01:21:01.390
+Anthony Taylor: It's called Google Colab.
+
+857
+01:21:03.630 --> 01:21:06.259
+Anthony Taylor: If you just type Google prolab.
+
+858
+01:21:08.160 --> 01:21:09.860
+Anthony Taylor: it'll take you to it.
+
+859
+01:21:10.120 --> 01:21:18.580
+Anthony Taylor: You will need a Google account if you don't have one. Okay, and preferably at Google Drive. But have a Google account to have a Google drive.
+
+860
+01:21:19.040 --> 01:21:22.239
+Anthony Taylor: All right. I will ask you this question right now.
+
+861
+01:21:25.480 --> 01:21:27.050
+Anthony Taylor: Oh, I'm not saying it
+
+862
+01:21:29.260 --> 01:21:30.100
+really
+
+863
+01:21:32.180 --> 01:21:33.029
+know this one.
+
+864
+01:21:33.380 --> 01:21:35.719
+Anthony Taylor: I don't need to. I don't need to look this one up
+
+865
+01:21:42.660 --> 01:21:45.430
+Anthony Taylor: so, as you can see, you need a Google account. But
+
+866
+01:21:45.550 --> 01:21:47.109
+Anthony Taylor: what does that look like to you?
+
+867
+01:21:49.010 --> 01:22:00.300
+Anthony Taylor: It's just a plain old notebook. The only difference between this notebook and the notebook on your computer is this, one is using Google's cloud hardware.
+
+868
+01:22:01.570 --> 01:22:05.720
+Anthony Taylor: which allows us to do some things that your computers won't be capable of.
+
+869
+01:22:07.490 --> 01:22:10.980
+Anthony Taylor: Alright, we will be using this quite a bit throughout this course.
+
+870
+01:22:12.290 --> 01:22:19.479
+Anthony Taylor: Okay, so feel free. Google, it, check it out, create a new notebook. If you can get here all you need for tomorrow.
+
+871
+01:22:20.930 --> 01:22:31.810
+Anthony Taylor: Okay. Google Colab. we are going to actually take a few minutes to do this in class, so don't get too concerned. But you can do it. You'll be that far ahead. Hi.
+
+872
+01:22:31.960 --> 01:22:34.559
+Anthony Taylor: guys, wonderful class. Today.
+
+873
+01:22:34.930 --> 01:22:37.160
+Anthony Taylor: I like all that extra time.
+
+874
+01:22:37.530 --> 01:22:41.590
+Anthony Taylor:  have a great Wednesday night.
+
+875
+01:22:41.630 --> 01:22:43.829
+Anthony Taylor: I will see you tomorrow.
+
+876
+01:22:45.340 --> 01:22:46.130
+Anthony Taylor: Poop.
+

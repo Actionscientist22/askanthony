@@ -1,0 +1,82 @@
+# Demo: Analyzing Market Data Across Time
+
+##--CODE--##
+# Initial imports
+import pandas as pd
+
+##--CODE--##
+# Read the new S&P 500 CSV data into a DataFrame
+df_sp500 = pd.read_csv("../Resources/sp500.csv")
+
+# Display the DataFrame
+df_sp500.head()
+
+##--CODE--##
+# Transform time column to datetime
+df_sp500["time"] = pd.to_datetime(
+    df_sp500["time"],
+    infer_datetime_format=True,
+    utc=True
+)
+
+# Convert the time column to the US/Estern timezone
+df_sp500["time"] = df_sp500["time"].dt.tz_convert("US/Eastern")
+
+# Verify data type transformation
+df_sp500.info()
+
+##--CODE--##
+# Set the time column as DataFrame index
+df_sp500 = df_sp500.set_index("time")
+
+# Display the DataFrame
+df_sp500.head()
+
+##--CODE--##
+# Querying individual date and time components
+print(df_sp500.index.year)
+print(df_sp500.index.month)
+print(df_sp500.index.quarter)
+
+##--CODE--##
+# Plot the close column to examine the trend for closing prices
+df_sp500['close'].plot(
+    title="Historical S&P 500 Closing Prices", 
+    figsize=[20, 10]
+)
+
+##--CODE--##
+# Pick a single date from the DataFrame
+# Display the first 20 rows
+df_sp500.loc["2019-06-06"].head(20)
+
+##--CODE--##
+# Picking specific times from a datetime range
+df_sp500.loc["2019-06-06 07:00:00":"2019-06-06 9:30:00"]
+
+##--CODE--##
+# Plotting pre-market hours trading (7:00 am - 9:30 am)
+df_sp500.loc["2019-06-06 07:00:00":"2019-06-06 9:30:00"]["close"].plot(figsize=[15,10])
+
+##--CODE--##
+# When the stock market opens there is usually an initial push in one direction
+df_sp500.loc["2019-06-06 09:30":"2019-06-06 09:45"]["close"].plot(figsize=[15,10])
+
+##--CODE--##
+# Closing prices during lunch time
+df_sp500.loc["2019-06-06 11:00":"2019-06-06 12:00"]["close"].plot(figsize=[15,10])
+
+##--CODE--##
+# Closing prices just a little over an hour before market close
+df_sp500.loc['2019-06-06 14:00':'2019-06-06 14:45']["close"].plot(figsize=[15,10])
+
+##--CODE--##
+# Closing prices thirty minutes before market closes
+df_sp500.loc['2019-06-06 15:30':'2019-06-06 16:00']["close"].plot(figsize=[15,10])
+
+##--CODE--##
+df_sp500.loc['2019-06-06 15:30':'2019-06-06 16:00']["close"]
+
+##--CODE--##
+
+

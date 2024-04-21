@@ -1,0 +1,117 @@
+##--CODE--##
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+# Model and API Key
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Basic Query
+
+##--CODE--##
+# Initialize the model.
+
+
+# Define a query as a string.
+
+
+# Pass the query to the invoke method and print the result.
+
+
+##--CODE--##
+# Define a function to use two ingredients as inputs for the query sent to our LLM.
+
+    # Initialize the model.
+    
+    # Construct the query using the parameters.
+    
+    # Pass the query to the invoke method which will make a prediction based on the query, and print the result.
+    
+    
+
+
+# Ask the user for a main ingredient for each day.
+
+
+
+# Call the function with the two ingredients.
+
+
+# Chains
+
+##--CODE--##
+# Additional imports for specific chain we'll use.
+
+
+##--CODE--##
+# Initialize the model.
+
+
+# Create a math chain for performing calculations.
+
+
+# Set the input query as a text description of a math problem.
+
+
+# Run the chain using the query as input and print the result.
+
+
+# Combining Chains
+
+##--CODE--##
+# Additional imports for specific chains we'll use.
+
+
+##--CODE--##
+# Initialize the LLM for text.
+
+
+# Initialize the LLM for math.
+
+
+# Create a chat chain for creating text.
+
+
+# Create a math chain for performing calculations.
+
+
+# Construct the simple sequential chain from the two other chains.
+
+
+# Set the input query for the first chain in the sequence.
+
+
+# Run the sequential chain using the query as the first input. Print the result.
+
+
+##--CODE--##
+# Additional imports for specific chains we'll use.
+
+
+##--CODE--##
+# Initialize the model.
+
+
+# Create a chat chain for creating text.
+
+
+# Create a principle for our constitutional chain.
+
+
+# Create a constitutional chain for ensuring the story does not include dogs.
+
+
+# Set the input query for the chat chain.
+
+
+# Run the constitutional chain using the query as the first input.
+
+

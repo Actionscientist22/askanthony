@@ -1,0 +1,120 @@
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+from sklearn.cluster import KMeans
+
+### Step 1: Read in the `customer-shopping-scaled.csv` file and create the DataFrame. Review the resulting DataFrame. Additionally, check the data types associated with the DataFrame.
+
+##--CODE--##
+# Read in the CSV file and create the Pandas DataFrame
+
+# Review the DataFrame
+
+
+##--CODE--##
+# Check for null values and the data types. 
+
+
+### Step 2: Use the `encodeMethod` function that sets the `purchase` variable to 1 for "HotRestCafe" (hotel/restaurant/cafe ) purchases, and 2 for "retail" purchases.
+
+##--CODE--##
+# Build the encodeMethod helper function
+# Hotel/Restuarant/Cafe purchases should encode to 1
+# Retail purchases should encode to 2
+def encodeMethod(purchase):
+    """
+    This function encodes the method of purchases to 2 for "Retail"
+    and 1 for Hotel/Restuarant/Cafe.
+    """
+    if purchase == "HotelRestCafe":
+        return 1
+    else:
+        return 2
+
+### Step 3: Edit the "Method" column in the DataFrame by applying the `encodeMethod` function. 
+
+##--CODE--##
+# Edit the "Method" column using the encodeMethod function
+
+
+# # Review the DataFrame
+
+
+### Step 4: Using this encoded DataFrame, initialize two K-means models: one with two clusters and another with three. For each model, be sure to follow each of the steps needed to identify the clusters and assign them to the data. 
+
+* Initialize the KMeans model instance.
+* Fit, or train, the model.
+* Predict the model segments(clusters).
+
+### Train the K-means algorithm where k=2
+
+##--CODE--##
+# Initialize the K-Means model; n_clusters=2 and n_init='auto'
+
+
+##--CODE--##
+# Fit the model
+
+
+##--CODE--##
+# Predict the model segments (clusters)
+
+
+# View the customer segments
+
+
+### Train the K-means algorithm where k=3
+
+##--CODE--##
+# Initialize the K-Means model; n_clusters=3 and n_init='auto'
+
+
+##--CODE--##
+# Fit the model
+
+
+##--CODE--##
+# Predict the model segments (clusters)
+
+
+# View the customer segments
+
+
+### Step 5: Once the models have been run, add each of the customer segment lists back into the `customers_df` DataFrame as new columns. 
+
+##--CODE--##
+# Create a copy of the original DataFrame and name it as customer_predictions
+
+
+##--CODE--##
+# Create a new column in the DataFrame with the predicted clusters with k=2
+
+
+##--CODE--##
+# Create a new column in the DataFrame with the predicted clusters with k=3
+
+
+##--CODE--##
+# Review the DataFrame
+
+
+### Step 6: Using Pandas plot, create scatter plots for each of the two customer segments. Be sure to build styled and formatted plots.
+
+##--CODE--##
+# Create a scatter plot with x="Frozen" and y="Grocery" with k=2 segments
+
+
+##--CODE--##
+# Create a scatter plot with x="Frozen" and y="Grocery" with k=3 segments
+
+
+### Step 7: Answer the following question:
+
+**Question**  Do you note any relevant differences between the two K-means models?
+
+**Answer** 
+
+
+##--CODE--##
+
+

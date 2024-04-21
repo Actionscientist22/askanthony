@@ -1,0 +1,70 @@
+##--CODE--##
+# Import Libraries and Dependencies
+import pandas as pd
+from pathlib import Path
+
+### Read in files
+
+##--CODE--##
+# Import data
+france_data_path = Path('Resources/france_products.csv')
+uk_data_path = Path('Resources/uk_products.csv')
+netherlands_data_path = Path('Resources/netherlands_products.csv')
+customer_data_path = Path('Resources/customer_info.csv')
+products_data_path = Path('Resources/products.csv')
+
+# Read in data and index by CustomerID
+france_data = pd.read_csv(france_data_path, index_col='CustomerID')
+uk_data = pd.read_csv(uk_data_path, index_col='CustomerID')
+netherlands_data = pd.read_csv(netherlands_data_path, index_col='CustomerID')
+customer_data = pd.read_csv(customer_data_path, index_col='CustomerID')
+products_data = pd.read_csv(products_data_path, index_col='CustomerID')
+
+##--CODE--##
+# Show the first five rows of France data
+france_data.head()
+
+##--CODE--##
+# Show the first five rows of UK data
+uk_data.head()
+
+##--CODE--##
+# Show the first five rows of Netherlands data
+netherlands_data.head()
+
+### Concatenate data by rows using `concat` function and `inner` join
+
+##--CODE--##
+# Join UK, France, and Netherlands full datasets by axis
+joined_data_rows = pd.concat([france_data, uk_data, netherlands_data], axis="rows", join="inner")
+joined_data_rows
+
+### Concatenate data by rows using `concat` function and `inner` join and make each country a key.
+
+##--CODE--##
+# Join UK, France, and Netherlands full datasets by axis and add the countries to the index.
+joined_data_rows = pd.concat([france_data, uk_data, netherlands_data],
+                             axis="rows", join="inner", keys=["France","United Kingdom", "Netherlands"])
+
+# Drop the Country column and display the updated DataFrame.
+joined_data_rows_keys = joined_data_rows.drop(['Country'],axis=1)
+joined_data_rows_keys.head(20)
+
+### Display the customer and products DataFrames.
+
+##--CODE--##
+# Show the customer data
+customer_data
+
+##--CODE--##
+# Show the products data
+products_data
+
+##--CODE--##
+# Join the customer and products by columns axis
+joined_data_cols = pd.concat([customer_data, products_data], axis='columns', join='inner')
+joined_data_cols.head()
+
+##--CODE--##
+
+

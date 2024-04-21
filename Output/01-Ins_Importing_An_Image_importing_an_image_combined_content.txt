@@ -1,0 +1,37 @@
+##--CODE--##
+# Import dependencies
+import requests
+from PIL import Image
+
+##--CODE--##
+img_url = "https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_2/datasets/an2i_left_angry_open.png"
+
+# First lets try the Image.open function
+
+
+##--CODE--##
+# The Image.open function cannot open web urls directly
+# To use Image.open, we have to start with the requests library
+
+# Note the use of requests with the .raw attribute and the stream parameter
+
+
+##--CODE--##
+# Once imported, the Image library has lots of useful functions
+
+
+##--CODE--##
+
+
+##--CODE--##
+
+
+##--CODE--##
+
+
+##--CODE--##
+
+
+##--CODE--##
+
+

@@ -1,0 +1,171 @@
+# Letter Recognition
+
+##--CODE--##
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC 
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import AdaBoostClassifier
+
+##--CODE--##
+# Load in data
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m13/lesson_3/datasets/letter-recognition.csv')
+df
+
+##--CODE--##
+# Drop the label to create the X data
+X = df.drop('lettr', axis=1)
+X
+
+##--CODE--##
+# Create the y set from the "lettr" column
+y = df["lettr"]
+y
+
+##--CODE--##
+# Split the data into training and testing sets using random_state=1
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+
+##--CODE--##
+# Encode the y data with the label encoder
+# Create an instance of the label encoder
+le = LabelEncoder()
+
+# Fit and transform the y training and testing data using the label encoder
+y_train_encoded = le.fit_transform(y_train)
+y_test_encoded = le.transform(y_test)
+y_train_encoded
+
+##--CODE--##
+# Scale the X data by using StandardScaler()
+scaler = StandardScaler().fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_train_scaled
+
+##--CODE--##
+# Transform the test dataset based on the fit from the training dataset
+X_test_scaled = scaler.transform(X_test)
+X_test_scaled
+
+## Model and Fit to a Logistic Regression Classifier
+
+##--CODE--##
+# Create the logistic regression classifier model with a random_state of 1
+lr_model = LogisticRegression(random_state=1, max_iter=500)
+
+# Fit the model to the training data
+lr_model.fit(X_train_scaled, y_train_encoded)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print(f"Training Data Score: {lr_model.score(X_train_scaled, y_train_encoded)}")
+print(f"Testing Data Score: {lr_model.score(X_test_scaled, y_test_encoded)}")
+
+## Model and Fit to a Support Vector Machine
+
+##--CODE--##
+# Create the support vector machine classifier model with a 'rbf' kernel
+svm_model = SVC(kernel='rbf')
+
+# Fit the model to the training data
+svm_model.fit(X_train_scaled, y_train_encoded)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print(f"Training Data Score: {svm_model.score(X_train_scaled, y_train_encoded)}")
+print(f"Testing Data Score: {svm_model.score(X_test_scaled, y_test_encoded)}")
+
+## Model and Fit to a KNN Model
+
+##--CODE--##
+import matplotlib.pyplot as plt
+# Loop through different k values to find which has the highest accuracy.
+# Note: We use only odd numbers because we don't want any ties.
+train_scores = []
+test_scores = []
+for k in range(1, 20, 2):
+    knn = KNeighborsClassifier(n_neighbors=k)
+    knn.fit(X_train_scaled, y_train_encoded)
+    train_score = knn.score(X_train_scaled, y_train_encoded)
+    test_score = knn.score(X_test_scaled, y_test_encoded)
+    train_scores.append(train_score)
+    test_scores.append(test_score)
+    print(f"k: {k}, Train/Test Score: {train_score:.3f}/{test_score:.3f}")
+    
+# Plot the results
+plt.plot(range(1, 20, 2), train_scores, marker='o', label="training scores")
+plt.plot(range(1, 20, 2), test_scores, marker="x", label="testing scores")
+plt.xlabel("k neighbors")
+plt.ylabel("accuracy score")
+plt.legend()
+plt.show()
+
+##--CODE--##
+# Create the KNN model with 3 neighbors
+knn_model = KNeighborsClassifier(n_neighbors=3)
+
+# Fit the model to the training data
+knn_model.fit(X_train_scaled, y_train_encoded)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print(f"Training Data Score: {knn_model.score(X_train_scaled, y_train_encoded)}")
+print(f"Testing Data Score: {knn_model.score(X_test_scaled, y_test_encoded)}")
+
+## Model and Fit to a Decision Tree Classifier
+
+##--CODE--##
+# Create the decision tree classifier model
+dt_model = DecisionTreeClassifier()
+
+# Fit the model to the training data
+dt_model.fit(X_train_scaled, y_train_encoded)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print(f"Training Data Score: {dt_model.score(X_train_scaled, y_train_encoded)}")
+print(f"Testing Data Score: {dt_model.score(X_test_scaled, y_test_encoded)}")
+
+## Model and Fit to a Random Forest Classifier
+
+##--CODE--##
+# Create the random forest classifier model
+# with n_estimators=128 and random_state=1
+rf_model = RandomForestClassifier(n_estimators=128, random_state=1)
+
+# Fit the model to the training data
+rf_model.fit(X_train_scaled, y_train_encoded)
+
+##--CODE--##
+# Validate the model by checking the model accuracy with model.score
+print(f"Training Data Score: {rf_model.score(X_train_scaled, y_train_encoded)}")
+print(f"Testing Data Score: {rf_model.score(X_test_scaled, y_test_encoded)}")
+
+## Model and Fit to a Gradient Boosting Classifier
+
+##--CODE--##
+# Train the Gradient Boosting classifier
+clf = GradientBoostingClassifier(random_state=1).fit(X_train_scaled, y_train_encoded)
+
+# Evaluate the model
+print(f'Training Score: {clf.score(X_train_scaled, y_train_encoded)}')
+print(f'Testing Score: {clf.score(X_test_scaled, y_test_encoded)}')
+
+## Model and Fit to an Adaptive Boosting Classifier
+
+##--CODE--##
+# Train the AdaBoostClassifier
+clf = AdaBoostClassifier(random_state=1).fit(X_train_scaled, y_train_encoded)
+
+# Evaluate the model
+print(f'Training Score: {clf.score(X_train_scaled, y_train_encoded)}')
+print(f'Testing Score: {clf.score(X_test_scaled, y_test_encoded)}')
+
+##--CODE--##
+
+

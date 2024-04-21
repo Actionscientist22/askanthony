@@ -1,0 +1,49 @@
+# World Cup Stats
+
+Use Pandas scraping to collect the 2019 FIFA World Cup Stats.
+
+##--CODE--##
+import pandas as pd
+
+Use Pandas to scrape the following site, extract the "Tournament ranking" results table, clean the data, and export it to a CSV.
+
+##--CODE--##
+url = 'https://en.wikipedia.org/wiki/2019_FIFA_Women%27s_World_Cup'
+
+##--CODE--##
+# Use the Pandas `read_html` to parse the url
+
+
+##--CODE--##
+# Find the correct table
+
+
+##--CODE--##
+# Save the table to a DataFrame
+
+
+##--CODE--##
+# Drop NA rows and reset the index
+
+
+##--CODE--##
+# Check the data types
+
+
+##--CODE--##
+# Remove the "+" and replace the "−" with "-" from the "GD" column
+
+
+##--CODE--##
+# Convert the following columns to dtype int
+cols = ["Pos", "Pld", "W", "D", "L", "GF", "GA", "GD", "Pts"]
+
+
+
+##--CODE--##
+# Export as a CSV without the index
+
+
+##--CODE--##
+
+

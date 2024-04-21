@@ -1,0 +1,5298 @@
+WEBVTT
+
+1
+00:00:05.910 --> 00:00:13.209
+Anthony Taylor: Right then, let's finish up Visualization day 3. And, by the way, I did confirm sort of
+
+2
+00:00:13.340 --> 00:00:27.780
+Anthony Taylor: one of the other instructors announced that there was no MoD. 7, challenge, and he was like, What are we supposed to do? And I said, we went forward with No. MoD. 7 challenge. and nobody argued with me. So that is the way it is.
+
+3
+00:00:28.690 --> 00:00:44.669
+Anthony Taylor: So there are no challenges for this particular module. So feel free to catch up anyone that's behind. Please do. You're doing great if anybody, and not that I want to. Just jack that score up even more. But if anybody got a better score, so you know.
+
+4
+00:00:44.780 --> 00:00:48.519
+Anthony Taylor: can resubmit so you can take the feedback.
+
+5
+00:00:48.820 --> 00:00:54.580
+Anthony Taylor: fix it, and then resubmit it if you choose to. If you decide you want to, but it's pass fail, of course.
+
+6
+00:00:54.640 --> 00:01:00.259
+Anthony Taylor:  The only thing I would say, I think one of you might've got like a 50,
+
+7
+00:01:00.520 --> 00:01:11.500
+Anthony Taylor: which that's the same as not doing the challenge. So make sure if you got that, if you got the lowest 60 resubmit, fix, fix the few things and resubmit it. Okay, because
+
+8
+00:01:11.750 --> 00:01:21.879
+Anthony Taylor: in the end that will count against you as a not being done, you can miss 2, I think, without any issue. But after, if you miss more than 2. Then
+
+9
+00:01:22.320 --> 00:01:25.930
+Anthony Taylor: that's not good. Okay, anyway. Enough. Yes, Mike.
+
+10
+00:01:28.000 --> 00:01:30.090
+michael mcpherson: I thought the bottom 2 weren't counted.
+
+11
+00:01:33.700 --> 00:01:44.139
+Anthony Taylor: You can miss 2. So if the bottom are those 2? You're okay. If you did them all, and you only got 2 below 60, you're good.
+
+12
+00:01:44.420 --> 00:01:47.680
+Anthony Taylor: Yeah. I also have one below 60 cause I quit on this one
+
+13
+00:01:48.530 --> 00:01:52.570
+Anthony Taylor: I got about. I got about 30 h into it. And I'm like.
+
+14
+00:01:52.690 --> 00:01:54.699
+michael mcpherson: I'm just. It's just not gonna happen.
+
+15
+00:01:54.960 --> 00:01:58.870
+Anthony Taylor: Well, maybe when you get the feedback. They'll give you just enough that you can
+
+16
+00:01:59.010 --> 00:02:09.429
+Anthony Taylor: jack it up a little bit if you want to. It's not necessary. I've just Clayton didn't know that earlier. He had one that got a little low, and and I told him, and he was very, very pleased. So
+
+17
+00:02:09.630 --> 00:02:23.879
+Anthony Taylor: anyway, I just want to make sure. All of, okay. So what are we gonna do today? Well, we're gonna talk about a lot of stats we've already talked about. First, we're gonna talk about the central tendency stuff, how to calculate mean median and mode.
+
+18
+00:02:24.020 --> 00:02:35.570
+Anthony Taylor: We're going to talk about box plots and how to calculate outliers and visualize outlier. We're also going to look at the Sem
+
+19
+00:02:35.750 --> 00:02:37.849
+Anthony Taylor: stuff guys. Remember the Sem
+
+20
+00:02:38.910 --> 00:02:46.490
+Anthony Taylor: where we had multiple populations. And we were seeing if they were statistically significant. Okay?
+
+21
+00:02:46.550 --> 00:02:53.129
+Anthony Taylor:  So those 3 things we literally have all done already in this class.
+
+22
+00:02:53.250 --> 00:02:56.060
+Anthony Taylor: So it's not gonna hurt us to have some refresher.
+
+23
+00:02:56.130 --> 00:02:57.640
+Anthony Taylor: We'll knock those out.
+
+24
+00:02:58.180 --> 00:03:07.120
+Anthony Taylor: After that, we're going to start getting into correlation. Now, we've talked about correlation. We haven't like, literally calculated correlation.
+
+25
+00:03:08.020 --> 00:03:14.219
+Anthony Taylor: Okay, so we're going to calculate correlation. And then we're going to actually make some predictions
+
+26
+00:03:15.350 --> 00:03:17.480
+Anthony Taylor: using linear regression. Now.
+
+27
+00:03:17.530 --> 00:03:21.190
+Anthony Taylor: Well, just wait. I will wait to get there before I tell you the
+
+28
+00:03:21.240 --> 00:03:22.640
+Anthony Taylor: cautions with that.
+
+29
+00:03:25.910 --> 00:03:26.770
+Anthony Taylor: Okay?
+
+30
+00:03:30.470 --> 00:03:31.330
+Anthony Taylor: So
+
+31
+00:03:32.410 --> 00:03:44.790
+Anthony Taylor: some reminders, normal distribution has the 68, 95 99.7 rule. Okay, every there, 68% of your data is is within one standard deviation of mean.
+
+32
+00:03:45.030 --> 00:03:47.020
+Anthony Taylor: whether it be positive or negative.
+
+33
+00:03:47.660 --> 00:03:51.320
+Anthony Taylor: Okay, 95% of it is within 2
+
+34
+00:03:52.690 --> 00:03:59.569
+Anthony Taylor: 98 99.7 is within 3. This is assuming perfect
+
+35
+00:03:59.730 --> 00:04:00.990
+Anthony Taylor: distribution.
+
+36
+00:04:01.750 --> 00:04:03.799
+Anthony Taylor: Alright. And it happens.
+
+37
+00:04:04.520 --> 00:04:05.340
+Anthony Taylor: okay.
+
+38
+00:04:07.190 --> 00:04:08.249
+Anthony Taylor: that was quick.
+
+39
+00:04:09.780 --> 00:04:12.599
+Anthony Taylor: We're already on Demos. Okay.
+
+40
+00:04:13.100 --> 00:04:18.390
+Anthony Taylor: so let's go up here and let's go through.
+
+41
+00:04:19.670 --> 00:04:26.320
+Anthony Taylor: And again, this is, I'll study you guys. It's theme. So if you have any trouble or you have any questions, please ask. But
+
+42
+00:04:26.380 --> 00:04:28.430
+Anthony Taylor: hopefully. We remember some of it.
+
+43
+00:04:28.730 --> 00:04:33.870
+Clayton Graves: I went through a lot of this
+
+44
+00:04:34.670 --> 00:04:35.700
+Clayton Graves: early.
+
+45
+00:04:35.910 --> 00:04:42.149
+Clayton Graves: One of the things that I had a problem with, and I'm hoping that you'll explain it when we get to it.
+
+46
+00:04:42.520 --> 00:04:54.660
+Anthony Taylor: What, exactly is this box plot? Because I don't understand what it is okay, or how to read it. II will absolutely will do that. That's the second demo. And I will explain it in great detail.
+
+47
+00:04:55.260 --> 00:05:06.039
+Anthony Taylor: Okay? So the first one we're gonna just look at mean Median and mode. Alright. And mostly this is to remind you guys how we do it. We do mean and median with numpy
+
+48
+00:05:06.310 --> 00:05:11.790
+Anthony Taylor: and you just do. Np, dot me past in your your data.
+
+49
+00:05:12.070 --> 00:05:19.630
+Anthony Taylor: and it will give you the mean Np Median passive data. It'll give in.
+
+50
+00:05:19.900 --> 00:05:22.070
+Anthony Taylor: And for
+
+51
+00:05:22.110 --> 00:05:26.870
+Anthony Taylor: mode we use Stypi. That's this library.
+
+52
+00:05:27.620 --> 00:05:36.049
+Anthony Taylor: and we'll do St. Mode. Pass it. Heat dens. You don't have to do that, but and then that'll give you the move
+
+53
+00:05:36.380 --> 00:05:40.319
+Anthony Taylor: and see. And so that gives you that. So let's run that
+
+54
+00:05:41.370 --> 00:05:43.660
+Anthony Taylor: mean medium mode. These look good.
+
+55
+00:05:43.910 --> 00:05:56.220
+Meredith McCanse (she/her): I'm trying to remember. I'm looking at the structure of this, like the data in the Csv, do we? Do you have to specify what it?
+
+56
+00:05:56.410 --> 00:06:04.639
+Anthony Taylor: What it's taking the mean of like, I know, we're specifying. There's only one number for it to work.
+
+57
+00:06:04.890 --> 00:06:13.760
+Meredith McCanse (she/her): Would it do? Does it do any column that has numeric data, or I'm sorry I don't remember. I know, we talked
+
+58
+00:06:15.350 --> 00:06:17.880
+Anthony Taylor: the temperatures right here.
+
+59
+00:06:18.340 --> 00:06:22.130
+Anthony Taylor: Okay, see? Right here, this is where we're creating temperatures.
+
+60
+00:06:23.300 --> 00:06:25.950
+Anthony Taylor: So we're only using the dry bulb temperature.
+
+61
+00:06:27.630 --> 00:06:28.459
+Anthony Taylor: This one
+
+62
+00:06:32.430 --> 00:06:43.290
+Meredith McCanse (she/her): got it. So we did specify. I got it so. And remember, this will be a series. And that's what we have to pass into.
+
+63
+00:06:43.660 --> 00:06:49.350
+Anthony Taylor: Np, dot, main and Mp, dot, media. okay, okay, no good call.
+
+64
+00:06:50.750 --> 00:06:54.679
+Anthony Taylor: Okay? So now we're gonna take that same series, create a histogram.
+
+65
+00:06:54.940 --> 00:06:58.360
+Anthony Taylor: We'll take a good look at this. Is that a normal distribution
+
+66
+00:07:01.380 --> 00:07:09.190
+Anthony Taylor: mostly. Yeah, mostly. Well, but we could check for sure if we really wanted to. Let's get our variance.
+
+67
+00:07:09.520 --> 00:07:12.470
+Anthony Taylor: Okay, is everybody. Remember what variance is.
+
+68
+00:07:18.870 --> 00:07:24.489
+Anthony Taylor: it's basically the distance from the mean of all of your data.
+
+69
+00:07:24.800 --> 00:07:32.690
+Anthony Taylor: Okay, standard deviation. We like standard deviation better because it's this, the we square up the
+
+70
+00:07:33.400 --> 00:07:38.330
+Anthony Taylor: the variance, and we end up getting it in the same unit. So variance is just a measurement.
+
+71
+00:07:38.470 --> 00:07:42.549
+Anthony Taylor: But standard deviation in this case will be temperature.
+
+72
+00:07:43.320 --> 00:07:49.659
+Anthony Taylor: All right. So we've run this we could see, okay, well, variance was 32.3 3. What does that mean? I don't.
+
+73
+00:07:49.860 --> 00:07:57.749
+Anthony Taylor: But I know what this one standard deviation is 5.6 8, which, if we break this up
+
+74
+00:07:57.780 --> 00:08:01.380
+Anthony Taylor: right 5.6 8, take you about to hear.
+
+75
+00:08:01.520 --> 00:08:03.100
+Anthony Taylor: And to here.
+
+76
+00:08:04.270 --> 00:08:12.010
+Anthony Taylor: Okay, there's that where that 68% hopefully falls into play. This isn't perfectly distributed. So it may not.
+
+77
+00:08:12.560 --> 00:08:22.400
+Anthony Taylor: Okay. all right. so here we can see. Because we now have the standard deviation. We can actually say
+
+78
+00:08:22.690 --> 00:08:30.560
+Anthony Taylor: we're gonna we're gonna calculate that 68, 95 99.7. So I don't think we did this before, so let me explain what we're doing here.
+
+79
+00:08:30.580 --> 00:08:39.509
+Anthony Taylor: We're going to take the mean. subtract this number and round it to 3 digits.
+
+80
+00:08:40.890 --> 00:08:45.340
+Anthony Taylor: all right. So that so we're subtracting it. Which means we're going
+
+81
+00:08:45.420 --> 00:08:55.160
+Anthony Taylor: this direction and calculating this. then we're going to calculate this one by simply adding one standard deviation
+
+82
+00:08:55.370 --> 00:08:58.859
+Anthony Taylor: to our values. So this will give us
+
+83
+00:08:59.250 --> 00:09:06.720
+Anthony Taylor: 68% of the data. The next one. All we're gonna do is subtract 2, or we're gonna subtract
+
+84
+00:09:06.730 --> 00:09:12.349
+Anthony Taylor: 2 times this number that'll give us 5, 10
+
+85
+00:09:13.220 --> 00:09:18.039
+Anthony Taylor: closer to 12, actually, but still. And then the same on the left. 5.
+
+86
+00:09:18.480 --> 00:09:20.210
+Anthony Taylor: Yeah, okay?
+
+87
+00:09:20.850 --> 00:09:24.380
+Anthony Taylor: And then the last one, we're going to multiply by 3. So it'd be
+
+88
+00:09:24.440 --> 00:09:26.139
+Anthony Taylor: 5, 1015
+
+89
+00:09:26.570 --> 00:09:38.050
+Anthony Taylor: way out here. way out here. Everybody understand what each one of these is doing okay, we're gonna round it and we get picked. So this is saying that
+
+90
+00:09:38.250 --> 00:09:44.039
+Anthony Taylor: all of the values between 51 and 63. If this was normally distributed
+
+91
+00:09:44.210 --> 00:09:46.569
+Anthony Taylor: should be 68% of our data.
+
+92
+00:09:47.310 --> 00:09:49.739
+Anthony Taylor: is it? We didn't calculate that?
+
+93
+00:09:50.400 --> 00:09:51.880
+Anthony Taylor: Okay, we simply said.
+
+94
+00:09:52.130 --> 00:09:56.459
+Anthony Taylor: if this is perfectly distributed. This would be 68% of our data.
+
+95
+00:09:57.010 --> 00:09:58.160
+Anthony Taylor: and then
+
+96
+00:09:59.280 --> 00:10:01.980
+Anthony Taylor: 95 99.7.
+
+97
+00:10:03.370 --> 00:10:04.300
+Anthony Taylor: Okay.
+
+98
+00:10:04.530 --> 00:10:09.290
+Anthony Taylor: which is probably pretty close. Well, so you can see? Because the way this tail is.
+
+99
+00:10:09.480 --> 00:10:18.630
+Anthony Taylor: see how 40.5 9 7. That's almost like the lowest temperature. but 75 or 74.7 1 3. That's like right here.
+
+100
+00:10:20.490 --> 00:10:27.349
+Anthony Taylor: right? So we can tell it's not perfect, but it's still pretty good alright, and then see if I remember what the D score is.
+
+101
+00:10:31.620 --> 00:10:34.399
+Anthony Taylor: there's 2 factors of the Z score that's important.
+
+102
+00:10:35.730 --> 00:10:37.070
+Anthony Taylor: and I remember
+
+103
+00:10:38.220 --> 00:10:43.470
+Anthony Taylor: no. Well, the first thing about the Z-score is, it's calculated per value.
+
+104
+00:10:46.090 --> 00:10:54.459
+Anthony Taylor: The second thing. And what? And really, the definition of a Z-score is, it's how many standard deviations a value is from the mean.
+
+105
+00:10:56.590 --> 00:10:58.839
+Anthony Taylor: Okay? So when we look at this.
+
+106
+00:11:00.500 --> 00:11:02.899
+Anthony Taylor: we can see. So value one
+
+107
+00:11:03.150 --> 00:11:06.460
+Anthony Taylor: is to the left of the mean by
+
+108
+00:11:06.520 --> 00:11:09.930
+Anthony Taylor: negative, 1.1 7 standard deviations.
+
+109
+00:11:10.510 --> 00:11:14.280
+Anthony Taylor: Okay, so let's go look at value. One well have to look in here.
+
+110
+00:11:14.440 --> 00:11:17.119
+Anthony Taylor: So value one was 52 degrees.
+
+111
+00:11:17.430 --> 00:11:20.550
+Anthony Taylor: Okay. And our me was.
+
+112
+00:11:23.120 --> 00:11:24.920
+Anthony Taylor: that's our standard deviation.
+
+113
+00:11:25.630 --> 00:11:28.840
+Anthony Taylor: Our mean was 57 degrees. So yeah.
+
+114
+00:11:29.440 --> 00:11:31.720
+Anthony Taylor: it's a little bit over 6,
+
+115
+00:11:32.630 --> 00:11:36.410
+Anthony Taylor: you know. 6 degrees lower. Okay.
+
+116
+00:11:37.340 --> 00:11:42.539
+Anthony Taylor: that's it. So that's the reminder of central tendencies. Okay, that's what you're
+
+117
+00:11:42.590 --> 00:11:44.369
+Anthony Taylor: what you should remember.
+
+118
+00:11:47.970 --> 00:11:52.819
+Anthony Taylor: real world. You should definitely know what these words mean.
+
+119
+00:11:54.360 --> 00:11:56.769
+Anthony Taylor: Median, mean mode
+
+120
+00:11:57.080 --> 00:12:01.750
+Anthony Taylor: and standard deviation. People will say variants to you.
+
+121
+00:12:02.580 --> 00:12:08.159
+Anthony Taylor: I have found most people are not actually looking for the variance. They wanted to know the standard deviation.
+
+122
+00:12:09.300 --> 00:12:17.629
+Anthony Taylor: Okay. So if someone says, Well, what's the variance. You can say with a standard deviation is 5.6, because truth is, no one cares about the variable.
+
+123
+00:12:18.920 --> 00:12:21.710
+Anthony Taylor: It's not readable.
+
+124
+00:12:21.840 --> 00:12:25.200
+Anthony Taylor: Standard deviation makes perfect sense to everyone.
+
+125
+00:12:25.720 --> 00:12:31.220
+Anthony Taylor: Okay. and that's if they z score
+
+126
+00:12:34.520 --> 00:12:35.630
+Anthony Taylor: enough about that.
+
+127
+00:12:35.760 --> 00:12:38.390
+Anthony Taylor: Okay, so fox clubs.
+
+128
+00:12:39.860 --> 00:12:48.590
+Anthony Taylor: So box plots are a way for us to visualize distribution of our data similar to this histogram.
+
+129
+00:12:49.260 --> 00:12:50.370
+Anthony Taylor: Okay.
+
+130
+00:12:50.880 --> 00:12:59.449
+Anthony Taylor: just in a different format. And I think far more information is found in a box plot. But
+
+131
+00:12:59.490 --> 00:13:07.900
+Anthony Taylor: it will show us if we are perfectly distributed, and I'll show you. So here we have some data. 96, 98, etc., etc.
+
+132
+00:13:08.210 --> 00:13:11.130
+Anthony Taylor: We're going to calculate. We're going to
+
+133
+00:13:11.240 --> 00:13:14.530
+Anthony Taylor: for box plots, remember, we had to do this little subplot first
+
+134
+00:13:14.630 --> 00:13:18.420
+Anthony Taylor: and then title label, and then we pass in data.
+
+135
+00:13:18.880 --> 00:13:20.300
+Anthony Taylor: Okay? And then we're going to show it.
+
+136
+00:13:21.340 --> 00:13:25.289
+Anthony Taylor: So if this was normally distributed perfectly.
+
+137
+00:13:26.140 --> 00:13:29.469
+Anthony Taylor: would there be any dots outside of the of these whiskers?
+
+138
+00:13:31.220 --> 00:13:43.389
+Anthony Taylor: Absolutely not. Okay. Cause that means that all of our data fits within the the range we expect. Okay. so looking at this.
+
+139
+00:13:43.590 --> 00:13:45.880
+Anthony Taylor: we have our mean
+
+140
+00:13:47.010 --> 00:13:53.850
+Anthony Taylor: right there. That's the line in the box are. And and the rest of this is quartiles.
+
+141
+00:13:54.500 --> 00:14:00.000
+Anthony Taylor: Okay? So we have a first, second, third, fourth, 4 times.
+
+142
+00:14:00.940 --> 00:14:05.730
+Anthony Taylor: Okay, what we care about when we are calculating outliers.
+
+143
+00:14:06.620 --> 00:14:08.689
+Anthony Taylor: Well, okay, hold on. Let me back up.
+
+144
+00:14:09.470 --> 00:14:16.420
+Anthony Taylor: This is the second and third quartile. What's important is is if it falls outside from whiskers, if it's if it's an outlier.
+
+145
+00:14:16.580 --> 00:14:18.509
+Anthony Taylor: But how do we get that? Calculate?
+
+146
+00:14:18.880 --> 00:14:21.939
+Anthony Taylor: We take the total. So we subtract
+
+147
+00:14:22.580 --> 00:14:25.399
+Anthony Taylor: the third quartile from the second quartile.
+
+148
+00:14:26.510 --> 00:14:29.250
+Anthony Taylor: And for above we add
+
+149
+00:14:30.640 --> 00:14:39.480
+Anthony Taylor: 1.5 times this entire rate. So we basically want to say anything bigger than this, and 50% more
+
+150
+00:14:39.620 --> 00:14:45.079
+Anthony Taylor: that we consider an outlier. So that's going to fall outside of these whiskers.
+
+151
+00:14:46.610 --> 00:14:47.500
+Anthony Taylor: Okay?
+
+152
+00:14:47.730 --> 00:14:57.499
+Anthony Taylor:  the only thing good about box plots is, they very quickly can show you if you have potential outlier.
+
+153
+00:14:57.730 --> 00:15:02.460
+Anthony Taylor: That's it. right? They're they're great way to demonstrate
+
+154
+00:15:02.500 --> 00:15:04.800
+Anthony Taylor: your data, and how
+
+155
+00:15:05.920 --> 00:15:09.839
+Anthony Taylor: messy it might be so if you do this, and you have just.
+
+156
+00:15:10.120 --> 00:15:17.429
+Anthony Taylor: you know, 100 dots on either side, like the La Times, weather one or the la, but the next one we're gonna do.
+
+157
+00:15:17.660 --> 00:15:21.920
+Anthony Taylor: Okay, that is potentially just too dirty to play with.
+
+158
+00:15:22.960 --> 00:15:23.980
+Anthony Taylor: Okay.
+
+159
+00:15:24.040 --> 00:15:32.599
+Anthony Taylor: But the main thing, what you're looking at in this case, if I saw this I would go. I don't care about this one, but I want to know what's going on here.
+
+160
+00:15:33.840 --> 00:15:37.949
+Anthony Taylor: So if I, as a data, scientist data, engineer, data analyst. Even.
+
+161
+00:15:38.380 --> 00:15:46.390
+Anthony Taylor: I would go back because of this. And this is such an outlier. I would go back to whoever gathered this data and say, Hey, what happened?
+
+162
+00:15:46.940 --> 00:15:47.990
+Anthony Taylor: What was this?
+
+163
+00:15:48.820 --> 00:15:52.109
+Anthony Taylor: Probably I don't know. That's probably the answer you're getting.
+
+164
+00:15:52.750 --> 00:15:55.609
+Anthony Taylor: I don't know. In that case it's tropical.
+
+165
+00:15:56.670 --> 00:15:59.429
+Anthony Taylor: Okay? But yeah.
+
+166
+00:16:01.440 --> 00:16:10.400
+Anthony Taylor: so that's that is what this is. It's a way to visualize the distribution of your data in a far more accurate way than just to Instagram.
+
+167
+00:16:11.750 --> 00:16:21.920
+Anthony Taylor: Okay, histogram gives us a really high level. This gives you a much closer look at your data distribution. Okay?
+
+168
+00:16:22.960 --> 00:16:25.949
+Anthony Taylor: And then, if we wanted to see the data sorted.
+
+169
+00:16:27.170 --> 00:16:30.590
+Anthony Taylor: it becomes really obvious that that number does not seem right.
+
+170
+00:16:32.550 --> 00:16:34.169
+Anthony Taylor: That's really all there is to.
+
+171
+00:16:34.490 --> 00:16:37.019
+Anthony Taylor: Does that help playing with the box plot?
+
+172
+00:16:40.100 --> 00:16:45.999
+Clayton Graves: So good data would all fit within that top bar and that bottom bar. Right?
+
+173
+00:16:46.530 --> 00:17:00.620
+Anthony Taylor: II wanna be careful with the term good data, because just because it's not normally distributed doesn't make it wrong. I mean there any. But as long as it's close to this box, then we feel confident that we can use it.
+
+174
+00:17:00.730 --> 00:17:06.089
+Anthony Taylor: You have a lot of stuff that's like, you know, like I said, you're gonna see it in the student one.
+
+175
+00:17:06.280 --> 00:17:11.049
+Anthony Taylor:  then you have to decide if it's worth using. Or
+
+176
+00:17:11.450 --> 00:17:23.079
+Anthony Taylor: I mean, if someone said, someone actually had a reaction time of 5 ms. Okay. it's not really an outlier. Yes, it's a. Let me give you an example.
+
+177
+00:17:23.510 --> 00:17:26.080
+Anthony Taylor: Michael Jordan. Everybody know who Michael Jordan.
+
+178
+00:17:27.359 --> 00:17:32.870
+Anthony Taylor: Okay, I know it's it's getting to the point now where that was so long ago that young people are like, Who's that?
+
+179
+00:17:32.950 --> 00:17:34.399
+Anthony Taylor: You spent an actor?
+
+180
+00:17:34.740 --> 00:17:39.020
+Anthony Taylor: No, okay. Michael Jordan was an anomaly. He was an outlier
+
+181
+00:17:39.100 --> 00:17:41.299
+Anthony Taylor: in almost every category.
+
+182
+00:17:42.210 --> 00:17:45.679
+Anthony Taylor: Okay, he did not make his High School basketball team.
+
+183
+00:17:46.030 --> 00:17:48.419
+Anthony Taylor: This doesn't happen for Nba players.
+
+184
+00:17:48.700 --> 00:17:54.769
+Anthony Taylor: Okay, he comes into the Nba. And he's like, and Mvp. First year. It happens not very often.
+
+185
+00:17:55.470 --> 00:17:59.680
+Anthony Taylor: his scoring, his rebound. Everything about this guy was an outlier.
+
+186
+00:18:00.940 --> 00:18:03.250
+Anthony Taylor: alright. How much money he made.
+
+187
+00:18:03.820 --> 00:18:06.760
+Anthony Taylor: how smart he was every day outliers.
+
+188
+00:18:07.410 --> 00:18:15.909
+Anthony Taylor: But it's a real thing. So here's the question. If you are judging and Nba players, does Michael Jordan belong in the database?
+
+189
+00:18:16.860 --> 00:18:20.579
+Anthony Taylor: Right? Everyone compares and compares to Michael Jordan
+
+190
+00:18:20.850 --> 00:18:30.459
+Anthony Taylor: Kobe. He's the next Michael. Well, was the next. Michael Jordan is. The next is second Michael Jordan Lebron. He's greater than Michael Jordan.
+
+191
+00:18:31.590 --> 00:18:33.869
+Anthony Taylor: Okay, I guarantee you, Lebron.
+
+192
+00:18:34.880 --> 00:18:42.080
+Anthony Taylor: Alright. So anyway, the the point is is that outliers do exist, and they're not always wrong.
+
+193
+00:18:42.850 --> 00:18:54.379
+Anthony Taylor: So we still have to use our analytics to come up with. Well. is it wrong? Is it really an outlier? Do we want to dump it, cause it will skew our data badly
+
+194
+00:18:54.580 --> 00:19:00.839
+Anthony Taylor: the average of our data, the mean of our data with this outlier really low.
+
+195
+00:19:02.680 --> 00:19:07.790
+Anthony Taylor: Okay, you get rid of that. Armine is way up in, you know way high.
+
+196
+00:19:08.500 --> 00:19:11.569
+Anthony Taylor: Okay, but this can really skew your data?
+
+197
+00:19:12.310 --> 00:19:13.339
+Anthony Taylor: Yes, Christine.
+
+198
+00:19:14.360 --> 00:19:19.360
+Kanouff, Christine: so is the just a reminder. Is that
+
+199
+00:19:19.820 --> 00:19:27.179
+Kanouff, Christine: figure one axis, one plus subplots. Is that? What's that? What creates
+
+200
+00:19:27.290 --> 00:19:30.150
+Kanouff, Christine: the box plot? Pick?
+
+201
+00:19:30.360 --> 00:19:33.949
+Anthony Taylor: This creates a canvas where we can put the boxpot.
+
+202
+00:19:33.970 --> 00:19:45.400
+Anthony Taylor: Okay, this is what creates the box plot. So we're saying, put it in to this axis, and this allows us to create more than one box flat on the single pan. That's all.
+
+203
+00:19:45.460 --> 00:19:48.979
+Anthony Taylor: So like, if we wanted to do a second one, we could
+
+204
+00:19:49.140 --> 00:19:50.970
+Anthony Taylor: do like an acts 2,
+
+205
+00:19:51.240 --> 00:19:55.250
+Anthony Taylor: and it would be in the same canvas. But there'd be another box button.
+
+206
+00:19:57.310 --> 00:19:58.270
+Anthony Taylor: Okay.
+
+207
+00:20:00.290 --> 00:20:06.539
+Anthony Taylor: alright. I can tell you guys all confidence in world 30 years. I've never created box plot while working
+
+208
+00:20:07.120 --> 00:20:07.930
+Anthony Taylor: effort.
+
+209
+00:20:09.060 --> 00:20:11.710
+Anthony Taylor: Okay, I've never even. I've never even seen one
+
+210
+00:20:11.750 --> 00:20:14.290
+Anthony Taylor: created ever
+
+211
+00:20:16.300 --> 00:20:17.880
+Anthony Taylor: alright. But
+
+212
+00:20:19.250 --> 00:20:28.240
+Anthony Taylor: that's why, because we do it mathematically. We don't do it with the visual at. So that's all. Hi. so we have an expert
+
+213
+00:20:30.520 --> 00:20:35.520
+Anthony Taylor: with the box plot. So you got reboot. I think you guys have actually done this one before
+
+214
+00:20:35.560 --> 00:20:43.350
+Anthony Taylor: you're going to filter the data into hourly drywall temperature, create a boxplot to visualize it. use pandas to calculate quartiles.
+
+215
+00:20:43.420 --> 00:20:49.369
+Anthony Taylor: display the values. Use the I. QR, you guys, remember the IQR. Calculation does tell you, both of us.
+
+216
+00:20:51.930 --> 00:20:55.920
+Anthony Taylor: So see what I was telling you about all the outliers here. Lots of.
+
+217
+00:20:56.460 --> 00:21:00.069
+Anthony Taylor: But it's awful lot of data in the minutes. It's probably okay.
+
+218
+00:21:01.870 --> 00:21:09.139
+Anthony Taylor:  I know we talked about it, but I don't know.
+
+219
+00:21:09.840 --> 00:21:12.000
+McKimmy, Brandon: We if we set it.
+
+220
+00:21:12.290 --> 00:21:16.100
+McKimmy, Brandon: did I show it to you already today. Yeah.
+
+221
+00:21:16.160 --> 00:21:17.359
+McKimmy, Brandon: it's not today.
+
+222
+00:21:17.850 --> 00:21:20.169
+Anthony Taylor: not today. Alright. Well, let me show it to you.
+
+223
+00:21:20.600 --> 00:21:21.920
+sonja baro: Yeah.
+
+224
+00:21:22.580 --> 00:21:24.889
+Anthony Taylor: So that you guys have it fresh.
+
+225
+00:21:27.270 --> 00:21:31.510
+Anthony Taylor: Cause I don't know why they would have you to it without showing it yet.
+
+226
+00:21:32.870 --> 00:21:34.399
+Anthony Taylor: So one sec.
+
+227
+00:21:40.650 --> 00:21:43.939
+Anthony Taylor: And maybe this is their way of saying, well, see, you did this before.
+
+228
+00:21:44.680 --> 00:21:46.440
+Anthony Taylor: Okay, so
+
+229
+00:21:46.530 --> 00:21:51.799
+Anthony Taylor: I'm just gonna put this in slack. So basically, what I'm doing is I'm putting this bell.
+
+230
+00:21:53.140 --> 00:21:58.580
+Anthony Taylor: I'm going to put this cell in slack and lets you guys have that?
+
+231
+00:22:02.430 --> 00:22:05.620
+Anthony Taylor: The rest I think you guys can handle
+
+232
+00:22:06.200 --> 00:22:07.550
+Anthony Taylor: shouldn't be a problem.
+
+233
+00:22:08.170 --> 00:22:09.870
+Anthony Taylor: Alright. Okay.
+
+234
+00:22:10.890 --> 00:22:11.880
+sonja baro: Anthony.
+
+235
+00:22:12.070 --> 00:22:13.510
+Anthony Taylor: welcome back.
+
+236
+00:22:14.170 --> 00:22:16.500
+Anthony Taylor: How'd you guys do any issues?
+
+237
+00:22:17.980 --> 00:22:19.020
+Anthony Taylor: Okay, good.
+
+238
+00:22:19.670 --> 00:22:22.550
+Anthony Taylor: Let's go through it.
+
+239
+00:22:24.080 --> 00:22:25.050
+Anthony Taylor: Oh.
+
+240
+00:22:25.370 --> 00:22:26.350
+room.
+
+241
+00:22:30.780 --> 00:22:31.560
+Anthony Taylor: okay?
+
+242
+00:22:33.690 --> 00:22:36.110
+Anthony Taylor: Dependency.
+
+243
+00:22:39.350 --> 00:22:45.510
+Anthony Taylor: So first thing we had to do load the file, then grab the jive temperature like we did in one of the demos.
+
+244
+00:22:45.690 --> 00:22:52.389
+Anthony Taylor: We're gonna just do the same box plus. So this is exactly the same as what you do. The example
+
+245
+00:22:52.750 --> 00:22:56.159
+Anthony Taylor: I do is, change out the titles pretty much, and the data.
+
+246
+00:22:56.490 --> 00:23:15.600
+Anthony Taylor: And we can see this. So again, we look at this, there's quite a few outliers there kind of depends on like, how's the data and everything else? Because these whiskers are so huge? Probably. Okay with this. But you would still want to at least check and see if there was any like problem readings. Or was this this just unusual temperatures?
+
+247
+00:23:15.980 --> 00:23:17.060
+Anthony Taylor: Okay.
+
+248
+00:23:17.170 --> 00:23:20.309
+Anthony Taylor: we use the quantile
+
+249
+00:23:20.420 --> 00:23:24.970
+Anthony Taylor: method with our data. And and we tell it we want.
+
+250
+00:23:25.070 --> 00:23:31.099
+Anthony Taylor: you know, point 2 5.5 point 7 5, which gives us 2, 3, and 4
+
+251
+00:23:31.540 --> 00:23:34.580
+Anthony Taylor: right of the Quantile or the portiles.
+
+252
+00:23:34.860 --> 00:23:41.540
+Anthony Taylor: Then we get the lower quartile. We get the upper quartile. We subtract the 2 to get our I. QR.
+
+253
+00:23:42.250 --> 00:23:44.410
+Anthony Taylor: And then that gets output here.
+
+254
+00:23:45.500 --> 00:23:50.769
+Anthony Taylor: Okay, we can also see the mean by asking for the point 5 or the medium. Sorry.
+
+255
+00:23:51.350 --> 00:23:54.049
+Anthony Taylor: Alright. Now, to get
+
+256
+00:23:54.110 --> 00:24:00.999
+Anthony Taylor: our outlier range. We're going to say the lower bound is the lower quartile, minus
+
+257
+00:24:01.130 --> 00:24:03.549
+Anthony Taylor: 1.5 times Iqr.
+
+258
+00:24:04.150 --> 00:24:07.550
+Anthony Taylor: Our upper bound is the upper quartile.
+
+259
+00:24:07.560 --> 00:24:13.419
+Anthony Taylor: plus 1.5 times IQ. Up alright, and then that will give us
+
+260
+00:24:13.430 --> 00:24:14.780
+Anthony Taylor: anything
+
+261
+00:24:14.880 --> 00:24:18.960
+Anthony Taylor: below. This could be an outlier. That's important.
+
+262
+00:24:19.130 --> 00:24:24.540
+Anthony Taylor: Anything above this could be an outline. Okay.
+
+263
+00:24:25.560 --> 00:24:32.210
+Anthony Taylor: so these are important statements. Could you need to investigate? Don't just assume
+
+264
+00:24:32.540 --> 00:24:41.010
+Anthony Taylor: that this or this is is accurate. You need to look at how they gather data and determine if it's a problem. Yes, sir.
+
+265
+00:24:41.920 --> 00:25:08.069
+sonja baro: So I just wanna confirm my understanding because before we went to the the activity, you made a distinction that this was the graph is a visual representation, and that you'd like to do with the the qualitative right versus the quantitative. So if the graph is the qualitative, then this addition, the cells below were our quantitative
+
+266
+00:25:08.240 --> 00:25:13.409
+sonja baro: way. What really representing what was in that visual graph
+
+267
+00:25:13.470 --> 00:25:17.339
+sonja baro: but more detail. Okay, I just wanted to check.
+
+268
+00:25:17.400 --> 00:25:23.370
+Anthony Taylor: So so you would. I mean, if this was something we needed to know
+
+269
+00:25:23.490 --> 00:25:27.080
+Anthony Taylor: this, would you would basically do this and this
+
+270
+00:25:27.470 --> 00:25:29.809
+Anthony Taylor: I mean, and look and see what the values are
+
+271
+00:25:30.490 --> 00:25:33.069
+sonja baro: okay. Okay?
+
+272
+00:25:33.770 --> 00:25:46.940
+sonja baro: And then how do you describe the other question we had, or at least I did in our group was, If you're explaining Iqr, like, what's a layman's way to describe? Iqr.
+
+273
+00:25:47.240 --> 00:25:51.250
+Anthony Taylor: the the distance between the second quartile and the and the third
+
+274
+00:25:51.630 --> 00:25:53.050
+sonja baro: right? So this
+
+275
+00:25:53.120 --> 00:25:56.049
+Anthony Taylor: that's yeah. So if you figure
+
+276
+00:25:56.220 --> 00:25:59.449
+Anthony Taylor: between 25% and 75% of the data
+
+277
+00:25:59.860 --> 00:26:02.749
+sonja baro: perfect. How much data is in between? Yeah.
+
+278
+00:26:03.020 --> 00:26:04.300
+sonja baro: okay, thank you.
+
+279
+00:26:04.740 --> 00:26:08.240
+Anthony Taylor: No, not a problem. Any other questions.
+
+280
+00:26:10.160 --> 00:26:11.150
+Anthony Taylor: Nay.
+
+281
+00:26:11.530 --> 00:26:13.340
+Anthony Taylor: alright. So
+
+282
+00:26:13.450 --> 00:26:17.810
+Anthony Taylor: I said, I'm like 99%, sure, we actually covered this one, too.
+
+283
+00:26:18.120 --> 00:26:29.690
+Anthony Taylor: But we're gonna do it again as a review. So we're going to talk about Sem.  So this has a lot to do with like gathering
+
+284
+00:26:29.800 --> 00:26:34.110
+Anthony Taylor: data and ensuring that multiple
+
+285
+00:26:35.740 --> 00:26:38.690
+Anthony Taylor: populations or samples of our data
+
+286
+00:26:39.030 --> 00:26:50.770
+Anthony Taylor: are representative of the original sample. Okay? So here, we're just gonna do some basic. So we're gonna mean or standard deviation. We're gonna create a histogram. Alright.
+
+287
+00:26:50.830 --> 00:26:53.600
+Anthony Taylor: there's our histogram looks great.
+
+288
+00:26:54.040 --> 00:27:06.839
+Anthony Taylor: So we're gonna grab a specific range of data. We're gonna say, give me rows 766 through 856. So 90 rows of data and we're going to
+
+289
+00:27:06.920 --> 00:27:10.329
+Anthony Taylor: make a histogram of it. Now, just looking at this.
+
+290
+00:27:14.140 --> 00:27:16.680
+Anthony Taylor: we can see this data is pretty different.
+
+291
+00:27:17.470 --> 00:27:22.020
+Anthony Taylor: Okay, our sample is probably not representative
+
+292
+00:27:22.090 --> 00:27:32.479
+Anthony Taylor: of our data. And if you look here, it says, the the mean is 23.3 3, and the standard deviations 5.9 4. What we wanted is close to that as possible.
+
+293
+00:27:33.580 --> 00:27:37.069
+Anthony Taylor: 18.4 8 and 2.4 one, not even close.
+
+294
+00:27:38.110 --> 00:27:39.090
+Anthony Taylor: Okay?
+
+295
+00:27:40.320 --> 00:27:47.730
+Anthony Taylor: So we can also say, just give me use the sample method and just give me 90 random records.
+
+296
+00:27:48.230 --> 00:27:49.900
+Anthony Taylor: And let's see how that comes up
+
+297
+00:27:52.530 --> 00:27:53.830
+Anthony Taylor: much better.
+
+298
+00:27:54.920 --> 00:27:59.870
+Anthony Taylor: Okay? And even visually, we can see much more simple.
+
+299
+00:28:00.920 --> 00:28:06.839
+Anthony Taylor: Okay. So we did a much better job with getting a better representative sample of our data by using
+
+300
+00:28:07.070 --> 00:28:11.150
+Anthony Taylor: sample, which is just randomly selecting 90 rows of data.
+
+301
+00:28:12.480 --> 00:28:13.380
+Anthony Taylor: Okay?
+
+302
+00:28:14.080 --> 00:28:17.580
+Anthony Taylor: Here we're going to sample 30 rows
+
+303
+00:28:18.100 --> 00:28:22.279
+Anthony Taylor: and just print out the the Sem.
+
+304
+00:28:22.700 --> 00:28:30.259
+Anthony Taylor: Okay? So let's look at what send is on here. Alright calculates the standard error of the mean
+
+305
+00:28:30.400 --> 00:28:34.360
+Anthony Taylor: or a standard error measurement. The values input it right?
+
+306
+00:28:34.390 --> 00:28:40.020
+Anthony Taylor: Basically, all this is going to do is tell us how close to the original
+
+307
+00:28:40.460 --> 00:28:46.080
+Anthony Taylor: are we with this sample? So this sample with 30 was point 8 4.
+
+308
+00:28:46.360 --> 00:28:56.079
+Anthony Taylor: Okay, so what we're looking for is as close to. I don't want to say it wrong one pretty sure.
+
+309
+00:28:56.300 --> 00:29:12.690
+Anthony Taylor: But I don't want to say, Hello. so give me 1 s statistics have to be populations. Jeremy. Function samples. It's there we go.  yes.
+
+310
+00:29:13.380 --> 00:29:20.470
+Anthony Taylor: Okay. So yeah, we're looking for close to one. So this was pretty close notice. If we run this again. Aha! Change.
+
+311
+00:29:21.450 --> 00:29:25.399
+Anthony Taylor: Okay, if we write it again, it's changed again. Why, we're using sample
+
+312
+00:29:25.530 --> 00:29:31.270
+Anthony Taylor: sample is just randomly selected. Okay, but as long as that number stays close to one we're doing good.
+
+313
+00:29:31.630 --> 00:29:33.660
+Anthony Taylor: Alright. So here
+
+314
+00:29:34.140 --> 00:29:37.029
+Anthony Taylor: we're gonna do list comprehension. Yes, Meredith.
+
+315
+00:29:38.680 --> 00:29:52.469
+Meredith McCanse (she/her): will you say I'm not fully wrapping my head around the set? The standard error of the mean. We used to say it one more time. I think you said it's the distance away from the mean. Is that so cool?
+
+316
+00:29:53.190 --> 00:30:00.170
+Anthony Taylor: It gives us a good idea. The potential deviation of our sample mean from our population. So when you look at
+
+317
+00:30:00.490 --> 00:30:09.720
+Anthony Taylor: this example, this mean is 1848. This is the original. This is our all of our data. And the mean was 23.3 3.
+
+318
+00:30:09.950 --> 00:30:16.150
+Anthony Taylor: Alright. So so we're not actually doing the 7. This one. This will probably be pretty pretty far
+
+319
+00:30:16.300 --> 00:30:23.659
+Anthony Taylor: while this one. The mean is like almost perfect right. This one would probably be like almost a what
+
+320
+00:30:24.480 --> 00:30:32.080
+Meredith McCanse (she/her): and a one means. A one means it's exactly equal to it versus like a 0.
+
+321
+00:30:32.950 --> 00:30:38.720
+Anthony Taylor: Yes, I wanna make sure that before I say that again, because it doesn't say. And that's the way I remember it.
+
+322
+00:30:40.070 --> 00:30:45.370
+Anthony Taylor: Good SEN, yes, I.
+
+323
+00:30:46.370 --> 00:30:47.300
+sonja baro: So
+
+324
+00:30:47.620 --> 00:30:53.400
+sonja baro: wh. What is the purpose? Like? We're trying to find this value out.
+
+325
+00:30:53.790 --> 00:31:00.200
+sonja baro: to do what to understand, what we need to modify, make sure our sample
+
+326
+00:31:00.470 --> 00:31:06.250
+Anthony Taylor: is is as close to the original as possible. So this isn't the same as like.
+
+327
+00:31:06.290 --> 00:31:09.659
+Anthony Taylor: mean me, median and mode this is.
+
+328
+00:31:09.810 --> 00:31:24.390
+Anthony Taylor: we want to know how good our sample is compared to our date. So our goal is, get a sample that represents our data. We're going to talk for about population
+
+329
+00:31:24.420 --> 00:31:31.590
+sonja baro: similar to our data set. So whatever we're pulling as a sample looks similar to what the full data is.
+
+330
+00:31:32.480 --> 00:31:34.150
+Anthony Taylor: Yes, exactly.
+
+331
+00:31:34.790 --> 00:31:36.100
+sonja baro: Exactly.
+
+332
+00:31:37.170 --> 00:31:42.639
+Anthony Taylor: That's so funny. I found like, like 500 different. You know what I'm gonna ask our friend.
+
+333
+00:31:44.060 --> 00:31:53.389
+Anthony Taylor: This is probably the easiest way to do this, because we like looking at the. It's like looking at the composition of a rock
+
+334
+00:31:54.010 --> 00:31:58.120
+Clayton Graves: to make sure it came from a certain mountain kind of
+
+335
+00:31:58.830 --> 00:31:59.849
+Anthony Taylor: sort of yeah.
+
+336
+00:32:01.740 --> 00:32:03.080
+Anthony Taylor: Okay. Here we go
+
+337
+00:32:05.080 --> 00:32:08.539
+smaller. SIM indicates sample. Mean is more reliable.
+
+338
+00:32:09.640 --> 00:32:12.600
+Anthony Taylor: This is generally, yeah, okay. But we're getting ones.
+
+339
+00:32:13.060 --> 00:32:16.199
+Anthony Taylor: Context matters. Consider confidence intervals.
+
+340
+00:32:16.560 --> 00:32:22.980
+Anthony Taylor: Ultimately, what constitutes a good score depends on the specific objectives or analysis. Okay, so
+
+341
+00:32:23.010 --> 00:32:31.850
+Anthony Taylor: the one is putting us as close to that that mean as possible. So we should be good there, and this is going to make a little more sense. Let's dig a little deeper before we continue. So
+
+342
+00:32:32.100 --> 00:32:34.460
+Anthony Taylor: here I'm going to grab 30
+
+343
+00:32:34.480 --> 00:32:42.309
+Anthony Taylor: sample rows 10 times 10 different samples. 30 rows in each one.
+
+344
+00:32:42.400 --> 00:32:46.919
+Anthony Taylor: And we're gonna put it into a list called vehicle sample set.
+
+345
+00:32:47.650 --> 00:32:51.740
+Anthony Taylor: Okay? Now, we're gonna get the means
+
+346
+00:32:52.300 --> 00:32:55.429
+Anthony Taylor: of each of the samples
+
+347
+00:32:55.440 --> 00:32:59.900
+Anthony Taylor: in vehicle sample. Set right here. Okay.
+
+348
+00:33:00.080 --> 00:33:04.960
+Anthony Taylor: put that in the means. Our standard errors, we're going to say, give me the Sem.
+
+349
+00:33:05.230 --> 00:33:16.060
+Anthony Taylor: which is how we calculate it for the sample in each one of those items. And we're going to create an X-axis, which is basically
+
+350
+00:33:16.090 --> 00:33:21.999
+Anthony Taylor: the length of our sample set. Okay? So we'll create that.
+
+351
+00:33:22.320 --> 00:33:25.030
+Anthony Taylor: Now we're going to do a subplot where we're going to do
+
+352
+00:33:25.080 --> 00:33:29.250
+Anthony Taylor: the we're going to pass this kind of error bar plot.
+
+353
+00:33:29.330 --> 00:33:31.469
+Anthony Taylor: We're going to pass in our X-axis.
+
+354
+00:33:31.490 --> 00:33:34.849
+Anthony Taylor: our averages and our send value.
+
+355
+00:33:35.520 --> 00:33:39.700
+Anthony Taylor: Okay. and this Xlim y Lim. X. Take a Y label.
+
+356
+00:33:39.740 --> 00:33:42.770
+Anthony Taylor: And it looks like this. Now.
+
+357
+00:33:43.200 --> 00:33:47.229
+Anthony Taylor: all of us, that stuff put aside doesn't really matter what matters
+
+358
+00:33:47.430 --> 00:33:50.410
+Anthony Taylor: is which of these guys
+
+359
+00:33:50.700 --> 00:33:55.420
+Anthony Taylor: are like we want the ones that are the closest, that are the most similar.
+
+360
+00:33:55.750 --> 00:33:58.740
+Anthony Taylor: Okay? And with the shortest whiskers.
+
+361
+00:34:00.790 --> 00:34:01.610
+Anthony Taylor: Okay.
+
+362
+00:34:01.780 --> 00:34:06.249
+Anthony Taylor: so that's how we tell is with the shortest whisker. So I would say, this is probably
+
+363
+00:34:06.430 --> 00:34:09.070
+Anthony Taylor: the best one. It's funny. In the last example.
+
+364
+00:34:10.150 --> 00:34:11.500
+Anthony Taylor: We actually.
+
+365
+00:34:12.929 --> 00:34:19.650
+Anthony Taylor: I remember when we did this last time, we actually had like a way to to show which one was the best.
+
+366
+00:34:20.760 --> 00:34:21.770
+Anthony Taylor: There it is.
+
+367
+00:34:28.590 --> 00:34:29.839
+Anthony Taylor: This might work.
+
+368
+00:34:31.060 --> 00:34:33.219
+Anthony Taylor: I don't know why they didn't add this to this one
+
+369
+00:34:39.050 --> 00:34:46.280
+Anthony Taylor: now. cause Sims isn't defined. Oh, we called it standard errors.
+
+370
+00:34:48.719 --> 00:34:50.100
+Anthony Taylor: Maybe
+
+371
+00:34:55.239 --> 00:34:56.559
+Anthony Taylor: there's still another one
+
+372
+00:34:59.170 --> 00:35:02.970
+Anthony Taylor: there we go. So the smallest seminar was point 8 1.
+
+373
+00:35:03.890 --> 00:35:06.549
+They got about.
+
+374
+00:35:07.080 --> 00:35:14.489
+Anthony Taylor: Okay, so this is the distance of this is how long the whisker is. So the shorter you get that 0 the better.
+
+375
+00:35:14.530 --> 00:35:16.300
+Anthony Taylor: But one is still pretty good.
+
+376
+00:35:16.410 --> 00:35:20.789
+Anthony Taylor: Okay, but if we run this enough times you'll see it drop slower and lower.
+
+377
+00:35:20.920 --> 00:35:25.780
+Anthony Taylor: which is what we're looking for. So in this case we got a point 8 1,
+
+378
+00:35:25.890 --> 00:35:34.170
+Anthony Taylor: which is the seventh bar. Okay, so what we're looking for is close to 0 as possible, not one 0.
+
+379
+00:35:34.720 --> 00:35:37.380
+Anthony Taylor: And the bigger the number, the less
+
+380
+00:35:37.700 --> 00:35:39.900
+Anthony Taylor: representative it is. But
+
+381
+00:35:40.800 --> 00:35:45.269
+Anthony Taylor: again, a one isn't necessarily bad. It depends on your use case
+
+382
+00:35:46.160 --> 00:35:49.389
+Anthony Taylor: if you can. So if you can tolerate that much. It's fine.
+
+383
+00:35:50.540 --> 00:35:53.220
+Anthony Taylor: Okay? Alright.
+
+384
+00:35:53.390 --> 00:36:04.229
+Anthony Taylor:  okay. We have a student activity with the same thing. This is definitely one
+
+385
+00:36:04.590 --> 00:36:09.099
+Anthony Taylor: that I would have mine open next to it while you're doing it.
+
+386
+00:36:09.520 --> 00:36:18.469
+Anthony Taylor: In fact, I'm gonna go through it real quick, just to make sure I ran all of these earlier. But I know there's one I'm not gonna think you guys do by yourself.
+
+387
+00:36:18.730 --> 00:36:20.230
+Anthony Taylor: Don't think this is it.
+
+388
+00:36:21.780 --> 00:36:23.670
+Anthony Taylor: There's one that's just like I'm like.
+
+389
+00:36:25.270 --> 00:36:34.649
+Anthony Taylor: there's like 2 things we showed them and the rest you just expect them to know. Good sounds.
+
+390
+00:36:35.100 --> 00:36:38.789
+Anthony Taylor: Yeah. So that last little thing I stuck on the end
+
+391
+00:36:39.050 --> 00:36:44.939
+Anthony Taylor: to show the the the best one you're going to want to use that if they didn't give it to you. Let's see.
+
+392
+00:36:47.360 --> 00:36:53.690
+Anthony Taylor: Yeah. See, this is that last little part I showed you at the end where I brought it in and pasted it.
+
+393
+00:36:53.810 --> 00:36:57.950
+Anthony Taylor: You're going to want to bring that in to hear. Okay
+
+394
+00:36:59.670 --> 00:37:02.730
+and make sure you change the variable. But for the most part.
+
+395
+00:37:03.050 --> 00:37:10.750
+Anthony Taylor: think you guys will be okay. This is not an easy one, so don't get too upset if it's not crystal clear. Yes, I
+
+396
+00:37:11.130 --> 00:37:19.070
+sonja baro: you said. Did you give us that last bit? Did you put it in line? Oh, you know what I didn't do that I just put it in line.
+
+397
+00:37:19.250 --> 00:37:25.860
+sonja baro: Yeah. that's me. I'd be happy to pull it in. I
+
+398
+00:37:27.280 --> 00:37:28.710
+Anthony Taylor: then we find it
+
+399
+00:37:29.540 --> 00:37:32.010
+Anthony Taylor: there it is. Yeah.
+
+400
+00:37:32.420 --> 00:37:37.169
+Anthony Taylor: I'm thinking about giving it to you with the proper variables, so that you don't have to change the variables.
+
+401
+00:37:38.940 --> 00:37:39.800
+Anthony Taylor: Here you go
+
+402
+00:37:41.090 --> 00:37:46.560
+Anthony Taylor: because I did not go because it wasn't included in the instructor. Demo. I just added it, that's all.
+
+403
+00:37:47.890 --> 00:37:49.919
+And it helped, as it reminded me.
+
+404
+00:37:50.210 --> 00:37:51.550
+Anthony Taylor: Alright. There we go!
+
+405
+00:37:51.950 --> 00:37:53.380
+sonja baro: Thank you
+
+406
+00:37:56.810 --> 00:38:02.140
+Anthony Taylor: welcome back, everybody. Let's go through it.
+
+407
+00:38:02.710 --> 00:38:04.829
+Anthony Taylor: Oh, there we go!
+
+408
+00:38:05.210 --> 00:38:06.639
+Clayton Graves: I'm rushed up.
+
+409
+00:38:07.370 --> 00:38:08.390
+Anthony Taylor: Sorry.
+
+410
+00:38:08.880 --> 00:38:12.949
+Clayton Graves: This is some rough stuff, not gonna lie. Well, it it.
+
+411
+00:38:15.390 --> 00:38:26.409
+Clayton Graves: I do get the concepts, though, about judging a subset of the original to see if it's a proper representative of the original that makes sense.
+
+412
+00:38:27.260 --> 00:38:33.800
+Anthony Taylor: And and have we talked about samples and populations before
+
+413
+00:38:34.920 --> 00:38:44.260
+Anthony Taylor: I know we talked about this, but did we get into my whole samples and population lecture? I don't think we did so. Let me just pause for quick second, and we'll come back to this.
+
+414
+00:38:44.300 --> 00:38:46.890
+Anthony Taylor: Well, no, let's go through this, and then I'll do it.
+
+415
+00:38:46.990 --> 00:39:00.750
+Anthony Taylor: So here we have. You know, we're pulling it in. This is one of those ones where it's a a pre-made dataset in sk learn. So we use sk learn data sets and pick the one we want
+
+416
+00:39:00.800 --> 00:39:02.860
+Anthony Taylor: gives us a bunch of cool stuff.
+
+417
+00:39:03.230 --> 00:39:05.710
+Anthony Taylor:  yeah.
+
+418
+00:39:06.190 --> 00:39:07.200
+Anthony Taylor: Okay.
+
+419
+00:39:07.240 --> 00:39:18.460
+Anthony Taylor: So it gave us this first little bit here and said, Hey, we want to use housing data. Me, Dv, as our data. Okay, here it is at the end.
+
+420
+00:39:18.600 --> 00:39:21.180
+Anthony Taylor: Well, we created that. Oh.
+
+421
+00:39:21.910 --> 00:39:26.869
+Anthony Taylor: now I know why it wasn't. And I'm like, I don't understand why it wasn't in there. Okay, so
+
+422
+00:39:28.920 --> 00:39:36.069
+Anthony Taylor: in these sk learn data sets. okay. these are actually designed for machine learning.
+
+423
+00:39:36.210 --> 00:39:40.739
+Anthony Taylor: and they separate the data into features and targets.
+
+424
+00:39:41.600 --> 00:39:49.889
+Anthony Taylor: All right. The Me. Dv. I don't know why it's sure it's listed. If we go deep enough in here. But the Me. Dv is the target.
+
+425
+00:39:51.260 --> 00:39:57.540
+Anthony Taylor: That's the target of this particular data set. So you see here where
+
+426
+00:39:57.790 --> 00:40:06.800
+Anthony Taylor: calling the target and we're assigning it to this, me Dv value. And that's where Medv comes from. That's why it's not listed here.
+
+427
+00:40:07.620 --> 00:40:10.879
+Anthony Taylor: Okay, that'll make more sense in a couple weeks.
+
+428
+00:40:11.010 --> 00:40:15.909
+Anthony Taylor: But it just it was there. You just didn't see it in this part of the description.
+
+429
+00:40:16.170 --> 00:40:24.570
+Anthony Taylor: Okay. So once we have that we're going to say we're going to give 25 samples of 20 records. We're going to loop through. Output it
+
+430
+00:40:24.610 --> 00:40:26.380
+Anthony Taylor: going to be exciting.
+
+431
+00:40:26.430 --> 00:40:36.279
+Anthony Taylor: We're going to get the mean of each of those and the sem of the mean are of the sorry of the sem of that sample as well.
+
+432
+00:40:36.970 --> 00:40:41.510
+Anthony Taylor: We're gonna do our subplots. The error bar. This is kind of
+
+433
+00:40:42.220 --> 00:40:47.220
+Anthony Taylor: heavy. But basically, this is just how many samples. Okay.
+
+434
+00:40:47.520 --> 00:40:49.910
+Anthony Taylor: we have our means. Yeah.
+
+435
+00:40:50.410 --> 00:41:02.419
+Raugewitz, Tania: so just because and I hope this isn't too much. But can you just slow down in your running through what we did because we did it as a group without you? So not all of us are on the same page.
+
+436
+00:41:02.970 --> 00:41:04.180
+Raugewitz, Tania: totally cool.
+
+437
+00:41:04.710 --> 00:41:11.810
+Anthony Taylor: Alright. So we'll go back to here. Is this fair back to? Okay? So this is our list comprehension.
+
+438
+00:41:12.200 --> 00:41:20.330
+Anthony Taylor: Okay? And we're so we're doing our loop. And we're going for range 0 in number of samples. Because we said, we want 25 samples.
+
+439
+00:41:20.720 --> 00:41:23.559
+Anthony Taylor: So this is going to loop 25 times
+
+440
+00:41:24.290 --> 00:41:29.769
+Anthony Taylor: each time it's going to run the sample method on the data set
+
+441
+00:41:31.090 --> 00:41:40.130
+Anthony Taylor: for and grab 20 records. See here. So this will be a list of
+
+442
+00:41:40.950 --> 00:41:45.680
+Anthony Taylor: 20 data outputs. Okay.
+
+443
+00:41:45.750 --> 00:41:48.479
+Anthony Taylor: of 25 records in each one.
+
+444
+00:41:49.150 --> 00:41:55.450
+Anthony Taylor: So is that everybody comfortable with that? Wait. Okay, so here's oh, sorry! Go ahead, was it?
+
+445
+00:41:55.540 --> 00:42:01.909
+Clayton Graves: It sounded like that was the reverse of what I'm comprehending here, because when I put this I see
+
+446
+00:42:02.080 --> 00:42:04.470
+Clayton Graves: 25 samples of 20.
+
+447
+00:42:04.610 --> 00:42:06.509
+sonja baro: I'm with Clayton.
+
+448
+00:42:06.830 --> 00:42:11.069
+Anthony Taylor: Correct. Isn't that what I said? We're making 25 samples.
+
+449
+00:42:11.610 --> 00:42:25.170
+Anthony Taylor: 20 records in each one. Okay, so
+
+450
+00:42:25.540 --> 00:42:29.049
+Anthony Taylor: we're going to loop 25 times.
+
+451
+00:42:29.350 --> 00:42:32.860
+Anthony Taylor: pulling 20 records each time
+
+452
+00:42:33.230 --> 00:42:36.030
+Anthony Taylor: into a list that will contain
+
+453
+00:42:36.130 --> 00:42:40.080
+Anthony Taylor: 25 outputs of those 20 record.
+
+454
+00:42:41.600 --> 00:42:52.170
+Anthony Taylor: Then we're going to loop through that list and get the mean of every data set that's in there. So all 25 of them.
+
+455
+00:42:52.180 --> 00:42:54.670
+Anthony Taylor: we will have the mean of the average.
+
+456
+00:42:55.410 --> 00:42:57.040
+Anthony Taylor: then the same thing.
+
+457
+00:42:57.190 --> 00:42:59.779
+Anthony Taylor: But we're going to calculate the Ccm
+
+458
+00:43:00.850 --> 00:43:04.090
+Anthony Taylor: just a method just like meme, except for its sef
+
+459
+00:43:04.210 --> 00:43:11.320
+Anthony Taylor: same exact values, same exact date. But we're gonna put those into separate lists. Everybody good. With that.
+
+460
+00:43:13.520 --> 00:43:20.920
+Anthony Taylor: we're actually doing really good today. So I don't mind spending extra time so good. So this is probably the most complicated line of code in here.
+
+461
+00:43:21.220 --> 00:43:23.270
+Anthony Taylor: So let's take it apart.
+
+462
+00:43:23.530 --> 00:43:29.310
+Anthony Taylor: Okay? So first. well, first, we've got our figure, which is the canvas where our chart is going to live.
+
+463
+00:43:29.570 --> 00:43:39.710
+Anthony Taylor: Our axes says we're gonna have one chart on this figure. and then we're gonna do Plt subplots. It draws the canvas
+
+464
+00:43:40.300 --> 00:43:41.340
+Anthony Taylor: in the background.
+
+465
+00:43:41.970 --> 00:43:46.430
+Anthony Taylor: Now, we're going to add an error bar to this axis.
+
+466
+00:43:46.910 --> 00:43:49.610
+Anthony Taylor: which is the Sems chart.
+
+467
+00:43:50.750 --> 00:43:55.769
+Anthony Taylor: We're saying. And and again, this is so unnecessary.
+
+468
+00:43:55.860 --> 00:44:02.289
+Anthony Taylor: But basically, what they're saying is, give me the length of this of of the samples list.
+
+469
+00:44:03.360 --> 00:44:06.089
+Anthony Taylor: Okay, which we know is 25.
+
+470
+00:44:06.550 --> 00:44:13.269
+Anthony Taylor: All right. So go 0 to 25, one at a time and add one.
+
+471
+00:44:13.570 --> 00:44:21.150
+Anthony Taylor: We could have just said number of samples, plus one, or even better, just 26. But whatever.
+
+472
+00:44:21.630 --> 00:44:23.520
+Anthony Taylor: Okay? So that's what this
+
+473
+00:44:24.430 --> 00:44:27.520
+Anthony Taylor: 0 to length of samples plus one.
+
+474
+00:44:27.830 --> 00:44:30.530
+Anthony Taylor: Then we're going to take those means we calculated.
+
+475
+00:44:30.990 --> 00:44:34.900
+Anthony Taylor: And then we're going to take those Sims, we calculated
+
+476
+00:44:36.040 --> 00:44:40.970
+Anthony Taylor: this little format. This is what ends up in the middle. If you want the circle or not.
+
+477
+00:44:41.120 --> 00:44:46.189
+Anthony Taylor: Okay in that center point. color is just the color of the bar. So blue.
+
+478
+00:44:46.570 --> 00:44:50.129
+Anthony Taylor: Alright, Alpha, we do this in case they overlap
+
+479
+00:44:51.250 --> 00:44:54.540
+Anthony Taylor: label. This is just the label on the chart.
+
+480
+00:44:54.970 --> 00:45:08.530
+Anthony Taylor: Okay, so X limit, just like before all this does is kind of squeeze the left and right together. So we're basically saying, Give me, you know, start at 0 and go to the. And this is so funny
+
+481
+00:45:08.580 --> 00:45:10.890
+Anthony Taylor: the length of means plus one.
+
+482
+00:45:11.190 --> 00:45:14.510
+Anthony Taylor: Anybody. See why, that's kind of a silly thing to say.
+
+483
+00:45:15.850 --> 00:45:17.760
+Anthony Taylor: What's the length of the means.
+
+484
+00:45:20.760 --> 00:45:32.940
+Anthony Taylor: Isn't it the same as the link of the samples? It's just like they're just like playing with it. Okay? So the length of the means is same as the link for the samples, which is the number of samples.
+
+485
+00:45:33.230 --> 00:45:40.670
+Anthony Taylor: Okay? So we're doing 25 plus one  good programming technique
+
+486
+00:45:40.700 --> 00:45:43.749
+Anthony Taylor: you would have if you really wanted to do it this way.
+
+487
+00:45:43.760 --> 00:45:54.079
+Anthony Taylor: you would have simply created a variable at the top of this, and used that variable in both of these places. It's silly to code it twice, especially with entirely different
+
+488
+00:45:54.810 --> 00:45:58.320
+Anthony Taylor: this, there's no point. It didn't add anything.
+
+489
+00:45:58.700 --> 00:46:10.780
+Anthony Taylor: Okay, so our X label Y label. That's words that will be XY. Our legend, just like when we were doing our charts before our line charts. It's going to put it the best spot on the figure.
+
+490
+00:46:11.220 --> 00:46:16.350
+Anthony Taylor: We're going to tell it to be font size. I don't actually know. I don't remember what fancy box does. So let's see.
+
+491
+00:46:16.500 --> 00:46:19.580
+Anthony Taylor: Huh! It's a fancy box. I don't know why that's fancy.
+
+492
+00:46:21.340 --> 00:46:23.630
+Anthony Taylor: but it is okay.
+
+493
+00:46:23.870 --> 00:46:28.489
+Anthony Taylor: I guess the cool thing about Alpha on this is you could kind of see through the dots a little bit
+
+494
+00:46:29.070 --> 00:46:35.459
+Anthony Taylor: alright. But here you go. So this bar is the SEO. the.is the mean.
+
+495
+00:46:37.010 --> 00:46:47.699
+Anthony Taylor: Okay, so boom, boom, boom, boom, boom! There you go. Okay, now. we can visually see this and go. This is probably the best one number 10.
+
+496
+00:46:48.630 --> 00:46:50.379
+Anthony Taylor: Okay, because it's the shortest.
+
+497
+00:46:52.550 --> 00:46:59.620
+Anthony Taylor: So now we can print the range of sem values in sample set. So we're gonna take the Max Sdns
+
+498
+00:46:59.800 --> 00:47:03.690
+Anthony Taylor: and the min. So remember, in fact, here, before we do that.
+
+499
+00:47:04.910 --> 00:47:07.970
+Anthony Taylor: I'm just gonna print out test against.
+
+500
+00:47:07.980 --> 00:47:18.120
+Anthony Taylor: And this is what that looks like. 25 values. These are the the what's making up the length of that bar? But we're saying, Give us the maximum and subtract the minimum.
+
+501
+00:47:19.630 --> 00:47:27.899
+Anthony Taylor: Okay? So the range between these is 21 alright. The small. Oh, no, it's gonna give us the smallest.
+
+502
+00:47:27.950 --> 00:47:32.589
+Anthony Taylor: So we're going to get the smallest. And then it's going to give us the index. So. In other words.
+
+503
+00:47:32.640 --> 00:47:42.049
+Anthony Taylor: it's going to give us the smallest value in this list, and then the index of the smallest value which will effectively tell us which one of these bars is it?
+
+504
+00:47:42.560 --> 00:47:49.520
+Anthony Taylor: Okay? So we run this. The smallest value is 0 point 1 2. And yes, it was
+
+505
+00:47:50.020 --> 00:47:51.350
+Anthony Taylor: sample 10.
+
+506
+00:47:52.750 --> 00:47:53.660
+Anthony Taylor: Okay?
+
+507
+00:47:56.000 --> 00:48:04.819
+Anthony Taylor: And we're gonna print it all out at the end. So we're going to say, the mean of the sample 5. Is this the mean of the population data set.
+
+508
+00:48:05.180 --> 00:48:08.909
+Anthony Taylor: Is this so? Not sure why they said.
+
+509
+00:48:10.700 --> 00:48:13.899
+Anthony Taylor: this is wrong. So this word is wrong. And
+
+510
+00:48:15.040 --> 00:48:17.690
+Anthony Taylor: it's like a changing thing. It's still the same. Right? Yeah.
+
+511
+00:48:18.740 --> 00:48:19.710
+Anthony Taylor: okay.
+
+512
+00:48:21.190 --> 00:48:24.060
+Anthony Taylor: so is that fairly clear.
+
+513
+00:48:25.540 --> 00:48:33.789
+Anthony Taylor: this is a really cool thing. And so now let's talk about population first. So I'm gonna get, I'm gonna get political for just a second. Oh, wait!
+
+514
+00:48:33.850 --> 00:48:36.060
+Anthony Taylor: Mike has his hand up. He's gonna ruin it.
+
+515
+00:48:37.190 --> 00:48:39.839
+Anthony Taylor: What Mike.
+
+516
+00:48:41.000 --> 00:48:45.300
+michael mcpherson: can I say? The plot sample means with error bars absolutely
+
+517
+00:48:46.430 --> 00:48:50.809
+michael mcpherson: cause. I mine came up with no data. I need to see what I did.
+
+518
+00:48:51.730 --> 00:48:53.439
+Anthony Taylor: He probably discoped it.
+
+519
+00:48:53.470 --> 00:48:59.319
+Clayton Graves: Ours did that, too. For us. It was. The range was just way out of whack.
+
+520
+00:48:59.820 --> 00:49:06.200
+Anthony Taylor: So the range that we put 26 right there, our 26 right there seems like 26,
+
+521
+00:49:06.830 --> 00:49:08.640
+Anthony Taylor: and then you'll get the same thing.
+
+522
+00:49:09.160 --> 00:49:14.200
+Anthony Taylor: Oh, and that didn't work. Why did that work? Oh, was it not 26? Hold up
+
+523
+00:49:14.770 --> 00:49:16.850
+Dipinto, Matt: so range 26.
+
+524
+00:49:16.930 --> 00:49:19.020
+Anthony Taylor: Oh, thank you.
+
+525
+00:49:19.450 --> 00:49:21.610
+Anthony Taylor: So put 26 in here.
+
+526
+00:49:23.910 --> 00:49:27.569
+Dipinto, Matt: So that little snippet right there.
+
+527
+00:49:27.860 --> 00:49:34.210
+Anthony Taylor: Yeah, that actually adds one to every value. And
+
+528
+00:49:34.430 --> 00:49:39.030
+Anthony Taylor: okay, so we still have to do arranging here, so you could do
+
+529
+00:49:40.350 --> 00:49:44.680
+Anthony Taylor: 25. Okay.
+
+530
+00:49:45.260 --> 00:49:48.420
+Anthony Taylor: alright. There you go, if that makes it easier for you.
+
+531
+00:49:51.350 --> 00:49:53.030
+Anthony Taylor: and you do the same thing here.
+
+532
+00:49:57.700 --> 00:49:59.879
+michael mcpherson: Still, no plot points, but I'll figure it out.
+
+533
+00:49:59.940 --> 00:50:03.680
+michael mcpherson: Look at it. You want to look at it, Mike.
+
+534
+00:50:05.250 --> 00:50:09.250
+Clayton Graves: Only take a second, Mike. Let's see yours, Buddy.
+
+535
+00:50:09.850 --> 00:50:11.940
+Anthony Taylor: We're doing good, so don't worry about it.
+
+536
+00:50:20.770 --> 00:50:21.750
+Anthony Taylor: So
+
+537
+00:50:22.670 --> 00:50:23.740
+michael mcpherson: mine hates me
+
+538
+00:50:24.190 --> 00:50:29.370
+Clayton Graves: your accent. Ylm is 20 to 28 that seems a little
+
+539
+00:50:29.700 --> 00:50:32.599
+Clayton Graves: outside the scope. I think that's what we did, too.
+
+540
+00:50:33.020 --> 00:50:36.959
+Dipinto, Matt: Yeah, just comment that line out. It'll auto-set it if you don't put it there at all.
+
+541
+00:50:37.810 --> 00:50:38.959
+Anthony Taylor: There you go!
+
+542
+00:50:42.350 --> 00:50:45.149
+michael mcpherson: Got it. Thank you. Y'all are smart.
+
+543
+00:50:45.430 --> 00:50:51.440
+michael mcpherson: good eye, both of you, Clayton and Matt on that good job.
+
+544
+00:50:51.590 --> 00:50:52.820
+Anthony Taylor: Fine.
+
+545
+00:50:54.330 --> 00:51:06.049
+Anthony Taylor: Okay. So let's talk about population versus sample. So I think maybe we did talk about this. Stop me if we did so. Back in 2,016
+
+546
+00:51:07.610 --> 00:51:14.299
+Anthony Taylor: there was a whole lot of polls on election day
+
+547
+00:51:15.510 --> 00:51:17.040
+Anthony Taylor: that said
+
+548
+00:51:17.410 --> 00:51:23.210
+Anthony Taylor: we all knew who our next President was going right. Every one of them.
+
+549
+00:51:23.650 --> 00:51:26.930
+Anthony Taylor: every single poll
+
+550
+00:51:27.850 --> 00:51:29.140
+Anthony Taylor: said the same thing.
+
+551
+00:51:30.600 --> 00:51:31.550
+Anthony Taylor: Okay?
+
+552
+00:51:31.830 --> 00:51:40.580
+Anthony Taylor: So when we do data analysis. We, the reality is is we can't actually get every possible data point.
+
+553
+00:51:40.680 --> 00:51:50.499
+Anthony Taylor: It's just not realistic. Alright, most of the time. It's not realistic. So we do a sample. Well. here's the problem.
+
+554
+00:51:51.080 --> 00:51:58.209
+Anthony Taylor: the sample we don't even have to get into. Why the sample was so wrong, though there's a lot of discussion on that.
+
+555
+00:51:58.560 --> 00:52:12.800
+Anthony Taylor: But the sample of the the polls that were taken back in that election overwhelmingly, overwhelmingly. did not match the actual demographic of the United States.
+
+556
+00:52:13.530 --> 00:52:18.139
+Anthony Taylor: Okay. overwhelmingly did not match.
+
+557
+00:52:19.030 --> 00:52:27.379
+Anthony Taylor: And that is what went wrong. And now I mean and I'll tell you. Like every data gatherer, I mean everybody
+
+558
+00:52:27.630 --> 00:52:30.670
+Anthony Taylor: to pause the next day.
+
+559
+00:52:30.940 --> 00:52:36.109
+Anthony Taylor: and not because they cared who was President. They cared that every single one of them reported the wrong thing.
+
+560
+00:52:37.060 --> 00:52:46.380
+Anthony Taylor: They didn't care. They don't care who wins or losers. I mean, maybe they do. But on paper, when we publish that stuff we don't care. We're publishing statistics.
+
+561
+00:52:47.110 --> 00:52:48.660
+Anthony Taylor: This is what we think
+
+562
+00:52:49.820 --> 00:52:50.840
+Anthony Taylor: confident
+
+563
+00:52:52.020 --> 00:52:59.559
+Anthony Taylor: when your confidence level is really really high on paper and you publish it. And it's completely wrong. You're like.
+
+564
+00:53:00.860 --> 00:53:03.740
+Anthony Taylor: I mean, people lost their jobs over there.
+
+565
+00:53:04.650 --> 00:53:07.979
+Anthony Taylor: Okay, because the sample was wrong.
+
+566
+00:53:08.180 --> 00:53:10.659
+Anthony Taylor: How could they have done a better job? Well.
+
+567
+00:53:10.940 --> 00:53:16.320
+Anthony Taylor: I won't get into it too terribly much. I'll I'll throw out a couple of quick things. Okay?
+
+568
+00:53:17.500 --> 00:53:23.849
+Anthony Taylor:  right? So they they're they're calling people.
+
+569
+00:53:24.400 --> 00:53:26.550
+Anthony Taylor: And first off, how many of you.
+
+570
+00:53:27.680 --> 00:53:34.079
+Anthony Taylor: when someone calls unsolicited and start saying, Hey, we're just curious. Who's gonna vote for
+
+571
+00:53:34.550 --> 00:53:41.829
+Anthony Taylor: how many of you would say, Never mind anything. anybody. Okay, there's there's the first group of people.
+
+572
+00:53:41.870 --> 00:53:43.889
+Anthony Taylor: Okay, the second group of evil
+
+573
+00:53:44.010 --> 00:53:52.230
+Anthony Taylor: you're voting for somebody who a lot of people aren't thinking is very popular right now, and you could be totally ostracizing your job
+
+574
+00:53:52.890 --> 00:54:00.960
+Anthony Taylor: if someone found it out that you were going to vote for that person. Now, if that were true, and someone called you and said, hey? Who are you going to vote for?
+
+575
+00:54:01.800 --> 00:54:06.959
+Anthony Taylor: Would anybody else change their mind? I'm not going to tell you, or just straight up. Lie about
+
+576
+00:54:08.150 --> 00:54:09.419
+Anthony Taylor: that happened, too.
+
+577
+00:54:09.690 --> 00:54:16.120
+Anthony Taylor: So what we saw during that whole situation was that
+
+578
+00:54:17.130 --> 00:54:31.339
+Anthony Taylor: one, the people who actually answer the phone and do those polls are very select, demographic, typically they're older, which you would think be more conservative. But a lot of the older Conservatives were scared to say anything
+
+579
+00:54:31.700 --> 00:54:33.510
+Anthony Taylor: right there.
+
+580
+00:54:33.630 --> 00:54:35.430
+Anthony Taylor: or they're activists.
+
+581
+00:54:35.500 --> 00:54:38.059
+Anthony Taylor: And the activists overwhelmingly.
+
+582
+00:54:38.880 --> 00:54:46.089
+Anthony Taylor: were leaning towards the democratic side. So, anyway, what we saw was this huge.
+
+583
+00:54:46.920 --> 00:54:48.570
+Anthony Taylor: horribly
+
+584
+00:54:48.870 --> 00:54:50.890
+Anthony Taylor: skewed sample.
+
+585
+00:54:51.500 --> 00:55:00.969
+Anthony Taylor: and if they could have done something like this. It would have made all the difference in the world, but they couldn't. Why? Because again, most of them weren't even telling the truth.
+
+586
+00:55:01.400 --> 00:55:04.779
+Anthony Taylor: They didn't care. Nobody wanted to even admit.
+
+587
+00:55:05.890 --> 00:55:06.910
+Anthony Taylor: Okay.
+
+588
+00:55:08.370 --> 00:55:11.489
+Anthony Taylor: it's a funny. It's a funny, funny story to that.
+
+589
+00:55:11.500 --> 00:55:23.279
+Anthony Taylor: People were going around and asking, Did you vote? Who did you vote for nobody. It's like if nobody you know, voted for that person out of the President. because some of them were life
+
+590
+00:55:23.690 --> 00:55:35.690
+Clayton Graves: also kind of matters where you, Poll, too. Right? I mean, exactly. If you're polling in a in a in a red state, you're gonna get numbers that support a red candidate
+
+591
+00:55:36.090 --> 00:55:47.290
+Anthony Taylor: absolutely, and doesn't even matter that it's that that one just stands out because the polls were so bad, like so wrong. I know that's a controversial one. But the polls were just crazy, wrong.
+
+592
+00:55:47.370 --> 00:55:59.870
+Anthony Taylor: And and and it was, it's one of the best examples of where the sample just didn't match the population. And population isn't necessarily people. Population is your entire data set.
+
+593
+00:56:00.740 --> 00:56:03.420
+Anthony Taylor: Okay, population could be measurements from a machine
+
+594
+00:56:04.600 --> 00:56:18.189
+Anthony Taylor: all right, that you took a sample. If your sample doesn't even come close. Then, whatever you do with that sample is pretty much pointless. doesn't mean anything because it doesn't match the population.
+
+595
+00:56:18.520 --> 00:56:22.400
+Anthony Taylor: It's just in this case. The population is the well, the actual population.
+
+596
+00:56:22.830 --> 00:56:33.580
+Anthony Taylor: Okay? So anyway. that's my favorite like, it's it's, I know it's makes some people wiggle. But for the most part. it's
+
+597
+00:56:34.990 --> 00:56:38.059
+Anthony Taylor: It was just a great example of statistics gone wrong.
+
+598
+00:56:38.960 --> 00:56:40.600
+Anthony Taylor: So yeah, Meredith
+
+599
+00:56:42.250 --> 00:56:45.710
+Meredith McCanse (she/her): got me before I even hit the handout thing.
+
+600
+00:56:46.020 --> 00:56:48.840
+Meredith McCanse (she/her): I have a question. Can you go back to the
+
+601
+00:56:49.210 --> 00:56:58.950
+Meredith McCanse (she/her): the code you had on your screen a second ago? Can you talk through? Down, yeah, down towards the bottom where you're setting the index for the standard errors.
+
+602
+00:56:59.320 --> 00:57:03.349
+Meredith McCanse (she/her): Oh, this one we're not setting it. We're simply asking for.
+
+603
+00:57:04.810 --> 00:57:12.390
+Meredith McCanse (she/her): Can you explain? Will you say that again, what's happened? I don't understand how this made it. Say that you told us which sample was the minimum
+
+604
+00:57:13.330 --> 00:57:15.890
+Anthony Taylor: perfect. Okay, so keep in mind.
+
+605
+00:57:15.960 --> 00:57:18.329
+Anthony Taylor: Sims, in this case is just a list.
+
+606
+00:57:18.350 --> 00:57:19.550
+Meredith McCanse (she/her): right? It's
+
+607
+00:57:20.370 --> 00:57:22.449
+Anthony Taylor: where'd my list go that I had up on the screen
+
+608
+00:57:23.870 --> 00:57:26.430
+Anthony Taylor: where they go? I guess I deleted it.
+
+609
+00:57:26.470 --> 00:57:29.340
+Anthony Taylor:  I'll put it back up there.
+
+610
+00:57:30.460 --> 00:57:31.380
+Anthony Taylor: So
+
+611
+00:57:32.930 --> 00:57:34.450
+Anthony Taylor: this is Samps.
+
+612
+00:57:34.680 --> 00:57:40.909
+Anthony Taylor: Okay, so this is what that method calculated for each sample that we were going through.
+
+613
+00:57:41.300 --> 00:57:44.920
+Anthony Taylor: Okay. the lowest one of these is the winner.
+
+614
+00:57:45.660 --> 00:57:53.029
+Anthony Taylor: These bars are in order of this list, so whatever the lowest one is in here which we happen to know is this one.
+
+615
+00:57:53.250 --> 00:57:54.190
+Anthony Taylor: Okay.
+
+616
+00:57:54.410 --> 00:58:01.569
+Anthony Taylor: whatever it's indexes. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.
+
+617
+00:58:01.830 --> 00:58:04.620
+Anthony Taylor: Okay, whatever that index is
+
+618
+00:58:05.620 --> 00:58:08.879
+Anthony Taylor: is which bar we're gonna see?
+
+619
+00:58:10.180 --> 00:58:19.980
+Anthony Taylor: Okay? Which bar, we can say is the right sample. So if you were really, if we were really taking this to the next step, and we said, Hey, we want to use the best sample.
+
+620
+00:58:20.210 --> 00:58:23.330
+Anthony Taylor: You would actually only go use
+
+621
+00:58:24.510 --> 00:58:27.100
+Anthony Taylor: Thames bracket 9
+
+622
+00:58:27.370 --> 00:58:32.030
+Anthony Taylor: to get the best sample, and then you would use that to do your analysis?
+
+623
+00:58:32.820 --> 00:58:34.090
+Anthony Taylor: Does that make sense?
+
+624
+00:58:34.710 --> 00:58:38.170
+Meredith McCanse (she/her): As we're looking for the closest to the original?
+
+625
+00:58:38.710 --> 00:58:42.140
+Meredith McCanse (she/her): So in that code, you're not setting an index.
+
+626
+00:58:42.170 --> 00:58:49.189
+Meredith McCanse (she/her): you're telling me. Give me the index number of the one that's the minimum
+
+627
+00:58:50.290 --> 00:58:53.079
+Anthony Taylor: perfect. That is exactly right.
+
+628
+00:58:53.390 --> 00:59:00.699
+Anthony Taylor: So we just needed the index number because these are in order of that list, and that'll tell us which one of these is the lowest.
+
+629
+00:59:01.080 --> 00:59:01.990
+Okay.
+
+630
+00:59:02.220 --> 00:59:03.290
+Meredith McCanse (she/her): thank you.
+
+631
+00:59:03.790 --> 00:59:05.280
+Anthony Taylor: Yep, yep, yep.
+
+632
+00:59:06.060 --> 00:59:09.110
+Anthony Taylor: I love that. You guys are into that. Okay.
+
+633
+00:59:10.170 --> 00:59:15.009
+Anthony Taylor: that's it. So let's do break. See? You guys, 8, 25 have a good break.
+
+634
+00:59:16.040 --> 00:59:23.099
+Anthony Taylor: most likely, unless I get one before then, which is pretty unlikely. All right.
+
+635
+00:59:25.290 --> 00:59:31.220
+Anthony Taylor: so the reason I was looking what made me think about X class was, we're starting
+
+636
+00:59:31.740 --> 00:59:35.469
+Anthony Taylor: some predictive analytics next class, like, really start.
+
+637
+00:59:35.710 --> 00:59:36.510
+Anthony Taylor: Okay.
+
+638
+00:59:36.880 --> 00:59:39.440
+Anthony Taylor: today, we're gonna peak
+
+639
+00:59:39.720 --> 00:59:41.800
+Anthony Taylor: at it. But we're gonna cover.
+
+640
+00:59:42.230 --> 00:59:47.520
+Anthony Taylor: possibly one of the most important topics when starting. Ml.
+
+641
+00:59:47.830 --> 00:59:49.490
+Anthony Taylor: and that's correlation.
+
+642
+00:59:51.080 --> 00:59:51.940
+Anthony Taylor: Okay.
+
+643
+00:59:52.300 --> 00:59:57.809
+Anthony Taylor:  so what does correlation mean? Well, it basically means
+
+644
+00:59:58.300 --> 01:00:01.770
+Anthony Taylor: one value is how one value affects another.
+
+645
+01:00:03.410 --> 01:00:05.860
+Anthony Taylor: Basically, that's it. Okay.
+
+646
+01:00:06.370 --> 01:00:11.170
+Anthony Taylor: so a positive correlation when the X axes is going up.
+
+647
+01:00:11.290 --> 01:00:13.269
+Anthony Taylor: The Y axis is going up
+
+648
+01:00:13.290 --> 01:00:20.780
+Anthony Taylor: perfect correlation. That means they're going up at exactly the same rate which would give you this near perfect.
+
+649
+01:00:20.890 --> 01:00:22.840
+Anthony Taylor: 45 degree angle.
+
+650
+01:00:23.930 --> 01:00:27.990
+Anthony Taylor: Okay? Assuming you had a 90 degree box. Okay.
+
+651
+01:00:29.520 --> 01:00:31.000
+Anthony Taylor: positive correlation.
+
+652
+01:00:31.660 --> 01:00:38.360
+Anthony Taylor: negative correlation is exactly the opposite. As X goes up, Y comes down.
+
+653
+01:00:40.150 --> 01:00:46.099
+Anthony Taylor: But if they're doing it at exactly the same rate, it is a perfect negative correlation.
+
+654
+01:00:48.270 --> 01:00:49.210
+Anthony Taylor: Okay.
+
+655
+01:00:51.590 --> 01:00:57.460
+Anthony Taylor: no. Correlation basically means that no matter what X is doing y is doing its own thing
+
+656
+01:00:59.770 --> 01:01:01.079
+Anthony Taylor: pretty much. That's it.
+
+657
+01:01:02.490 --> 01:01:03.330
+Anthony Taylor: Now.
+
+658
+01:01:04.990 --> 01:01:09.310
+Anthony Taylor: these are all our qualitative ways of seeing this.
+
+659
+01:01:09.730 --> 01:01:22.530
+Anthony Taylor: I can guarantee you in correlations qualitative is not usually very successful. You'll get it right some of the time. But the reality is, we really, really, really
+
+660
+01:01:23.200 --> 01:01:28.789
+Anthony Taylor: what a quantitative way come up with. So we have
+
+661
+01:01:29.220 --> 01:01:34.030
+Anthony Taylor: pool function. Pearson's correlation coefficient.
+
+662
+01:01:35.000 --> 01:01:37.689
+Anthony Taylor: Okay? You should know this word.
+
+663
+01:01:39.030 --> 01:01:40.399
+Anthony Taylor: these 3 words
+
+664
+01:01:41.470 --> 01:01:47.149
+Anthony Taylor: alright. It's a quantitative measure that describes the variability of 2
+
+665
+01:01:47.410 --> 01:01:48.510
+Anthony Taylor: variables.
+
+666
+01:01:50.040 --> 01:01:55.610
+Anthony Taylor:  if the value is from 0 to negative one.
+
+667
+01:01:55.920 --> 01:01:58.359
+Anthony Taylor: it is a negative correlation.
+
+668
+01:02:00.040 --> 01:02:04.200
+Anthony Taylor: Okay, this is a negative one. Correlation.
+
+669
+01:02:05.840 --> 01:02:11.419
+Anthony Taylor: Alright. if it's 0. No correlation at all.
+
+670
+01:02:13.720 --> 01:02:18.180
+Anthony Taylor: The closer to positive one is this correlation
+
+671
+01:02:18.620 --> 01:02:20.429
+Anthony Taylor: perfectly correlated?
+
+672
+01:02:20.850 --> 01:02:26.929
+Anthony Taylor: Now, the reality is, most of your values are, gonna be like less than one, or.
+
+673
+01:02:28.110 --> 01:02:34.850
+Anthony Taylor: you know, almost to one, or almost a negative one. the closer to 0 it is, the less correlated. It is.
+
+674
+01:02:35.370 --> 01:02:51.089
+Anthony Taylor: What you're looking for is like the 80 s. 90 s. Right in there. Okay.  do they have it? There's actually a chart, and if I can't find it, I'll go find it for you.
+
+675
+01:02:51.610 --> 01:03:02.230
+Anthony Taylor:  that talks about, you know. Mostly mostly correlated, nearly correlated, not correlated at all.
+
+676
+01:03:02.780 --> 01:03:03.770
+Anthony Taylor: Okay.
+
+677
+01:03:04.100 --> 01:03:11.790
+Anthony Taylor: so. But the bottom line is the closer to the outer number, negative one or one, the more correlated the value
+
+678
+01:03:11.960 --> 01:03:18.590
+Anthony Taylor: as it starts to get to the center, the less correlated. What we want to identify
+
+679
+01:03:19.740 --> 01:03:29.040
+Anthony Taylor: is correlation between variables in our data. Now, we're not going to worry, too. Today, we're just going to look at how to calculate peers. Pearson's correlation coefficient.
+
+680
+01:03:29.050 --> 01:03:32.710
+Anthony Taylor: But as we start really doing these predictive analytics.
+
+681
+01:03:33.050 --> 01:03:39.229
+Anthony Taylor: it's going to be important to us to understand what you're causing this thrive.
+
+682
+01:03:41.190 --> 01:03:52.310
+Anthony Taylor: Now, we're gonna build machine learning algorithms that do that mostly calculate that for us and use that information. But if we can tell 2 variables don't correlate at all.
+
+683
+01:03:52.830 --> 01:04:01.500
+Anthony Taylor: we don't need to add them to that algorithm. They don't benefit the algorithm at all. So we can make our machine learning algorithm simpler.
+
+684
+01:04:01.520 --> 01:04:08.800
+Anthony Taylor: which means it uses less compute, which means it trains faster, which means it costs us less
+
+685
+01:04:08.980 --> 01:04:09.890
+Anthony Taylor: money.
+
+686
+01:04:12.500 --> 01:04:17.460
+Anthony Taylor: Alright, all very, very important. So correlation kind of a big deal.
+
+687
+01:04:17.740 --> 01:04:18.690
+Anthony Taylor: Okay.
+
+688
+01:04:18.950 --> 01:04:24.109
+Anthony Taylor: alright. So let's go and look at how
+
+689
+01:04:24.680 --> 01:04:28.310
+Anthony Taylor: we calculate correlation.
+
+690
+01:04:31.960 --> 01:04:43.709
+Anthony Taylor: drag it. So we're gonna bring in our plot and our stats and our Pd. we're going to take a look, get rid of the null values. And we have this interesting date.
+
+691
+01:04:44.460 --> 01:04:49.910
+Anthony Taylor: Okay? Pretty exciting.  so
+
+692
+01:04:50.220 --> 01:04:53.429
+Anthony Taylor: we're going. For the first example, we're just going to grab
+
+693
+01:04:53.820 --> 01:04:58.430
+Anthony Taylor: 2 columns. Alright, we're grabbing
+
+694
+01:04:58.680 --> 01:05:01.600
+Anthony Taylor: adjusted net national income per capita.
+
+695
+01:05:02.040 --> 01:05:06.679
+Anthony Taylor: And we're grabbing average alcohol consumption. So this
+
+696
+01:05:08.160 --> 01:05:13.029
+Anthony Taylor: okay. and we're going to plot them out. And that's what they look like.
+
+697
+01:05:14.190 --> 01:05:15.849
+Anthony Taylor: Is there a correlation there?
+
+698
+01:05:16.930 --> 01:05:18.080
+Anthony Taylor: What do you guys think?
+
+699
+01:05:18.670 --> 01:05:23.770
+Anthony Taylor: Maybe maybe not. I would say a slide correlation, but very sly.
+
+700
+01:05:24.640 --> 01:05:25.530
+Anthony Taylor: Okay.
+
+701
+01:05:26.100 --> 01:05:35.230
+Anthony Taylor: so here we're gonna look at the third, which is populations, Median age and cell phones per 100 people. What? Yeah.
+
+702
+01:05:36.670 --> 01:05:37.660
+Anthony Taylor: Okay?
+
+703
+01:05:40.060 --> 01:05:41.710
+Anthony Taylor: Correlation. No correlation.
+
+704
+01:05:43.840 --> 01:05:54.410
+Anthony Taylor: I'm saying, I see. I mean, if you drew a line through the center of all this. it would almost certainly go up. So I'm thinking there might actually be one which is interesting
+
+705
+01:05:54.430 --> 01:06:05.140
+Anthony Taylor: median age and cell phones. Biography. Okay. alright. Next one population with access to clean water and male life expectancy.
+
+706
+01:06:07.860 --> 01:06:10.710
+Anthony Taylor: definite. Come on now.
+
+707
+01:06:10.970 --> 01:06:13.589
+Anthony Taylor: Tandy's like no, but look.
+
+708
+01:06:13.830 --> 01:06:15.289
+Anthony Taylor: and almost for sure
+
+709
+01:06:16.160 --> 01:06:20.490
+Anthony Taylor: I don't know how close it's definitely not a one, but it's it's on its way
+
+710
+01:06:21.050 --> 01:06:24.330
+Anthony Taylor: income per per capita versus
+
+711
+01:06:24.340 --> 01:06:26.850
+Anthony Taylor: percent needle immunization.
+
+712
+01:06:31.930 --> 01:06:33.650
+Anthony Taylor: That's a no, almost for sure.
+
+713
+01:06:34.580 --> 01:06:38.820
+Anthony Taylor: Okay, I mean, maybe a little one, but not much.
+
+714
+01:06:39.360 --> 01:06:40.870
+Anthony Taylor: Alright. So
+
+715
+01:06:40.900 --> 01:06:46.320
+Anthony Taylor: all of those we did not calculate. The Pearson's coefficient. Okay.
+
+716
+01:06:46.530 --> 01:06:50.830
+Anthony Taylor: so now let's do that. So here the same exact
+
+717
+01:06:52.080 --> 01:06:57.720
+Anthony Taylor: chart we did up above. But we're going to add ST.
+
+718
+01:06:57.830 --> 01:07:03.790
+Anthony Taylor: Dot Pearson, r, and then just put the values, the X and the Y in
+
+719
+01:07:03.870 --> 01:07:09.279
+Anthony Taylor: there, and then we're going to print out the correlation. Alright. So let's see what that first one was
+
+720
+01:07:09.570 --> 01:07:13.350
+Anthony Taylor: point 4 2. So this guy went up here
+
+721
+01:07:13.390 --> 01:07:14.670
+Anthony Taylor: point 4 2.
+
+722
+01:07:17.290 --> 01:07:30.500
+Anthony Taylor: It's not 0. It's halfway between 0 and one. Hi, that's a slight correlation. very slight. Okay. let's look at the next one income and alcohol.
+
+723
+01:07:30.770 --> 01:07:31.630
+Anthony Taylor: Oh, wait!
+
+724
+01:07:32.860 --> 01:07:34.080
+Anthony Taylor: Is that the same one?
+
+725
+01:07:34.730 --> 01:07:43.090
+Anthony Taylor: Oh, sorry we're gonna plot it. Okay. So we're gonna see the plot again, so you can see it again. So here you can see the correlation. And then the plot, all right.
+
+726
+01:07:44.490 --> 01:07:49.010
+Anthony Taylor: So here we're going to do the Median age and cell phones again. We're
+
+727
+01:07:49.110 --> 01:07:54.279
+Anthony Taylor: throwing them in there doing the correlation. We're gonna print out the correlation with the plot
+
+728
+01:07:54.850 --> 01:07:56.280
+Anthony Taylor: point 5 3.
+
+729
+01:07:57.760 --> 01:08:01.440
+Anthony Taylor: The weird part is is that's only slightly better than this.
+
+730
+01:08:03.700 --> 01:08:04.720
+Anthony Taylor: Okay.
+
+731
+01:08:05.450 --> 01:08:09.520
+Anthony Taylor:  clean water, male life expectancy.
+
+732
+01:08:09.610 --> 01:08:10.810
+Anthony Taylor: Oh, boy.
+
+733
+01:08:11.720 --> 01:08:14.769
+Anthony Taylor: that is a very strong correlation.
+
+734
+01:08:16.500 --> 01:08:24.259
+Anthony Taylor: Okay, we would be able to say without question that these things have a correlation, and they should be considered.
+
+735
+01:08:24.630 --> 01:08:26.769
+Anthony Taylor: If we're trying to predict something
+
+736
+01:08:26.960 --> 01:08:29.290
+Anthony Taylor: like male life expectancy.
+
+737
+01:08:30.040 --> 01:08:33.190
+Anthony Taylor: And this would be a value we would want to try to include.
+
+738
+01:08:34.080 --> 01:08:37.049
+Anthony Taylor: Okay, now, I will tell you another quick note.
+
+739
+01:08:37.100 --> 01:08:43.440
+Anthony Taylor: Sometimes a perfect correlation is means the means we don't want to include.
+
+740
+01:08:45.350 --> 01:08:46.789
+Anthony Taylor: Why do you think that is
+
+741
+01:08:49.229 --> 01:08:50.779
+Jennifer Dahlgren: multicolinarity?
+
+742
+01:08:52.490 --> 01:09:04.879
+Anthony Taylor: Jenna forgot the good good stuff, man. She's got the good stuff, basically, in layman's terms. right? One in one. If they're exactly the same, they don't add anything to the calculation.
+
+743
+01:09:06.040 --> 01:09:14.879
+Anthony Taylor: right. They don't add anything. So when you try to put it in a machine learning algorithm, if they're exactly one to one who cares, just drop one, get rid of it. Don't need it.
+
+744
+01:09:15.490 --> 01:09:18.340
+Anthony Taylor: Doesn't tell me any. Okay.
+
+745
+01:09:18.710 --> 01:09:22.080
+Anthony Taylor: alright, we'll get more into that when we get heavier into machine learning
+
+746
+01:09:22.460 --> 01:09:24.919
+Anthony Taylor: income versus measles.
+
+747
+01:09:25.720 --> 01:09:30.630
+Anthony Taylor: Yeah point 3 4. I mean, that's that's so light. It wouldn't be worth worrying about.
+
+748
+01:09:31.439 --> 01:09:32.850
+Anthony Taylor: Okay. And then that's it.
+
+749
+01:09:33.779 --> 01:09:36.069
+Anthony Taylor: Okay. So all we learned there.
+
+750
+01:09:36.260 --> 01:09:42.310
+Anthony Taylor: because we've done scatter plots with 2 variables many, many times. All we've added
+
+751
+01:09:43.149 --> 01:09:45.350
+Anthony Taylor: is this correlation?
+
+752
+01:09:46.120 --> 01:09:47.220
+Anthony Taylor: That's it.
+
+753
+01:09:48.569 --> 01:09:54.700
+Anthony Taylor: ST. Pears Snar. put your data into it. That's it.
+
+754
+01:09:57.150 --> 01:09:58.120
+Anthony Taylor: Okay?
+
+755
+01:10:00.020 --> 01:10:00.980
+Anthony Taylor: Questions.
+
+756
+01:10:05.190 --> 01:10:08.050
+Derek Rikke: Correlation is a topple
+
+757
+01:10:09.430 --> 01:10:11.520
+Anthony Taylor: well.
+
+758
+01:10:11.820 --> 01:10:16.169
+Anthony Taylor: it doesn't need to be. No, it's really a float. But
+
+759
+01:10:16.630 --> 01:10:24.030
+Anthony Taylor:  I see. Oh, I see what you see, you know what? Let's take a look. See? Let's see.
+
+760
+01:10:24.140 --> 01:10:25.329
+Anthony Taylor: that's a good question.
+
+761
+01:10:26.550 --> 01:10:27.630
+Anthony Taylor: The output
+
+762
+01:10:27.720 --> 01:10:31.750
+Anthony Taylor: of that one was, Oh, yeah, because it puts in the p-value as well.
+
+763
+01:10:33.460 --> 01:10:34.360
+Anthony Taylor: Okay.
+
+764
+01:10:35.050 --> 01:10:39.370
+Anthony Taylor: so yeah, the p-value don't worry about for this one. It does not
+
+765
+01:10:39.400 --> 01:10:43.609
+Anthony Taylor: affect what we're doing. So yeah, we're only looking for the statistic.
+
+766
+01:10:45.390 --> 01:10:54.859
+Meredith McCanse (she/her): Is that why, when you tell it to print the correlation in square brackets, you have 0 because the index of it because it's the first.
+
+767
+01:10:54.880 --> 01:10:58.130
+Anthony Taylor: Yes, ma'am. 100%
+
+768
+01:11:01.070 --> 01:11:06.930
+Anthony Taylor: good call. Derek. I like that one the good question.
+
+769
+01:11:07.230 --> 01:11:21.330
+Anthony Taylor: Any other questions about Pearson's correlation?  I'm
+
+770
+01:11:22.660 --> 01:11:25.219
+Anthony Taylor: looking for something. Don't look for a second.
+
+771
+01:11:27.150 --> 01:11:32.620
+Anthony Taylor: Okay, I'll show you guys in the solution. Yeah.
+
+772
+01:11:34.620 --> 01:11:35.810
+Anthony Taylor: I think.
+
+773
+01:11:42.200 --> 01:11:58.989
+Anthony Taylor: yeah. The only thing you don't worry about the bonus unless you want to do the bonus. But it's not necessary. Okay, so here, you're gonna load some wine data. And you're going to basically just do the same thing we did over there, just with Flint, with the columns that they suggest.
+
+774
+01:11:59.190 --> 01:12:02.769
+Anthony Taylor: Okay, except this one, you could do the correlation in the next one
+
+775
+01:12:04.010 --> 01:12:06.520
+Anthony Taylor: color intensity versus alcohol.
+
+776
+01:12:07.170 --> 01:12:13.420
+Anthony Taylor: and if you want you could try this, I'm going to show you a better way to do it, though, that they don't teach you.
+
+777
+01:12:14.390 --> 01:12:15.360
+Anthony Taylor: Okay.
+
+778
+01:12:15.680 --> 01:12:18.189
+Anthony Taylor: alright. So 10 min
+
+779
+01:12:18.510 --> 01:12:21.410
+Anthony Taylor: for this one. not 15.
+
+780
+01:12:21.710 --> 01:12:26.050
+Anthony Taylor: It's really. It's very, very similar to the instructor one. So
+
+781
+01:12:28.290 --> 01:12:31.060
+Anthony Taylor: welcome back. How'd you guys do
+
+782
+01:12:31.600 --> 01:12:33.469
+Anthony Taylor: everybody get to the bonus.
+
+783
+01:12:35.070 --> 01:12:39.770
+Clayton Graves: started talking about it. But we didn't actually get through it.
+
+784
+01:12:40.090 --> 01:12:42.730
+Anthony Taylor: That's alright. I'm gonna show you a better way. And
+
+785
+01:12:43.690 --> 01:12:44.600
+Anthony Taylor: 5.
+
+786
+01:12:44.980 --> 01:12:54.000
+Anthony Taylor: So first same import, says before, okay. we're going to bring in this wine data set
+
+787
+01:12:54.060 --> 01:13:08.109
+Anthony Taylor: and the little description I know they gave you all of this. but this is pretty cool. It's a fun data set. Boo! Hoo! First one said. Plot flavonoids versus malic acids. So here
+
+788
+01:13:08.740 --> 01:13:11.280
+Anthony Taylor: we're gonna do just like we did in the instructor one.
+
+789
+01:13:11.390 --> 01:13:14.500
+Anthony Taylor: We're going to take this column, put it in a variable.
+
+790
+01:13:14.890 --> 01:13:17.780
+Anthony Taylor: Take this column. put it in a variable
+
+791
+01:13:18.160 --> 01:13:22.259
+Anthony Taylor: going to create a scatter plot, simply plot, scatter.
+
+792
+01:13:22.870 --> 01:13:24.560
+Anthony Taylor: and then each variable.
+
+793
+01:13:25.170 --> 01:13:28.309
+Anthony Taylor: We can throw labels on there if you want, and show it
+
+794
+01:13:29.620 --> 01:13:30.540
+Anthony Taylor: alright
+
+795
+01:13:31.830 --> 01:13:46.080
+Anthony Taylor: to get the correlation. All we have to do. ST. Pearson, R. Passing those 2 variables in this case, they're printing it out. So they're also routing it and getting just the first value.
+
+796
+01:13:47.140 --> 01:13:49.200
+Anthony Taylor: Okay? Which was the statistic.
+
+797
+01:13:50.290 --> 01:13:54.820
+Anthony Taylor: So we can run that we can see negative 41.
+
+798
+01:13:55.120 --> 01:13:59.209
+Anthony Taylor: Which means there is a somewhat negative correlation.
+
+799
+01:13:59.980 --> 01:14:01.950
+Anthony Taylor: Alright, not great.
+
+800
+01:14:01.980 --> 01:14:09.080
+Clayton Graves: Is it just me or the the coefficient way more useful than the the scatterplot.
+
+801
+01:14:09.750 --> 01:14:21.350
+Anthony Taylor: Oh, I think well, that's what I said before. I analyzing scatterplots are rarely, rarely, rarely, I mean, unless they're obvious. Are you successful? But
+
+802
+01:14:22.150 --> 01:14:25.739
+Anthony Taylor: I mean, like point 4 one. Yeah.
+
+803
+01:14:25.750 --> 01:14:33.339
+Anthony Taylor: it's not very correlated, but it might be enough to add some value to a machine learning model that has a lot of variables in it.
+
+804
+01:14:33.810 --> 01:14:34.880
+Anthony Taylor: Okay?
+
+805
+01:14:34.890 --> 01:14:39.170
+Anthony Taylor: But yeah, I wouldn't throw it out for a negative point 4 1
+
+806
+01:14:40.300 --> 01:14:49.040
+Anthony Taylor: alright. So the next one was color intensity versus alcohol guys. You could have almost used the same exact lines of code and just change those 2 routes.
+
+807
+01:14:50.770 --> 01:14:53.769
+Anthony Taylor: Okay? So you're a full column for color intensity
+
+808
+01:14:53.940 --> 01:14:57.530
+Anthony Taylor: column for alcohol, scatter, label, show
+
+809
+01:15:01.410 --> 01:15:02.820
+Anthony Taylor: everybody good with that.
+
+810
+01:15:04.410 --> 01:15:05.230
+Anthony Taylor: Okay?
+
+811
+01:15:05.780 --> 01:15:12.210
+Anthony Taylor: And then for the correlation, same function is up above, you're passing alcoholic color intensity.
+
+812
+01:15:12.890 --> 01:15:16.820
+Anthony Taylor: And here we got a point 5 5. So. yeah.
+
+813
+01:15:18.900 --> 01:15:23.470
+Anthony Taylor: pretty much a correlation. Not huge, but not terrible.
+
+814
+01:15:24.580 --> 01:15:25.510
+Anthony Taylor: Okay.
+
+815
+01:15:26.950 --> 01:15:29.919
+Anthony Taylor: okay, to do the correlation matrix
+
+816
+01:15:30.300 --> 01:15:32.520
+Anthony Taylor: that they are suggesting.
+
+817
+01:15:32.970 --> 01:15:35.550
+Anthony Taylor: You can use just dot 4.
+
+818
+01:15:36.220 --> 01:15:37.929
+Anthony Taylor: So data frame dot.
+
+819
+01:15:39.510 --> 01:15:48.400
+Anthony Taylor: then you have to unstack and sort it alright, and it looks like this. So malic acid, you
+
+820
+01:15:48.440 --> 01:15:51.249
+Anthony Taylor: point or negative point 5 6 correlation
+
+821
+01:15:51.540 --> 01:15:58.020
+Anthony Taylor: Q. Malic acid, negative oil force, non-flavanoid phenols with flavonoids
+
+822
+01:15:58.060 --> 01:15:59.270
+Anthony Taylor: point 5 3.
+
+823
+01:16:00.330 --> 01:16:01.539
+Anthony Taylor: So this is fine.
+
+824
+01:16:01.670 --> 01:16:06.940
+Anthony Taylor: Now let me show you the way I do it, and I do do this at work every once in a while
+
+825
+01:16:07.290 --> 01:16:18.050
+Anthony Taylor: I bring in a library you haven't heard of yet, or some of you have. I know you've mentioned it. Seaborn Seaborn is another like Map plot. Live library.
+
+826
+01:16:18.290 --> 01:16:19.180
+Anthony Taylor: Okay?
+
+827
+01:16:19.400 --> 01:16:23.269
+Anthony Taylor: And we do wine data. Same wine data is up here.
+
+828
+01:16:23.460 --> 01:16:28.950
+Anthony Taylor: dot core round 2. And that creates this matrix. Right here.
+
+829
+01:16:29.230 --> 01:16:32.799
+Anthony Taylor: Then we say, heat map with that matrix.
+
+830
+01:16:34.180 --> 01:16:35.619
+Anthony Taylor: And this is what you get.
+
+831
+01:16:39.130 --> 01:16:45.740
+Anthony Taylor: So now the lighter the square, the the closer to one.
+
+832
+01:16:45.820 --> 01:16:48.669
+Anthony Taylor: The correlation is all right.
+
+833
+01:16:48.750 --> 01:16:52.930
+Anthony Taylor: So with this we can come in here, and we can very quickly see
+
+834
+01:16:53.330 --> 01:17:00.780
+Anthony Taylor: that we have.  so correlations. The darker it is, the more negative.
+
+835
+01:17:00.940 --> 01:17:06.380
+Anthony Taylor: so like the the dark black ones. and then you have the lighter ones.
+
+836
+01:17:07.530 --> 01:17:09.250
+Anthony Taylor: Okay? Which
+
+837
+01:17:09.290 --> 01:17:14.719
+Anthony Taylor: I mean, point 7 is fairly correlated. Okay, so the Flavonoids and the
+
+838
+01:17:16.280 --> 01:17:27.680
+Anthony Taylor: Od 2800. D. 3, 15 of diluted wines. definitely total phenols definite a correlation in the blacks. We don't have a lot of negative.
+
+839
+01:17:27.870 --> 01:17:30.160
+Anthony Taylor: and you can make this bigger, of course.
+
+840
+01:17:30.400 --> 01:17:39.299
+Anthony Taylor:  but you guys see why this would be valuable to you, because I'm done all that stuff we did up above. I could just do this and see everything I need to see.
+
+841
+01:17:40.950 --> 01:17:47.210
+Meredith McCanse (she/her): Can you scroll up a little and just show that code? One more time? Sure, absolutely. I'll put it in slack as it's well.
+
+842
+01:17:47.420 --> 01:17:50.270
+Anthony Taylor: it'll be in the solutions that I give you guys today.
+
+843
+01:17:50.630 --> 01:17:54.740
+Anthony Taylor: But it's not in the official solution. So
+
+844
+01:17:55.520 --> 01:18:02.709
+Meredith McCanse (she/her): and I had a quick question about the unstack to. Is that what does that do? Is that something we've done before?
+
+845
+01:18:03.110 --> 01:18:06.540
+Anthony Taylor: No. So basically, if we just look at
+
+846
+01:18:07.800 --> 01:18:09.280
+Anthony Taylor: wine core.
+
+847
+01:18:13.410 --> 01:18:22.010
+Anthony Taylor: You see how it looks like this. So it has alcohol. And then each one of these, which to me, I think this is easier to read than this.
+
+848
+01:18:22.470 --> 01:18:26.259
+Anthony Taylor: Okay, but unstack is basically
+
+849
+01:18:26.370 --> 01:18:28.230
+Anthony Taylor: going to pivot
+
+850
+01:18:28.400 --> 01:18:34.509
+Anthony Taylor: the data frame so that there you have column column instead of column column.
+
+851
+01:18:35.200 --> 01:18:36.290
+Anthony Taylor: Make sense.
+
+852
+01:18:36.330 --> 01:18:41.690
+Anthony Taylor: See how it's alcohol, malic acid. Well, it's fine malic acid, malic acid
+
+853
+01:18:42.580 --> 01:18:44.309
+Anthony Taylor: and hue.
+
+854
+01:18:46.890 --> 01:18:49.170
+Anthony Taylor: See? It's right there.
+
+855
+01:18:50.030 --> 01:18:58.199
+Anthony Taylor: And so it does. It's it does. It's thing that doesn't seem like, does it? Oh, I was looking at the wrong one. There we go, malic acid and hue.
+
+856
+01:18:58.530 --> 01:19:04.070
+Anthony Taylor: So all it did was flatten. It was pivoting so that you could have these pairs like this.
+
+857
+01:19:04.670 --> 01:19:09.140
+Anthony Taylor: But I personally think this is easier to read. And I definitely think this is easier.
+
+858
+01:19:10.060 --> 01:19:14.440
+Anthony Taylor: Okay, thank you. So it's up to you, if you like this, this method or not.
+
+859
+01:19:15.760 --> 01:19:16.530
+Anthony Taylor: Yeah.
+
+860
+01:19:18.960 --> 01:19:26.070
+Gebrekristos, Hafton: not not a question. But when you go up to your Scotto play.
+
+861
+01:19:27.380 --> 01:19:30.049
+Gebrekristos, Hafton: Yeah. So when you
+
+862
+01:19:30.180 --> 01:19:42.520
+Gebrekristos, Hafton: do, you have any reason why you create a variables instead of, you know, putting those column names because we're gonna have to. But since we're gonna use them twice, so we use them here
+
+863
+01:19:42.870 --> 01:19:45.909
+Anthony Taylor: and we use them here. Okay.
+
+864
+01:19:46.240 --> 01:19:53.350
+Anthony Taylor: right and then and and then, you know, and you've heard me say before, you're gonna use something twice, make it a variable or a function.
+
+865
+01:19:53.520 --> 01:19:56.650
+Anthony Taylor: Alright, I mean, did we have to? No, we didn't have to.
+
+866
+01:19:57.350 --> 01:19:58.879
+Anthony Taylor: This is a preference.
+
+867
+01:19:59.660 --> 01:20:01.329
+Anthony Taylor: Good question. Thank you. Heather
+
+868
+01:20:03.140 --> 01:20:05.080
+Anthony Taylor: any other questions.
+
+869
+01:20:07.880 --> 01:20:10.780
+Anthony Taylor: La! Oh, go ahead!
+
+870
+01:20:11.150 --> 01:20:16.050
+michael mcpherson: So in in the challenges and homework, when we're doing this
+
+871
+01:20:16.300 --> 01:20:19.179
+michael mcpherson: instead of doing all the term, added Pods.
+
+872
+01:20:20.140 --> 01:20:22.740
+Anthony Taylor: Can we just skip to the seaboard?
+
+873
+01:20:23.530 --> 01:20:24.330
+Anthony Taylor: Huh!
+
+874
+01:20:24.600 --> 01:20:27.120
+Anthony Taylor: Seaborn is pretty cool.
+
+875
+01:20:28.000 --> 01:20:34.040
+Anthony Taylor: I don't think you have any scatterplot homework for the rest of this course. Okay, pretty sure.
+
+876
+01:20:34.100 --> 01:20:40.139
+Anthony Taylor: Pretty sure. But you can't do it in in. Well, no, there is no data visualization homework. So
+
+877
+01:20:40.680 --> 01:20:42.560
+Anthony Taylor: so yeah, feel free to do it.
+
+878
+01:20:43.320 --> 01:20:45.289
+michael mcpherson: Can we use it in the projects?
+
+879
+01:20:45.920 --> 01:20:49.690
+Anthony Taylor: Yes, of course, you can use anything in the projects more or less.
+
+880
+01:20:50.340 --> 01:20:54.580
+Anthony Taylor: Okay. Alright. thank you. Here we go. No pro
+
+881
+01:20:56.390 --> 01:21:03.540
+Anthony Taylor: sorry gang. So now we're going to do our first linear regression prediction.
+
+882
+01:21:04.280 --> 01:21:05.920
+Anthony Taylor: Okay, it's lame.
+
+883
+01:21:07.070 --> 01:21:16.479
+Anthony Taylor: But we're gonna do it alright. So first we're going to import what we need. The only thing we're importing new in this is this, Sci-fi stats, Lynn regress.
+
+884
+01:21:17.690 --> 01:21:28.810
+Anthony Taylor:  then we're going to get our data set. We're using the California housing one. We're getting the everything in this, including the target.
+
+885
+01:21:29.440 --> 01:21:30.719
+Anthony Taylor: So we have all of that.
+
+886
+01:21:32.310 --> 01:21:39.859
+Anthony Taylor: Now we're gonna filter to remove some outliers. Now we didn't go through how they got the outliers. but we went, I mean
+
+887
+01:21:40.100 --> 01:21:44.400
+Anthony Taylor: houses with more than 10 rooms were going to say, are outlier.
+
+888
+01:21:45.100 --> 01:21:46.130
+Anthony Taylor: Okay?
+
+889
+01:21:46.380 --> 01:21:56.559
+Anthony Taylor: Then we're going to reduce it to just San Diego. How do we do them? Well, latitude, longitude, or the boundaries of San Diego, and they say
+
+890
+01:21:57.390 --> 01:22:02.669
+Anthony Taylor: latitude's greater than this, and less than this, the longitudes greater than this and less than it.
+
+891
+01:22:03.730 --> 01:22:06.440
+Anthony Taylor: and apparently city, wasn't an option
+
+892
+01:22:07.430 --> 01:22:08.799
+Anthony Taylor: how we run that.
+
+893
+01:22:09.050 --> 01:22:12.409
+Anthony Taylor: So now we're going to plot
+
+894
+01:22:13.630 --> 01:22:15.550
+Anthony Taylor: average rooms and
+
+895
+01:22:16.050 --> 01:22:20.389
+Anthony Taylor: the target value. Okay? Which is the median value
+
+896
+01:22:20.790 --> 01:22:21.780
+Anthony Taylor: alright
+
+897
+01:22:24.600 --> 01:22:32.790
+Anthony Taylor: visually. That looks like a definite correlation which think about it. Rooms in the house and the price of the house. Yep.
+
+898
+01:22:32.880 --> 01:22:37.560
+Anthony Taylor: that makes sense. Okay. So
+
+899
+01:22:39.450 --> 01:22:41.619
+Anthony Taylor: this code is complicated.
+
+900
+01:22:44.380 --> 01:22:47.330
+Anthony Taylor: but it's always the same.
+
+901
+01:22:49.500 --> 01:22:51.830
+Anthony Taylor: Only need it one time.
+
+902
+01:22:51.950 --> 01:22:53.830
+Anthony Taylor: and you can copy it anywhere.
+
+903
+01:22:55.100 --> 01:22:55.980
+Anthony Taylor: Alright.
+
+904
+01:22:56.250 --> 01:23:02.070
+Anthony Taylor: So X values and Y values. Well, we already talked about our, we know what that is. That's X and y.
+
+905
+01:23:02.580 --> 01:23:04.829
+Anthony Taylor: okay, so that one's not a problem.
+
+906
+01:23:07.160 --> 01:23:13.630
+Anthony Taylor: Lin regress does this variable unpacking at a very huge way.
+
+907
+01:23:14.670 --> 01:23:15.720
+Anthony Taylor: So
+
+908
+01:23:16.300 --> 01:23:21.190
+Anthony Taylor: remember the slope of the line. Actually, you know what? There's a slide for this. Hold up!
+
+909
+01:23:21.960 --> 01:23:24.930
+Meredith McCanse (she/her): Friends of Iran.
+
+910
+01:23:26.460 --> 01:23:27.610
+Anthony Taylor: what was that?
+
+911
+01:23:28.230 --> 01:23:32.569
+michael mcpherson: Rise over, run y equals x plus B.
+
+912
+01:23:33.060 --> 01:23:36.149
+Anthony Taylor: There it is. Okay. So
+
+913
+01:23:36.180 --> 01:23:40.280
+Anthony Taylor: to get this, we need the X and the Y alright.
+
+914
+01:23:40.310 --> 01:23:48.609
+Anthony Taylor: and if we can make it work. It'd be great if we had either the sorry, the white intercept if we add this slope.
+
+915
+01:23:48.780 --> 01:23:54.720
+Anthony Taylor:  of of the values as well. Okay. So oops.
+
+916
+01:23:54.950 --> 01:23:59.949
+Anthony Taylor: Alright. So when it comes to variables and equation refer to X. The equation is independent. Y is dependent.
+
+917
+01:23:59.980 --> 01:24:09.010
+Anthony Taylor: The slope of the line is m, the y-intercept is B. So if we have this information, we can predict Y,
+
+918
+01:24:09.430 --> 01:24:10.709
+Anthony Taylor: does that make sense?
+
+919
+01:24:11.750 --> 01:24:19.320
+Anthony Taylor: If I know the slope of the line? My X-value is what was given. and my y-intercept
+
+920
+01:24:19.450 --> 01:24:22.050
+Anthony Taylor: I can predict the value. Y,
+
+921
+01:24:23.660 --> 01:24:28.520
+Meredith McCanse (she/her): but the slope itself is rise over. So it tells you how much to go up and how much to go over.
+
+922
+01:24:28.940 --> 01:24:31.559
+Meredith McCanse (she/her): Rise over, rise over, run.
+
+923
+01:24:31.570 --> 01:24:34.550
+Anthony Taylor: Well, it's it's well, you'll see in a sec.
+
+924
+01:24:34.740 --> 01:24:47.140
+Anthony Taylor: Okay? So the slope of the lines noted in in, you know, for the YI think it's easier to show this. Oh, okay. So the slope of the line
+
+925
+01:24:47.210 --> 01:24:48.270
+Anthony Taylor: is
+
+926
+01:24:48.670 --> 01:24:51.379
+Anthony Taylor: a, do they have a picture of the slope
+
+927
+01:24:52.970 --> 01:24:54.070
+Anthony Taylor: come on.
+
+928
+01:24:54.080 --> 01:24:58.830
+Anthony Taylor: They used to have a picture of the slope. Okay, the slope of the line is basically how it's going
+
+929
+01:24:59.270 --> 01:25:01.770
+Anthony Taylor: or down. Okay.
+
+930
+01:25:02.260 --> 01:25:05.420
+Anthony Taylor: the y-intercept is where this line.
+
+931
+01:25:05.530 --> 01:25:07.660
+Anthony Taylor: based on its slope.
+
+932
+01:25:08.460 --> 01:25:11.239
+Anthony Taylor: will cross the Y axis.
+
+933
+01:25:11.760 --> 01:25:15.290
+Anthony Taylor: So in this case it's going down. probably 0.
+
+934
+01:25:15.770 --> 01:25:18.260
+Anthony Taylor: Why? Because it's correlated. 1 1.
+
+935
+01:25:19.550 --> 01:25:21.039
+Anthony Taylor: Okay, y equals that
+
+936
+01:25:22.710 --> 01:25:32.270
+Anthony Taylor: alright. In this case you can see the slope is much more narrow. The Y intercept is 5.
+
+937
+01:25:33.500 --> 01:25:34.630
+Anthony Taylor: Alright.
+
+938
+01:25:34.820 --> 01:25:38.500
+Anthony Taylor:  so the slope of this one is point 2.
+
+939
+01:25:39.540 --> 01:25:43.009
+Anthony Taylor: So we're going to multiply point 2 by our X value.
+
+940
+01:25:43.070 --> 01:25:47.740
+Anthony Taylor: That will give us our why vote? Sorry point to
+
+941
+01:25:47.830 --> 01:25:52.410
+Anthony Taylor: by our X plus 5 will give us our Y value.
+
+942
+01:25:54.540 --> 01:25:55.520
+Anthony Taylor: Alright.
+
+943
+01:25:56.560 --> 01:26:00.750
+Anthony Taylor: Simplest form of predictive analytics you can do.
+
+944
+01:26:01.170 --> 01:26:07.510
+Anthony Taylor: It's right here. Okay. so to do this, we need a couple of
+
+945
+01:26:07.860 --> 01:26:12.420
+Anthony Taylor:  of variables. Right? So let's go back to here.
+
+946
+01:26:12.720 --> 01:26:15.910
+Anthony Taylor: So what variables do we need? Well, we need the slope.
+
+947
+01:26:16.340 --> 01:26:22.060
+Anthony Taylor: We need the Y intercept minimum. and we're going to need X.
+
+948
+01:26:23.230 --> 01:26:25.410
+Anthony Taylor: So let's go back to here.
+
+949
+01:26:25.870 --> 01:26:29.580
+Anthony Taylor: So here the lin regress method
+
+950
+01:26:30.060 --> 01:26:34.000
+Anthony Taylor: takes your X value Andrew Wino
+
+951
+01:26:35.090 --> 01:26:37.940
+Anthony Taylor: and returns slope
+
+952
+01:26:39.100 --> 01:26:45.260
+Anthony Taylor: intercept. So there's M. And B. Our value. which we're not going to use right now.
+
+953
+01:26:45.460 --> 01:26:49.620
+Anthony Taylor: P-value not going to use right now, and standard error.
+
+954
+01:26:49.990 --> 01:26:52.569
+Anthony Taylor: Awesome. not gonna use right now.
+
+955
+01:26:53.100 --> 01:26:55.360
+Anthony Taylor: All we care about is slope
+
+956
+01:26:55.380 --> 01:26:56.440
+Anthony Taylor: an intercept.
+
+957
+01:26:58.490 --> 01:26:59.840
+Anthony Taylor: MB.
+
+958
+01:26:59.860 --> 01:27:04.130
+Anthony Taylor: Because we already have it. I already know what X is
+
+959
+01:27:05.420 --> 01:27:07.540
+Anthony Taylor: everybody following with what this is.
+
+960
+01:27:10.170 --> 01:27:13.660
+Anthony Taylor: It returns 5 variables
+
+961
+01:27:14.480 --> 01:27:17.770
+Anthony Taylor: slope, intercept our value, p-value, standard error.
+
+962
+01:27:19.080 --> 01:27:22.329
+Anthony Taylor: We only care about these 2, but we're gonna assign them all to a very
+
+963
+01:27:23.870 --> 01:27:25.670
+Anthony Taylor: okay. Alright.
+
+964
+01:27:25.950 --> 01:27:39.330
+Anthony Taylor: once you have that. we're going to actually get our regress value. And so we're gonna do X values the whole array times that slope, whatever slope this returns
+
+965
+01:27:40.680 --> 01:27:42.589
+Anthony Taylor: plus the intercept
+
+966
+01:27:43.780 --> 01:27:46.479
+Anthony Taylor: and that will give us regress value.
+
+967
+01:27:48.720 --> 01:27:49.620
+Anthony Taylor: Okay.
+
+968
+01:27:50.880 --> 01:28:03.040
+Anthony Taylor: now, this is where it really gets weird. And I'm gonna print. I'm gonna run this real quick. And then I'm gonna tell you what's going on alright. So up to here you can see we're going to plot X and regress values.
+
+969
+01:28:03.790 --> 01:28:06.970
+Anthony Taylor: Okay? And we're gonna color it red.
+
+970
+01:28:07.060 --> 01:28:09.699
+Anthony Taylor: And that little dash means it's gonna be a red line.
+
+971
+01:28:10.840 --> 01:28:22.280
+Anthony Taylor: So here's what that means the blue dots are the actual X and Y values. This is the X values and the values that are
+
+972
+01:28:23.140 --> 01:28:25.220
+Anthony Taylor: formula came up with
+
+973
+01:28:27.200 --> 01:28:32.620
+Anthony Taylor: this form right here. So this is MX, plus. B.
+
+974
+01:28:34.110 --> 01:28:35.110
+Anthony Taylor: Okay.
+
+975
+01:28:35.470 --> 01:28:40.800
+Anthony Taylor: so the regress values is just nothing more than
+
+976
+01:28:40.860 --> 01:28:43.080
+Anthony Taylor: point 4 4 times
+
+977
+01:28:43.330 --> 01:28:48.770
+Anthony Taylor: whatever you know, 2.2 plus negative
+
+978
+01:28:48.860 --> 01:28:52.710
+Anthony Taylor: point 19. And that gave us this wide up.
+
+979
+01:28:54.740 --> 01:29:03.239
+Anthony Taylor: Okay? And so on. And so so this is what we predicted. This is the reality. All of the blue.
+
+980
+01:29:03.890 --> 01:29:07.519
+Anthony Taylor: So we drew our line. That's our prediction. Now, what does that mean?
+
+981
+01:29:08.490 --> 01:29:11.630
+Anthony Taylor: Well, we said, with 9 rooms
+
+982
+01:29:12.300 --> 01:29:15.120
+Anthony Taylor: we can predict Y to be somewhere up here.
+
+983
+01:29:16.120 --> 01:29:19.100
+Anthony Taylor: If we extended this to say 10 words.
+
+984
+01:29:21.110 --> 01:29:25.030
+Anthony Taylor: Okay, we could draw this line a little further
+
+985
+01:29:25.400 --> 01:29:29.079
+Anthony Taylor: and then run our little function, and we will come up with
+
+986
+01:29:30.150 --> 01:29:33.070
+Anthony Taylor: 410,000 or something.
+
+987
+01:29:34.080 --> 01:29:38.880
+Anthony Taylor: You understand. this lot is what we use to do predictions.
+
+988
+01:29:39.820 --> 01:29:42.920
+Anthony Taylor: Now, looking at our data, I'll have to explain.
+
+989
+01:29:44.940 --> 01:29:46.270
+Anthony Taylor: Probably not too good.
+
+990
+01:29:46.920 --> 01:29:48.430
+Anthony Taylor: Alright, but
+
+991
+01:29:48.500 --> 01:29:50.560
+Anthony Taylor: it's a nice representation.
+
+992
+01:29:51.200 --> 01:29:59.050
+Anthony Taylor: Okay, so now let's talk about this formula. This is on the chart. I didn't put it there. That's not a picture
+
+993
+01:30:00.040 --> 01:30:03.980
+Anthony Taylor: that actually was drawn on the chart. How do we do that?
+
+994
+01:30:06.700 --> 01:30:07.990
+Anthony Taylor: Annotate.
+
+995
+01:30:08.210 --> 01:30:13.690
+Anthony Taylor: So we've had plot Xlim plot, Ylm plot. X label, Bilabel title
+
+996
+01:30:14.400 --> 01:30:15.380
+Anthony Taylor: legend.
+
+997
+01:30:15.590 --> 01:30:18.160
+Anthony Taylor: Well, now, we have annotate.
+
+998
+01:30:19.040 --> 01:30:21.530
+Anthony Taylor: Okay. all it does
+
+999
+01:30:21.660 --> 01:30:25.030
+Anthony Taylor: is write whatever you want it to write
+
+1000
+01:30:26.060 --> 01:30:32.820
+Anthony Taylor: at the location that you tell it with the font size and the color that you choose.
+
+1001
+01:30:34.280 --> 01:30:43.660
+Anthony Taylor: Okay. so line Eq, what's line? Eq, we'll check it out. This is a string Y equals round the slope to 2
+
+1002
+01:30:44.150 --> 01:30:48.249
+Anthony Taylor: plus print x plus plus the intercept.
+
+1003
+01:30:49.260 --> 01:30:50.400
+Anthony Taylor: And there you go
+
+1004
+01:30:51.540 --> 01:31:01.020
+Anthony Taylor: alright. So it's putting it. Now, the only thing that's really important to remember about this. this value changes based on your X and Y value.
+
+1005
+01:31:02.840 --> 01:31:06.490
+Anthony Taylor: Right? So if you have y values that go into hundreds
+
+1006
+01:31:06.620 --> 01:31:17.339
+Anthony Taylor: and x values that go into the hundreds or even x values that go into the tens and y values and hundreds. If you did 5.8 point 8, you're gonna be like.
+
+1007
+01:31:17.350 --> 01:31:23.290
+Anthony Taylor: yeah, I didn't hear someone. Okay. So you have to keep in mind. This is the X and Y
+
+1008
+01:31:24.650 --> 01:31:34.800
+Anthony Taylor: coordinates of where you want the annotation to show up. So we said. we said, 5.8 by point 8,
+
+1009
+01:31:36.240 --> 01:31:39.370
+Anthony Taylor: you see? All right. Yeah, Mike.
+
+1010
+01:31:40.050 --> 01:31:41.719
+michael mcpherson: can you use the best?
+
+1011
+01:31:42.770 --> 01:31:51.749
+Anthony Taylor: An annotate is is is hard, hard type. I mean, you could programmatically come up way to get these
+
+1012
+01:31:51.890 --> 01:31:53.689
+Anthony Taylor: these these values
+
+1013
+01:31:53.890 --> 01:31:56.110
+Anthony Taylor: right. But
+
+1014
+01:31:56.500 --> 01:31:59.840
+Anthony Taylor: but no, it it has to be, it has to be defined.
+
+1015
+01:32:00.420 --> 01:32:02.109
+Anthony Taylor: Okay, now
+
+1016
+01:32:02.790 --> 01:32:06.279
+Anthony Taylor: I know. I tell you guys this probably more often than I should
+
+1017
+01:32:07.610 --> 01:32:13.400
+Anthony Taylor: until I started teaching the data science course. I had never in my life even seen this
+
+1018
+01:32:14.530 --> 01:32:21.890
+Anthony Taylor: ever 30 years of doing this. Probably thousands
+
+1019
+01:32:22.140 --> 01:32:28.099
+Anthony Taylor: of Ml models. Okay, I've never seen anybody do this, but it's really cool
+
+1020
+01:32:28.240 --> 01:32:29.830
+Anthony Taylor: for projects
+
+1021
+01:32:31.110 --> 01:32:32.520
+Anthony Taylor: and demonstrations.
+
+1022
+01:32:33.520 --> 01:32:34.530
+Anthony Taylor: Alright.
+
+1023
+01:32:34.620 --> 01:32:41.819
+Anthony Taylor: it's cool to understand what Bot annotate does, whether you put them slump those. The
+
+1024
+01:32:41.930 --> 01:32:52.750
+Anthony Taylor: linear regression function there or not. You could put anything on your chart and put it anywhere you want. because you now know how. Use annotate. Yes, Claire.
+
+1025
+01:32:53.740 --> 01:32:54.770
+Clayton Graves: so
+
+1026
+01:32:55.590 --> 01:33:06.230
+Clayton Graves: the the, the position of the annotation. Yes, is dependent on the values of your y and your X axis. So.
+
+1027
+01:33:06.350 --> 01:33:09.050
+Clayton Graves: okay, so. okay, cool.
+
+1028
+01:33:09.660 --> 01:33:13.139
+Anthony Taylor: yeah, so x and y. So again, if this x was
+
+1029
+01:33:13.210 --> 01:33:20.579
+Anthony Taylor: started at 20 and went to, you know 200 right your ex would be whatever
+
+1030
+01:33:21.100 --> 01:33:27.699
+Anthony Taylor: X is at this point. So you know, 200 to 12.2 32 42 50, maybe 258.
+
+1031
+01:33:28.250 --> 01:33:29.910
+Anthony Taylor: Alright, alright!
+
+1032
+01:33:30.020 --> 01:33:42.530
+Anthony Taylor: And your Y could be all decimals depending on what you're measuring. So again, the Y would be whatever y across. Okay. alright.
+
+1033
+01:33:43.170 --> 01:33:47.150
+Anthony Taylor: So let's do another average rooms versus our median value.
+
+1034
+01:33:47.310 --> 01:33:50.710
+Anthony Taylor: Okay? Again, then, Regress X and Y,
+
+1035
+01:33:50.800 --> 01:33:52.650
+Anthony Taylor: we're gonna get all these variables.
+
+1036
+01:33:52.750 --> 01:33:57.250
+Anthony Taylor: We're going to calculate our regress values that calculate the red line.
+
+1037
+01:33:57.620 --> 01:34:06.040
+Anthony Taylor: Okay, by basically typing out Mx, plus B, okay, we're going to
+
+1038
+01:34:06.100 --> 01:34:11.909
+Anthony Taylor: create. And and again, what I tell you guys, once you have, this doesn't change
+
+1039
+01:34:12.350 --> 01:34:14.189
+Anthony Taylor: the only thing that's going to change
+
+1040
+01:34:15.290 --> 01:34:21.540
+Anthony Taylor: is that? And I mean, okay? And your leaves. okay, yeah, Derek.
+
+1041
+01:34:22.390 --> 01:34:42.810
+Derek Rikke: so for the annotate thing, you could put in like a like X and Y value, you could put in like a point if you wanted to like highlight that or make a comment on that, you could. Yeah, yeah, you could put something else in here. I mean, we could even type something here. We can type like,
+
+1042
+01:34:42.850 --> 01:34:46.930
+Anthony Taylor: this is Katie. Okay.
+
+1043
+01:34:47.350 --> 01:34:54.500
+Anthony Taylor: it could be anything. And you can even match it up to a single point on your your chart if you want
+
+1044
+01:34:54.710 --> 01:34:59.639
+Anthony Taylor:  like, I said, I think learning annotate
+
+1045
+01:34:59.650 --> 01:35:00.920
+Anthony Taylor: is a great idea.
+
+1046
+01:35:01.250 --> 01:35:05.079
+Anthony Taylor: Okay, do I like? I said, have I seen this done before? Oh.
+
+1047
+01:35:05.130 --> 01:35:14.759
+Anthony Taylor: you don't usually see this? Okay, I don't usually see. But again. it looks really good on a project. if all you're doing is linear regression.
+
+1048
+01:35:14.820 --> 01:35:22.780
+Anthony Taylor: Something like this would look great in a project. Okay? Cause it's a really nice, clean way to show. Okay.
+
+1049
+01:35:22.850 --> 01:35:28.519
+Anthony Taylor: alright. So remember, like I said, everything in here
+
+1050
+01:35:29.050 --> 01:35:32.959
+Anthony Taylor: stays the same except for the position of your annotation.
+
+1051
+01:35:33.960 --> 01:35:37.890
+Anthony Taylor: This is whatever your labels are. This is whatever your columns are.
+
+1052
+01:35:39.150 --> 01:35:40.080
+Anthony Taylor: Alright
+
+1053
+01:35:42.240 --> 01:35:43.680
+Anthony Taylor: r squared.
+
+1054
+01:35:44.430 --> 01:35:47.210
+Anthony Taylor: You're gonna hear R squared a lot over the coming week.
+
+1055
+01:35:47.870 --> 01:35:56.669
+Anthony Taylor: R-squared is basically our measurement of our accuracy of our model. In fact, if you were to take a machine learning model
+
+1056
+01:35:56.790 --> 01:36:02.010
+Anthony Taylor: from Scikit, learn and say, give me the score of this model.
+
+1057
+01:36:02.110 --> 01:36:04.530
+Anthony Taylor: It is the R squared score.
+
+1058
+01:36:07.060 --> 01:36:13.860
+Anthony Taylor: Basically. the way you will read this is this is a percentage
+
+1059
+01:36:15.440 --> 01:36:18.450
+Anthony Taylor: of accuracy. So
+
+1060
+01:36:18.800 --> 01:36:25.159
+Anthony Taylor: this is telling me that this line is approximately 30% accurate.
+
+1061
+01:36:26.470 --> 01:36:27.420
+Anthony Taylor: There you go.
+
+1062
+01:36:29.940 --> 01:36:32.500
+Anthony Taylor: Okay. that's what that's done
+
+1063
+01:36:33.110 --> 01:36:36.849
+michael mcpherson: is that plus or minus 30% or 30% of the time.
+
+1064
+01:36:37.140 --> 01:36:42.260
+Anthony Taylor: 30, right. So there is no minus 3, right can't be minus right.
+
+1065
+01:36:42.420 --> 01:36:48.940
+Anthony Taylor: So it's either. It's 30% of the time. It's accurate. 75, 70% of the time it's wrong.
+
+1066
+01:36:51.130 --> 01:36:59.240
+Anthony Taylor: Okay, now, let's keep something in mind. And I want you guys to remember this. I don't think you have to worry about it in Project one. But I've mentioned this to you guys before
+
+1067
+01:36:59.260 --> 01:37:02.620
+Anthony Taylor: anytime. You are trying to predict a number.
+
+1068
+01:37:02.700 --> 01:37:04.400
+Anthony Taylor: Your scores are going to be the
+
+1069
+01:37:05.820 --> 01:37:12.790
+Anthony Taylor: because think about it. A number can be wrong by one digit, and it's not wrong by one digit. It's just wrong.
+
+1070
+01:37:15.110 --> 01:37:20.260
+Anthony Taylor: There is no. Well, it's almost right. Nope, it's wrong. But Nope.
+
+1071
+01:37:21.060 --> 01:37:22.650
+Anthony Taylor: 0 one, that's it.
+
+1072
+01:37:24.290 --> 01:37:29.939
+Anthony Taylor: Okay, so when you're doing linear regression, it's very common to have low scores.
+
+1073
+01:37:29.990 --> 01:37:33.550
+Anthony Taylor: how do we get around this? We basically bid.
+
+1074
+01:37:34.640 --> 01:37:43.780
+Anthony Taylor: okay? And you'll learn this later. But, like here, where they have the house prices instead of it being the exact price, we might say 0 to 100,000.
+
+1075
+01:37:44.070 --> 01:37:46.000
+Anthony Taylor: 100,000 to 2,000,
+
+1076
+01:37:46.140 --> 01:37:53.830
+Anthony Taylor: 2,003, 3 to 4, 4 to 5. Okay? Then maybe that's too big of being. Maybe we do 50 s. Whatever.
+
+1077
+01:37:53.940 --> 01:37:59.370
+Anthony Taylor: But the point is is because it's now a bin. You have a whole lot more
+
+1078
+01:37:59.380 --> 01:38:03.200
+Anthony Taylor: to get it right. Alright. hi!
+
+1079
+01:38:04.470 --> 01:38:05.460
+Anthony Taylor: So
+
+1080
+01:38:05.930 --> 01:38:10.970
+Anthony Taylor: good news, I assume, for those that prefer to do everyone news.
+
+1081
+01:38:11.040 --> 01:38:15.290
+Anthony Taylor: This next one is without question. And everyone do.
+
+1082
+01:38:16.080 --> 01:38:19.490
+Anthony Taylor: Okay, we're going to do this together.
+
+1083
+01:38:21.600 --> 01:38:24.990
+Anthony Taylor: And if, like, if I remember correctly, it's because it's
+
+1084
+01:38:25.690 --> 01:38:26.960
+Anthony Taylor: it's nutty.
+
+1085
+01:38:28.250 --> 01:38:32.330
+Anthony Taylor: It's one of those ones where they have. You do a lot of stuff that we didn't show you.
+
+1086
+01:38:33.490 --> 01:38:35.990
+Anthony Taylor: and I don't think that's fun or useful.
+
+1087
+01:38:37.820 --> 01:38:40.930
+Anthony Taylor: not in 20 min, anyway. But
+
+1088
+01:38:41.250 --> 01:38:43.110
+Anthony Taylor: so here we go.
+
+1089
+01:38:45.460 --> 01:38:50.020
+Anthony Taylor: But do do it with me, or at least watch closely and do it later.
+
+1090
+01:38:51.020 --> 01:38:58.710
+Anthony Taylor: Alright. So we're going to bring in Sci-fi. We're going to bring in pandas numpy. We're going to read in this really cool vehicle data.
+
+1091
+01:38:59.010 --> 01:39:00.380
+Anthony Taylor: Not a whole lot of data.
+
+1092
+01:39:01.300 --> 01:39:04.619
+Anthony Taylor: Alright, in fact, very curious. What we're going to be predicting.
+
+1093
+01:39:04.980 --> 01:39:10.750
+Anthony Taylor: Okay? So it says, generate a scatter plot your versus number. All right. So let's
+
+1094
+01:39:11.080 --> 01:39:32.720
+Anthony Taylor:  understand why it's doing that. So we're gonna try to just do it and see what happens.
+
+1095
+01:39:35.770 --> 01:39:37.850
+Anthony Taylor: So for year.
+
+1096
+01:39:43.410 --> 01:39:49.809
+Anthony Taylor: Okay, so bottom line, this has a weird filter on it, and it doesn't explain why it has the filter.
+
+1097
+01:39:50.300 --> 01:39:56.179
+Anthony Taylor:  I'm gonna go ahead and put the filter on it, because I'm sure there's a good reason for it.
+
+1098
+01:39:57.190 --> 01:40:02.700
+Anthony Taylor: but don't know off the top of my head why, I'd have to go look at the data, which is what you would do.
+
+1099
+01:40:02.820 --> 01:40:07.350
+Anthony Taylor: Okay? So what they're basically saying is is, make sure the type
+
+1100
+01:40:07.570 --> 01:40:10.880
+Anthony Taylor: equals cars. Okay.
+
+1101
+01:40:13.770 --> 01:40:20.180
+Anthony Taylor: and make sure that's the right punctuation. And
+
+1102
+01:40:22.170 --> 01:40:28.360
+Anthony Taylor: so we went. Type equals cars. Let's wrap this in parentheses, because we're into an. And also
+
+1103
+01:40:31.130 --> 01:40:37.079
+Anthony Taylor: I have to wonder. You know what I'm gonna check and see if this is even in the reading, this might be why I decided to do this, guys
+
+1104
+01:40:37.370 --> 01:40:40.779
+Anthony Taylor: let me check because it's nuts that.
+
+1105
+01:40:46.460 --> 01:40:51.310
+Anthony Taylor: So it does mention it only once. Petro-electric cars.
+
+1106
+01:40:53.700 --> 01:40:54.840
+Anthony Taylor: Interesting.
+
+1107
+01:40:57.670 --> 01:40:58.350
+Anthony Taylor: Huh?
+
+1108
+01:41:00.190 --> 01:41:04.369
+Anthony Taylor: Okay. alright. So back to what we were doing.
+
+1109
+01:41:08.370 --> 01:41:13.979
+Anthony Taylor: alright. So we're gonna get. We're gonna make sure it's a car. And then we're going to do Ampersand
+
+1110
+01:41:14.120 --> 01:41:17.469
+Anthony Taylor: and make sure that the engine is petroleum.
+
+1111
+01:41:18.200 --> 01:41:21.029
+Anthony Taylor: Okay, we're gonna do vehicle data
+
+1112
+01:41:21.120 --> 01:41:22.170
+Anthony Taylor: brackets.
+
+1113
+01:41:22.940 --> 01:41:24.020
+Engine
+
+1114
+01:41:26.490 --> 01:41:30.150
+Anthony Taylor: equals equals petrol
+
+1115
+01:41:33.920 --> 01:41:35.250
+Anthony Taylor: dash, electric.
+
+1116
+01:41:38.600 --> 01:41:42.930
+Anthony Taylor: Okay? And we could see there's a petrol electric. There's cars.
+
+1117
+01:41:43.040 --> 01:41:45.889
+Anthony Taylor: There we go. And the column we want
+
+1118
+01:41:46.280 --> 01:41:47.809
+Anthony Taylor: is just a year.
+
+1119
+01:41:48.990 --> 01:41:49.960
+Anthony Taylor: Alright.
+
+1120
+01:41:50.110 --> 01:42:00.229
+Anthony Taylor: So it's got a filter. Only give us data that has type equals car engine equals petrol electric, and we want the year value. So before we go any further.
+
+1121
+01:42:00.780 --> 01:42:02.220
+Anthony Taylor: let's just look at that.
+
+1122
+01:42:03.250 --> 01:42:04.730
+Anthony Taylor: And I did something.
+
+1123
+01:42:05.080 --> 01:42:07.259
+Anthony Taylor: Oh, this needs to be in quotes.
+
+1124
+01:42:08.870 --> 01:42:17.620
+Anthony Taylor: There you go. So there's our data that looks okay. Okay. So now we're gonna do the same thing.
+
+1125
+01:42:21.490 --> 01:42:30.100
+Anthony Taylor: But for a new variable called petroelectric cars. So we're gonna do petrol underscore electric cars equals
+
+1126
+01:42:30.330 --> 01:42:38.040
+Anthony Taylor: paste, that everything stays the same. But the last variable is
+
+1127
+01:42:38.260 --> 01:42:40.469
+Anthony Taylor: number instead of year.
+
+1128
+01:42:43.560 --> 01:42:48.780
+Anthony Taylor: Okay? Which means we're going to plot our
+
+1129
+01:42:48.900 --> 01:42:53.159
+Anthony Taylor: year. And how many of that are
+
+1130
+01:42:53.230 --> 01:42:56.969
+Anthony Taylor: there is? So let's do that. So plot scatter.
+
+1131
+01:43:00.240 --> 01:43:03.470
+Anthony Taylor: and we're going to pass in year and petrol.
+
+1132
+01:43:06.220 --> 01:43:10.830
+Anthony Taylor: Why is it not coming up there petro-electric cars.
+
+1133
+01:43:10.960 --> 01:43:17.910
+Anthony Taylor: And let's just show that just to make sure it's working, we're gonna we're gonna dress it up. But.
+
+1134
+01:43:18.110 --> 01:43:19.979
+Anthony Taylor: darn it, what's wrong?
+
+1135
+01:43:23.220 --> 01:43:24.659
+Dipinto, Matt: Then double equals.
+
+1136
+01:43:25.660 --> 01:43:31.860
+Anthony Taylor: Wow, Matt. good. Okay. There, I see what I did there.
+
+1137
+01:43:32.330 --> 01:43:35.569
+Anthony Taylor: Nobody caught and yelled at. And but that's all right, too.
+
+1138
+01:43:35.720 --> 01:43:40.229
+Anthony Taylor: I put a double equals there. You can't do that. That's for comparing, not for a site.
+
+1139
+01:43:40.850 --> 01:43:47.419
+Anthony Taylor: Alright. So here's what it looks like year by year by year. Look at this 2,016 holy, moly
+
+1140
+01:43:47.770 --> 01:43:52.030
+Anthony Taylor: petroelectric cars went up a little bit alright.
+
+1141
+01:43:52.250 --> 01:43:59.609
+Anthony Taylor: So now that we have that this isn't very readable. So let's add a couple of quick things. Let's add some X ticks.
+
+1142
+01:44:00.950 --> 01:44:07.410
+Anthony Taylor: and we're gonna do years. So it knows that. But we're going to rotate.
+
+1143
+01:44:10.680 --> 01:44:11.700
+Anthony Taylor: Aye.
+
+1144
+01:44:12.260 --> 01:44:15.900
+Anthony Taylor: and then we're going to do? Not years your
+
+1145
+01:44:18.150 --> 01:44:23.460
+Anthony Taylor:  We're going to do the label.
+
+1146
+01:44:24.250 --> 01:44:33.250
+Anthony Taylor: the Ltdex label. and we'll just say years. There, we can do years. And then Y label
+
+1147
+01:44:35.540 --> 01:44:36.840
+Anthony Taylor: petrol
+
+1148
+01:44:37.870 --> 01:44:39.070
+Anthony Taylor: electric.
+
+1149
+01:44:40.930 --> 01:44:47.250
+Anthony Taylor: of course. And there we go. Not bad. Okay.
+
+1150
+01:44:47.470 --> 01:44:51.500
+Anthony Taylor: alright. So now that we have that, let's do our linear regression.
+
+1151
+01:44:51.650 --> 01:44:52.550
+Anthony Taylor: So
+
+1152
+01:44:53.390 --> 01:44:58.759
+Anthony Taylor: remember, now, I'm gonna well, let's keep it simple. In fact, let's keep it so simple.
+
+1153
+01:45:02.280 --> 01:45:05.920
+Anthony Taylor: I'll grab this. bring it here.
+
+1154
+01:45:06.670 --> 01:45:16.310
+Anthony Taylor: Okay. And the only thing we gotta do is change our X and Y to match our X and Y up here, which is year and petrole electric cars. So we're gonna change this to year.
+
+1155
+01:45:19.580 --> 01:45:21.090
+Anthony Taylor: and this to petrol
+
+1156
+01:45:21.740 --> 01:45:26.560
+Anthony Taylor: electric cars  and that.
+
+1157
+01:45:26.610 --> 01:45:29.970
+Anthony Taylor: And it doesn't like it. Why not? What's missing
+
+1158
+01:45:37.140 --> 01:45:41.570
+McKimmy, Brandon: the dependencies? You have to import a request?
+
+1159
+01:45:44.340 --> 01:45:53.309
+Anthony Taylor: Actually, you're right. But I did. I did actually bring in the dependency I needed just didn't add it to the
+
+1160
+01:45:53.850 --> 01:46:00.970
+Anthony Taylor: the thing. So yeah, we could have brought lingress in our directly. This we just brought in stats. So now we have it.
+
+1161
+01:46:01.270 --> 01:46:02.190
+Anthony Taylor: Okay.
+
+1162
+01:46:02.320 --> 01:46:07.820
+Anthony Taylor: So now that we have that, all of our values are filled in, let's just create
+
+1163
+01:46:07.940 --> 01:46:15.040
+Anthony Taylor: our our regress line. So we'll say, fit equals. We're going to do slope
+
+1164
+01:46:16.650 --> 01:46:23.150
+Anthony Taylor: times year plus intercept.
+
+1165
+01:46:24.270 --> 01:46:27.349
+Anthony Taylor: Okay? So that'll give us our fit.
+
+1166
+01:46:28.870 --> 01:46:31.590
+Anthony Taylor: No issue there. And then
+
+1167
+01:46:33.350 --> 01:46:37.010
+Anthony Taylor: why, in God's name, would you do this? So we're going to copy this whole thing.
+
+1168
+01:46:40.320 --> 01:46:42.430
+Anthony Taylor: and we're simply gonna add
+
+1169
+01:46:42.610 --> 01:46:46.379
+Anthony Taylor: our our re, our fit line
+
+1170
+01:46:46.700 --> 01:46:59.370
+Anthony Taylor: and our annotation. Actually, we don't even that's so. They have to. That's funny. No way. they're so silly. So they didn't put the annotation on any of the activity.
+
+1171
+01:46:59.420 --> 01:47:08.039
+Meredith McCanse (she/her): But we could just fit just like a word. You're calling it like Bob.
+
+1172
+01:47:08.230 --> 01:47:17.500
+Meredith McCanse (she/her): or is that a term? Okay? So the short answer, yes, the reason I call it fit is as we go into machine learning every time we
+
+1173
+01:47:18.080 --> 01:47:20.120
+Anthony Taylor: we're we're gonna fit every model.
+
+1174
+01:47:20.890 --> 01:47:25.969
+Anthony Taylor: Okay? And this is, this is technically what we're doing here is the fit step.
+
+1175
+01:47:26.400 --> 01:47:29.829
+Anthony Taylor: But you're right. It's just a variable. It could be any.
+
+1176
+01:47:30.240 --> 01:47:32.759
+Anthony Taylor: I just put it there. So it makes sense.
+
+1177
+01:47:33.000 --> 01:47:40.019
+Anthony Taylor: Did you had to import something extra to get the slope.
+
+1178
+01:47:40.130 --> 01:47:45.300
+Anthony Taylor: This is what happened here. We did stats here.
+
+1179
+01:47:46.640 --> 01:47:49.450
+Anthony Taylor: We did. Lynn regress from stacked.
+
+1180
+01:47:50.450 --> 01:47:51.450
+Meredith McCanse (she/her): Okay.
+
+1181
+01:47:51.720 --> 01:47:57.840
+Anthony Taylor: you see the difference. So this, when we said from stats, give them request. So we didn't need to say stack
+
+1182
+01:47:58.210 --> 01:48:02.479
+Anthony Taylor: here we just did step that probably did it in your solution.
+
+1183
+01:48:02.620 --> 01:48:05.459
+Anthony Taylor: So we had to tell it. Stats doctrine.
+
+1184
+01:48:06.390 --> 01:48:07.840
+Meredith McCanse (she/her): Oh, okay.
+
+1185
+01:48:08.380 --> 01:48:16.109
+Anthony Taylor: can you print out the fit variable? Is that a list that just every.
+
+1186
+01:48:18.890 --> 01:48:20.089
+Dipinto, Matt: okay. Thank you.
+
+1187
+01:48:20.340 --> 01:48:21.120
+Anthony Taylor: Yeah.
+
+1188
+01:48:21.400 --> 01:48:22.750
+Anthony Taylor: Okay. So
+
+1189
+01:48:23.260 --> 01:48:33.310
+Anthony Taylor: now we have our scatter. Let's go ahead and add our fit line. So it's just a plot. This is just a line, right? We're gonna say, year comma fit.
+
+1190
+01:48:33.450 --> 01:48:36.530
+Anthony Taylor: And we're going to tell it. We want it to be a dashed line.
+
+1191
+01:48:37.700 --> 01:48:44.629
+Anthony Taylor: Okay. So now, when we run this. we could see there's our fit line. So this is what our
+
+1192
+01:48:45.640 --> 01:48:50.570
+Anthony Taylor: slope function came up with as our fit money.
+
+1193
+01:48:51.400 --> 01:48:54.120
+Anthony Taylor: Okay. fairly simple.
+
+1194
+01:48:54.690 --> 01:49:01.700
+Anthony Taylor: Okay, nothing, nothing, too. Fancy. Now, here's what's kinda cool. And we could, in fact, if if I was
+
+1195
+01:49:02.210 --> 01:49:04.509
+Anthony Taylor: given this to you guys right now.
+
+1196
+01:49:04.790 --> 01:49:11.520
+Anthony Taylor: right, we could technically turn this into a function. Okay, so since we have.
+
+1197
+01:49:12.380 --> 01:49:16.789
+Anthony Taylor: we know how to do this. Now. let's add it to our
+
+1198
+01:49:18.010 --> 01:49:25.260
+Anthony Taylor: our charge. Okay, we are, gonna change the very, actually, maybe not.
+
+1199
+01:49:25.330 --> 01:49:29.140
+Anthony Taylor:  And let's add the fit line
+
+1200
+01:49:30.530 --> 01:49:31.630
+Anthony Taylor: also.
+
+1201
+01:49:36.430 --> 01:49:42.419
+Anthony Taylor: Okay, so here, what do we do? Different cars, engine petrol, electric
+
+1202
+01:49:45.490 --> 01:49:48.830
+Anthony Taylor: for year versus why is it having us do it again? No.
+
+1203
+01:49:50.670 --> 01:49:53.400
+Anthony Taylor: Taipei was car engines. Petrol.
+
+1204
+01:50:03.680 --> 01:50:09.199
+Anthony Taylor: Oh, oh, I see. Okay. So this chart. We're gonna change to just petrol.
+
+1205
+01:50:10.190 --> 01:50:15.190
+Anthony Taylor: Okay? And that's it. So if you were, gonna do that, you should change this variable.
+
+1206
+01:50:16.270 --> 01:50:20.859
+Anthony Taylor: which again, if we made this into a function. We could just do this one time.
+
+1207
+01:50:22.390 --> 01:50:25.970
+Anthony Taylor: but we didn't yet, so we'll just
+
+1208
+01:50:26.260 --> 01:50:28.169
+Anthony Taylor: manually fix this.
+
+1209
+01:50:32.050 --> 01:50:38.869
+Anthony Taylor: And there you go. So what did we change there. All we did is we changed it from
+
+1210
+01:50:39.270 --> 01:50:41.779
+Anthony Taylor: we changed the
+
+1211
+01:50:42.130 --> 01:50:53.020
+Anthony Taylor: Why, we actually didn't need. We didn't even need this in there, because this is not changing. So we just changed the Y value to be a petrol car instead of a petrol electric.
+
+1212
+01:50:53.670 --> 01:50:55.990
+Anthony Taylor: Okay, so if we take this whole thing.
+
+1213
+01:50:57.790 --> 01:51:04.699
+Anthony Taylor: How much time do we got? Oh, gosh! Almost done. Okay. So we'll do the same thing except this time. It will be just electric.
+
+1214
+01:51:06.860 --> 01:51:12.940
+Anthony Taylor: I'm just gonna leave the variable the same, so that we don't have to change it everywhere. But no, you would normally want to change it.
+
+1215
+01:51:15.970 --> 01:51:18.930
+Anthony Taylor: And we run that. Now, you can see electric cars.
+
+1216
+01:51:20.830 --> 01:51:21.790
+Anthony Taylor: Okay.
+
+1217
+01:51:23.580 --> 01:51:27.239
+Anthony Taylor:  okay, this last one.
+
+1218
+01:51:28.420 --> 01:51:34.310
+Anthony Taylor: Oh, wait. Is there a Diesel? One also doesn't say to do Diesel. Huh?
+
+1219
+01:51:34.480 --> 01:51:36.490
+Anthony Taylor: Interesting? Oh.
+
+1220
+01:51:38.150 --> 01:51:39.030
+Anthony Taylor: okay.
+
+1221
+01:51:42.090 --> 01:51:42.990
+Anthony Taylor: alright.
+
+1222
+01:51:43.710 --> 01:51:48.820
+Anthony Taylor: we're gonna run a little over and think we would. But alright. So we're gonna create a new figure.
+
+1223
+01:51:48.940 --> 01:51:53.059
+Anthony Taylor: Try to hang in there for this guys, this is really cool. This used to be on the homework.
+
+1224
+01:51:55.220 --> 01:52:01.150
+Anthony Taylor: So I've I've told you guys many times that we were creating a figure and one
+
+1225
+01:52:01.320 --> 01:52:03.180
+Anthony Taylor: chart in that figure.
+
+1226
+01:52:03.520 --> 01:52:04.910
+Anthony Taylor: Well, this time
+
+1227
+01:52:04.980 --> 01:52:16.670
+Anthony Taylor: we're going to create 3 charts in that figure. Okay? So we're gonna do plot subplots. And then we're going to say, 3
+
+1228
+01:52:17.560 --> 01:52:20.650
+Anthony Taylor: comma share X
+
+1229
+01:52:20.910 --> 01:52:22.330
+Anthony Taylor: equals. True.
+
+1230
+01:52:23.510 --> 01:52:31.379
+Anthony Taylor: Okay, what's that mean? I'm gonna create 3 charts in one canvas, and they're all gonna have the same X value.
+
+1231
+01:52:31.780 --> 01:52:33.710
+Anthony Taylor: So
+
+1232
+01:52:37.200 --> 01:52:43.870
+Anthony Taylor: well, maybe we do. I don't know. We'll see. So first, we're going to create the first one. So we'll do acts one
+
+1233
+01:52:45.230 --> 01:52:46.900
+Anthony Taylor: dot plot.
+
+1234
+01:52:48.030 --> 01:52:55.110
+Anthony Taylor: and we're going to do basically the one from up above. So we're going to say, year comma petrol.
+
+1235
+01:52:55.290 --> 01:53:03.929
+Anthony Taylor: electric cars. Oh, I'm gonna I messed up by not changing that variable. That's all right. We'll fix it and we're going to give this one a line width.
+
+1236
+01:53:04.200 --> 01:53:07.670
+Anthony Taylor: So it's not a scatterplot. Okay.
+
+1237
+01:53:08.150 --> 01:53:12.249
+Anthony Taylor: and it's gonna equal one. And we're gonna give it a marker of
+
+1238
+01:53:15.250 --> 01:53:17.440
+Anthony Taylor: 0. Okay?
+
+1239
+01:53:17.630 --> 01:53:19.850
+Anthony Taylor: So there's our first
+
+1240
+01:53:20.220 --> 01:53:26.040
+Anthony Taylor:  we can do our fit line also. So we can say
+
+1241
+01:53:26.200 --> 01:53:33.429
+Anthony Taylor: I'm just gonna copy this paste it here. and this is gonna be, oh,
+
+1242
+01:53:34.340 --> 01:53:45.760
+Anthony Taylor: Cause we named everything exactly the same. This isn't gonna work as well as I'd like. But that's okay. Still, show you how to do alright. So we're gonna put the fit line here. not the fert line that would be weird.
+
+1243
+01:53:46.170 --> 01:53:49.529
+Anthony Taylor: And this one is gonna be
+
+1244
+01:53:50.950 --> 01:53:52.040
+Anthony Taylor: blue
+
+1245
+01:53:52.290 --> 01:53:54.729
+Anthony Taylor: dash, dash in quotes.
+
+1246
+01:53:59.900 --> 01:54:03.450
+Anthony Taylor: and then we're gonna keep our line width at one. We don't need a marker.
+
+1247
+01:54:05.750 --> 01:54:09.139
+Anthony Taylor: But we do need to close it alright. So
+
+1248
+01:54:09.920 --> 01:54:15.280
+Anthony Taylor: it's all that's the minimum we need for a single axis. So I'm gonna copy this.
+
+1249
+01:54:15.300 --> 01:54:20.190
+Anthony Taylor: We're gonna do axis 2. Okay. Try to do 2
+
+1250
+01:54:23.040 --> 01:54:26.940
+Anthony Taylor: 2 now, because we didn't name the fit differently every time.
+
+1251
+01:54:27.020 --> 01:54:34.990
+Anthony Taylor:  we're going to end up with the same fit line, which is not accurate. But it'll be fine.
+
+1252
+01:54:35.800 --> 01:54:39.139
+Anthony Taylor: Okay? And this marker, we're gonna make a
+
+1253
+01:54:39.280 --> 01:54:45.549
+Anthony Taylor: why like that. And our fit line for this one will also make y.
+
+1254
+01:54:46.100 --> 01:54:48.280
+Anthony Taylor: And then we're gonna do a third one.
+
+1255
+01:54:50.520 --> 01:54:55.930
+Anthony Taylor: Okay? And this one will be if I change it
+
+1256
+01:54:57.680 --> 01:54:58.960
+Meredith McCanse (she/her): electric.
+
+1257
+01:54:59.570 --> 01:55:05.110
+Anthony Taylor: Okay? And we'll rerun that we'll rerun that
+
+1258
+01:55:07.050 --> 01:55:13.600
+Anthony Taylor: alright that way. They won't be identical, at least this one. We're going to make green.
+
+1259
+01:55:15.020 --> 01:55:17.119
+Anthony Taylor: And we're going to make this line green.
+
+1260
+01:55:17.840 --> 01:55:20.460
+Anthony Taylor: And technically, that's all you
+
+1261
+01:55:20.580 --> 01:55:22.429
+absolutely have to help.
+
+1262
+01:55:22.450 --> 01:55:28.530
+Anthony Taylor:  you could also. And I'll send it on one of these because we're so late. And I don't wanna
+
+1263
+01:55:28.790 --> 01:55:36.350
+Anthony Taylor: mess you guys up. You can set the Y label for each one of these. So this is, you know, petrol, electric
+
+1264
+01:55:41.680 --> 01:55:43.140
+Anthony Taylor: alright. And then
+
+1265
+01:55:43.360 --> 01:55:45.479
+Anthony Taylor: well, I guess we can do it.
+
+1266
+01:55:48.170 --> 01:55:51.570
+Anthony Taylor: This one's just electric. Oh, no, just petrol.
+
+1267
+01:55:54.620 --> 01:55:57.680
+Anthony Taylor: And this one's just like.
+
+1268
+01:55:58.760 --> 01:55:59.890
+Anthony Taylor: is that gonna work?
+
+1269
+01:56:01.470 --> 01:56:05.880
+Meredith McCanse (she/her): You gotta change the way access.
+
+1270
+01:56:07.720 --> 01:56:16.759
+Anthony Taylor: Okay, alright. So now we have our Y labels. We can send an app the next label on this the bottom one. Wait a minute. Let me change all of these.
+
+1271
+01:56:17.420 --> 01:56:18.510
+Anthony Taylor: mess that up.
+
+1272
+01:56:19.940 --> 01:56:28.179
+Anthony Taylor: We could set an X label on the bottom one, because that'll show up underneath everything. But that's really all we need to get this to work. So let's do plot, show
+
+1273
+01:56:29.640 --> 01:56:31.490
+Anthony Taylor: and dark.
+
+1274
+01:56:31.950 --> 01:56:33.979
+Anthony Taylor: Where's it?
+
+1275
+01:56:34.180 --> 01:56:37.510
+Sihong Zhou: Figure so sub sub plug.
+
+1276
+01:56:37.770 --> 01:56:39.740
+Sihong Zhou: You need an s
+
+1277
+01:56:40.550 --> 01:56:43.150
+Sihong Zhou: nice Cindy.
+
+1278
+01:56:45.490 --> 01:56:50.159
+Anthony Taylor: Oh, darn! It could not convert string to float! Why did I not?
+
+1279
+01:56:51.610 --> 01:56:55.710
+Anthony Taylor: Where is that one? A pathmarker?
+
+1280
+01:56:57.220 --> 01:57:00.079
+Anthony Taylor: It's somewhere in my marker code.
+
+1281
+01:57:01.490 --> 01:57:04.590
+Dipinto, Matt: I think it's the yellow dash! Dash that it's not liking.
+
+1282
+01:57:05.950 --> 01:57:07.029
+Dipinto, Matt: or never mind.
+
+1283
+01:57:07.960 --> 01:57:08.950
+Anthony Taylor: Hmm!
+
+1284
+01:57:10.520 --> 01:57:11.889
+Anthony Taylor: That's interesting.
+
+1285
+01:57:12.850 --> 01:57:18.080
+Anthony Taylor: So color! Oh, oh, oh! Oh! Oh! Oh! Oh! The first ones marker! These 2 are color.
+
+1286
+01:57:20.920 --> 01:57:21.810
+Anthony Taylor: There we go.
+
+1287
+01:57:24.210 --> 01:57:29.070
+Anthony Taylor: Yeah. well, the lines are weird. But
+
+1288
+01:57:29.830 --> 01:57:34.099
+Anthony Taylor: basically, this is how you would create a multi chart chart.
+
+1289
+01:57:34.560 --> 01:57:40.199
+Anthony Taylor: Okay, you'd have your figure. You tell it how many axes you want, and then you would be, and
+
+1290
+01:57:40.280 --> 01:57:44.140
+Anthony Taylor: everything we do in a single chart. You can do here.
+
+1291
+01:57:44.860 --> 01:57:54.809
+Anthony Taylor: Okay. The only thing I would avoid is putting an X label on each one because they're all using the same one. So if you just put it on the last one. the bottom one.
+
+1292
+01:57:56.550 --> 01:57:58.610
+Anthony Taylor: Okay.
+
+1293
+01:58:04.460 --> 01:58:05.879
+Anthony Taylor: it makes more sense.
+
+1294
+01:58:07.740 --> 01:58:08.620
+Anthony Taylor: Okay.
+
+1295
+01:58:10.680 --> 01:58:11.709
+Anthony Taylor: pretty cool.
+
+1296
+01:58:13.170 --> 01:58:14.209
+Anthony Taylor: That's pretty cool.
+
+1297
+01:58:15.380 --> 01:58:16.659
+Anthony Taylor: and that's it.
+
+1298
+01:58:19.240 --> 01:58:20.220
+Anthony Taylor: Oh.
+
+1299
+01:58:20.360 --> 01:58:24.349
+Anthony Taylor: oh, alright! I'm just gonna bring this one in. You guys are, gonna get this in the solution.
+
+1300
+01:58:24.380 --> 01:58:29.280
+Anthony Taylor: So it says, calculate for 2,024. Well, before I do it.
+
+1301
+01:58:29.340 --> 01:58:32.260
+Anthony Taylor: how would we do that? We know?
+
+1302
+01:58:32.550 --> 01:58:35.759
+Anthony Taylor: Okay, so we we have slope
+
+1303
+01:58:36.550 --> 01:58:50.680
+Anthony Taylor: right? I'll get it right eventually. times year plus intercept. Okay. But we have all of we have slope, and we have intercept.
+
+1304
+01:58:51.870 --> 01:59:03.600
+Anthony Taylor: So all we have to do is set the year equal to something. Okay? And then output
+
+1305
+01:59:05.150 --> 01:59:07.069
+Anthony Taylor: whatever this value is.
+
+1306
+01:59:11.820 --> 01:59:16.709
+Anthony Taylor: Okay. And what did I miss? Oh.
+
+1307
+01:59:19.170 --> 01:59:21.240
+Anthony Taylor: we have to make this into
+
+1308
+01:59:23.910 --> 01:59:26.040
+Anthony Taylor: and and wait. See?
+
+1309
+01:59:26.130 --> 01:59:28.359
+Anthony Taylor: Slope plus year
+
+1310
+01:59:29.380 --> 01:59:34.590
+Anthony Taylor: sometimes here, plus intercept. Where is my is? Oh, wait! Did I not call it intercept?
+
+1311
+01:59:35.870 --> 01:59:38.640
+Anthony Taylor: Oh! Spelled it out
+
+1312
+01:59:40.730 --> 01:59:44.140
+Anthony Taylor: even I forgot that one. Sorry. And there you go.
+
+1313
+01:59:44.270 --> 01:59:47.740
+Anthony Taylor: Okay. So this is saying, in 2,024,
+
+1314
+01:59:48.290 --> 01:59:49.790
+Anthony Taylor: we will have
+
+1315
+01:59:50.530 --> 01:59:55.140
+Anthony Taylor: 64, 645,370 electric cars
+
+1316
+01:59:58.560 --> 02:00:02.079
+Anthony Taylor: interesting. So we were able to predict it.
+
+1317
+02:00:05.000 --> 02:00:07.940
+Anthony Taylor: because we already had the rest of the function, the formula.
+
+1318
+02:00:08.610 --> 02:00:14.030
+Anthony Taylor: alright. Any questions? We went over a little bit. Sorry, guys.
+
+1319
+02:00:17.210 --> 02:00:26.569
+Anthony Taylor: are you glad I didn't try to make you guys do this one by yourself. He would have been really pissed at me because you're like, we've never seen that ever
+
+1320
+02:00:26.690 --> 02:00:28.180
+Anthony Taylor: it's like, Oh.
+
+1321
+02:00:30.660 --> 02:00:44.010
+Anthony Taylor: but yeah. Hi. that's it, guys what is it? Monday? So tomorrow we start time series, predictive analytics. It's the beginning of machine learning.
+
+1322
+02:00:44.380 --> 02:00:46.440
+Anthony Taylor: This is where we start
+
+1323
+02:00:48.140 --> 02:00:52.119
+Anthony Taylor: breaking away from data engineering and becoming data scientists.
+
+1324
+02:00:53.890 --> 02:01:02.420
+Anthony Taylor: Okay, I know we're gonna wear your lab coats. It'll be great. Okay, thanks. Guys have a good night. We'll be here till 11.
+

@@ -1,0 +1,106 @@
+##--CODE--##
+# Imports for loading environment variables.
+from dotenv import load_dotenv
+import os
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+##--CODE--##
+# Additional imports for the chain and templates.
+from langchain_openai import ChatOpenAI
+from langchain import PromptTemplate, FewShotPromptTemplate
+from langchain.chains import LLMChain
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.7)
+
+##--CODE--##
+# Create examples.
+examples = [
+    {
+        "topic": "imagination",
+        "quote": "As great scientists have said and as all children know, it is above all by the imagination that we achieve perception, and compassion, and hope."
+    }, {
+        "topic": "love",
+        "quote": "Love doesn't just sit there, like a stone; it has to be made, like bread, remade all the time, made new."
+    }, {
+        "topic": "uncertainty",
+        "quote": "The only thing that makes life possible is permanent, intolerable uncertainty; not knowing what comes next."
+    }, {
+        "topic": "books",
+        "quote": "We read books to find out who we are. What other people, real or imaginary, do and think and feel... is an essential guide to our understanding of what we ourselves are and may become."
+    }, {
+        "topic": "revolution",
+        "quote": "You cannot buy the revolution. You cannot make the revolution. You can only be the revolution. It is in your spirit, or it is nowhere."
+    }, {
+        "topic": "questions",
+        "quote": "To learn which questions are unanswerable, and not to answer them: this skill is most needful in times of stress and darkness."
+    }
+]
+
+##--CODE--##
+# Define a format for the examples.
+example_format = """
+Human: {topic}
+AI: {quote}
+"""
+
+##--CODE--##
+# Create a prompt template for the examples.
+example_template = PromptTemplate(
+    input_variables=["topic", "quote"],
+    template=example_format
+)
+
+##--CODE--##
+# Define a prefix that explains the prompt.
+prefix = """
+Generate quotes on the topic mentioned by the human,
+trying to match the style of the examples given below:
+"""
+
+##--CODE--##
+# Provide a suffix that includes the query.
+suffix = """
+Human: {query}
+AI: 
+"""
+
+##--CODE--##
+# Construct the few shot prompt template.
+prompt_template = FewShotPromptTemplate(
+    examples=examples,
+    example_prompt=example_template,
+    input_variables=["query"],
+    prefix=prefix,
+    suffix=suffix,
+    example_separator="\n\n"
+)
+
+##--CODE--##
+# Construct a chain using this template.
+chain = LLMChain(llm=llm, prompt=prompt_template, verbose=True)
+
+##--CODE--##
+# Prompt the user for a topic.
+topic = input("What topic would you like to create a fictional quote for?")
+
+print()
+
+##--CODE--##
+# Define the query as a dictionary.
+query = {"query": topic}
+
+##--CODE--##
+# Run the chain using the query as input and print the result.
+result = chain.invoke(query)
+print(result["text"])
+

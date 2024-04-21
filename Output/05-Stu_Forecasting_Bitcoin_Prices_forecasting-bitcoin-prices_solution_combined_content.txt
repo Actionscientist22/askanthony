@@ -1,0 +1,127 @@
+##--CODE--##
+# Install the required libraries
+!pip install prophet
+
+##--CODE--##
+# Import the required libraries and dependencies
+import pandas as pd
+import datetime as dt
+from prophet import Prophet
+
+%matplotlib inline
+
+##--CODE--##
+# Upload the bitcoin_hourly.csv file
+from google.colab import files
+uploaded = files.upload()
+
+##--CODE--##
+# Read csv file as DataFrame, with the first column as row index
+df = pd.read_csv("bitcoin_hourly.csv",
+                 index_col="date",
+                 infer_datetime_format=True,
+                 parse_dates=True
+                )
+
+# Drop columns that won't be used
+df = df.drop("volume", axis=1)
+
+# Preview the dataset
+df.head()
+
+##--CODE--##
+# Visually inspect the price data
+df["close"].plot()
+
+##--CODE--##
+# Reset the index so that we recode the columns for Prophet
+df = df.reset_index()
+
+##--CODE--##
+# Label the columns ds and y so that the syntax is recognized by Prophet
+df.columns = ["ds", "y"]
+
+##--CODE--##
+# View dataframe shape, and the first and last five rows of the mercado_prophet_df DataFrame
+display(df.shape)
+display(df.head())
+display(df.tail())
+
+##--CODE--##
+# Sort the DataFrame by `ds` in ascending order
+df = df.sort_values(by=["ds"], ascending=True)
+
+# Display sample data from head and tail
+display(df.head(10))
+display(df.tail(10))
+
+##--CODE--##
+# Plot the data
+df.plot()
+
+##--CODE--##
+# Call the Prophet function, store as an object
+model = Prophet()
+model
+
+##--CODE--##
+# Fit the Prophet model.
+model.fit(df)
+
+##--CODE--##
+# Create a future dataframe to hold predictions
+# Make the prediction go out as far as 1000 hours (approx 40 days)
+future_trends = model.make_future_dataframe(periods=1000, freq="H")
+
+# View the last five rows of the predictions
+future_trends.tail()
+
+##--CODE--##
+# Make the predictions for the trend data using the future_trends DataFrame
+forecast_trends = model.predict(future_trends)
+
+# Display the first five rows of the forecast DataFrame
+forecast_trends.head()
+
+##--CODE--##
+# Plot the Prophet predictions for the Mercado trends data
+model.plot(forecast_trends)
+
+##--CODE--##
+# Use the plot_components function to visualize the forecast results 
+figures = model.plot_components(forecast_trends)
+
+##--CODE--##
+# At this point, it's useful to set the `datetime` index of the forecast data.
+forecast_trends = forecast_trends.set_index(["ds"])
+forecast_trends.head()
+
+##--CODE--##
+# From the `forecast_trends` DataFrame, plot to visualize
+#  the yhat, yhat_lower, and yhat_upper columns over the last 10 days (24*10 = 240) 
+forecast_trends[["yhat", "yhat_lower", "yhat_upper"]].iloc[-240:, :].plot()
+
+##--CODE--##
+# Create a `forecast_march_2021` Dataframe, which contains just forecasts for that month
+# The DataFrame should include the columns yhat_upper, yhat_lower, and yhat
+forecast_march_2021 = forecast_trends.loc["2021-03-01":"2021-03-31"][["yhat_upper", "yhat_lower", "yhat"]]
+
+# Replace the column names to something less technical sounding
+forecast_march_2021 = forecast_march_2021.rename(
+    columns={
+        "yhat_upper": "Best Case",
+        "yhat_lower": "Worst Case", 
+        "yhat": "Most Likely Case"
+    }
+)
+
+# Review the last five rows of the DataFrame
+forecast_march_2021.tail()
+
+##--CODE--##
+# Display the average forecasted price for March 2021
+forecast_march_2021.mean()
+
+##--CODE--##
+
+

@@ -1,0 +1,101 @@
+##--CODE--##
+from tensorflow.keras import layers, models, Model
+import numpy as np
+import pandas as pd
+
+##--CODE--##
+# Import the data
+path = 'https://static.bc-edx.com/ai/ail-v-1-0/m19/lesson_3/datasets/wine_quality.csv'
+df = pd.read_csv(path)
+df.head()
+
+##--CODE--##
+# Preprocess y
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+
+# Preprocess "quality" column (one-hot encoding)
+quality_encoder = OneHotEncoder(sparse_output=False)
+quality_encoded = quality_encoder.fit_transform(df[['quality']])
+quality_columns = quality_encoder.get_feature_names_out(['quality'])
+df_quality_encoded = pd.DataFrame(quality_encoded, columns=quality_columns)
+
+# Preprocess "color" column (label encoding for binary; one-hot encoding for multiple categories)
+color_encoder = LabelEncoder()
+df['color_encoded'] = color_encoder.fit_transform(df['color'])
+
+# Concatenate the encoded columns to the original DataFrame
+df_processed = pd.concat([df, df_quality_encoded], axis=1)
+
+# Drop the original "quality" and "color" columns
+df_processed = df_processed.drop(['quality', 'color'], axis=1)
+
+df_processed.head()
+
+
+##--CODE--##
+# Split data into X and two separate y variables
+X = df_processed.drop(columns=['quality_good', 'quality_ok', 'quality_bad', 'color_encoded'])
+
+y_color = df_processed['color_encoded']
+
+y_quality = df_processed[['quality_good', 'quality_ok', 'quality_bad']]
+
+# Split data into training and testing sets
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_color_train, y_color_test, y_quality_train, y_quality_test = train_test_split(X, y_color, y_quality)
+
+##--CODE--##
+# Create the shared layers of the model
+
+# Input layer
+input_layer = layers.Input(shape=(X.shape[1],), name='input_features')
+
+# Shared hidden layers
+shared_layer1 = layers.Dense(64, activation='relu')(input_layer)
+shared_layer2 = layers.Dense(32, activation='relu')(shared_layer1)
+
+##--CODE--##
+# Branch for quality prediction
+quality_output = layers.Dense(3, activation='softmax', name='quality_output')(shared_layer2)
+
+# Branch for color prediction
+color_output = layers.Dense(1, activation='sigmoid', name='color_output')(shared_layer2)
+
+##--CODE--##
+# Create the model
+model = Model(inputs=input_layer, outputs=[quality_output, color_output])
+
+# Compile the model
+model.compile(optimizer='adam',
+              loss={'quality_output': 'categorical_crossentropy', 'color_output': 'binary_crossentropy'},
+              metrics={'quality_output': 'accuracy', 'color_output': 'accuracy'})
+
+# Display the model summary
+model.summary()
+
+To fit the model to the data, we specify X_train as normal, but pass a dictionary for the y_data.
+
+##--CODE--##
+# Fit the model
+model.fit(
+    X,
+    {'quality_output': y_quality, 'color_output': y_color},
+    epochs=10,
+    batch_size=32,
+    validation_split=0.2
+)
+
+##--CODE--##
+# Evaluate the model with the testing data
+test_results = model.evaluate(X_test, {'quality_output': y_quality_test, 'color_output': y_color_test})
+test_results
+
+##--CODE--##
+# Print the quality and color accuracy
+print(f"Quality Accuracy: {test_results[3]}")
+print(f"Color Accuracy: {test_results[4]}")
+
+
+##--CODE--##
+
+

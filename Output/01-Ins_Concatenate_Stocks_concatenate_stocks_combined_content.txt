@@ -1,0 +1,64 @@
+#### Import Libraries and Dependencies 
+
+##--CODE--##
+import pandas as pd
+from pathlib import Path
+
+#### Read in Files 
+
+##--CODE--##
+# Import data
+
+apple_path = Path('Resources/AAPL.csv')
+google_path = Path('Resources/GOOG.csv')
+meta_path = Path('Resources/META.csv')
+
+# Read in data and index by date
+apple_data = pd.read_csv(apple_path, index_col='Date')
+goog_data = pd.read_csv(google_path, index_col='Date')
+meta_data = pd.read_csv(meta_path, index_col='Date')
+
+#### Output of sample data
+
+##--CODE--##
+# Show sample of Apple data
+
+
+##--CODE--##
+# Show sample of Google data
+
+
+##--CODE--##
+# Show sample of Meta data
+
+
+#### Concatenate data by rows using concat function and inner join
+
+##--CODE--##
+# Join by rows axis
+
+
+#### Concatenate data by columns using concat function and inner join
+
+##--CODE--##
+# Join by columns axis
+
+
+#### Concatenate data by rows using concat function and inner join and provide the stock as keys.
+
+##--CODE--##
+# Join by rows and add the stock ticker as the key.
+
+
+##--CODE--##
+
+
+#### Combine the DataFrames horizontally using the `axis="columns"`.
+
+##--CODE--##
+# Join by columns and add the stock ticker as the key.
+
+
+##--CODE--##
+
+

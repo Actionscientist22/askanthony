@@ -1,0 +1,132 @@
+##--CODE--##
+# Import the data
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import balanced_accuracy_score
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
+
+from ml_utils import train_test_split_marketing,\
+    fill_missing,\
+    build_encoders,\
+    encode_categorical,\
+    build_target_encoder,\
+    encode_target
+
+df = pd.read_csv('https://static.bc-edx.com/ai/ail-v-1-0/m14/datasets/bank_marketing.csv')
+df.head()
+
+##--CODE--##
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split_marketing(df)
+X_train.describe()
+
+# Missing Values
+
+##--CODE--##
+# Fill the missing values using the imported function
+X_train_filled = fill_missing(X_train)
+X_test_filled = fill_missing(X_test)
+X_train_filled.head()
+
+##--CODE--##
+# Create the encoders for categorical variables (use X_train_filled)
+encoders = build_encoders(X_train_filled)
+encoders
+
+##--CODE--##
+# Encode X_train_filled and X_test_filled
+X_train_encoded = encode_categorical(X_train_filled, encoders)
+X_test_encoded = encode_categorical(X_test_filled, encoders)
+
+X_train_encoded.head()
+
+##--CODE--##
+# Encode y_train and y_test
+y_encoder = build_target_encoder(y_train)
+y_train_encoded = encode_target(y_train, y_encoder)
+y_test_encoded = encode_target(y_test, y_encoder)
+
+##--CODE--##
+from sklearn.decomposition import PCA
+
+pca_model = PCA(n_components = 10)
+pca_model.fit(X_train_encoded)
+
+X_train_pca = pd.DataFrame(pca_model.transform(X_train_encoded))
+X_test_pca = pd.DataFrame(pca_model.transform(X_test_encoded))
+X_train_pca
+
+##--CODE--##
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier(n_estimators=100)
+model.fit(X_train_pca, y_train_encoded)
+
+##--CODE--##
+y_test_pred = model.predict(X_test_pca)
+print(balanced_accuracy_score(y_test_encoded, y_test_pred))
+
+##--CODE--##
+models = {'train_score': [], 'test_score': [], 'max_depth': []}
+
+for depth in range(1,10):
+    models['max_depth'].append(depth)
+    model = RandomForestClassifier(n_estimators=100, max_depth=depth)
+    model.fit(X_train_pca, y_train_encoded)
+    y_test_pred = model.predict(X_test_pca)
+    y_train_pred = model.predict(X_train_pca)
+
+    models['train_score'].append(balanced_accuracy_score(y_train_encoded, y_train_pred))
+    models['test_score'].append(balanced_accuracy_score(y_test_encoded, y_test_pred))
+
+models_df = pd.DataFrame(models)
+
+##--CODE--##
+models_df.plot(x='max_depth')
+
+##--CODE--##
+models = {'train_score': [], 'test_score': [], 'n_estimators': []}
+
+for n in [50, 100, 500, 1000]:
+    models['n_estimators'].append(n)
+    model = RandomForestClassifier(n_estimators=n, max_depth=7)
+    model.fit(X_train_pca, y_train_encoded)
+    y_test_pred = model.predict(X_test_pca)
+    y_train_pred = model.predict(X_train_pca)
+
+    models['train_score'].append(balanced_accuracy_score(y_train_encoded, y_train_pred))
+    models['test_score'].append(balanced_accuracy_score(y_test_encoded, y_test_pred))
+
+models_df = pd.DataFrame(models)
+
+##--CODE--##
+models_df.plot(x='n_estimators')
+
+##--CODE--##
+from sklearn.neighbors import KNeighborsClassifier
+
+
+from sklearn.model_selection import RandomizedSearchCV
+param_grid = {
+    'n_neighbors': [1, 3, 5, 7, 9, 11, 13, 15, 17, 19],
+    'weights': ['uniform', 'distance'],
+    'leaf_size': [10, 50, 100, 500]
+}
+random_knn = RandomizedSearchCV(KNeighborsClassifier(), param_grid, verbose=3)
+
+random_knn.fit(X_train_pca, y_train_encoded)
+
+##--CODE--##
+y_pred = random_knn.predict(X_test_pca)
+print(balanced_accuracy_score(y_test_encoded, y_pred))
+
+##--CODE--##
+model = RandomForestClassifier(n_estimators=100, max_depth=7, random_state=13)
+model.fit(X_train_encoded, y_train_encoded)
+y_pred = model.predict(X_test_encoded)
+print(balanced_accuracy_score(y_test_encoded, y_pred))
+
+##--CODE--##
+
+

@@ -1,0 +1,38 @@
+##--CODE--##
+# Import dependencies
+from matplotlib import pyplot as plt
+from scipy.stats import linregress
+import numpy as np
+from sklearn import datasets
+import pandas as pd
+
+# Compare different factors in the California housing dataset
+
+##--CODE--##
+# Read in the California housing dataset
+california_dataset = datasets.fetch_california_housing()
+housing_data = pd.DataFrame(data=california_dataset.data,columns=california_dataset.feature_names)
+housing_data['MEDV'] = california_dataset.target
+
+##--CODE--##
+# Reduce the dataset to remove AveRooms outliers
+housing_data_reduced = pd.DataFrame(housing_data.loc[housing_data['AveRooms']<10,:])
+
+# Reduce the dataset to the San Diego Area (based on approx latitude & longitude area)
+san_diego_housing = pd.DataFrame(housing_data_reduced.loc[((housing_data_reduced['Latitude']>32.664282) & 
+                                                          (housing_data_reduced['Latitude']<32.980514) &
+                                                          (housing_data_reduced['Longitude']>-117.300418) &
+                                                          (housing_data_reduced['Longitude']<-117.01950)),:])
+
+##--CODE--##
+# Plot out rooms versus median house price
+
+
+##--CODE--##
+# Add the linear regression equation and line to plot
+
+
+##--CODE--##
+# Print out the r-squared value along with the plot.
+
+

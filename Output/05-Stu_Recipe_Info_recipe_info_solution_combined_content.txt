@@ -1,0 +1,67 @@
+##--CODE--##
+# Imports for loading environment variables.
+from dotenv import load_dotenv
+import os
+
+##--CODE--##
+# Load environment variables.
+load_dotenv()
+
+# Set the model name for our LLMs.
+OPENAI_MODEL = "gpt-3.5-turbo"
+# Store the API key in a variable.
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+##--CODE--##
+# Additional imports for list parser.
+from langchain_openai import ChatOpenAI
+from langchain.output_parsers import CommaSeparatedListOutputParser
+
+##--CODE--##
+# Initialize the model.
+llm=ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name=OPENAI_MODEL, temperature=0.3)
+
+##--CODE--##
+# Initialize the output parser.
+parser = CommaSeparatedListOutputParser()
+
+##--CODE--##
+# Get the output format instructions.
+instructions = parser.get_format_instructions()
+
+##--CODE--##
+# Define a query as a string, combining with the instructions.
+query = "Please give me the names of three different dinner options using a variety of main ingredients." + "\n\n" + instructions
+
+##--CODE--##
+# Pass the query to the invoke method.
+result = llm.invoke(query)
+
+##--CODE--##
+# Parse the result.
+data = parser.parse(result.content)
+
+##--CODE--##
+# Display the recipe names for the user.
+for i in range(len(data)):
+    print(str(i+1) + ": " + data[i])
+
+##--CODE--##
+# Prompt the user for a recipe number.
+num = int(input("Please enter the number next to the dish you'd like a recipe for. "))
+
+print()
+
+##--CODE--##
+# Get the matching recipe name.
+name = data[num-1]
+
+##--CODE--##
+# Define a query as a string, combining with the recipe name.
+query = f"Please give me a full recipe for {name} including ingredients and steps."
+
+##--CODE--##
+# Pass the query to the invoke method, and print the result.
+result = llm.invoke(query)
+print(result.content)
+

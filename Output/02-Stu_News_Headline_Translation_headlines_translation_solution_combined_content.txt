@@ -1,0 +1,106 @@
+##--CODE--##
+#  Uncomment the line below if you are using Google Colab.
+# !pip install transformers
+
+### Use Transformers `AutoTokenizer` and `TFAutoModelForSeq2SeqLM` to Translate Each News Headline.
+
+##--CODE--##
+# Import the Autotokenizer and TFAutoModelForSeq2SeqLM classes from the transformers module.
+from transformers import AutoTokenizer, TFAutoModelForSeq2SeqLM
+
+##--CODE--##
+# Create an instance of the Autotokenizer class using the t5-base model.
+tokenizer = AutoTokenizer.from_pretrained("t5-base", model_max_length=256)
+
+##--CODE--##
+# The news headlines to translate.
+headlines = [
+    'How To Spend More Time With Your Family While Working Remotely',
+    'NCAA Football Playoffs Should be Like the NFL',
+    'Hacker Pleads Guilty To Stealing Over 100,000 Passwords for Reddit',
+    'Lawmakers Want To Boost School Funding To Address Teacher Walkouts',
+    'The Best Sub Shops in the Caribbean You Should Visit This Summer',
+    'The Dark Side Of The Bitcoin Mining',
+    'Treasury Secretary is Confirmed Today',
+    'The 5 Best Restaurants In The World',
+    'How to Build a Brand for Your Small Business',
+    'NY Giants Quarterback Injured After Being Punched By Teammate']
+
+##--CODE--##
+# Create a list to hold the input ids. 
+headline_input_ids =[]
+# Retrieve the input ids from each headline translation using the translate function.
+def create_input_ids(headline):
+    # Get input ids using the translate prompt for each headline.
+    input_ids = tokenizer(f"translate English to French: {headline}", return_tensors="tf").input_ids
+    # Append each input id to the list and return the list.
+    return headline_input_ids.append(input_ids)
+
+##--CODE--##
+# Use a for loop to pass each headline to the `create_input_ids` function to create the input ids.
+for headline in headlines:
+    create_input_ids(headline)
+
+##--CODE--##
+# Print the headline input ids array
+print(headline_input_ids)
+
+##--CODE--##
+# Create an instance of the TFAutoModelForSeq2SeqLM class using the t5-base model.
+translation_model = TFAutoModelForSeq2SeqLM.from_pretrained("t5-base")
+
+##--CODE--##
+# Create a list to hold the translated headlines.
+translated_headlines = []
+# Use the decode function to generate the numerical outputs from the model.
+def decode(input_id):
+    # Create the output id from the input id
+    output_id = translation_model.generate(input_id, max_new_tokens=100)
+    # Append each decoded output_id, i.e., translation to the list. 
+    translated_headlines.append(tokenizer.decode(output_id[0], skip_special_tokens=True))
+    # Return the list. 
+    return translated_headlines
+
+##--CODE--##
+# Use a for loop to pass each input id to the decode function. 
+for input_id in headline_input_ids:
+    decode(input_id)
+
+##--CODE--##
+# Print out each translated headline.
+for translation in translated_headlines:
+    print(translation)
+
+### Use the Transformer Pipeline to Translate Each Headline.
+
+##--CODE--##
+# Import the pipeline class from the transformers module. 
+from transformers import pipeline
+# Initialize the pipeline to translate using the t5-base model. 
+translator = pipeline("translation", model="t5-base")
+
+##--CODE--##
+# Create a list to hold the translated headlines 
+translated_headlines = []
+# Use the translate function to translate each English headline into French.
+def translate(headline):
+    # Set the translate prompt to a variable
+    text = f"translate English to French: {headline}"
+    # Pass the translated variable to the translator method.
+    results = translator(text)
+    # Return the list with the translated text.
+    return translated_headlines.append(results[0]['translation_text'])
+
+##--CODE--##
+# Use a for loop to pass each headline to the translate function.
+for headline in headlines:
+    translate(headline)
+
+##--CODE--##
+# Print out each translated headline.
+for translation in translated_headlines:
+    print(translation)
+
+##--CODE--##
+
+

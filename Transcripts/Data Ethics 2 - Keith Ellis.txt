@@ -1,0 +1,3566 @@
+WEBVTT
+
+1
+00:00:29.530 --> 00:00:30.680
+Keith Ellis: Hey, how are you
+
+2
+00:00:45.600 --> 00:00:46.380
+James Torres: testing?
+
+3
+00:00:46.960 --> 00:00:50.170
+Keith Ellis: Yes, I can hear you. How are you?
+
+4
+00:00:51.250 --> 00:01:00.880
+Keith Ellis: Hello! Are you all both? Tas? Okay. Perfect. Good one. If you. Grant me either co-host permission or host permission. I don't have any
+
+5
+00:01:01.220 --> 00:01:04.780
+Keith Ellis: a but those. Thank you.
+
+6
+00:01:05.349 --> 00:01:06.770
+Kevin Nguyen: Do. I have that?
+
+7
+00:01:07.190 --> 00:01:09.940
+Dipinto, Matt: I don't know. This is great. It's there.
+
+8
+00:01:10.780 --> 00:01:11.670
+michael mcpherson: Staff.
+
+9
+00:01:12.820 --> 00:01:15.150
+Keith Ellis: hey? Good evening, everyone.
+
+10
+00:01:15.160 --> 00:01:29.950
+Keith Ellis: My name is John Ellis. I'm a senior data scientist that works in the logistics field. I focus a lot on geospatial analytics. But I also spend a lot of time building out pricing models and
+
+11
+00:01:30.030 --> 00:01:35.889
+Keith Ellis: both for classic trucking and for ocean free porting I am subbing tonight.
+
+12
+00:01:35.910 --> 00:02:04.389
+Keith Ellis: I usually am working with the University of Miami with their data visualization, but I also teach a couple of other colleges at the undergraduate and graduate level as well. Hopefully, I get a chance to speak with you each this evening. But tonight is really gonna be a continuation of what you all started speaking with earlier in the week about legal and ethical issues in AI, and you could almost remove that
+
+13
+00:02:04.620 --> 00:02:12.179
+Keith Ellis: AI part. And you know, anytime there's a new or novel technology or
+
+14
+00:02:12.190 --> 00:02:25.390
+Keith Ellis: change in something. There's always gonna be the legal and ethical issues in dot dot dot. And we're gonna explore through those a bit further tonight, and we're gonna use our time and breakouts. There's
+
+15
+00:02:25.610 --> 00:02:29.819
+Keith Ellis: a few breakouts to explore some different
+
+16
+00:02:30.140 --> 00:02:36.090
+Keith Ellis: studies on. When you know, do you feel that this was ethical or not?
+
+17
+00:02:36.880 --> 00:02:51.950
+Keith Ellis: I'd like to keep the conversations open and so on. But it's very hard to not try to get, you know, polarized political or anything. But I do. Wanna try to keep it, you know. Professional, respectful. You know.
+
+18
+00:02:52.490 --> 00:03:01.639
+Keith Ellis: Try to look at it from a data side and not a gut feeling side. The other thing is, you know, is potentially
+
+19
+00:03:01.640 --> 00:03:24.350
+Keith Ellis: triggering to some people. So if there's something that is you'd like to walk away from, or don't want to be part part of, or we do have the breakouts open, so if you need to step into the lobby or there. You know, just let us know. Yeah, I'm actually working on a course design at an undergraduate program. And you know, one of the things is inclusivity.
+
+20
+00:03:25.040 --> 00:03:47.370
+Keith Ellis: The term data cleansing, which is transformation and data cleaning to preprocess, the or get data preprocessed for that. Get used data cleansing because it's like a one of those terms that could be used inappropriately. Same thing when you were talking about, like Github switching from the master branch to the main branch, so something that you might not
+
+21
+00:03:47.620 --> 00:04:02.599
+Keith Ellis: think is an issue could be an issue to someone else. So we'll try to be respectful for that tonight feel free to interrupt me at any time as we go through this. But tonight what we're gonna be really focusing in is 3 main areas. We're gonna be talking about data privacy.
+
+22
+00:04:02.670 --> 00:04:05.719
+Keith Ellis: We're going to be talking about algorithmic bias
+
+23
+00:04:05.780 --> 00:04:08.190
+Keith Ellis: and consent. And
+
+24
+00:04:08.340 --> 00:04:12.790
+Keith Ellis: all 3 of these are very. We could probably spend
+
+25
+00:04:12.930 --> 00:04:23.649
+Keith Ellis: a whole semester on each one of these individually. So we're gonna have to speed through some of this. But I'd like for you all to think about these beyond just the straightforward
+
+26
+00:04:24.230 --> 00:04:31.130
+Keith Ellis: chat. Gpt, how is this impacting data, privacy, consent? And so on. And how is it impacting me? But look at it from
+
+27
+00:04:31.260 --> 00:04:43.399
+Keith Ellis: all a variety of artificial intelligence, machine learning different ways that it could impact people and has impacted people in decision making. So
+
+28
+00:04:44.390 --> 00:04:53.830
+Keith Ellis: it's very easy to say, oh, you know, everything is going to be replaced by Chat Gpt, which you know, we don't know if that's going to be the case or not. But there are a lot of other
+
+29
+00:04:54.260 --> 00:05:04.299
+Keith Ellis: places where bias and data privacy is essentially gone, and so on. So we'll be talking about a lot of those tonight, and then we will be
+
+30
+00:05:04.580 --> 00:05:14.579
+Keith Ellis: kind of summarizing it with, you know, some additional legal considerations. I don't have a legal background. So anything I say is not legal advice. I recommend you speaking to.
+
+31
+00:05:15.280 --> 00:05:29.199
+Keith Ellis: if you're gonna be doing this in your company, there should be somebody that works with, you know, keeping up with this and making sure that you're following it. Before I begin. Are there any questions or topics. Anyone wanted to address
+
+32
+00:05:31.980 --> 00:05:41.829
+Keith Ellis: Awesome and feel free to use the chat or slack. I can't see it in my here, so if you want to raise your hand on there. Otherwise.
+
+33
+00:05:42.020 --> 00:05:46.010
+Keith Ellis: James and Kevin will be monitoring that as well.
+
+34
+00:05:47.210 --> 00:05:48.719
+Keith Ellis: So data privacy
+
+35
+00:05:51.070 --> 00:05:55.309
+Keith Ellis: I had a chance to go out to here.
+
+36
+00:05:56.000 --> 00:06:10.879
+Keith Ellis:  someone from Google about, I guess 6 years ago, 8 years ago. Now, talking about data privacy, it's important to people. I mean, show of hands data privacy is, you know, you'd like to be private. However.
+
+37
+00:06:11.390 --> 00:06:17.480
+Keith Ellis: how we use technology. It seems to be the exact opposite of that. How many of you
+
+38
+00:06:17.700 --> 00:06:30.050
+Keith Ellis: provide your GPS location to get ease of, you know driving directions. How many of you save your credit card information or passwords in Autofill, so you don't have to type them every single time.
+
+39
+00:06:30.120 --> 00:06:33.499
+Keith Ellis: There's a disconnect between what we feel is important
+
+40
+00:06:33.600 --> 00:06:40.270
+Keith Ellis: and how we actually act. So an example being is, if you put in a Google search of you know
+
+41
+00:06:41.630 --> 00:06:53.189
+Keith Ellis: something you wouldn't feel comfortable asking your coworker or somebody. You kind of get the sense false sense that it's just you and your search engine. No one else is going to be potentially looking into it.
+
+42
+00:06:54.240 --> 00:07:10.489
+Keith Ellis: So there is going to have to be a compromise there between. If you want the benefit of technology, meaning that you have the the ease of the GPS rather than having to stop at a gas station and ask for directions, or having to, you know.
+
+43
+00:07:10.850 --> 00:07:16.529
+Keith Ellis: search within a your local area or something. You're gonna have to give up some of your privacy?
+
+44
+00:07:16.630 --> 00:07:30.760
+Keith Ellis:  and I think more and more as things have been more out in the open, people are realizing how much stuff was not private. You think about maybe 20,
+
+45
+00:07:31.490 --> 00:07:45.359
+Keith Ellis: almost 20 years ago, when Facebook first came out, people were posting everything thinking, Oh, you know, that's this is fine. Next thing, you know that's being used here. There people are finding their pictures of themselves in another country, on products, and so on. So
+
+46
+00:07:45.520 --> 00:07:48.999
+Keith Ellis: once you have this stuff out in the open.
+
+47
+00:07:49.160 --> 00:07:59.909
+Keith Ellis: There's times you expect it to not have privacy, but I think what's really scary is at times that people thought they had privacy, and they no longer did. And usually when there's some sort of
+
+48
+00:08:00.170 --> 00:08:01.300
+Keith Ellis: issue.
+
+49
+00:08:01.330 --> 00:08:18.639
+Keith Ellis: you have an opportunity to fix it in the in the real world. But usually, when something is art out there or is used in decision making. It's kind of hard to get rid of. It's it's, you know, spreads like a virus, and that can lead to a lot of poor decisions.
+
+50
+00:08:20.060 --> 00:08:24.550
+Keith Ellis: So yes, so thank you for sharing this. So scams.
+
+51
+00:08:26.310 --> 00:08:29.050
+Keith Ellis: And you know they
+
+52
+00:08:29.300 --> 00:08:36.869
+Keith Ellis: to become more and more believable the more and more information they may have about you and data privacy.
+
+53
+00:08:37.190 --> 00:08:38.570
+Keith Ellis: For example, we're all
+
+54
+00:08:38.630 --> 00:08:43.660
+Keith Ellis: probably smart enough not to give out all of our personal information
+
+55
+00:08:44.310 --> 00:08:46.910
+Keith Ellis: in one place. But what
+
+56
+00:08:47.450 --> 00:09:11.799
+Keith Ellis: we people are able to do is you? You answered a poll in Facebook 5 years ago, about what your favorite color was, you answered on this other website that you drive this type of car. You answered on this other website, what your address was and so on. They can put all that together. And almost it was like you had said all that together. And that's the scary part is that
+
+57
+00:09:12.910 --> 00:09:18.340
+Keith Ellis: you don't realize how much of a profile can be put on you with how much is out there
+
+58
+00:09:18.730 --> 00:09:32.350
+Keith Ellis: but me to be scaring you all I do have a chance to talk with the Intelligence Officer in the army who basically says. Yeah, that's true. But you're not important enough to the government to be tracking. So you know
+
+59
+00:09:32.410 --> 00:09:41.999
+Keith Ellis: there's not one, you know, knocking on your door, you know, seeing everything you're doing. The idea here is that you have to be cognizant, not only as a user
+
+60
+00:09:42.190 --> 00:09:48.310
+Keith Ellis: with data and technology. But also as you're building these out and understanding, you know.
+
+61
+00:09:48.450 --> 00:10:00.560
+Keith Ellis: is this something that could be a potential gray area. And unfortunately, a lot of the data privacy issues does lead to some sort of monetary, whether it's marketing or
+
+62
+00:10:00.840 --> 00:10:03.059
+Keith Ellis: some other types.
+
+63
+00:10:03.260 --> 00:10:07.559
+Keith Ellis: So but there is also concerns of you know.
+
+64
+00:10:07.640 --> 00:10:10.500
+Keith Ellis: Think about rents.
+
+65
+00:10:10.990 --> 00:10:12.569
+Keith Ellis: ransomware where
+
+66
+00:10:12.920 --> 00:10:33.089
+Keith Ellis: they say you will gonna take over your whole computer unless you pay us. So financial things are quite a bit of an issue. The more information they have against you, they could use that to harm you in other ways. And we'll talk about more some other ways to look at this. I'm just kind of framing the conversation before we go into it.
+
+67
+00:10:33.150 --> 00:10:36.350
+Keith Ellis:  and
+
+68
+00:10:39.290 --> 00:10:50.349
+Keith Ellis: yeah. So they know. Yeah, I don't think they're gonna say everything they do or don't know. But we'll go ahead and open this up to some some some questions here. I just kind of wanted to
+
+69
+00:10:50.520 --> 00:10:58.960
+Keith Ellis: think about, you know, where do you actually want privacy like? What does privacy mean to you? And what would you say would be
+
+70
+00:10:59.320 --> 00:11:08.020
+Keith Ellis: a point where you feel violated, and that could and don't get too personally. But like is that, do you feel like that's a person business
+
+71
+00:11:08.220 --> 00:11:15.640
+Keith Ellis: government that's violating. Anybody would like to share what their thoughts are on it. I feel free to go ahead, Natalie.
+
+72
+00:11:16.550 --> 00:11:21.100
+Mason, Natalie: We're having to contend with the fact that we've been born violated.
+
+73
+00:11:21.390 --> 00:11:29.669
+Mason, Natalie: and that we have to protect ourselves at every moment. And it's exhausting. And so I've gotten into a I
+
+74
+00:11:29.850 --> 00:11:40.069
+Mason, Natalie: this boot camp to learn about it so that I can protect myself and other people and hopefully help with harm reduction, because there's far too much of it.
+
+75
+00:11:40.600 --> 00:11:42.680
+Mason, Natalie: And
+
+76
+00:11:44.240 --> 00:11:48.260
+Mason, Natalie: I just. I have so many questions about
+
+77
+00:11:48.570 --> 00:12:03.009
+Mason, Natalie: the gatekeeping that's being done with people who are trying to get jobs. And so I? I shared a book. I don't know if everybody, if everybody saw it last time, but it's called
+
+78
+00:12:03.410 --> 00:12:18.350
+Mason, Natalie: the algorithm. And it's a really good book, and it has everything to do with the civil rights issues that we're facing with AI being used in the hiring process and the monitoring process and the firing process. And
+
+79
+00:12:18.380 --> 00:12:37.189
+Mason, Natalie:  if we're if it's going to be used like a social score, is that that's something I'm very curious about like is is this social credit score something that's going to be in our near future in our country. Does anybody have an answer to that?
+
+80
+00:12:38.490 --> 00:12:48.740
+Keith Ellis: So I'm just gonna pull a few things that you mentioned out of there. And then we can kind of come back to as you talk about the fear of the unknown. You don't know what you do today.
+
+81
+00:12:48.910 --> 00:12:57.490
+Keith Ellis: how that could potentially be used in the future. I'm just wondering if that's where our country is going. Are we going forward to social credit score and that kind of shit?
+
+82
+00:12:59.490 --> 00:13:02.690
+Keith Ellis: Does anybody know the answer? I mean, if you don't, it's okay.
+
+83
+00:13:03.030 --> 00:13:04.439
+Kevin Nguyen: like in Black mirror.
+
+84
+00:13:04.680 --> 00:13:14.460
+Mason, Natalie: there's so much of that happening in real life now, totally see that, Natalie, whether or not I mean, like like happens. But it's happening like already
+
+85
+00:13:14.720 --> 00:13:39.209
+Keith Ellis: concerns about privacy just overall being kinda everything that you do is going to be judged one way or another, and that brings out a lot of like kind of the mob mentality when somebody you know.
+
+86
+00:13:39.370 --> 00:13:47.469
+Keith Ellis: Tweet or something resurfaces after 10 years. And then, you know, a whole bunch of people get together. Say, we don't like this person anymore. They're gone, you know.
+
+87
+00:13:47.530 --> 00:13:50.020
+Keith Ellis: If that information was false.
+
+88
+00:13:50.120 --> 00:14:03.030
+Keith Ellis: they don't really have an opportunity to say, Hey, this actually isn't true. Already people have already made up their mind saying, Hey, you know mob mentality. So that is a concern there as well. Anyone else want to kind of share some how, how you
+
+89
+00:14:03.260 --> 00:14:06.230
+Keith Ellis: what you think privacy is, and
+
+90
+00:14:06.920 --> 00:14:10.889
+Keith Ellis: you know maybe times have been violated or
+
+91
+00:14:12.070 --> 00:14:13.379
+Keith Ellis: concerns about it.
+
+92
+00:14:19.680 --> 00:14:21.050
+sonja baro: like, Oh, Meredith.
+
+93
+00:14:21.250 --> 00:14:25.919
+sonja baro: how's that? And then, and then, Ronnie, I don't understand their hands.
+
+94
+00:14:25.930 --> 00:14:49.280
+Meredith McCanse (she/her): Thank you, Sonia. I'm sorry.
+
+95
+00:14:50.210 --> 00:15:04.819
+Meredith McCanse (she/her): you know, but like one of the things when I think about it personally. So I to share with the group, like I am not in contact with my family for various reasons. And part of that is a safety concern. And
+
+96
+00:15:05.060 --> 00:15:29.340
+Meredith McCanse (she/her): it's really easy to find out details about people's lives, what someone's cell phone number is where what their addresses, what their daily activities are. Just from their online activity. And anyone who's in a situation where they need to keep their location private from someone who might be toxic or someone. They've decided they don't want in their life anymore. Or, you know, stalker situation like safety concerns.
+
+97
+00:15:29.340 --> 00:15:39.939
+Meredith McCanse (she/her): It's really terrifying, because it's also impossible now to live and work in this world without an online presence. You cannot get a job without a computer
+
+98
+00:15:39.940 --> 00:16:01.040
+Meredith McCanse (she/her): anymore. You can't even a lot of medical offices. You can't log or check in to go see the doctor without filling out online forms like, there's so much online presence. And then any. And then that data gets scrapped, and it gets it's everywhere. And you can. You can find out where someone lives so easily. So there's very real safety concerns.
+
+99
+00:16:01.040 --> 00:16:19.380
+Meredith McCanse (she/her): 2 other things that popped into my mind, too. If if something happens where your privacy is violated and it one of the repercussions is, it hits your credit score that will have lifelong implications. And I have my own issues with credit scores that I won't go into, and I think they're very problematic. But
+
+100
+00:16:19.570 --> 00:16:49.279
+Meredith McCanse (she/her): decisions about housing are based on credit scores and gatekeeping on housing and access to capital money lending, you know, loans. I know you all talked about that on Monday. So if something happens where your personal data is stolen and it hits your credit score, it is really really hard. It takes a ton of years and years and effort to get it fixed, and if you can't get it fixed, you often can't get access to housing or other very important things.
+
+101
+00:16:49.280 --> 00:17:13.330
+Meredith McCanse (she/her): and similar things with help, personal health data. And you know, discrimination that comes as a result of or people finding out personal health data. So those are. Those are the 3 things that pop my mind. And I think Brad needs after me just a few things that you've mentioned there. So one of the articles that we're gonna be talking about. Later on is actually a situation where it wasn't someone's
+
+102
+00:17:13.490 --> 00:17:28.210
+Keith Ellis: activity. But the fact that their information was available that someone was able to use that to track them down and cause physical harm. So that is a real threat and concern. And you know there are certain you know.
+
+103
+00:17:28.310 --> 00:17:32.159
+Keith Ellis: groups that can scrub that data, you know. But you know.
+
+104
+00:17:32.180 --> 00:17:45.239
+Keith Ellis: for most people you buy a house. Your information is in public record. You you do anything. You know your stuff is out there. So that's that's like talking about. You know the importance of you. You mess up.
+
+105
+00:17:45.290 --> 00:17:48.970
+Keith Ellis: You don't even have to mess up. Someone else messes up. So this actually happened to me.
+
+106
+00:17:49.430 --> 00:17:51.590
+Keith Ellis: I had
+
+107
+00:17:51.720 --> 00:17:57.499
+Keith Ellis: not check my medical records, and some point somebody keyed in some sort of diagnosis that
+
+108
+00:17:57.730 --> 00:18:14.459
+Keith Ellis: ha! Apparently I had some sort of terminal disease that I didn't even know about, so I was getting denied for all this stuff, and it was like, I don't know what they're like. Will you get to prove to us? You don't have it, I'm like, how do I prove? I don't have something, you know, like, what do you need from that? And it was a huge process. But you know, that's that's talking about, you know.
+
+109
+00:18:15.180 --> 00:18:27.810
+Keith Ellis: you know, insurance and all that other stuff. So it is. It is difficult. And then financial repercussions as well. I mean, that's a 7 year. You know your credit score gets hit for 7 years on that, you know. Like you said.
+
+110
+00:18:28.000 --> 00:18:32.249
+Keith Ellis: it's as easy as your mortgage. It rate goes up
+
+111
+00:18:32.350 --> 00:18:34.950
+Keith Ellis: a few percentage points that cost you
+
+112
+00:18:35.240 --> 00:18:41.630
+Keith Ellis: tens of thousands of dollars over the course of. So you're talking about money out of the pocket for that generally, you know.
+
+113
+00:18:42.050 --> 00:18:46.890
+Keith Ellis: hate to say it if you're harmed, but it's not
+
+114
+00:18:47.030 --> 00:19:04.699
+Keith Ellis: that big of a deal financially. Usually it's hard to find a lawyer willing to even talk to you, to move forward with something. So you sometimes feel alone, even though there's supposed to be all these available resources for you. And but yeah, you you don't know what's gonna happen if you
+
+115
+00:19:04.880 --> 00:19:11.829
+Keith Ellis: something is out there. And all of a sudden you're you're told one day. Oh, we're no longer going to
+
+116
+00:19:12.180 --> 00:19:35.819
+Keith Ellis: insure you as an insurance company. You're like, okay? Well, why not? Oh, well, you had a Facebook picture where you were at a location that we just didn't think was nice. We you we feel like people who go to Grand Canyon. You know, they're gonna they're not people. We wanna now you can't drive, you know. It's like, well, what can I do to prevent that? You don't know that going to the Grand Canyon would mean you're uninsurable. Those are some examples, and that's extreme. But
+
+117
+00:19:35.820 --> 00:19:43.060
+Keith Ellis: yeah, so we'll take maybe one or 2, and then we'll kind of move on to the next conversation here. So you said, was it, Ruby?
+
+118
+00:19:43.310 --> 00:19:46.260
+Meredith McCanse (she/her): I think, Rodney? Rodney? Thank you. Yeah.
+
+119
+00:19:46.410 --> 00:19:49.919
+Masarirambi, Rodney: Hi, so thank you. So
+
+120
+00:19:50.090 --> 00:19:58.080
+Masarirambi, Rodney: I kind of put it into like 3 categories. There's the data that you share that you post and that kind of stuff. And I think.
+
+121
+00:19:59.470 --> 00:20:06.100
+Masarirambi, Rodney: participating. That kind of leaves you open to that being discovered and seen. But I think you'd actually control that.
+
+122
+00:20:06.210 --> 00:20:08.869
+Masarirambi, Rodney: Then there's the services. Who
+
+123
+00:20:09.390 --> 00:20:15.259
+Masarirambi, Rodney: on this a free tool, a piece of software in exchange for tracking you. And I think
+
+124
+00:20:15.620 --> 00:20:17.959
+Masarirambi, Rodney: I think that's the tricky one, because I think.
+
+125
+00:20:18.070 --> 00:20:32.900
+Masarirambi, Rodney: being aware of what they do, and then making conscious choices of like, Do you subscribe to that service? So, for example, there's only one Google service that I use. And that's Youtube, because there just isn't an alternative.
+
+126
+00:20:32.940 --> 00:20:39.170
+Masarirambi, Rodney: But I'll be fine. I'll turn this for everything else that Google provides. And I like, and it's. And to be honest.
+
+127
+00:20:39.210 --> 00:20:57.769
+Masarirambi, Rodney: my thing about Google is not even about like, do I think that they're tracking me? And they're getting all this data. II think that they're making money off of my data, and I want them to offer me a cut of what they're gonna be making. That's just I can be bought. I have a price they need to match it. They haven't matched it with the free like account saving and
+
+128
+00:20:57.830 --> 00:21:06.519
+Masarirambi, Rodney: then there's the the data that is is sourced from unscrupulous from ways. I'm not scrupulous and wait.
+
+129
+00:21:06.540 --> 00:21:22.660
+Masarirambi, Rodney: But, David, that's found that's gathered in ways that are illegal or I guess non ethical ways. And I think that we have an opportunity to make changes on all those phones, because you control what you post.
+
+130
+00:21:22.740 --> 00:21:37.619
+Masarirambi, Rodney: you control what services you use. But then you also have the ability to ask your Congressman, your your, your, you know the, the, the, the powers that be. Quote unquote to say that no, we need laws against certain veins.
+
+131
+00:21:37.630 --> 00:21:41.470
+Masarirambi, Rodney: And yeah, that's where I wanted to go over that. That's about it.
+
+132
+00:21:41.490 --> 00:21:47.769
+Masarirambi, Rodney: Oh, on this, on the social credits thing. That's already happening. Like like
+
+133
+00:21:47.780 --> 00:22:15.489
+Masarirambi, Rodney: it's it's just happening in China. But I think it's already happening here. It's like a verified account. You know, anybody who uses cloud, or even the social network cloud which is like, you know, like like, basically what's social credits? So it's it's already there in different forms. It's just that it doesn't look like the way that it's represented in China. So it's people don't think about in that way. And they always say that. Oh, watch out for that when it's already here. That's it.
+
+134
+00:22:16.230 --> 00:22:39.809
+Keith Ellis: Yeah, thank you for sharing that. You bright bring up a lot of very important parts. And I also in the chat here about a lot of times. You have to give up your privacy in order to do something. How many of you have had to do something real quick. Say log into your bank or apply for a job, and you kind of just have to accept the agreements, to do what you need to do. You don't fully.
+
+135
+00:22:39.870 --> 00:22:52.090
+Keith Ellis: I mean maybe you do. But most people don't read through all those, and you find out, you know, that basically anything and everything you do, you know, is can be shared or targeted, and so on. You know that that that
+
+136
+00:22:52.730 --> 00:22:55.480
+Keith Ellis: basically your option is either to accept it.
+
+137
+00:22:55.820 --> 00:22:59.670
+Keith Ellis: and then you can use the stuff or you you don't. And
+
+138
+00:22:59.730 --> 00:23:12.960
+Keith Ellis: you don't have access to whatever it is that you're trying to. And that's something like with jobs. For example, if you're posting on, indeed, for you know, applying for a role, if you don't feel comfortable with that.
+
+139
+00:23:13.620 --> 00:23:37.990
+Keith Ellis: What is your alternative? You know you can't just walk up to people and your resumes for the most part. I actually found one of my old, old resumes, like on some random site that had posted on. Indeed, and it was just kinda awkward. I was able to get that talked away. So yeah, so you you bring up that one. You also bring up the con concept of knowingly sharing data versus not. And I think that's a big one that shocks a lot of people, is
+
+140
+00:23:38.120 --> 00:23:43.439
+Keith Ellis: you, when usually, when you know something you do is going to be out there.
+
+141
+00:23:43.720 --> 00:24:03.179
+Keith Ellis: You're kind of like, all right, I understand, like you go out in public like, you know that your face is there like that's cool like that's not cool, but you know it'd be weird if someone just kinda like came up and started just filming you. And that'd be awkward. But technically they they could. But it's it's a shock when somebody has put together information about you almost feel like.
+
+142
+00:24:03.350 --> 00:24:12.860
+Keith Ellis: Wow, I feel like someone's just been following me and stuff. So there is that understanding of what I am sharing, what I'm not sharing. But.
+
+143
+00:24:13.060 --> 00:24:25.089
+Keith Ellis: for example, with the rise of a lot of the geospatial data, for example, there's a company out there that does work with cinema advertising. And you think, okay, go to a movie theater.
+
+144
+00:24:25.130 --> 00:24:26.889
+Keith Ellis: I see an ad before there.
+
+145
+00:24:26.960 --> 00:24:37.550
+Keith Ellis: No big deal. No. What they're actually doing is they are grabbing your cell phone information, finding out where you went before after.
+
+146
+00:24:37.740 --> 00:25:12.120
+Keith Ellis: What type of who did you come there with somebody? Did you meet somebody there? Did you meet with that person ahead of time? They're they're tracking your trends? Obviously not you specifically, but they're grab gathering that information. So even if you're like, oh, well, I'm just not. Gonna look at the ad. I'm good. No, they're grabbing a lot of other information behind the scenes to build out these profiles of, okay, the type of people that would go to this type of movie would also be interested in this this and this and I'm not sure if you've ever gotten off a zoom call Google call or
+
+147
+00:25:12.460 --> 00:25:26.110
+Keith Ellis: you know you driven by somewhere, and all of a sudden you have like an ad for that location, or something that was set on there, you know, there's certain words or comments and stuff that can go out there. And you know it's kind of scary sometimes, cause you're just like, Wow, you know.
+
+148
+00:25:26.150 --> 00:25:27.980
+Keith Ellis: is this being recorded
+
+149
+00:25:28.070 --> 00:25:32.880
+Keith Ellis: again. I don't want to do too much fear mongering, but it is. You know. It's more than just.
+
+150
+00:25:32.980 --> 00:25:40.739
+Keith Ellis: You know the Chat. Gp. There is a lot of risk. For our data privacy. And
+
+151
+00:25:40.920 --> 00:25:46.259
+Keith Ellis: you know the concept of privacy is different for a lot of different people. You know.
+
+152
+00:25:46.410 --> 00:25:56.429
+Keith Ellis: to your point of you know you want to get away from your past and move on with your life. Well, if you're constantly every time you sign up for a new
+
+153
+00:25:56.470 --> 00:25:58.140
+Keith Ellis: yes.
+
+154
+00:25:58.480 --> 00:26:11.960
+Keith Ellis: actually, this happens to me. I'm on. I'm in somebody's what do you call it? Contact list on their phone. So every time they sign up for the same kind of service I do. I get like some sort of like friend request type interaction. It's like.
+
+155
+00:26:12.300 --> 00:26:21.180
+Keith Ellis: you know, I don't need to talk to somebody from high school, you know, so long ago. It's like, it's weird. But you know some people are more open book like I have nothing to hide.
+
+156
+00:26:21.340 --> 00:26:26.349
+Keith Ellis: I caution about the whole concept of. I have nothing to hide, because you might not have
+
+157
+00:26:26.760 --> 00:26:28.979
+Keith Ellis: anything to hide right now.
+
+158
+00:26:29.000 --> 00:26:41.589
+Keith Ellis: But who knows? In 1520 years what we're doing right now might no longer be okay. The, you know certain words phrases what we're wearing, what we're eating, how we're acting
+
+159
+00:26:41.620 --> 00:26:47.289
+Keith Ellis: could be used against us in the future, and anytime that you're like. Oh, I have nothing to hide.
+
+160
+00:26:47.430 --> 00:27:07.429
+Keith Ellis: Somebody usually find something that they can spin whatever. So. But you know it's also kind of comes with, you know, privacy of at what point is privacy more or less important than say, safety. We were talking before class about the concept of okay, if the phone is locked and it has
+
+161
+00:27:07.570 --> 00:27:12.180
+Keith Ellis: information that would save somebody or we know where they could, you know.
+
+162
+00:27:12.430 --> 00:27:17.409
+Keith Ellis: can we break into that phone using AI
+
+163
+00:27:17.910 --> 00:27:28.829
+Keith Ellis: And you know, a lot of times we can't, even though it could save someone's life. The idea of, you know, being able to protect privacy and not put in that precedent where, hey?
+
+164
+00:27:29.100 --> 00:27:35.999
+Keith Ellis: It's important enough or we get somebody rule it. We can get into your stuff. I do also want to add in.
+
+165
+00:27:36.470 --> 00:27:41.489
+Keith Ellis: there is a difference between when the government does it versus
+
+166
+00:27:41.840 --> 00:27:47.729
+Keith Ellis: businesses. We have a lot of laws in place that prevent or should prevent, government
+
+167
+00:27:47.920 --> 00:27:56.200
+Keith Ellis: interfering with certain things. But a lot of businesses did not have those regulations you can like. For example, you have freedom of speech. Well.
+
+168
+00:27:56.970 --> 00:28:00.760
+Keith Ellis: you have freedom of speech, but you don't have freedom of repercussions, so you could
+
+169
+00:28:01.170 --> 00:28:11.890
+Keith Ellis: get fired from your job for saying something that might not. Go there. That's where a lot of social media regulations come from like a couple of people
+
+170
+00:28:12.050 --> 00:28:37.489
+Keith Ellis: And then the city over got fired for posting something on their website, and then it got went viral, and so on. Nothing to do with their job. But it's still reflected negatively. So privacy is something that not only impacts you as a person, it hacks you as an employee could be used, you know, against you financially, or you know, safety reasons. Somebody is able to pull this data about you.
+
+171
+00:28:37.490 --> 00:28:43.240
+Keith Ellis: We're all unique. We all come from various backgrounds. We all have things that we don't want other people to know.
+
+172
+00:28:43.240 --> 00:28:45.770
+Keith Ellis: And but the problem is is that
+
+173
+00:28:46.280 --> 00:28:49.879
+Keith Ellis: when you're just put together in certain things
+
+174
+00:28:50.120 --> 00:28:58.589
+Keith Ellis: you might not like the story that's being told about you, based on what's compiled, you know. For example, I one time hit a car parking.
+
+175
+00:28:59.120 --> 00:29:15.080
+Keith Ellis: No, you know, driving 100,000 miles every couple of years, and I was calling the insurance, and they were calling me, you know, a high risk driver. I was like, I feel like crap now, like you know you you now, because I had a certain cause. I was under 25, and I had this. It's like.
+
+176
+00:29:15.090 --> 00:29:35.319
+Keith Ellis: Wow in their mind, and that if you think about, I think you're all are going into this in the next couple of weeks after your project binary classifications. A lot of that. When you build out neural networks, you build out your supervised learning, you're basically giving a probability from 0 to one of should this
+
+177
+00:29:35.350 --> 00:29:43.590
+Keith Ellis: loan application be approved or not. And there's a threshold that you basically say whether you're at 99, or 51,
+
+178
+00:29:44.020 --> 00:29:47.860
+Keith Ellis: you're approved 49% below not approved.
+
+179
+00:29:48.300 --> 00:29:49.280
+Keith Ellis: And
+
+180
+00:29:49.680 --> 00:30:05.069
+Keith Ellis: you know, as you start to get, look at some of these AI tools and so on. You got to think about. You know the trade off between accuracy and explainability. If you were to apply for a loan. And you're like, Okay, I have a job, you know. I don't have anything on my credit, and you got the clients. Probably the first thing your mouth is
+
+181
+00:30:05.400 --> 00:30:10.650
+Keith Ellis: why. if a company doesn't have to say why or can't explain to you why
+
+182
+00:30:10.820 --> 00:30:23.039
+Keith Ellis: it seems like a very unfair situation, and could open up for potential. Well, was I just discriminated against, or however, whatever term you want to call that there. So some of the things when you're picking out your AI
+
+183
+00:30:23.170 --> 00:30:34.540
+Keith Ellis: the algorithm you want to use is you want to be able to explain the variables in there. So you think about like regression, it's fairly easy to see. Okay, the independent variables have this
+
+184
+00:30:34.690 --> 00:30:55.309
+Keith Ellis: impact on the dependent variables. When you get into the classification, a random forest model is a little bit easier decision trees. Okay? Well, you. You don't have a job, and you have, you know, high debt and income ratio. That's why you did not get declined. That's why you got declined.
+
+185
+00:30:55.410 --> 00:30:58.950
+Keith Ellis: As long as you can show in that system
+
+186
+00:30:59.180 --> 00:31:08.030
+Keith Ellis: the thing, then you can answer it. But when you get in like neural networks, which historically have been a black box where you just put some input in and you get an output.
+
+187
+00:31:09.110 --> 00:31:10.030
+Keith Ellis: You don't
+
+188
+00:31:10.380 --> 00:31:15.760
+Keith Ellis: know how to answer that question. And now you do have a lot more flexibility to go in there and start
+
+189
+00:31:15.770 --> 00:31:27.840
+Keith Ellis: playing around with levers. So it's not fully a black box, and you'll get to learn those in a couple of weeks. But just as you're thinking about the types of algorithms that are being in place and how they're being used.
+
+190
+00:31:28.330 --> 00:31:39.409
+Keith Ellis: I've heard gatekeeping quite a bit here tonight is, yeah, that that first algorithm that you go on there. And you say, here's my information I just supplied which now is going to be tracked and kept somewhere.
+
+191
+00:31:39.430 --> 00:31:41.690
+Keith Ellis: I got declined. Well.
+
+192
+00:31:42.200 --> 00:31:50.440
+Keith Ellis: now, what like? What are my options? Why did I get the client? What am I? You know? Do I have to just live without. So there's a lot better going on in there. And.
+
+193
+00:31:51.410 --> 00:31:55.639
+Keith Ellis: generally speaking, you want to be able to control
+
+194
+00:31:55.870 --> 00:32:02.069
+Keith Ellis: how your information is shared when it is. And a lot of times you explicitly are like, Okay, I understand. I'm going to be putting this data away.
+
+195
+00:32:02.090 --> 00:32:19.940
+Keith Ellis: But if you go back. And you're like, Wow, if I actually look at what my phone is tracking of me where it can actually tell what I'm doing, as far as getting out of a car potentially the size of the car. Well, how fast I was going, and who I was near, and all this other stuff might start to feel less and less confident about.
+
+196
+00:32:20.070 --> 00:32:27.400
+Keith Ellis: you know. So on. That's going on there. You know. So it really is trying to find a
+
+197
+00:32:27.560 --> 00:32:29.219
+Keith Ellis: common ground of
+
+198
+00:32:29.420 --> 00:32:51.709
+Keith Ellis: expectations, of privacy versus what actually is there, you see, probably every site you go to now you have to click except cookies or not by a lot of people didn't even realize there was cookies. There was benefits of having cookies you didn't have to, you know. Put in your information every single time. You know. So then you start clearing out your cookies, and it's kind of annoying to have to keep typing over and over again. But now you have an option to say.
+
+199
+00:32:52.120 --> 00:33:02.999
+Keith Ellis: Nope, I don't want to do that. Whether or not it's actually doing anything, you know that is a potential. But you know you should feel like you can access the benefits of
+
+200
+00:33:03.890 --> 00:33:12.089
+Keith Ellis: technology without paying a cost of having to essentially pay with some information about you, or having to deal with an ad or something like that.
+
+201
+00:33:12.200 --> 00:33:36.349
+Keith Ellis: If you've ever used like a pop up block or like Brave or one of the other ones. They usually tell you how many trackers have been blocked or email trackers, or even if you look in your inspection tools and Google, you see how many things like one website had, like 50 trackers just by entering into it. And you're you're talking about
+
+202
+00:33:36.370 --> 00:33:38.890
+Keith Ellis:  you know
+
+203
+00:33:39.440 --> 00:33:55.369
+Keith Ellis: they all do in their aggregation. But in order to get out of that, you have to opt out, which means you have to give your information to these people that are even, or businesses that are collecting it. It's not like they do not call list. You have to give your phone number to be told not to get called
+
+204
+00:33:55.720 --> 00:34:03.900
+Keith Ellis: so. It's like, how do you protect that? Good news is is that even though regulation does seem to follow
+
+205
+00:34:04.390 --> 00:34:14.800
+Keith Ellis: or lag behind, is the same thing. Whether you look at technology, finance something, somebody finds something that is legal might not be ethical.
+
+206
+00:34:15.550 --> 00:34:25.079
+Keith Ellis: exploits it until somebody catches and say, Hey, no, we're longer going to do this. We now create a regulation, and generally by that point, those people have moved on and done something else.
+
+207
+00:34:25.480 --> 00:34:34.400
+Keith Ellis: And what you're left with is usually more regulation means that it's going to be more time, more costly. You know. There's, you know, there's potential where?
+
+208
+00:34:34.679 --> 00:34:43.040
+Keith Ellis: Yeah, your rights are still violated. But no one's really going to do anything about it. You have to go down to claims, court yourself, and so on. But they've
+
+209
+00:34:43.699 --> 00:34:58.640
+Keith Ellis: in specific scenarios have information. That is personally identifiable information. And this is more critical information. Whether you're building out algorithms or also looking out there. Of this is the information that
+
+210
+00:34:58.650 --> 00:35:00.320
+Keith Ellis: really should be
+
+211
+00:35:00.830 --> 00:35:03.160
+Keith Ellis:  you know.
+
+212
+00:35:04.950 --> 00:35:13.010
+Keith Ellis: protected that most. Now, obviously a lot of stuff is open, sourced again. If you, you, you go to do anything
+
+213
+00:35:13.380 --> 00:35:25.240
+Keith Ellis: with a mortgage or something. Your name is, and there but full name, social security number. I remember social security numbers used to be on the checks. Driver's license number passport numbers all those items.
+
+214
+00:35:25.450 --> 00:35:50.200
+Keith Ellis: If you could grab if you had that, and then you took someone's mail that had, like you know some information about you have enough to get into people's accounts. And it happens, directory information. So we used to have a book that comes out with everyone's phone numbers in it. Didn't think much of it. But now phone numbers there, you're getting spam calls, emails. And so on.
+
+215
+00:35:50.460 --> 00:35:54.690
+Keith Ellis: IP address, that's something that you know we have this sense of.
+
+216
+00:35:54.780 --> 00:36:09.729
+Keith Ellis: and that we're anonymous on on the web, on the web. But real reality is IP address points to a very specific location, which is your computer. Now, you could go on a VPN. But again, that is something that is identifiable, and.
+
+217
+00:36:09.750 --> 00:36:12.169
+Keith Ellis: you know, benefit of something like this is
+
+218
+00:36:12.210 --> 00:36:14.570
+Keith Ellis: when somebody is, you know.
+
+219
+00:36:14.810 --> 00:36:23.810
+Keith Ellis: certain terms, phrases, and so on, such as you know, child pornography. They can identify where that's coming from. But at the same time.
+
+220
+00:36:23.970 --> 00:36:26.070
+Keith Ellis: somebody who, you know.
+
+221
+00:36:26.220 --> 00:36:55.590
+Keith Ellis: 8 year old, or whatever types in like, you know, nuclear bomb building. And all sudden the cops are breaking down on there like you know it. It's kind of a a thing there, but there's pros and cons again with, and a lot of this stuff is tracked one way or the other, but these are defined as personal, personally, identifiable information. And this actually does come through the N is T. I'll go ahead and just pass this out. So we will have this as a reference. They do have a lot of the information about you know.
+
+222
+00:36:56.710 --> 00:37:06.160
+Keith Ellis: recent executive orders resource center for AI understanding kind of going around it. When you're actually working with data, especially if healthcare
+
+223
+00:37:06.310 --> 00:37:11.519
+Keith Ellis: a lot of times you have to work with data that is either dummy data.
+
+224
+00:37:11.700 --> 00:37:22.109
+Keith Ellis: That is the same shape. But it doesn't have any kind of way to track people. You might not have you know names or anything like that. It might be anonymized.
+
+225
+00:37:22.200 --> 00:37:43.220
+Keith Ellis: but the idea here is that you can't just go, you know, look up like a specific person, say, oh, they have diabetes, you know, that stuff should be protected. You shouldn't just expose that to anybody and everybody. So there's certain information that can but for the most part there are rules and regulations that are out there that do prevent
+
+226
+00:37:43.710 --> 00:37:51.819
+Keith Ellis: You know, a lot of times explicitly this. But again, it could leak out from one way or the other. So there's this fun website
+
+227
+00:37:51.970 --> 00:37:54.809
+Keith Ellis: that I
+
+228
+00:37:55.050 --> 00:37:57.260
+Keith Ellis: we'll pass cell. It's called
+
+229
+00:37:57.520 --> 00:38:09.040
+Keith Ellis: about my info. and this was put out by a professor in Harvard, and you all are welcome to do this, whether you want to put your own information, someone else. But the idea here is that
+
+230
+00:38:09.070 --> 00:38:12.400
+Keith Ellis: just with a few pieces of information of about you.
+
+231
+00:38:13.300 --> 00:38:17.929
+Keith Ellis: how unique are you? So if I knew your date of birth in your Zip code?
+
+232
+00:38:18.300 --> 00:38:19.590
+Keith Ellis: Are there
+
+233
+00:38:19.740 --> 00:38:28.499
+Keith Ellis: lot of people that match there when I was looking at you know some various ones there was like one person. Guess who that was.
+
+234
+00:38:28.710 --> 00:38:34.550
+Keith Ellis: You know it's it's kind of scary to think about like you don't know anything about me. But do you know, hey?
+
+235
+00:38:34.760 --> 00:38:47.529
+Keith Ellis: People are wishing me happy birthday on my post the other day, and you know, maybe there's a 30 balloon or something in the background, even though I'm older than 30. And you know you just boom you. You can look this up so
+
+236
+00:38:47.690 --> 00:38:50.469
+Keith Ellis: I don't know. Sorry if I pull someone's
+
+237
+00:38:50.750 --> 00:38:55.519
+Keith Ellis: actual birth year or something here. But let's just say,
+
+238
+00:38:55.620 --> 00:38:59.060
+Keith Ellis: what's a Zip code? And you all in Denver. Correct.
+
+239
+00:39:01.310 --> 00:39:05.530
+Keith Ellis: 8. 2, 1, 8 80218.
+
+240
+00:39:05.570 --> 00:39:10.960
+Keith Ellis: So somebody born May thirteenth, 1993, male gender, 80218.
+
+241
+00:39:12.160 --> 00:39:17.089
+Keith Ellis: So there's specifically one person that was born with that information
+
+242
+00:39:18.040 --> 00:39:22.589
+Keith Ellis: within 90 93 of information here.
+
+243
+00:39:22.710 --> 00:39:26.060
+Keith Ellis: 87 people in a range.
+
+244
+00:39:26.120 --> 00:39:40.760
+Keith Ellis: you'll get an 87. So you think about of a population of 17,928, 2 pieces of information I pretty much narrowed down to pinpointing within a reasonable call list of who I need to get to it is.
+
+245
+00:39:40.820 --> 00:39:47.820
+Keith Ellis: you know, kind of eye opening. You're not unique on the on, on the computer,
+
+246
+00:39:47.900 --> 00:39:50.340
+Keith Ellis: and you know, a lot of times
+
+247
+00:39:50.440 --> 00:39:52.599
+Keith Ellis: we've given out this information
+
+248
+00:39:52.770 --> 00:40:03.710
+Keith Ellis: knowingly. So yeah, again, you used to put your birthdays on on things and stuff and not think much of it. But you might not have known known how that was going to be used
+
+249
+00:40:04.030 --> 00:40:23.399
+Keith Ellis: eventually. So now that someone can, you know, take your Zip code from you know something you did in the public record. And now have your birthday. That was a, you know. Protected information. Put those together. A good example of another geospatial one is.
+
+250
+00:40:23.590 --> 00:40:32.439
+Keith Ellis: and I'm sorry to get a little political here. But a couple years ago, when they were targeting people who were going to abortion clinics, what they were doing was they were basically
+
+251
+00:40:32.570 --> 00:40:34.849
+Keith Ellis: buying for 50 bucks.
+
+252
+00:40:35.070 --> 00:40:54.660
+Keith Ellis:  cell phone, ping location and seeing who pings were actually in those locations and tracking who that essentially is supposed to be anonymous. But you can usually figure out who they are. So that kind of information is something that yeah, you could have just been helping someone
+
+253
+00:40:54.730 --> 00:41:06.719
+Keith Ellis: go through something, or maybe there was another office that was there, or you were the delivery person. And next thing you know, you know you have someone trying to turn you in for some money. There was a
+
+254
+00:41:07.040 --> 00:41:10.570
+Keith Ellis: a couple of years ago, also somebody who was jogging.
+
+255
+00:41:10.850 --> 00:41:24.900
+Keith Ellis: who had the GPS on, and they actually ended up being the prime suspect for a murder just because they were they pinged in that general location at the time that the murder happened. So again, it's one of those things that
+
+256
+00:41:25.740 --> 00:41:34.539
+Keith Ellis: you know, doomsday things can be used against you, but also a lot of this information that has been provided is what is giving us
+
+257
+00:41:34.780 --> 00:42:04.419
+Keith Ellis: these data sets that we're building. A lot of us will have jobs because of the data that's being collected here. We talk about wanting to remove bias out of or as much as we can out of data sets. Well, we need to get new data. Well, how do we go out and get new data? Or how do we make these decisions? If the data doesn't already exist? Well, you know, we have to collect it somehow. We have to assume that there's a relationship from this to this. There's more data now in the last few years. Then there's, you know, been.
+
+258
+00:42:04.540 --> 00:42:07.330
+Keith Ellis: I think, an entire history of
+
+259
+00:42:07.380 --> 00:42:25.400
+Keith Ellis: there. So answer about the location off. Yes and no. They. There was a video that FBI did. Tracking where they had airplane mode on didn't have airplane mode on and seeing what was actually still being monitored, and actually more stuff was
+
+260
+00:42:25.960 --> 00:42:27.630
+Keith Ellis: being kept
+
+261
+00:42:27.770 --> 00:42:47.949
+Keith Ellis: when you're in airplane mode. I think what they recommend is to actually just put your cell phone completely off inside of like a freezer or something, and even that you don't know. Guarantee. I you know it's kind of that concept of, you know, Alexa or you know the Google Assistant. You can turn off the speed you can turn it to, not record, or whatever.
+
+262
+00:42:48.050 --> 00:42:56.679
+Keith Ellis: But something has to be listening in order for it to understand. You know that the words that you use to call it so. You know there are times where
+
+263
+00:42:57.240 --> 00:42:58.859
+Keith Ellis: maybe they're not
+
+264
+00:42:59.150 --> 00:43:05.670
+Keith Ellis: courting it for whatever. But those kind of clips are being used to help build out their
+
+265
+00:43:05.690 --> 00:43:09.430
+Keith Ellis: they're algorithms.
+
+266
+00:43:11.970 --> 00:43:14.110
+Keith Ellis: Alright. So
+
+267
+00:43:14.780 --> 00:43:22.490
+Keith Ellis: did anyone. When they put in that information for the how unique you are, did anyone not find themselves like?
+
+268
+00:43:22.530 --> 00:43:28.340
+Keith Ellis: But as in like, you weren't just a handful of people. Was anyone like pretty a
+
+269
+00:43:29.470 --> 00:43:36.579
+Keith Ellis: safe, I guess, is the correct word, whereas pretty much everyone has single digits when they put that information in, or whatever you check for Yup.
+
+270
+00:43:36.750 --> 00:43:47.199
+Keith Ellis: So even though your name is John Smith or Jane DOE, or some very common name. There's, you know, slight differences that could occur there. And
+
+271
+00:43:48.150 --> 00:43:49.110
+Keith Ellis: you know.
+
+272
+00:43:49.290 --> 00:43:57.340
+Keith Ellis: even just the sheer fact of knowing your Zip code and your birth year. Well, zip code is usually tied to, you know, financial
+
+273
+00:43:57.660 --> 00:44:08.260
+Keith Ellis: economic conditions, demographics. They could put a profile on that your date of birth years they could probably assume, like where you are in your career, are you? You know
+
+274
+00:44:08.290 --> 00:44:22.640
+Keith Ellis: college student, or you you know, towards retirement. So you fit into general groupings that they build based on similarities. And we will be talking about difference between, you know.
+
+275
+00:44:24.510 --> 00:44:31.930
+Keith Ellis: like you don't have to explicitly say, Okay, I don't like the race of this person. I'm not going to give them a loan. You can get around that.
+
+276
+00:44:32.040 --> 00:44:35.419
+Keith Ellis: And this is that ethical link by saying, Okay.
+
+277
+00:44:35.610 --> 00:44:45.310
+Keith Ellis: I don't want a certain group. Well, those certain groups seem to be in these zip codes. I'm just gonna say I'm not gonna look in the zip codes or put an officer
+
+278
+00:44:45.450 --> 00:45:01.570
+Keith Ellis: or advertising those zip codes. You've effectively done the same thing. You just didn't explicitly state that. And that's one of the things that, as people are getting more and more visibility in here are realizing how bias and you know these kind of systematic things are still existing.
+
+279
+00:45:01.610 --> 00:45:11.470
+Keith Ellis: And again, bias isn't always intentional. It is just happens to be something that is there, you know. If you
+
+280
+00:45:12.340 --> 00:45:13.770
+Keith Ellis: spent your whole life
+
+281
+00:45:14.090 --> 00:45:27.980
+Keith Ellis: studying French, and all of a sudden you're being told. Well, you don't know English. It's kinda like, all right. Well, I didn't know I had to know both of these languages. It's it's something that you know. Sometimes it is intentional, other times it's something that's actually discovered
+
+282
+00:45:28.000 --> 00:45:44.980
+Keith Ellis: after the fact. And unfortunately, sometimes that is, you know, causes people to be hurt financially or I think one of the ones we'll be looking at later is actually an algorithm that was causing people to be harmed. And it's not always
+
+283
+00:45:45.370 --> 00:45:46.170
+Keith Ellis: like.
+
+284
+00:45:47.460 --> 00:45:52.359
+Keith Ellis: Okay, you're not gonna be harmed as in. You're gonna die tomorrow. If you are on the wrong side of this
+
+285
+00:45:52.380 --> 00:46:14.980
+Keith Ellis: algorithm. But think about if you had a really bad experience and you were blown off, or whatever think about longer term impacts. You're likely not gonna go back to the doctor if they were like, oh, I you know whatever. So you're gonna withhold getting help quicker for something. It's gonna get worse. You may have something down the road, and those are kind of other impacts that aren't normally thought of
+
+286
+00:46:14.980 --> 00:46:30.999
+Keith Ellis: when you're talking about getting in and kinda seeing. What are these impacts of some of this biases? Not always immediately. You know, I was hurt right here. It's that longer term of okay. We no longer are willing to go see the doctor, or if we are going to go to a doctor, I'm not gonna mention that I have
+
+287
+00:46:31.000 --> 00:46:45.009
+Keith Ellis: done this this or this, because then it's gonna assume that I'm faking it, or whatever consent is very difficult, because generally you going onto a website or interacting with something is usually
+
+288
+00:46:45.500 --> 00:47:12.279
+Keith Ellis: enough for consent. Even like with phone calls, you only need one person's consent to record a conversation. So you're in the conversation. You can record it, for most places some places are, are 2 person consent. The idea here is that again, I think this is a control aspect of it. Someone tells you upfront, hey, this, this is being recorded. Or if you call in and they're gonna record your phone call. They have to say, you know, this will be
+
+289
+00:47:12.280 --> 00:47:24.999
+Keith Ellis: recorded usually tell you it's for training purposes, but it's could be used for else other ways. But you understand that that's there. But your options are to hang up or not show up to class or
+
+290
+00:47:25.150 --> 00:47:30.800
+Keith Ellis: you you agree to it, and you're like, all right. Well. I I'm okay with it.
+
+291
+00:47:31.940 --> 00:47:45.549
+Keith Ellis: But if you don't know that you've agreed to something, it's going to be a shocker a lot of times. If you go back to some of the contracts you've ever signed, there's probably a clause in there somewhere. For example, if you apply to health insurance
+
+292
+00:47:45.630 --> 00:47:56.579
+Keith Ellis: sorry health insurance life insurance. They take all of your information that they collect about you during that process to determine and pass it to their trade show. So
+
+293
+00:47:56.640 --> 00:48:10.789
+Keith Ellis: not they're not gonna be able to tell you. You know the people like, oh, you exactly have cancer or your blood pressure, was this, but they'll have markers basically saying, has a history of this. Yes. And now, if you ever were to.
+
+294
+00:48:10.970 --> 00:48:15.170
+Keith Ellis: you know, do life insurance is similar to your
+
+295
+00:48:15.220 --> 00:48:16.949
+Keith Ellis: your poor 7 years.
+
+296
+00:48:17.420 --> 00:48:26.940
+Keith Ellis: All these companies can look at that and have it so a lot of times. You don't realize that consent or agreeing is in there, and sometimes you have to
+
+297
+00:48:27.010 --> 00:48:30.849
+Keith Ellis: consent to things to get what you actually need. And that's
+
+298
+00:48:31.020 --> 00:48:35.820
+Keith Ellis: another way that this stuff can be somewhat unethical
+
+299
+00:48:36.210 --> 00:48:46.000
+Keith Ellis: And then, once you hand over that consent, you're giving people control over what happens to that information. And I think that's a another thing is that there's certain things that can be used.
+
+300
+00:48:46.130 --> 00:48:50.630
+Keith Ellis: Once you're given consent, but other, not
+
+301
+00:48:50.870 --> 00:48:51.750
+Keith Ellis: If
+
+302
+00:48:52.120 --> 00:49:02.909
+Keith Ellis: you're like, okay, yeah, you could take a picture of me to post on. You know, our website for passing the boot camp. And next thing you know, someone's propped out your face and put it on an ad somewhere.
+
+303
+00:49:02.950 --> 00:49:08.409
+Keith Ellis: You didn't give consent for that. You gave consent, for you know one other thing.
+
+304
+00:49:08.680 --> 00:49:09.700
+Keith Ellis: so
+
+305
+00:49:10.480 --> 00:49:23.940
+Keith Ellis: it's it's a great area, because you're talking about a medium that crosses a lot of jurisdictions. So if you ever do spend some time looking through a lot of the legal stuff that you're going there, usually one of the first things it says is
+
+306
+00:49:24.380 --> 00:49:29.230
+Keith Ellis: use of this is that you're gonna work within our legal
+
+307
+00:49:29.510 --> 00:49:41.459
+Keith Ellis: jurisdiction. And we're going to say we're going to be based out of Washington State. I think, Amazon. You interact with anything with Amazon, Washington State. And you know, that's kind of that consent of okay, that's fine.
+
+308
+00:49:41.980 --> 00:49:52.079
+Keith Ellis: But usually in there because of regulations. they will say in their success, I've seen it also. Now, with the lot of the app stores is
+
+309
+00:49:52.450 --> 00:50:01.029
+Keith Ellis: what data they collect about you and how they're going to use it. And usually it says, in there, we're going to collect data, and you know, give out your email address and your contact information.
+
+310
+00:50:01.170 --> 00:50:10.509
+Keith Ellis: So there's that. okay, I feel comfortable knowing what you're going to do with it. So I'm going to give you more consent, or I don't.
+
+311
+00:50:11.020 --> 00:50:28.169
+Keith Ellis: Well, then, I can't use this platform, or whatever. And obviously as more and more of these get  you know, more and more reliant on technology. You know, you're eventually going to have to consent to something if you want to use the benefits of it. Another concern of it is.
+
+312
+00:50:28.380 --> 00:50:36.449
+Keith Ellis: you gave consent for one company did something, and then, all of a sudden, a company that you don't feel comfortable with
+
+313
+00:50:36.670 --> 00:50:47.839
+Keith Ellis: buys out that company. Can they use that data for future things? So you know Amazon buying healthcare, you know they're they're company that, you know
+
+314
+00:50:48.360 --> 00:50:51.220
+Keith Ellis: sells consumer goods. Well.
+
+315
+00:50:51.280 --> 00:51:02.160
+Keith Ellis: then, having, you know, access to your health records potentially, could there? Luckily, there's things in place like firewalls within companies where you know one department can't talk with another department.
+
+316
+00:51:02.250 --> 00:51:10.669
+Keith Ellis: generally speaking, and there's rules and regulations about that. So again, once you give out that data, you know, consent
+
+317
+00:51:10.730 --> 00:51:14.600
+Keith Ellis: used to be okay on piece of paper. I'm gonna
+
+318
+00:51:15.080 --> 00:51:29.149
+Keith Ellis: buy this car from you, and you can look up my credit check and we're good to go. Now. It's okay. We've collected all this information about you, we can give it out to their places. We're gonna store it for 10 years, and if you know.
+
+319
+00:51:29.630 --> 00:51:37.440
+Keith Ellis: we we will work with law enforcement or any other background check places. To get that. So consent is.
+
+320
+00:51:37.990 --> 00:51:48.560
+Keith Ellis: you know, more widespread, and what is legal in the Us. Might not be or sorry, illegal in the Us. Might not be illegal somewhere else, which you know.
+
+321
+00:51:49.210 --> 00:51:55.689
+Keith Ellis: Now it doesn't matter that you had a consent or not, because your information is not within this jurisdiction.
+
+322
+00:51:56.350 --> 00:51:59.809
+So here's a consent issue from genetic information
+
+323
+00:52:00.410 --> 00:52:05.070
+Keith Ellis: persons. Genetic information was
+
+324
+00:52:06.350 --> 00:52:10.420
+Keith Ellis: sequenced without her knowledge. and
+
+325
+00:52:10.600 --> 00:52:13.729
+Keith Ellis: because of that, all of her future
+
+326
+00:52:13.980 --> 00:52:17.540
+Keith Ellis: relatives can be identified.
+
+327
+00:52:18.240 --> 00:52:27.969
+Keith Ellis:  you know, as more and more medical records are becoming electronic. They're getting more and more connected and everything.
+
+328
+00:52:27.990 --> 00:52:39.959
+Keith Ellis:  you know, there's obviously concerns like, if you did that you know DNA testing or something. You know they have that now, and you know, they could
+
+329
+00:52:39.980 --> 00:52:47.310
+Keith Ellis: tracker for things. But again they did this. All this testing, they made all this money. They did all this work
+
+330
+00:52:48.030 --> 00:52:49.750
+Keith Ellis: without her even knowing about it.
+
+331
+00:52:49.900 --> 00:52:50.870
+Keith Ellis: and
+
+332
+00:52:51.140 --> 00:53:06.810
+Keith Ellis: besides feeling, you know, used if you will. I mean if someone was to make lots of money off of your information, or something you kind of want to get paid for it. I mean, if I'm gonna get screwed I might as well get some money out of it or something out of it. But again, it's
+
+333
+00:53:07.070 --> 00:53:10.020
+Keith Ellis: something that you know.
+
+334
+00:53:10.340 --> 00:53:17.329
+Keith Ellis: Did you give consent by going to a doctor's appointment or going to medical research
+
+335
+00:53:18.210 --> 00:53:20.140
+Keith Ellis: to let them
+
+336
+00:53:20.920 --> 00:53:24.220
+Keith Ellis: do studies on you essentially. And
+
+337
+00:53:24.430 --> 00:53:25.710
+Keith Ellis: should you
+
+338
+00:53:26.910 --> 00:53:37.810
+Keith Ellis: have to give that kind of, or worry about having that happen to you to get to medical care, if a doctor says Oh, in order for you to come here, you know anything that we
+
+339
+00:53:37.840 --> 00:53:45.969
+Keith Ellis: do for you, you know, will be, you know, part of a medical research. It's like. alright, that's, you know, a little concerning.
+
+340
+00:53:51.680 --> 00:53:54.790
+Keith Ellis: And then, you know, could you imagine? Well.
+
+341
+00:53:55.130 --> 00:53:59.240
+Keith Ellis: not the best of things. But you're getting a knock on your door one day, and being like.
+
+342
+00:53:59.480 --> 00:54:03.299
+Keith Ellis: Oh, we're we're arresting that person because we found
+
+343
+00:54:03.610 --> 00:54:13.490
+Keith Ellis: their blood at a scene, and we found that it was related to this family because of this. And you know it's it's you know, it's it's crazy, but
+
+344
+00:54:14.950 --> 00:54:18.159
+Keith Ellis: It's it's something that
+
+345
+00:54:18.810 --> 00:54:24.909
+Keith Ellis: you've seen in wars you've seen and not in wars. Is that a lot of these medical researches are
+
+346
+00:54:25.140 --> 00:54:52.069
+Keith Ellis: being targeted towards certain groups. So pows during wars were oftentimes used in experiments to see. I think they would throw like people this in ice or something. See how long they would survive. They, you know, inject them with different medicines and stuff. But there's also situations where you know experiments on mentally disabled, physically disabled. You know, different races, genders, seeing what happens. And you know, obviously, that
+
+347
+00:54:52.070 --> 00:54:56.239
+Keith Ellis: has a negative impact when the stuff comes to light.
+
+348
+00:54:56.440 --> 00:55:01.289
+Keith Ellis: and more and more of the stuff is coming to light as more and more data is becoming available.
+
+349
+00:55:02.330 --> 00:55:04.939
+Consent issue to facial recognition.
+
+350
+00:55:05.050 --> 00:55:20.609
+Keith Ellis: This is one that we'll be talking about, which is clear view. AI. They were fine and what it was is that they were grabbing people's pictures from web scraping. So anytime you've gotten a picture whether your book you know your Linkedin. So on.
+
+351
+00:55:20.850 --> 00:55:24.300
+Keith Ellis: And it trained it on all those pictures
+
+352
+00:55:24.340 --> 00:55:34.440
+Keith Ellis: to recognize people you think about. Okay, you know, computer vision being able to recognize faces that's awesome. I can look at my phone, open it up. You know, if I
+
+353
+00:55:34.850 --> 00:55:43.680
+Keith Ellis: steal something, people can identify me. You know. So on the thing on the other side of it is this is a situation where
+
+354
+00:55:43.880 --> 00:55:44.810
+Keith Ellis: you know
+
+355
+00:55:47.250 --> 00:55:52.120
+Keith Ellis: somebody was physically harmed, because this information was able to be used to track them down
+
+356
+00:55:52.350 --> 00:55:54.290
+Keith Ellis: also pre-pandemic.
+
+357
+00:55:54.360 --> 00:56:09.420
+Keith Ellis: and a lot of areas wearing a mask was illegal. Outside of holidays like in Virginia, for for instance. It was I think a felony might have a misdemeanor if you were caught wearing a mask in public. Outside of being in a parade, or something like that.
+
+358
+00:56:09.690 --> 00:56:14.209
+Keith Ellis: Talk about changes. Once the pandemic hit kind of went out the window. People were masked.
+
+359
+00:56:14.540 --> 00:56:18.010
+Keith Ellis: you know. People are still able to wear masks, but
+
+360
+00:56:18.260 --> 00:56:22.580
+Keith Ellis: right before that somebody actually put on made a
+
+361
+00:56:23.130 --> 00:56:32.050
+Keith Ellis: mask full button mask. This was pre pandemic, so not the just over the face of someone else's face like you could actually walk around with somebody else's
+
+362
+00:56:32.130 --> 00:56:40.250
+Keith Ellis: face printed over yours, and it would identify it as them. So it's kind of like this weird like situation there.
+
+363
+00:56:40.770 --> 00:56:43.309
+Keith Ellis: But again, did you consent? By?
+
+364
+00:56:44.210 --> 00:57:02.659
+Keith Ellis: Yeah, I wanted to put my picture up on this news bulletin. So people recognize me. I didn't know that I was gonna eventually end up in this database that could be used various things. And you know, obviously, if you've ever got a driver's license, you know your pictures been taken but you think about okay, well, that's just, you know, if I get some
+
+365
+00:57:02.730 --> 00:57:04.629
+Keith Ellis: trouble with the law or something.
+
+366
+00:57:04.930 --> 00:57:20.089
+Keith Ellis: But yeah, you don't know what's gonna end up being used here? There was a thing going on where babies and children were being used in advertisements in a different country. So pictures. People posted of their kids online ended up
+
+367
+00:57:20.370 --> 00:57:21.550
+Keith Ellis: out there.
+
+368
+00:57:22.600 --> 00:57:31.030
+Keith Ellis: So this black box, nature, black box, nature of technology. Do you all? Are you all aware of what that concept is.
+
+369
+00:57:31.840 --> 00:57:39.380
+Keith Ellis: Okay. So this is kind of like how you would when neural networks and so on.
+
+370
+00:57:39.940 --> 00:57:45.180
+Keith Ellis: you know, it's kinda just throwing the data. And then, whatever's output, that's what we're gonna go with.
+
+371
+00:57:45.520 --> 00:57:51.409
+Keith Ellis: Well, we don't know exactly how it made those decisions. All we know is that it's a very accurate model.
+
+372
+00:57:52.130 --> 00:58:02.040
+Keith Ellis: Obviously a lot of concerns with that. This kind of goes with that whole combination of you know, you can't go fully quantitative without having some sort of domain knowledge
+
+373
+00:58:02.380 --> 00:58:12.980
+Keith Ellis: on the flip side of that. The other extreme is qualitative. You probably have all worked somewhere where someone's been working there for 30 years. And they're like, yeah, I know exactly. Next month we're gonna do 20 million in sales
+
+374
+00:58:13.210 --> 00:58:15.209
+Keith Ellis: just because I've been doing it for so long.
+
+375
+00:58:15.380 --> 00:58:24.530
+Keith Ellis: Well, that's one extreme of that got check, you know. I'm right, because I've been doing it for so long. The other extreme is, it's right, because this is what's been put out here.
+
+376
+00:58:24.630 --> 00:58:38.240
+Keith Ellis: You blend those together. You start to put in explainability of why we were seeing this 20 million. And what in this, supported by data driven insights. But again, if we don't know what's really being
+
+377
+00:58:38.610 --> 00:58:39.970
+Keith Ellis: used
+
+378
+00:58:40.120 --> 00:58:50.270
+Keith Ellis: to make the decisions, we don't know at what point data that was used was consensual or not, and that is something that you know, as people were
+
+379
+00:58:50.550 --> 00:59:03.440
+Keith Ellis: finding out during the pandemic a lot of you know, the concerns of bias, and so on. A lot of my colleagues and different companies had to actually go in and review a lot of the algorithms to see, you know, did we?
+
+380
+00:59:04.300 --> 00:59:05.050
+You know.
+
+381
+00:59:05.310 --> 00:59:16.609
+Keith Ellis: do this? And a lot of them are like, Yeah, we, you know, obviously off the record, we're saying, Yeah, yeah, they they had to fix some things best way to say it. And you know, unless
+
+382
+00:59:17.310 --> 00:59:20.460
+Keith Ellis: you know how often are those things
+
+383
+00:59:20.800 --> 00:59:25.629
+Keith Ellis: known? But no one's fixing them, because it's not important enough at the time.
+
+384
+00:59:25.680 --> 00:59:36.120
+Keith Ellis: I'm sure each one of you has been lost hurt financially, physically, some some way, where it wasn't wasn't important enough, but you know eventually enough. People get
+
+385
+00:59:36.430 --> 00:59:47.650
+Keith Ellis: you know. Then then you start to get, you know more more into it, looking at it. But if you were to call up a company and say, Hey, I don't. I felt like your your website
+
+386
+00:59:48.460 --> 00:59:55.359
+Keith Ellis: was bad against me for XYZ. Reasons. I wanna see your algorithm. They're gonna be like, no like
+
+387
+00:59:56.080 --> 01:00:05.600
+Keith Ellis: come back with a lawyer or something. But if enough people, you know, go to the right agencies. Then maybe that will eventually open up into something there.
+
+388
+01:00:06.990 --> 01:00:11.869
+Keith Ellis: So here's another place. Again, scraping
+
+389
+01:00:12.300 --> 01:00:17.579
+Keith Ellis: Facebook data. I like the word personal here. Because again, you think. Oh, I know
+
+390
+01:00:17.660 --> 01:00:21.070
+Keith Ellis: my, who I'm letting in as my Facebook groups.
+
+391
+01:00:21.510 --> 01:00:40.140
+Keith Ellis: it's not personal data anymore. It's something that you've put out there. But again, you didn't realize, because it had never really been done before never, I mean, if you think about 20 years ago. did you really think that, you know, putting your picture on Myspace, or something like that would have been, you know. Next thing you know, you're, you know.
+
+392
+01:00:40.910 --> 01:00:45.090
+Keith Ellis: tracked on computer vision, like, it's a little bit difficult.
+
+393
+01:00:46.580 --> 01:00:49.360
+Keith Ellis: So that brings us to our first
+
+394
+01:00:49.400 --> 01:00:51.850
+Keith Ellis: discussion here about
+
+395
+01:00:53.860 --> 01:01:03.580
+Keith Ellis: clear view. AI and I mentioned earlier that boot camp Spot was down. Has anyone checked to see if you're able to see the activities yet? Or
+
+396
+01:01:05.800 --> 01:01:07.780
+Keith Ellis: alright, let me see if I can.
+
+397
+01:01:08.560 --> 01:01:21.379
+Keith Ellis: Okay, alright. So must just be on my end. So in there you are given some information about a clear view, AI,
+
+398
+01:01:21.790 --> 01:01:27.620
+Keith Ellis: and the ask here is to look through the articles that are there
+
+399
+01:01:28.130 --> 01:01:30.400
+Keith Ellis: and within your group.
+
+400
+01:01:31.300 --> 01:01:35.880
+Keith Ellis: Kind of talk about some of these questions, and what we'll do is we'll spend some time together in your groups.
+
+401
+01:01:37.150 --> 01:01:53.610
+Keith Ellis: working with the questions, and then we'll we'll combine some of our groups to share the answers with each other, have a discussion in between each other. So we'll start with 4 groups, and then 2 of the groups will talk to each other. About their findings. About it and
+
+402
+01:01:53.830 --> 01:02:07.540
+Keith Ellis: again. Try to think about not only the immediate harms like, you know, someone's physically harmed, but longer term, you know, 1015, 20 years that gatekeeping, you know. Not just
+
+403
+01:02:07.830 --> 01:02:30.859
+Keith Ellis: chat. Gbt, large language models, you know, deep fakes, you know, even as simple as a linear or a logistic regression of a yes, no, you know, that could be impacted as well. So is 15 min depending on. You know how well the conversations are. Will we go? And we can definitely add some more time in there. Just wanna confirm, it's currently 7, 30 by you. All, is that correct?
+
+404
+01:02:30.950 --> 01:02:33.410
+Keith Ellis: Okay, so we're good on time.
+
+405
+01:02:33.500 --> 01:02:48.200
+Keith Ellis: So yeah, we'll we'll break out into 4 groups. There's 2 tas and myself, so we'll probably come in in about 5 min or so, and just kinda check in with you all. And then, after about a 15 min, then we'll regroup and
+
+406
+01:02:48.250 --> 01:02:54.959
+Keith Ellis: join the groups together so we can have a bit more discussion than, and one larger group.
+
+407
+01:02:55.240 --> 01:03:01.579
+Are there any questions on what we're trying to do with this activity or anything before? Reopen the breakouts.
+
+408
+01:03:04.230 --> 01:03:12.430
+Keith Ellis: Alright, I guess they're already open. So there are 5 breakout rooms open right now, and I think you all are able to join yourselves if you all can just
+
+409
+01:03:12.690 --> 01:03:28.170
+Keith Ellis: choose between rooms, one through 4, try to evenly space yourselves out. Room 5 was open more for like ta, but so feel free to join a group one through 4, and we'll check in and see where we're at in about 15 min, and then we'll go from there.
+
+410
+01:03:39.160 --> 01:03:41.730
+michael mcpherson: which one of y'all are lucky enough to get me
+
+411
+01:04:32.970 --> 01:04:39.039
+Keith Ellis: alright. Welcome back everyone hopefully. you all have some good discussion from
+
+412
+01:04:39.200 --> 01:04:44.090
+Keith Ellis: checking with the tas, and seemed like you. Each were all kind of focusing on
+
+413
+01:04:44.320 --> 01:04:50.350
+Keith Ellis:  different areas, which is great, just curious. Where were there any groups that
+
+414
+01:04:51.030 --> 01:04:57.379
+Keith Ellis: were okay with this versus saw it as an issue. just whereas pretty much everyone
+
+415
+01:04:57.800 --> 01:05:01.069
+Keith Ellis: was everyone seeing that what the issue was here.
+
+416
+01:05:03.980 --> 01:05:19.879
+Keith Ellis: Okay, so I'll be the person that is pro this as we're going through it, I'll kind of give the devil's advocate part of it. And so the group that I was in for most of the time. Was kind of looking at it.
+
+417
+01:05:20.160 --> 01:05:25.430
+Keith Ellis: based off of where it's been used. Who's who used the data? So
+
+418
+01:05:25.500 --> 01:05:28.229
+Keith Ellis: police and
+
+419
+01:05:28.420 --> 01:05:34.320
+Keith Ellis: law enforcement. And in Kevin's group sounds like you all were focusing on
+
+420
+01:05:34.400 --> 01:05:36.670
+Keith Ellis:  Tiktok.
+
+421
+01:05:36.800 --> 01:05:46.009
+Keith Ellis: China, having data being held out off site the country. And then James talking about loss of freedom and giving up control.
+
+422
+01:05:46.030 --> 01:05:48.149
+Keith Ellis: Does that seem valid for each of the groups?
+
+423
+01:05:48.590 --> 01:06:06.330
+Keith Ellis: Okay, so there's some be some great perspectives so I guess from Group 2. If you'll someone from your group wouldn't mind kind of sharing kinda what you saw from this and what your takeaways were. And are you okay with this or not? Or whatever you feel comfortable sharing.
+
+424
+01:06:11.710 --> 01:06:18.069
+Kanouff, Christine: we were pretty much a resounding no, we're not okay with it?
+
+425
+01:06:20.240 --> 01:06:32.030
+Kanouff, Christine: and I think the question about where. besides law enforcement and helping the military and things like that, where else is this data being used? How is, how is it currently being used?
+
+426
+01:06:32.090 --> 01:06:37.850
+Kanouff, Christine: And then this idea that most of your data is already out there. Now we're attaching your face to it, seems
+
+427
+01:06:38.870 --> 01:06:45.680
+Kanouff, Christine: you know, it feels like that's crossing the crossing the line, cause that's where it's going. So now you have
+
+428
+01:06:46.560 --> 01:06:51.610
+Kanouff, Christine: a phase with the data where, when you're using a lot of the large data modeling
+
+429
+01:06:51.970 --> 01:07:01.919
+Kanouff, Christine: for retail and other things like that. There's, you know, there's not a face attached to it. I don't know, at least for me personally, that feels like it just takes it into a whole, another realm.
+
+430
+01:07:04.160 --> 01:07:13.760
+Keith Ellis: Okay, did you spend any time on Clearview's website looking at their good use cases if you will, that they were promoting.
+
+431
+01:07:14.870 --> 01:07:17.370
+Keith Ellis: Yeah, I'm here at the bottom, under impact.
+
+432
+01:07:17.380 --> 01:07:28.469
+Keith Ellis: They have 4 different ones that they went through here. So, for example, with Ukraine, this technology was used to reunite families that were separated from here.
+
+433
+01:07:28.830 --> 01:07:34.569
+Keith Ellis: Something that seems positive seems like a good use. Responsible use of this type of technology?
+
+434
+01:07:35.170 --> 01:07:50.090
+Keith Ellis: You have one here, capital riots on both identifying people who were involved with it, but also making sure that they properly identify people who were or were not involved with it. Another potential use in, you know.
+
+435
+01:07:50.220 --> 01:07:56.390
+Keith Ellis: a way that can, you know, be positive by, you know. locating
+
+436
+01:07:56.720 --> 01:08:07.809
+Keith Ellis: people who've broken the log sometime. This one finding off of one picture. this picture right here that was shared on some website actually, right here of
+
+437
+01:08:07.980 --> 01:08:12.429
+Keith Ellis: W. They were able to track down somebody who had kidnapped a little girl.
+
+438
+01:08:12.770 --> 01:08:14.749
+Keith Ellis: So if you were the parents of that
+
+439
+01:08:14.810 --> 01:08:21.089
+Keith Ellis: girl or your family was separated by that, you would see something that this is a positive thing.
+
+440
+01:08:21.330 --> 01:08:22.290
+Keith Ellis: and
+
+441
+01:08:22.649 --> 01:08:39.940
+Keith Ellis: a lot of this is designed to be somewhat positive. But you are right. There are concerns about, you know. You could be in someone's background picture because you happen to walk by the aquarium when they were taking the picture. Next thing you know, you're, you know, being served for something. Oh, yeah, there was a hand up. Sorry
+
+442
+01:08:42.600 --> 01:08:49.309
+michael mcpherson: you could create positive uses for almost any technology and still have it reprehensible.
+
+443
+01:08:49.670 --> 01:08:50.879
+Keith Ellis: Oh, I
+
+444
+01:08:50.890 --> 01:08:55.990
+Raugewitz, Tania: more harm than good, you know
+
+445
+01:08:56.689 --> 01:09:04.879
+michael mcpherson: uses, but I can think of probably 10,000 bad uses
+
+446
+01:09:04.920 --> 01:09:07.420
+michael mcpherson: or derogatory uses for it
+
+447
+01:09:07.910 --> 01:09:14.639
+Keith Ellis: right? And you know that's one of the things like, if you ever, if if anyone's here was a math major, and you do math proofs
+
+448
+01:09:14.660 --> 01:09:16.360
+Keith Ellis: lot of times with proofs.
+
+449
+01:09:16.399 --> 01:09:28.420
+Keith Ellis: You either have to, you know you say something, but if you can prove it wrong one time, that proof is no longer valid. Well, if you think about like, we'll go into using like
+
+450
+01:09:28.750 --> 01:09:32.940
+Keith Ellis: for example, AI, in the sense of self driving cars or something.
+
+451
+01:09:33.450 --> 01:09:49.790
+Keith Ellis: How many injuries or how many deaths is enough to say, we're not gonna do this anymore? You know. And a grand scheme of things you're like, okay, if a few people die, you know, that's, you know, cost thing. But if that happened to be a family member, that could be something that you're like, feel a lot more different about. I agree there are
+
+452
+01:09:49.850 --> 01:10:08.510
+Keith Ellis: things that could be positive from it and negative. I'm taking, you know, the seeing the positive thing on this. You know a lot of times in your examples that you're talking about. There's an assumption that the technology is 100 accurate all the time and facial recognition is famously, not accurate
+
+453
+01:10:08.720 --> 01:10:17.979
+Meredith McCanse (she/her): specifically for minority populations for anyone who's not white. It's wrong all the time, and creates Rex wreaks all sorts of havoc.
+
+454
+01:10:18.290 --> 01:10:26.149
+Keith Ellis: So you bring up a good point there on training data. So there's a bias that's brought in. Sometimes not even
+
+455
+01:10:26.330 --> 01:10:42.449
+Keith Ellis: noticing it, that you happen to train this on a certain type of people. But if you look at, for example, this, this is an international database of more people, I think they have in there. Yeah, 40 billion facial images. I'm assuming that's broken down.
+
+456
+01:10:42.780 --> 01:10:57.870
+Keith Ellis: We have a lot of data here. But you are right. There's a lot of people that look similar. There's a lot of people that have matching names or similar. You know. I think everyone has a doppelganger, I think is what it says. So yes, you're right.
+
+457
+01:10:57.970 --> 01:11:04.789
+Keith Ellis: is a picture that looks like you sort of in the background in an area that you were at some point, but you can't say you weren't there
+
+458
+01:11:04.900 --> 01:11:11.129
+Keith Ellis: enough to indict you. We had talked to all right, brought it up in a group, too, a little bit about, you know.
+
+459
+01:11:11.470 --> 01:11:14.449
+Keith Ellis: Look at those sources of their data.
+
+460
+01:11:14.530 --> 01:11:18.710
+Keith Ellis: They're getting it from mugshot websites, news media.
+
+461
+01:11:19.300 --> 01:11:29.689
+Keith Ellis: So if you focus on those 2 specifically right there. Think about now. You have a group that you can target for future crime. Not everyone has a mug shot. But guess what you now have a group that you can
+
+462
+01:11:29.950 --> 01:11:38.030
+Keith Ellis: proactively go out and follow track, and so on. But you are right. There are risks that these are not correct, and that's why, you know.
+
+463
+01:11:38.100 --> 01:11:39.900
+Keith Ellis: the accuracy is important.
+
+464
+01:11:40.250 --> 01:11:47.289
+Keith Ellis: But again, it's not gonna be 100% accurate. A good example of this is trying to build an algorithm that identifies a terrorist in the airport.
+
+465
+01:11:48.040 --> 01:12:07.210
+Keith Ellis: Think about how little of a percentage of all the number of people going through airports are a terrorist. There's not much data to go with it. And also, if you think about what, how would you define a terrorist? Likely people who are terrorists have gone through an airport without being a terrorist at the time.
+
+466
+01:12:07.220 --> 01:12:14.319
+Keith Ellis: So how do you identify? You know certain characteristics or mannerisms and stuff like that when there isn't much data.
+
+467
+01:12:14.410 --> 01:12:20.459
+Keith Ellis: you can't really say, you know, this could be a terrorist. But you don't know if they're gonna
+
+468
+01:12:20.490 --> 01:12:27.340
+Keith Ellis: do terrorist activities at this current time. So there's a lot of things that like you said it had a lot of information.
+
+469
+01:12:27.700 --> 01:12:30.959
+Keith Ellis: but it could be wrong. So that's a good point that you bring up.
+
+470
+01:12:31.160 --> 01:12:44.589
+Keith Ellis:  I don't know a great number, but the one that was with Kevin there. About tick, tock. How did you all see this as being a concern cause. This talks about the social media aspect of of this one.
+
+471
+01:12:45.080 --> 01:13:03.430
+Mason, Natalie: I'll go ahead and open up. Since I was talking the most I was just expressing that I've used social media for a long time to promote my own personal businesses as an entrepreneur, and that I'm moved to tick tock. And so
+
+472
+01:13:03.880 --> 01:13:05.140
+Mason, Natalie: it's just
+
+473
+01:13:05.670 --> 01:13:18.459
+Mason, Natalie: a little bewildering to me at times that I get like content violations for things that aren't really content violations. And then there's other people who are who are on that app doing horrendous
+
+474
+01:13:19.280 --> 01:13:25.940
+Mason, Natalie: things and shouldn't be able to. But they're not getting in trouble for it.
+
+475
+01:13:25.950 --> 01:13:46.769
+Mason, Natalie:  there's kinda just like, why is that happening? Kind of thing. And then it led to the conversation of the trial that's going on with the CEO of the app, and most recently being berated in the courtroom about being from China, but he's from Singapore, and how there's all this
+
+476
+01:13:47.670 --> 01:14:02.710
+Mason, Natalie: suspicion of well, apparently it really, I mean, II don't doubt that we're being spied on. And all these platforms, but specifically, China using tick tock to spy on American citizens and things of that nature. And Matt had
+
+477
+01:14:02.820 --> 01:14:07.120
+Mason, Natalie: more information on that. considering the work that he's done.
+
+478
+01:14:07.780 --> 01:14:11.070
+Mason, Natalie: But yeah, so it was just a topic, for sure.
+
+479
+01:14:13.800 --> 01:14:19.210
+Keith Ellis: So that is a very important concept of data storage.
+
+480
+01:14:19.240 --> 01:14:26.060
+Keith Ellis:  where will your data be stored when it's you're interacting with a company?
+
+481
+01:14:26.120 --> 01:14:33.980
+Keith Ellis: example, if you ever do any cloud based service like Aws, Gcp. Usually tells you what region or something that that's it.
+
+482
+01:14:34.840 --> 01:14:37.770
+Keith Ellis: Having information about your citizens
+
+483
+01:14:38.050 --> 01:14:44.260
+Keith Ellis: stored in another country, especially one that may have some tension obviously opens up a lot of risk.
+
+484
+01:14:45.300 --> 01:14:53.550
+Keith Ellis: For if there's ever a war or they're able to, you know, do cyber attacks, or as basic as.
+
+485
+01:14:53.910 --> 01:15:09.619
+Keith Ellis: Hey, they knock on your door and say, Hey, I'll give you 5 million dollars to give up some information, because I know you can't pay your mortgage, I mean, that's a good point, and on a flip side of that is you wonder why some things are caught immediately, and your band, and usually sometimes those bands don't
+
+486
+01:15:09.620 --> 01:15:32.259
+Keith Ellis: always make sense. You'll see screenshots of people who said something like something basic. And it's like, you know, it was it was thrown out. But then, you see, you know, hate speech or whatever, and it makes it. And then people get creative. Language is dynamic. So once you ban one word, it's gonna be spelled a different way, or they're gonna replace a letter with another letter. But yeah, social media is something where
+
+487
+01:15:32.270 --> 01:15:46.850
+Keith Ellis: you are hoping people will see you to get your exposure to your your goods and your business. But you want it to be a positive thing, and you wanna not be, you know. You know, if you had a competitor that was just, you know. Always.
+
+488
+01:15:47.540 --> 01:15:48.320
+Nope
+
+489
+01:15:48.580 --> 01:15:52.300
+Keith Ellis: telling, you know you're breaking rules or something that's impeding from you.
+
+490
+01:15:52.640 --> 01:15:58.340
+Mason, Natalie: Well, the problem I'm having is that tick. Tock itself has labels.
+
+491
+01:15:58.500 --> 01:16:21.419
+Mason, Natalie: Some content, or somebody has reported some content that was against community violations. And now I can't use it completely as a platform to make an income, whereas had I not gotten those violations for leaving an emoji, or whatever that was deemed against community via guidelines. Meanwhile there's people exploiting kids.
+
+492
+01:16:21.430 --> 01:16:32.400
+Mason, Natalie: And so it's just the hypocrisy, and the online world knows no ends. But it's affecting people who are just trying to use these platforms to make an income as well.
+
+493
+01:16:32.810 --> 01:16:38.290
+Keith Ellis: Yeah. So the the 2 follow up questions on that, and then we'll move to the third group. Here is one.
+
+494
+01:16:38.410 --> 01:16:50.069
+Keith Ellis: How hard has it been for you to track down someone to talk to, to kind of talk about! Why it is or what it is, and also who defines. If what you did is considered okay or not.
+
+495
+01:16:51.730 --> 01:16:58.660
+Mason, Natalie:  I don't think there's even people behind these things like, I don't think there's anybody controlling it.
+
+496
+01:16:59.070 --> 01:17:13.200
+Keith Ellis: Yeah, II mean, sometimes, like a Google and stuff you, you should be you. If you see something a website you don't like, you could from a Google search, you can say, Hey, please don't return this in a Google search and look into it. But you know, it's kind of one of those things where it's like.
+
+497
+01:17:13.460 --> 01:17:19.699
+Keith Ellis: you know what? Who defines what is ethical at the time, you know, is it. You know.
+
+498
+01:17:19.710 --> 01:17:39.859
+Keith Ellis: Normally, you would say that overall people act ethically. But there are differences in cultures and different locations of what is considered okay and not. And over time those do change. So you know, we see this quite often with a lot of companies. Where, what was it? Maybe 12 years ago, like.
+
+499
+01:17:39.920 --> 01:17:49.210
+Keith Ellis: for example, a lot of cities banned certain groups from participating in their parades. And now fast forward those same companies are now, you know.
+
+500
+01:17:49.230 --> 01:18:03.060
+Keith Ellis: promoting those same groups in certain countries goes some other countries. They act like they have no clue what they are. So which which of those which of those is ethical, you know, is, are the standards for Tiktok the same
+
+501
+01:18:03.120 --> 01:18:18.259
+Keith Ellis: as a user. Or if you were just to use that for fun as social media versus as a company versus one country or the other. Who's dictating that? How often is that being defined? What say do you have it? Those are all definitely concerns here.
+
+502
+01:18:19.710 --> 01:18:22.449
+Keith Ellis: so great. Yeah. And
+
+503
+01:18:22.500 --> 01:18:30.510
+Keith Ellis: you know, I think you bring up a good point about. You know how much, how much requirements you need before you can allow an activity. You know
+
+504
+01:18:30.610 --> 01:18:34.289
+Keith Ellis: some of those things where, if something happened to you, you're kind of like.
+
+505
+01:18:34.880 --> 01:18:57.099
+Keith Ellis: I want whatever resources I can to answer the question. Someone hurt something. Somebody close to you steals your money or something you're like. I don't care how you get it. Get it back. But when you see it somewhere else, and you're kind of disengaging like, wait, wait! I don't want someone just coming to my house, and, you know, be able. Look through my phone just because I'm something there. So that's a good point of who defines that requirement of yes, we can do this or not
+
+506
+01:18:57.520 --> 01:19:04.460
+Keith Ellis: alright. So last group that was with James. Kind of talking about loss of freedom and
+
+507
+01:19:04.470 --> 01:19:10.490
+Keith Ellis: you you all talked specifically to control the big companies. Can you all talk a bit about that?
+
+508
+01:19:13.020 --> 01:19:31.300
+sonja baro: We were kinda all over on the topics like one. Just the fact that this this exists right that this can happen. And then we spent some time talking about what you just were covering, which is, who makes those decisions? And how do you you know. How do you get some agreement which
+
+509
+01:19:31.300 --> 01:19:54.299
+sonja baro: I don't know if we could do just how we are as a nation right now. And where? Where does that happen? Is it at the individual? Is it at the company? Is it, you know? Where does that autonomy of deciding what's right? Live? Where should it be, you know, and so so we talked a little bit about that. We also talked about just the fact that
+
+510
+01:19:54.720 --> 01:20:08.570
+sonja baro: how pervasive this is, and how do we find a balance between taking 2 extreme positions, one being completely disengaged and not try to, you know, live like a hermit.
+
+511
+01:20:08.570 --> 01:20:27.159
+sonja baro: or, you know, versus to having where everything you do is available. Your face. You're just a complete risk of being, you know your your identity and anything about you. Being utilized. And so we kind of talked about a whole bunch of areas.
+
+512
+01:20:27.310 --> 01:20:33.219
+sonja baro: But I think to like guys to let hop hop on in. But I think we also all felt
+
+513
+01:20:33.900 --> 01:20:50.270
+sonja baro: we felt that was what was sad at one is that it's not great what they were doing. But also we extended the conversation to social media in that, too, that the positive side of all a lot of these technologies
+
+514
+01:20:50.430 --> 01:21:01.819
+sonja baro: gets taken away because of the the bad actors, if you will, and the use that isn't productive, and then it ends up, taking away from all that
+
+515
+01:21:04.000 --> 01:21:07.930
+Keith Ellis: awesome thank you for sharing that. You might, you know, argue to say that
+
+516
+01:21:08.050 --> 01:21:22.949
+Keith Ellis: that positive part of it is only the tip of the iceberg of what is actually going on. So they're telling you it's positive here, but they're doing all this stuff elsewhere. Exactly. Yeah. And then, Natalie, we did talk about 2 like that a lot, the flags
+
+517
+01:21:23.100 --> 01:21:30.260
+sonja baro: and getting the flag. And then you're like kicked off. And for what you know, and who decided that. So I think we
+
+518
+01:21:30.530 --> 01:21:33.420
+sonja baro: we probably shared similar sentiments.
+
+519
+01:21:34.700 --> 01:21:43.020
+Keith Ellis: Great. So I'm gonna post 2 final questions, and then we'll go on our break. I know we could continue talking about this course. Do you trust
+
+520
+01:21:43.650 --> 01:21:51.190
+Keith Ellis: a company to set the standards for utilizing their services, meaning like what is acceptable or not.
+
+521
+01:21:51.260 --> 01:21:55.179
+Keith Ellis: or the government to do so. If you had to
+
+522
+01:21:56.000 --> 01:21:58.610
+Keith Ellis: have one of them set the guidelines for it.
+
+523
+01:21:58.860 --> 01:22:06.469
+sonja baro: Why can't there be a third like like we all have like there's preference settings
+
+524
+01:22:06.540 --> 01:22:10.770
+Keith Ellis: like, why can't we somehow take
+
+525
+01:22:11.190 --> 01:22:15.939
+sonja baro: more? Put that more into your user preference file.
+
+526
+01:22:17.290 --> 01:22:35.100
+sonja baro: then say, and so they can't really do anything until you've completed the preference file and then have more information on the consent cause. That's my issues. That a lot of the informed consent is not informed like people don't know. But I don't know. I'm just wondering like.
+
+527
+01:22:35.460 --> 01:22:41.030
+sonja baro: can't there be another option rather than having the government which no one will trust.
+
+528
+01:22:41.120 --> 01:22:46.639
+sonja baro: or even a company. I've done. Companies are all about the bottom line, and so they're gonna push to get
+
+529
+01:22:46.660 --> 01:22:52.060
+sonja baro: whatever's gonna make the sale for them. So sorry I don't need to.
+
+530
+01:22:52.390 --> 01:23:08.529
+Mason, Natalie: I'm I'm taking over Keith. Sorry companies will do the bare minimum to not be illegal on certain things. So not always there, but not specifically for this. But there are is a growing.
+
+531
+01:23:08.890 --> 01:23:09.820
+Keith Ellis: you know.
+
+532
+01:23:11.040 --> 01:23:39.240
+Keith Ellis: There are third party auditors out there that will go through. And for example, Snyder electric they always boast that they're one of the most ethical companies in the world. But how do you define that? They actually have third party auditors that come in and they look through all their you know, their sustainability, and how they interact and work with various countries, and so on. So there are third parties that can be brought in to, you know, check for these things. But as a user.
+
+533
+01:23:39.620 --> 01:24:03.920
+Keith Ellis: you know, do you even still trust that? Who's on? Who's on the board of that third party? Is that gonna be the Senator from somewhere, or CEO like, how much is the license to use certification? Right? So like with with research papers, you know, who's paying? Who's paying for the research that's usually, you know, used to be how you would find find that. But you know, also, on the other side is, you have to have some sort of standard to be able to
+
+534
+01:24:04.220 --> 01:24:05.530
+Keith Ellis: apply
+
+535
+01:24:05.640 --> 01:24:11.349
+Keith Ellis: the usage of standards for a site for all users. You can't say, Oh, users in this state.
+
+536
+01:24:11.830 --> 01:24:25.849
+Keith Ellis: I'm gonna allow you to use this terminology, but not this state, because you know, whatever or the fines gonna be heavier. You know, even something as simple as there's a financial institution in the northeast
+
+537
+01:24:26.160 --> 01:24:29.350
+Keith Ellis: and they're fairly large.
+
+538
+01:24:29.570 --> 01:24:36.380
+Keith Ellis: What they do is they open up a single case with all potential lawyers in a certain area. So if you had an issue with that company.
+
+539
+01:24:37.030 --> 01:24:41.240
+Keith Ellis: none of the lawyers will take your case because it would be a conflict of interest
+
+540
+01:24:41.910 --> 01:24:57.839
+Keith Ellis: not illegal. But is it ethical to prevent somebody from being able to, you know, use their right to what's one of your only rights is to Sue or legal representation. So there are definitely concerns of who sets those guidelines who's overseeing it.
+
+541
+01:24:57.900 --> 01:24:59.670
+Keith Ellis: At what point, you know.
+
+542
+01:25:00.160 --> 01:25:06.050
+Keith Ellis: we think it's easy to think about it in a small sense of 1, 2 people. But we have millions of users.
+
+543
+01:25:06.550 --> 01:25:16.469
+Keith Ellis: you know. It's oftentimes easier to easier. The default is to set saying, Okay, if you're going to use this platform one by using it, you're informing consent.
+
+544
+01:25:16.630 --> 01:25:21.080
+Keith Ellis: 2. I'm assuming you read through all the terms and conditions. You agree to them
+
+545
+01:25:21.650 --> 01:25:23.070
+Keith Ellis: 3. You're gonna
+
+546
+01:25:23.820 --> 01:25:32.089
+Keith Ellis: do what I say on here which could update at any point, I think is a lot of times, you know, without you know where there's something's changed.
+
+547
+01:25:32.380 --> 01:25:33.370
+Keith Ellis: if not.
+
+548
+01:25:33.690 --> 01:25:49.270
+Keith Ellis: don't use this, don't use it, and it's getting harder and harder to Say, walk away and find an alternative you ever had to get information. And people like, Oh, that go to the website to get it. If you don't wanna go on a website, what are your other options? But
+
+549
+01:25:49.480 --> 01:25:56.090
+Keith Ellis: yeah. Well, thanks for the conversations on that. I like. I said I was trying to work on the other side, so
+
+550
+01:25:56.640 --> 01:26:10.110
+Keith Ellis: I'm not pro anti. I'm just in the middle right now, but we'll go ahead and move into our break right now. I'll go ahead and set a timer here for 15 min, and when we get back we'll talk a bit more about the consent on
+
+551
+01:26:11.200 --> 01:26:23.640
+Keith Ellis: from the medical, and we'll break out in the groups. I might split you all up just to get some different perspectives. But let me reset that. So yeah, 15 min, and we'll start back up
+
+552
+01:26:44.570 --> 01:26:51.069
+Keith Ellis: while we're waiting for rest of everyone to show back up. I just wanted a few housekeeping reminders, one
+
+553
+01:26:51.150 --> 01:26:57.670
+Keith Ellis: looking at the calendar, just a reminder. You don't all do not have class on next Monday on the nineteenth. So just
+
+554
+01:26:58.120 --> 01:27:00.149
+Keith Ellis: recall on that.
+
+555
+01:27:03.010 --> 01:27:12.450
+Keith Ellis: So one thing that didn't talk about what the clear view is. you know, the assessment of the penalty they got.
+
+556
+01:27:12.530 --> 01:27:22.190
+Keith Ellis: I think the general consensus, from what I gathered from the groups I was seeing is that it was just a slap on the wrist. 17 million for a company of that kind of thing really isn't
+
+557
+01:27:22.300 --> 01:27:28.829
+Keith Ellis: a major one, and you know. in the trucking industry. For example, a lot of
+
+558
+01:27:28.850 --> 01:27:47.510
+Keith Ellis:  owner operators and smaller trucking companies aren't able to operate anymore because their insurance costs are so high because anytime a truck gets involved in an accident. They're called these, you know, they they, these ginormous lawsuits. So insurance is just going up so high.
+
+559
+01:27:48.090 --> 01:27:55.709
+Keith Ellis: so there's definitely financial implications. And you know, that could range from putting out a company which you know
+
+560
+01:27:55.920 --> 01:27:59.290
+Keith Ellis: could be a good thing or bad thing, but also figure out who's being impacted.
+
+561
+01:27:59.390 --> 01:28:13.540
+Keith Ellis: or to point where all the money goes to the lawyers and the people who are actually hurt didn't go anywhere. But again. You know I must. I would assume that we're probably see larger payout settlements over course of other ones.
+
+562
+01:28:13.960 --> 01:28:31.430
+Keith Ellis: Yes, thank you. That was where I was looking for the nuclear verdicts. So insurance company, it's just cheaper not to ensure somebody than to risk having to pay out multi-million dollar settlements because the truck hit a car with somebody in it
+
+563
+01:28:31.760 --> 01:28:34.750
+Keith Ellis: that had the means to sue.
+
+564
+01:28:36.000 --> 01:28:37.200
+Keith Ellis: Okay, there we go.
+
+565
+01:28:38.220 --> 01:28:38.900
+Keith Ellis: Yep.
+
+566
+01:28:41.110 --> 01:28:42.220
+Keith Ellis: And
+
+567
+01:28:43.710 --> 01:28:46.080
+Keith Ellis: we so far have been talking about
+
+568
+01:28:47.340 --> 01:28:56.260
+Keith Ellis: kind of the outcomes. But how people are gonna use it. What's the risk of it? We're gonna transform where we're focusing on now to talk about the input data into this
+
+569
+01:28:57.430 --> 01:29:01.330
+Keith Ellis: garbage in garbage out. But beyond that is understanding.
+
+570
+01:29:01.440 --> 01:29:05.169
+Keith Ellis: If the algorithm is saying something, we're looking at a black box.
+
+571
+01:29:06.720 --> 01:29:14.830
+Keith Ellis: we need to be able to identify ways that the data is influencing. The results.
+
+572
+01:29:16.010 --> 01:29:19.300
+Keith Ellis: Aka, looking at bias and
+
+573
+01:29:20.570 --> 01:29:27.819
+Keith Ellis: bias, again, is not always an intentional. It's not always a bad thing. It's a human nature thing we've
+
+574
+01:29:28.000 --> 01:29:40.190
+Keith Ellis:  This data is human made. So it's reflective of us as a society over however, many years. You know, a lot of the situations that
+
+575
+01:29:40.980 --> 01:29:48.579
+Keith Ellis: we live in now didn't exist 10 years ago, 20 years ago, and so on. But a lot of the algorithms we're using are built off of data
+
+576
+01:29:48.790 --> 01:29:51.189
+Keith Ellis: that was based off of that.
+
+577
+01:29:51.360 --> 01:29:52.330
+So
+
+578
+01:29:52.660 --> 01:30:01.239
+Keith Ellis: beyond the actual bias of the data actually in there, it's also about what's not in there. So understanding
+
+579
+01:30:03.180 --> 01:30:32.680
+Keith Ellis: who's not in the data and how that input impacts it. And the representation of the data when you look at like trying to do analysis. One of the first things you do is Eda. You look at the distribution of data to find the center of the data set. Well, if the data is very skewed. So, for example, if we were looking at all of our incomes, and we just happen to have. You know, Bill Gates show up. And all sudden, our average income for the classes, you know, so many 1 billion dollars.
+
+580
+01:30:32.680 --> 01:30:59.839
+Keith Ellis: You know, we're gonna get wrong information. So not only is it the data itself, but also the data governance of who touches the data. What ways has it been changed from the raw something as simple as removing missing data points could have an impact. If you don't disclose that, you know that could very well change you know, the outcomes. So sometimes it's easy. Just drop the data set.
+
+581
+01:30:59.970 --> 01:31:02.900
+Keith Ellis: It could be that missing data says 0,
+
+582
+01:31:03.040 --> 01:31:21.259
+Keith Ellis: or is indeed missing and a lot of times. Data is hard to collect. It's costly. And you have to work with the data you have when you start getting into looking at neural networks and ways to optimize and everything. You'll find that one of the ways that you can try to optimize one is get more data or
+
+583
+01:31:21.580 --> 01:31:26.800
+Keith Ellis: try to put more data in your training
+
+584
+01:31:27.260 --> 01:31:30.639
+Keith Ellis: data set versus your test desk set.
+
+585
+01:31:30.830 --> 01:31:46.009
+Keith Ellis: But again. in the real, perfect world, every single decision, everything would be an individual. There isn't a black and white we've seen. There's there's a gray area. The reality is we have to make decisions with the information
+
+586
+01:31:46.400 --> 01:31:54.829
+Keith Ellis: that we can. We don't have the ability to make an individual decision for every single person, for every single situation.
+
+587
+01:31:55.190 --> 01:32:03.450
+Keith Ellis: So we have to make some assumptions based off of data. And there used to be that concept of well, the data doesn't lie. The reality is
+
+588
+01:32:03.920 --> 01:32:06.229
+Keith Ellis: biases in all the data we have, it's
+
+589
+01:32:06.240 --> 01:32:19.180
+Keith Ellis: it's not going away. Just like with statistics in your these models, you get a hundred percent accuracy, likely not a legitimate model. It's not gonna be there. So always
+
+590
+01:32:19.340 --> 01:32:26.170
+Keith Ellis: question. The source of the data was being collected. you know, is there bias that's been
+
+591
+01:32:26.440 --> 01:32:48.370
+Keith Ellis: put in there through the process by how it was collected, and it could be simple. I think you all covered this on Monday. But you know, if it was a phone survey. Well, I don't answer my phone. If I don't recognize the number, but somebody who still has a a landline. So you might have an over representation of you know. Say, in that situation, groups of people who still have
+
+592
+01:32:48.930 --> 01:33:00.639
+Keith Ellis: phone lines which might be elderly or homeowners versus people who don't have one if they live in apartments and so on. or don't even have phones. To begin with. Now, you don't necessarily need to get
+
+593
+01:33:01.240 --> 01:33:18.449
+Keith Ellis: data on every single person, every single situation. But you need to be able to make sure that there's understanding. Is this data representative? And well, how do you? What would you define as representation? So there's a lot of different metrics that you can consider.
+
+594
+01:33:19.210 --> 01:33:21.109
+Keith Ellis: yeah, depending on what you're looking at.
+
+595
+01:33:21.210 --> 01:33:36.360
+Keith Ellis: But also, you know again, when you look at doing a regression model, you're not drawing a line that's going to accurately represent every single data point. You're drawing a line that reduces the amount of error from
+
+596
+01:33:36.730 --> 01:33:40.649
+Keith Ellis: the point. What actually happened and what that line is. So
+
+597
+01:33:41.050 --> 01:33:59.219
+Keith Ellis: when you do the demographic data, you do this other stuff, it's not saying a specific person in general. This is what you would do with this information. So on general middle class people who make between I don't even know what middle class is now 40 to 1, 20, and obviously
+
+598
+01:33:59.530 --> 01:34:11.059
+Keith Ellis: 1 20 in one area is, you know, living like a king in 1 20 another areas, you know. You can't even pay rent. But a lot of decisions are made based off of income alone.
+
+599
+01:34:11.120 --> 01:34:17.580
+Keith Ellis: you know. But there's other factors that that could go on those so exclusion and discrimination.
+
+600
+01:34:19.290 --> 01:34:22.389
+Keith Ellis: However, you want to word it. However, you want to describe it.
+
+601
+01:34:23.840 --> 01:34:30.639
+Keith Ellis: Probably somebody at some point on this call has been excluded or discriminated in some way or felt that way.
+
+602
+01:34:30.970 --> 01:34:46.040
+Keith Ellis: I kinda like to relate it to you. Lose the ability to control your narrative in a way. Somebody with a disability. It's, you know, it's something that you know it sucks when you're essentially marginalized. And you know.
+
+603
+01:34:46.280 --> 01:34:56.240
+Keith Ellis: you almost feel like there's something wrong because of that because you don't fit into something there, or you have something about that has been used against you before.
+
+604
+01:34:56.430 --> 01:35:03.159
+Keith Ellis: It has a lasting impact. So one of the things when you're trying to find the data set, let's say, is trying to understand
+
+605
+01:35:03.630 --> 01:35:06.699
+Keith Ellis: who will be impacted by decisions made on this data.
+
+606
+01:35:06.780 --> 01:35:11.570
+Keith Ellis: If you're working with medical data for
+
+607
+01:35:11.700 --> 01:35:16.120
+Keith Ellis: you know, let's just say diabetes. Yeah, I think about the you know.
+
+608
+01:35:16.740 --> 01:35:32.800
+Keith Ellis: who would be impacted. You may not necessarily need to get data from outside the country if you're focusing on, you know, just one state's worth of information. But outside the country could be helpful, you know, because a lot of us I guess no one really is.
+
+609
+01:35:33.170 --> 01:35:37.500
+Keith Ellis: you know, completely from America that we have roots elsewhere. But
+
+610
+01:35:37.510 --> 01:35:45.560
+Keith Ellis: you know again, you need to make sure that the data matches with who's going to be impacted by the data? And is it
+
+611
+01:35:45.670 --> 01:36:07.860
+Keith Ellis: representation? So going back to the truck idea. Every commercial truck in the country has to be registered in a do number. All that goes through government fmcs, which puts out all those counts. So one of the ways that they classify them is the number of trucks that are in there. So if I wanted to know what a representative sample of
+
+612
+01:36:07.890 --> 01:36:28.639
+Keith Ellis: the trucking market is, I could look at that list and basically say, Okay, of all the 2.7 million trucks that are registered, you know, 20% of them are owner operator. 20% of them are, you know, the fleets are above a thousand units. Well, if I'm looking at my data, and I see that 90% of my data is owner operator. Well, that's not really representative.
+
+613
+01:36:28.810 --> 01:36:56.770
+Keith Ellis: And some considerations to think about with, that is, owner operators are a lot more exposed to market volatility, meaning they go out of business quicker cause they don't can absorb the changes in costs as quickly and when things are good they join in. So not only is it not representative in the pure number sense, the how the data performs is now different. So there are ways that you can work with that. And
+
+614
+01:36:58.090 --> 01:37:10.739
+Keith Ellis: yeah, I need to learn how to drive. They won't. They won't even let me sit in the driverless trucks. Afraid I'm gonna break it, I guess, but I alright that I'll take you up on that drive.
+
+615
+01:37:11.240 --> 01:37:14.850
+Keith Ellis: Cool? yeah. So
+
+616
+01:37:15.600 --> 01:37:25.509
+Keith Ellis: you know, there's different techniques that you can use to kind of mitigate some of that. But sometimes, if that's the only data that you have, and you're you're having to work with it.
+
+617
+01:37:25.580 --> 01:37:28.280
+Keith Ellis: You can't just say, Oh, I'm not gonna do this because
+
+618
+01:37:28.790 --> 01:37:38.990
+Keith Ellis: the data is not fully there. You're gonna have to find techniques to be able to identify it and try to improve it. I think it was brought up on Monday about, you know the concept of.
+
+619
+01:37:40.350 --> 01:37:43.570
+Keith Ellis: you know, feeling pressured to
+
+620
+01:37:43.580 --> 01:37:45.120
+Keith Ellis: use something that's.
+
+621
+01:37:45.650 --> 01:37:51.300
+Keith Ellis: you know, got biased in it, or something like that. And hopefully, that you know, there's been a lot more
+
+622
+01:37:51.510 --> 01:37:56.040
+Keith Ellis: resources for people who are in that situation. But it is a situation where you think about
+
+623
+01:37:56.080 --> 01:38:05.580
+Keith Ellis: okay, what's easier or what's yeah. It's morally wrong, ethically wrong to push through this because my boss is telling me to. But think about.
+
+624
+01:38:05.670 --> 01:38:21.459
+Keith Ellis: If I lose my job, then I, you know, can't live. And then, you know, job market. People are laying everything off right now. It's like I can't deal with. This don't want to be in that situation. But at the same time. you know, you want to be able to document. You want to be able to find the resources that are in here. So
+
+625
+01:38:21.650 --> 01:38:29.019
+Keith Ellis: working with AI AI ethics. It's an ever-evolving field, even though the concept of AI is nothing new.
+
+626
+01:38:29.030 --> 01:38:34.369
+Keith Ellis: You know, neural networks. Perceptron models been around since the fifties.
+
+627
+01:38:34.780 --> 01:38:53.339
+Keith Ellis: and there was actually a boom and bust of AI in the Eightys, where, you know, people thought AI was gonna take over everything in the early eighties. And then everyone kinda walked away from it. And then. But what has changed is the ability, the amount of data? The computing power?
+
+628
+01:38:53.450 --> 01:39:03.020
+Keith Ellis: how quickly we can make decisions data. We're finding patterns in ways we haven't done before. But it's assuming that the computers
+
+629
+01:39:03.340 --> 01:39:07.770
+Keith Ellis: decisions making is better than our human, our decision making.
+
+630
+01:39:07.810 --> 01:39:20.620
+Keith Ellis: It may be it may not be. The idea is that we humans are training the models. We humans are creating the data that is put into the computer computer based decision making, which means
+
+631
+01:39:21.440 --> 01:39:26.599
+Keith Ellis: we act a certain way. Computers likely gonna act in that certain way.
+
+632
+01:39:27.380 --> 01:39:29.990
+Keith Ellis: an example on les
+
+633
+01:39:30.210 --> 01:39:31.310
+Keith Ellis: stream one.
+
+634
+01:39:31.370 --> 01:39:40.739
+Keith Ellis: If you bring in outlier data into your machine learning. So say, let's just look at batting. Average batting average is usually, like, you know, 200 to 300
+
+635
+01:39:40.850 --> 01:39:46.860
+Keith Ellis: before to correct me. But if you add in a whole bunch of pitchers that you know never hit a ball in their life.
+
+636
+01:39:46.880 --> 01:39:58.510
+Keith Ellis: you know. All of a sudden your model is going to be dragged down and assume that you know that's something that is is there. And now you you are pulling in values that are
+
+637
+01:39:58.920 --> 01:40:00.300
+Keith Ellis: extreme
+
+638
+01:40:00.610 --> 01:40:22.250
+Keith Ellis: when really, you know, that is just a special case. If you wanna feel even better about it. And again, I'm you all are! Gonna have great night's sleep with all the scare tactics. Night. This is a great book. II would send it out to you all, but it's not open source. But if you ever take an AI class through one of the university, it's usually the go to textbook and like an intro one so
+
+639
+01:40:22.270 --> 01:40:36.089
+Keith Ellis: artificial intelligence, the modern approach. But anyways, what I really like about it is, they put it's not so much the actual coding, but the concepts behind it. This is a pseudo code for how you would train
+
+640
+01:40:36.980 --> 01:40:42.510
+Keith Ellis: to make a simple decision. And what this is saying is that basically.
+
+641
+01:40:43.980 --> 01:40:51.719
+Keith Ellis: And this is simple decision. And this might sound like something you do because it's based off of how we think is we want to
+
+642
+01:40:52.060 --> 01:41:04.399
+Keith Ellis: make the decision that maximizes our benefit for the cost of doing it. So if the benefit outweighs the cost. then go ahead and do the item
+
+643
+01:41:05.270 --> 01:41:07.710
+Keith Ellis: otherwise, continue doing what you're doing.
+
+644
+01:41:07.840 --> 01:41:13.489
+Keith Ellis: Go back. Okay? I can now check this and say, alright, well.
+
+645
+01:41:13.780 --> 01:41:15.849
+Keith Ellis: it's not as beneficial.
+
+646
+01:41:16.350 --> 01:41:19.379
+Keith Ellis: too much cost. I'm not gonna do it simple decision.
+
+647
+01:41:20.500 --> 01:41:23.600
+Keith Ellis: You Let's see
+
+648
+01:41:23.780 --> 01:41:29.310
+Keith Ellis: you are hungry. and there's pasta
+
+649
+01:41:29.970 --> 01:41:31.660
+Keith Ellis: on the stove ready to eat.
+
+650
+01:41:33.270 --> 01:41:46.420
+Keith Ellis: Normally, you'd be like, I want something nicer, or you don't eat pus or whatever, but you're hungry. You don't have to do anything except put in your bowl the benefit of eating, satisfying your hunger versus the cost, which is, you know, eating something that
+
+651
+01:41:46.600 --> 01:41:57.030
+Keith Ellis: might not be the most enjoyable thing just by itself is better. So you're gonna make a simple decision, hey? It makes sense to eat more realistically, you know, humans intelligence.
+
+652
+01:41:57.420 --> 01:42:03.199
+Keith Ellis: Our ancestors would have been like, Hey, I see something staring at me from over there, it's got sharp teeth.
+
+653
+01:42:03.920 --> 01:42:17.319
+Keith Ellis: I'm gonna recognize that as something that's gonna eat me. The people that didn't think of that or didn't think of that as fast enough, probably aren't around. So I eat. So you think about pattern recognition we have. We are making these
+
+654
+01:42:17.450 --> 01:42:37.419
+Keith Ellis: thought processes. Well, if we are doing these thought processes. And we're feeding the computer, these kind of pseudocode. They're doing a similar thing. Differences is that they're able to do these a bit faster. And they have a lot more examples and stuff. But I like to use the one with, you know, kind of doing the concept of
+
+655
+01:42:37.730 --> 01:42:41.299
+Keith Ellis: relying on data to cross the street.
+
+656
+01:42:41.470 --> 01:42:52.050
+Keith Ellis: So if you're a person walking across the street. do you want? Are you okay? Relying on data that's 2 min old 3 min old.
+
+657
+01:42:52.550 --> 01:42:55.309
+Keith Ellis: No, you're probably going to get hit by a car.
+
+658
+01:42:55.460 --> 01:43:02.580
+Keith Ellis: Okay. So you you factor in. Okay. Now, I can have data pretty much instantaneous, and I could recognize, hey, if there's a car coming
+
+659
+01:43:02.710 --> 01:43:17.760
+Keith Ellis: at certain speed I should not cross, or there's a green light you do. You can do. All these factors start walking across the street. Asteroid comes and gets you in the head, and you don't make it across the street. The point being is that there's always some sort of variability, some sort of
+
+660
+01:43:17.790 --> 01:43:29.770
+Keith Ellis: risk to these simple decisions or to these ones. So it's never just a straightforward answer. You can't always account for every single thing. But there are ones that
+
+661
+01:43:29.870 --> 01:43:38.749
+Keith Ellis: we can, and those are the ones that we need to make sure that the data is able to focus for. That's an extreme example. But with a lot of the
+
+662
+01:43:39.110 --> 01:43:44.470
+Keith Ellis: improvements in AI, and everything is a lot of stuff doesn't even need historical data
+
+663
+01:43:45.130 --> 01:43:54.410
+Keith Ellis: to make decisions or is able to learn and then update what it's learning to move forward. So even if that was
+
+664
+01:43:54.490 --> 01:43:55.949
+Keith Ellis: trained on
+
+665
+01:43:56.420 --> 01:44:02.050
+Keith Ellis: core data. For whatever reason, maybe it's sparse quality wasn't there as bias, however, but
+
+666
+01:44:02.200 --> 01:44:16.710
+Keith Ellis: as it is exposed to more and more data, it starts to learn and update, and those are, you know, some of the new more novel concepts where before it was like, well, you can't train something unless you have data. Well, now, it's like you don't. You're able to do pattern matching.
+
+667
+01:44:16.770 --> 01:44:19.740
+Keith Ellis:  But again.
+
+668
+01:44:19.920 --> 01:44:25.589
+Keith Ellis: a key point in here is it's not always explicit bias, meaning you're not always going to see
+
+669
+01:44:25.890 --> 01:44:36.399
+Keith Ellis: somebody explicitly saying, You know, I don't like this certain group of people, so I'm not going to work with them, or I'm going to exclude a certain religion, or whatever you want to put in there.
+
+670
+01:44:36.810 --> 01:44:46.360
+Keith Ellis: There is ways to do that by using related traits from certain groups based off the demographics. So if
+
+671
+01:44:46.540 --> 01:44:57.459
+Keith Ellis: you know, you know that you don't like a certain religious group, and you know the demographic makeup of the different census tracts by religion. Well.
+
+672
+01:44:57.500 --> 01:45:01.269
+Keith Ellis: instead of saying, I don't like this religious group, you could just say I.
+
+673
+01:45:01.420 --> 01:45:07.590
+Keith Ellis: Then they exclude these census tracks that have a certain percentage of those. Now, again, these are just examples.
+
+674
+01:45:07.670 --> 01:45:10.320
+Keith Ellis: you know. So it's one of those things like
+
+675
+01:45:10.390 --> 01:45:23.250
+Keith Ellis: when put places, decide where they want to do business or put their operations. You know a lot of times. It's, you know, tax incentives and so on. But they could actually pick up and move their facility somewhere else.
+
+676
+01:45:23.350 --> 01:45:31.680
+Keith Ellis: And that could cause a huge economic downturn. But you know it's very hard to
+
+677
+01:45:31.910 --> 01:45:35.389
+Keith Ellis: take a company such as Fedex. I had sent over the
+
+678
+01:45:35.990 --> 01:45:47.680
+Keith Ellis: this ethical this is the one that you know checks all the ethics across all companies and everything. And I'm just I saw Fedex here, and I'm sorry to call this one out specifically. But I see the videos of people
+
+679
+01:45:47.910 --> 01:45:51.339
+Keith Ellis: throwing packages or whatever and acting unethical.
+
+680
+01:45:51.680 --> 01:46:03.879
+Keith Ellis: But you have to differentiate between the company being unethical and algorithms versus individual actions of people or groups on an aggregate and so on. So again.
+
+681
+01:46:03.900 --> 01:46:12.420
+Keith Ellis: you're using, it's important for you to know what the data is. You're not just relying fully on numbers. You are actually
+
+682
+01:46:12.510 --> 01:46:21.519
+Keith Ellis: you know, using some of your business acumen working with subject matter, experts and so on. So anything that is personal, personally identifiable information.
+
+683
+01:46:21.790 --> 01:46:32.689
+Keith Ellis: You should probably scrape out of there. That it's better to be safe and say, I'm just gonna use a you know, dummy variable for an id.
+
+684
+01:46:32.890 --> 01:46:56.309
+Keith Ellis: then to potentially be, you know, did you have that in there? And we try to keep things in an open mind. But a lot of times we come into problems with a hypoth, with a bias. And that's just human nature and a lot of times that bias is what our hypothesis is going to be. Usually we tend to want to prove our hypothesis. So
+
+685
+01:46:56.390 --> 01:47:22.329
+Keith Ellis: you know, the more ways that you can prevent your bias or potential concern. People think you're doing that. You know, you can scrape out the data. So a lot of times. These algorithms are actually structured off of dummy data fake data, but they still take the form of what the actual data was that they can then feed in. So the algorithms are set up off of data. That's not synthetic data, I guess, is the correct word but
+
+686
+01:47:22.760 --> 01:47:31.370
+Keith Ellis: again, the less chances that you have to raise. Question the better investigate how your data was collected.
+
+687
+01:47:31.380 --> 01:47:33.850
+Keith Ellis: You know again the source limitations.
+
+688
+01:47:34.010 --> 01:47:42.950
+Keith Ellis: It's crazy. How many times I've seen people who will use data from pre-pandemic to say something about
+
+689
+01:47:42.960 --> 01:47:46.439
+Keith Ellis: what's going on right now, when it's like, not
+
+690
+01:47:46.460 --> 01:48:01.529
+Keith Ellis: relatable, like, there's newer data like you have limitations on data that's from pre pandemic trying to say about how things are post pandemic. So if you have, the data should probably make sure that it's aligned with what you're trying to do, if
+
+691
+01:48:01.530 --> 01:48:27.129
+Keith Ellis: that's the only data that you have. Well, that's a different story. But you know, knowing the timeframe, knowing you know how representative is any risks, and so on. You'll be surprised if you ever go through a lot of the government data sets how small their samples usually are. That rep that are representative of the entire country's responses. They send out a thing to collect the data and so on. Obviously, there's a lot of
+
+692
+01:48:27.540 --> 01:48:34.500
+Keith Ellis:  technical papers out there of how they handle all the this stuff. But you know, is
+
+693
+01:48:34.900 --> 01:48:47.500
+Keith Ellis: there? And then again, who's representing the data set and how it's going to be impacted. And I I'd like to take out the people part of it and just say what is representative, and that's saying what? As in making people sound like things. But
+
+694
+01:48:47.580 --> 01:48:50.090
+Keith Ellis: you know, bias can be done, not
+
+695
+01:48:50.120 --> 01:48:54.559
+Keith Ellis: for its people as well. By George's decision. You know.
+
+696
+01:48:54.590 --> 01:49:18.330
+Keith Ellis: that we wanna buy versus sell, or that we think we're gonna be more optimistic towards something. So whatever is that you're trying to test for or look for in the data you wanna take out any kind of bias, whether that's towards a human, which is what most of this topic is gonna be about, or to some sort of outcome that you're desiring. That would influence the impact if you didn't bring those in.
+
+697
+01:49:19.240 --> 01:49:25.349
+Keith Ellis: So in this activity, we're going to break out into separate groups.
+
+698
+01:49:25.380 --> 01:49:41.150
+Keith Ellis: It might just be easier for me to do the auto one this time. And you're gonna be looking through this project that was in Boston, and it was designed to help fix potholes in the city. And this is a fairly new one. About 1012 years ago.
+
+699
+01:49:41.250 --> 01:49:56.099
+Keith Ellis: It was a smartphone app. So think about who had a smartphone 1012 years ago, where smartphones were and review the overview of the project. Actually, there's a video that you all can watch, or we could watch it together as a group.
+
+700
+01:49:57.450 --> 01:50:05.280
+Keith Ellis: so it's, you know, short video. But there's some information that's in here. The question here is, look at it from
+
+701
+01:50:05.640 --> 01:50:13.550
+Keith Ellis: our perspective of AI. One. Seeing what was this supposed to do? What were the benefits, issues, concerns.
+
+702
+01:50:13.920 --> 01:50:26.940
+Keith Ellis: and who maybe was impacted. That was not in the data set. So they were excluded, or, you know, were discriminated against. But then, also on the second part of this, with your group.
+
+703
+01:50:27.750 --> 01:50:33.000
+Keith Ellis: take step back like, if you were gonna design this algorithm.
+
+704
+01:50:34.050 --> 01:50:43.820
+Keith Ellis: how would you set this up? What things would you have done to improve the training data that you were using? How your users would use the data? How would you?
+
+705
+01:50:44.720 --> 01:50:54.329
+Keith Ellis: What would you do with the data, the structure, the process, and how people use it to avoid some of the pitfalls of the exclusion. And again.
+
+706
+01:50:54.830 --> 01:51:09.480
+Keith Ellis: not going to be 100% accurate. It's not going to, you know, work for every single situation. The idea is we want to reduce this as much as possible. And obviously, that's why we see sometimes there's a you know, a margin of error or something. But
+
+707
+01:51:09.820 --> 01:51:19.770
+Keith Ellis: there is also this great article that's linked here in the in the project as well from Harvard Business Review, talking about hidden diet biases and big data.
+
+708
+01:51:20.010 --> 01:51:26.490
+Keith Ellis: and you can talk about it kind of talks about ways that you know. Again, data is being collected.
+
+709
+01:51:26.850 --> 01:51:29.150
+Keith Ellis: you know, if you think about.
+
+710
+01:51:30.840 --> 01:51:31.680
+you know
+
+711
+01:51:32.080 --> 01:51:49.710
+Keith Ellis: ways that you know there's it's I think you all talked about this on Monday. Feel free to tell me otherwise. But you you can think of many different ways. Why data could be brought unbiased. But oftentimes that bias is continued forward because of the related indicators and and so on. So again, if this computer
+
+712
+01:51:50.140 --> 01:51:52.860
+Keith Ellis: is just making decisions based off the patterns.
+
+713
+01:51:53.090 --> 01:52:03.740
+Keith Ellis: it might recognize a systematic pattern. But we don't want to continue that systematic pattern moving forward. So that's where you would also look at the outcome of the algorithm and say, does this make sense?
+
+714
+01:52:03.940 --> 01:52:05.540
+Keith Ellis: Are there concerns?
+
+715
+01:52:05.740 --> 01:52:10.680
+Keith Ellis: What can we do to potentially adjust for this? Or, you know, fix this and so on?
+
+716
+01:52:10.890 --> 01:52:15.860
+Keith Ellis: Are there any questions on what we're trying to accomplish on this before I reopen the breakouts and
+
+717
+01:52:16.010 --> 01:52:19.400
+Keith Ellis:  I
+
+718
+01:52:19.870 --> 01:52:21.840
+Keith Ellis: work for these again.
+
+719
+01:52:25.800 --> 01:52:26.740
+Keith Ellis: Alright!
+
+720
+01:52:30.230 --> 01:52:32.730
+Keith Ellis: So it is 52
+
+721
+01:52:33.230 --> 01:52:36.060
+Keith Ellis: next one click time check.
+
+722
+01:52:36.090 --> 01:52:39.700
+Keith Ellis: Sorry. Have to stare at me awkwardly for a second.
+
+723
+01:52:40.270 --> 01:52:41.200
+Keith Ellis: Alright.
+
+724
+01:52:43.920 --> 01:52:49.879
+Keith Ellis: So, waiting for the same 15 min, I think that was a good starting point, and then we will
+
+725
+01:52:50.840 --> 01:52:58.000
+Keith Ellis: come back and spend the rest of the time talking about copyrights and contracts and finish up with generative. AI.
+
+726
+01:52:58.490 --> 01:53:01.940
+Keith Ellis: I'm gonna go ahead and open up the rooms. And
+
+727
+01:53:04.510 --> 01:53:07.209
+Keith Ellis: okay, there's 4 rooms this time.
+
+728
+01:53:07.750 --> 01:53:16.290
+Keith Ellis: if you need anything from us, feel free to send us a slack. We'll join us, otherwise we'll probably hop in. Just and listen only about 5 min.
+
+729
+01:54:24.420 --> 01:54:28.910
+Kevin Nguyen: Quick comment. This was like, step up to like 3, 1 1.
+
+730
+01:54:29.100 --> 01:54:34.540
+Kevin Nguyen: I remember looking at 3, 1, one data, people complaining. But this looks like a better technology.
+
+731
+01:54:35.620 --> 01:54:49.600
+Keith Ellis: Yeah. So this is an example of somebody using a novel technology, cell phone data and thinking they were doing something good which was to find potholes. It's a lot easier for people on their normal course of the day.
+
+732
+01:54:50.080 --> 01:54:55.489
+Keith Ellis: Finding these potholes and sending out teams to drive through every single possible road.
+
+733
+01:54:55.800 --> 01:55:02.099
+Keith Ellis: and it also helps narrow down them areas they have to search for problem is is that you know.
+
+734
+01:55:02.370 --> 01:55:07.339
+Keith Ellis: we saw fairly quickly, just from the discussions I was sitting in. You know.
+
+735
+01:55:07.660 --> 01:55:10.300
+Keith Ellis: why, there's a lot of problems with this, you know.
+
+736
+01:55:10.580 --> 01:55:12.070
+Keith Ellis: who has cars?
+
+737
+01:55:12.210 --> 01:55:23.169
+Keith Ellis: You know, certain groups, certain areas where those cars tend to be or go, you know, usually from house to work, so on. So there might be other areas that
+
+738
+01:55:23.210 --> 01:55:53.039
+Keith Ellis: aren't fully represented. Who has cell phones at this point 2,012. You know. I think that was right when they had just introduced 3 g so you know, depending on where you were at, you're probably still or paying off your old foot phone, or you might had the new iphone also at the point. Now, like, if this was done. Now, how many people have their locations on settings on, or, you know, have their sensors on, and so on. So there's a lot of things to consider with.
+
+739
+01:55:53.660 --> 01:56:02.789
+Keith Ellis: where the where these are. and I'm sorry to be not opening as a fully discussion cause. I wanna make it through the last one here.
+
+740
+01:56:02.880 --> 01:56:04.949
+Keith Ellis: The other thing also think about is.
+
+741
+01:56:05.760 --> 01:56:15.000
+Keith Ellis: you know, a lot of times. The wear and tear on roads may not necessarily be coming from passenger vehicles. They could be coming from construction vehicles, commercial vehicles.
+
+742
+01:56:15.010 --> 01:56:36.970
+Keith Ellis: If you're in an area where there's a lot of traffic coming in and out, they could be coming from, just, you know, commuting traffic. That's not in the locally area. So again, it's not a representative, but geographically, socially, demographically, age, you bring up a whole bunch of ones here. Also. How would you have found this out? There's so many initiatives out there that sound great.
+
+743
+01:56:36.970 --> 01:56:47.000
+Keith Ellis: But how do they tell people sign up for it, and do they know? Sign up for it? Ii lived outside of Boston around this time. I never heard of this so
+
+744
+01:56:47.440 --> 01:56:55.849
+Keith Ellis: not that I was driving in Boston every day. But the question II kinda wanted to focus on for about minute or 2, and before we move on to our final topic, is
+
+745
+01:56:55.940 --> 01:57:00.489
+Keith Ellis: any thoughts about how you would have gone about this differently, or designed it differently to kind of
+
+746
+01:57:01.480 --> 01:57:04.730
+Keith Ellis: mitigate some of those exclusions.
+
+747
+01:57:14.060 --> 01:57:21.380
+sonja baro: Oh, Natalie, your hands up! And then Cindy's next
+
+748
+01:57:21.470 --> 01:57:43.189
+Mason, Natalie:  So the one thing that we noticed about this initiative is that it was just done by regular citizens. It wasn't done by companies, and we thought that it would be more beneficial for companies like Fedex and Ups to use something like this, since they're all over whereas the average person is only going from like point A to Point B, usually
+
+749
+01:57:43.470 --> 01:57:46.260
+Mason, Natalie: so that probably would have helped this.
+
+750
+01:57:46.320 --> 01:57:55.600
+Mason, Natalie: And then we are also like, Oh, well, this was done in 2012. So what's the updated data on this? And is it still relevant today.
+
+751
+01:57:57.880 --> 01:58:00.310
+Keith Ellis: Yeah, we were talking in the group.
+
+752
+01:58:01.020 --> 01:58:11.039
+Keith Ellis: like they salt out in northeast. So those roads get beat up pretty much every winter. So a lot more wear and tear on those with the heavy winter storms and everything as well.
+
+753
+01:58:11.870 --> 01:58:17.539
+Keith Ellis: Sorry I didn't see who was said. That was next. Just take a couple of hands up, but feel free to whoever.
+
+754
+01:58:17.760 --> 01:58:46.130
+Sihong Zhou: Yeah, it's me so like so like I think II think sometimes when I was driving kind of like, there is a. there's a Google map, right? So like sometimes, if the road is under construction, or if if Google want to click some information. It will send you our kind of interactive chat box to ask you kind of like.
+
+755
+01:58:46.350 --> 01:58:56.629
+Sihong Zhou:  is there a construction going on steel, or is there something going on steel so you can collect? Yes.
+
+756
+01:58:56.670 --> 01:59:11.839
+Sihong Zhou: so I think, for this kind of thing like like, I think. It can nest either to some map like Google always, and either can collect the number of yes or no to
+
+757
+01:59:11.950 --> 01:59:21.280
+Sihong Zhou: to make a priority of fixing the problem. And I think there should be some
+
+758
+01:59:21.320 --> 01:59:47.140
+Sihong Zhou: kind of road road professionals like those who always work on the road. I don't know. Just like those those cars who shovel the snow. They they do specific things like, just go around to see, like some era, like some district there. The road is very old. They have a lot of prominent. They may go there and check something. And then
+
+759
+01:59:47.340 --> 01:59:54.129
+Sihong Zhou: then Google, collect the priority. That's yeah, what we are talking about. Yeah.
+
+760
+01:59:54.780 --> 01:59:58.419
+Keith Ellis: yeah, that brings up a lot of great information, you know.
+
+761
+01:59:58.900 --> 02:00:09.929
+Keith Ellis: unless you're in a car design, for you're probably gonna go around the pothole. You're not gonna want to drive through the pothole just to be some point here. And also, if there's other ways that you can mark.
+
+762
+02:00:10.830 --> 02:00:26.999
+Keith Ellis: Yep, I see something or not. I also think about time. Wai's was not owned by Google at this time, so they were 2 distinct ones, and I think Waze was pretty popular with that as well. So great one more, and then we'll move on to the next one. Just so we can go through the final topic.
+
+763
+02:00:27.570 --> 02:00:29.319
+Keith Ellis: Was there one more person had a hand up.
+
+764
+02:00:30.750 --> 02:00:38.770
+Keith Ellis: Okay, just making something up. So while I'm switching over you know, that data is still usable. It's just good to also know
+
+765
+02:00:39.140 --> 02:00:47.059
+Keith Ellis: some pitfalls. You know you don't. You're still collecting data. It's still usable. There's potentially potholes there.
+
+766
+02:00:47.500 --> 02:01:00.920
+Keith Ellis: But there could be considerations where you know, you're fixing the potholes in certain areas, but not in other areas. And that could be what the problem is. So even if you've identified ways that there could be bias in something.
+
+767
+02:01:01.270 --> 02:01:02.479
+Keith Ellis: The data isn't.
+
+768
+02:01:02.570 --> 02:01:11.950
+Keith Ellis: You just don't throw out the data and the whole algorithm and everything. Try to fix it or try to use it or try to help influence it for future stuff. So if that data
+
+769
+02:01:12.170 --> 02:01:29.520
+Keith Ellis: wasn't used to actually make potholes, but you were able to say, okay, this much bounce or so many cars helped us prioritize within these areas. Now, when we can actually expand it to these other areas, we have better training data about what a pothole is rather than someone just going over a speed bump or something.
+
+770
+02:01:30.380 --> 02:01:34.170
+Keith Ellis: Alright. So copyrights and contracts. This is
+
+771
+02:01:34.480 --> 02:01:47.950
+Keith Ellis: a really big topic right now. Around, you know the explosion of generative AI. In a couple of weeks you will hear about transformers. generative AI. Large language processing has been around for quite a while.
+
+772
+02:01:48.080 --> 02:01:51.939
+Keith Ellis: Google was trying to replace their algorithm in their
+
+773
+02:01:52.040 --> 02:01:58.420
+Keith Ellis: search engine using transformers. Transformers were a way for you to be able to grab context
+
+774
+02:01:58.550 --> 02:02:02.920
+Keith Ellis: from somewhere else in the sentence. So the sentence you're saying is like.
+
+775
+02:02:03.060 --> 02:02:07.090
+Keith Ellis: Nope. The the dog crossed the road.
+
+776
+02:02:08.550 --> 02:02:15.590
+Keith Ellis: It's very hard to identify. You know, if I ask you what the dog's name was if you said that 3 sentences ago, you know.
+
+777
+02:02:15.620 --> 02:02:18.250
+Keith Ellis: or you said it crossed the road. Well, what is it?
+
+778
+02:02:18.280 --> 02:02:24.300
+Keith Ellis: Transformers are very good about learning the context and being able to apply for that. So with that
+
+779
+02:02:24.320 --> 02:02:28.669
+Keith Ellis:  and the speed computing power is
+
+780
+02:02:28.710 --> 02:02:40.730
+Keith Ellis: these chat, Gpt and generative AI was able to ingest a lot of data and bring up a lot more information about the context. And you know probability of what the next word is, and so on, etc.
+
+781
+02:02:40.780 --> 02:02:46.570
+Keith Ellis: And if you have enough available content to pass in, and then time and everything, you've trained it.
+
+782
+02:02:46.580 --> 02:02:57.560
+Keith Ellis: Problem is, is a lot of the data that was used. Had the question of could it have been used? Was it copyright? Was it original work?
+
+783
+02:02:57.590 --> 02:03:06.350
+Keith Ellis: Or did they use open source stuff. So, for example, a lot of language models are built off of books from that are open in the open domain. So Gutenberg.
+
+784
+02:03:06.850 --> 02:03:19.749
+Keith Ellis: sometimes those are older. Books they might not be, you know, fully around. The idea here is that copyright is to protect original works. If you've ever tried to go on the website, they'll look at a recipe.
+
+785
+02:03:20.260 --> 02:03:33.570
+Keith Ellis: The recipe is not copyright. But to get to the recipe you have to scroll through like somebody's life story. That part is what makes it copyright, and that, you know. That's what makes that stay now. And
+
+786
+02:03:33.890 --> 02:03:36.049
+Keith Ellis: you know it's it's something that
+
+787
+02:03:36.380 --> 02:03:50.720
+Keith Ellis: you know. The lawyers get paid a lot to define what copyright is. Look for infringements of this, and they are understanding when something is or isn't, and this could take form of written words, spoken word pictures, drawings, and so on.
+
+788
+02:03:50.730 --> 02:04:00.740
+Keith Ellis: If you all are into sci-fi or speculus fiction Locust magazine comes out and they publish a monthly kind of just
+
+789
+02:04:01.180 --> 02:04:24.140
+Keith Ellis: news about the publishing area and everything, what kind of books and everything. And they've been really talking about. You know the concept of how AI is going to be treated with copyrighted information. If you're if you're somebody who's writing novels and stuff, and you find out that your novels were being used to make money or decisions elsewhere, and you weren't being paid for it. But you would have been paid
+
+790
+02:04:24.180 --> 02:04:33.610
+Keith Ellis: by copyright law, because, you know, you pass out the books. So you know, this is really highlighting that it is something that a lot of places are
+
+791
+02:04:34.120 --> 02:04:46.429
+Keith Ellis: are trying to determine how to handle it, what it means, and so on. If you look in the education, a lot of those statements about plagiarism have some sort of additional
+
+792
+02:04:46.630 --> 02:04:59.739
+Keith Ellis: you know, AI Component, like, a lot of people are okay with using grammarly, because that's not really creating new stuff. But if you were to put your homework question into chat, gpt and then paste it out, you know, that's obviously a problem as well.
+
+793
+02:04:59.790 --> 02:05:05.150
+Keith Ellis: So there's a lot of great information out there that
+
+794
+02:05:06.220 --> 02:05:09.679
+Keith Ellis: you could technically access on an open website.
+
+795
+02:05:10.050 --> 02:05:22.130
+Keith Ellis: But just because you can, access on an open website doesn't mean that you can. Then, you know, plug and play into training your model. You need to make sure that you are able to use the data, and it's not protected by copyright.
+
+796
+02:05:22.150 --> 02:05:39.029
+Keith Ellis: When you go to like something like Wikipedia, for example. And this is important, because when you're getting into your projects next week. A good thing to have in your readme is some sort of discussion about what is allowing you to use this data in your your ethical part of it, and so on.
+
+797
+02:05:39.040 --> 02:05:43.079
+Keith Ellis:  What I wanted to bring down here was this
+
+798
+02:05:43.930 --> 02:06:02.649
+Keith Ellis: creative Commons attribution. This is what allows you to use the information that's posted on Wikipedia for any type of thing you want to do. And, generally speaking, when you go into these types of papers, it tells you what you can and can't do it generally with research or academic stuff.
+
+799
+02:06:02.770 --> 02:06:20.170
+Keith Ellis: they'll say, Yeah, commercial use. No. But if you're gonna use this, make sure you attribute it. So the idea here is that there is a lot of stuff that's out there that's open. That's not protected by copyright. Under the creative Commons deed. So anytime, you see, something like that, it's essentially telling you
+
+800
+02:06:20.170 --> 02:06:38.669
+Keith Ellis: anything that's in here is in the public domain. You can use it. So I allow stuff like this is usable for training. But then you have, you know, copyright policies, and so on. So when you build out your readme's, it's always good to talk about the attributions or how you're able to use this data.
+
+801
+02:06:38.790 --> 02:06:47.429
+Keith Ellis: What? This doesn't extend to our ideas, concepts, or principles. So You know those are
+
+802
+02:06:47.880 --> 02:06:56.669
+Keith Ellis: thoughts or so on. You can't. One of the things that actually is not something you can. Copyright is fax. So you know if
+
+803
+02:06:56.730 --> 02:07:04.170
+Keith Ellis: you put someone posts out all the kind of your contact information that's not something you copyright, that's a fact. Yes, there was a hand up.
+
+804
+02:07:05.080 --> 02:07:12.849
+Mason, Natalie: Yeah, that's me. So as far as Wikipedia is concerned, since anybody can edit it, does that mean that it's
+
+805
+02:07:13.210 --> 02:07:16.790
+Mason, Natalie: not always correct? Not always fact checked.
+
+806
+02:07:18.240 --> 02:07:32.839
+Keith Ellis: So I think there's a lot that goes into that process of like who actually checks it, and so on and whatnot, and what the process is, I don't know how quickly that goes which brings up a point of like, you know fact checking, or, you know, regulations, you know.
+
+807
+02:07:33.130 --> 02:07:41.340
+Keith Ellis: can't always keep up with it, or, you know, are they using AI to fact check? Or is actually a human that's looking at this stuff?
+
+808
+02:07:41.870 --> 02:07:46.059
+Keith Ellis: so yeah, I would use that with caution. you know.
+
+809
+02:07:48.050 --> 02:08:01.150
+Keith Ellis: difference between using Wikipedia for fax versus Wikipedia for language construction. I guess you will. Even if it's wrong information. It's still language construction of people using a sentence with a verb and so on.
+
+810
+02:08:01.470 --> 02:08:10.410
+Keith Ellis: but yeah, I would say, always check across multiple sources. And when you're looking at your sources. You wanna make sure it's, you know.
+
+811
+02:08:10.900 --> 02:08:17.489
+Keith Ellis: good sources, primary sources, and not, you know, paid advertisements, or, you know.
+
+812
+02:08:17.770 --> 02:08:21.049
+Keith Ellis: blurbs or something. You want to try to get as close to the source as possible.
+
+813
+02:08:21.440 --> 02:08:34.190
+Keith Ellis: Google Scholar is a great place to find actual papers, and usually when you work through a lot of the algorithm packages. Python, they link to papers. So when you start they'll get into like the
+
+814
+02:08:34.750 --> 02:08:47.609
+Keith Ellis: supervised and unsupervised learning Sky Kit, learn. You can learn all about the different types of algorithms and the papers that they're sourced from. So I would recommend using that over. Say, Wikipedia, to search up. What pay means is
+
+815
+02:08:47.640 --> 02:08:57.880
+Keith Ellis: So here's some. This big term here precedent. This is what majority of laws are trying to look at, to see. Is there precedent or not
+
+816
+02:08:58.490 --> 02:09:06.459
+Keith Ellis: to interpret the laws the way we're seeing it. And if I make this decision, I am now setting precedent for future laws.
+
+817
+02:09:07.600 --> 02:09:24.430
+Keith Ellis: it's fun to look at the outcomes of some of these lawsuits that they reference something from like the 18 twenties, but dispute of like a horse across someone's farm, or something as related to copyright or something. I'm just making that up. The idea here is that they are looking through
+
+818
+02:09:24.640 --> 02:09:25.550
+Keith Ellis: past
+
+819
+02:09:25.680 --> 02:09:50.740
+Keith Ellis: situations to see is there precedent for this or not, and that is the authority for interpreting the law for future cases. This is why something, you know, it's very important and takes a lot of thought process. Because if you make a decision now to say, AI can't be used in education, for whatever reason that sets a precedent that can be, you know, enforced elsewhere until somebody can overturn it. Or, however, that goes So
+
+820
+02:09:50.740 --> 02:09:59.609
+Keith Ellis: this one fights first. Rural if you're interested, you could google it? you know, list of information, not copyrightable
+
+821
+02:10:00.610 --> 02:10:06.130
+Keith Ellis: contracts are agreements enforced by law. Each State has different requirements that
+
+822
+02:10:06.230 --> 02:10:35.940
+Keith Ellis: fed. Usually these are boilerplate, but obviously some of these other ones do require some eyes from lawyers. But usually there's in there. You know what each party is responsible doing so. You might have 3 days to back out, the other one might say, if there's an error, you would work to fix it. And so, just, you know, go forward with it, and in terms of use, terms of service. These are legally enforceable, whether you read them or not, and these protect databases, datasets.
+
+823
+02:10:36.680 --> 02:10:55.109
+Keith Ellis: with some exceptions. And you think about how much work goes into cleaning data, cleaning databases. And if it's data that you've generated yourself, and you're selling. Well, you know, that makes sense. Why, that's something that could be protected, and it brings into a question of you know, things like is web scraping
+
+824
+02:10:55.660 --> 02:10:59.050
+Keith Ellis: ethical if it's legal or not.
+
+825
+02:11:01.410 --> 02:11:04.039
+Keith Ellis: anytime, if you're questioning on.
+
+826
+02:11:04.490 --> 02:11:13.229
+Keith Ellis: if you can do something like web scraping, or whatever. Generally speaking, if you agree to terms of use or click on something, or
+
+827
+02:11:14.390 --> 02:11:23.980
+Keith Ellis: you probably are violating those terms by doing some sort of algorithmic approach to get information off their website.
+
+828
+02:11:24.100 --> 02:11:26.229
+Keith Ellis: So not advice. But
+
+829
+02:11:27.280 --> 02:11:30.279
+Keith Ellis: if you plan on web scraping don't click on
+
+830
+02:11:30.650 --> 02:11:36.060
+Keith Ellis: agreeing to anything. But yeah, so web scraping is a huge one, because you know
+
+831
+02:11:36.770 --> 02:11:44.430
+Keith Ellis: you have to put out your information a certain way to follow guidelines for it to show up with HTML and Javascript, and you can.
+
+832
+02:11:44.830 --> 02:11:46.090
+Keith Ellis: as a user.
+
+833
+02:11:46.320 --> 02:11:48.430
+Keith Ellis: Come in to here
+
+834
+02:11:49.000 --> 02:11:53.380
+Keith Ellis: and inspect everything that went in here.
+
+835
+02:11:53.390 --> 02:12:04.740
+Keith Ellis: And if you have a table of information, or if I wanted to grab all the locations out of here. All I need to know is, you know what the class is and grab the information from it.
+
+836
+02:12:06.470 --> 02:12:10.689
+Keith Ellis: Data sets that are generally let's
+
+837
+02:12:10.740 --> 02:12:17.519
+Keith Ellis: scrape are legally used. But there are gray areas, because again, some websites are protected.
+
+838
+02:12:20.210 --> 02:12:23.740
+Keith Ellis: show this one. For example, right here, this website, right here
+
+839
+02:12:24.120 --> 02:12:31.079
+Keith Ellis: shows all the information about global supply chain logistics for Amazon, John Deere Target, Walmart.
+
+840
+02:12:31.790 --> 02:12:34.410
+Keith Ellis: It has amazing data in here, great table.
+
+841
+02:12:34.720 --> 02:12:37.960
+Keith Ellis: But you see, I can't do anything on it. If I right click on it.
+
+842
+02:12:38.060 --> 02:12:49.249
+Keith Ellis: I'm getting copyright protection. Notice. This is one that you would not want to scrape. And actually, if you get past these, you can actually see you could technically still do it. But it's not ethical.
+
+843
+02:12:49.260 --> 02:12:53.400
+Keith Ellis: But this is copyrighted, protected information. This is stuff that they
+
+844
+02:12:53.770 --> 02:13:01.600
+Keith Ellis: have collected and added their own content to that even though I'm not agreeing to anything by being on their website.
+
+845
+02:13:01.640 --> 02:13:02.930
+Keith Ellis: I've clicked on.
+
+846
+02:13:03.100 --> 02:13:12.520
+Keith Ellis: it's not something there. So when you use stuff like you know, website
+
+847
+02:13:12.560 --> 02:13:27.580
+Keith Ellis: python packages to automate going into like beautiful soup to grab data, scrape it, and so on. Some websites can track that will kick you off or prevent you from accessing the blacklist, your IP, and so on. But
+
+848
+02:13:27.770 --> 02:13:41.959
+Keith Ellis: again, if it's open domain, or it's a public view, you should still be able to get that kind of information. But again, be cautious with that, and generally web scraping is more of a last resort, unless it's something you really don't have the data for.
+
+849
+02:13:44.540 --> 02:13:49.050
+Keith Ellis: So obviously, you need to check with your
+
+850
+02:13:49.180 --> 02:13:58.790
+Keith Ellis: company on where they're at with a lot of this stuff. But some, you know, kind of questions, are, you know, are you accessing the computer?
+
+851
+02:13:59.470 --> 02:14:05.990
+Keith Ellis: Were you authorized to use the computer in the way that you were accessing it. And then, were you obtaining it from the computer? So
+
+852
+02:14:06.110 --> 02:14:10.900
+Keith Ellis: if you use a computer that you weren't supposed to access the Internet on.
+
+853
+02:14:10.960 --> 02:14:21.820
+Keith Ellis: Yeah, that could be something that even though you were able to web scrape legally, you didn't because you didn't have legal access to the computer in that way. So
+
+854
+02:14:22.520 --> 02:14:24.150
+Keith Ellis: again, gray areas.
+
+855
+02:14:24.380 --> 02:14:38.850
+Keith Ellis: But web scraping is something. And I beyond web scraping. Also, you know. You know, web web crawling things like, if you think about like price checkers and stuff they're crawling across in China, you know.
+
+856
+02:14:39.120 --> 02:14:44.949
+Keith Ellis: seeing what's there, what happens? Any changes that will repeat that. So that kind of stuff is, you know.
+
+857
+02:14:45.250 --> 02:15:00.070
+Keith Ellis: it used to be kind of a predatory way, if you will, is where a company will see that another company drop their price on a certain thing. Well, they'll drop their price, and then another 5% and do a certain point. So all the customers go there, and then the other company goes out, and so on. But
+
+858
+02:15:00.890 --> 02:15:09.920
+Keith Ellis: this all leads to a question of can generative AI be ethically trained on existing works. and
+
+859
+02:15:10.340 --> 02:15:13.820
+Keith Ellis: the answer that obviously there is
+
+860
+02:15:14.550 --> 02:15:15.849
+Keith Ellis: a lot of evidence
+
+861
+02:15:16.280 --> 02:15:24.230
+Keith Ellis: pro it. And against it we don't have time to go over this activity today. But this activity was for you to look at an article of
+
+862
+02:15:24.260 --> 02:15:26.170
+Keith Ellis: generated by a I
+
+863
+02:15:27.040 --> 02:15:30.350
+Keith Ellis: prompting a copyright case, probably
+
+864
+02:15:31.420 --> 02:15:41.070
+Keith Ellis: the news almost every day. So there's a lot out there. So if you have interest in publishing, you know, there's you have artwork there, and so on
+
+865
+02:15:41.640 --> 02:15:44.140
+Keith Ellis: again. This is a situation where, if
+
+866
+02:15:44.590 --> 02:15:50.080
+Keith Ellis: I could use AI to create a masterpiece in a painting, if it wasn't
+
+867
+02:15:50.650 --> 02:16:10.010
+Keith Ellis:  banned initially or considered illegal, I didn't do anything wrong. That sense. It might not be the ethic, most ethical. Technically, I still built it because I trained the model, or I told it what to do but now, as people catch up on it, and that talks about the, you know.
+
+868
+02:16:10.240 --> 02:16:24.170
+Keith Ellis: regulation takes time. It takes you know, there's a lot of different interpretations. So you see how quickly Chat Gpt went from. Oh, well, this is really cool to every other commercial is about a new chat. Gpt feature. A company has put out
+
+869
+02:16:25.230 --> 02:16:32.869
+Keith Ellis: regulations can't keep up as quickly as that. There's a lot that go into the regulations. So there are times where you know
+
+870
+02:16:33.440 --> 02:16:44.460
+Keith Ellis: what was working or able to be done 2 months ago might not be able to be done anymore. So it's very important to keep up with these trends, and how things change throughout them.
+
+871
+02:16:46.040 --> 02:16:53.699
+Keith Ellis: So that brings us up. I think my time is correct, right to the end of class here. Just kind of wanted to
+
+872
+02:16:54.660 --> 02:16:57.539
+Keith Ellis: recap on everything that we were supposed to cover.
+
+873
+02:16:57.660 --> 02:17:14.069
+Keith Ellis: And again, I do recommend spending a little bit of time on on your own to complete that last activity, just looking at some of the articles. We're talking about data, privacy. And you know all gonna stay up late tonight and not be able to sleep because of all the fear mongering there. But do know that
+
+874
+02:17:14.070 --> 02:17:32.409
+Keith Ellis: again, we all have different interpretations of what data privacy is. Question is, do we act in that way when we interact with the computer generally? And for me, I don't like, I'd be like, I'm very private, but I also don't want to type in my username everywhere, and I don't want to be lost in the middle. So I'm willing to give us some data privacy for that benefit.
+
+875
+02:17:32.500 --> 02:17:33.910
+Keith Ellis: But overall.
+
+876
+02:17:34.040 --> 02:17:45.239
+Keith Ellis: when you're talking about data, privacy, what that is, what should be protected or not, and those things like the personal, identifiable information could lead to bias if those aren't scrubbed in some way.
+
+877
+02:17:45.370 --> 02:18:06.919
+Keith Ellis: and we talked about consent, and we talked about initial consent implied consent versus. You know. At what point does that stop? And then the use of it is no longer allowed. And you know there was situation where you know someone didn't give consent, and you know all the stuff was done off of their information. Well.
+
+878
+02:18:07.020 --> 02:18:23.289
+Keith Ellis: just because you wanna use a service you shouldn't feel obligated to consent to something like you don't wanna have to give all your information, every job that you apply to, because you don't know if they're gonna use that data for something. But you need to eat. So you need a job. And you know, so
+
+879
+02:18:23.309 --> 02:18:32.880
+Keith Ellis: that ethical source and of consent and making it obvious of what the data is that it's asking for and how it's going to be used. Then we talked about, you know.
+
+880
+02:18:32.900 --> 02:18:37.059
+Keith Ellis: some of the copyright considerations. And
+
+881
+02:18:37.309 --> 02:18:44.310
+Keith Ellis: you know, AI training data is going to use as much data as possible generally think about more data, the better. Well.
+
+882
+02:18:44.500 --> 02:18:46.409
+Keith Ellis: is the data that you're using.
+
+883
+02:18:46.629 --> 02:18:59.440
+Keith Ellis: Are you able to use it? And that's a big question. Because how do you define? Something that ha! There hasn't really necessarily been precedent for you know, instead of just looking at old textbooks or books that you know
+
+884
+02:18:59.570 --> 02:19:08.529
+Keith Ellis: as a representative of how we speak now, you know, make up of the country technology and so on. It's not the best thing to train the data set on.
+
+885
+02:19:08.719 --> 02:19:29.229
+Keith Ellis: But if everything that's currently being produced is protected by copyright, how do you improve your training data. So that's a straightforward question is just something to ponder about as you're building out your projects and think about. And then the last thing is data governance. Make sure that you attribute your sources, and you are explicitly saying
+
+886
+02:19:29.309 --> 02:19:38.679
+Keith Ellis: how you steps that you took to ensure that you can use the data that the data is quality checks and you have permission to use it.
+
+887
+02:19:39.240 --> 02:19:42.100
+Keith Ellis: And if there's any concerns of bias or something
+
+888
+02:19:42.740 --> 02:19:50.770
+Keith Ellis:  with that I appreciate everyone's time and discussion tonight. I know we were kind of having some
+
+889
+02:19:51.150 --> 02:20:17.569
+Keith Ellis: different different comments, but I think it was all a beneficial conversation. I appreciate everyone being respectful of each other, and I don't think there was any fistfights, so I think we made it. But it's nice meeting you all hopefully we can cross past again. I actually don't have a link in, or anything, because I had to shut that down because I was being harassed on it. But you know, if you need anything, just reach out to ta or professor, and I'm around
+
+890
+02:20:17.570 --> 02:20:27.389
+Keith Ellis: on here so happy to help in any way. But it was nice speaking with you all, and I'm going to go ahead and shut off the recording, and we can go into office hours. If there's anything that anyone wants to cover
+
+891
+02:20:27.440 --> 02:20:30.099
+Keith Ellis: now the class is over, otherwise have a great night.
+
