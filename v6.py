@@ -143,9 +143,11 @@ def find_relevant_document(text_response, vector_store):
     else:
         return None
     
-    def add_flair(crc_with_source, history):
-    # Function implementation...
-        return "Processed " + crc_with_source  # Example processing
+def add_flair(crc_with_source, history):
+    # Assuming that crc_with_source is a string and history is a list of tuples
+    # Example processing to simulate adding flair based on given source
+    response = f"Processed {crc_with_source} with historical context."
+    return response
 
 
 def main():
@@ -163,80 +165,44 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
-    # Load resources if not already loaded
     vector_store = get_vector_store()
 
-    # Retrieve or initialize the Conversational Retrieval Chain (CRC) model
     if 'crc' not in st.session_state:
         st.session_state['crc'] = create_crc_llm(vector_store)
 
-    # Initialize 'history' in session state if it doesn't exist
     if 'history' not in st.session_state:
         st.session_state['history'] = []
 
-    # Sidebar for displaying chat history
     with st.sidebar:
         st.subheader("Session History")
         if st.session_state['history']:
             for idx, (message, response) in enumerate(reversed(st.session_state['history']), 1):
-                with st.expander(f"Conversation {idx}", expanded=True):
+                with st.expander(f"Conversation {idx}"):
                     st.markdown("**You:**")
                     st.write(message)
                     st.markdown("**Anthony:**")
                     st.write(response)
 
-    # Manage clearing of the input field
-    clear_input = st.session_state.get('clear_input', False)
-    if clear_input:
-        user_message = st.text_input('You:', key='user_input_text', value='', placeholder='Type your message here...')
-        st.session_state.clear_input = False  # Reset the clear input flag
-    else:
-        user_message = st.text_input('You:', key='user_input_text', placeholder='Type your message here...')
+    user_message = st.text_input('You:', key='user_input_text', placeholder='Type your message here...')
     st.caption("Press Enter to submit your question. Remember to clear the text box for new questions.")
 
-    # Display the last response above the input box
-    if st.session_state['history']:
-        last_message, last_response = st.session_state['history'][-1]
-        st.markdown("**Anthony's last response:**")
-        st.write(last_response)
+    if user_message and (user_message != st.session_state.get('last_message')):
+        with st.spinner("Thinking..."):
+            crc_response = st.session_state['crc'].run({'question': user_message, 'chat_history': st.session_state['history']})
+            relevant_document = find_relevant_document(crc_response, vector_store)
 
-    # Check if there is a new message
-    if user_message:
-        if 'last_message' not in st.session_state or user_message != st.session_state.last_message:
-            
-            # Process the user's message with a spinner for better UX during loading
-            with st.spinner("Thinking..."):
-                
-                # Generate a response using the CRC model
-                crc_response = st.session_state['crc'].run({'question': user_message, 'chat_history': st.session_state['history']})
+            if relevant_document:
+                crc_with_source = f"{relevant_document} {crc_response}"
+                st.write("Most relevant source document:", relevant_document)
+            else:
+                crc_with_source = crc_response
+                st.write("No relevant source document found.")
 
-                # find most relevant doc
-                relevant_document = find_relevant_document(crc_response, vector_store)
-                if relevant_document:
-                    st.write("Most relevant source document:", relevant_document)
-                else:
-                    st.write("No relevant source document found.")
-                
-                # Ensure crc_with_source is a valid string
-                if relevant_document:
-                    crc_with_source = str(relevant_document) + " " + str(crc_response)
-                else:
-                    crc_with_source = crc_response
+            final_response = add_flair(crc_with_source, st.session_state['history'])
 
-                # Add flair to response
-                final_response = add_flair(crc_with_source, st.session_state['history'])
-
-                # Append the new conversation to the history
-                st.session_state['history'].append((user_message, final_response))
- 
-                # Save the last processed message to prevent reprocessing on refresh
-                st.session_state.last_message = user_message
- 
-                # Set flag to clear the input field next run
-                st.session_state.clear_input = True
-
-                # Rerun to reflect changes and clear the input field
-                st.experimental_rerun()
+            st.session_state['history'].append((user_message, final_response))
+            st.session_state['last_message'] = user_message
+            st.experimental_rerun()
 
 if __name__ == '__main__':
     main()
