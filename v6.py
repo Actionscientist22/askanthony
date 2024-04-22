@@ -161,9 +161,12 @@ def main():
     # Load resources if not already loaded
     load_resources()
 
+    # Initialize the vector store
+    vector_store = get_vector_store()
+
     # Retrieve or initialize the Conversational Retrieval Chain (CRC) model
     if 'crc' not in st.session_state:
-        st.session_state['crc'] = create_crc_llm(get_vector_store())
+        st.session_state['crc'] = create_crc_llm(vector_store)
 
     # Initialize 'history' in session state if it doesn't exist
     if 'history' not in st.session_state:
@@ -204,7 +207,7 @@ def main():
                 crc_response = st.session_state['crc'].run({'question': user_message, 'chat_history': st.session_state['history']})
                 final_response = add_flair(crc_response)
 
-               # Find the most relevant source document
+                # Find the most relevant source document
                 relevant_document = find_relevant_document(crc_response, vector_store)
                 if relevant_document:
                     st.write("Most relevant source document:", relevant_document)
@@ -222,6 +225,7 @@ def main():
 
                 # Rerun to reflect changes and clear the input field
                 st.experimental_rerun()
+
 
 if __name__ == '__main__':
     main()
