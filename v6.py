@@ -159,9 +159,6 @@ def main():
     """, unsafe_allow_html=True)
 
     # Load resources if not already loaded
-    load_resources()
-
-    # Initialize the vector store
     vector_store = get_vector_store()
 
     # Retrieve or initialize the Conversational Retrieval Chain (CRC) model
@@ -183,12 +180,6 @@ def main():
                     st.markdown("**Anthony:**")
                     st.write(response)
 
-    # Display the last response above the input box
-    if st.session_state['history']:
-        last_message, last_response = st.session_state['history'][-1]
-        st.markdown("**Anthony's last response:**")
-        st.write(last_response)
-
     # Manage clearing of the input field
     clear_input = st.session_state.get('clear_input', False)
     if clear_input:
@@ -198,7 +189,12 @@ def main():
         user_message = st.text_input('You:', key='user_input_text', placeholder='Type your message here...')
     st.caption("Press Enter to submit your question. Remember to clear the text box for new questions.")
 
-    # Check if there is a new message
+    # Display the last response above the input box
+    if st.session_state['history']:
+        last_message, last_response = st.session_state['history'][-1]
+        st.markdown("**Anthony's last response:**")
+        st.write(last_response)
+
     # Check if there is a new message
     if user_message:
         if 'last_message' not in st.session_state or user_message != st.session_state.last_message:
@@ -213,9 +209,9 @@ def main():
                 else:
                     st.write("No relevant source document found.")
                     
-                crc_with_source = relevant_document + crc_response
+                crc_with_source = relevant_document + " " + crc_response if relevant_document else crc_response
                 # Add flair to response
-                final_response = add_flair(crc_with_source,st.session_state['history'])
+                final_response = add_flair(crc_with_source, st.session_state['history'])
 
                 # Append the new conversation to the history
                 st.session_state['history'].append((user_message, final_response))
@@ -228,7 +224,6 @@ def main():
 
                 # Rerun to reflect changes and clear the input field
                 st.experimental_rerun()
-
 
 if __name__ == '__main__':
     main()
