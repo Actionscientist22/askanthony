@@ -146,7 +146,18 @@ def find_relevant_document(text_response, vector_store):
 def main():
     st.title('Ask Anthony: Chat with your AI Bootcamp Instructor!')
     st.header("Ask about any topic from class 💬👨🏽‍🏫👩🏼‍🏫💻🧑🏾‍💻")
-    st.subheader("Non Monotonic Moms Inc.")
+    #st.subheader("Non Monotonic Moms Inc.")
+    st.markdown("""
+    <style>
+    .small-font {
+        font-size:16px !important;
+        font-weight: normal;
+    }
+    </style>
+    <div class='small-font'>
+        Non Monotonic Moms Inc.
+    </div>
+    """, unsafe_allow_html=True)
 
     # Load resources if not already loaded
     load_resources()
