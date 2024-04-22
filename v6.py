@@ -146,6 +146,7 @@ def find_relevant_document(text_response, vector_store):
 def main():
     st.title('Ask Anthony: Chat with your AI Bootcamp Instructor!')
     st.header("Ask about any topic from class 💬👨🏽‍🏫👩🏼‍🏫💻🧑🏾‍💻")
+    st.subheader("Non Monotonic Moms Inc.")
 
     # Load resources if not already loaded
     load_resources()
