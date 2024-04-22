@@ -146,7 +146,6 @@ def find_relevant_document(text_response, vector_store):
 def main():
     st.title('Ask Anthony: Chat with your AI Bootcamp Instructor!')
     st.header("Ask about any topic from class 💬👨🏽‍🏫👩🏼‍🏫💻🧑🏾‍💻")
-    #st.subheader("Non Monotonic Moms Inc.")
     st.markdown("""
     <style>
     .small-font {
@@ -180,6 +179,12 @@ def main():
                     st.write(message)
                     st.markdown("**Anthony:**")
                     st.write(response)
+
+    # Display the last response above the input box
+    if st.session_state['history']:
+        last_message, last_response = st.session_state['history'][-1]
+        st.markdown("**Anthony's last response:**")
+        st.write(last_response)
 
     # Manage clearing of the input field
     clear_input = st.session_state.get('clear_input', False)
