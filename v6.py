@@ -142,6 +142,11 @@ def find_relevant_document(text_response, vector_store):
             return "Document name not found in metadata."
     else:
         return None
+    
+    def add_flair(crc_with_source, history):
+    # Function implementation...
+        return "Processed " + crc_with_source  # Example processing
+
 
 def main():
     st.title('Ask Anthony: Chat with your AI Bootcamp Instructor!')
@@ -196,29 +201,37 @@ def main():
         st.write(last_response)
 
     # Check if there is a new message
-    if user_message:
+     if user_message:
         if 'last_message' not in st.session_state or user_message != st.session_state.last_message:
+            
             # Process the user's message with a spinner for better UX during loading
             with st.spinner("Thinking..."):
+                
                 # Generate a response using the CRC model
                 crc_response = st.session_state['crc'].run({'question': user_message, 'chat_history': st.session_state['history']})
+
                 # find most relevant doc
                 relevant_document = find_relevant_document(crc_response, vector_store)
                 if relevant_document:
                     st.write("Most relevant source document:", relevant_document)
                 else:
                     st.write("No relevant source document found.")
-                    
-                crc_with_source = relevant_document + " " + crc_response if relevant_document else crc_response
+                
+                # Ensure crc_with_source is a valid string
+                if relevant_document:
+                    crc_with_source = str(relevant_document) + " " + str(crc_response)
+                else:
+                    crc_with_source = crc_response
+
                 # Add flair to response
                 final_response = add_flair(crc_with_source, st.session_state['history'])
 
                 # Append the new conversation to the history
                 st.session_state['history'].append((user_message, final_response))
-
+ 
                 # Save the last processed message to prevent reprocessing on refresh
                 st.session_state.last_message = user_message
-
+ 
                 # Set flag to clear the input field next run
                 st.session_state.clear_input = True
 
