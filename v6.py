@@ -154,40 +154,44 @@ def main():
     st.title('Ask Anthony: Chat with your AI Bootcamp Instructor!')
     st.header("Ask about any topic from class 💬👨🏽‍🏫👩🏼‍🏫💻🧑🏾‍💻")
 
-    try:
-        vector_store = get_vector_store()
+    if 'vector_store' not in st.session_state:
+        st.session_state.vector_store = get_vector_store()
 
-        if 'crc' not in st.session_state:
-            st.session_state['crc'] = create_crc_llm(vector_store)
+    if 'crc' not in st.session_state:
+        st.session_state.crc = create_crc_llm(st.session_state.vector_store)
 
-        if 'history' not in st.session_state:
-            st.session_state['history'] = []
+    if 'history' not in st.session_state:
+        st.session_state.history = []
 
-        user_message = st.text_input('You:', key='user_input_text', placeholder='Type your message here...')
-        st.caption("Press Enter to submit your question. Remember to clear the text box for new questions.")
+    user_message = st.text_input('You:', key='user_input_text', placeholder='Type your message here...')
+    st.caption("Press Enter to submit your question. Remember to clear the text box for new questions.")
 
-        if user_message and (user_message != st.session_state.get('last_message')):
-            with st.spinner("Thinking..."):
-                crc_response = st.session_state['crc'].run({'question': user_message, 'chat_history': st.session_state['history']})
-                st.write(f"Debug: CRC Response: {crc_response}")  # Debug output
+    if user_message and (user_message != st.session_state.get('last_message', '')):
+        st.session_state.last_message = user_message  # Save the last message to session state
+        process_user_message(user_message)
 
-                relevant_document = find_relevant_document(crc_response, vector_store)
-                if relevant_document:
-                    crc_with_source = f"{relevant_document} {crc_response}"
-                    st.write("Most relevant source document:", relevant_document)
-                else:
-                    crc_with_source = crc_response
-                    st.write("No relevant source document found.")
+    display_last_response()
 
-                final_response = add_flair(crc_with_source, st.session_state['history'])
-                st.write(f"Debug: Final Response: {final_response}")  # Debug output
+def process_user_message(user_message):
+    with st.spinner("Thinking..."):
+        crc_response = st.session_state.crc.run({'question': user_message, 'chat_history': st.session_state.history})
+        relevant_document = find_relevant_document(crc_response, st.session_state.vector_store)
 
-                st.session_state['history'].append((user_message, final_response))
-                st.session_state['last_message'] = user_message
+        if relevant_document:
+            crc_with_source = f"{relevant_document} {crc_response}"
+            st.write("Most relevant source document:", relevant_document)
+        else:
+            crc_with_source = crc_response
+            st.write("No relevant source document found.")
 
-                st.experimental_rerun()
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
+        final_response = add_flair(crc_with_source, st.session_state.history)
+        st.session_state.history.append((user_message, final_response))  # Append to history in session state
+
+def display_last_response():
+    if st.session_state.history:
+        last_message, last_response = st.session_state.history[-1]
+        st.markdown("**Anthony's last response:**")
+        st.write(last_response)
 
 if __name__ == '__main__':
     main()
