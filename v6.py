@@ -199,20 +199,23 @@ def main():
     st.caption("Press Enter to submit your question. Remember to clear the text box for new questions.")
 
     # Check if there is a new message
+    # Check if there is a new message
     if user_message:
         if 'last_message' not in st.session_state or user_message != st.session_state.last_message:
             # Process the user's message with a spinner for better UX during loading
             with st.spinner("Thinking..."):
                 # Generate a response using the CRC model
                 crc_response = st.session_state['crc'].run({'question': user_message, 'chat_history': st.session_state['history']})
-                final_response = add_flair(crc_response)
-
                 # find most relevant doc
                 relevant_document = find_relevant_document(crc_response, vector_store)
                 if relevant_document:
                     st.write("Most relevant source document:", relevant_document)
                 else:
                     st.write("No relevant source document found.")
+                    
+                crc_with_source = relevant_document + crc_response
+                # Add flair to response
+                final_response = add_flair(crc_with_source,st.session_state['history'])
 
                 # Append the new conversation to the history
                 st.session_state['history'].append((user_message, final_response))
