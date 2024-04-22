@@ -154,44 +154,40 @@ def main():
     st.title('Ask Anthony: Chat with your AI Bootcamp Instructor!')
     st.header("Ask about any topic from class 💬👨🏽‍🏫👩🏼‍🏫💻🧑🏾‍💻")
 
-    vector_store = get_vector_store()
+    try:
+        vector_store = get_vector_store()
 
-    if 'crc' not in st.session_state:
-        st.session_state['crc'] = create_crc_llm(vector_store)
+        if 'crc' not in st.session_state:
+            st.session_state['crc'] = create_crc_llm(vector_store)
 
-    if 'history' not in st.session_state:
-        st.session_state['history'] = []
+        if 'history' not in st.session_state:
+            st.session_state['history'] = []
 
-    with st.sidebar:
-        st.subheader("Session History")
-        if st.session_state['history']:
-            for idx, (message, response) in enumerate(reversed(st.session_state['history']), 1):
-                with st.expander(f"Conversation {idx}"):
-                    st.markdown("**You:**")
-                    st.write(message)
-                    st.markdown("**Anthony:**")
-                    st.write(response)
+        user_message = st.text_input('You:', key='user_input_text', placeholder='Type your message here...')
+        st.caption("Press Enter to submit your question. Remember to clear the text box for new questions.")
 
-    user_message = st.text_input('You:', key='user_input_text', placeholder='Type your message here...')
-    st.caption("Press Enter to submit your question. Remember to clear the text box for new questions.")
+        if user_message and (user_message != st.session_state.get('last_message')):
+            with st.spinner("Thinking..."):
+                crc_response = st.session_state['crc'].run({'question': user_message, 'chat_history': st.session_state['history']})
+                st.write(f"Debug: CRC Response: {crc_response}")  # Debug output
 
-    if user_message and (user_message != st.session_state.get('last_message')):
-        with st.spinner("Thinking..."):
-            crc_response = st.session_state['crc'].run({'question': user_message, 'chat_history': st.session_state['history']})
-            relevant_document = find_relevant_document(crc_response, vector_store)
+                relevant_document = find_relevant_document(crc_response, vector_store)
+                if relevant_document:
+                    crc_with_source = f"{relevant_document} {crc_response}"
+                    st.write("Most relevant source document:", relevant_document)
+                else:
+                    crc_with_source = crc_response
+                    st.write("No relevant source document found.")
 
-            if relevant_document:
-                crc_with_source = f"{relevant_document} {crc_response}"
-                st.write("Most relevant source document:", relevant_document)
-            else:
-                crc_with_source = crc_response
-                st.write("No relevant source document found.")
+                final_response = add_flair(crc_with_source, st.session_state['history'])
+                st.write(f"Debug: Final Response: {final_response}")  # Debug output
 
-            final_response = add_flair(crc_with_source, st.session_state['history'])
+                st.session_state['history'].append((user_message, final_response))
+                st.session_state['last_message'] = user_message
 
-            st.session_state['history'].append((user_message, final_response))
-            st.session_state['last_message'] = user_message
-            st.experimental_rerun()
+                st.experimental_rerun()
+    except Exception as e:
+        st.error(f"An error occurred: {e}")
 
 if __name__ == '__main__':
     main()
