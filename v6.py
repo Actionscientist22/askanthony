@@ -153,6 +153,18 @@ def add_flair(crc_with_source, history):
 def main():
     st.title('Ask Anthony: Chat with your AI Bootcamp Instructor!')
     st.header("Ask about any topic from class 💬👨🏽‍🏫👩🏼‍🏫💻🧑🏾‍💻")
+    st.markdown("""
+    <style>
+    .small-font {
+        font-size:16px !important;
+        font-weight: normal;
+    }
+    </style>
+    <div class='small-font'>
+        Non Monotonic Moms Inc.
+    </div>
+    """, unsafe_allow_html=True)
+
 
     # Initialize necessary components and state if not already done
     if 'vector_store' not in st.session_state:
