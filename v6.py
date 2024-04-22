@@ -207,7 +207,7 @@ def main():
                 crc_response = st.session_state['crc'].run({'question': user_message, 'chat_history': st.session_state['history']})
                 final_response = add_flair(crc_response)
 
-                # Find the most relevant source document
+                # find most relevant doc
                 relevant_document = find_relevant_document(crc_response, vector_store)
                 if relevant_document:
                     st.write("Most relevant source document:", relevant_document)
