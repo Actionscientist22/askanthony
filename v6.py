@@ -201,7 +201,7 @@ def main():
         st.write(last_response)
 
     # Check if there is a new message
-     if user_message:
+    if user_message:
         if 'last_message' not in st.session_state or user_message != st.session_state.last_message:
             
             # Process the user's message with a spinner for better UX during loading
