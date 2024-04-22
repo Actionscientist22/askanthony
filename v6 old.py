@@ -1,3 +1,4 @@
+
 import streamlit as st
 from langchain.chains import ConversationalRetrievalChain, LLMChain
 from langchain_community.chat_models import ChatOpenAI
@@ -6,6 +7,7 @@ from langchain_core.prompts import PromptTemplate, FewShotPromptTemplate
 from langchain_openai import OpenAIEmbeddings
 import qdrant_client
 import json
+import time
 import numpy as np
 
 # Set up Streamlit page configuration
@@ -48,7 +50,7 @@ def create_crc_llm(vector_store):
     
     return crc
 
-def add_flair(crc_with_source, history):
+def add_flair(crc_with_source):
     # Define prefix that explains the prompt
     prefix = """ Here are examples between a human and AI. The human provides an answer to a question related to data,
     Python, machine learning, artificial intelligence, neural networks, or any related topics, along with the source 
@@ -70,7 +72,7 @@ def add_flair(crc_with_source, history):
 
 
         # Load examples from JSON file
-    with open('examples2.json', 'r') as file:
+    with open('examples.json', 'r') as file:
         examples = json.load(file)
 
 
@@ -99,10 +101,19 @@ def add_flair(crc_with_source, history):
     chain = LLMChain(llm=llm, prompt=prompt_template, verbose=False)
 
     # Run chain on query
-    result = chain.invoke({"query": crc_with_source,
-                           "chat_history": history})
+    result = chain.invoke({"query": crc_with_source})
 
     return result["text"]
+
+# Define function to load activities, slides, and transcripts
+def load_resources():
+    if 'resources_loaded' not in st.session_state:
+        # Load your activities, slides, and transcripts here
+        # and update session state accordingly
+        st.session_state['resources_loaded'] = True
+        st.session_state['activities'] = "Loaded Activities"
+        st.session_state['slides'] = "Loaded Slides"
+        st.session_state['transcripts'] = "Loaded Transcripts"
 
 def find_relevant_document(text_response, vector_store):
     # Use the same OpenAIEmbeddings instance from the vector store
@@ -132,6 +143,13 @@ def find_relevant_document(text_response, vector_store):
     else:
         return None
     
+def add_flair(crc_with_source, history):
+    # Assuming that crc_with_source is a string and history is a list of tuples
+    # Example processing to simulate adding flair based on given source
+    response = f"Processed {crc_with_source} with historical context."
+    return response
+
+
 def main():
     st.title('Ask Anthony: Chat with your AI Bootcamp Instructor!')
     st.header("Ask about any topic from class 💬👨🏽‍🏫👩🏼‍🏫💻🧑🏾‍💻")
