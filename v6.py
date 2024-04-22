@@ -154,6 +154,7 @@ def main():
     st.title('Ask Anthony: Chat with your AI Bootcamp Instructor!')
     st.header("Ask about any topic from class 💬👨🏽‍🏫👩🏼‍🏫💻🧑🏾‍💻")
 
+    # Initialize necessary components and state if not already done
     if 'vector_store' not in st.session_state:
         st.session_state.vector_store = get_vector_store()
 
@@ -163,14 +164,20 @@ def main():
     if 'history' not in st.session_state:
         st.session_state.history = []
 
+    # Text input for user message
     user_message = st.text_input('You:', key='user_input_text', placeholder='Type your message here...')
     st.caption("Press Enter to submit your question. Remember to clear the text box for new questions.")
 
+    # Handle user message input
     if user_message and (user_message != st.session_state.get('last_message', '')):
         st.session_state.last_message = user_message  # Save the last message to session state
         process_user_message(user_message)
 
+    # Display the last response just below the text input
     display_last_response()
+
+    # Display the entire conversation history in the sidebar
+    display_history()
 
 def process_user_message(user_message):
     with st.spinner("Thinking..."):
@@ -192,6 +199,16 @@ def display_last_response():
         last_message, last_response = st.session_state.history[-1]
         st.markdown("**Anthony's last response:**")
         st.write(last_response)
+
+def display_history():
+    with st.sidebar:
+        st.subheader("Session History")
+        for idx, (message, response) in enumerate(reversed(st.session_state.history)):
+            with st.expander(f"Conversation {idx + 1}"):
+                st.markdown("**You:**")
+                st.write(message)
+                st.markdown("**Anthony:**")
+                st.write(response)
 
 if __name__ == '__main__':
     main()
